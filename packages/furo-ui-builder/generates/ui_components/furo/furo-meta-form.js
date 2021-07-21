@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroMetaForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class FuroMetaForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class FuroMetaForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,9 +108,9 @@ export class FuroMetaForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: fields -->
-          <furo-metafield-map condensed double header-text="${i18n.t('form.furo.meta.fields.header.text')}" secondary-text="${i18n.t('form.furo.meta.fields.secondary.text')}" ƒ-bind-data="--data(*.fields)" ƒ-focus="--focused"></furo-metafield-map> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-metafield-map condensed double header-text="${i18n.t('form.furo.meta.fields.header.text')}" secondary-text="${i18n.t('form.furo.meta.fields.secondary.text')}" ƒ-bind-data="--data(*.fields)" ƒ-focus="--focused"></furo-metafield-map>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

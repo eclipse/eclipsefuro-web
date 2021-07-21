@@ -20,7 +20,7 @@ import "./furo-meta-display.js";
  */
 export class FuroPropertyDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class FuroPropertyDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class FuroPropertyDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -104,15 +105,15 @@ export class FuroPropertyDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: data -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.data)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.data)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: meta -->
-          <furo-meta-display condensed full header-text="${i18n.t('furo.meta.form.header.text')}" secondary-text="${i18n.t('furo.meta.form.secondary.text')}" ƒ-bind-data="--data(*.meta)"></furo-meta-display> 
+          <furo-meta-display condensed full header-text="${i18n.t('furo.meta.form.header.text')}" secondary-text="${i18n.t('furo.meta.form.secondary.text')}" ƒ-bind-data="--data(*.meta)"></furo-meta-display>
 
           <!-- field: code -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.code)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.code)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

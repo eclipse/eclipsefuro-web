@@ -19,6 +19,7 @@ import './helper/demo-project-filter-form.js';
 class DemoFuroFilter extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

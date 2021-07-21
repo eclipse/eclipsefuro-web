@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentRecursiveDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ExperimentRecursiveDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ExperimentRecursiveDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,9 +104,9 @@ export class ExperimentRecursiveDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: recursion -->
-          <experiment-recursive-display condensed full header-text="${i18n.t('experiment.recursive.form.header.text')}" secondary-text="${i18n.t('experiment.recursive.form.secondary.text')}" ƒ-bind-data="--data(*.recursion)" ƒ-focus="--focused"></experiment-recursive-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <experiment-recursive-display condensed full header-text="${i18n.t('experiment.recursive.form.header.text')}" secondary-text="${i18n.t('experiment.recursive.form.secondary.text')}" ƒ-bind-data="--data(*.recursion)" ƒ-focus="--focused"></experiment-recursive-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

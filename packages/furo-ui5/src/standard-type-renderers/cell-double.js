@@ -15,6 +15,11 @@ import { Env } from '@furo/framework/src/furo.js';
 export class CellDouble extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -67,7 +72,7 @@ export class CellDouble extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;
@@ -79,6 +84,11 @@ export class CellDouble extends LitElement {
     }
   }
 
+
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
     if (displayValue !== 'NaN') {

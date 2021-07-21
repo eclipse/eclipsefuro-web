@@ -39,7 +39,7 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 export class FuroUi5DataPropertylistDisplay extends LitElement {
   /**
    * Binds a RepeaterNode of type furo.Property.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {boolean}
    */
   bindData(fieldNode) {

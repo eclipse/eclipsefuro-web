@@ -8,6 +8,10 @@ import '@svgdotjs/svg.panzoom.js/dist/svg.panzoom.esm.js';
  * `furo-graph-renderer`
  * Paint a SVG from the received graph data
  *
+ * @fires {node} show-tooltip-requested -  Fired when
+ * @fires {node} show-tooltip-requested -  Fired on mouseover of a attr node
+ * @fires {node} show-tooltip-requested -  Fired on mouseover of a attr node
+ *
  * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
@@ -52,11 +56,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
               cr: box.node.getBoundingClientRect(),
               label: node.node.description,
             };
-            /**
-             * @event show-tooltip-requested
-             * Fired when
-             * detail payload:
-             */
+
             const customEvent = new Event('show-tooltip-requested', {
               composed: true,
               bubbles: true,
@@ -103,10 +103,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
                 },
                 label: edge.wirename,
               };
-              /**
-               * @event show-tooltip-requested
-               * Fired on mouseover of a attr node
-               */
+
               const customEvent = new Event('show-tooltip-requested', {
                 composed: true,
                 bubbles: true,
@@ -228,10 +225,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
               cr: box.node.getBoundingClientRect(),
               label: `${node.label} = ${node.attr.value}`,
             };
-            /**
-             * @event show-tooltip-requested
-             * Fired on mouseover of a attr node
-             */
+
             const customEvent = new Event('show-tooltip-requested', {
               composed: true,
               bubbles: true,
@@ -399,6 +393,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroBigdecimalForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class FuroBigdecimalForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class FuroBigdecimalForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,12 +108,12 @@ export class FuroBigdecimalForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: scale -->
-          <furo-data-number-input condensed double ƒ-bind-data="--data(*.scale)" ƒ-focus="--focused"></furo-data-number-input> 
+          <furo-data-number-input condensed double ƒ-bind-data="--data(*.scale)" ƒ-focus="--focused"></furo-data-number-input>
 
           <!-- field: int_val -->
-          <furo-data-number-input condensed double ƒ-bind-data="--data(*.int_val)"></furo-data-number-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-number-input condensed double ƒ-bind-data="--data(*.int_val)"></furo-data-number-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

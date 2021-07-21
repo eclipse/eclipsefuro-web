@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.6...@furo/experiments@1.6.7) (2021-07-21)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.6.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.5...@furo/experiments@1.6.6) (2021-07-21)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.6.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.4...@furo/experiments@1.6.5) (2021-07-19)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.6.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.3...@furo/experiments@1.6.4) (2021-07-19)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
 ## [1.6.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.2...@furo/experiments@1.6.3) (2021-07-12)
 
 **Note:** Version bump only for package @furo/experiments

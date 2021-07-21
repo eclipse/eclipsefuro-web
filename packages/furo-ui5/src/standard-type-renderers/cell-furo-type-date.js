@@ -19,6 +19,10 @@ import { CellGoogleTypeDate } from './cell-google-type-date.js';
  * @demo demo cell-furo-type-date Basic Usage
  */
 class CellFuroTypeDate extends CellGoogleTypeDate {
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     if (this._field.display_name._value && this._field.display_name._value.length) {
       this._displayValue = this._field.display_name._value;

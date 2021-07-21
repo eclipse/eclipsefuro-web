@@ -20,7 +20,7 @@ import "./furo-fieldoption-form.js";
  */
 export class FuroFieldmetaForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class FuroFieldmetaForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class FuroFieldmetaForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -108,24 +109,24 @@ export class FuroFieldmetaForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: label -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.label)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.label)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: hint -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.hint)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.hint)"></furo-data-text-input>
 
           <!-- field: default -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.default)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.default)"></furo-data-text-input>
 
           <!-- field: readonly -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.readonly)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.readonly)"></furo-data-checkbox-input>
 
           <!-- field: repeated -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.repeated)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.repeated)"></furo-data-checkbox-input>
 
           <!-- field: options -->
-          <furo-fieldoption-form condensed full header-text="${i18n.t('form.furo.fieldmeta.options.header.text')}" secondary-text="${i18n.t('form.furo.fieldmeta.options.secondary.text')}" ƒ-bind-data="--data(*.options)"></furo-fieldoption-form> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-fieldoption-form condensed full header-text="${i18n.t('form.furo.fieldmeta.options.header.text')}" secondary-text="${i18n.t('form.furo.fieldmeta.options.secondary.text')}" ƒ-bind-data="--data(*.options)"></furo-fieldoption-form>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

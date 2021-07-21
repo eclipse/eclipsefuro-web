@@ -1,9 +1,0 @@
-coverage
-node_modules
-build
-.idea
-.DS_Store
-.furo
-packages/experiments
-_tmp
-deploy.sh

@@ -23,6 +23,7 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  *      <ui5-radiobutton text="Option B with a very long text" name="Owner"></ui5-radiobutton>
  * </furo-ui5-data-radio-button-group>
  * ```
+ * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
  *
  * @summary
  * @customElement
@@ -30,12 +31,7 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
-  /**
-   * @event value-changed
-   * Fired when value has changed from the component inside.
-   * detail payload: {*} the value from the value-field. By default the value field is "id"
-   *  **bubbles**
-   */
+
 
   constructor() {
     super();
@@ -133,7 +129,7 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
 
   /**
    * overwrite bindData of FieldNodeAdapter
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {boolean}
    */
   bindData(fieldNode) {

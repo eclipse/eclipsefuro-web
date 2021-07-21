@@ -18,6 +18,25 @@ import { Env } from '@furo/framework';
  * Init.registerApiTypes(Types);
  * ```
  * Usually this is done in your src/configs/init.js
+ * @fires {[]HTSLinks} hts-out Fired when hateoas is available
+ *
+ * ```json
+ * [
+ *    {
+ *        "rel": "list",
+ *        "href": "/api/mockdata/tasks/list.json",
+ *        "method": "GET",
+ *        "service": "TaskService"
+ *      },
+ *    {
+ *        "rel": "create",
+ *        "href": "api.otherhost.com/mockdata/tasks",
+ *        "method": "PUT",
+ *        "service": "TaskService"
+ *      }
+ *    ]
+ *
+ * ```
  *
  * @summary Resolve deep links HATEOAS based on  query params
  * @customElement
@@ -26,7 +45,17 @@ import { Env } from '@furo/framework';
 class FuroDeepLink extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._servicedefinitions = Env.api.services;
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._qp = {};
   }
 
@@ -71,30 +100,7 @@ class FuroDeepLink extends LitElement {
       }
     }
     if (this._hts.length) {
-      /**
-       * @event hts-out
-       * Fired when hateoas is available
-       *
-       * ```json
-       * [
-       *    {
-       *        "rel": "list",
-       *        "href": "/api/mockdata/tasks/list.json",
-       *        "method": "GET",
-       *        "service": "TaskService"
-       *      },
-       *    {
-       *        "rel": "create",
-       *        "href": "api.otherhost.com/mockdata/tasks",
-       *        "method": "PUT",
-       *        "service": "TaskService"
-       *      }
-       *    ]
-       *
-       * ```
-       *
-       * detail payload: {[]Links} Array of hateoas links
-       */
+
       const customEvent = new Event('hts-out', { composed: true, bubbles: true });
       customEvent.detail = this._hts;
       this.dispatchEvent(customEvent);

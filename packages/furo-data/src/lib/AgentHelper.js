@@ -6,6 +6,10 @@ export class AgentHelper {
    * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
    * @param caller
    * @param qp
+   * @fires {qp} qp-changed -  Fired when query params changed
+   * @fires {qp} qp-set -  Fired when query params are replaced
+   * @fires {hts} xxx-rejected -  Fired when the request for a rel was rejected because the hts was not available
+
    */
   static updateQp(caller, qp) {
     let qpChanged = false;
@@ -22,11 +26,7 @@ export class AgentHelper {
     }
 
     if (qpChanged) {
-      /**
-       * @event qp-changed
-       * Fired when query params changed
-       * detail payload: qp
-       */
+
       const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
       customEvent.detail = caller._queryParams;
       caller.dispatchEvent(customEvent);
@@ -46,11 +46,7 @@ export class AgentHelper {
       // eslint-disable-next-line no-param-reassign
       caller._queryParams = qp || {};
 
-      /**
-       * @event qp-set
-       * Fired when query params are replaced
-       * detail payload: qp
-       */
+
       const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
       customEvent.detail = caller._queryParams;
       caller.dispatchEvent(customEvent);
@@ -175,11 +171,6 @@ export class AgentHelper {
         caller._hts,
         caller,
       );
-      /**
-       * @event xxx-rejected
-       * Fired when the request for a rel was rejected because the hts was not available
-       * detail payload: hts
-       */
       const customEvent = new Event(`${rel}-rejected`, { composed: true, bubbles: true });
       customEvent.detail = caller._hts;
       caller.dispatchEvent(customEvent);

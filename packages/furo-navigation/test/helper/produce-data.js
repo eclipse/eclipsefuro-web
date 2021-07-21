@@ -39,11 +39,8 @@ class ProduceData extends FBP(LitElement) {
   }
 
   produce() {
-    /**
-     * @event data
-     * Fired when
-     * detail payload:
-     */
+
+
     return fetch('/base/mockdata/trees/1/testdata.json')
       .then(res => res.json())
       .then(data => {

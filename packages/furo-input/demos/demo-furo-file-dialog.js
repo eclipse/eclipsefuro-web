@@ -18,6 +18,7 @@ import '@furo/input/src/furo-catalog.js';
 class DemoFuroFileDialog extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

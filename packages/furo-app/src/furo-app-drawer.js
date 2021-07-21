@@ -10,6 +10,11 @@ import '@furo/layout/src/furo-horizontal-flex';
  * `furo-app-drawer`
  * todo Describe the element
  *
+ * @fires is-floating - Fired when drawer is in floating mode. This event is fired when drawer is closed and opened.
+ * @fires is-pinned - Fired when drawer is in pinned mode.
+ * @fires drawer-opened - Fired when drawer was opened.
+ * @fires drawer-closed - Fired when drawer was closed.
+ *
  * @summary Application drawer
  * @customElement
  * @demo demo-furo-app-drawer
@@ -76,17 +81,10 @@ class FuroAppDrawer extends FBP(LitElement) {
   set __isFloating(val) {
     this._isFloating = val;
     if (val) {
-      /**
-       * @event is-floating
-       * Fired when drawer is in floating mode. This event is fired when drawer is closed and opened
-       */
+
       const customEvent = new Event('is-floating', { composed: true, bubbles: true });
       this.dispatchEvent(customEvent);
     } else {
-      /**
-       * @event is-pinned
-       * Fired when drawer is in pinned mode.
-       */
       const customEvent = new Event('is-pinned', { composed: true, bubbles: true });
       this.dispatchEvent(customEvent);
     }
@@ -122,10 +120,6 @@ class FuroAppDrawer extends FBP(LitElement) {
       this.removeEventListener('mouseup', this.trackEnd, { once: true });
       this.removeEventListener('touchend', this.trackEnd, { once: true });
     }
-    /**
-     * @event drawer-opened
-     * Fired when drawer was opened.
-     */
     const customEvent = new Event('drawer-opened', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
   }
@@ -156,10 +150,6 @@ class FuroAppDrawer extends FBP(LitElement) {
       this.removeEventListener('mouseup', this.trackEnd, { once: true });
       this.removeEventListener('touchend', this.trackEnd, { once: true });
     }
-    /**
-     * @event drawer-closed
-     * Fired when drawer was closed.
-     */
     const customEvent = new Event('drawer-closed', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
   }
@@ -197,6 +187,7 @@ class FuroAppDrawer extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

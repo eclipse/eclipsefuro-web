@@ -22,8 +22,16 @@ import { DataObject } from './lib/DataObject.js';
  *  <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
  *  <furo-entity-agent service="ProjectService" ƒ-save="--saveClicked" ƒ-bind-request-data="--dataObject" @-response="--response" ></furo-entity-agent>
  *```
- *
- *
+ * @fires {} data-injected -  Fired when injected data was processed (**bubbles**).
+ * @fires {{Object|CollectionNode}} data-changed -  Fired when data in furo-data-object has changed  (**bubbles**). This event fires a lot, consider using a de-bounce with the event.
+ * @fires {{Object|CollectionNode}} data-changed-after-inject -  Fired when data in furo-data-object has changed after injectRaw is complete (**bubbles**). This event fires a lot, consider using a de-bounce with the event.
+ * @fires {{Object} the field node} field-value-changed -  Fired when a field has changed.
+ * @fires {DataObject} validation-success -  Fired when validation results in a valid state.
+ * @fires {DataObject} validation-failed -  Fired when validation results in a invalid state.
+ * @fires {{Object|EntityNode} reference to entity} data-object-became-invalid -  Fired when the data object switches from ininvalid to invalid state (**bubbles**).
+ * @fires {{Object|EntityNode} reference to entity} data-object-became-valid -  Fired when the data object switches from invalid to valid state (**bubbles**).
+ * @fires {A EntityNode object} object-ready -  Fired when the object defined by `type` is built (**bubbles**).
+ * @fires {A EntityNode object} init-completed -  Fired when the object init was done (**bubbles**).
  *
  * @summary Typed data object
  * @customElement
@@ -34,6 +42,11 @@ import { DataObject } from './lib/DataObject.js';
 export class FuroDataObject extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._specs = Env.api.specs;
   }
 
@@ -52,13 +65,24 @@ export class FuroDataObject extends LitElement {
    * Input may look something like this:
    *
    * **Entity data**
+   *
    * ```json
-   *  {data:{},links:[],meta{}}
+   *{
+   *  "data": {},
+   *  "links": [],
+   *  "meta": {}
+   *}
    * ```
    *
    * **Collection data**
+   *
    * ```json
-   *  {data:{},links:[],meta{},entities:[]}
+   *{
+   *  "data": {},
+   *  "links": [],
+   *  "meta": {},
+   *  "entities": []
+   *}
    * ```
    *
    * @param jsonObj
@@ -110,20 +134,11 @@ export class FuroDataObject extends LitElement {
     // broadcast validation
     this.data.validateAllFields();
     if (this.data._isValid) {
-      /**
-       * @event validation-success
-       * Fired when validation results in a valid state
-       * detail payload: DataObject
-       */
       const customEvent = new Event('validation-success', { composed: true, bubbles: true });
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     } else {
-      /**
-       * @event validation-failed
-       * Fired when validation results in a invalid state
-       * detail payload: DataObject
-       */
+
       const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
@@ -196,14 +211,7 @@ export class FuroDataObject extends LitElement {
     this.data.reset();
   }
 
-  /**
-   * @event init-completed
-   * Fired when the object init was done
-   *
-   * **detail payload:** A EntityNode object
-   *
-   * **bubbles**
-   */
+
   /**
    * Sets the model to an initial state according to the given type.
    *
@@ -262,14 +270,7 @@ export class FuroDataObject extends LitElement {
       this._queuedInjectResolver(this.data);
     }
 
-    /**
-     * @event object-ready
-     * Fired when the object is built (based on the type).
-     *
-     * **detail payload:** A EntityNode object
-     *
-     * **bubbles**
-     */
+
     const customEvent = new Event('object-ready', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     setTimeout(() => {
@@ -277,28 +278,13 @@ export class FuroDataObject extends LitElement {
     }, 0);
 
     this.data.addEventListener('data-object-became-valid', e => {
-      /**
-       * @event data-object-became-valid
-       * Fired when the data object switches from invalid to valid state
-       *
-       * **detail payload**: {Object|EntityNode} reference to entity
-       *
-       * **bubbles**
-       */
       const validEvent = new Event('data-object-became-valid', { composed: true, bubbles: true });
       validEvent.detail = e.detail;
       this.dispatchEvent(validEvent);
     });
 
     this.data.addEventListener('data-object-became-invalid', e => {
-      /**
-       * @event data-object-became-invalid
-       * Fired when the data object switches from ininvalid to invalid state
-       *
-       * **detail payload**: {Object|EntityNode} reference to entity
-       *
-       * **bubbles**
-       */
+
       const invalidEvent = new Event('data-object-became-invalid', {
         composed: true,
         bubbles: true,
@@ -308,45 +294,19 @@ export class FuroDataObject extends LitElement {
     });
 
     this.data.addEventListener('data-injected', e => {
-      /**
-       * @event data-injected
-       * Fired when injected data was processed.
-       *
-       * **detail payload**: {Object|EntityNode} reference to entity
-       *
-       * **bubbles**
-       */
+
       const injectedEvent = new Event('data-injected', { composed: true, bubbles: true });
       injectedEvent.detail = e.detail;
       this.dispatchEvent(injectedEvent);
     });
 
     this.data.addEventListener('field-value-changed', e => {
-      /**
-       * @event data-changed
-       * Fired when data in furo-data-object has changed
-       *
-       * This event fires a lot, consider using a de-bounce with the event.
-       *
-       *   **detail payload:** {Object|CollectionNode}
-       *
-       *   **bubbles**
-       */
+
 
       const dataEvent = new Event('data-changed', { composed: true, bubbles: true });
       dataEvent.detail = this.data;
       this.dispatchEvent(dataEvent);
 
-      /**
-       * @event data-changed-after-inject
-       * Fired when data in furo-data-object has changed after injectRaw is complete
-       *
-       * This event fires a lot, consider using a de-bounce with the event.
-       *
-       *   **detail payload:** {Object|CollectionNode}
-       *
-       *   **bubbles**
-       */
       if (this._injectingCompleted) {
         const dataInjectEvent = new Event('data-changed-after-inject', {
           composed: true,
@@ -356,11 +316,7 @@ export class FuroDataObject extends LitElement {
         this.dispatchEvent(dataInjectEvent);
       }
 
-      /**
-       * @event field-value-changed
-       * Fired when a field has changed
-       * detail payload: {Object} the field node
-       */
+
       const valueChangedEvent = new Event('field-value-changed', { composed: true, bubbles: true });
       valueChangedEvent.detail = e.detail;
       this.dispatchEvent(valueChangedEvent);

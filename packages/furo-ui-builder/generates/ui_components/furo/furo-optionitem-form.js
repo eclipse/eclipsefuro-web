@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroOptionitemForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class FuroOptionitemForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class FuroOptionitemForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,15 +108,15 @@ export class FuroOptionitemForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: id -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.id)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.id)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: display_name -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.display_name)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.display_name)"></furo-data-text-input>
 
           <!-- field: selected -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.selected)"></furo-data-checkbox-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.selected)"></furo-data-checkbox-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

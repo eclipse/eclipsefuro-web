@@ -22,16 +22,17 @@ import "@furo/layout/src/furo-horizontal-flex.js";
  */
 export class FuroPropertyCreateWidget extends FBP(LitElement) {
 
-  
+
 
   // Fokus
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -58,7 +59,7 @@ export class FuroPropertyCreateWidget extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("CreateWidgetBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -87,16 +88,16 @@ export class FuroPropertyCreateWidget extends FBP(LitElement) {
         <furo-form-layouter>
 
           <!-- field: id -->
-          <furo-data-text-input condensed ƒ-bind-data="--data(*.id)" ƒ-focus="--focused"></furo-data-text-input> 
-        </furo-form-layouter> 
+          <furo-data-text-input condensed ƒ-bind-data="--data(*.id)" ƒ-focus="--focused"></furo-data-text-input>
+        </furo-form-layouter>
 
         <!-- It is a good practice to set a description -->
         <furo-horizontal-flex space slot="action">
 
           <!-- It is a good practice to set a description -->
-          <furo-button primary label="${i18n.t('create')}" rel="create" @-click="-^create-requested"></furo-button> 
-        </furo-horizontal-flex> 
-      </furo-card> 
+          <furo-button primary label="${i18n.t('create')}" rel="create" @-click="-^create-requested"></furo-button>
+        </furo-horizontal-flex>
+      </furo-card>
     `;
   }
 }

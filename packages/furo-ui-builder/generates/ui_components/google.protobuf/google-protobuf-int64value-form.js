@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class GoogleProtobufInt64valueForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class GoogleProtobufInt64valueForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class GoogleProtobufInt64valueForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,9 +108,9 @@ export class GoogleProtobufInt64valueForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: value -->
-          <furo-data-number-input condensed double ƒ-bind-data="--data(*.value)" ƒ-focus="--focused"></furo-data-number-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-number-input condensed double ƒ-bind-data="--data(*.value)" ƒ-focus="--focused"></furo-data-number-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

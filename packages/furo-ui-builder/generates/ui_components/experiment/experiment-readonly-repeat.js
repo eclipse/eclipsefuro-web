@@ -20,7 +20,7 @@ import "./experiment-readonly-form.js";
  */
 export class ExperimentReadonlyRepeat extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class ExperimentReadonlyRepeat extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class ExperimentReadonlyRepeat extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("RepeatBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -106,23 +107,23 @@ export class ExperimentReadonlyRepeat extends FBP(LitElement) {
     return html`
 
       <!-- It is a good practice to set a description -->
-      <hr></hr> 
+      <hr></hr>
 
       <!-- It is a good practice to set a description -->
-      <furo-form header-text="${this.headerText}" secondary-text="${this.secondaryText}"></furo-form> 
+      <furo-form header-text="${this.headerText}" secondary-text="${this.secondaryText}"></furo-form>
 
       <!-- the core of the repeat item is the form -->
-      <furo-data-repeat delete-icon="delete" repeated-component="experiment-readonly-form" ƒ-add="--adderTriggered" ƒ-bind-data="--data"></furo-data-repeat> 
+      <furo-data-repeat delete-icon="delete" repeated-component="experiment-readonly-form" ƒ-add="--adderTriggered" ƒ-bind-data="--data"></furo-data-repeat>
 
       <!-- It is a good practice to set a description -->
       <furo-horizontal-flex>
 
         <!-- It is a good practice to set a description -->
-        <span flex></span> 
+        <span flex></span>
 
         <!-- It is a good practice to set a description -->
-        <furo-button outline label="Add Readonly" @-click="--adderTriggered"></furo-button> 
-      </furo-horizontal-flex> 
+        <furo-button outline label="Add Readonly" @-click="--adderTriggered"></furo-button>
+      </furo-horizontal-flex>
     `;
   }
 }

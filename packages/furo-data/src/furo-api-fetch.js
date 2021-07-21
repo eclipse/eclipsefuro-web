@@ -114,6 +114,7 @@ class FuroApiFetch extends HTMLElement {
    * **payload** request object
    * @event fatal-error
    * @param request
+   * @private
    */
   _executeRequest(request) {
     /**
@@ -180,6 +181,7 @@ class FuroApiFetch extends HTMLElement {
    * (https://developers.google.com/maps-booking/reference/rest-api-v3/status_codes)
    *
    * Dispatches event `response-error` and a specific error event with status code
+   * @private
    */
   _reworkRequest(response) {
     /**
@@ -312,6 +314,7 @@ class FuroApiFetch extends HTMLElement {
    * response Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]
    * Default response handler is json!
    * @param response
+   * @private
    */
   // eslint-disable-next-line class-methods-use-this
   _parseResponse(response) {

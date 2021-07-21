@@ -9,6 +9,10 @@ import { LitElement } from 'lit-element';
  *
  *```
  *
+ *
+ * @fires {MediaStream} stream -  Fired when start was triggered.
+ * @fires {Error} error -  Fired when a error occured.
+ *
  * @summary Capture video from Camera
  * @customElement
  * @demo demo-capture-video Basic demo
@@ -43,11 +47,6 @@ class FuroCaptureVideo extends LitElement {
            * @type {MediaStream}
            */
 
-          /**
-           * @event stream
-           * Fired when
-           * detail payload:
-           */
           const customEvent = new Event('stream', { composed: true, bubbles: true });
           customEvent.detail = this.stream;
           this.dispatchEvent(customEvent);
@@ -61,11 +60,7 @@ class FuroCaptureVideo extends LitElement {
 
   _err(e) {
     console.error(e);
-    /**
-     * @event error
-     * Fired when
-     * detail payload:
-     */
+
     const customEvent = new Event('error', { composed: true, bubbles: true });
     customEvent.detail = e;
     this.dispatchEvent(customEvent);

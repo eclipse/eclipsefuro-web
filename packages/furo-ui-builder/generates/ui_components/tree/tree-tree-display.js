@@ -20,7 +20,7 @@ import "./tree-navigationnode-display.js";
  */
 export class TreeTreeDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class TreeTreeDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class TreeTreeDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -104,15 +105,15 @@ export class TreeTreeDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: secondary_text -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.secondary_text)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.secondary_text)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: description -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.description)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.description)"></furo-data-display>
 
           <!-- field: root -->
-          <tree-navigationnode-display condensed full header-text="${i18n.t('tree.navigationnode.form.header.text')}" secondary-text="${i18n.t('tree.navigationnode.form.secondary.text')}" ƒ-bind-data="--data(*.root)"></tree-navigationnode-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <tree-navigationnode-display condensed full header-text="${i18n.t('tree.navigationnode.form.header.text')}" secondary-text="${i18n.t('tree.navigationnode.form.secondary.text')}" ƒ-bind-data="--data(*.root)"></tree-navigationnode-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

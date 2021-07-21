@@ -106,36 +106,16 @@ import '@furo/layout/src/furo-backdrop.js';
  * Fire a **@-record-selected** to set the item on the reference-search.
  * Fire a **@-close-requested** to close the extended search.
  *
+ * @fires {`Object` the complete item} item-selected -  Fired when a item was selected from the list.
+ * @fires {`text`} change -  Fired when the input operation has finished by pressing Enter or on focusout.
+ * @fires {} input -  Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
+ * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
  *
  * @summary furo ui5 data reference search
  * @customElement furo-ui5-data-reference-search
  * @demo demo-furo-ui5-data-reference-search Basic Usage
  */
 export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)) {
-  /**
-   * @event item-selected
-   * Fired when a item was selected from the list.
-   *
-   * detail payload: `Object` the complete item
-   */
-
-  /**
-   * @event change
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   *
-   * detail payload: `text`
-   */
-
-  /**
-   * @event input
-   * Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
-   *
-   */
-  /**
-   * @event xxxx
-   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
-   *
-   */
 
   constructor() {
     super();

@@ -7,6 +7,11 @@ import { FBP } from '@furo/fbp';
  *
  * Use [`furo-data-context-menu`](?t=FuroDataContextMenu) to show a context menu.
  *
+ *
+ * @fires {index} mousefocus -  Fired when hovered with mouse
+ * @fires { menu: this.menuitem, initiator: this } opensub-requested -  Fired when submenu should be opened
+ * @fires {item} item-selected -  Fired when item was selected
+ *
  * @summary helper
  * @customElement
  * @appliesMixin FBP
@@ -27,6 +32,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -36,11 +42,6 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
       this._mouseFocus = true;
       // do not reopen when submenu exist
 
-      /**
-       * @event mousefocus
-       * Fired when hovered with mouse
-       * detail payload: index
-       */
       const customEvent = new Event('mousefocus', { composed: true, bubbles: true });
       customEvent.detail = this._index;
       this.dispatchEvent(customEvent);
@@ -66,11 +67,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
    * @private
    */
   _openSub(byKeyboard) {
-    /**
-     * @event opensub-requested
-     * Fired when submenu should be opened
-     * detail payload:
-     */
+
     const customEvent = new Event('opensub-requested', { composed: true, bubbles: true });
     customEvent.detail = { menu: this.menuitem, initiator: this };
     customEvent.byKeyboard = byKeyboard;
@@ -93,11 +90,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
    * @private
    */
   _selectItem() {
-    /**
-     * @event item-selected
-     * Fired when item was selected
-     * detail payload: item
-     */
+
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     customEvent.detail = this.menuitem;
     this.dispatchEvent(customEvent);

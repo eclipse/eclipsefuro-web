@@ -12,7 +12,7 @@ import { FBP } from '@furo/fbp';
  *  <furo-location-updater ƒ-set-qp="--QueryParamKeyValuePairs" ƒ-set-hash="--HashKeyValuePairs"></furo-location-updater>
  * ```
  *
- *
+ * @fires {Number} __beforeReplaceState -  Fired when before the state will be updated, with `window.performance.now()`.
  *
  * @summary deep linking helper
  * @customElement
@@ -77,12 +77,6 @@ class FuroLocationUpdater extends FBP(LitElement) {
     const location = `${window.location.pathname}?${qp.join('&')}${window.location.hash}`;
     if (this._lastLocation !== location) {
       // notify furo location
-
-      /**
-       * @event __beforeReplaceState
-       * Fired when before the state will be updated
-       * detail payload:
-       */
       window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
       window.history.replaceState({}, '', location);
 
@@ -141,11 +135,7 @@ class FuroLocationUpdater extends FBP(LitElement) {
     if (this._lastLocation !== location) {
       // notify furo location
 
-      /**
-       * @event __beforeReplaceState
-       * Fired when before the state will be updated
-       * detail payload:
-       */
+
       window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
       window.history.replaceState({}, '', location);
 

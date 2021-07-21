@@ -43,6 +43,10 @@ import { FBP } from '@furo/fbp';
  *  - if you want to trigger a history.back() use the **HISTORY-BACK**
  *  - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual
  *
+ * @fires {void} __beforeReplaceState -  Fired when before the state will be updated.
+ * @fires {flowEvent} view-changed -  Fired when page was changed.
+ * @fires {flowEvent} event-not-found -  Fired when view was not found.
+ *
  * @summary Application Flow => routing
  * @customElement
  * @appliesMixin FBP
@@ -214,11 +218,6 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           return true;
         }
 
-        /**
-         * @event __beforeReplaceState
-         * Fired when before the state will be updated
-         * detail payload:
-         */
         window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
         /**
          * if the meta key is pressed, open a blank page
@@ -241,22 +240,13 @@ class FuroAppFlowRouter extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
 
-      /**
-       * @event view-changed
-       * Fired when page was changed
-       * detail payload: flowEvent
-       */
       const customEvent = new Event('view-changed', { composed: true, bubbles: true });
       customEvent.detail = flowEvent;
       this.dispatchEvent(customEvent);
       return true;
     }
 
-    /**
-     * @event event-not-found
-     * Fired when view not
-     * detail payload: flowEvent
-     */
+
     const customEvent = new Event('event-not-found', { composed: true, bubbles: true });
     customEvent.detail = flowEvent;
     this.dispatchEvent(customEvent);

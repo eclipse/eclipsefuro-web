@@ -3,11 +3,10 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 /**
  * `append-object`
  *
+ * @fires {{object} the extended object} appended -  Fired when something is appended to the initial object.
+ *
  * @summary append data to object literals
  * @customElement
- */
-
-/**
  *
  * @appliesMixin FBP
  */
@@ -40,11 +39,7 @@ class FuroAppendObject extends FBP(HTMLElement) {
     for (const prop in object) {
       this.initialObject[prop] = object[prop];
     }
-    /**
-     * @event appended
-     * Fired when something is appended to the initial object.
-     * detail payload: {object} the extended object
-     */
+
     const customEvent = new Event('appended', { composed: true, bubbles: true });
     customEvent.detail = this.initialObject;
     this.dispatchEvent(customEvent);

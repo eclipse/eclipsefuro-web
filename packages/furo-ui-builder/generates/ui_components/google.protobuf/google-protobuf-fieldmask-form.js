@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class GoogleProtobufFieldmaskForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class GoogleProtobufFieldmaskForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class GoogleProtobufFieldmaskForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,9 +108,9 @@ export class GoogleProtobufFieldmaskForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: paths -->
-          <string-repeat condensed double header-text="${i18n.t('form.google.protobuf.fieldmask.paths.header.text')}" secondary-text="${i18n.t('form.google.protobuf.fieldmask.paths.secondary.text')}" ƒ-bind-data="--data(*.paths)" ƒ-focus="--focused"></string-repeat> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <string-repeat condensed double header-text="${i18n.t('form.google.protobuf.fieldmask.paths.header.text')}" secondary-text="${i18n.t('form.google.protobuf.fieldmask.paths.secondary.text')}" ƒ-bind-data="--data(*.paths)" ƒ-focus="--focused"></string-repeat>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

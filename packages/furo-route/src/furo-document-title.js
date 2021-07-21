@@ -40,7 +40,8 @@ import { FBP } from '@furo/fbp';
  *  ```
  *  The document title will be set to: `PrefixLabel [display_name_value]`
  *
- *
+ * @fires {} waypoint-pushed -  Fired when the waypoint is finaly pushed to the browser history.
+ * @fires {} waypoint-canceled -  Fired when the waypoint was set but not pushed to the history, because the user navigated back.
  *
  * @summary Document title
  * @customElement furo-document-title
@@ -92,10 +93,7 @@ class FuroDocumentTitle extends FBP(LitElement) {
       window.removeEventListener('popstate', cancelPre, true);
       window.history.pushState({}, document.title, window.location.href);
       this._inPreStage = false;
-      /**
-       * @event waypoint-pushed
-       * Fired when the waypoint is finaly pushed to the browser history.
-       */
+
       this.dispatchEvent(new Event('waypoint-pushed', { composed: true, bubbles: true }));
     };
 
@@ -106,10 +104,7 @@ class FuroDocumentTitle extends FBP(LitElement) {
       window.removeEventListener('__beforeReplaceState', pushState, true);
       window.removeEventListener('popstate', cancelPre, true);
       this._inPreStage = false;
-      /**
-       * @event waypoint-canceled
-       * Fired when the waypoint was set but not pushed to the history, because the user navigated back.
-       */
+
       this.dispatchEvent(new Event('waypoint-canceled', { composed: true, bubbles: true }));
     };
 

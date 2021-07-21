@@ -10,6 +10,18 @@ import './furo-tree-item.js';
 /**
  * `furo-tree` renders a tree,
  *
+ * @fires {focused field} node-focused -  Fired when
+ * @fires {focused field} branch-focused -  Fired when
+ * @fires {} leaf-focused -  Fired when
+ * @fires {selected field} node-selected -  Fired when the item gets selected, does not fire when you work with query params
+ * @fires {Object {"this.qp": this._selectedField.id._value}} qp-change-requested -  Fired when qp mode is enabled. Nodes are only selectable with qpIn or selectById
+ * @fires {selected field} branch-selected -  Fired when
+ * @fires {selected field} leaf-selected -  Fired when
+ * @fires {} node-opened -  Fired when a node is opened
+ * @fires {} node-closed -  Fired when a node is closed
+ * @fires {} nodes-expanded -  Fired when nodes are expanded recursive
+ * @fires {} nodes-collapsed -  Fired when nodes are collapsed recursive.
+ *
  * @summary tree navigation menu
  * @customElement
  * @demo demo-furo-tree Basic usage
@@ -462,6 +474,7 @@ export class FuroTree extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -714,29 +727,16 @@ export class FuroTree extends FBP(LitElement) {
 
       // only dispatch when the element contains a name
       if (this._focusedField.display_name._value != null) {
-        /**
-         * @event node-focused
-         * Fired when
-         * detail payload:
-         */
+
         const customEvent = new Event('node-focused', { composed: true, bubbles: true });
         customEvent.detail = this._focusedField;
         this.dispatchEvent(customEvent);
         if (this._focusedField.isBranch()) {
-          /**
-           * @event branch-focused
-           * Fired when
-           * detail payload:
-           */
+
           const branchFocusedEvent = new Event('branch-focused', { composed: true, bubbles: true });
           branchFocusedEvent.detail = this._focusedField;
           this.dispatchEvent(branchFocusedEvent);
         } else {
-          /**
-           * @event leaf-focused
-           * Fired when
-           * detail payload:
-           */
           const leafFocusedEvent = new Event('leaf-focused', { composed: true, bubbles: true });
           leafFocusedEvent.detail = this._focusedField;
           this.dispatchEvent(leafFocusedEvent);
@@ -752,21 +752,12 @@ export class FuroTree extends FBP(LitElement) {
       this._selectedField = e.target;
 
       if (!this.qp) {
-        /**
-         * @event node-selected
-         * Fired when the item gets selected, does not fire when you work with query params
-         * detail payload:
-         */
+
         const customEvent = new Event('node-selected', { composed: true, bubbles: true });
         customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
       } else if (this.__lastQP !== this._selectedField.id._value) {
-        /**
-         * @event qp-change-requested
-         * Fired when qp mode is enabled. Nodes are only selectable with qpIn or selectById
-         *
-         * detail payload: Object {"this.qp": this._selectedField.id._value}
-         */
+
         const customEvent = new Event('qp-change-requested', { composed: true, bubbles: true });
         const qp = {};
         this.__lastQP = this._selectedField.id._value;
@@ -776,20 +767,12 @@ export class FuroTree extends FBP(LitElement) {
       }
 
       if (this._selectedField.isBranch()) {
-        /**
-         * @event branch-selected
-         * Fired when
-         * detail payload:
-         */
+
         const customEvent = new Event('branch-selected', { composed: true, bubbles: true });
         customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
       } else {
-        /**
-         * @event leaf-selected
-         * Fired when
-         * detail payload:
-         */
+
         const customEvent = new Event('leaf-selected', { composed: true, bubbles: true });
         customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
@@ -860,19 +843,13 @@ export class FuroTree extends FBP(LitElement) {
       node.toggleOpenClose = () => {
         node.open._value = !node.open._value;
         if (node.open._value) {
-          /**
-           * @event node-opened
-           * Fired when a node is opened
-           */
+
           const customEvent = new Event('node-opened', { composed: true, bubbles: false });
           setTimeout(() => {
             this.dispatchEvent(customEvent);
           }, 0);
         } else {
-          /**
-           * @event node-closed
-           * Fired when a node is closed
-           */
+
           const customEvent = new Event('node-closed', { composed: true, bubbles: false });
           setTimeout(() => {
             this.dispatchEvent(customEvent);
@@ -908,10 +885,7 @@ export class FuroTree extends FBP(LitElement) {
       node.expandRecursive = () => {
         const event = new NodeEvent('recursive-expand-requested', node);
         node.broadcastEvent(event);
-        /**
-         * @event nodes-expanded
-         * Fired when nodes are expanded recursive
-         */
+
         const customEvent = new Event('nodes-expanded', { composed: true, bubbles: false });
         setTimeout(() => {
           this.dispatchEvent(customEvent);
@@ -930,10 +904,7 @@ export class FuroTree extends FBP(LitElement) {
       // collapse recursive
       node.collapseRecursive = () => {
         node.broadcastEvent(new NodeEvent('recursive-collapse-requested', node));
-        /**
-         * @event nodes-collapsed
-         * Fired when nodes are collapsed recursive
-         */
+
         const customEvent = new Event('nodes-collapsed', { composed: true, bubbles: false });
         setTimeout(() => {
           this.dispatchEvent(customEvent);

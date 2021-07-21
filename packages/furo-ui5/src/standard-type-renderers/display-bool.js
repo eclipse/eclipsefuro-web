@@ -61,7 +61,7 @@ export class DisplayBool extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;

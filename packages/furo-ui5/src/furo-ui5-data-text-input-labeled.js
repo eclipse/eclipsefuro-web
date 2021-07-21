@@ -11,6 +11,7 @@ import './furo-ui5-data-text-input.js';
  * The furo-ui5-data-text-input-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
+ * @slot {HTMLElement} icon - Defines the icon to be displayed in the input.
  * @summary labeled input field
  * @customElement
  * @demo demo-furo-ui5-data-text-input-labeled Basic Usage
@@ -30,14 +31,15 @@ export class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
 
   /**
    * Focuses the underlying ui5 input element
-   * @param e
+   * @param {Object} options https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
    */
-  focus(e) {
-    this._FBPTriggerWire('--focus', e);
+  focus(options) {
+    this._FBPTriggerWire('--focus', options);
   }
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -52,6 +54,7 @@ export class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
       label: { type: String },
       /**
        * A Boolean attribute which, if present, means this field is required and marked with *.
+       * @type {Boolean}
        */
       required: {
         type: Boolean,
@@ -59,12 +62,14 @@ export class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user and
        * appears in disabled state.
+       * @type {Boolean}
        */
       disabled: {
         type: Boolean,
       },
       /**
        * A Boolean attribute which, if present, means this field is readonly.
+       * @type {Boolean}
        */
       readonly: {
         type: Boolean,
@@ -89,7 +94,7 @@ export class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
 
   /**
    * Orchestrates the data field connection to the inside
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);

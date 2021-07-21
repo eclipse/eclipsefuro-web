@@ -20,7 +20,7 @@ import "@furo/form";
  */
 export class GoogleProtobufAnyDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class GoogleProtobufAnyDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class GoogleProtobufAnyDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -104,12 +105,12 @@ export class GoogleProtobufAnyDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: type_url -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.type_url)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.type_url)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: value -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.value)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.value)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

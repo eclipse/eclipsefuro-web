@@ -27,6 +27,7 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  * - **required: true** , set the element to required
  *
  * Tags: money input
+ * @fires {Money} value-changed -  Fired when the input operation has finished by pressing Enter or on focusout.
  * @summary  Binds a entityObject field google.type.Money to a number-input and currency dropdown fields
  * @customElement
  * @demo demo-furo-ui5-data-money-input Basic Usage
@@ -69,7 +70,7 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
 
   /**
    * Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     // check if we have a FieldNode or RepeaterNode
@@ -184,13 +185,7 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
         this.setFnaFieldValue(value);
       }
 
-      /**
-       * @event value-changed
-       * Fired when the input operation has finished by pressing Enter or on focusout.
-       *
-       * detail payload: {Money}
-       * @type {Event}
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = value;
       this.dispatchEvent(customEvent);

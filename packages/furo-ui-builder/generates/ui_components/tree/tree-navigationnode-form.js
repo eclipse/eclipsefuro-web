@@ -21,7 +21,7 @@ import "./tree-navigationnode-repeat.js";
  */
 export class TreeNavigationnodeForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -46,10 +46,11 @@ export class TreeNavigationnodeForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -76,7 +77,7 @@ export class TreeNavigationnodeForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -109,36 +110,36 @@ export class TreeNavigationnodeForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: secondary_text -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.secondary_text)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.secondary_text)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: description -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input>
 
           <!-- field: icon -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.icon)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.icon)"></furo-data-text-input>
 
           <!-- field: panel -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.panel)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.panel)"></furo-data-text-input>
 
           <!-- field: key_words -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.key_words)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.key_words)"></furo-data-text-input>
 
           <!-- field: has_error -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.has_error)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.has_error)"></furo-data-checkbox-input>
 
           <!-- field: open -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.open)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.open)"></furo-data-checkbox-input>
 
           <!-- field: link -->
-          <furo-link-form condensed full header-text="${i18n.t('form.tree.navigationnode.link.header.text')}" secondary-text="${i18n.t('form.tree.navigationnode.link.secondary.text')}" ƒ-bind-data="--data(*.link)"></furo-link-form> 
+          <furo-link-form condensed full header-text="${i18n.t('form.tree.navigationnode.link.header.text')}" secondary-text="${i18n.t('form.tree.navigationnode.link.secondary.text')}" ƒ-bind-data="--data(*.link)"></furo-link-form>
 
           <!-- field: is_group_label -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.is_group_label)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.is_group_label)"></furo-data-checkbox-input>
 
           <!-- field: children -->
-          <tree-navigationnode-repeat condensed double header-text="${i18n.t('form.tree.navigationnode.children.header.text')}" secondary-text="${i18n.t('form.tree.navigationnode.children.secondary.text')}" ƒ-bind-data="--data(*.children)"></tree-navigationnode-repeat> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <tree-navigationnode-repeat condensed double header-text="${i18n.t('form.tree.navigationnode.children.header.text')}" secondary-text="${i18n.t('form.tree.navigationnode.children.secondary.text')}" ƒ-bind-data="--data(*.children)"></tree-navigationnode-repeat>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

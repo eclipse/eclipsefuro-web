@@ -8,6 +8,10 @@ import { Helper } from './lib/helper.js';
  *
  *  <furo-textarea-input></furo-textarea-input>
  *
+ * @fires {the validity object of input} input-invalid -  Fired when input value is invalid.
+ * @fires {void} value-cleared -  Fired when value has changed to EMPTY_STRING from inside the component.
+ * @fires {String} value-changed -  Fired when value has changed from inside the component.
+ *
  * @summary Textarea input field
  * @customElement
  * @demo demo-furo-textarea-input Input samples

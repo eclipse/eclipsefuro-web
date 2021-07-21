@@ -4,6 +4,9 @@ import { LitElement, css } from 'lit-element';
  * `furo-rel-exists`
  * Checks if a rel exists in a hateaos Link array
  *
+ * @fires {Object Hateoas Link} furo-rel-exists -  Fired when rel exists in `linkArray`.
+ * @fires {void} rel-dont-exist -  Fired when rel does not exists in `linkArray`.
+ *
  * @summary checks for a specific rel
  * @customElement
  */
@@ -25,22 +28,13 @@ class FuroRelExists extends LitElement {
     });
 
     if (links.length > 0) {
-      /**
-       * @event furo-rel-exists
-       * Fired when rel exists in linkArray
-       * detail payload: {Object} Hateoas Link
-       */
+
       const customEvent = new Event('furo-rel-exists', { composed: true, bubbles: true });
       [customEvent.detail] = links;
       this.dispatchEvent(customEvent);
       return true;
     }
 
-    /**
-     * @event rel-dont-exist
-     * Fired when rel does not exists in linkArray
-     * detail payload: void
-     */
     const customEvent = new Event('rel-dont-exist', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
 

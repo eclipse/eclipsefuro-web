@@ -23,6 +23,7 @@ import './helper/demo-project-filter-form.js';
 class DemoFuroSortbyContainer extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

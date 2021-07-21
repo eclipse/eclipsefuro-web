@@ -29,6 +29,7 @@ class EditExample extends BasePanel {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

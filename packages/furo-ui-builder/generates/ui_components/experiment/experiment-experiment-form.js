@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentExperimentForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,46 +108,46 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: description -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: furo_data_checkbox_input -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
 
           <!-- field: furo_data_text_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_text_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_text_input)"></furo-data-text-input>
 
           <!-- field: furo_data_textarea_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_textarea_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_textarea_input)"></furo-data-text-input>
 
           <!-- field: furo_data_time_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_time_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_time_input)"></furo-data-text-input>
 
           <!-- field: furo_data_range_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_range_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_range_input)"></furo-data-text-input>
 
           <!-- field: furo_data_number_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_number_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_number_input)"></furo-data-text-input>
 
           <!-- field: furo_data_color_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_color_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_color_input)"></furo-data-text-input>
 
           <!-- field: furo_data_password_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_password_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_password_input)"></furo-data-text-input>
 
           <!-- field: furo_data_search_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_search_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_search_input)"></furo-data-text-input>
 
           <!-- field: furo_data_date_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_date_input)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_date_input)"></furo-data-text-input>
 
           <!-- field: furo_data_bool_icon -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.furo_data_bool_icon)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.furo_data_bool_icon)"></furo-data-checkbox-input>
 
           <!-- field: the_any_type -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.the_any_type)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.the_any_type)"></furo-data-text-input>
 
           <!-- field: type_with_options -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.type_with_options)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.type_with_options)"></furo-data-text-input>
 
           <!-- It is a good practice to set a description -->
           <furo-form full header-text="${i18n.t('experiment.experiment.properties.header.text')}" secondary-text="${i18n.t('experiment-experiment.properties.secondary.text')}">
@@ -155,12 +156,12 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
             <furo-form-layouter four>
 
               <!-- field: type_property -->
-              <furo-data-property condensed double ƒ-bind-data="--data(*.type_property)"></furo-data-property> 
-            </furo-form-layouter> 
-          </furo-form> 
+              <furo-data-property condensed double ƒ-bind-data="--data(*.type_property)"></furo-data-property>
+            </furo-form-layouter>
+          </furo-form>
 
           <!-- field: furo_data_date_input_google -->
-          <furo-data-date-input condensed double ƒ-bind-data="--data(*.furo_data_date_input_google)"></furo-data-date-input> 
+          <furo-data-date-input condensed double ƒ-bind-data="--data(*.furo_data_date_input_google)"></furo-data-date-input>
 
           <!-- It is a good practice to set a description -->
           <furo-form full header-text="${i18n.t('experiment.experiment.properties.header.text')}" secondary-text="${i18n.t('experiment-experiment.properties.secondary.text')}">
@@ -169,23 +170,23 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
             <furo-form-layouter four>
 
               <!-- field: single_type_property -->
-              <furo-data-property condensed double ƒ-bind-data="--data(*.single_type_property)"></furo-data-property> 
-            </furo-form-layouter> 
-          </furo-form> 
+              <furo-data-property condensed double ƒ-bind-data="--data(*.single_type_property)"></furo-data-property>
+            </furo-form-layouter>
+          </furo-form>
 
           <!-- field: repstring -->
-          <string-repeat condensed double header-text="${i18n.t('form.experiment.experiment.repstring.header.text')}" secondary-text="${i18n.t('form.experiment.experiment.repstring.secondary.text')}" ƒ-bind-data="--data(*.repstring)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.experiment.experiment.repstring.header.text')}" secondary-text="${i18n.t('form.experiment.experiment.repstring.secondary.text')}" ƒ-bind-data="--data(*.repstring)"></string-repeat>
 
           <!-- field: furo_data_money_input -->
-          <furo-data-money-input condensed double ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-money-input> 
+          <furo-data-money-input condensed double ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-money-input>
 
           <!-- field: furo_data_file_input -->
-          <string-repeat condensed double header-text="${i18n.t('form.experiment.experiment.furo_data_file_input.header.text')}" secondary-text="${i18n.t('form.experiment.experiment.furo_data_file_input.secondary.text')}" ƒ-bind-data="--data(*.furo_data_file_input)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.experiment.experiment.furo_data_file_input.header.text')}" secondary-text="${i18n.t('form.experiment.experiment.furo_data_file_input.secondary.text')}" ƒ-bind-data="--data(*.furo_data_file_input)"></string-repeat>
 
           <!-- field: update_mask -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

@@ -12,6 +12,8 @@ import { FBP } from '@furo/fbp';
  *        @-data="--jsonData"></furo-data-emmiter>
  *  ```
  *
+ * @fires {json data of a data object} data -  Fired when trigger was called and data binding was done
+ *
  * @summary emit value of data object
  * @customElement
  * @appliesMixin FBP
@@ -19,21 +21,17 @@ import { FBP } from '@furo/fbp';
 class FuroDataEmmiter extends FBP(LitElement) {
   /**
    * Bind a data object. The trigger method will not fire until an object was bounded.
-   * @param {Object|FieldNode}  a object from furo-data-object
+   * @param {Object|FieldNode} field a object from furo-data-object
    */
-  bindData(d) {
-    this.field = d;
+  bindData(field) {
+    this.field = field;
   }
 
   /**
    * Read .value of the bounded data object and emit data as json object.
    */
   trigger() {
-    /**
-     * @event data
-     * Fired when trigger was called and data binding was done
-     * detail payload: json data of a data object
-     */
+
     if (this.field) {
       const customEvent = new Event('data', { composed: true, bubbles: false });
       customEvent.detail = this.field._value;

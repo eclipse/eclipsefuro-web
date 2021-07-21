@@ -73,6 +73,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 export class FuroUi5FormFieldContainer extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

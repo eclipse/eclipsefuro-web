@@ -3,10 +3,14 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
 /**
- * `furo-tooltip`
- * EXPERIMENTAL, API MAY CHANGE
+ * `furo-tooltip` is used to trigger a tooltip which is displayed by `furo-tooltip-display`.
  *
- * @summary displays a tooltip
+ *
+ * @fires {MouseEvent} show-tooltip-requested - Fired when mouseover on component, catched by furo-tooltip-display.
+ * @fires {MouseEvent} hide-tooltip-requested - Fired when mouseout on component, catched by furo-tooltip-display.
+ * @fires show-tooltip-requested - Fired when mouseover on component, catched by furo-tooltip-display.
+ *
+ * @summary defines and triggers a tooltip
  * @customElement
  * @demo demo-furo-tooltip
  * @appliesMixin FBP
@@ -24,11 +28,7 @@ class FuroTooltip extends FBP(LitElement) {
     });
 
     this.parentNode.addEventListener('mouseout', () => {
-      /**
-       * @event show-tooltip-requested
-       * Fired when mouseover on component
-       * detail payload:
-       */
+
       const customEvent = new Event('hide-tooltip-requested', { composed: true, bubbles: true });
       customEvent.detail = this;
       this.dispatchEvent(customEvent);
@@ -42,11 +42,6 @@ class FuroTooltip extends FBP(LitElement) {
     // client rectangle
     this.cr = this.parentNode.getBoundingClientRect();
 
-    /**
-     * @event show-tooltip-requested
-     * Fired when mouseover on component
-     * detail payload:
-     */
     const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
@@ -59,15 +54,21 @@ class FuroTooltip extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Display duration in ms
+       * Display duration in ms.
+       * @type {number}
        */
       duration: { type: Number },
+      /**
+       * The text which should be displayed in the tooltip.
+       * @type {string}
+       */
       label: { type: String },
     };
   }
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

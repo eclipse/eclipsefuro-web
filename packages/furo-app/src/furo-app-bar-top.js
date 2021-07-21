@@ -7,18 +7,15 @@ import '@furo/layout/src/furo-horizontal-flex';
 import './furo-loading-indicator-bar.js';
 
 /**
- * # furo-app-bar-top
- * Application top bar
+ * `furo-app-bar-top` Application top bar
  *
- * `furo-app-bar-top`
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
+ * @cssprop {#7f7f7f} [--furo-app-bar-top-background-light=--primary-light] - Light background color
+ * @cssprop {#aFAFAF} [--furo-app-bar-top-background-dark=--primary-dark] - Dark background color
  *
- * Custom property                                | Description | Default  | Fallback
- * -----------------------------------------------|-------------|----------|----------
- * `--furo-app-bar-top-background-light` | Light background color | --primary-light | #7f7f7f;
- * `--furo-app-bar-top-background-dark` |Dark background color | --primary-dark | #aFAFAF;
+ * @fires {name} connect-to-drawer-requested -Fired when drawer name is set
+ * @fires {MouseEvent} navigation-clicked - Fired when navigation icon is clicked
+ * @fires {MouseEvent} navigation-menu-clicked - Fired when icon is menu and navigation is clicked
  *
  * @summary Toolbar to place on top
  * @customElement
@@ -48,17 +45,13 @@ export class FuroAppBarTop extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires();
 
     if (this.drawer) {
-      /**
-       * @event connect-to-drawer-requested
-       * Fired when drawer name is set
-       * detail payload: {name}
-       */
       const customEvent = new Event('connect-to-drawer-requested', {
         composed: true,
         bubbles: true,
@@ -88,19 +81,12 @@ export class FuroAppBarTop extends FBP(LitElement) {
     /**
      * Register hook on wire --navigationClicked to
      * open the drawer
+     * @private
      */
     this._FBPAddWireHook('--navigationClicked', () => {
       if (this._navigationIcon === 'menu') {
         this._drawer.open();
-        /**
-         * @event navigation-clicked
-         * Fired when navigation icon is clicked
-         */
 
-        /**
-         * @event navigation-menu-clicked
-         * Fired when icon is menu and navigation is clicked
-         */
         const customEvent = new Event('navigation-menu-clicked', { composed: true, bubbles: true });
         this.dispatchEvent(customEvent);
       }
@@ -114,17 +100,18 @@ export class FuroAppBarTop extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Use method open or set this attribute to open a drawer in float mode
+       * Set the icon for the navigation.
+       * @type {string}
        */
       _navigationIcon: { type: String, attribute: 'navigation-icon' },
       /**
-       * drawer to connect the ƒ-show-navigation-icon="--drawerFloats" ƒ-hide-navigation-icon="--drawerPinned"
+       * Name of the drawer to connect.
+       * @type {string}
        */
       drawer: { type: String },
     };
   }
 
-  // ƒ-show-navigation-icon="--drawerFloats" ƒ-hide-navigation-icon="--drawerPinned"
 
   /**
    * @private
@@ -213,18 +200,22 @@ export class FuroAppBarTop extends FBP(LitElement) {
     );
   }
 
+  /**
+   * Shows the navigation icon.
+   */
   showNavigationIcon() {
     this.setAttribute('navigation', '');
   }
 
+
+  /**
+   * Hides the navigation icon.
+   */
   hideNavigationIcon() {
     this.removeAttribute('navigation');
   }
 
-  /**
-   * @event navigation-clicked
-   * Fired when the navigation icon was clicked
-   */
+
 
   /**
    * @private

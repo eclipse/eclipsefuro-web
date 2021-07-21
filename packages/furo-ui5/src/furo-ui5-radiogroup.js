@@ -14,6 +14,7 @@ import { FBP } from '@furo/fbp';
 export class FuroUi5Radiogroup extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

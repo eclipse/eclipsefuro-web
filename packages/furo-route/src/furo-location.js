@@ -4,6 +4,12 @@ import { LitElement, css } from 'lit-element';
  * `furo-location`
  *  Somethin like iron-location
  *
+ * @fires {Location object} location-path-changed -  Fired when Path portion of the location changed
+ * @fires {Location object} location-hash-changed -  Fired when Hash portion of the location changed
+ * @fires {Location object} location-query-changed -  Fired when Query portion of the location changed
+ * @fires {Location object} location-changed -  Fired when something in the location changed
+ * @fires {void} __beforeReplaceState -  Fired when before the state will be updated
+ *
  * @summary url watcher
  * @customElement
  */
@@ -175,44 +181,25 @@ class FuroLocation extends LitElement {
       }
 
       if (sendPathChanged) {
-        /**
-         * @event location-path-changed
-         * Fired when Path portion of the location changed
-         * detail payload: {string} path
-         */
         const customEvent = new Event('location-path-changed', { composed: true, bubbles: false });
         customEvent.detail = this._location;
         this.dispatchEvent(customEvent);
       }
 
       if (sendHashChanged) {
-        /**
-         * @event location-hash-changed
-         * Fired when Hash portion of the location changed
-         * detail payload: {string} hash
-         */
         const customEvent = new Event('location-hash-changed', { composed: true, bubbles: false });
         customEvent.detail = this._location;
         this.dispatchEvent(customEvent);
       }
 
       if (sendQueryChanged) {
-        /**
-         * @event location-query-changed
-         * Fired when Query portion of the location changed
-         * detail payload: {Object} Location object
-         */
+
         const customEvent = new Event('location-query-changed', { composed: true, bubbles: false });
         customEvent.detail = this._location;
 
         this.dispatchEvent(customEvent);
       }
       // location-changed
-      /**
-       * @event location-changed
-       * Fired when something in the location changed
-       * detail payload: {object} location
-       */
       const customEvent = new Event('location-changed', { composed: true, bubbles: false });
       customEvent.detail = this._location;
       this.dispatchEvent(customEvent);
@@ -252,11 +239,7 @@ class FuroLocation extends LitElement {
       if (!e.__historyUpdated) {
         e.__historyUpdated = true;
 
-        /**
-         * @event __beforeReplaceState
-         * Fired when before the state will be updated
-         * detail payload:
-         */
+
         window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
 
         window.history.replaceState({}, '', target.href);

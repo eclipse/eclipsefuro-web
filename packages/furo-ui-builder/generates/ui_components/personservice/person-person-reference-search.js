@@ -20,7 +20,7 @@ import "@furo/timing/src/furo-de-bounce.js";
  */
 export class PersonPersonReferenceSearch extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -39,10 +39,11 @@ export class PersonPersonReferenceSearch extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class PersonPersonReferenceSearch extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("ReferenceSearchBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -101,13 +102,13 @@ export class PersonPersonReferenceSearch extends FBP(LitElement) {
     return html`
 
       <!-- It is a good practice to set a description -->
-      <furo-data-reference-search ?condensed="${this.condensed}" display-field="display_name" min-term-length="1" no-result-hint="${i18n.t('search.noresult.hint')}" value-field="id" @-search="--term" ƒ-bind-data="--field-injected" ƒ-collection-in="--collection" ƒ-focus="--focused"></furo-data-reference-search> 
+      <furo-data-reference-search ?condensed="${this.condensed}" display-field="display_name" min-term-length="1" no-result-hint="${i18n.t('search.noresult.hint')}" value-field="id" @-search="--term" ƒ-bind-data="--field-injected" ƒ-collection-in="--collection" ƒ-focus="--focused"></furo-data-reference-search>
 
       <!-- It is a good practice to set a description -->
-      <furo-de-bounce @-out="--debouncedTerm" ƒ-input-wire="--term"></furo-de-bounce> 
+      <furo-de-bounce @-out="--debouncedTerm" ƒ-input-wire="--term"></furo-de-bounce>
 
       <!-- It is a good practice to set a description -->
-      <furo-collection-agent service="PersonService" @-response="--collection" ƒ-hts-in="--field-injected(*.link._value), --htsUpdated" ƒ-search="--debouncedTerm"></furo-collection-agent> 
+      <furo-collection-agent service="PersonService" @-response="--collection" ƒ-hts-in="--field-injected(*.link._value), --htsUpdated" ƒ-search="--debouncedTerm"></furo-collection-agent>
     `;
   }
 }

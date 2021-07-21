@@ -4,6 +4,7 @@ import * as StandardListItem from '@ui5/webcomponents/dist/StandardListItem.js';
  * `reference-search-item`
  * Repeated item to display the search result set
  *
+ * @fires {item} item-selected -  Fired when item is selected
  * @summary representation of a result item
  * @customElement
  * @appliesMixin FBP
@@ -40,11 +41,7 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
   }
 
   select() {
-    /**
-     * @event item-selected
-     * Fired when item is selected
-     * detail payload: item
-     */
+
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     customEvent.detail = this._item.data;
     this.dispatchEvent(customEvent);

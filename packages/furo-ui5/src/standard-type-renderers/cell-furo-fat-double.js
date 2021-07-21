@@ -13,6 +13,10 @@ import { CellDouble } from './cell-double.js';
  * @demo demo cell-furo-fat-double Basic Usage
  */
 class CellFuroFatDouble extends CellDouble {
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
     if (displayValue !== 'NaN') {

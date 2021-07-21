@@ -16,6 +16,11 @@ import { Theme } from '@furo/framework/src/theme';
 class CellFuroFatString extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -63,7 +68,7 @@ class CellFuroFatString extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;
@@ -93,6 +98,10 @@ class CellFuroFatString extends LitElement {
     });
   }
 
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     this._displayValue = this._field._value.value;
     this.requestUpdate();

@@ -43,6 +43,10 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
+ * @fires {`text`} change -  Fired when the input operation has finished by pressing Enter or on focusout.
+ * @fires {} input -  Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
+ * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+ *
  * @summary data text input field
  * @customElement
  * @demo demo-furo-ui5-data-text-input Basic usage (scalar , fat, wrapper values)
@@ -50,23 +54,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
-  /**
-   * @event change
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   *
-   * detail payload: `text`
-   */
-
-  /**
-   * @event input
-   * Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
-   *
-   */
-  /**
-   * @event xxxx
-   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
-   *
-   */
 
   constructor() {
     super();

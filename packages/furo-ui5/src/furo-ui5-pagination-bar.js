@@ -21,6 +21,11 @@ import { i18n } from '@furo/framework/src/i18n.js';
  * information like prev, next, first and last
  *
  *
+ * @fires {} pagination-first -  Is fired if the pagination button 'sys_first_page' was clicked
+ * @fires {} pagination-last -  Is fired if the pagination button 'sys_last_page' was clicked
+ * @fires {} pagination-prev -  Is fired if the pagination button 'sys_prev_page' was clicked
+ * @fires {} pagination-next -  Is fired if the pagination button 'sys_next_page' was clicked
+ *
  * Tags: pagination
  * @summary Pagination Bar
  * @customElement
@@ -28,24 +33,7 @@ import { i18n } from '@furo/framework/src/i18n.js';
  * @mixes FBP
  */
 export class FuroUi5PaginationBar extends FBP(LitElement) {
-  /**
-   * @event pagination-first
-   * Is fired if the pagination button 'sys_first_page' was clicked
-   */
 
-  /**
-   * @event pagination-last
-   * Is fired if the pagination button 'sys_last_page' was clicked
-   */
-
-  /** @event pagination-prev
-   * Is fired if the pagination button 'sys_prev_page' was clicked
-   */
-
-  /**
-   * @event pagination-next
-   * Is fired if the pagination button 'sys_next_page' was clicked
-   */
 
   constructor() {
     super();

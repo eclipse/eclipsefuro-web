@@ -50,22 +50,15 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * Bind a entity field. You can use the entity even when no data was received.
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
+ *
+ * @fires {} select -  Fired when the input operation has finished by pressing Enter or on focusout.
+ * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
+ *
  * @summary boolean toggle button
  * @customElement
  * @demo demo-furo-ui5-data-radio-button Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataRadioButton extends FieldNodeAdapter(RadioButton.default) {
-  /**
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   * @event select
-   *
-   */
-
-  /**
-   * @event xxxx
-   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
-   *
-   */
 
   constructor() {
     super();

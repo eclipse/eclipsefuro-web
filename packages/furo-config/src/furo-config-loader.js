@@ -13,6 +13,8 @@ import { Config } from './lib/Config.js';
  *
  * ```
  *
+ * @fires {Object} config-loaded - Fired when the config is loaded with the loaded config as detail.
+ *
  * @summary load config files
  * @customElement
  * @appliesMixin FBP
@@ -53,6 +55,7 @@ class FuroConfigLoader extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -63,11 +66,6 @@ class FuroConfigLoader extends FBP(LitElement) {
      */
     this._FBPAddWireHook('--response', e => {
       const c = Config.append(this.section, e);
-      /**
-       * @event config-loaded
-       * Fired when
-       * detail payload:
-       */
       const customEvent = new Event('config-loaded', { composed: true, bubbles: true });
       customEvent.detail = c._value;
       this.dispatchEvent(customEvent);

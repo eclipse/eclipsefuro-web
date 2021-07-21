@@ -35,9 +35,14 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * The constraint **required** will mark the element as required
  *
- * ## Methods
- * **bind-data(fieldNode)**
- * Bind a entity field. You can use the entity even when no data was received.
+ * ```
+ *
+ *
+ *
+ *
+ * @fires {Boolean} change -  Fired when the checkbox checked state changes.
+ * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
+ *
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  * @summary data checkbox input field
@@ -45,45 +50,60 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-checkbox-input Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default) {
-  /**
-   * @event change
-   * Fired when the checkbox checked state changes.
-   *
-   * detail payload: `bool`
-   */
-
-  /**
-   * @event xxxx
-   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
-   *
-   */
 
   constructor() {
     super();
 
-    // used to restore the state after a invalidation -> validation change
+    /**
+     * used to restore the state after a invalidation -> validation change
+     * @type {string}
+     * @private
+     */
     this._previousValueState = 'None';
-
+    /**
+     *
+     * @type {{readonly: undefined, disabled: undefined, label: undefined}}
+     * @private
+     */
     this._attributesFromFNA = {
       readonly: undefined,
       disabled: undefined,
       label: undefined,
     };
 
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._constraintsFromFNA = {};
-
+    /**
+     *
+     * @type {{label: undefined}}
+     * @private
+     */
     this._attributesFromFAT = {
       label: undefined,
     };
 
+    /**
+     *
+     * @type {{readonly: undefined, disabled: undefined}}
+     * @private
+     */
     this._labelsFromFAT = {
       readonly: undefined,
       disabled: undefined,
     };
 
-    // a list of privileged attributes. when those attributes are set in number-input components initially.
-    // they can not be modified later via response or spec
-    // null is used because getAttribute returns null or value
+    /**
+     * a list of privileged attributes. when those attributes are set in number-input components initially.
+     * they can not be modified later via response or spec
+     * null is used because getAttribute returns null or value
+     *
+     * @type {{readonly: null, disabled: null, text: null}}
+     * @private
+     */
     this._privilegedAttributes = {
       readonly: null,
       disabled: null,
@@ -106,6 +126,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
 
   /**
    * Reads the attributes which are set on the component dom.
+   * @public
    */
   readAttributes() {
     this._previousValueState = this.getAttribute('value-state')
@@ -148,6 +169,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * overwrite onFnaFieldValueChanged
    * @param val
+   * @private
    */
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
@@ -229,6 +251,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
 
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
+   * @private
    */
   onFnaFieldNodeBecameInvalid() {
     this._setValueState('Error');
@@ -262,7 +285,8 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * overwrite onFnaLabelChanged function
    * label is mapped to text
-   * @param placeholder
+   * @param {String} placeholder
+   * @private
    */
   onFnaLabelChanged(text) {
     this._attributesFromFNA.label = text;
@@ -274,7 +298,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * overwrite onFnaReadonlyChanged function
    * @private
-   * @param readonly
+   * @param {Boolean} readonly
    */
   onFnaReadonlyChanged(readonly) {
     this._attributesFromFNA.readonly = readonly;
@@ -289,6 +313,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * extend styling
    * @returns {string}
+   * @private
    */
   static get styles() {
     return `${css`` + super.styles}

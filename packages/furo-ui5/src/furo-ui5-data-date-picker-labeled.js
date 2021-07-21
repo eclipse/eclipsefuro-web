@@ -31,12 +31,17 @@ export class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires();
   }
 
+  /**
+   *
+   * @return {{readonly: {type: BooleanConstructor}, disabled: {reflect: boolean, attribute: string, type: BooleanConstructor}, label: {type: StringConstructor}, required: {type: BooleanConstructor}}}
+   */
   static get properties() {
     return {
       /**
@@ -46,9 +51,7 @@ export class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
       /**
        * A Boolean attribute which, if present, means this field is required and marked with *.
        */
-      required: {
-        type: Boolean,
-      },
+      required: { type: Boolean },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
@@ -83,7 +86,7 @@ export class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
 
   /**
    * Orchestrates the data field connection to the inside
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);

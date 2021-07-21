@@ -14,6 +14,10 @@ import { FBP } from '@furo/fbp';
  * </furo-collapsible-box>
  *```
  *
+ * @fires {{Boolean} current visibility state} value-changed -  Fired when the visibility changed
+ * @fires {void} hided -  Fired when the content gets hided
+ * @fires {void} showed -  Fired when the content gets visible
+ *
  * @summary hide content
  * @customElement
  * @demo demo-furo-data-hide-content
@@ -108,12 +112,7 @@ class FuroDataHideContent extends FBP(LitElement) {
     this._hidden = hide;
 
     if (oldval !== hide) {
-      /**
-       * @event value-changed
-       * Fired when the visibility changed
-       *
-       * detail payload: {Boolean} current visibility state
-       */
+
       this._notify('toggled');
     }
 
@@ -122,21 +121,10 @@ class FuroDataHideContent extends FBP(LitElement) {
     }
 
     if (hide) {
-      /**
-       * @event hided
-       * Fired when the content gets hided
-       *
-       * detail payload: void
-       */
 
       this._notify('hided');
     } else {
-      /**
-       * @event showed
-       * Fired when the content gets visible
-       *
-       * detail payload: void
-       */
+
       this._notify('showed');
     }
   }

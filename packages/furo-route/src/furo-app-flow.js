@@ -9,6 +9,8 @@ function TypeAppFlow(name) {
 /**
  * `furo-app-flow` triggers the flow events for the `app-flow-router`.
  *
+ * @fires {data} app-flow -  App-flow event with app-flow object will be fired when you trigger the `emit` function.
+ *
  * @summary Application Flow => routing
  * @customElement
  * @appliesMixin FBP
@@ -55,12 +57,6 @@ class FuroAppFlow extends LitElement {
       data.data[param] = queryParams[param];
     }
 
-    /**
-     * @event app-flow
-     *
-     * App-flow event with app-flow object will be fired when you trigger the `emit` function.
-     * detail payload: data
-     */
     const customEvent = new Event('app-flow', { composed: true, bubbles: true });
     customEvent.detail = data;
     this.dispatchEvent(customEvent);

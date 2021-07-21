@@ -9,6 +9,9 @@ import { FBP } from '@furo/fbp';
  *  <furo-fetch-json src="/example.json" ƒ-fetch="--FBPready" @-data="--contentReceived"></furo-fetch-json>
  *  ```
  *
+ * @fires {{Object} json data} data -  Fired when data received and json parsed
+ * @fires {error} parse-error -  Fired when json is not parseable
+ *
  * @summary fetch json data
  * @customElement
  * @appliesMixin FBP
@@ -41,21 +44,13 @@ class FuroFetchJson extends FBP(LitElement) {
         .then(res => res.json())
         .then(
           data => {
-            /**
-             * @event data
-             * Fired when data received and json parsed
-             * detail payload: {Object} json data
-             */
+
             const customEvent = new Event('data', { composed: true, bubbles: true });
             customEvent.detail = data;
             this.dispatchEvent(customEvent);
           },
           err => {
-            /**
-             * @event parse-error
-             * Fired when json is not parseable
-             * detail payload: error
-             */
+
             const customEvent = new Event('parse-error', { composed: true, bubbles: true });
             customEvent.detail = err;
             this.dispatchEvent(customEvent);

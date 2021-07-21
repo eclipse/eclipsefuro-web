@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class GoogleTypeMoneyForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class GoogleTypeMoneyForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class GoogleTypeMoneyForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,15 +108,15 @@ export class GoogleTypeMoneyForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: currency_code -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.currency_code)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.currency_code)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: units -->
-          <furo-data-number-input condensed double ƒ-bind-data="--data(*.units)"></furo-data-number-input> 
+          <furo-data-number-input condensed double ƒ-bind-data="--data(*.units)"></furo-data-number-input>
 
           <!-- field: nanos -->
-          <furo-data-number-input condensed double ƒ-bind-data="--data(*.nanos)"></furo-data-number-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-number-input condensed double ƒ-bind-data="--data(*.nanos)"></furo-data-number-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

@@ -43,38 +43,17 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-search-input](/furo-input?t=FuroSearchInput)
  *
+ * @fires {{String} the searc value} value-changed -  Fired when value has changed from inside the input field. Comes from underlying component furo-search-input. **bubbles**
+ * @fires {the value of the search input} trailing-icon-clicked -  Fired when the trailing icon was clicked. Comes from underlying component furo-search-input. **bubbles**
+ * @fires {the value of the value input} leading-icon-clicked -  Fired when the leading icon was clicked. Comes from underlying component furo-search-input. **bubbles**
+ *
  * @summary Bind a entityObject.field to a search input
  * @customElement
  * @demo demo-furo-data-search-input Data binding
  * @mixes FBP
  */
 export class FuroDataSearchInput extends FuroSearchInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {String} the searc value
-   *
-   * Comes from underlying component furo-search-input. **bubbles**
-   */
 
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the search input
-   *
-   * Comes from underlying component furo-search-input. **bubbles**
-   */
-
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the value input
-   *
-   * Comes from underlying component furo-search-input. **bubbles**
-   */
 
   constructor() {
     super();

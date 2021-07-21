@@ -7,6 +7,12 @@ import { LitElement, css } from 'lit-element';
  *  furo-ui5-notification should be used together witch furo-ui5-notification-list-display or furo-ui5-notification-group-display. you can place those two components into different places.
  *  best place the furo-ui5-notification-list(or group)-display on the main site. then you only need one furo-ui5-notification-list(or group)-display. it can work with n furo-ui5-notification.
  *
+ * @fires {{Object}  this} open-furo-ui5-notification-requested -  Fired when value open banner is requested
+ * @fires {{Object}  this} open-furo-ui5-notification-group-requested -  Fired when value open banner is requested
+ * @fires {{Object}  payload} notification-closed. -  Fired when notification is closed.
+ * @fires {{Object}  payload} notification-custom-action -  Fired when notification custom action is triggered. this is a general action event.
+ * @fires {{Object}  payload} notification-custom-action-`commandName` -  Fired when notification custom action is triggered.
+ *
  * @summary a banner
  * @customElement
  * @demo demo-furo-ui5-notification-list-display ui5 notification display demo
@@ -48,11 +54,6 @@ export class FuroUi5Notification extends LitElement {
    * @param p {Object} payload
    */
   _requestListDisplay() {
-    /**
-     * @event open-furo-ui5-notification-requested
-     * Fired when value open banner is requested
-     * detail payload: {Object}  this
-     */
     const customEvent = new Event('open-furo-ui5-notification-requested', {
       composed: true,
       bubbles: true,
@@ -66,11 +67,6 @@ export class FuroUi5Notification extends LitElement {
    * @param p {Object} payload
    */
   _requestGroupDisplay() {
-    /**
-     * @event open-furo-ui5-notification-group-requested
-     * Fired when value open banner is requested
-     * detail payload: {Object}  this
-     */
     const customEvent = new Event('open-furo-ui5-notification-group-requested', {
       composed: true,
       bubbles: true,
@@ -86,11 +82,6 @@ export class FuroUi5Notification extends LitElement {
    * @private
    */
   _close(message) {
-    /**
-     * @event notification-closed.
-     * Fired when notification is closed.
-     * detail payload: {Object}  payload
-     */
     const customEvent = new Event('notification-closed', { composed: true, bubbles: true });
     customEvent.detail = message || this.payload;
     this.dispatchEvent(customEvent);
@@ -104,20 +95,11 @@ export class FuroUi5Notification extends LitElement {
    * @private
    */
   _customAction(command, message) {
-    /**
-     * @event notification-custom-action
-     * Fired when notification custom action is triggered. this is a general action event.
-     * detail payload: {Object}  payload
-     */
     const customEvent = new Event('notification-custom-action', { composed: true, bubbles: true });
     customEvent.detail = message;
     this.dispatchEvent(customEvent);
 
-    /**
-     * @event notification-custom-action-`commandName`
-     * Fired when notification custom action is triggered.
-     * detail payload: {Object}  payload
-     */
+
     const customActionEvent = new Event(`notification-custom-action-${command}`, {
       bubbles: true,
       composed: true,

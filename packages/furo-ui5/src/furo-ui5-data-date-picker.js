@@ -39,6 +39,8 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
+ * @fires {{Date}} value-changed -  Fired when the input operation has finished by pressing Enter or on focusout.
+ *
  * @summary furo data datepicker field
  * @customElement
  * @demo demo-furo-ui5-data-date-picker Basic Usage
@@ -52,11 +54,24 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
   constructor() {
     super();
 
+    /**
+     * The format pattern for the date.
+     * @type {string}
+     */
     this.formatPattern = ''; // needed to avoid cldr errors
 
-    // used to restore the state after a invalidation -> validation change
+    /**
+     * used to restore the state after a invalidation -> validation change
+     * @type {{state: string, message: string}}
+     * @private
+     */
     this._previousValueState = { state: 'None', message: '' };
 
+    /**
+     *
+     * @type {{min: undefined, readonly: undefined, max: undefined, pattern: undefined, placeholder: undefined}}
+     * @private
+     */
     this._attributesFromFNA = {
       readonly: undefined,
       placeholder: undefined,
@@ -65,13 +80,22 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
       pattern: undefined,
     };
 
+    /**
+     *
+     * @type {{required: undefined}}
+     * @private
+     */
     this._constraintsFromFNA = {
       required: undefined,
     };
 
-    // a list of privileged attributes. when those attributes are set in number-input components initially.
-    // they can not be modified later via response or spec
-    // null is used because getAttribute returns null or value
+    /**
+     * a list of privileged attributes. when those attributes are set in number-input components initially.
+     * they can not be modified later via response or spec
+     * null is used because getAttribute returns null or value
+     * @type {{minDate: null, readonly: null, formatPattern: null, disabled: null, maxDate: null, placeholder: null, required: null}}
+     * @private
+     */
     this._privilegedAttributes = {
       readonly: null,
       placeholder: null,
@@ -118,13 +142,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
           }
       }
 
-      /**
-       * @event value-changed
-       * Fired when the input operation has finished by pressing Enter or on focusout.
-       *
-       * detail payload: {Date}
-       * @type {Event}
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.dateValue;
       this.dispatchEvent(customEvent);

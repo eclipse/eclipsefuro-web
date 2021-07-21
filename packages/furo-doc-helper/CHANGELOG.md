@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.7.7...@furo/doc-helper@1.7.8) (2021-07-21)
+
+
+### Bug Fixes
+
+* demo-snippet missing imports ([5a6a7f6](https://github.com/theNorstroem/FuroBaseComponents/commit/5a6a7f648f8611607a6aed47948b02e0ec706eda))
+
+
+
+
+
+## [1.7.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.7.6...@furo/doc-helper@1.7.7) (2021-07-21)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.7.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.7.5...@furo/doc-helper@1.7.6) (2021-07-21)
+
+
+### Bug Fixes
+
+* explicit imports on demo-snippet, no catalog imports. ([3fdd2d2](https://github.com/theNorstroem/FuroBaseComponents/commit/3fdd2d27d88d739033504f0d2b46ec75ae932268))
+
+
+
+
+
+## [1.7.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.7.4...@furo/doc-helper@1.7.5) (2021-07-19)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.7.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.7.3...@furo/doc-helper@1.7.4) (2021-07-19)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [1.7.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.7.2...@furo/doc-helper@1.7.3) (2021-07-12)
 
 **Note:** Version bump only for package @furo/doc-helper

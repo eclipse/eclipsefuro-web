@@ -5,7 +5,7 @@ export class Ui5LabelDataBinding {
   /**
    * bind data for labeled element
    * @param element
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   static bindData(element, fieldNode) {
     if (fieldNode === undefined) {

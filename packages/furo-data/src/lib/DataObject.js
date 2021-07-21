@@ -98,7 +98,7 @@ export class DataObject extends EventTreeNode {
     this.broadcastEvent(new NodeEvent('new-data-injected', this));
 
     /**
-     * @event (data-injected)
+     * @fires data-injected
      *
      * ✋ Internal Event from EntityNode which you can use in the targeted components!
      *

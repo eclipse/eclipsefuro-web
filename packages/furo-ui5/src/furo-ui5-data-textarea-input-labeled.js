@@ -40,6 +40,7 @@ export class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -120,7 +121,7 @@ export class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
 
   /**
    * Orchestrates the data field connection to the inside
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);

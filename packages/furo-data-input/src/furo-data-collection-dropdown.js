@@ -54,6 +54,9 @@ import { CollectionDropdownHelper } from './lib/CollectionDropdownHelper.js';
  * ### auto-select-first
  * set this attribute to autoselect the first item in the list, if no item is set in the bounded fieldNode
  *
+ * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
+ * @fires {{*} the original injected data (e.g. entity with link) of the selected item} item-selected -  Fired when the item of dropdown list is selected. **bubbles**
+ * @fires {the original item object} item-selected -  Fired when an item from the dropdown was selected
  *
  * @summary bindable dropdown
  * @customElement
@@ -63,23 +66,6 @@ import { CollectionDropdownHelper } from './lib/CollectionDropdownHelper.js';
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FuroSelectInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from the component inside.
-   *
-   * detail payload: {*} the value from the value-field. By default the value field is "id"
-   *
-   *  **bubbles**
-   */
-
-  /**
-   * @event item-selected
-   * Fired when the item of dropdown list is selected.
-   *
-   * detail payload: {*} the original injected data (e.g. entity with link) of the selected item
-   *
-   *  **bubbles**
-   */
 
   constructor() {
     super();
@@ -92,11 +78,31 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     this.valueSubField = undefined;
     this.updateLock = false;
 
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._dropdownList = [];
-    // generated one element dropdown, which has only the data of the bounded DO
+
+    /**
+     * generated one element dropdown, which has only the data of the bounded DO
+     * @type {*[]}
+     * @private
+     */
     this._pseudoDropdownList = [];
-    // injected dropdown elements which from a collection of response or in spec defined options
+
+    /**
+     * injected dropdown elements which from a collection of response or in spec defined options
+     * @type {*[]}
+     * @private
+     */
     this._injectedDropdownList = [];
+    /**
+     *
+     * @type {boolean}
+     * @private
+     */
     this._valueFoundInList = true;
 
     this.addEventListener('value-changed', val => {
@@ -174,11 +180,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     this.binder.targetValueField = '_value';
   }
 
-  /**
-   * @event item-selected
-   * Fired when an item from the dropdown was selected
-   * detail payload: the original item object
-   */
+
 
   /**
    * Updater for the list attr
@@ -392,6 +394,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   /**
    * Build the dropdown list with given options from meta
    * @param {options} list of options with id and display_name
+   * @private
    */
   _buildListWithMetaOptions(options) {
     this._injectedDropdownList = CollectionDropdownHelper.mapDataToList(this, options.list);

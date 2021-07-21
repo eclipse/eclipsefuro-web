@@ -120,6 +120,10 @@ class FuroDataProperty extends FBP(LitElement) {
     };
   }
 
+  /**
+   * Bind a Fieldnode to the component
+   * @param {FieldNode} propertyField of type furo.Property
+   */
   bindData(propertyField) {
     this.field = propertyField;
 
@@ -170,6 +174,11 @@ class FuroDataProperty extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @param propertyField
+   * @private
+   */
   _createPropComponent(propertyField) {
     if (!this._property_created) {
       const type = propertyField.data['@type']._value.replace(/.*\//, '');

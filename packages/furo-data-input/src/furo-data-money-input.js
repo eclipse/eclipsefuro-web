@@ -37,6 +37,8 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * - 'required': is mapped to 'required' attribute
  *
+ * @fires {google money object} value-changed -  Fired when value has changed from inside the component
+ *
  * @summary  Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields
  * @customElement
  * @demo demo-furo-data-money-input Data binding
@@ -46,6 +48,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
     this.value = { currency_code: 'CHF', units: null, nanos: null };
@@ -109,6 +116,10 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     });
   }
 
+  /**
+   *
+   * @private
+   */
   _FBPReady() {
     super._FBPReady();
     this.shadowRoot.getElementById('wrapper').addEventListener('value-changed', e => {
@@ -134,18 +145,22 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
       this.error = false;
 
-      /**
-       * @event value-changed
-       * Fired when value has changed from inside the component
-       * detail payload: google money object
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.binder.fieldValue;
       this.dispatchEvent(customEvent);
     });
   }
 
-  // convert data to google.type.Money format
+
+  /**
+   * convert data to google.type.Money format
+   * @param currency
+   * @param amount
+   * @param obj
+   * @return {{}}
+   * @private
+   */
   // eslint-disable-next-line class-methods-use-this
   _convertDataToMoneyObj(currency, amount, obj) {
     if (obj == null) {
@@ -186,6 +201,10 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @private
+   */
   _updateField() {
     if (
       this.binder.fieldNode.units &&
@@ -353,6 +372,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     this.requestUpdate();
   }
 
+  /**
+   *
+   * @param options
+   * @private
+   */
   set _options(options) {
     // the attribute currencies has priority than the options in meta
     if (this._currencies.length > 0) {

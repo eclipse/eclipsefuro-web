@@ -64,6 +64,11 @@ const tdWRepeat = fields => html`
  *
  * Tags: data-ui
  *
+ * @fires {string} spec-error -  Fired when spec could not be loaded. The string contains the failing spec name.
+ * @fires {Entity} tablerow-selected -  Fired when a table row has been selected.
+ * @fires {this} data-loaded -  Fired when inject data has successfully finished.
+ * @fires {Array of raw Entities} checkstate-changed -  Fired when a row is checked or unchecked
+ *
  * @summary type based data table
  * @demo demo-furo-data-table Data Table Standard
  * @demo demo-furo-data-table-row-selection Data Table with Row Selection
@@ -71,23 +76,7 @@ const tdWRepeat = fields => html`
  * @mixes FBP
  */
 class FuroDataTable extends FBP(LitElement) {
-  /**
-   * Fired when a table row has been selected.
-   * Payload: Entity
-   * @event tablerow-selected
-   */
 
-  /**
-   * Fired when inject data has successfully finished.
-   * Payload: this
-   * @event data-loaded
-   */
-
-  /**
-   * Fired when a row is checked or unchecked
-   * Payload: Array of raw Entities
-   * @event checkstate-changed
-   */
   constructor() {
     super();
     this._specs = Env.api.specs;
@@ -167,6 +156,7 @@ class FuroDataTable extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -418,11 +408,6 @@ class FuroDataTable extends FBP(LitElement) {
    */
   _checkType(type) {
     if (this._specs[type] === undefined) {
-      /**
-       * @event spec-error
-       * Fired when spec could not be loaded
-       * detail payload: {string} spec name
-       */
       const customEvent = new Event('spec-error', { composed: true, bubbles: true });
       customEvent.detail = type;
       setTimeout(() => {

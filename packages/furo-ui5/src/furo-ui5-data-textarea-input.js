@@ -44,29 +44,17 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
+ * @fires {`text`} change -  Fired when the input operation has finished by pressing Enter or on focusout.
+ * @fires {} input -  Fired when the value of the ui5-input changes at each keystroke.
+ * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+ *
  * @summary data textarea input field
  * @customElement
  *
  * @demo demo-furo-ui5-data-textarea-input Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default) {
-  /**
-   * @event change
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   *
-   * detail payload: `text`
-   */
 
-  /**
-   * @event input
-   * Fired when the value of the ui5-input changes at each keystroke.
-   *
-   */
-  /**
-   * @event xxxx
-   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
-   *
-   */
 
   constructor() {
     super();

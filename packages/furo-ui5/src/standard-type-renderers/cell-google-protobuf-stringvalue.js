@@ -17,6 +17,11 @@ import { Theme } from '@furo/framework/src/theme';
 class CellGoogleProtobufStringvalue extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -71,7 +76,7 @@ class CellGoogleProtobufStringvalue extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;

@@ -62,6 +62,10 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * `--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;
  * `--reference-search-no-result-hint` | color of hint when no result found | --accent | #ddb13d;
  *
+ * @fires {{Object} item} item-selected -  Fired from inner element when item is selected
+ * @fires {{String} term} search -  Fired when term is entered and bigger then min-term-length
+ * @fires {void} value-cleared -  Fired when input value is cleared
+ *
  * @summary autocomplete searcher for referenced types
  * @customElement
  * @demo demo-furo-data-reference-search
@@ -132,6 +136,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -156,11 +161,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.binder.fieldNode.display_name._value = item.data[this.displayField];
       this._updateField();
       this._closeList();
-      /**
-       * @event item-selected
-       * Fired from inner element when item is selected
-       * detail payload: {Object} item
-       */
+
     });
 
     /**
@@ -250,11 +251,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   _fireSearchEvent() {
     if (this._searchTerm && this._searchTerm.length >= this.minTermLength) {
-      /**
-       * @event search
-       * Fired when term is entered and bigger then min-term-length
-       * detail payload: {String} term
-       */
       const customEvent = new Event('search', { composed: true, bubbles: true });
       customEvent.detail = this._searchTerm;
       this.dispatchEvent(customEvent);
@@ -292,11 +288,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this._updateField();
     this._closeList();
 
-    /**
-     * @event value-cleared
-     * Fired when input value is cleared
-     * detail payload: empty
-     */
     const customEvent = new Event('value-cleared', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
   }

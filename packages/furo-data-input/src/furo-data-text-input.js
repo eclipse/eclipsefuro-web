@@ -44,6 +44,10 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-text-input](/furo-input?t=FuroTextInput)
  *
+ * @fires {{String} the text value} value-changed -  Fired when value has changed from inside the input field. Comes from underlying component furo-text-input. **bubbles**
+ * @fires {the value of the text input} trailing-icon-clicked -  Fired when the trailing icon was clicked. Comes from underlying component furo-text-input. **bubbles**
+ * @fires {the value of the text input} leading-icon-clicked -  Fired when the leading icon was clicked. Comes from underlying component furo-text-input. **bubbles**
+ *
  * @summary Bind a entityObject.field to a text input
  * @customElement
  * @demo demo-furo-data-text-input Data binding
@@ -51,32 +55,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataTextInput extends FuroTextInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {String} the text value
-   *
-   * Comes from underlying component furo-text-input. **bubbles**
-   */
 
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the text input
-   *
-   * Comes from underlying component furo-text-input. **bubbles**
-   */
-
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the text input
-   *
-   * Comes from underlying component furo-text-input. **bubbles**
-   */
 
   constructor() {
     super();

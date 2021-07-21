@@ -12,6 +12,8 @@ import { FBP } from '@furo/fbp';
  * ```
  *
  *
+ * @fires {KeyboardEvent} matched -  Fired when key matches the options
+ *
  * @summary keyboard event filter
  * @customElement
  * @appliesMixin FBP
@@ -40,11 +42,7 @@ class FuroKeyFilter extends FBP(LitElement) {
     }
 
     if (this.keys.split(/\W+/).indexOf(key) !== -1) {
-      /**
-       * @event matched
-       * Fired when key matches the options
-       * detail payload: keyboardEvent
-       */
+
       const customEvent = new Event('matched', { composed: true, bubbles: true });
       customEvent.detail = keyboardEvent;
       this.dispatchEvent(customEvent);

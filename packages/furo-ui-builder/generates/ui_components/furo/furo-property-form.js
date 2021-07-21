@@ -20,7 +20,7 @@ import "./furo-meta-form.js";
  */
 export class FuroPropertyForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class FuroPropertyForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class FuroPropertyForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -108,15 +109,15 @@ export class FuroPropertyForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: data -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.data)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.data)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: meta -->
-          <furo-meta-form condensed full header-text="${i18n.t('form.furo.property.meta.header.text')}" secondary-text="${i18n.t('form.furo.property.meta.secondary.text')}" ƒ-bind-data="--data(*.meta)"></furo-meta-form> 
+          <furo-meta-form condensed full header-text="${i18n.t('form.furo.property.meta.header.text')}" secondary-text="${i18n.t('form.furo.property.meta.secondary.text')}" ƒ-bind-data="--data(*.meta)"></furo-meta-form>
 
           <!-- field: code -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.code)"></furo-data-text-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.code)"></furo-data-text-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

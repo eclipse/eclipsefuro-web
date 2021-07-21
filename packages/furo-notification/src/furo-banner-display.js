@@ -55,6 +55,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     this.setAttribute('hidden', '');
@@ -228,66 +229,66 @@ class FuroBannerDisplay extends FBP(LitElement) {
             :host {
               width: 100%;
               display:block;
-              font-family: 'Roboto', 'Noto', sans-serif;        
+              font-family: 'Roboto', 'Noto', sans-serif;
               background-color: var(--banner-background, var(--surface,#FAFAFA));
-              color: var(--banner-on-background, var(--on-surface,#333333));             
+              color: var(--banner-on-background, var(--on-surface,#333333));
               transition: all .5s ease-in-out;
               overflow:hidden;
             }
-            
+
             :host([hidden]) {
               height: 0;
             }
              .wrapper[icon] furo-icon{
               display:  inline-block;;
             }
-                       
+
             furo-icon {
               margin:   var(--spacing-xs, 8px)  var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
               width: 40px;
               height: 40px;
               display: none;
             }
-            
+
             .wrapper {
               width: 100%;
               box-sizing: border-box;
-              padding: 12px 8px 8px 24px;             
+              padding: 12px 8px 8px 24px;
               border-bottom: solid 1px #e0e0e0;
-              margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));             
+              margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));
             }
-          
-            
+
+
             .wrapper[icon] {
               padding: 12px 8px 8px 16px;
             }
-            
+
             furo-button {
               color: var(--banner-button-text-color, --primary, #3f83e3));
               --on-surface: var(--primary);
               margin-right: 8px;
             }
-            
-            furo-markdown {             
-              line-height: 20px;              
+
+            furo-markdown {
+              line-height: 20px;
             }
-            
-            h1 {            
+
+            h1 {
               letter-spacing: -1.5px;
               font-weight: 200;
             }
-            h2 {            
+            h2 {
               letter-spacing: -0.5px;
               font-weight: 400;
             }
-                      
-            h3 {        
-              letter-spacing: 0;         
+
+            h3 {
+              letter-spacing: 0;
             }
-            h4 {        
-              letter-spacing: 0.25px;         
+            h4 {
+              letter-spacing: 0.25px;
             }
-                
+
             p {
               margin-bottom: var(--spacing-xs, 8px) ;
               margin-top: var(--spacing-xs, 8px) ;
@@ -297,7 +298,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
             margin-top: var(--spacing-xs, 8px) ;
             }
 
-            
+
         `;
   }
 

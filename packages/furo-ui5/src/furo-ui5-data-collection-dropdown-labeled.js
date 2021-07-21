@@ -13,20 +13,15 @@ import './furo-ui5-data-collection-dropdown.js';
  * The furo-ui5-data-collection-dropdown-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
+ * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
+ *
  * @summary labeled input field
  * @customElement
  * @demo demo-furo-ui5-data-collection-dropdown-labeled Simple use
  * @appliesMixin FBP
  */
 export class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
-  /**
-   * @event value-changed
-   * Fired when value has changed from the component inside.
-   *
-   * detail payload: {*} the value from the value-field. By default the value field is "id"
-   *
-   *  **bubbles**
-   */
+
 
   constructor(props) {
     super(props);
@@ -42,6 +37,7 @@ export class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -122,7 +118,7 @@ export class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
 
   /**
    * Orchestrates the data field connection to the inside
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);

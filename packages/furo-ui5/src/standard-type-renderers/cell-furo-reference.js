@@ -18,6 +18,11 @@ import '@ui5/webcomponents/dist/Link.js';
 class CellFuroReference extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -43,7 +48,7 @@ class CellFuroReference extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;
@@ -59,6 +64,10 @@ class CellFuroReference extends LitElement {
   /**
    * Template logic
    * @returns {*}
+   * @private
+   */
+  /**
+   *
    * @private
    */
   _formatCell() {

@@ -50,6 +50,7 @@ export class LoginForm extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -81,7 +82,7 @@ export class LoginForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.component_name) || css`
-      
+
       :host {
         display: block;
       }
@@ -105,21 +106,21 @@ export class LoginForm extends FBP(LitElement) {
 
       <!-- Anmeldemaske mit auto-zentrierung -->
       <furo-form four label="Anmeldumg" style="width:300px;margin:100px auto; border-top:5px solid #FEA248;">
-        <furo-text-input label="Username" value="${this.username}" ƒ-focus="--ButtonClicked"></furo-text-input> 
+        <furo-text-input label="Username" value="${this.username}" ƒ-focus="--ButtonClicked"></furo-text-input>
 
         <!-- Könnten wir noch einen zeige kennwort implementieren? Falls es nicht zu schwierig ist... -->
-        <furo-password-input label="Passowort" value="${this.password}"></furo-password-input> 
+        <furo-password-input label="Passowort" value="${this.password}"></furo-password-input>
 
         <!-- Bin mir nicht sicher ob es den überhaupt braucht -->
         <furo-horizontal-flex>
-          <furo-button label="Login" @-click="--ButtonClicked"></furo-button> 
-        </furo-horizontal-flex> 
-      </furo-form> 
+          <furo-button label="Login" @-click="--ButtonClicked"></furo-button>
+        </furo-horizontal-flex>
+      </furo-form>
 
-      
-    
+
+
       <furo-keydown ctrl key="x" @-key="--shortcutLPressed"></furo-keydown>
-    
+
     `;
   }
 }

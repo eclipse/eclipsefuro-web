@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentConstraintsForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ExperimentConstraintsForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ExperimentConstraintsForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,12 +108,12 @@ export class ExperimentConstraintsForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: number -->
-          <furo-data-number-input condensed double ƒ-bind-data="--data(*.number)" ƒ-focus="--focused"></furo-data-number-input> 
+          <furo-data-number-input condensed double ƒ-bind-data="--data(*.number)" ƒ-focus="--focused"></furo-data-number-input>
 
           <!-- field: text -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.text)"></furo-data-text-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.text)"></furo-data-text-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

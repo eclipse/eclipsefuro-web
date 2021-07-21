@@ -19,6 +19,7 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  *  </furo-chart-display>
  *  ```
  *
+ * @fires {Fieldnode} data-point-clicked -  Fired when a marker for this data source was clicked. Note: the event is fired from the furo-data-chart-binder
  *
  * @summary Display charts with data objects
  * @customElement
@@ -32,13 +33,6 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  * @appliesMixin FBP
  */
 class FuroChartDisplay extends FBP(LitElement) {
-  /**
-   * @event data-point-clicked
-   * Fired when a marker for this data source was clicked
-   * detail payload: Fieldnode
-   *
-   * Note: the event is fired from the furo-data-chart-binder
-   */
 
   constructor() {
     super();
@@ -384,6 +378,7 @@ class FuroChartDisplay extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

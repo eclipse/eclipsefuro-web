@@ -20,6 +20,11 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayInt64 extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -71,7 +76,7 @@ export class DisplayInt64 extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;

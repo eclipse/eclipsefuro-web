@@ -13,6 +13,8 @@ import { LitElement } from 'lit-element';
  * </furo-demo-snippet>
  *
  *
+ * @fires {string} transcript -  Fired when speechToText has a recognition result.
+ *
  * @summary Speech to text
  * @customElement
  * @demo demo-furo-speech-recognition
@@ -28,11 +30,7 @@ class FuroSpeechRecognition extends LitElement {
     this.recognition.onresult = event => {
       const speechToText = event.results[0][0].transcript;
       console.log(event.results);
-      /**
-       * @event transcript
-       * Fired when speechToText
-       * detail payload: string
-       */
+
       const customEvent = new Event('transcript', { composed: true, bubbles: true });
       customEvent.detail = speechToText;
       this.dispatchEvent(customEvent);

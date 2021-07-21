@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
-import '@furo/util/src/furo-markdown';
+import '@furo/util/src/furo-markdown.js';
 import './furo-doc/furo-doc-properties.js';
 import './furo-doc/furo-doc-methods.js';
 import './furo-doc/furo-doc-events.js';
@@ -45,6 +45,7 @@ class FuroDocElement extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

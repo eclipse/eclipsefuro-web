@@ -31,18 +31,14 @@ import './furo-checkbox.js';
  * `--input-error-text-color` | Color of error text | `--error` | red
  * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
  *
+ * @fires ALL_BUBBLING_EVENTS_FROM_furo-checkbox - All bubbling events from [furo-checkbox](furo-checkbox) will be fired, because furo-checkbox-input uses furo-checkbox internally.
+ *
  * @summary checkbox input
  * @customElement
  * @demo demo-furo-checkbox-input Basic demo
  * @appliesMixin FBP
  */
 export class FuroCheckboxInput extends FBP(LitElement) {
-  /**
-   * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox
-   *
-   * All bubbling events from [furo-checkbox](furo-checkbox) will be fired, because furo-checkbox-input uses furo-checkbox internally.
-   *
-   */
 
   constructor() {
     super();

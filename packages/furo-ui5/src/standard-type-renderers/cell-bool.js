@@ -61,7 +61,7 @@ export class CellBool extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode of type bool, furo.fat.Bool, google.wrapper.BoolValue
    */
   bindData(fieldNode) {
     this._field = fieldNode;

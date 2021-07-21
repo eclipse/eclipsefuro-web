@@ -6,6 +6,7 @@ import { CollectionDropdownHelper } from './lib/DELETEMECollectionDropdownHelper
 
 /**
  * # DEPRECATED switch to `furo-ui5-data-select`
+ *
  * The furo-ui5-data-collection-dropdown component represents a drop-down list. The items inside define the available
  * options by using the furo-ui5-data-collection-dropdown component.
  *
@@ -18,20 +19,15 @@ import { CollectionDropdownHelper } from './lib/DELETEMECollectionDropdownHelper
  * ### auto-select-first
  * set this attribute to auto select the first item in the list, if no item is set in the bounded fieldNode.
  *
+ * @fires {{*} the original injected data (e.g. entity with link) of the selected item} item-selected -  Fired when the item of dropdown list is selected. **bubbles**
+ *
  * @summary data collection dropdown
  * @customElement
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
  * @demo demo-furo-ui5-data-collection-dropdown-auto Autoselect first
  */
 export class FuroUi5DataCollectionDropdown extends Select.default {
-  /**
-   * @event item-selected
-   * Fired when the item of dropdown list is selected.
-   *
-   * detail payload: {*} the original injected data (e.g. entity with link) of the selected item
-   *
-   *  **bubbles**
-   */
+
 
   constructor() {
     super();
@@ -83,13 +79,42 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      */
     this.autoSelectFirst = false;
 
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._fieldNodeToUpdate = {};
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._fieldDisplayNodeToUpdate = {};
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._dropdownList = [];
-    // generated one element dropdown, which has only the data of the bounded DO
+
+    /**
+     * generated one element dropdown, which has only the data of the bounded DO
+     * @type {*[]}
+     * @private
+     */
     this._pseudoDropdownList = [];
-    // injected dropdown elements which from a collection of response or in spec defined options
+    /**
+     * injected dropdown elements which from a collection of response or in spec defined options
+     * @type {*[]}
+     * @private
+     */
     this._injectedDropdownList = [];
+    /**
+     *
+     * @type {boolean}
+     * @private
+     */
     this._valueFoundInList = true;
 
     this._initBinder();
@@ -348,6 +373,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   /**
    * Build the dropdown list with given options from meta
    * @param {options} list of options with id and display_name
+   * @private
    */
   _buildListWithMetaOptions(options) {
     if (options && options.list && options.list.length > 0) {
@@ -358,7 +384,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
   /**
    * Inject the array of a collection
-   * @param entities
+   * @param {FieldNode} entities of type *Entities
    */
   injectEntities(entities) {
     CollectionDropdownHelper.injectList(this, entities);

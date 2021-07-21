@@ -342,7 +342,7 @@ export class FieldNode extends EventTreeNode {
         }
 
         /**
-         * @event (field-value-changed)
+         * @fires (field-value-changed)
          *
          * ✋ Internal Event from EntityNode which you can use in the targeted components!
          *
@@ -352,7 +352,7 @@ export class FieldNode extends EventTreeNode {
          */
         this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
         /**
-         * @event (this-field-value-changed)
+         * @fires (this-field-value-changed)
          *
          * ✋ Internal Event from EntityNode which you can use in the targeted components!
          *
@@ -524,7 +524,7 @@ export class FieldNode extends EventTreeNode {
           }
         }
         /**
-         * @event this-metas-changed INTERNAL Event
+         * @fires this-metas-changed INTERNAL Event
          *
          * Fired when field metas, constraints or options changed
          * detail payload:
@@ -789,7 +789,7 @@ export class FieldNode extends EventTreeNode {
       this._isValid = true;
       this._validity = {};
       /**
-       * @event (field-became-valid)
+       * @fires (field-became-valid)
        *
        * ✋ Internal Event from EntityNode which you can use in the targeted components!
        *
@@ -799,7 +799,7 @@ export class FieldNode extends EventTreeNode {
        */
       this.dispatchNodeEvent(new NodeEvent('field-became-valid', this, true));
       /**
-       * @event (this-field-became-valid)
+       * @fires (this-field-became-valid)
        *
        * ✋ Internal Event from EntityNode which you can use in the targeted components!
        *

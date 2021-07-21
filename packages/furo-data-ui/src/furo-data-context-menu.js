@@ -17,6 +17,8 @@ import '@furo/util/src/furo-keydown';
  * ```
  *
  *
+ * @fires {{context, menuitem}} open-furo-data-menu-requested -  Fired when context menu was triggered
+ * @fires { {context, menuitem}} menu-item-selected -  Fired when a menu item is selected
  *
  * @summary a context menu
  * @customElement
@@ -80,12 +82,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     if (!this._menuNode) {
       this._queueTrigger = true;
     } else {
-      /**
-       * @event open-furo-data-menu-requested
-       * Fired when context menu was triggered
-       *
-       * detail payload: {context, menuitem}
-       */
+
       const customEvent = new Event('open-furo-data-menu-requested', {
         composed: true,
         bubbles: true,
@@ -94,11 +91,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
         context,
         menu: this._menuNode,
         selectCallback: item => {
-          /**
-           * @event menu-item-selected
-           * Fired when a menu item is selected
-           * detail payload:  {context, menuitem}
-           */
+
           const selectEvent = new Event('menu-item-selected', { composed: true, bubbles: true });
           selectEvent.detail = { context: this._context, menuitem: item.detail };
           this.dispatchEvent(selectEvent);

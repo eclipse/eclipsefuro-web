@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentConstraintsCreateForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ExperimentConstraintsCreateForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ExperimentConstraintsCreateForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("CreateFormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,9 +104,9 @@ export class ExperimentConstraintsCreateForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: text -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.text)" ƒ-focus="--focused"></furo-data-text-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.text)" ƒ-focus="--focused"></furo-data-text-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

@@ -5,6 +5,8 @@ import { FBP } from '@furo/fbp';
  * `reference-search-item`
  * Repeated item to display the search result set
  *
+ * @fires {item} item-selected -  Fired when item is selected.
+ *
  * @summary representation of a result item
  * @customElement
  * @appliesMixin FBP
@@ -73,11 +75,7 @@ export class ReferenceSearchItem extends FBP(LitElement) {
   }
 
   select() {
-    /**
-     * @event item-selected
-     * Fired when item is selected
-     * detail payload: item
-     */
+
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     customEvent.detail = this._item;
     this.dispatchEvent(customEvent);

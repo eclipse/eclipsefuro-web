@@ -20,7 +20,17 @@ import { Env } from '@furo/framework/src/furo.js';
 export class CellGoogleTypeMoney extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
+    /**
+     *
+     * @type {{amount: number}}
+     * @private
+     */
     this._valueObject = { amount: Number.NaN };
   }
 
@@ -73,7 +83,7 @@ export class CellGoogleTypeMoney extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;
@@ -89,7 +99,7 @@ export class CellGoogleTypeMoney extends LitElement {
 
   /**
    *
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {number}
    * @private
    */
@@ -107,6 +117,10 @@ export class CellGoogleTypeMoney extends LitElement {
     return Number.NaN;
   }
 
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     this._valueObject.amount = CellGoogleTypeMoney._convertTypeToNumber(this._field);
     if (

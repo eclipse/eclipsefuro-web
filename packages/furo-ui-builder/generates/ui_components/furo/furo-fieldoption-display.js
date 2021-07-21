@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroFieldoptionDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class FuroFieldoptionDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class FuroFieldoptionDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,12 +104,12 @@ export class FuroFieldoptionDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: list -->
-          <furo-data-display full condensed ƒ-bind-data="--data(*.list)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display full condensed ƒ-bind-data="--data(*.list)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: flags -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.flags)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.flags)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

@@ -23,6 +23,11 @@ class FuroDataBoolIcon extends FBP(LitElement) {
     this.symboltrue = '▼';
     this.symbolfalse = '▶';
     this.field = {};
+    /**
+     * open close symbol
+     * @type {string}
+     * @private
+     */
     this._ocSymbol = this.symbolfalse;
   }
 
@@ -57,6 +62,9 @@ class FuroDataBoolIcon extends FBP(LitElement) {
     });
   }
 
+  /**
+   * Toggles the icon.
+   */
   toggle() {
     this.binder.fieldNode._value = !this.binder.fieldNode._value;
   }
@@ -98,6 +106,10 @@ class FuroDataBoolIcon extends FBP(LitElement) {
     );
   }
 
+  /**
+   * Bind a fieldNode.
+   * @param {FieldNode} d of type bool
+   */
   bindData(d) {
     if (d === undefined) {
       return;
