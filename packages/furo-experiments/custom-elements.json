@@ -1,0 +1,338 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-capture-audio.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Video stream capture\n\n```\n<furo-capture-audio @-stream=\"--stream\"></furo-capture-audio>\n\n```",
+          "name": "FuroCaptureAudio",
+          "members": [
+            {
+              "kind": "method",
+              "name": "stop"
+            },
+            {
+              "kind": "method",
+              "name": "start"
+            },
+            {
+              "kind": "method",
+              "name": "_err",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "constraints",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      audio: true,\n      video: false,\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "myBool",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "myBool"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "MediaStream"
+              },
+              "description": " Fired when start was triggered.",
+              "name": "stream"
+            },
+            {
+              "type": {
+                "text": "Error"
+              },
+              "description": " Fired when a error occured.",
+              "name": "error"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "myBool",
+              "description": "Description",
+              "fieldName": "myBool"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Capture Audio",
+          "tagName": "furo-capture-audio",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-capture-audio",
+          "declaration": {
+            "name": "FuroCaptureAudio",
+            "module": "src/furo-capture-audio.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-capture-video.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Video stream capture\n\n```\n<video-source @-stream=\"--stream\"></video-source>\n<video autoplay playsinline ƒ-.src-object=\"--stream\"></video>\n\n```",
+          "name": "FuroCaptureVideo",
+          "members": [
+            {
+              "kind": "method",
+              "name": "stop"
+            },
+            {
+              "kind": "method",
+              "name": "start"
+            },
+            {
+              "kind": "method",
+              "name": "_err",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "constraints",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      audio: false,\n      video: { width: { exact: 320 }, height: { exact: 240 } },\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "myBool",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "myBool"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "MediaStream"
+              },
+              "description": " Fired when start was triggered.",
+              "name": "stream"
+            },
+            {
+              "type": {
+                "text": "Error"
+              },
+              "description": " Fired when a error occured.",
+              "name": "error"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "myBool",
+              "description": "Description",
+              "fieldName": "myBool"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Capture video from Camera",
+          "tagName": "furo-capture-video",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-capture-video",
+          "declaration": {
+            "name": "FuroCaptureVideo",
+            "module": "src/furo-capture-video.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-qr-scanner.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-qr-scanner`\nScans a qr code",
+          "name": "FuroQrScanner",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "start"
+            },
+            {
+              "kind": "method",
+              "name": "stop"
+            },
+            {
+              "kind": "field",
+              "name": "stopOnCodeFound",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "stop-on-code-found"
+            },
+            {
+              "kind": "field",
+              "name": "worker",
+              "privacy": "public",
+              "attribute": "worker"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": " Fired when a qr-code is detected",
+              "name": "qr-code"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "stop-on-code-found",
+              "description": "Description",
+              "fieldName": "stopOnCodeFound"
+            },
+            {
+              "name": "worker",
+              "fieldName": "worker"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "qr code scanner",
+          "tagName": "furo-qr-scanner",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-qr-scanner",
+          "declaration": {
+            "name": "FuroQrScanner",
+            "module": "src/furo-qr-scanner.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-speech-recognition.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-speech-recognition`\nSpeak recogninition API component\n\n<furo-demo-snippet>\n  <template>\n    <furo-button raised @-click=\"--start\" label=\"start\"></furo-button>\n    <furo-speech-recognition ƒ-start=\"--start\" @-transcript=\"--text\"></furo-speech-recognition>\n    <div ƒ-.inner-text=\"--text\"></div>\n  </template>\n</furo-demo-snippet>",
+          "name": "FuroSpeechRecognition",
+          "members": [
+            {
+              "kind": "method",
+              "name": "start"
+            },
+            {
+              "kind": "field",
+              "name": "SpeechRecognition"
+            },
+            {
+              "kind": "field",
+              "name": "recognition",
+              "default": "new SpeechRecognition()"
+            },
+            {
+              "kind": "field",
+              "name": "interimResults",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "onresult",
+              "default": "event => {\n      const speechToText = event.results[0][0].transcript;\n      console.log(event.results);\n\n      const customEvent = new Event('transcript', { composed: true, bubbles: true });\n      customEvent.detail = speechToText;\n      this.dispatchEvent(customEvent);\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "myBool",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "myBool"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": " Fired when speechToText has a recognition result.",
+              "name": "transcript"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "myBool",
+              "description": "Description",
+              "fieldName": "myBool"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Speech to text",
+          "tagName": "furo-speech-recognition",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-speech-recognition",
+          "declaration": {
+            "name": "FuroSpeechRecognition",
+            "module": "src/furo-speech-recognition.js"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-append-object.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`append-object`",
+          "name": "FuroAppendObject",
+          "members": [
+            {
+              "kind": "method",
+              "name": "init",
+              "parameters": [
+                {
+                  "name": "object",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Set an initial object. Otherwise you will start with an empty object, which can also be useful sometimes."
+            },
+            {
+              "kind": "method",
+              "name": "append",
+              "parameters": [
+                {
+                  "name": "object",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Append the properties of an object to the inital object."
+            },
+            {
+              "kind": "field",
+              "name": "initialObject",
+              "type": {
+                "text": "Object"
+              },
+              "description": "The initial object is an empty object.",
+              "default": "{}"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "{object} the extended object"
+              },
+              "description": " Fired when something is appended to the initial object.",
+              "name": "appended"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp/src/fbp.js"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "summary": "append data to object literals",
+          "tagName": "furo-append-object",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-append-object",
+          "declaration": {
+            "name": "FuroAppendObject",
+            "module": "src/furo-append-object.js"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1132 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-context-menu.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-mini-tabs.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-mini-tabs`\nTabs",
+          "name": "FuroMiniTabs",
+          "members": [
+            {
+              "kind": "method",
+              "name": "injectItems",
+              "parameters": [
+                {
+                  "name": "nodeArray"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "furo-mini-tabs",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-mini-tabs",
+          "declaration": {
+            "name": "FuroMiniTabs",
+            "module": "src/furo-mini-tabs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-panel-coordinator-tab-item.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-mini-tab-item`\ntodo Describe your element",
+          "name": "FuroPanelCoordinatorTabItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_removeListeners"
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hovered",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "inedit",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "inedit",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "haserror",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "haserror",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_select",
+              "default": "() => {\n      this.selected = true;\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_deselect",
+              "default": "() => {\n      this.selected = false;\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_error",
+              "default": "() => {\n      this.haserror = true;\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_inedit",
+              "default": "() => {\n      this.focused = true;\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_focus",
+              "default": "() => {\n      this.focused = true;\n      // this.scrollIntoViewIfNeeded();\n      this.field.__tabHasFocus = true;\n      if (\n        this.scrollIntoViewIfNeeded &&\n        this.parentNode &&\n        this.parentNode.host.getAttribute('focused') !== null\n      ) {\n        this.scrollIntoViewIfNeeded();\n      }\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_unfocus",
+              "default": "() => {\n      this.field.__tabHasFocus = false;\n      this.focused = false;\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_clear",
+              "default": "() => {\n      this.inedit = false;\n      this.haserror = false;\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "attribute": "focused",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "selected",
+              "description": "Description",
+              "fieldName": "selected"
+            },
+            {
+              "name": "haserror",
+              "fieldName": "haserror"
+            },
+            {
+              "name": "inedit",
+              "fieldName": "inedit"
+            },
+            {
+              "name": "focused",
+              "fieldName": "focused"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "furo-panel-coordinator-tab-item",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-panel-coordinator-tab-item",
+          "declaration": {
+            "name": "FuroPanelCoordinatorTabItem",
+            "module": "src/furo-panel-coordinator-tab-item.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-panel-coordinator-tabs.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab navigation for the open panels in a panel-coordinator.\n\n\n```html\n <!-- inject the tabs from panelCoordinator and connect the keyboard navigation -->\n <furo-panel-coordinator-tabs ƒ-inject-tabs=\"--panelChanges\" ƒ-trigger-navigation=\"--navpadPanelTabs\" >\n   <!-- add keyboard navigation -->\n   <furo-navigation-pad @-navigated=\"--navpadPanelTabs\"></furo-navigation-pad>\n </furo-panel-coordinator-tabs>\n <furo-pages flex default=\"default\">\n   <furo-panel-coordinator ƒ-show-page=\"--nodeSelected\"  @-panels-changed=\"--panelChanges\"></furo-panel-coordinator>\n```",
+          "name": "FuroPanelCoordinatorTabs",
+          "members": [
+            {
+              "kind": "method",
+              "name": "triggerNavigation",
+              "parameters": [
+                {
+                  "name": "key"
+                }
+              ],
+              "description": "Connect your navigation pad.\n\nDefault mappings are:\n- Enter => selectFocused\n- ArroLeft => focusPrevious\n- ArroRight => focusNext\n- Home => focusFirst\n- End => focusLast\n- Escape => closeFocused\n\nTo disable a function, just add the `ignored-keys` to furo-navigation-tabs."
+            },
+            {
+              "kind": "method",
+              "name": "closeFocused",
+              "description": "Closes the focused tab."
+            },
+            {
+              "kind": "method",
+              "name": "focusNext",
+              "description": "Focuses the next tab. If you are on the last tab, the frist tab will be selected"
+            },
+            {
+              "kind": "method",
+              "name": "focusFirst",
+              "description": "Focuses the first tab."
+            },
+            {
+              "kind": "method",
+              "name": "focusLast",
+              "description": "Focuses the last tab."
+            },
+            {
+              "kind": "method",
+              "name": "selectFocused",
+              "description": "Select the focused tab."
+            },
+            {
+              "kind": "method",
+              "name": "focusPrevious",
+              "description": "Focuses the previous tab."
+            },
+            {
+              "kind": "method",
+              "name": "injectTabs",
+              "parameters": [
+                {
+                  "name": "nodeArray"
+                }
+              ],
+              "description": "Inject data from a navigationnode"
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "description": "focuses the element itself. The \"focused\" tab will get the focus"
+            },
+            {
+              "kind": "field",
+              "name": "tabindex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "description": "Sets the tabindex",
+              "attribute": "tabindex",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_focusIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "indicates that the element is focused",
+              "attribute": "focused",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "tabindex",
+              "description": "Sets the tabindex",
+              "fieldName": "tabindex"
+            },
+            {
+              "name": "focused",
+              "description": "indicates that the element is focused",
+              "fieldName": "focused"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "tab navigation for panel-coordinator",
+          "tagName": "furo-panel-coordinator-tabs",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-panel-coordinator-tabs",
+          "declaration": {
+            "name": "FuroPanelCoordinatorTabs",
+            "module": "src/furo-panel-coordinator-tabs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-panel-head.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-panel-head`\n Displays a navigation node as title",
+          "name": "FuroPanelHead",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode"
+                }
+              ],
+              "description": "binds a fieldNode to the internal _field\nis listenting to field-value-changed event"
+            },
+            {
+              "kind": "field",
+              "name": "_field",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "dislay a navigationNode as title",
+          "tagName": "furo-panel-head",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-panel-head",
+          "declaration": {
+            "name": "FuroPanelHead",
+            "module": "src/furo-panel-head.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-tree-item.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-tree-item`\ntodo Describe your element",
+          "name": "FuroTreeItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "search",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_updateItem"
+            },
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "__addSearchListeners",
+              "description": "add listeners for search matches and non matches",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "__addNodeSelectedListener"
+            },
+            {
+              "kind": "method",
+              "name": "__addNodeFocusedListener",
+              "description": "bring the focused element in the visible part of the screen (scroll)",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isGroupLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "is-group-label",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indentation",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "searchmatch",
+              "privacy": "public",
+              "attribute": "searchmatch",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "inedit",
+              "privacy": "public",
+              "attribute": "inedit",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "haserror",
+              "privacy": "public",
+              "attribute": "haserror",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "noicon",
+              "privacy": "public",
+              "attribute": "noicon"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "hidden",
+              "description": "Description",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "searchmatch",
+              "fieldName": "searchmatch"
+            },
+            {
+              "name": "inedit",
+              "fieldName": "inedit"
+            },
+            {
+              "name": "haserror",
+              "fieldName": "haserror"
+            },
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "noicon",
+              "fieldName": "noicon"
+            },
+            {
+              "name": "is-group-label",
+              "fieldName": "isGroupLabel"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "furo-tree-item",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FuroTreeItem",
+          "declaration": {
+            "name": "FuroTreeItem",
+            "module": "src/furo-tree-item.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-tree-item",
+          "declaration": {
+            "name": "FuroTreeItem",
+            "module": "src/furo-tree-item.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-tree.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-tree` renders a tree,",
+          "name": "FuroTree",
+          "members": [
+            {
+              "kind": "method",
+              "name": "collapseFocused",
+              "description": "collapses the focused element. If it is closed the parent will be focused."
+            },
+            {
+              "kind": "method",
+              "name": "expandFocused",
+              "description": "expands the focused node, if it is opened the first child will be focused"
+            },
+            {
+              "kind": "method",
+              "name": "expandFocusedRecursive",
+              "description": "expands the focused node recursive"
+            },
+            {
+              "kind": "method",
+              "name": "collapseFocusedRecursive",
+              "description": "collapses the focused node recursive"
+            },
+            {
+              "kind": "method",
+              "name": "selectFocused",
+              "description": "selects the focused element."
+            },
+            {
+              "kind": "method",
+              "name": "search",
+              "parameters": [
+                {
+                  "name": "term"
+                }
+              ],
+              "description": "Search in the visible nodes",
+              "return": {
+                "type": {
+                  "text": "[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "searchOpenTree"
+            },
+            {
+              "kind": "method",
+              "name": "_resetSearch"
+            },
+            {
+              "kind": "method",
+              "name": "_updateSearchmatchAttributesOnItems"
+            },
+            {
+              "kind": "method",
+              "name": "focusParent",
+              "description": "Focuses the parent tree node without selecting it.\n\nThe tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method)."
+            },
+            {
+              "kind": "method",
+              "name": "focusPrevious",
+              "description": "focus the previous visible node.\n\nThe tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method)."
+            },
+            {
+              "kind": "method",
+              "name": "qpIn",
+              "parameters": [
+                {
+                  "name": "qpObject"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "locationIn",
+              "parameters": [
+                {
+                  "name": "locationObject"
+                }
+              ],
+              "description": "Inject a location object, which contains a query param property to select the current node.",
+              "return": {
+                "type": {
+                  "text": "*|boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "selectById",
+              "parameters": [
+                {
+                  "name": "nodeID"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectPrev",
+              "description": "select the previous visible item"
+            },
+            {
+              "kind": "method",
+              "name": "expandNodeRecursive",
+              "description": "expands the currently selected node recursive"
+            },
+            {
+              "kind": "method",
+              "name": "expandAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseNodeRecursive",
+              "description": "expands the currently selected node recursive"
+            },
+            {
+              "kind": "method",
+              "name": "toggle",
+              "description": "toggles the currently selected node"
+            },
+            {
+              "kind": "method",
+              "name": "addSubNode",
+              "parameters": [
+                {
+                  "name": "rawNode"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "deleteNode"
+            },
+            {
+              "kind": "method",
+              "name": "selectNext",
+              "description": "select the next visible item"
+            },
+            {
+              "kind": "method",
+              "name": "triggerNavigation",
+              "parameters": [
+                {
+                  "name": "key"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "focusFirst",
+              "description": "Focuses the first node in the tree without selecting it.\n\nUse selectFocused to select the focused node.\n\nThe tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method)."
+            },
+            {
+              "kind": "method",
+              "name": "focusLast",
+              "description": "Focuses the last node in the tree without selecting it.\n\nUse selectFocused to select the focused node.\n\nThe tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method)."
+            },
+            {
+              "kind": "method",
+              "name": "focusNext",
+              "description": "focuses the next visible tree node.\n\nThe tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method)."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "description": "focuses the tree itself. You can use this in combination with keyboard navigation (furo-navigation-pad)"
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "treeNode"
+                }
+              ],
+              "description": "Binds a FieldNode with a tree signature.\n\nA sample and usable signature can be found in ./specs/"
+            },
+            {
+              "kind": "method",
+              "name": "_setTitle",
+              "parameters": [
+                {
+                  "name": "treeNode"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "focusSelected",
+              "description": "Focuses the currently selected tree item.\n\nThe tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method)."
+            },
+            {
+              "kind": "method",
+              "name": "_init"
+            },
+            {
+              "kind": "method",
+              "name": "_initFocusAndSelectEvents"
+            },
+            {
+              "kind": "method",
+              "name": "_buildFlatTree",
+              "parameters": [
+                {
+                  "name": "tree"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_parseTreeRecursive",
+              "parameters": [
+                {
+                  "name": "tree"
+                },
+                {
+                  "name": "level"
+                },
+                {
+                  "name": "maxdepth"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_flatTree",
+              "type": {
+                "text": "Array"
+              },
+              "description": "Flat list representation of the tree",
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "tabindex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "description": "Sets the tabindex",
+              "attribute": "tabindex",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_searchTerm",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "expandDepth",
+              "type": {
+                "text": "number"
+              },
+              "default": "2",
+              "privacy": "public",
+              "description": "Sets the maximal expand level relative from the current node.\n\nExpanding is a expensive operation.",
+              "attribute": "expand-depth"
+            },
+            {
+              "kind": "field",
+              "name": "_searchIsActive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "indicator for searching. Maybe you want style your item depending on this attribute",
+              "attribute": "searching",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "treeItemComponent",
+              "description": "If you want to use a custom component for the tree-item, set this attribute.\nThe default item component is **furo-tree-item**.",
+              "type": {
+                "text": "*|string|string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_treeItemTepmplate"
+            },
+            {
+              "kind": "field",
+              "name": "depth",
+              "privacy": "public",
+              "description": "Maximal depth for the tree. Default is infinite.",
+              "attribute": "depth"
+            },
+            {
+              "kind": "field",
+              "name": "qp",
+              "privacy": "public",
+              "description": "Query param to watch. If you set this attribute, the node-selected event will only be fired on `ƒ-qp-in` or `ƒ-select-by-id`.\nIf you select an item the `qp-change-request` will be fired.",
+              "attribute": "qp"
+            },
+            {
+              "kind": "field",
+              "name": "rootAsHeader",
+              "privacy": "public",
+              "description": "Set this flag if you do not want a header-text section.",
+              "attribute": "root-as-header"
+            },
+            {
+              "kind": "field",
+              "name": "hideRootNode",
+              "privacy": "public",
+              "description": "Set this flag if you do not want to see the root node",
+              "attribute": "hide-root-node"
+            },
+            {
+              "kind": "field",
+              "name": "headerText",
+              "privacy": "public",
+              "description": "Override display name from root object",
+              "attribute": "header-text"
+            },
+            {
+              "kind": "field",
+              "name": "secondaryText",
+              "privacy": "public",
+              "description": "Override description from root object.",
+              "attribute": "secondary-text"
+            },
+            {
+              "kind": "field",
+              "name": "nobgonhead",
+              "privacy": "public",
+              "description": "disables the background color on focus, selected, ... on header node\n\nWorks only with `root-as-header` enabled",
+              "attribute": "no-bg-on-header"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "indicates that the element is focused",
+              "attribute": "focused",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "focused field"
+              },
+              "description": " Fired when",
+              "name": "node-focused"
+            },
+            {
+              "type": {
+                "text": "focused field"
+              },
+              "description": " Fired when",
+              "name": "branch-focused"
+            },
+            {
+              "description": " Fired when",
+              "name": "leaf-focused"
+            },
+            {
+              "type": {
+                "text": "selected field"
+              },
+              "description": " Fired when the item gets selected, does not fire when you work with query params",
+              "name": "node-selected"
+            },
+            {
+              "type": {
+                "text": "Object {\"this.qp\": this._selectedField.id._value}"
+              },
+              "description": " Fired when qp mode is enabled. Nodes are only selectable with qpIn or selectById",
+              "name": "qp-change-requested"
+            },
+            {
+              "type": {
+                "text": "selected field"
+              },
+              "description": " Fired when",
+              "name": "branch-selected"
+            },
+            {
+              "type": {
+                "text": "selected field"
+              },
+              "description": " Fired when",
+              "name": "leaf-selected"
+            },
+            {
+              "description": " Fired when a node is opened",
+              "name": "node-opened"
+            },
+            {
+              "description": " Fired when a node is closed",
+              "name": "node-closed"
+            },
+            {
+              "description": " Fired when nodes are expanded recursive",
+              "name": "nodes-expanded"
+            },
+            {
+              "description": " Fired when nodes are collapsed recursive.",
+              "name": "nodes-collapsed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "depth",
+              "description": "Maximal depth for the tree. Default is infinite.",
+              "fieldName": "depth"
+            },
+            {
+              "name": "expand-depth",
+              "description": "Sets the maximal expand level relative from the current node.\n\nExpanding is a expensive operation.",
+              "fieldName": "expandDepth"
+            },
+            {
+              "name": "qp",
+              "description": "Query param to watch. If you set this attribute, the node-selected event will only be fired on `ƒ-qp-in` or `ƒ-select-by-id`.\nIf you select an item the `qp-change-request` will be fired.",
+              "fieldName": "qp"
+            },
+            {
+              "name": "tabindex",
+              "description": "Sets the tabindex",
+              "fieldName": "tabindex"
+            },
+            {
+              "name": "root-as-header",
+              "description": "Set this flag if you do not want a header-text section.",
+              "fieldName": "rootAsHeader"
+            },
+            {
+              "name": "hide-root-node",
+              "description": "Set this flag if you do not want to see the root node",
+              "fieldName": "hideRootNode"
+            },
+            {
+              "name": "header-text",
+              "description": "Override display name from root object",
+              "fieldName": "headerText"
+            },
+            {
+              "name": "secondary-text",
+              "description": "Override description from root object.",
+              "fieldName": "secondaryText"
+            },
+            {
+              "name": "searching",
+              "description": "indicator for searching. Maybe you want style your item depending on this attribute",
+              "fieldName": "_searchIsActive"
+            },
+            {
+              "name": "no-bg-on-header",
+              "description": "disables the background color on focus, selected, ... on header node\n\nWorks only with `root-as-header` enabled",
+              "fieldName": "nobgonhead"
+            },
+            {
+              "name": "focused",
+              "description": "indicates that the element is focused",
+              "fieldName": "focused"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "tree navigation menu",
+          "tagName": "furo-tree",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FuroTree",
+          "declaration": {
+            "name": "FuroTree",
+            "module": "src/furo-tree.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-tree",
+          "declaration": {
+            "name": "FuroTree",
+            "module": "src/furo-tree.js"
+          }
+        }
+      ]
+    }
+  ]
+}

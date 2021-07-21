@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-bool-and.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-bool-or.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-bool-to-event.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-compare-values.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-event-gate.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-event-to-bool.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-forth-stack.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-forth-stack` is a declarative stack, inspired by the forth stack.\n\nhttps://hackaday.com/2017/01/27/forth-the-hackers-language/\nhttp://wiki.laptop.org/go/Forth_stack_operators\nhttp://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks",
+          "name": "FuroForthStack",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "description": "Current size of the stack",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "clearStack",
+              "description": "Empties the stack and set the stack-size to 0"
+            },
+            {
+              "kind": "method",
+              "name": "put",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ],
+              "description": "Add an element to the stack",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "swap",
+              "description": "\nswap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "drop",
+              "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "dup",
+              "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "over",
+              "description": "\nover **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "rot",
+              "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "rrot",
+              "description": "rrot **( n1 n2 n3 -- n3 n1 n2 )**\n\n   Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.\n   The top elemen the stack gets moved to the bottom of the stack.\n\n   1 2 3 rot\n   gives you:\n\n   3 1 2 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "_move",
+              "parameters": [
+                {
+                  "name": "arr"
+                },
+                {
+                  "name": "fromIndex"
+                },
+                {
+                  "name": "toIndex"
+                }
+              ],
+              "description": "moves element of an array from index to index*",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_notifyStackChange"
+            },
+            {
+              "kind": "field",
+              "name": "_stack",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Number"
+              },
+              "description": " Fired when the stack size changes with Integer with the current size of the stack.",
+              "name": "stack-size-changed"
+            },
+            {
+              "type": {
+                "text": "the top element"
+              },
+              "description": " Fired when stack was rotated",
+              "name": "rotated"
+            },
+            {
+              "type": {
+                "text": "the top element"
+              },
+              "description": " Fired when the stack contents changes after put, drop,...",
+              "name": "stack-changed"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "forth like stack",
+          "tagName": "furo-forth-stack",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FuroForthStack",
+          "declaration": {
+            "name": "FuroForthStack",
+            "module": "src/furo-forth-stack.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-forth-stack",
+          "declaration": {
+            "name": "FuroForthStack",
+            "module": "src/furo-forth-stack.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/EmptyStackError.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "EmpptyStackError",
+          "superclass": {
+            "name": "Error",
+            "module": "src/lib/EmptyStackError.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "EmpptyStackError",
+          "declaration": {
+            "name": "EmpptyStackError",
+            "module": "src/lib/EmptyStackError.js"
+          }
+        }
+      ]
+    }
+  ]
+}

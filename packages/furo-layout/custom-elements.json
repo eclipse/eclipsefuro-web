@@ -1,0 +1,812 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-backdrop-display.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-backdrop-display`\n\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n <!-- place the display in your main-stage -->\n <furo-backdrop-display></furo-backdrop-display>\n ```",
+          "name": "FuroBackdropDisplay",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "closes the backdrop.\nYou can close the backdrop on the display element, this is useful when you want to close the backdrops on page\nchanges.\n\nUsualy the component which triggers the backdrop or is displayed closes it."
+            },
+            {
+              "kind": "field",
+              "name": "toDuration",
+              "type": {
+                "text": "number"
+              },
+              "description": "timeout duration",
+              "default": "100",
+              "privacy": "public",
+              "attribute": "to-duration"
+            },
+            {
+              "kind": "field",
+              "name": "start",
+              "privacy": "private",
+              "description": "Needed to start the animation.",
+              "attribute": "start",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "privacy": "private",
+              "description": "Indicates that the backdrop is shown.",
+              "attribute": "show",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "start",
+              "description": "Needed to start the animation.",
+              "fieldName": "start"
+            },
+            {
+              "name": "show",
+              "description": "Indicates that the backdrop is shown.",
+              "fieldName": "show"
+            },
+            {
+              "name": "to-duration",
+              "description": "Timeout duration, to wait to notify the changes.\n\nNote: the animations in the css are set with 250ms.\n\nIf you are interested to use @-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.\n\nIf you are interested to use @-opened to show some ui stuff, set this value higher or equal 250.",
+              "fieldName": "toDuration"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Display component for furo-backdrop",
+          "tagName": "furo-backdrop-display",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-backdrop-display",
+          "declaration": {
+            "name": "FuroBackdropDisplay",
+            "module": "src/furo-backdrop-display.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-backdrop.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n  <furo-backdrop @-opened=\"--BackdropFocus\" @-closed=\"--backdropClosed\"\n    ƒ-show=\"--expandIconClicked\"\n    ƒ-close=\"--closeRequested, --recordSelected\"\n    >\n     <any-component @-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n  </furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
+          "name": "FuroBackdrop",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady"
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Initiates the backdrop and shows the content on top of the backdrop area."
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "Hides the display.\n\n**Note:** The display will also get closed when the user clicks on the backdrop."
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "handle: this"
+              },
+              "description": "The **opened** event will be fired when the content is visible on the backdrop. Tipp: you can use this to focus something on the shown content.",
+              "name": "opened"
+            },
+            {
+              "type": {
+                "text": "handle: this"
+              },
+              "description": "The **closed** event will be fired when the displayed content is invisible and the backdrop is closed. Tipp: Maybe you want to use this event to refocus the initiator.",
+              "name": "closed"
+            },
+            {
+              "type": {
+                "text": "handle: this"
+              },
+              "description": "Internal event to move the contents to the backdrop-display.",
+              "name": "register-backdrop"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "show content with backdrop",
+          "tagName": "furo-backdrop",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-backdrop",
+          "declaration": {
+            "name": "FuroBackdrop",
+            "module": "src/furo-backdrop.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-empty-spacer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.\n\n<furo-demo-snippet source>\n<template>\n <furo-horizontal-flex>\n  <div>small</div>\n  <!-- A furo-empty-spacer will fill the available space. -->\n  <furo-empty-spacer style=\"border: 1px dashed lightgray;\"></furo-empty-spacer>\n  <div>small</div>\n </furo-horizontal-flex>\n</template>\n</furo-demo-snippet>",
+          "name": "FuroEmptySpacer",
+          "members": [
+            {
+              "kind": "field",
+              "name": "flex",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "privacy": "public",
+              "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+              "attribute": "flex",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Set to true to hide the spacer",
+              "attribute": "hidden",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "flex",
+              "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+              "fieldName": "flex"
+            },
+            {
+              "name": "hidden",
+              "description": "Set to true to hide the spacer",
+              "fieldName": "hidden"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "fill the space in a furo-xxxx-flex",
+          "tagName": "furo-empty-spacer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-empty-spacer",
+          "declaration": {
+            "name": "FuroEmptySpacer",
+            "module": "src/furo-empty-spacer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-horizontal-flex.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-horizontal-flex`\n\n Für horizontales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```html\n<furo-horizontal-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-horizontal-flex>\n```\n Tags: layout",
+          "name": "FuroHorizontalFlex",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "horizontal alignment",
+          "tagName": "furo-horizontal-flex",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-horizontal-flex",
+          "declaration": {
+            "name": "FuroHorizontalFlex",
+            "module": "src/furo-horizontal-flex.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-panel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-panel`\nSimple content panel with predefined margins.\n\n### Styling\nThe following custom properties are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-panel-margin` | Margin size | 0 var(--spacing-s) 0 var(--spacing-s) | --",
+          "name": "FuroPanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "bordered",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Gives the panel a border",
+              "attribute": "bordered",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "marginM",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Changes margin to spacing-m",
+              "attribute": "margin-m",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "marginL",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "margin-l",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "bordered",
+              "description": "Gives the panel a border",
+              "fieldName": "bordered"
+            },
+            {
+              "name": "margin-m",
+              "description": "Changes margin to spacing-m",
+              "fieldName": "marginM"
+            },
+            {
+              "name": "margin-l",
+              "fieldName": "marginL"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "content panel with predefined margins",
+          "tagName": "furo-panel",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-panel",
+          "declaration": {
+            "name": "FuroPanel",
+            "module": "src/furo-panel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-resizer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-resizer`\n container which let you resize its width.\n\n Doubleclick on the handler to reset the width.\n You need a counter part which flexes.\n\n```html\n  <furo-horizontal-flex>\n    <div flex> the flexible part </div>\n    <!-- you have to set at leas one handle to resize the content -->\n    <furo-resizer righthandle remember=\"logv\" minwidth=\"280\" maxwidth=\"780\">\n      <some-content></some-content>\n    </furo-resizer>\n  </furo-horizontal-flex>\n```",
+          "name": "FuroResizer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_unregister",
+              "description": "remove the listeners",
+              "privacy": "private",
+              "default": "() => {\n      window.removeEventListener('mousemove', this._movementHandler);\n      window.removeEventListener('mouseup', this._unregister);\n      // set cursor to avoid flickering\n      this.parentNode.style.cursor = '';\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_movementHandler",
+              "description": "capture the mouse movement and resize the width",
+              "parameters": [
+                {
+                  "description": "MouseEvent",
+                  "name": "e"
+                }
+              ],
+              "privacy": "private",
+              "default": "e => {\n      const delta = (e.screenX - this._positions.x) * this._handleLRM;\n\n      // todo request animation frame\n      let width = this._startwidth + delta;\n\n      if (this.minwidth && width + 3 < this.minwidth) {\n        width = this.minwidth;\n        this._unregister();\n      }\n      if (this.maxwidth && width - 3 > this.maxwidth) {\n        width = this.maxwidth;\n        this._unregister();\n      }\n\n      this.resizer.style.width = `${width}px`;\n      if (this.remember) {\n        sessionStorage.setItem(this.remember, width);\n      }\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_startTrackingLeft",
+              "description": "register the left handler",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ],
+              "privacy": "private",
+              "default": "e => {\n      this._handleLRM = -1;\n      this._startTracking(e);\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_startTrackingRight",
+              "description": "register the right handler",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ],
+              "privacy": "private",
+              "default": "e => {\n      this._handleLRM = 1;\n      this._startTracking(e);\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_startTracking",
+              "description": "Start mouse move tracking",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ],
+              "privacy": "private",
+              "default": "e => {\n      e.preventDefault();\n      window.addEventListener('mousemove', this._movementHandler);\n      window.addEventListener('mouseup', this._unregister);\n      this._positions.x = e.screenX;\n      this._startwidth = this.getBoundingClientRect().width;\n\n      // set cursor to avoid flickering\n      this.parentNode.style.cursor = 'col-resize';\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "resetSize",
+              "description": "removes remember and set to the initial size",
+              "default": "() => {\n      if (this.initialWidthSetByStyle) {\n        this.resizer.style.width = `${this.initialWidthSetByStyle}`;\n      } else {\n        this.resizer.style.removeProperty('width');\n      }\n\n      if (this.remember) {\n        sessionStorage.removeItem(this.remember);\n      }\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "lefthandle",
+              "privacy": "public",
+              "description": "add a handle to the left side",
+              "attribute": "lefthandle"
+            },
+            {
+              "kind": "field",
+              "name": "righthandle",
+              "privacy": "public",
+              "description": "add a handle to the right side",
+              "attribute": "righthandle"
+            },
+            {
+              "kind": "field",
+              "name": "remember",
+              "privacy": "public",
+              "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
+              "attribute": "remember"
+            },
+            {
+              "kind": "field",
+              "name": "maxwidth",
+              "privacy": "public",
+              "description": "Set the maximal width of the resizer",
+              "attribute": "maxwidth"
+            },
+            {
+              "kind": "field",
+              "name": "minwidth",
+              "privacy": "public",
+              "description": "Set the minimal width of the resizer",
+              "attribute": "minwidth"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "lefthandle",
+              "description": "add a handle to the left side",
+              "fieldName": "lefthandle"
+            },
+            {
+              "name": "righthandle",
+              "description": "add a handle to the right side",
+              "fieldName": "righthandle"
+            },
+            {
+              "name": "remember",
+              "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
+              "fieldName": "remember"
+            },
+            {
+              "name": "maxwidth",
+              "description": "Set the maximal width of the resizer",
+              "fieldName": "maxwidth"
+            },
+            {
+              "name": "minwidth",
+              "description": "Set the minimal width of the resizer",
+              "fieldName": "minwidth"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "resizable box",
+          "tagName": "furo-resizer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-resizer",
+          "declaration": {
+            "name": "FuroResizer",
+            "module": "src/furo-resizer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-ripple.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-ripple` gives the ripple effect to a element\n\n > Note: Add a `position:relative` to the parent element.\n\n use it directly in an element:\n<furo-demo-snippet source>\n<template>\n<!-- without position relative -->\n <button>\n      click here\n     <furo-ripple></furo-ripple>\n </button>\n</template>\n</furo-demo-snippet>\n\n## trigger the ripple effect via wire\n<furo-demo-snippet source>\n<template>\n<button @-click=\"--actionClicked\">\n      click here\n</button>\n\n<div style=\"position:relative; width:80px;height:80px; border:1px solid black;\">\n  <furo-ripple noink ƒ-trigger=\"--actionClicked\"></furo-ripple>\n  Ripple here\n</div>\n</template>\n</furo-demo-snippet>\n\n\n## style vars\n with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect",
+          "name": "FuroRipple",
+          "members": [
+            {
+              "kind": "method",
+              "name": "trigger",
+              "description": "animate the ripple effect"
+            },
+            {
+              "kind": "field",
+              "name": "noink",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Disables the click, only ripples with `trigger()`",
+              "attribute": "noink",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "noink",
+              "description": "Disables the click, only ripples with `trigger()`",
+              "fieldName": "noink"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "add a ripple effect",
+          "tagName": "furo-ripple",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-ripple",
+          "declaration": {
+            "name": "FuroRipple",
+            "module": "src/furo-ripple.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-split-grid.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`split-grid` will split your screen contents horizontally (in cols) and put them vertically (left at top) when the available space is to small.\n\n```html\n <!-- a simple layout manager with two columns  -->\n<furo-split-grid padding>\n  <div hspan=\"2\" full-on-size-medium full-on-size-small class=\"left\">\n     <slot name=\"left\"></slot>\n  </div>\n  <!-- this will start at pos 3 and goes to the end of the screen -->\n  <furo-z-grid hstart=\"3\" fill>\n    <slot></slot>\n  </furo-z-grid>\n</furo-split-grid>\n```\n\n## Setting column width\nTo set the width of a column use the `hspan` attribute.\n\n## Fill column to the end of the screen\nTo make a column that uses the available space you have to set a starting point. This can be done with `hstart=\"3\"`\n(begin on cell 3) and the attribute `fill` (fill to the right)\n\n ## full-on-[size]\n To set full width on a specific current size, use `full-on-size-small` , `full-on-size-medium` , `full-on-size-large` ,`full-on-size-xlarge`.\n\n When the available space has the given size, the default hspan are overridden and the full width is used.\n\n ## hstart\n Set the starting point of a filling row with `hstart=\"3\"`.\n\n Available values are `hstart=\"2\"`,...,`hstart=\"9\"`\n\n ## hspan\n Set the horizontal space (the width) with the *hspan* attribute.\n\n Available ranges are from 1 to 9.\n\n `hspan=\"1\"`, `hspan=\"2\"`,...,`hspan=\"9\"`\n\n## Named lines and columns\n**last-col** refers to the last column.\nThere is no line name available",
+          "name": "FuroSplitGrid",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_checkSize",
+              "parameters": [
+                {
+                  "name": "size"
+                }
+              ],
+              "description": "Form breakpoints according to SAP Fiori Design System\nhttps://experience.sap.com/fiori-design-web/form/",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "sizeSmall",
+              "privacy": "public",
+              "description": "Breakpoint size for small",
+              "attribute": "size-small"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size-small",
+              "description": "Breakpoint size for small",
+              "fieldName": "sizeSmall"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "a grid splitter",
+          "tagName": "furo-split-grid",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-split-grid",
+          "declaration": {
+            "name": "FuroSplitGrid",
+            "module": "src/furo-split-grid.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-split-view.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-split-view`  is a layouter for master detail views.\n\nYou can add the attribute scroll on the detail view to make the content scrollable.\n\n\n```html\n<furo-split-view>\n  <div slot=\"master\">Master</div>\n  <big-component scroll> </big-component>\n</furo-split-view>\n```\n### Styling\nThe following custom properties are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--split-master-width` | width of the master slot | 270px | --\n\nLeft right layout for master detail views",
+          "name": "FuroSplitView",
+          "members": [
+            {
+              "kind": "field",
+              "name": "reverse",
+              "privacy": "public",
+              "description": "flip the left and right side",
+              "attribute": "reverse"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "reverse",
+              "description": "flip the left and right side",
+              "fieldName": "reverse"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "splitted layout",
+          "tagName": "furo-split-view",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-split-view",
+          "declaration": {
+            "name": "FuroSplitView",
+            "module": "src/furo-split-view.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-vertical-flex.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-vertical-flex`\n\n Für vertikales anordnen von Komponenten. Die Höhe ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```html\n<furo-vertical-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-vertical-flex>\n```\n Tags: layout",
+          "name": "FuroVerticalFlex",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "vertical alignment of stuff",
+          "tagName": "furo-vertical-flex",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-vertical-flex",
+          "declaration": {
+            "name": "FuroVerticalFlex",
+            "module": "src/furo-vertical-flex.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-vertical-scroller.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-vertical-scroller`\n\n```html\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
+          "name": "FuroVerticalScroller",
+          "members": [],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "vertical scroll",
+          "tagName": "furo-vertical-scroller",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-vertical-scroller",
+          "declaration": {
+            "name": "FuroVerticalScroller",
+            "module": "src/furo-vertical-scroller.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-z-grid.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`z-grid` is a grid which places your elements in a **z** pattern.\n\nIt creates a grid which can be imagined as a grid with cells of the size *8rem x 8rem*.~\n\nThe size on the x-axis can vary a little bit, according to the the available space.\n\nThis component is nestable.\n\n```html\n\n <furo-z-grid>\n   <your-component hspace=\"2\" vspace=\"4\"></your-component>\n   <your-component hspace=\"2\" vspace=\"2\"></your-component>\n </furo-z-grid>\n\n <!-- with automatic padding -->\n <furo-z-grid padding>\n   <your-component hspan=\"2\" vspan=\"4\"></your-component>\n   <your-component hspan=\"2\" vspan=\"2\"></your-component>\n </furo-z-grid>\n```\n ## sizes\n The sizes are calculated from the available space that the grid becomes from its parent.\n\n ### Sizes are calculated as following\n\n ```\n  |  small  |   medium   |    large    |    xlarge   |\n  |         |            |             |             |\n  | 0...599 | 600...1023 | 1024...1439 | 1440...nnnn |\n\n ```\n\n ## hspan\n Set the horizontal space (the width) with the *hspan* attribute.\n\n Available ranges are from 1 to 9 and full.\n\n To tell a element that it has to use the full width use `hspan=\"full\"` or use the alias `full` or `full-width`.\n\n `hspan=\"1\"`, `hspan=\"2\"`,...,`hspan=\"9\"`, `hspan=\"full\"`\n\n ## vspan\n Set the vertical space (the height) with the *vspan* attribute.\n\n Available ranges are from 1 to 9.\n\n `vspan=\"1\"`, `vspan=\"2\"`,...,`vspan=\"9\"`\n\n ## newline\n To force a placement on a new line use `newline`\n\n ## padding\n Set the attribute *padding* to add paddings according to the size of the furo-z-grid automatically.\n\n :host([size='size-s']) ==> **0.25rem 1rem;**\n\n :host([size='size-m'] ==> **0.25rem 2rem;**\n\n :host([size='size-l'] ==> **1rem 2rem;**\n\n :host([size='size-xl'] ==> **1rem 3rem;**\n\n\n\n ## full-on-[size]\n To set full width on a specific current size, use `full-on-size-small` , `full-on-size-medium` , `full-on-size-large` ,`full-on-size-xlarge`.\n\n When the available space has the given size, the default hspan are overridden and the full width is used.\n\n ## hide-on-[size]\n To hide a element on a specific current size, use `hide-on-size-small` , `hide-on-size-medium` , `hide-on-size-large` ,`hide-on-size-xlarge`.\n\n ## show-on-[size]\n To show a element only on a specific current size, use `show-on-size-small` , `show-on-size-medium` , `show-on-size-large` ,`show-on-size-xlarge`.\n\n ## custom span sizes on different sizes (hspan-on-[size])\n To set a specific width (hspan) on a specific current size, use `hspan-on-size-small=\"1...9\"` , `hspan-on-size-medium=\"1...9\"` , `hspan-on-size-large=\"1...9\"` , `hspan-on-size-xlarge=\"1...9\"` .\n\n ## Ohter attributes\n\n The attributes *full* and *full-width* are aliases for `hspan=\"full\"`.\n\n## Named lines and columns\n**last-col** refers to the last column.\n**last-row** refers to the last line/row.",
+          "name": "FuroZGrid",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_checkSize",
+              "parameters": [
+                {
+                  "name": "size"
+                }
+              ],
+              "description": "Form breakpoints according to SAP Fiori Design System\nhttps://experience.sap.com/fiori-design-web/form/",
+              "privacy": "private"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "grid with a z pattern",
+          "tagName": "furo-z-grid",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-z-grid",
+          "declaration": {
+            "name": "FuroZGrid",
+            "module": "src/furo-z-grid.js"
+          }
+        }
+      ]
+    }
+  ]
+}

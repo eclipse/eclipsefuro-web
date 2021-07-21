@@ -1,0 +1,595 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/EventTreeNode.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Custom event type for the AST",
+          "name": "NodeEvent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "stopPropagation"
+            },
+            {
+              "kind": "method",
+              "name": "stopBroadcast"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "description": "Event type / name",
+              "type": {
+                "text": "string"
+              },
+              "default": "type"
+            },
+            {
+              "kind": "field",
+              "name": "path",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "undefined"
+              },
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "bubbles",
+              "description": "should the Event bubble",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "bubbles"
+            },
+            {
+              "kind": "field",
+              "name": "detail",
+              "description": "Event details",
+              "type": {
+                "text": "*"
+              },
+              "default": "detail"
+            },
+            {
+              "kind": "field",
+              "name": "cancelBubble",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "If you are in a parent element and set this to true it will not bubble",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "cancelBroadcast",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "if you are in a child element and set this to true, the event will not broadcast downwards",
+              "default": "false"
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "description": "Simulates a tree which can handle events and broadcast events to all nodes",
+          "name": "EventTreeNode",
+          "members": [
+            {
+              "kind": "method",
+              "name": "moveNode",
+              "parameters": [
+                {
+                  "name": "oldIndex"
+                },
+                {
+                  "name": "newIndex"
+                }
+              ],
+              "description": "move the position of an item from an index to an index.\n\nKeep in mind that this is not swaping!\n\nhttps://stackoverflow.com/questions/5306680/move-an-array-element-from-one-array-position-to-another"
+            },
+            {
+              "kind": "method",
+              "name": "addChildProperty",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "treeNode"
+                }
+              ],
+              "description": "shorthand function to add a property as child node",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "addEventListener",
+              "parameters": [
+                {
+                  "name": "type"
+                },
+                {
+                  "name": "handler"
+                },
+                {
+                  "name": "options",
+                  "default": "{}",
+                  "description": "for once,..."
+                }
+              ],
+              "description": "Add a listener to a node"
+            },
+            {
+              "kind": "method",
+              "name": "removeEventListener",
+              "parameters": [
+                {
+                  "name": "type"
+                },
+                {
+                  "name": "handler"
+                }
+              ],
+              "description": "Removes the listener from a node"
+            },
+            {
+              "kind": "method",
+              "name": "dispatchNodeEvent",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "NodeEvent"
+                  }
+                }
+              ],
+              "description": "Dispatch an event",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "broadcastEvent",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ],
+              "description": "Broadcast the event to node and all childNodes and their childNodes\nBubbling is ignored, but propagation can be stopped",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "__triggerNodeEvents",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "__parentNode",
+              "default": "parentNode"
+            },
+            {
+              "kind": "field",
+              "name": "__eventListener",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "__childNodes",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NodeEvent",
+          "declaration": {
+            "name": "NodeEvent",
+            "module": "src/EventTreeNode.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "EventTreeNode",
+          "declaration": {
+            "name": "EventTreeNode",
+            "module": "src/EventTreeNode.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/environment.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "This class stores your environment data,\n- like the api services and types, which is used by the data components\n- the current locale, which is used by the i18n package\n- the acceptLanguage, which is used by the data components",
+          "name": "Env"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Env",
+          "declaration": {
+            "name": "Env",
+            "module": "src/environment.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Env",
+          "declaration": {
+            "name": "Env",
+            "module": "./environment.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "i18n",
+          "declaration": {
+            "name": "i18n",
+            "module": "./i18n.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Init",
+          "declaration": {
+            "name": "Init",
+            "module": "./system.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Sys",
+          "declaration": {
+            "name": "Sys",
+            "module": "./system.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Theme",
+          "declaration": {
+            "name": "Theme",
+            "module": "./theme.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Iconset",
+          "declaration": {
+            "name": "Iconset",
+            "module": "./iconset.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/i18n.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The built in i18n is a trivial translation mechanism which translates keys (words)\na method for pluralized keys (words with numbers) is available but not implemented.\n\nYou can override the builtin methods in your init file, as long you keep *i18n.t* and *i18n.n*\n\n\n## Usage\nAfter you have registered a translation file, you can use **i18n** in your components.\n\n\n```javascript\n// import i18n\nimport {i18n} from \"@furo/framework/src/i18n\"\n\n// use it in your source\n let label = i18n.t(\"key\");\n\n// use it in your template like this\n  render() {\n    // language=HTML\n    return html` <div>${i18n.t(\"key\")}</div>`;\n }\n\n```\n\n## Register a translation file and use custom translation methods\nRegister i18n in the init phase of your application.\n\n```javascript\nimport {Init, i18n, Env, Iconset} from \"@furo/framework/src/furo.js\";\n\n// import your translations\nimport {Translations} from \"./translations\";\n\n// register your translations\ni18n.registerResBundle(Translations);\n\n// Apply custom Intl methods\ni18n.t = (key) => {\n   let b = i18n.resbundle[Env.locale.toLowerCase().replace(\"-\", \"_\")] || i18n.resbundle['de_ch'];\n\n   if (b === undefined) {\n       console.warn('No resource bundle with locale ' + Env.locale + ' exists.');\n       return\n   }\n\n   const res = key.split('.').reduce((acc, part) => acc && acc[part], b);\n   return  (res ? res : key + '**');\n};\n// Apply custom Intl methods for pluralized keys\ni18n.n = (key, num) => {\n   let t = i18n.resbundle[Env.locale.toLowerCase().replace(\"-\", \"_\")] || i18n.resbundle['de_ch'];\n\n   if (t === undefined) {\n       console.warn('No resource bundle with locale ' + Env.locale + ' exists.');\n       return\n   }\n\n   let p = key.split(\".\");\n   for (let i = 0; i < p.length; i++) {\n       if (t[p[i]]) {\n           t = t[p[i]];\n       } else {\n           console.warn(\"key does not exist\", key);\n           return;\n       }\n   }\n\n   if (t) {\n       if (num === 1) {\n           if (t.one) {\n               return t.one(num);\n           } else {\n               console.warn(\"key does not exist\", key + \".one\");\n               return num;\n           }\n       }\n       if (num > 1) {\n           if (t.many) {\n               return t.many(num);\n           } else {\n               console.warn(\"key does not exist\", key + \".many\");\n               return num;\n           }\n       }\n       if (t.none) {\n           return t.none(num);\n       } else {\n           console.warn(\"key does not exist\", key + \".none\");\n           return num;\n       }\n\n   }\n};\n\n```",
+          "name": "i18n",
+          "members": [
+            {
+              "kind": "method",
+              "name": "registerResBundle",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "bundle"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "t",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "key"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "n",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "key"
+                },
+                {
+                  "name": "num"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "i18n",
+          "declaration": {
+            "name": "i18n",
+            "module": "src/i18n.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/iconset.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`Iconset` class , works together with `furo-icon`\n\nto use furo-icon you should\nfirst import a svg set of icons and register it to Iconset\n\nThe complete [list of the built in icons](?t=demo-FuroIcon-0) can be found here.\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n\n```javascript\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\n```\n\nthen import the iconset and register it\n\n```javascript\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/src/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nafter registering you can use those icons in furo-icon in any other component\n\n```html\n<furo-icon icon=\"iconSetName:iconName\" ></furo-icon>\n```\n\n\nIcons from the default set can be used without the set name:\n```html\n<furo-icon icon=\"iconName\" ></furo-icon>\n```",
+          "name": "Iconset",
+          "members": [
+            {
+              "kind": "method",
+              "name": "registerIconset",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "setName"
+                },
+                {
+                  "name": "icons"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "get",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "setName"
+                },
+                {
+                  "name": "iconName"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Iconset",
+          "declaration": {
+            "name": "Iconset",
+            "module": "src/iconset.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/system.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The init class is used to init your *Env*, the API services and the API types.\n\nUse the init package in the init phase of your application\n\n## example init\n\n\n```javascript\n// -- initialize application env, theme, api\nimport  {Init,Iconset} from \"@furo/framework/src/furo.js\";\nimport {Services, Types} from \"@furo/specs/build/data_environment.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n//Attention: Styling is defined in main-stage\nimport {FuroBaseIcons} from \"@furo/icon/assets/iconsets/baseIcons\";\nimport {MapsIcons} from \"@furo/icon/assets/iconsets/mapsIcons\";\nimport {PlacesIcons} from \"@furo/icon/assets/iconsets/placesIcons\";\nimport {CommunicationIcons} from \"@furo/icon/assets/iconsets/communicationIcons\";\nimport {NotificationIcons} from \"@furo/icon/assets/iconsets/notificationIcons\";\nimport {FuroDocIcons} from \"./assets/iconset\";\nimport {AvIcons} from \"@furo/icon/assets/iconsets/avIcons\";\nimport {DeviceIcons} from \"@furo/icon/assets/iconsets/deviceIcons\";\nimport {EditorIcons} from \"@furo/icon/assets/iconsets/editorIcons\";\nimport {SocialIcons} from \"@furo/icon/assets/iconsets/socialIcons\";\nimport {HardwareIcons} from \"@furo/icon/assets/iconsets/hardwareIcons\";\nimport {ImageIcons} from \"@furo/icon/assets/iconsets/imageIcons\";\n\n\nIconset.registerIconset(\"furo\", FuroDocIcons);\nIconset.registerIconset(\"default\", FuroBaseIcons);\nIconset.registerIconset(\"av\", AvIcons);\nIconset.registerIconset(\"communication\", CommunicationIcons);\nIconset.registerIconset(\"device\", DeviceIcons);\nIconset.registerIconset(\"editor\", EditorIcons);\nIconset.registerIconset(\"social\", SocialIcons);\nIconset.registerIconset(\"places\", PlacesIcons);\nIconset.registerIconset(\"notification\", NotificationIcons);\nIconset.registerIconset(\"map\", MapsIcons);\nIconset.registerIconset(\"hardware\", HardwareIcons);\nIconset.registerIconset(\"image\", ImageIcons);\n\n```",
+          "name": "Init",
+          "members": [
+            {
+              "kind": "method",
+              "name": "registerEnv",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "data"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "registerApiServices",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "services"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "registerApiTypes",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "types"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "addApiTypeSpec",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "typename"
+                },
+                {
+                  "name": "spec"
+                }
+              ],
+              "description": "Add a single type spec to the registry\n\nAttention: If the name already exist, the old entry is overwritten."
+            },
+            {
+              "kind": "method",
+              "name": "addApiServiceSpec",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "servicename"
+                },
+                {
+                  "name": "spec"
+                }
+              ],
+              "description": "Add a single service spec to the registry\n\nAttention: If the name already exist, the old entry is overwritten."
+            },
+            {
+              "kind": "method",
+              "name": "applyCustomApiPrefixToServicesAndTypes",
+              "static": true,
+              "description": "Apply the prefix to all service deeplinks and to all furo.Reference types with defaults",
+              "parameters": [
+                {
+                  "name": "prefix"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "translateStaticTypeMessages",
+              "static": true,
+              "description": "Translates spec content like meta.label, hints"
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "description": "Sys allows you to set the locale",
+          "name": "Sys",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setLocale",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "locale"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Init",
+          "declaration": {
+            "name": "Init",
+            "module": "src/system.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Sys",
+          "declaration": {
+            "name": "Sys",
+            "module": "src/system.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/theme.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not \"standard\". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css.\n\nIt is recommended to keep the original style vars when writing a theme set, this gives you the possibility to change themes, without the need to style them again.\n\n## register a themeset\nYou have to register the desired themeset, before your app starts. Otherwise the default themeset will be applied.\nThe best way is to do it in your `index.html`.\n\n```\n<script type=\"module\">\nimport {Init,Sys, Theme} from \"@furo/framework\";\nimport {MyThemeset} from \"./custom/themeset\"\nTheme.registerThemeset(MyThemeset);\n...\n```\n\n\n## Apply themeing your components\nApplying a theme to a component can be achieved by:\n\n```\nimport {Theme} from \"@furo/framework/src/theme\"\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n\nreturn Theme.getThemeForComponent(this.name) || css`\n   :host {\n       height: 100%;\n   }\n   side-navigation {\n       background-color: var(--nav-color);\n   }\n`\n}\n\n```\n\nto apply theming to your main app:\n\n```js\nimport {Theme} from \"@furo/framework/src/theme\"\n\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n   let theme = Theme.getThemeForComponent(this.name);\n   if (theme) {\n       return [theme, Styling.theme]\n   } else {\n       // language=CSS\n       return [css`\n           :host {\n               display: block;\n               height: 100vh;\n               overflow: hidden;\n           }\n       `, Styling.theme]\n   }\n}\n\n```\n\n## Writing a themeset\n\nIf you want to know, how to write a themeset, just visit the [Guide](https://furo.pro/guide/md/theming/) or look at the\n[example](https://github.com/veith/FuroBaseComponents/blob/master/packages/furo-framework/themes/default_theme.js).",
+          "name": "Theme",
+          "members": [
+            {
+              "kind": "method",
+              "name": "getThemeForComponent",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "componentName"
+                }
+              ],
+              "description": "Get the theme for the component if it exists",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "registerThemeset",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "theme"
+                }
+              ],
+              "description": "Register a themeset"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Theme",
+          "declaration": {
+            "name": "Theme",
+            "module": "src/theme.js"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1001 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-app-flow-router.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-app-flow-router`\n\nUse this component with app-flow and furo-pages to implement application flow\n\n\n```html\n   <app-flow-router ƒ-.config=\"--flowConfigLoaded\" ƒ-trigger=\"--flowEvent\" ƒ-back=\"--wire\" ƒ-forward=\"--wire\"></app-flow-router>\n```\n\n *Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"],\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK: https://google.com/\"]\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK:\", *]\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n ## Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link\n - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**\n - if you want to trigger a history.back() use the **HISTORY-BACK**\n - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual",
+          "name": "FuroAppFlowRouter",
+          "members": [
+            {
+              "kind": "method",
+              "name": "back",
+              "description": "trigger a history back"
+            },
+            {
+              "kind": "method",
+              "name": "forward",
+              "description": "trigger a history forward"
+            },
+            {
+              "kind": "method",
+              "name": "setConfig",
+              "parameters": [
+                {
+                  "name": "config"
+                }
+              ],
+              "description": "Set the config"
+            },
+            {
+              "kind": "method",
+              "name": "trigger",
+              "parameters": [
+                {
+                  "name": "flowEvent"
+                }
+              ],
+              "description": "Trigger the router",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "description": "The Configuration Array",
+              "privacy": "public",
+              "attribute": "config"
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'"
+            },
+            {
+              "kind": "field",
+              "name": "urlSpaceRegex",
+              "type": {
+                "text": "string|RegExp"
+              },
+              "description": "default value of urlSpaceRegex. this value can be rewritten via `url-space-regex` attribute",
+              "default": "''",
+              "privacy": "public",
+              "attribute": "url-space-regex"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": " Fired when before the state will be updated.",
+              "name": "__beforeReplaceState"
+            },
+            {
+              "type": {
+                "text": "flowEvent"
+              },
+              "description": " Fired when page was changed.",
+              "name": "view-changed"
+            },
+            {
+              "type": {
+                "text": "flowEvent"
+              },
+              "description": " Fired when view was not found.",
+              "name": "event-not-found"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "config",
+              "description": "The Configuration Array",
+              "fieldName": "config"
+            },
+            {
+              "name": "url-space-regex",
+              "description": "attribute url-space-regex\nA regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app do:\n    url-space-regex=\"^/app\"",
+              "type": {
+                "text": "string|RegExp"
+              },
+              "fieldName": "urlSpaceRegex"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Application Flow => routing",
+          "tagName": "furo-app-flow-router",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-app-flow-router",
+          "declaration": {
+            "name": "FuroAppFlowRouter",
+            "module": "src/furo-app-flow-router.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-app-flow.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-app-flow` triggers the flow events for the `app-flow-router`.",
+          "name": "FuroAppFlow",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setQp",
+              "parameters": [
+                {
+                  "name": "qp"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "qp",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "trigger"
+            },
+            {
+              "kind": "method",
+              "name": "emit",
+              "parameters": [
+                {
+                  "name": "queryParams"
+                },
+                {
+                  "description": "Object",
+                  "name": "QueryParam",
+                  "type": {
+                    "text": "object|QueryParams"
+                  }
+                }
+              ],
+              "description": "fire the app-flow event"
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'"
+            },
+            {
+              "kind": "field",
+              "name": "event",
+              "privacy": "public",
+              "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
+              "attribute": "event"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "data"
+              },
+              "description": " App-flow event with app-flow object will be fired when you trigger the `emit` function.",
+              "name": "app-flow"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "event",
+              "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
+              "fieldName": "event"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Application Flow => routing",
+          "tagName": "furo-app-flow",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-app-flow",
+          "declaration": {
+            "name": "FuroAppFlow",
+            "module": "src/furo-app-flow.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-document-title.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-document-title`\n\n Updates the document title and set navigation waypoints.\n\n ## Structure of the title\n The title is built up from 3 parts (`prefix`, `title`, `suffix`). Each of them can be set by attribute or a setter method. The `title` and `suffix` part can be set with a fieldnode from a `furo-data-object`.\n\n `document.title = prefix + title + suffix`\n\n ## Waypoints\n Waypoints are pushed to the browser history and allows you to navigate with the back and forward buttons of the browser.\n To return to the last waypoint within your app, you have to trigger a `history.back()`. Read more about the history API [here](https://developer.mozilla.org/en-US/docs/Web/API/History).\n\n If you use `furo-app-flow` you can send the **history-back** event.\n\n Views and pages without a waypoint are not stored in the history.\n\n ```\n [a]-->[b]-->[.]-->[.]-->[.]-->[c]\n        ▲                       │\n        └───────────────────────┘\n        By clicking the back button you will return to b\n\n ```\n\n ## Usage example\n\n ```html\n  <furo-document-title\n    prefix=\"${i18n.t('prefix.label')} [\"\n    ƒ-bind-title=\"--DataObject(*.display_name)\"\n    suffix=\"]\"\n    ƒ-set-waypoint=\"--pageActivated\"\n  ></furo-document-title>\n ```\n The document title will be set to: `PrefixLabel [display_name_value]`",
+          "name": "FuroDocumentTitle",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setWaypoint"
+            },
+            {
+              "kind": "method",
+              "name": "activate",
+              "description": "Set the document title with the current prefix title suffix. Without setting a waypoint."
+            },
+            {
+              "kind": "method",
+              "name": "_setDocumentTitle",
+              "description": "Renders the title and set it as document title"
+            },
+            {
+              "kind": "method",
+              "name": "setSuffix",
+              "parameters": [
+                {
+                  "name": "s"
+                }
+              ],
+              "description": "Updates the suffix"
+            },
+            {
+              "kind": "method",
+              "name": "setTitle",
+              "parameters": [
+                {
+                  "name": "title",
+                  "description": "string"
+                }
+              ],
+              "description": "Updates the title"
+            },
+            {
+              "kind": "method",
+              "name": "bindSuffix",
+              "parameters": [
+                {
+                  "name": "fieldnode"
+                }
+              ],
+              "description": "Bind a fieldnode to auto update the suffix"
+            },
+            {
+              "kind": "method",
+              "name": "bindTitle",
+              "parameters": [
+                {
+                  "name": "fieldnode"
+                }
+              ],
+              "description": "Bind a fieldnode to auto update the title"
+            },
+            {
+              "kind": "field",
+              "name": "prefix",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "prefix part, you can also use `setPrefix()`.`",
+              "attribute": "prefix"
+            },
+            {
+              "kind": "field",
+              "name": "title",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "Title part, you can also use `setTitle()` or `bindTitle().`",
+              "attribute": "title"
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "Suffix part, you can also use `setSuffix()` or `bindSuffix().`",
+              "attribute": "suffix"
+            }
+          ],
+          "events": [
+            {
+              "name": "waypoint-pushed",
+              "type": {
+                "text": "Event"
+              },
+              "description": " Fired when the waypoint is finaly pushed to the browser history."
+            },
+            {
+              "name": "waypoint-canceled",
+              "type": {
+                "text": "Event"
+              },
+              "description": " Fired when the waypoint was set but not pushed to the history, because the user navigated back."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "title",
+              "description": "Title part, you can also use `setTitle()` or `bindTitle().`",
+              "fieldName": "title"
+            },
+            {
+              "name": "prefix",
+              "description": "prefix part, you can also use `setPrefix()`.`",
+              "fieldName": "prefix"
+            },
+            {
+              "name": "suffix",
+              "description": "Suffix part, you can also use `setSuffix()` or `bindSuffix().`",
+              "fieldName": "suffix"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Document title",
+          "tagName": "furo-document-title",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-document-title",
+          "declaration": {
+            "name": "FuroDocumentTitle",
+            "module": "src/furo-document-title.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-location-updater.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-location-updater`\nupdates parts of the url location with pushState\n\nYou can set query params and hashes. Use this component for proper deep linking.\nThe furo-location component will fire the location events as usual.\n\n```html\n <furo-location-updater ƒ-set-qp=\"--QueryParamKeyValuePairs\" ƒ-set-hash=\"--HashKeyValuePairs\"></furo-location-updater>\n```",
+          "name": "FuroLocationUpdater",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setQp",
+              "parameters": [
+                {
+                  "name": "newQP"
+                }
+              ],
+              "description": "Set query params by giving an object with key-value pairs.\n\nKeep in mind, that this values goes to the url, so setting objects as values is not a good idea"
+            },
+            {
+              "kind": "method",
+              "name": "setHash",
+              "parameters": [
+                {
+                  "name": "newHASH"
+                }
+              ],
+              "description": "Set hash values by giving an object with key-value pairs.\n\nKeep in mind, that this values goes to the url, so setting objects as values is not a good idea"
+            },
+            {
+              "kind": "field",
+              "name": "clearQp",
+              "privacy": "public",
+              "description": "Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`",
+              "attribute": "clear-qp"
+            },
+            {
+              "kind": "field",
+              "name": "clearHash",
+              "privacy": "public",
+              "description": "Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`",
+              "attribute": "clear-hash"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Number"
+              },
+              "description": " Fired when before the state will be updated, with `window.performance.now()`.",
+              "name": "__beforeReplaceState"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "clear-qp",
+              "description": "Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`",
+              "fieldName": "clearQp"
+            },
+            {
+              "name": "clear-hash",
+              "description": "Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`",
+              "fieldName": "clearHash"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "deep linking helper",
+          "tagName": "furo-location-updater",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-location-updater",
+          "declaration": {
+            "name": "FuroLocationUpdater",
+            "module": "src/furo-location-updater.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-location.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-location`\n Somethin like iron-location",
+          "name": "FuroLocation",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_getHrefFromLocation"
+            },
+            {
+              "kind": "method",
+              "name": "_registerHandler",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_findAtagInPath",
+              "parameters": [
+                {
+                  "name": "path"
+                }
+              ],
+              "description": "look for A tags in a path array from click events",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean|*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_notifyFuroLocationChanged",
+              "description": "Internal notyfication",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'"
+            },
+            {
+              "kind": "field",
+              "name": "_location",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      host: window.location.host,\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "urlSpaceRegex",
+              "type": {
+                "text": "string|RegExp"
+              },
+              "description": "A regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app/ do:\n    url-space-regex=\"^/app/\"\n\nIf you plan to work in sub directories, you may set **url-space-regex=\"^${window.APPROOT}/additional/path\"**.\nKeep in mind to put a \"url-space-regex\" on every furo-location. Otherwise you can not switch between apps in different\nfolders with a link.",
+              "default": "''",
+              "privacy": "public",
+              "attribute": "url-space-regex"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Location object"
+              },
+              "description": " Fired when Path portion of the location changed",
+              "name": "location-path-changed"
+            },
+            {
+              "type": {
+                "text": "Location object"
+              },
+              "description": " Fired when Hash portion of the location changed",
+              "name": "location-hash-changed"
+            },
+            {
+              "type": {
+                "text": "Location object"
+              },
+              "description": " Fired when Query portion of the location changed",
+              "name": "location-query-changed"
+            },
+            {
+              "type": {
+                "text": "Location object"
+              },
+              "description": " Fired when something in the location changed",
+              "name": "location-changed"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": " Fired when before the state will be updated",
+              "name": "__beforeReplaceState"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "url-space-regex",
+              "description": "RegExp",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "urlSpaceRegex"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "url watcher",
+          "tagName": "furo-location",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-location",
+          "declaration": {
+            "name": "FuroLocation",
+            "module": "src/furo-location.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-pages.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-pages` is used to select one of its children to show.\n\nUse this to build tabs, views, subviews,...\n\n### preconditions:\nYou have to implement a `:host([hidden]){display:none}` in your views css.\n\n### flowbased auto wires\nfuro-pages provides auto wires, which are automatically triggered in the child elements if\nthey have flowbased enabled.\n\n| wire               | timing           |\n|:-------------------|:-----------------|\n| --pageDeActivated  | Every time the element changes to hidden   |\n| --pageActivated    | Triggered when the element is activated. Comes with a location object.\n| --pageQueryChanged  | Triggered when the page query changes. Comes with a location object.\n| --pageHashChanged  | Triggered when the page hash changes. Comes with a location object.\n\n## Attributes\n**default** set the default page to show\n\n**attr-for-selected** *(default: selected)*\n\n\nIf you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.",
+          "name": "FuroPages",
+          "members": [
+            {
+              "kind": "method",
+              "name": "activatePage",
+              "parameters": [
+                {
+                  "name": "pageName"
+                },
+                {
+                  "description": "pageName",
+                  "name": "String"
+                }
+              ],
+              "description": "Activate a page by name"
+            },
+            {
+              "kind": "field",
+              "name": "location",
+              "description": "Deprecated: use ƒ-inject-location.",
+              "parameters": [
+                {
+                  "name": "location"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "injectLocation",
+              "parameters": [
+                {
+                  "name": "location"
+                }
+              ],
+              "description": "Inject the location Object from furo-location. The page which is defined in location.pathSegments[0] will get activated.\n\nTo meke \"sub\" pages do not forget to enable the `url-space-regex` property on the *furo-location* component which feeds this component.\n\nIf the page/view does not exist and you have a page \"404\" defined, the 404 will be shown\n\nIf the page/view does not exist AND 404 does not exist, the default page gets activated."
+            },
+            {
+              "kind": "field",
+              "name": "_fallback"
+            },
+            {
+              "kind": "field",
+              "name": "_default"
+            },
+            {
+              "kind": "field",
+              "name": "_attrForSelected"
+            },
+            {
+              "kind": "field",
+              "name": "_lastQP",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_lastHash",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_lastPageName",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Simple content switcher",
+          "tagName": "furo-pages",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-pages",
+          "declaration": {
+            "name": "FuroPages",
+            "module": "src/furo-pages.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-panel-coordinator.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-panel-coordinator`",
+          "name": "FuroPanelCoordinator",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_notifiyOpenPanels"
+            },
+            {
+              "kind": "method",
+              "name": "showPage",
+              "parameters": [
+                {
+                  "name": "NavigationNode"
+                }
+              ],
+              "description": "Loads and shows the page based on the NavigationNode",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "closeAll",
+              "description": "closes all open panels"
+            },
+            {
+              "kind": "method",
+              "name": "forceCloseAll",
+              "description": "closes all open panels without asking"
+            },
+            {
+              "kind": "method",
+              "name": "_removeNodeById",
+              "parameters": [
+                {
+                  "name": "id"
+                },
+                {
+                  "name": "nodeName"
+                }
+              ],
+              "description": "removes a panel from the view",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_openPanels",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_loadedPanels",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_furoPage"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "RepeaterNode"
+              },
+              "description": "Fired when Controls for panels are ready, initially it starts with an empty set.",
+              "name": "controls-ready"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Complex content switcher based on furo-tree",
+          "tagName": "furo-panel-coordinator",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-panel-coordinator",
+          "declaration": {
+            "name": "FuroPanelCoordinator",
+            "module": "src/furo-panel-coordinator.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-qp-changer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "# Deprecated, use furo-location-updater instead.\nfuro-location-updater has the same API, but can also handle hash values\n`qp-changer`\nupdates the query params in the url",
+          "name": "FuroQpChanger",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setQp",
+              "parameters": [
+                {
+                  "name": "newQP"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "clear",
+              "privacy": "public",
+              "description": "Comma separated list of qp to clear if they are not explizitly set with `setQp`",
+              "attribute": "clear"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Number"
+              },
+              "description": " Fired when before the state will be updated (Number is window.performance.now())",
+              "name": "__beforeReplaceState"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "clear",
+              "description": "Comma separated list of qp to clear if they are not explizitly set with `setQp`",
+              "fieldName": "clear"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "deep linking helper",
+          "tagName": "furo-qp-changer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-qp-changer",
+          "declaration": {
+            "name": "FuroQpChanger",
+            "module": "src/furo-qp-changer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/BasePanel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "BasePanel to extend",
+          "name": "BasePanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "closePanel",
+              "description": "Close the panel"
+            },
+            {
+              "kind": "field",
+              "name": "onCloseRequest",
+              "description": "Callback function to interact with close requests\nReturn a true if closing is allowed or false if not",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "default": "() => true"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BasePanel",
+          "declaration": {
+            "name": "BasePanel",
+            "module": "src/lib/BasePanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/panelRegistry.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Registry for the components which can handle a type in a specific context.\n\nThis class is used by the furo-panel-coordinator to find the component which suites best for the given data type.\n\nThe registry can be autogenerated from @furo/ui-builder\n\n```\n// -- register panels\n\npanelRegistry.registerType(\"auth.AuthEntity\", {\n   \"edit\" : \"auth-auth-update-panel\"\n});\n```",
+          "name": "panelRegistry",
+          "members": [
+            {
+              "kind": "method",
+              "name": "registerType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "type"
+                },
+                {
+                  "name": "panel"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getPanelName",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "type"
+                },
+                {
+                  "name": "suffix"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "panelRegistry",
+          "declaration": {
+            "name": "panelRegistry",
+            "module": "src/lib/panelRegistry.js"
+          }
+        }
+      ]
+    }
+  ]
+}

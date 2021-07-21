@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-icon`\n\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/src/iconset\n\n\n\n```js\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/src/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nYou can find some set in ./iconsets/...\n\nafter registering you can use those icons in furo-icon in any other component\n\n```html\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n```\n\nif you have imported an iconset with the name **default**, you can use the icon without set name:\n\n```html\n<furo-icon icon=\"iconName\" ></furo-icon>\n```\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
+          "name": "FuroIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "viewBox",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0 0 24 24'",
+              "privacy": "public",
+              "attribute": "view-box"
+            },
+            {
+              "kind": "field",
+              "name": "preserveAspectRatio",
+              "type": {
+                "text": "string"
+              },
+              "default": "'xMidYMid meet'",
+              "privacy": "public",
+              "attribute": "preserve-aspect-ratio"
+            },
+            {
+              "kind": "field",
+              "name": "focusable",
+              "type": {
+                "text": "string"
+              },
+              "default": "'false'",
+              "privacy": "public",
+              "attribute": "focusable"
+            },
+            {
+              "kind": "field",
+              "name": "svgstyle",
+              "type": {
+                "text": "string"
+              },
+              "default": "'pointer-events: none; display: block; width: 100%; height: 100%;'"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "privacy": "public",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "style",
+              "privacy": "public",
+              "attribute": "style"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon"
+            },
+            {
+              "name": "view-box",
+              "fieldName": "viewBox"
+            },
+            {
+              "name": "focusable",
+              "fieldName": "focusable"
+            },
+            {
+              "name": "preserve-aspect-ratio",
+              "fieldName": "preserveAspectRatio"
+            },
+            {
+              "name": "style",
+              "fieldName": "style"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "furo icon",
+          "tagName": "furo-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-icon",
+          "declaration": {
+            "name": "FuroIcon",
+            "module": "src/furo-icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/sample-component.js",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}

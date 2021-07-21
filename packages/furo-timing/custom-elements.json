@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-count-down.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-de-bounce.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-de-bounce`\n is a component with a input-wire, that, as long as it continues to be triggered, will not\n be invoked. The wire will be triggered after it stops being called for\n N milliseconds. If `immediate` is passed as a attribute, it triggers the input-wire on the\n leading edge, instead of the trailing.",
+          "name": "FuroDeBounce",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "immediate",
+              "privacy": "public",
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+              "attribute": "immediate"
+            },
+            {
+              "kind": "field",
+              "name": "wait",
+              "privacy": "public",
+              "description": "Debounce time in milliseconds\nDefault value: 250",
+              "attribute": "wait"
+            },
+            {
+              "kind": "method",
+              "name": "_createHandler",
+              "parameters": [
+                {
+                  "name": "wait"
+                },
+                {
+                  "name": "immediate"
+                }
+              ],
+              "description": "Internal create of debounce handler function",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "inputWire",
+              "parameters": [
+                {
+                  "name": "wire"
+                }
+              ],
+              "description": "Debounce function"
+            },
+            {
+              "kind": "field",
+              "name": "_debounce",
+              "default": "function debounce(func, wait, immediate) {\n      let timeout;\n      return function debouncer() {\n        const context = this;\n        // eslint-disable-next-line prefer-rest-params\n        const args = arguments;\n        const later = function applyLater() {\n          timeout = null;\n          if (!immediate) func.apply(context, args);\n        };\n        const callNow = immediate && !timeout;\n        clearTimeout(timeout);\n        timeout = setTimeout(later, wait);\n        if (callNow) func.apply(context, args);\n      };\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_immediate",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_wait",
+              "type": {
+                "text": "number"
+              },
+              "default": "250"
+            }
+          ],
+          "events": [
+            {
+              "name": "out",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "wait",
+              "description": "Debounce time in milliseconds\nDefault value: 250",
+              "fieldName": "wait"
+            },
+            {
+              "name": "immediate",
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+              "fieldName": "immediate"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "event de bouncer",
+          "tagName": "furo-de-bounce",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-de-bounce",
+          "declaration": {
+            "name": "FuroDeBounce",
+            "module": "src/furo-de-bounce.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-delay-event.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-interval-pulse.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-interval-pulse`\ntodo Describe your element",
+          "name": "FuroIntervalPulse",
+          "members": [
+            {
+              "kind": "method",
+              "name": "start"
+            },
+            {
+              "kind": "method",
+              "name": "stop"
+            },
+            {
+              "kind": "field",
+              "name": "interval",
+              "type": {
+                "text": "number"
+              },
+              "default": "200",
+              "privacy": "public",
+              "attribute": "interval"
+            },
+            {
+              "kind": "field",
+              "name": "takt",
+              "type": {
+                "text": "number"
+              },
+              "default": "4",
+              "privacy": "public",
+              "attribute": "takt"
+            },
+            {
+              "kind": "field",
+              "name": "auto",
+              "privacy": "public",
+              "description": "Starts interval automatically",
+              "attribute": "auto"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "interval",
+              "fieldName": "interval"
+            },
+            {
+              "name": "takt",
+              "fieldName": "takt"
+            },
+            {
+              "name": "auto",
+              "description": "Starts interval automatically",
+              "fieldName": "auto"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "trigger an event in intervals",
+          "tagName": "furo-interval-pulse",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-interval-pulse",
+          "declaration": {
+            "name": "FuroIntervalPulse",
+            "module": "src/furo-interval-pulse.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-once.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/totman-switch.js",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}
