@@ -36,5 +36,6 @@
   },
   "engines": {
     "node": ">=10.0"
-  }
+  },
+  "customElements": "custom-elements.json"
 }

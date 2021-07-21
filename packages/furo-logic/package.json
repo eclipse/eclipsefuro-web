@@ -109,5 +109,6 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "customElements": "custom-elements.json"
 }

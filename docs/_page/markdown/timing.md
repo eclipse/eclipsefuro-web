@@ -1,3 +1,0 @@
-# Timing
-
-> section coming soon
