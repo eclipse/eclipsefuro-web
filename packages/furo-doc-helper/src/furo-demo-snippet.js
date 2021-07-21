@@ -1,9 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import { Styling } from './styling.js';
-import '@furo/layout';
-import '@furo/util/src/furo-markdown';
+import '@furo/layout/src/furo-vertical-flex.js';
+import '@furo/util/src/furo-markdown.js';
 import './graph/furo-show-flow.js';
 
 /**
@@ -127,10 +126,6 @@ class FuroDemoSnippet extends FBP(LitElement) {
    * @return {CSSResult}
    */
   static get styles() {
-    const theme = Theme.getThemeForComponent('FuroDemoSnippet');
-    if (theme) {
-      return [theme, Styling.theme];
-    }
     // language=CSS
     return [
       css`
