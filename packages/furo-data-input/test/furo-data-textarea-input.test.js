@@ -123,11 +123,7 @@ describe('furo-data-textarea-input', () => {
         done();
       });
 
-      /**
-       * @event value-changed
-       * Fired when
-       * detail payload:
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = 'newTextarea';
       dataTextareaInput.dispatchEvent(customEvent);

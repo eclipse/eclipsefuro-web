@@ -11,8 +11,7 @@ import { LitElement, css } from 'lit-element';
  *
  *```
  *
- * @fires {*}  - Fired when clipboard content is received
- * @event {*} content written to clipboard
+ * @fires {*}  - Fired when content is written to clipboard
  *
  * @summary write content to clipboard
  * @customElement

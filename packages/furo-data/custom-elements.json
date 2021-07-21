@@ -1,0 +1,3776 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-api-fetch.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-api-fetch`\n\nfuro-api-fetch can be used for network requests via FETCH API\n\n```html\n<furo-api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></furo-api-fetch>\n```",
+          "name": "FuroApiFetch",
+          "members": [
+            {
+              "kind": "method",
+              "name": "invokeRequest",
+              "parameters": [
+                {
+                  "name": "request",
+                  "description": "(The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request",
+                  "type": {
+                    "text": "Request"
+                  }
+                }
+              ],
+              "description": "Sends a HTTP request to the server",
+              "privacy": "public"
+            },
+            {
+              "kind": "method",
+              "name": "abortRequest",
+              "parameters": [
+                {
+                  "name": "controller",
+                  "description": "(The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)\nhttps://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+                  "type": {
+                    "text": "AbortController"
+                  }
+                }
+              ],
+              "description": "Aborts a pending request\nYou have to submit an AbortController"
+            },
+            {
+              "kind": "method",
+              "name": "_executeRequest",
+              "parameters": [
+                {
+                  "name": "request"
+                }
+              ],
+              "description": "Requests are made via the Fetch API if possible.\nFallback XMLHttpRequest\n\n**payload** request object",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_reworkRequest",
+              "parameters": [
+                {
+                  "name": "response"
+                }
+              ],
+              "description": "Errorhandling according to Google rest-api-v3 Status Codes\n(https://developers.google.com/maps-booking/reference/rest-api-v3/status_codes)\n\nDispatches event `response-error` and a specific error event with status code",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_parseResponse",
+              "parameters": [
+                {
+                  "name": "response"
+                }
+              ],
+              "description": "parses response object according to lastRequest heaader informationen `content-type`\nyou will find the supported content-types in the declaration area\nresponse Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]\nDefault response handler is json!",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "lastRequest",
+              "type": {
+                "text": "Object"
+              },
+              "description": "LastRequest's response.\n\nNote that lastResponse is set when ongoing request finishes, so if loading is true,\nthen lastResponse will correspond to the result of the previous request.",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "isLoading",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "True while request is in flight.",
+              "default": "false"
+            }
+          ],
+          "events": [
+            {
+              "name": "fatal-error",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "request-started",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "request-aborted",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "response-raw",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "response",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "parse-error",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "response-error-raw",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "response-error",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "summary": "fetch data from network",
+          "tagName": "furo-api-fetch",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-api-fetch",
+          "declaration": {
+            "name": "FuroApiFetch",
+            "module": "src/furo-api-fetch.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-collection-agent.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.\n\n\n\n\nHow to use:\n```html\n   <furo-collection-agent\n                     service=\"Servicename\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in\n                   ></furo-collection-agent>\n```",
+          "name": "FuroCollectionAgent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_attachListeners",
+              "parameters": [
+                {
+                  "name": "eventPrefix"
+                }
+              ],
+              "description": "Attaches temporary listeners to fire load-success, load-fail, delete-success,...",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setFields",
+              "parameters": [
+                {
+                  "name": "fields"
+                }
+              ],
+              "description": "\nComma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields."
+            },
+            {
+              "kind": "method",
+              "name": "setOrderBy",
+              "parameters": [
+                {
+                  "name": "order"
+                }
+              ],
+              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature."
+            },
+            {
+              "kind": "method",
+              "name": "clearFilter",
+              "description": "clear the setted filter"
+            },
+            {
+              "kind": "method",
+              "name": "setFilter",
+              "parameters": [
+                {
+                  "name": "filterstring"
+                }
+              ],
+              "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature."
+            },
+            {
+              "kind": "field",
+              "name": "filter",
+              "privacy": "public",
+              "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
+              "attribute": "filter"
+            },
+            {
+              "kind": "method",
+              "name": "setPageSize",
+              "parameters": [
+                {
+                  "name": "size"
+                }
+              ],
+              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination."
+            },
+            {
+              "kind": "field",
+              "name": "service",
+              "description": "The service name from the specs.",
+              "parameters": [
+                {
+                  "name": "service"
+                }
+              ],
+              "privacy": "public",
+              "attribute": "service"
+            },
+            {
+              "kind": "method",
+              "name": "updateQp",
+              "parameters": [
+                {
+                  "name": "qp"
+                },
+                {
+                  "description": "value pairs",
+                  "name": "key",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Update query params\na qp like {\"active\":true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired"
+            },
+            {
+              "kind": "method",
+              "name": "setQp",
+              "parameters": [
+                {
+                  "name": "qp"
+                },
+                {
+                  "description": "value pairs",
+                  "name": "key",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Set query params\nAll existing query params are replaced by the transferred parameters\nIf the transferred object is empty, all the values will be removed!\nThe AgentHelper fires a qp-set event after the query params are replaced."
+            },
+            {
+              "kind": "method",
+              "name": "clearQp",
+              "description": "clear the query params that you have setted before"
+            },
+            {
+              "kind": "method",
+              "name": "_makeRequest",
+              "parameters": [
+                {
+                  "name": "link"
+                },
+                {
+                  "name": "body"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Request"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_followRelService",
+              "parameters": [
+                {
+                  "name": "rel"
+                },
+                {
+                  "name": "serviceName"
+                }
+              ],
+              "description": "If HATEOAS is present, the wire --triggerLoad is fired with the\ncorresponding request object as payload.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "list",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "load",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "loadRel",
+              "description": "loads the entity following the link which is specified on the attribute **rel** if it is available."
+            },
+            {
+              "kind": "method",
+              "name": "searchRel",
+              "parameters": [
+                {
+                  "name": "term"
+                }
+              ],
+              "description": "search for a term following the link which is specified on the attribute **rel**\n\nThis will set the query param q and execute the query."
+            },
+            {
+              "kind": "method",
+              "name": "search",
+              "parameters": [
+                {
+                  "name": "term"
+                }
+              ],
+              "description": "search for a term.\n\nThis will set the query param q and triggers a list()"
+            },
+            {
+              "kind": "method",
+              "name": "first",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "prev",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "next",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "last",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "_updateInternalHTS",
+              "parameters": [
+                {
+                  "name": "hts"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "htsIn",
+              "parameters": [
+                {
+                  "name": "hts"
+                }
+              ],
+              "description": "Inject HATEOAS links."
+            },
+            {
+              "kind": "method",
+              "name": "abortPendingRequest",
+              "description": "Aborts a pending request"
+            },
+            {
+              "kind": "field",
+              "name": "_servicedefinitions",
+              "description": "easy access to the services",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_ApiEnvironment",
+              "type": {
+                "text": "*|{headers: [[string, string]], specs: {}, services: {}}"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_pendingRequests",
+              "type": {
+                "text": "*[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_singleElementQueue",
+              "type": {
+                "text": "*[]"
+              },
+              "description": "queue for calls, before hts is set",
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_queryParams",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "pageSize",
+              "privacy": "public",
+              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
+              "attribute": "page-size"
+            },
+            {
+              "kind": "field",
+              "name": "fields",
+              "privacy": "public",
+              "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
+              "attribute": "fields"
+            },
+            {
+              "kind": "field",
+              "name": "orderBy",
+              "privacy": "public",
+              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
+              "attribute": "order-by"
+            },
+            {
+              "kind": "field",
+              "name": "view",
+              "privacy": "public",
+              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
+              "attribute": "view"
+            },
+            {
+              "kind": "field",
+              "name": "listOnHtsIn",
+              "privacy": "public",
+              "description": "Executes a list when a rel=\"list\" is injected.",
+              "attribute": "list-on-hts-in"
+            },
+            {
+              "kind": "field",
+              "name": "loadRelOnHtsIn",
+              "privacy": "public",
+              "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
+              "attribute": "load-rel-on-hts-in"
+            },
+            {
+              "kind": "field",
+              "name": "rel",
+              "privacy": "public",
+              "description": "rel which should be used on load rel",
+              "attribute": "rel"
+            },
+            {
+              "kind": "field",
+              "name": "method",
+              "privacy": "public",
+              "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
+              "attribute": "method"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "*"
+              },
+              "description": " All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.",
+              "name": "ALL_BUBBLING_EVENTS_FROM_furo-api-fetch"
+            },
+            {
+              "type": {
+                "text": "hts"
+              },
+              "description": " Fired when the hts was updated by the received response.",
+              "name": "response-hts-updated"
+            },
+            {
+              "description": " Fired when filter was updated with `ƒ-set-filter`.",
+              "name": "filter-changed"
+            },
+            {
+              "type": {
+                "text": "Array|HATEOAS"
+              },
+              "description": " Fired when hateoas was updated from response.",
+              "name": "hts-updated"
+            },
+            {
+              "type": {
+                "text": "Hateoas links"
+              },
+              "description": " Fired when hateoas was updated",
+              "name": "hts-injected"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "service",
+              "description": "The service name from the specs.",
+              "fieldName": "service"
+            },
+            {
+              "name": "page-size",
+              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
+              "fieldName": "pageSize"
+            },
+            {
+              "name": "fields",
+              "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
+              "fieldName": "fields"
+            },
+            {
+              "name": "order-by",
+              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
+              "fieldName": "orderBy"
+            },
+            {
+              "name": "filter",
+              "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
+              "fieldName": "filter"
+            },
+            {
+              "name": "view",
+              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
+              "fieldName": "view"
+            },
+            {
+              "name": "list-on-hts-in",
+              "description": "Executes a list when a rel=\"list\" is injected.",
+              "fieldName": "listOnHtsIn"
+            },
+            {
+              "name": "load-rel-on-hts-in",
+              "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
+              "fieldName": "loadRelOnHtsIn"
+            },
+            {
+              "name": "rel",
+              "description": "rel which should be used on load rel",
+              "fieldName": "rel"
+            },
+            {
+              "name": "method",
+              "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
+              "fieldName": "method"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "interface component to handle collection requests",
+          "tagName": "furo-collection-agent",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-collection-agent",
+          "declaration": {
+            "name": "FuroCollectionAgent",
+            "module": "src/furo-collection-agent.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-custom-method.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-custom-method`\ninterface component to handle custom methods.",
+          "name": "FuroCustomMethod",
+          "members": [
+            {
+              "kind": "field",
+              "name": "service",
+              "description": "Name des Services",
+              "parameters": [
+                {
+                  "name": "service"
+                }
+              ],
+              "privacy": "public",
+              "attribute": "service"
+            },
+            {
+              "kind": "method",
+              "name": "updateQp",
+              "parameters": [
+                {
+                  "name": "qp"
+                },
+                {
+                  "description": "value pairs",
+                  "name": "key",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Update query params\na qp like {\"active\":true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired"
+            },
+            {
+              "kind": "method",
+              "name": "bindRequestData",
+              "parameters": [
+                {
+                  "name": "dataObject"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "clearQp",
+              "description": "clear the query params that you have setted before"
+            },
+            {
+              "kind": "method",
+              "name": "_makeRequest",
+              "parameters": [
+                {
+                  "name": "link"
+                },
+                {
+                  "name": "dataObject"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Request"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_checkServiceAndHateoasLinkError",
+              "parameters": [
+                {
+                  "name": "rel"
+                },
+                {
+                  "name": "serviceName"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "trigger",
+              "description": "trigger the method with respect for binded-requset-object"
+            },
+            {
+              "kind": "method",
+              "name": "triggerEmpty"
+            },
+            {
+              "kind": "method",
+              "name": "triggerWithBody",
+              "parameters": [
+                {
+                  "name": "body"
+                }
+              ],
+              "description": "trigger the method with data"
+            },
+            {
+              "kind": "method",
+              "name": "htsIn",
+              "parameters": [
+                {
+                  "name": "hts"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "abortPendingRequest",
+              "description": "Aborts a pending request"
+            },
+            {
+              "kind": "field",
+              "name": "_servicedefinitions",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_ApiEnvironment",
+              "type": {
+                "text": "*|{headers: [[string, string]], specs: {}, services: {}}"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_pendingRequests",
+              "type": {
+                "text": "*[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_queryParams",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "method",
+              "privacy": "public",
+              "description": "Name der Methode",
+              "attribute": "method"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "HTS"
+              },
+              "description": " Fired when hts was updated by `ƒ-hts-in`.",
+              "name": "hts-updated"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "service",
+              "description": "Name des Services",
+              "fieldName": "service"
+            },
+            {
+              "name": "method",
+              "description": "Name der Methode",
+              "fieldName": "method"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "interface component to handle custom methods",
+          "tagName": "furo-custom-method",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-custom-method",
+          "declaration": {
+            "name": "FuroCustomMethod",
+            "module": "src/furo-custom-method.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-data-emmiter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-data-emmiter`\n emits/fires the value from a data-object.\n\n ```html\n  <furo-data-emmiter\n       ƒ-trigger=\"--jsonDataRequested\"\n       ƒ-bind-data=\"--dataObject\"",
+          "name": "FuroDataEmmiter",
+          "members": [
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "field",
+                  "description": "a object from furo-data-object",
+                  "type": {
+                    "text": "Object|FieldNode"
+                  }
+                }
+              ],
+              "description": "Bind a data object. The trigger method will not fire until an object was bounded."
+            },
+            {
+              "kind": "method",
+              "name": "trigger",
+              "description": "Read .value of the bounded data object and emit data as json object."
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "json data of a data object"
+              },
+              "description": " Fired when trigger was called and data binding was done",
+              "name": "data"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "emit value of data object",
+          "tagName": "furo-data-emmiter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-data-emmiter",
+          "declaration": {
+            "name": "FuroDataEmmiter",
+            "module": "src/furo-data-emmiter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-data-object.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`furo-data-object` receives its data regularly from a [collection-aget](furo-collection-agent) or a  [entity-aget](furo-entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.data.rawData` with javascript (if needed).\n\n```html\n <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n <furo-data-object type=\"project.Project\" ƒ-inject-raw=\"--response(*.data)\" @-object-ready=\"--dataObject\"></furo-data-object>\n\n <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n <furo-entity-agent service=\"ProjectService\" ƒ-save=\"--saveClicked\" ƒ-bind-request-data=\"--dataObject\" @-response=\"--response\" ></furo-entity-agent>\n```",
+          "name": "FuroDataObject",
+          "members": [
+            {
+              "kind": "method",
+              "name": "injectRaw",
+              "parameters": [
+                {
+                  "name": "jsonObj"
+                }
+              ],
+              "description": "inject a raw data response from the corresonding agent.\n\nInput may look something like this:\n\n**Entity data**\n\n```json\n{\n \"data\": {},\n \"links\": [],\n \"meta\": {}\n}\n```\n\n**Collection data**\n\n```json\n{\n \"data\": {},\n \"links\": [],\n \"meta\": {},\n \"entities\": []\n}\n```"
+            },
+            {
+              "kind": "method",
+              "name": "setPristine",
+              "description": "Set all nodes to pristine\n\nUseful for working with deltas"
+            },
+            {
+              "kind": "method",
+              "name": "clearAllErrors",
+              "description": "Clears all errors on children without any validation!"
+            },
+            {
+              "kind": "method",
+              "name": "validateAllFields",
+              "description": "Triggers the validation of all fields in the data object.\n\nUse this before you submit some data to a server.\n\nWill cause a `data-object-became-valid` or `data-object-became-invalid` and a validation-success or validation-failed event."
+            },
+            {
+              "kind": "method",
+              "name": "appendErrors",
+              "parameters": [
+                {
+                  "name": "grpcStatus"
+                }
+              ],
+              "description": "Append errors from custom methods or other agents or sources to the data object.\nThe error object must have a grpc status error signature like:\n```json\n{\n \"code\":3,\n \"message\":\"invalid username\",\n \"details\":[{\n         \"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\n         \"field_violations\":[{\n             \"field\":\"user.name\",\n             \"description\":\"The username must only contain alphanumeric characters\"\n          }]\n    }]\n}\n```"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "description": "The name of the type you want to use. The type must be registered in Env",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "privacy": "public",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "json",
+              "description": "get the data from the data object as raw json"
+            },
+            {
+              "kind": "method",
+              "name": "reset",
+              "description": "Reset the model to the last injected state.\n\nTo set the model to the initial state use init"
+            },
+            {
+              "kind": "method",
+              "name": "init",
+              "description": "Sets the model to an initial state according to the given type.\n\nfires *init-completed*\n\nTo reset changed data to the last injected state, please use reset();"
+            },
+            {
+              "kind": "method",
+              "name": "getData",
+              "description": "get the data of the data object"
+            },
+            {
+              "kind": "method",
+              "name": "_checkType",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_specs",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "description": " Fired when injected data was processed (**bubbles**).",
+              "name": "data-injected"
+            },
+            {
+              "type": {
+                "text": "{Object|CollectionNode}"
+              },
+              "description": " Fired when data in furo-data-object has changed  (**bubbles**). This event fires a lot, consider using a de-bounce with the event.",
+              "name": "data-changed"
+            },
+            {
+              "type": {
+                "text": "{Object|CollectionNode}"
+              },
+              "description": " Fired when data in furo-data-object has changed after injectRaw is complete (**bubbles**). This event fires a lot, consider using a de-bounce with the event.",
+              "name": "data-changed-after-inject"
+            },
+            {
+              "type": {
+                "text": "{Object} the field node"
+              },
+              "description": " Fired when a field has changed.",
+              "name": "field-value-changed"
+            },
+            {
+              "type": {
+                "text": "DataObject"
+              },
+              "description": " Fired when validation results in a valid state.",
+              "name": "validation-success"
+            },
+            {
+              "type": {
+                "text": "DataObject"
+              },
+              "description": " Fired when validation results in a invalid state.",
+              "name": "validation-failed"
+            },
+            {
+              "type": {
+                "text": "{Object|EntityNode} reference to entity"
+              },
+              "description": " Fired when the data object switches from ininvalid to invalid state (**bubbles**).",
+              "name": "data-object-became-invalid"
+            },
+            {
+              "type": {
+                "text": "{Object|EntityNode} reference to entity"
+              },
+              "description": " Fired when the data object switches from invalid to valid state (**bubbles**).",
+              "name": "data-object-became-valid"
+            },
+            {
+              "type": {
+                "text": "A EntityNode object"
+              },
+              "description": " Fired when the object defined by `type` is built (**bubbles**).",
+              "name": "object-ready"
+            },
+            {
+              "type": {
+                "text": "A EntityNode object"
+              },
+              "description": " Fired when the object init was done (**bubbles**).",
+              "name": "init-completed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "description": "The name of the type you want to use. The type must be registered in Env",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Typed data object",
+          "tagName": "furo-data-object",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FuroDataObject",
+          "declaration": {
+            "name": "FuroDataObject",
+            "module": "src/furo-data-object.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-data-object",
+          "declaration": {
+            "name": "FuroDataObject",
+            "module": "src/furo-data-object.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-deep-link.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-deep-link`\nResolve deep links HATEOAS based on the query params and the selected service.\n\n*Deeplink inside of a furo-page*\n```html\n<furo-deep-link service=\"TaskService\" ƒ-qp-in=\"--pageQueryChanged(*.query)\" @-hts-out=\"--serviceHTS\"></furo-deep-link>\n```\n\nServices must be registered in the Env:\n\n```html\nimport {Services,Types} from \"./apiConfig.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\nUsually this is done in your src/configs/init.js",
+          "name": "FuroDeepLink",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_buildHTS",
+              "parameters": [
+                {
+                  "name": "qp"
+                },
+                {
+                  "name": "service"
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "qpIn",
+              "parameters": [
+                {
+                  "name": "queryParams"
+                }
+              ],
+              "description": "Furo-deep-link consumes a object literal with key value pairs.\n\nThis can come from the `*.query` part of an event from furo-location.\n\nOr from a furo-pages wire.\n\nRelevant wires from furo-pages:\n- --pageQueryChanged(*.query)\n- --pageActivated(*.query)\n- --pageHashChanged(*.query)"
+            },
+            {
+              "kind": "method",
+              "name": "trigger",
+              "description": "Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail\nThis method have no effect as long _qp is not set."
+            },
+            {
+              "kind": "method",
+              "name": "setService",
+              "parameters": [
+                {
+                  "name": "serviceName"
+                }
+              ],
+              "description": "Sets the service by wire"
+            },
+            {
+              "kind": "field",
+              "name": "service",
+              "description": "Name of the service",
+              "parameters": [
+                {
+                  "name": "service"
+                }
+              ],
+              "privacy": "public",
+              "attribute": "service"
+            },
+            {
+              "kind": "field",
+              "name": "_servicedefinitions",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_qp",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private",
+              "default": "{}"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "[]HTSLinks"
+              },
+              "description": "Fired when hateoas is available ```json [ { \"rel\": \"list\", \"href\": \"/api/mockdata/tasks/list.json\", \"method\": \"GET\", \"service\": \"TaskService\" }, { \"rel\": \"create\", \"href\": \"api.otherhost.com/mockdata/tasks\", \"method\": \"PUT\", \"service\": \"TaskService\" } ] ```",
+              "name": "hts-out"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "service",
+              "description": "Name of the service",
+              "fieldName": "service"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Resolve deep links HATEOAS based on  query params",
+          "tagName": "furo-deep-link",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-deep-link",
+          "declaration": {
+            "name": "FuroDeepLink",
+            "module": "src/furo-deep-link.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-entity-agent.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.\n\nIf you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`",
+          "name": "FuroEntityAgent",
+          "members": [
+            {
+              "kind": "field",
+              "name": "service",
+              "description": "Name des Services",
+              "parameters": [
+                {
+                  "name": "service"
+                }
+              ],
+              "privacy": "public",
+              "attribute": "service"
+            },
+            {
+              "kind": "method",
+              "name": "updateQp",
+              "parameters": [
+                {
+                  "name": "qp"
+                },
+                {
+                  "description": "value pairs",
+                  "name": "key",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Update query params\na qp like {\"active\":true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired"
+            },
+            {
+              "kind": "method",
+              "name": "bindRequestData",
+              "parameters": [
+                {
+                  "name": "dataObject"
+                }
+              ],
+              "description": "Binds a furo-data-object type. Use this if you want save data."
+            },
+            {
+              "kind": "method",
+              "name": "_prepareRequestPaylod",
+              "parameters": [
+                {
+                  "name": "link"
+                },
+                {
+                  "name": "dataObject"
+                }
+              ],
+              "description": "Prepare request body depending from method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_removeNullValues",
+              "parameters": [
+                {
+                  "name": "data"
+                }
+              ],
+              "description": "remove null value in payload",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "clearQp",
+              "description": "clear the query params that you have setted before"
+            },
+            {
+              "kind": "method",
+              "name": "_makeRequest",
+              "parameters": [
+                {
+                  "name": "link"
+                },
+                {
+                  "name": "dataObject"
+                },
+                {
+                  "name": "abortController"
+                }
+              ],
+              "description": "Creates a Request object with header and body data\n- special treatment for method PATCH\n- body object only includes writeable fields",
+              "return": {
+                "type": {
+                  "text": "Request"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_getFieldMask",
+              "parameters": [
+                {
+                  "name": "obj"
+                }
+              ],
+              "description": "Creates an array with the path information of the object attributes (deep dive)\naccording to https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto\n\n`{\"paths\":[\"attr1\",\"attr2.sub_attr\"]}`",
+              "return": {
+                "type": {
+                  "text": "Array"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_flattenObject",
+              "parameters": [
+                {
+                  "name": "obj"
+                }
+              ],
+              "description": "Object flattening method",
+              "return": {
+                "type": {
+                  "text": "{}"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "load",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "delete",
+              "description": "delete the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "save",
+              "description": "loads the entity if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "put",
+              "description": "saves the entity with method put if hts is available"
+            },
+            {
+              "kind": "method",
+              "name": "create",
+              "description": "creating the entity if hts rel=\"create\" is available"
+            },
+            {
+              "kind": "method",
+              "name": "_attachListeners",
+              "parameters": [
+                {
+                  "name": "eventPrefix"
+                }
+              ],
+              "description": "Attaches temporary listeners to fire load-success, load-fail, delete-success,...",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_updateInternalHTS",
+              "parameters": [
+                {
+                  "name": "hts"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "htsIn",
+              "parameters": [
+                {
+                  "name": "hts"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "abortPendingRequest",
+              "description": "Aborts a pending request"
+            },
+            {
+              "kind": "field",
+              "name": "_servicedefinitions"
+            },
+            {
+              "kind": "field",
+              "name": "_ApiEnvironment",
+              "type": {
+                "text": "*|{headers: [[string, string]], specs: {}, services: {}}"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_pendingRequests",
+              "type": {
+                "text": "*[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_singleElementQueue",
+              "type": {
+                "text": "*[]"
+              },
+              "description": "queue for calls, before hts is set",
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_queryParams",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "loadOnHtsIn",
+              "privacy": "public",
+              "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
+              "attribute": "load-on-hts-in"
+            },
+            {
+              "kind": "field",
+              "name": "appendUpdateMaskQP",
+              "privacy": "public",
+              "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
+              "attribute": "with-update-mask"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "hts"
+              },
+              "description": " Fired when hts was updated from the response.",
+              "name": "response-hts-updated"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `load()` was successful.",
+              "name": "load-success"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `load()` was **not** successful.",
+              "name": "load-failed"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `delete()` was successful.",
+              "name": "delete-success"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `delete()` was **not** successful.",
+              "name": "delete-failed"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `save()` was successful.",
+              "name": "save-success"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `save()` was **not** successful.",
+              "name": "save-failed"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `update()` was successful.",
+              "name": "put-success"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `update()` was **not** successful.",
+              "name": "put-failed"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `create()` was successful.",
+              "name": "create-success"
+            },
+            {
+              "type": {
+                "text": "response"
+              },
+              "description": " Fired when `create()` was **not** successful.",
+              "name": "create-failed"
+            },
+            {
+              "type": {
+                "text": "{Array|HATEOAS}"
+              },
+              "description": " Fired when hateoas is updated from response.",
+              "name": "hts-updated"
+            },
+            {
+              "type": {
+                "text": "Hateoas links"
+              },
+              "description": " Fired when hateoas is updated.",
+              "name": "hts-injected"
+            },
+            {
+              "description": " Fired if the request was successfully cancelled.",
+              "name": "request-aborted"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "service",
+              "description": "Name des Services",
+              "fieldName": "service"
+            },
+            {
+              "name": "load-on-hts-in",
+              "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
+              "fieldName": "loadOnHtsIn"
+            },
+            {
+              "name": "with-update-mask",
+              "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
+              "fieldName": "appendUpdateMaskQP"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "interface component to handle entity requests",
+          "tagName": "furo-entity-agent",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-entity-agent",
+          "declaration": {
+            "name": "FuroEntityAgent",
+            "module": "src/furo-entity-agent.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-entity-field.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use this component to interact with fields from an furo-data-object.\n\nYou can set the field value or listen to changes of a field.",
+          "name": "FuroEntityField",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setValue",
+              "parameters": [
+                {
+                  "name": "v"
+                }
+              ],
+              "description": "Set the value of the field."
+            },
+            {
+              "kind": "field",
+              "name": "value"
+            },
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode",
+                  "description": "a Field object",
+                  "type": {
+                    "text": "Object|FieldNode"
+                  }
+                }
+              ],
+              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "*"
+              },
+              "description": " Fired when the field value or a child value of it was changed.",
+              "name": "value-changed"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "interact with single field of a data object",
+          "tagName": "furo-entity-field",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-entity-field",
+          "declaration": {
+            "name": "FuroEntityField",
+            "module": "src/furo-entity-field.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-filter-and.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "# DEPRECATED\n\nPlaceholder component to describe nested filters\n\n`furo-filter-or` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-or` you will set the bracket around the items inside.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```",
+          "name": "FuroFilterAnd",
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "summary": "and filter bracket",
+          "tagName": "furo-filter-and",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-filter-and",
+          "declaration": {
+            "name": "FuroFilterAnd",
+            "module": "src/furo-filter-and.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-filter-container.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "# DEPRECATED\nPlaceholder component to describe nested filters\n\n`furo-filter-or` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-or` you will set the bracket around the items inside.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```",
+          "name": "FuroFilterContainer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_appendAnd",
+              "parameters": [
+                {
+                  "name": "node"
+                },
+                {
+                  "name": "filterArray"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_appendOr",
+              "parameters": [
+                {
+                  "name": "node"
+                },
+                {
+                  "name": "filterArray"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_scanfilterFields",
+              "parameters": [
+                {
+                  "name": "node"
+                },
+                {
+                  "name": "filterArray"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "display",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'"
+            },
+            {
+              "kind": "field",
+              "name": "type"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "summary": "Placeholder component to describe nested filters",
+          "tagName": "furo-filter-container",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-filter-container",
+          "declaration": {
+            "name": "FuroFilterContainer",
+            "module": "src/furo-filter-container.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-filter-field.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "#DEPRECATED\n`furo-filter-field` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-field` you will set the field, operator and value of a filter item.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```\n\n\n ## Fitler operators\n\n| Operator          | Meaning                            |\n|:----------------- |:---------------------------------- |\n| lt  oder <        | lower than |\n| lte oder <=       | lower than or equal |\n| gt  oder >        | greater than |\n| gte oder >=       | greater than or equal |\n| eq  oder =        | equal |\n|  **more operators**     ||\n| in                | in |\n| btw               | between |\n| btwe              | between but including the values  |\n| is null           | is null, true,false |\n| sw                | starts with |\n| ew                | ends with |\n| con               | contains |\n| **negations**     ||\n| !eq               | not equal |\n| !btw              | outside, not between |\n| !null             | not null |\n| !con              | does not contain |\n| !sw               | does not starts with |\n| !ew               | does not ends with |\n| !in               | not in |",
+          "name": "FuroFilterField",
+          "members": [
+            {
+              "kind": "field",
+              "name": "is",
+              "privacy": "public",
+              "description": "Defines the operator.",
+              "attribute": "is"
+            },
+            {
+              "kind": "field",
+              "name": "field",
+              "privacy": "public",
+              "description": "Defines the field you want to filter",
+              "attribute": "field"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "description": "Defines the value to filter",
+              "attribute": "value"
+            },
+            {
+              "kind": "method",
+              "name": "setValue",
+              "parameters": [
+                {
+                  "name": "v"
+                }
+              ],
+              "description": "Set the value"
+            },
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "Use this method if you have a data-object"
+            },
+            {
+              "kind": "method",
+              "name": "_notifyChanges"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "is",
+              "description": "Defines the operator.",
+              "fieldName": "is"
+            },
+            {
+              "name": "field",
+              "description": "Defines the field you want to filter",
+              "fieldName": "field"
+            },
+            {
+              "name": "value",
+              "description": "Defines the value to filter",
+              "fieldName": "value"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "set a filter field",
+          "tagName": "furo-filter-field",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-filter-field",
+          "declaration": {
+            "name": "FuroFilterField",
+            "module": "src/furo-filter-field.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-filter-or.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "#DEPRECATED\nPlaceholder component to describe nested filters\n\n`furo-filter-or` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-or` you will set the bracket around the items inside.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```",
+          "name": "FuroFilterOr",
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "summary": "or filter bracket",
+          "tagName": "furo-filter-or",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-filter-or",
+          "declaration": {
+            "name": "FuroFilterOr",
+            "module": "src/furo-filter-or.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-rel-exists.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-rel-exists`\nChecks if a rel exists in a hateaos Link array",
+          "name": "FuroRelExists",
+          "members": [
+            {
+              "kind": "method",
+              "name": "inject",
+              "parameters": [
+                {
+                  "name": "linkArray"
+                }
+              ],
+              "description": "Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.\n\ninject returns true for existing links and false for non existing links.",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "rel",
+              "privacy": "public",
+              "description": "Name of the rel",
+              "attribute": "rel"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "privacy": "public",
+              "description": "define the type if you want a specific check on the type also",
+              "attribute": "type"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Object Hateoas Link"
+              },
+              "description": " Fired when rel exists in `linkArray`.",
+              "name": "furo-rel-exists"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": " Fired when rel does not exists in `linkArray`.",
+              "name": "rel-dont-exist"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "rel",
+              "description": "Name of the rel",
+              "fieldName": "rel"
+            },
+            {
+              "name": "type",
+              "description": "define the type if you want a specific check on the type also",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "checks for a specific rel",
+          "tagName": "furo-rel-exists",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-rel-exists",
+          "declaration": {
+            "name": "FuroRelExists",
+            "module": "src/furo-rel-exists.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-reverse-deep-link.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```html\n <furo-reverse-deep-link\n     service=\"TaskService\"\n     rel=\"self\" @-converted=\"--queryParams\"\n     ƒ-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n ></furo-reverse-deep-link>\n```",
+          "name": "FuroReverseDeepLink",
+          "members": [
+            {
+              "kind": "method",
+              "name": "convert",
+              "parameters": [
+                {
+                  "name": "data",
+                  "description": "rawEntity|rawCollection",
+                  "type": {
+                    "text": "object"
+                  }
+                }
+              ],
+              "description": "converts the href of a LinkObject\n\nreturns Error on undefined service",
+              "return": {
+                "type": {
+                  "text": "object"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_convert",
+              "parameters": [
+                {
+                  "name": "link"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "{}"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "service",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "Name of service",
+              "attribute": "service"
+            },
+            {
+              "kind": "field",
+              "name": "_services",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "rel",
+              "privacy": "public",
+              "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
+              "attribute": "rel"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "QueryParams"
+              },
+              "description": " Fired when input was converted.",
+              "name": "converted"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "service",
+              "description": "Name of service",
+              "fieldName": "service"
+            },
+            {
+              "name": "rel",
+              "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
+              "fieldName": "rel"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "create query param object from HATEOAS",
+          "tagName": "furo-reverse-deep-link",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-reverse-deep-link",
+          "declaration": {
+            "name": "FuroReverseDeepLink",
+            "module": "src/furo-reverse-deep-link.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-sortby-container.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-sortby-container`\n\nThe string value should follow SQL syntax: comma separated list of fields. For example: \"foo,bar\".\nThe default sorting order is ascending. To specify descending order for a field, a suffix \" desc\" should be\nappended to the field name. For example: \"foo desc,bar\".\nRedundant space characters in the syntax are insignificant. \"foo,bar desc\" and \"  foo ,  bar  desc  \" are equivalent.",
+          "name": "FuroSortbyContainer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "addAscendingField",
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "foo,bar"
+            },
+            {
+              "kind": "method",
+              "name": "addDescendingField",
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "foo,bar desc"
+            },
+            {
+              "kind": "method",
+              "name": "clear",
+              "description": "Clears the sort_by query and fires sortby-condition-updated"
+            },
+            {
+              "kind": "method",
+              "name": "_mapSorterToQuery",
+              "description": "https://cloud.google.com/apis/design/design_patterns#sorting_order",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "sorter",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            }
+          ],
+          "events": [
+            {
+              "name": "sortby-condition-updated",
+              "type": {
+                "text": "sortQueryArray"
+              },
+              "description": "Is fired if a new sort condition is set."
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "furo-sortby-container",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-sortby-container",
+          "declaration": {
+            "name": "FuroSortbyContainer",
+            "module": "src/furo-sortby-container.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/AgentHelper.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AgentHelper",
+          "members": [
+            {
+              "kind": "method",
+              "name": "updateQp",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "caller"
+                },
+                {
+                  "name": "qp"
+                }
+              ],
+              "description": "Update query params\na qp like {\"active\":true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired"
+            },
+            {
+              "kind": "method",
+              "name": "setQp",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "caller"
+                },
+                {
+                  "name": "qp"
+                }
+              ],
+              "description": "Set query params\nAll existing query params are replaced by the transferred parameters\nIf the transferred object is empty or undefined, all the values will be removed!"
+            },
+            {
+              "kind": "method",
+              "name": "getParams",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "caller"
+                },
+                {
+                  "name": "link"
+                }
+              ],
+              "description": "get existing params from href and append query params",
+              "return": {
+                "type": {
+                  "text": "{}"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "rebuildQPFromParams",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "params"
+                }
+              ],
+              "description": "rebuild qp from params",
+              "return": {
+                "type": {
+                  "text": "[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "generateHeaderAccept",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "caller"
+                },
+                {
+                  "name": "services"
+                },
+                {
+                  "name": "rel"
+                }
+              ],
+              "description": "generate accept field for header",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "generateReq",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "link"
+                },
+                {
+                  "name": "qp"
+                }
+              ],
+              "description": "generate request url from original link and qp",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "checkServiceAndHateoasLinkError",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "caller"
+                },
+                {
+                  "name": "rel"
+                },
+                {
+                  "name": "serviceName"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "undefined|object"
+                }
+              },
+              "privacy": "private"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AgentHelper",
+          "declaration": {
+            "name": "AgentHelper",
+            "module": "src/lib/AgentHelper.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/DataObject.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "EntityNode is usually the root node of an eventTree",
+          "name": "DataObject",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateAllFields"
+            },
+            {
+              "kind": "method",
+              "name": "clearAllErrors",
+              "description": "clears all errors on every fieldnode"
+            },
+            {
+              "kind": "method",
+              "name": "setAllToPristine",
+              "description": "set all children to pristine\nuseful for deltas"
+            },
+            {
+              "kind": "method",
+              "name": "injectRaw",
+              "parameters": [
+                {
+                  "name": "rawEntity"
+                }
+              ],
+              "description": "Injecten eines raw models wie bspw body oder entity einer collection"
+            },
+            {
+              "kind": "method",
+              "name": "reset",
+              "description": "Resete zum letzten injected state zurück"
+            },
+            {
+              "kind": "method",
+              "name": "_hasAncestorOfType",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "rawEntity"
+            },
+            {
+              "kind": "field",
+              "name": "_value",
+              "description": "Returns a json representation of your Data Object",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_base64",
+              "description": "Set the value of the data object with a base64 encoded string",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              },
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "encodedData"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getJson",
+              "description": "Returns a json representation of your Data Object",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_updateFieldValuesAndMetaFromRawEntity",
+              "parameters": [
+                {
+                  "name": "node"
+                },
+                {
+                  "name": "data"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "__updateMetaAndConstraints",
+              "parameters": [
+                {
+                  "name": "metaAndConstraints"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_setInvalid",
+              "parameters": [
+                {
+                  "name": "error"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_initFieldsFromSpec",
+              "parameters": [
+                {
+                  "name": "node"
+                },
+                {
+                  "name": "fieldSpec"
+                }
+              ],
+              "description": "Baut die Felder aufgrund der spec auf",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "toString"
+            },
+            {
+              "kind": "method",
+              "name": "_pathSet",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "root"
+                },
+                {
+                  "name": "path",
+                  "description": "String a.b.c.d"
+                },
+                {
+                  "name": "value"
+                }
+              ],
+              "description": "helper to set deep paths",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "__specdefinitions",
+              "default": "specs"
+            },
+            {
+              "kind": "field",
+              "name": "_spec",
+              "default": "this.__specdefinitions[type]"
+            },
+            {
+              "kind": "field",
+              "name": "_type",
+              "default": "type"
+            },
+            {
+              "kind": "field",
+              "name": "_pristine",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "_isValid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            }
+          ],
+          "superclass": {
+            "name": "EventTreeNode",
+            "package": "@furo/framework/src/EventTreeNode.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DataObject",
+          "declaration": {
+            "name": "DataObject",
+            "module": "src/lib/DataObject.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/FieldNode.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "\n## internal events\n- *this-field-became-invalid*, when a field gets invalid\n- *field-became-invalid* **bubbles**, when a field gets invalid\n- *this-field-became-valid*, when a field gets valid\n- *field-became-valid* **bubbles**, when a field gets valid\n- *this-field-value-changed*, when the value of a field changed\n- *field-value-changed* **bubbles**, when the value of a field changed\n- *this-metas-changed*, when the metas of a field changed\n- *metas-changed* **bubbles**, when the meta of a field changed\n- *oneof-field-cleared*, when a field in a oneof group was cleared\n- *oneof-field-changed*, when a field in a oneof group was changed\n- *this-node-field-added*, when a sub field was added to a field\n- *node-field-added* **bubbles**, when a sub field was added to a field\n- *this-node-field-deleted*, when a sub field was added to a field\n- *node-field-deleted* **bubbles**, when a sub field was added to a field\n\n\n## internal broadcasted events\n- *parent-readonly-meta-set*, when readonly was set on a parent field",
+          "name": "FieldNode",
+          "members": [
+            {
+              "kind": "method",
+              "name": "createField",
+              "parameters": [
+                {
+                  "name": "options",
+                  "description": ":\"name\",\"type\":\"string\", \"spec\":{..}}  spec is optional",
+                  "type": {
+                    "text": "\"fieldName\""
+                  }
+                }
+              ],
+              "description": "create a field in a FieldNode, this is useful when using map<string,something>\n  set the value option to init with values"
+            },
+            {
+              "kind": "method",
+              "name": "_hasAncestorOfType",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "description": "infinite recursive element protection"
+            },
+            {
+              "kind": "method",
+              "name": "moveNode",
+              "parameters": [
+                {
+                  "name": "oldIndex"
+                },
+                {
+                  "name": "newIndex"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "reinit",
+              "description": "sets the field to the initial values from the spec\ndefault values are applied"
+            },
+            {
+              "kind": "method",
+              "name": "reset",
+              "description": "resets the field to empty values\nno default values are applied",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_createVendorType",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_value",
+              "description": "returns the raw value of the field node",
+              "return": {
+                "type": {
+                  "text": "null"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_checkConstraints"
+            },
+            {
+              "kind": "method",
+              "name": "__updateMetaAndConstraints",
+              "parameters": [
+                {
+                  "name": "metaAndConstraints"
+                },
+                {
+                  "name": "level"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_triggerDeepNodeEvent",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ],
+              "description": "fires a NodeEvent recursively\nstarting point is caller",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_createAnyType",
+              "parameters": [
+                {
+                  "name": "val"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_updateKeyValueMap",
+              "parameters": [
+                {
+                  "name": "val"
+                },
+                {
+                  "name": "spec"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "deleteNode",
+              "description": "deletes the fieldnode"
+            },
+            {
+              "kind": "field",
+              "name": "defaultvalue"
+            },
+            {
+              "kind": "field",
+              "name": "_base64",
+              "description": "Set the value of the data object with a base64 encoded string",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              },
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "encodedData"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_transmitValue",
+              "description": "Returns all not readonly fields values with deep dive\nMandatory fields (required is true) MUST always be transmitted\n!readonly || required",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_deltaValue",
+              "description": "Returns all modified fields values with deep dive (! _pristine)\nmodified || required",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_requiredValue",
+              "description": "Returns required fields with all children",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_clearInvalidity"
+            },
+            {
+              "kind": "method",
+              "name": "_setInvalid",
+              "parameters": [
+                {
+                  "name": "error",
+                  "description": ":\"error description / message\"} => used in data-input-type for hints",
+                  "type": {
+                    "text": "\"description\""
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "toString"
+            },
+            {
+              "kind": "field",
+              "name": "__specdefinitions"
+            },
+            {
+              "kind": "field",
+              "name": "_spec",
+              "default": "{ type: vType }",
+              "type": {
+                "text": "object"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_name",
+              "default": "fieldName"
+            },
+            {
+              "kind": "field",
+              "name": "__index",
+              "default": "fieldName"
+            },
+            {
+              "kind": "field",
+              "name": "__value",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "_pristine",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "_isValid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "_validationDisabled"
+            },
+            {
+              "kind": "field",
+              "name": "__initialValue"
+            }
+          ],
+          "superclass": {
+            "name": "EventTreeNode",
+            "package": "@furo/framework/src/EventTreeNode.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldNode",
+          "declaration": {
+            "name": "FieldNode",
+            "module": "src/lib/FieldNode.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/FieldNodeAdapter.js",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "FieldNodeAdapter",
+          "members": [
+            {
+              "kind": "method",
+              "name": "getDataType",
+              "description": "Returns the type name of the bounded fieldNode",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isFat",
+              "description": "Check if bounded type is a fat type",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isWrapper",
+              "description": "Check if bounded type is a wrapper type",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode"
+                }
+              ],
+              "description": "Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.",
+              "privacy": "public"
+            },
+            {
+              "kind": "method",
+              "name": "setFnaFieldValue",
+              "parameters": [
+                {
+                  "name": "value",
+                  "description": "the raw json value for the fieldNode."
+                }
+              ],
+              "description": "Sets the value on the fieldNode. When you set the value, the changes you made will not trigger\nthe `onFnaFieldValueChanged`.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaFieldValueChanged",
+              "parameters": [
+                {
+                  "name": "value",
+                  "description": "the raw json value for the fieldNode."
+                }
+              ],
+              "description": "Notifies a field value change event. This event is debounced with 1ms, if you have bound a complex type, only one change event\nwill be triggered (this is what you want). If you need all change events or more control for your component,\nuse the listener on the fieldNode itself.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaConstraintsChanged",
+              "parameters": [
+                {
+                  "name": "constraints"
+                }
+              ],
+              "description": "Notifies changes on the constraints.\n\nreturns an object like:\n```json\n {\n \"min\":\n   {\n     is:33,\n     message:\"must be bigger\"\n   }\n }\n```\n\n```javascript\n  // example callback\n  onFnaConstraintsChanged(constraints) {\n    if (constraints.min !== undefined) {\n      this._constraintsFromFNA.min = constraints.min;\n      if (this._privilegedAttributes.min === null && this._attributesFromFAT.min === undefined) {\n        this.min = constraints.min.is;\n      }\n    }\n }\n```",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaOptionsChanged",
+              "parameters": [
+                {
+                  "name": "options"
+                }
+              ],
+              "description": "Notifies when the options for the field is changed or set.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaReadonlyChanged",
+              "parameters": [
+                {
+                  "name": "readonly"
+                }
+              ],
+              "description": "Notifies when the readonly flag for the field is changed or set.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaHintChanged",
+              "parameters": [
+                {
+                  "name": "hint"
+                }
+              ],
+              "description": "Notifies when the hint for the field is changed or set.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaLabelChanged",
+              "parameters": [
+                {
+                  "name": "label"
+                }
+              ],
+              "description": "Notifies when the label for the field is changed or set.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaPlaceholderChanged",
+              "parameters": [
+                {
+                  "name": "placeholder"
+                }
+              ],
+              "description": "Notifies when the placeholder for the field is changed or set.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaFieldNodeBecameValid",
+              "description": "Notifies that a field gets valid.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaFieldNodeBecameInvalid",
+              "parameters": [
+                {
+                  "name": "validity",
+                  "description": "Object like {constraint: \"min\", description: \"too small\", field: \"\"}"
+                }
+              ],
+              "description": "Notifies that a field gets invalid.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaFieldNewDataInjected",
+              "description": "Notifies that new data was injected",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onFnaRepeatedFieldChanged",
+              "description": "Notifies when a repeater node changes",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "__registerHandlers",
+              "description": "This is done to be able to remove the event-listeners as a protection for multiple calls for bindData and for cleanup",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "__detachEventListeners",
+              "description": "remove all listeners on the fieldnode",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "__fieldNode",
+              "type": {
+                "text": "object"
+              },
+              "description": "This is a reference for the Adapter, DO NOT USE this attribute in your components",
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "__internalUpdateInProgress",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "used to suppress change events which are triggered by the component itself",
+              "privacy": "private",
+              "default": "false"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass"
+            }
+          ],
+          "summary": "Please read the guide for a better understanding"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldNodeAdapter",
+          "declaration": {
+            "name": "FieldNodeAdapter",
+            "module": "src/lib/FieldNodeAdapter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/Helper.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Helper",
+          "members": [
+            {
+              "kind": "method",
+              "name": "defaultForType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "isNumericType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "description": "checks if a type is numeric (usefull when you want to compare min or max constraints)",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isScalarType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "description": "checks if a type is scalar",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Helper",
+          "declaration": {
+            "name": "Helper",
+            "module": "src/lib/Helper.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/RepeaterNode.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RepeaterNode",
+          "members": [
+            {
+              "kind": "method",
+              "name": "moveNode",
+              "parameters": [
+                {
+                  "name": "oldIndex"
+                },
+                {
+                  "name": "newIndex"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "reinit",
+              "description": "resets the field to the initial _values from the spec"
+            },
+            {
+              "kind": "method",
+              "name": "removeAllChildren",
+              "description": "deletes all repeated fields on this node"
+            },
+            {
+              "kind": "method",
+              "name": "_hasAncestorOfType",
+              "description": "infinite recursive element protection\nwe can return false here, because a repeater node is not created automatically"
+            },
+            {
+              "kind": "method",
+              "name": "deleteNode"
+            },
+            {
+              "kind": "field",
+              "name": "_value",
+              "default": "tmp"
+            },
+            {
+              "kind": "method",
+              "name": "__updateMetaAndConstraints",
+              "parameters": [
+                {
+                  "name": "metaAndConstraints"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_transmitValue",
+              "description": "Returns all not readonly field values with deep dive",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_deltaValue",
+              "description": "Returns all modified field values with deep dive (! _pristine)",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_requiredValue",
+              "description": "Returns required fields with all children which are modified or\nnot readonly",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_triggerDeepNodeEvent",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ],
+              "description": "delegates the trigger to all repeats",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "deleteChild",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ],
+              "description": "Deletes a repeated item by index"
+            },
+            {
+              "kind": "method",
+              "name": "_addSilent"
+            },
+            {
+              "kind": "method",
+              "name": "_setInvalid",
+              "parameters": [
+                {
+                  "name": "error"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "add",
+              "parameters": [
+                {
+                  "name": "data"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "__specdefinitions"
+            },
+            {
+              "kind": "field",
+              "name": "_isRepeater",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "repeats",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_spec",
+              "default": "spec"
+            },
+            {
+              "kind": "field",
+              "name": "_name",
+              "default": "fieldName"
+            },
+            {
+              "kind": "field",
+              "name": "clearListOnNewData",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Set this to true to clear the list on new data instead updating the current list.",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_pristine",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "_isValid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "_validationDisabled"
+            },
+            {
+              "kind": "field",
+              "name": "__initialValue"
+            }
+          ],
+          "superclass": {
+            "name": "EventTreeNode",
+            "package": "@furo/framework/src/EventTreeNode.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RepeaterNode",
+          "declaration": {
+            "name": "RepeaterNode",
+            "module": "src/lib/RepeaterNode.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/UniversalFieldNodeBinder.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "DEPRECATED `UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes\na API for data binding purposes.\n\nGoogle wrapper types are handled like skalar values\n\n## specifity\n**meta < fat annotations**\n**attributes on element > fat annotations > meta**\n\nSpec meta and dynamic meta is handled in DataObject and FieldNode.\n\nIf meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.",
+          "name": "UniversalFieldNodeBinder",
+          "members": [
+            {
+              "kind": "method",
+              "name": "bindField",
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "binds the fieldNode and read the metas"
+            },
+            {
+              "kind": "field",
+              "name": "fieldValue",
+              "description": "returns the current value of the field",
+              "parameters": [
+                {
+                  "name": "val"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "addLabel",
+              "parameters": [
+                {
+                  "name": "label"
+                }
+              ],
+              "description": "adds a label to the fat fieldNode. Adding labels to scalar or complex works too, but will never updated on the fieldNode."
+            },
+            {
+              "kind": "method",
+              "name": "deleteLabel",
+              "parameters": [
+                {
+                  "name": "label"
+                }
+              ],
+              "description": "deletes a label from a fat fieldNode"
+            },
+            {
+              "kind": "method",
+              "name": "setAttribute",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "value"
+                }
+              ],
+              "description": "Sets the value of a named attribute of the current node. Like value-state=\"Error\".\nDo not forget to add the mappings with `xxx.attributeMappings = { 'value-state': 'valueState' };` to reflect the value to your component."
+            },
+            {
+              "kind": "method",
+              "name": "removeAttribute",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "description": "removes a named attribute from the fieldNode."
+            },
+            {
+              "kind": "method",
+              "name": "_updateVirtualNode",
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_addVirtualAttribute",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "value"
+                }
+              ],
+              "description": "Adds or updates a attribute to the virtual node and set the attribute on the target component if mapping is defined",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_pathSet",
+              "parameters": [
+                {
+                  "name": "path",
+                  "description": "String a.b.c.d"
+                },
+                {
+                  "name": "value"
+                }
+              ],
+              "description": "helper to set deep paths",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_removeVirtualAttribute",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "description": "Removes a attribute from the virtual node and sets the attribute on the target component to null, so lit will remove it on reflected attributes.\n\n https://lit-element.polymer-project.org/guide/properties#attributes",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_addVirtualLabel",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "description": "Adds a label to the virtual node label set and sets the label on the target component to `true` if mapping is defined.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_removeVirtualLabel",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "description": "Removes a label from the virtual node label set and sets the label on the target component to `false` if mapping is defined.",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "checkLabelandAttributeOverrrides",
+              "description": "check overrides from the used component, setted attributes overrides all internal settings.\nAll we have to do is removing the setted mappings for the current instance.\n\n**Hint:** Do this after initializing the mappings."
+            },
+            {
+              "kind": "method",
+              "name": "detectFormat",
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "detects the kind of the fieldNode (scalar, fat)",
+              "return": {
+                "type": {
+                  "text": "string|undefined"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_updateVirtualNodeFromMeta",
+              "parameters": [
+                {
+                  "name": "fieldmeta"
+                }
+              ],
+              "description": "updates the virtual node attributes and labels with metas from the fieldnode",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_updateVirtualNodeFromMetaConstraints",
+              "parameters": [
+                {
+                  "name": "constraints"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "default": "target"
+            },
+            {
+              "kind": "field",
+              "name": "fieldFormat",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "_metastore",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "targetValueField",
+              "type": {
+                "text": "string"
+              },
+              "description": "Define the property for the value on the component. If the value in the fieldnode changes\nthis property will be updated",
+              "default": "'value'"
+            },
+            {
+              "kind": "field",
+              "name": "labelMappings",
+              "type": {
+                "text": "{}"
+              },
+              "description": "Define the mappings for the labels / flags which will be set on the component if it is set in the fieldnode.\n\n```\n // set the label mappings\n // fat-label: componentProperty\nthis.binder.labelMappings = {\n  'error': '_error',\n  'readonly': 'readonly',\n  'required': 'required',\n  'disabled': 'disabled'\n};\n```",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "attributeMappings",
+              "type": {
+                "text": "{}"
+              },
+              "description": "Define the mappings for the attributes which will be set on the component if it is set in the fieldnode.\n\n```\n // set the attribute mappings\n this.binder.attributeMappings = {\n   'label': 'placeholder', // map label to placeholder\n   'placeholder': 'placeholder', // map placeholder to placeholder\n   'hint': '_hint',\n   'icon': 'leadingIcon', // icon and leading icon maps to the same\n   'leading-icon': 'leadingIcon',// icon and leading icon maps to the same\n   'value-state': '_valueState',\n   'value-state-message': '_valueStateMessage',\n   'errortext': '_errorMsg', // name errortext is for compatibility with spec\n   'warning-msg': '_warningMsg',\n   'success-msg': '_successMsg',\n   'information-msg': '_informationMsg',\n   'pattern': 'pattern',\n   'maxlength': 'maxlength', // for the input element itself\n };\n```",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "fatAttributesToConstraintsMappings",
+              "type": {
+                "text": "{}"
+              },
+              "description": "Define the attributes which maps to the field constraints.\n\n```\nthis.fatAttributesToConstraintsMappings = {\n  'max': 'value._constraints.max.is',// for the fieldnode max constraint\n  'min': 'value._constraints.min.is',// for the fieldnode min constraint\n  'min-msg': 'value._constraints.min.message',// for the fieldnode min constraint message\n  'max-msg': 'value._constraints.max.message',// for the fieldnode max constraint message\n}\n```",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "constraintsTofatAttributesMappings",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UniversalFieldNodeBinder",
+          "declaration": {
+            "name": "UniversalFieldNodeBinder",
+            "module": "src/lib/UniversalFieldNodeBinder.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorDefaultTypes.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type <code>string</code",
+          "name": "ValidatorDefaultTypes",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorDefaultTypes",
+          "declaration": {
+            "name": "ValidatorDefaultTypes",
+            "module": "src/lib/ValidatorDefaultTypes.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorGoogleTypeDate.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type <code>google.type.Date</code",
+          "name": "ValidatorGoogleTypeDate",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks constraints",
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isEmpty",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks if type date is empty",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "createDateFromType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "creates a JS UTC Date from google.type.Date struct",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Date"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "createDateFromConstraint",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "constraints"
+                },
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "creates a JS midnight UTC Date from furo/specs constraints",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Date"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleTypeDate",
+          "declaration": {
+            "name": "ValidatorGoogleTypeDate",
+            "module": "src/lib/ValidatorGoogleTypeDate.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorGoogleTypeMoney.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type <code>google.type.Money</code",
+          "name": "ValidatorGoogleTypeMoney",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks field constraints",
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isEmpty",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks if type money is empty",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleTypeMoney",
+          "declaration": {
+            "name": "ValidatorGoogleTypeMoney",
+            "module": "src/lib/ValidatorGoogleTypeMoney.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorNumericTypes.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on numeric types",
+          "name": "ValidatorNumericTypes",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorNumericTypes",
+          "declaration": {
+            "name": "ValidatorNumericTypes",
+            "module": "src/lib/ValidatorNumericTypes.js"
+          }
+        }
+      ]
+    }
+  ]
+}

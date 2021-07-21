@@ -17,8 +17,7 @@
     "lint:prettier": "./node_modules/.bin/prettier \"packages/**/src/*.js\" --check --ignore-path .gitignore",
     "format": "npm run format:eslint && npm run format:prettier",
     "format:eslint": "./node_modules/.bin/eslint --ext .js  \"packages/**/src/*.js\" --fix --ignore-path .gitignore",
-    "format:prettier": "./node_modules/.bin/prettier \"packages/**/src/*.js\" --write --ignore-path .gitignore",
-    "genpage": "./scripts/publish-documentation.sh"
+    "format:prettier": "./node_modules/.bin/prettier \"packages/**/src/*.js\" --write --ignore-path .gitignore"
   },
   "author": "veith",
   "license": "MIT",

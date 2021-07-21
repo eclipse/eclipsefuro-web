@@ -13,7 +13,6 @@ import { FBP } from '@furo/fbp';
  *```
  *
  * @fires content -  Fired when clipboard content is received
- * @event {*} content of the clipboard
  *
  * @summary get clipboard content
  * @customElement

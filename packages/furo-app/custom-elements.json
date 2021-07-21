@@ -1,0 +1,678 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-app-bar-top.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-app-bar-top` Application top bar",
+          "name": "FuroAppBarTop",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#7f7f7f"
+              },
+              "description": "Light background color",
+              "name": "--furo-app-bar-top-background-light",
+              "default": "--primary-light"
+            },
+            {
+              "type": {
+                "text": "#aFAFAF"
+              },
+              "description": "Dark background color",
+              "name": "--furo-app-bar-top-background-dark",
+              "default": "--primary-dark"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "startActivity",
+              "description": "You can show a progress indicator while you have pending requests or work\nShows furo-loading-indicator-bar"
+            },
+            {
+              "kind": "method",
+              "name": "stopActivity",
+              "description": "Stop loading indicator\nHides furo-loading-indicator-bar"
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "showNavigationIcon",
+              "description": "Shows the navigation icon."
+            },
+            {
+              "kind": "method",
+              "name": "hideNavigationIcon",
+              "description": "Hides the navigation icon."
+            },
+            {
+              "kind": "field",
+              "name": "_navigationIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'menu'",
+              "privacy": "public",
+              "description": "Set the icon for the navigation.",
+              "attribute": "navigation-icon"
+            },
+            {
+              "kind": "field",
+              "name": "drawer",
+              "privacy": "public",
+              "description": "Name of the drawer to connect.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "drawer"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "name"
+              },
+              "description": "-Fired when drawer name is set",
+              "name": "connect-to-drawer-requested"
+            },
+            {
+              "type": {
+                "text": "MouseEvent"
+              },
+              "description": "Fired when navigation icon is clicked",
+              "name": "navigation-clicked"
+            },
+            {
+              "type": {
+                "text": "MouseEvent"
+              },
+              "description": "Fired when icon is menu and navigation is clicked",
+              "name": "navigation-menu-clicked"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "navigation-icon",
+              "description": "Set the icon for the navigation.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "_navigationIcon"
+            },
+            {
+              "name": "drawer",
+              "description": "Name of the drawer to connect.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "drawer"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Toolbar to place on top",
+          "tagName": "furo-app-bar-top",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FuroAppBarTop",
+          "declaration": {
+            "name": "FuroAppBarTop",
+            "module": "src/furo-app-bar-top.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-app-bar-top",
+          "declaration": {
+            "name": "FuroAppBarTop",
+            "module": "src/furo-app-bar-top.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-app-drawer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "\nThe API may change, documentation will follow\n\n`furo-app-drawer`\ntodo Describe the element",
+          "name": "FuroAppDrawer",
+          "members": [
+            {
+              "kind": "field",
+              "name": "__isFloating",
+              "description": "helper variable to set the floating",
+              "parameters": [
+                {
+                  "name": "val"
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "description": "open the drawer when it is in float mode"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "closes the drawer when it is in float mode"
+            },
+            {
+              "kind": "method",
+              "name": "floatDrawer",
+              "description": "let the drawer float"
+            },
+            {
+              "kind": "method",
+              "name": "pinDrawer",
+              "description": "disable the floating"
+            },
+            {
+              "kind": "method",
+              "name": "putDrawerToRight",
+              "description": "Put the drawer on the right side\n\nOr use the attribute reverse for the same effect"
+            },
+            {
+              "kind": "method",
+              "name": "putDrawerToLeft",
+              "description": "Put the drawer on the left side (default)"
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "pauseEvent",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_getScreenX",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_getScreenY",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "floatBreakpoint",
+              "type": {
+                "text": "number"
+              },
+              "description": "Width for the autofloat",
+              "default": "1159",
+              "privacy": "public",
+              "attribute": "float-breakpoint"
+            },
+            {
+              "kind": "field",
+              "name": "_movementDetectionRange",
+              "type": {
+                "text": "number"
+              },
+              "default": "10"
+            },
+            {
+              "kind": "field",
+              "name": "_isFloating",
+              "privacy": "private",
+              "description": "Use method floatDrawer or set this attribute to enable float mode",
+              "attribute": "float",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isReverse",
+              "privacy": "public",
+              "description": "Enable this to put the drawer on the right side",
+              "attribute": "reverse",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "permanent",
+              "privacy": "public",
+              "description": "disables automatic floating mode",
+              "attribute": "permanent"
+            },
+            {
+              "kind": "field",
+              "name": "float",
+              "privacy": "public",
+              "description": "let the menu float (hidden).",
+              "attribute": "float"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "description": "name of this drawer, needed if you want to connect to this drawer",
+              "attribute": "name"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fired when drawer is in floating mode. This event is fired when drawer is closed and opened.",
+              "name": "is-floating"
+            },
+            {
+              "description": "Fired when drawer is in pinned mode.",
+              "name": "is-pinned"
+            },
+            {
+              "description": "Fired when drawer was opened.",
+              "name": "drawer-opened"
+            },
+            {
+              "description": "Fired when drawer was closed.",
+              "name": "drawer-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "float",
+              "description": "Use method floatDrawer or set this attribute to enable float mode",
+              "fieldName": "_isFloating"
+            },
+            {
+              "name": "reverse",
+              "description": "Enable this to put the drawer on the right side",
+              "fieldName": "isReverse"
+            },
+            {
+              "name": "permanent",
+              "description": "disables automatic floating mode",
+              "fieldName": "permanent"
+            },
+            {
+              "name": "float",
+              "description": "let the menu float (hidden).",
+              "fieldName": "float"
+            },
+            {
+              "name": "float-breakpoint",
+              "description": "Min width of the app-drawer to switch to floating mode",
+              "fieldName": "floatBreakpoint"
+            },
+            {
+              "name": "name",
+              "description": "name of this drawer, needed if you want to connect to this drawer",
+              "fieldName": "name"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Application drawer",
+          "tagName": "furo-app-drawer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-app-drawer",
+          "declaration": {
+            "name": "FuroAppDrawer",
+            "module": "src/furo-app-drawer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-card.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-card`\n is a container with a shadow and slots for media, content, actions,...",
+          "name": "FuroCard",
+          "members": [
+            {
+              "kind": "method",
+              "name": "startActivity",
+              "description": "You can show a progress indicator while you have pending requests or work\nShows furo-loading-indicator-bar"
+            },
+            {
+              "kind": "method",
+              "name": "stopActivity",
+              "description": "Stop loading indicator\nHides furo-loading-indicator-bar"
+            },
+            {
+              "kind": "field",
+              "name": "hasaction",
+              "privacy": "public",
+              "attribute": "hasaction",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hasmedia",
+              "privacy": "public",
+              "attribute": "hasmedia",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "headerText",
+              "privacy": "public",
+              "description": "Main title",
+              "attribute": "header-text"
+            },
+            {
+              "kind": "field",
+              "name": "secondaryText",
+              "privacy": "public",
+              "attribute": "secondary-text"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header-text",
+              "description": "Main title",
+              "fieldName": "headerText"
+            },
+            {
+              "name": "secondary-text",
+              "fieldName": "secondaryText"
+            },
+            {
+              "name": "hasaction",
+              "fieldName": "hasaction"
+            },
+            {
+              "name": "hasmedia",
+              "fieldName": "hasmedia"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "Material design card element",
+          "tagName": "furo-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-card",
+          "declaration": {
+            "name": "FuroCard",
+            "module": "src/furo-card.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-loading-indicator-bar.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`loading-indicator`\nIndicates that something is in progress.\n\ntodo: make it like https://material.io/design/components/progress-indicators.html#",
+          "name": "FuroLoadingIndicatorBar",
+          "members": [
+            {
+              "kind": "method",
+              "name": "start"
+            },
+            {
+              "kind": "method",
+              "name": "stop"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "An ugly progress bar",
+          "tagName": "furo-loading-indicator-bar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-loading-indicator-bar",
+          "declaration": {
+            "name": "FuroLoadingIndicatorBar",
+            "module": "src/furo-loading-indicator-bar.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-tooltip-display.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-tooltip-display`\n place this component as high as possible in your DOM.",
+          "name": "FuroTooltipDisplay",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "start",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "start",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "privacy": "public",
+              "attribute": "show",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "start",
+              "description": "Description",
+              "fieldName": "start"
+            },
+            {
+              "name": "show",
+              "fieldName": "show"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "helper component for tooltip",
+          "tagName": "furo-tooltip-display",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-tooltip-display",
+          "declaration": {
+            "name": "FuroTooltipDisplay",
+            "module": "src/furo-tooltip-display.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-tooltip.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-tooltip` is used to trigger a tooltip which is displayed by `furo-tooltip-display`.",
+          "name": "FuroTooltip",
+          "members": [
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "show the tooltip (usefull with a click event)"
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "duration",
+              "type": {
+                "text": "number"
+              },
+              "description": "display duration in ms",
+              "default": "1500",
+              "privacy": "public",
+              "attribute": "duration"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "description": "The text which should be displayed in the tooltip.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "label"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "MouseEvent"
+              },
+              "description": "Fired when mouseover on component, catched by furo-tooltip-display.",
+              "name": "show-tooltip-requested"
+            },
+            {
+              "type": {
+                "text": "MouseEvent"
+              },
+              "description": "Fired when mouseout on component, catched by furo-tooltip-display.",
+              "name": "hide-tooltip-requested"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "duration",
+              "description": "Display duration in ms.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "duration"
+            },
+            {
+              "name": "label",
+              "description": "The text which should be displayed in the tooltip.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "summary": "defines and triggers a tooltip",
+          "tagName": "furo-tooltip",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-tooltip",
+          "declaration": {
+            "name": "FuroTooltip",
+            "module": "src/furo-tooltip.js"
+          }
+        }
+      ]
+    }
+  ]
+}

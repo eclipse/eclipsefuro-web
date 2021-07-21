@@ -26,5 +26,6 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "customElements": "custom-elements.json"
 }

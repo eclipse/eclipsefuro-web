@@ -156,11 +156,6 @@ describe('furo-data-text-input', () => {
         done();
       });
 
-      /**
-       * @event value-changed
-       * Fired when
-       * detail payload:
-       */
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = 'newText';
       dataTextInput.dispatchEvent(customEvent);
