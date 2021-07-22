@@ -25,6 +25,7 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @fires {} filter-changed -  Fired when filter was updated with `ƒ-set-filter`.
  * @fires {Array|HATEOAS} hts-updated -  Fired when hateoas was updated from response.
  * @fires {Hateoas links} hts-injected -  Fired when hateoas was updated
+ * @fires request-aborted - Fired if the request was successfully cancelled
  *
  * @summary interface component to handle collection requests
  * @customElement
@@ -577,10 +578,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * Aborts a pending request
    */
   abortPendingRequest() {
-    /**
-     * Fired if the request was successfully cancelled,
-     * @event request-aborted
-     */
+
     if (this._pendingRequests.length) {
       this._FBPTriggerWire('--abortDemanded', this._abortController);
     }

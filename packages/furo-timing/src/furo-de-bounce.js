@@ -8,6 +8,9 @@ import { FBP } from '@furo/fbp';
  *  N milliseconds. If `immediate` is passed as a attribute, it triggers the input-wire on the
  *  leading edge, instead of the trailing.
  *
+ * @fires {*} out - Fired after `input-wire` stops being called for N milliseconds.
+ * If `immediate`is set to TRUE, it fires on the leading edge. object param from inputWire
+ *
  * @summary event de bouncer
  * @customElement
  * @demo demo-furo-de-bounce Basic usage
@@ -81,13 +84,7 @@ class FuroDeBounce extends FBP(LitElement) {
    * @private
    */
   _createHandler(wait, immediate) {
-    /**
-     * Fired after `input-wire` stops being called for N milliseconds.
-     * If `immediate`is set to TRUE, it fires on the leading edge.
-     * @event out
-     * detail payload: object param from inputWire
-     * @type {function(...[*]=)}
-     */
+
     this.handler = this._debounce(
       wire => {
         this.dispatchEvent(

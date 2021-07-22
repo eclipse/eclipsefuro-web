@@ -12,6 +12,8 @@ import { EmpptyStackError } from './lib/EmptyStackError.js';
  * @fires {the top element} rotated -  Fired when stack was rotated
  * @fires {the top element} rotated -  Fired when stack was rotated
  * @fires {the top element} stack-changed -  Fired when the stack contents changes after put, drop,...
+ * @fires {void} swapped Fired when stack was swapped
+ * @fires {void} empty - Fired when stack gets empty
  *
  * @summary forth like stack
  * @customElement
@@ -76,10 +78,7 @@ export class FuroForthStack extends LitElement {
   swap() {
     if (this._stack.length > 1) {
       this._move(this._stack, this._stack.length - 1, this._stack.length - 2);
-      /**
-       * Fired when stack was swapped
-       * @event swapped
-       */
+
       const customEvent = new Event('swapped', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
     }
@@ -100,10 +99,7 @@ export class FuroForthStack extends LitElement {
       const e = this._stack.pop();
       this.size = this._stack.length;
       if (this._stack.length === 0) {
-        /**
-         * Fired when stack is empty
-         * @event empty
-         */
+
         const customEvent = new Event('empty', { composed: true, bubbles: true });
         this.dispatchEvent(customEvent);
       }

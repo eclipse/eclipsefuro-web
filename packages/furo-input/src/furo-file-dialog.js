@@ -10,6 +10,7 @@ import { Helper } from './lib/helper.js';
  * @fires {the validity object of input} input-invalid -  Fired when input value is invalid.
  * @fires {void} value-cleared -  Fired when value has changed to EMPTY_STRING from inside the component.
  * @fires {String} value-changed -  Fired when value has changed from inside the component.
+ * @fires input-changed - Is fired if native input change event is fired. Payload: target element.
  *
  * @summary File input field
  * @customElement
@@ -31,10 +32,6 @@ export class FuroFileDialog extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires();
 
-    /**
-     * Is fired if native input change event is fired
-     * @event input-changed Payload: target element
-     */
     this._FBPAddWireHook('--changed', e => {
       this.dispatchEvent(
         new CustomEvent('input-changed', {

@@ -7,6 +7,7 @@ import { LitElement, css } from 'lit-element';
  *
  *
  * @fires {Number} tick - Fired on every interval with the position of the pulse starting at 0.
+ * @fires {Number} tock - Fired nth interval defined by takt.
  *
  * @summary trigger an event in intervals
  * @customElement
@@ -54,11 +55,7 @@ class FuroIntervalPulse extends LitElement {
       this.dispatchEvent(customEvent);
 
       if (pos === 0) {
-        /**
-         * Fired when tock
-         * detail payload: position
-         * @event tick
-         */
+
         const tockEvent = new Event('tock', { bubbles: true });
         tockEvent.detail = pos;
         this.dispatchEvent(tockEvent);

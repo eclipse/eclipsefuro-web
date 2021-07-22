@@ -5,6 +5,9 @@ import { FBP } from '@furo/fbp';
  * `furo-data-table-toggle`
  * Toggle with HTML entity
  *
+ * @fires descending - Fired on state toggle, Payload: identity
+ * @fires ascending - Fired on state toggle, Payload: identity
+ *
  * @summary helper for furo-data-table
  * @customElement
  * @appliesMixin FBP
@@ -73,11 +76,7 @@ class FuroDataTableToggle extends FBP(LitElement) {
     super.attributeChangedCallback(name, oldval, newval);
   }
 
-  /**
-   * Toggle state
-   * @event descending Payload: identity
-   * @event ascending Payload: identity
-   */
+
   toggle() {
     this.on = !this.on;
     this.requestUpdate();

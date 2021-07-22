@@ -6,62 +6,33 @@
  * ```html
  * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
  * ```
+ * @fires {Request} request-aborted - Fired when a request was canceled.
+ * @fires {Request} request-started - Fired when a request is sent.
+ * @fires {Object} response-raw - Fired when a response is received.
+ *
+ * @fires {Object} response - Fired when a response is received.
+ * Here you will get the parsed response
+ * Format depends on request header `content-type`
+ * supported types:
+ * - text/plain
+ * - application/json
+ * - image/jpeg (Blob)
+ * - application/octet-stream (ArrayBuffer)
+ * - application/pdf (Blob)
+ *
+ * @fires {Object}  response-error Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - * Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ *  * @fires response-error-[status-code.firstChar]xx -    * Fired when an error has occoured.
+ * This is a group error event. E.g. response-error-5xx, response-error-4xx
+ *
  *
  * @summary fetch data from network
  * @customElement
  */
 class FuroApiFetch extends HTMLElement {
-  /**
-   * Fired when a request is sent.
-   * Payload: request
-   * @event request-started
-   */
 
-  /**
-   * Fired when a request was canceled.
-   * Payload: request
-   * @event request-aborted
-   */
 
-  /**
-   * Fired when a response is received.
-   * Here you will get the raw response object
-   * Payload: Raw response
-   * @event response-raw
-   */
-
-  /**
-   * Fired when a response is received.
-   * Here you will get the parsed response
-   * Format depends on request header `content-type`
-   * supported types:
-   * - text/plain
-   * - application/json
-   * - image/jpeg (Blob)
-   * - application/octet-stream (ArrayBuffer)
-   * - application/pdf (Blob)
-   *
-   * Payload: parsed response
-   * @event response
-   */
-
-  /**
-   * Fired when an error has occoured.
-   * This is a general error event. The specific error events are fired additionally.
-   * @event response-error
-   */
-
-  /**
-   * Fired when an error has occoured.
-   * This is a specific error event.
-   * @event response-error-[status-code]
-   */
-
-  /**
-   * Fired when an error has occoured.
-   * This is a group error event. E.g. response-error-5xx, response-error-4xx
-   * @event response-error-[status-code.firstChar]xx
-   */
 
   constructor() {
     super();
@@ -107,15 +78,6 @@ class FuroApiFetch extends HTMLElement {
     controller.abort();
   }
 
-  /**
-   * Requests are made via the Fetch API if possible.
-   * Fallback XMLHttpRequest
-   *
-   * **payload** request object
-   * @event fatal-error
-   * @param request
-   * @private
-   */
   _executeRequest(request) {
     /**
      * dispatches fatal-error

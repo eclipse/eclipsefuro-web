@@ -10,6 +10,8 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * @fires {HTS} hts-updated -  Fired when hts was updated by `ƒ-hts-in`.
  *
+ * @fires request-aborted - Fired if the request was successfully cancelled.
+ *
  * @summary interface component to handle custom methods
  * @customElement
  * @demo demo-furo-custom-method Basic usage
@@ -260,10 +262,7 @@ class FuroCustomMethod extends FBP(LitElement) {
    * Aborts a pending request
    */
   abortPendingRequest() {
-    /**
-     * Fired if the request was successfully cancelled,
-     * @event request-aborted
-     */
+
     if (this._pendingRequests.length) {
       this._FBPTriggerWire('--abortDemanded', this._abortController);
     }
