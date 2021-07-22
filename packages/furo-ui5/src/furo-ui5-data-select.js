@@ -15,6 +15,10 @@ import '@ui5/webcomponents/dist/Option.js';
  * </furo-ui5-data-select>
  * ```
  *
+ * @fires {optionNodeList} options-updated - Fired  after the option list was rebuilt.
+ * @fires {selectedOption} item-selected - Fired when the item of the dropdown list is selected.
+ * @fires {selectedOption} field-value-changed - Fires the field value when it changes.
+ *
  * @summary data select field
  * @customElement
  * @demo demo-furo-ui5-data-select Basic usage (scalar , fat, wrapper values)
@@ -439,10 +443,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       });
     }
 
-    /**
-     * Fires event options-updated after rebuilding option list
-     * @event options-updated
-     */
+
     this.dispatchEvent(
       new CustomEvent('options-updated', {
         detail: optionNodeList,
@@ -528,20 +529,13 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
         this.setFnaFieldValue(newValue === '' ? '' : newValue);
       }
     }
-    /**
-     * Fired when value changed
-     *  * @fires {String} field-value-changed - Fires the field value when it changes.
-     * @type {Event}
-     */
+
+
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = selectedOption;
     this.dispatchEvent(customEvent);
 
-    /**
-     * Fired when the item of the dropdown list is selected.
-     * @event item-selected
-     * @type {Event}
-     */
+
     const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
     customSelectEvent.detail = selectedOption;
     this.dispatchEvent(customSelectEvent);

@@ -22,7 +22,15 @@ import '@ui5/webcomponents/dist/ToggleButton.js';
  * ```
  * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
  *
- * @summary
+ * @fires {selectedOption} item-selected - Fired when the toggle button was clicked.
+ *
+ * Payload:
+ * - if no option binding is active: ui5-togglebutton
+ * - if a RepeaterNode is bound: FieldNode
+ *
+ * @fires {optionNodeList} options-updated - Fired  after the option list was rebuilt
+ *
+ * @summary segmented button
  * @customElement
  * @demo demo-furo-ui5-data-segmented-button Basic Usage
  * @appliesMixin FBP
@@ -368,14 +376,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
     customEvent.detail = selectedOption;
     this.dispatchEvent(customEvent);
 
-    /**
-     * Fired when the toggle button was clicked.
-     * Payload:
-     *  - if no option binding is active: ui5-togglebutton
-     *  - if a RepeaterNode is bound: FieldNode
-     * @event item-selected
-     * @type {Event}
-     */
+
     const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
     customSelectEvent.detail = selectedOption;
     this.dispatchEvent(customSelectEvent);
@@ -458,10 +459,8 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
       });
     }
     this._render();
-    /**
-     * Fires event options-updated after rebuilding option list
-     * @event options-updated
-     */
+
+
     this.dispatchEvent(
       new CustomEvent('options-updated', {
         detail: optionNodeList,

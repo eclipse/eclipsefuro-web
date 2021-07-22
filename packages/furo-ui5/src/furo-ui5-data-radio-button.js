@@ -53,6 +53,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * @fires {} select -  Fired when the input operation has finished by pressing Enter or on focusout.
  * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
+ * @fires {Boolean} field-value-changed - Fired when value changed
  *
  * @summary boolean toggle button
  * @customElement
@@ -139,10 +140,6 @@ export class FuroUi5DataRadioButton extends FieldNodeAdapter(RadioButton.default
       this.setFnaFieldValue(this.selected);
     }
 
-    /**
-     * Fired when value changed
-     * @event field-value-changed
-     */
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.selected;
     this.dispatchEvent(customEvent);

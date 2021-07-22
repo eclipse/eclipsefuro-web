@@ -99,23 +99,7 @@ const ui5HeaderTemplate = fields =>
  * @demo demo-furo-ui5-data-table-repeats Usage with Repeats
  */
 export class FuroUi5DataTable extends FBP(LitElement) {
-  /**
-   * Fired when the row is selected.
-   * the event detail is the original entity of the row
-   * @event tablerow-selected
-   */
 
-  /**
-   * Fired when the ArrowDown is pressed on the last row.
-   * the event detail is the original entity of the row
-   * @event arrow-down-on-last-row
-   */
-
-  /**
-   * Fired when the ArrowUp is pressed on the first row.
-   * the event detail is the original entity of the row
-   * @event arrow-up-on-first-row
-   */
 
   constructor() {
     super();
