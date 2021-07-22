@@ -30,16 +30,16 @@ import '@ui5/webcomponents/dist/Icon.js';
  * ### content
  * Defines the content of the card
  *
+ * @fires header-clicked - Fired when the card head is clicked. The header-interactive attribute must be set.
+ * @fires header-click - Fired when interactive header was clicked.
  *
  * @customElement
  * @demo demo-furo-ui5-card Basic Usage
  * @demo demo-furo-ui5-card-binding With data binding
  */
 export class FuroUi5Card extends FBP(LitElement) {
-  /**
-   * fired when the card head is clicked. The header-interactive attribute must be set.
-   * @event header-clicked
-   */
+
+
 
   constructor() {
     super();
@@ -224,7 +224,7 @@ export class FuroUi5Card extends FBP(LitElement) {
       status: { type: String },
       /**
        * Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.
-       * @event header-click
+       *
        */
       headerInteractive: { type: Boolean, reflect: true, attribute: 'header-interactive' },
       /**
