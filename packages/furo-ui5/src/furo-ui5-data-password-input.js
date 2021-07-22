@@ -48,6 +48,8 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
  * @fires {String} field-value-changed - Fires the field value when it changes.
  * @fires {MouseEvent} icon-clicked - Fired when icon is clicked
+ * @fires {void} password-showed - Fired when the password is showed, after calling the show method.
+ * @fires {void} password-hidden - Fired when the password is hidden, after calling the hide() method.
  *
  * @summary data password input field
  * @customElement
@@ -586,10 +588,7 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
    */
   show() {
     this.type = 'Text';
-    /**
-     * Fired when the password is showed
-     * @event password-showed
-     */
+
     const customEvent = new Event('password-showed', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
   }
@@ -599,10 +598,7 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
    */
   hide() {
     this.type = 'Password';
-    /**
-     * Fired when the password is hidden
-     * @event password-hidden
-     */
+
     const customEvent = new Event('password-hidden', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
   }
