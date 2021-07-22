@@ -39,7 +39,7 @@ class ProduceData extends FBP(LitElement) {
 
   produce() {
     /**
-     * @event data
+     * event data
      * Fired when
      * detail payload:
      */

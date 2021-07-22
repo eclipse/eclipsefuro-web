@@ -206,7 +206,7 @@ export class CollectionDropdownHelper {
 
     /**
      * Is fired when a new list is applied
-     * @event options-injected Payload: option list
+     * event options-injected Payload: option list
      */
     caller.dispatchEvent(
       new CustomEvent('options-injected', {

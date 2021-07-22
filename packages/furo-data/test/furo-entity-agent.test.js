@@ -471,7 +471,7 @@ describe('furo-entity-agent', () => {
       entityAgent._attachListeners('save');
 
       /**
-       * @event req-failed
+       * event req-failed
        * Fired when
        * detail payload:
        */

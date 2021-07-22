@@ -2,7 +2,11 @@ import { LitElement, css } from 'lit-element';
 
 /**
  * `furo-interval-pulse`
- * todo Describe your element
+ *
+ * Pulses a tick event every `interval` ms duration and every `takt` a tock event is also fired.
+ *
+ *
+ * @fires {Number} tick - Fired on every interval with the position of the pulse starting at 0.
  *
  * @summary trigger an event in intervals
  * @customElement
@@ -20,7 +24,13 @@ class FuroIntervalPulse extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * Duration of a tact in ms.
+       */
       interval: { type: Number },
+      /**
+       * Number of ticks per tact.
+       */
       takt: { type: Number },
       /**
        * Starts interval automatically
@@ -29,17 +39,16 @@ class FuroIntervalPulse extends LitElement {
     };
   }
 
+  /**
+   * Starts the pulsing.
+   */
   start() {
     let cnt = 0;
     clearInterval(this._intervalObject);
     this._intervalObject = setInterval(() => {
       cnt += 1;
       const pos = cnt % this.takt;
-      /**
-       * Fired when interval is
-       * detail payload: position
-       * @event tick
-       */
+
       const customEvent = new Event('tick', { bubbles: true });
       customEvent.detail = pos;
       this.dispatchEvent(customEvent);
@@ -57,6 +66,9 @@ class FuroIntervalPulse extends LitElement {
     }, this.interval);
   }
 
+  /**
+   * Stops the pulsing.
+   */
   stop() {
     clearInterval(this._intervalObject);
   }

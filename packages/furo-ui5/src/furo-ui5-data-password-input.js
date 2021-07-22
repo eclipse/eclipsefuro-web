@@ -46,6 +46,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @fires {`text`} change -  Fired when the input operation has finished by pressing Enter or on focusout.
  * @fires {} input -  Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
  * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+ * @fires {String} field-value-changed - Fires the field value when it changes.
  *
  * @summary data password input field
  * @customElement
@@ -192,10 +193,7 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
       this.setFnaFieldValue(value === '' ? '' : value);
     }
 
-    /**
-     * Fired when value changed
-     * @event field-value-changed
-     */
+
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);

@@ -361,7 +361,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
      * Payload:
      *  - if no option binding is active: ui5-togglebutton
      *  - if a RepeaterNode is bound: FieldNode
-     * @event value-changed
+     *  * @fires {String} field-value-changed - Fires the field value when it changes.
      * @type {Event}
      */
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });

@@ -12,17 +12,14 @@ import './furo-ui5-form-field-container.js';
  * The furo-ui5-data-date-picker-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
+ * @fires {String} field-value-changed - Fires the field value when it changes in ISO 8601 format.
+ *
  * @summary labeled input field
  * @customElement
  * @demo demo-furo-ui5-data-date-picker-labeled Basic Usage
  * @appliesMixin FBP
  */
 export class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
-  /**
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   * the event detail is the date in IOS 8601 format
-   * @event value-changed
-   */
 
   constructor(props) {
     super(props);

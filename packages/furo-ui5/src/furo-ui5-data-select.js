@@ -530,7 +530,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     }
     /**
      * Fired when value changed
-     * @event value-changed
+     *  * @fires {String} field-value-changed - Fires the field value when it changes.
      * @type {Event}
      */
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });

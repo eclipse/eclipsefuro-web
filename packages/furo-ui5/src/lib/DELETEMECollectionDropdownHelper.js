@@ -1,5 +1,7 @@
 /**
  * Helper class for furo-data-collection-dropdown and furo-ui5-data-collection-dropdown
+ *
+ * @fires {option list} options-injected  - Is fired when a new list is applied
  */
 
 /* eslint-disable no-param-reassign */
@@ -182,10 +184,6 @@ export class CollectionDropdownHelper {
     caller._injectedDropdownList = this.mapDataToList(caller, arr);
     this.updateField(caller);
 
-    /**
-     * Is fired when a new list is applied
-     * @event options-injected Payload: option list
-     */
     caller.dispatchEvent(
       new CustomEvent('options-injected', {
         detail: caller._injectedDropdownList,
