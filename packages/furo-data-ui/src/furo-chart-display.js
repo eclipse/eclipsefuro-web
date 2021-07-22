@@ -33,7 +33,6 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  * @appliesMixin FBP
  */
 class FuroChartDisplay extends FBP(LitElement) {
-
   constructor() {
     super();
     // set the defaults

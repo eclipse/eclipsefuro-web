@@ -118,6 +118,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
         this.renderName = `${this.context}-${this._field['@type']._value
           .replace(/.*\//, '')
           .replaceAll('.', '-')
+          .replaceAll('_', '-')
           .toLocaleLowerCase()}`;
       } else {
         /**
@@ -125,6 +126,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
          */
         this.renderName = `${this.context}-${this._field._spec.type
           .replaceAll('.', '-')
+          .replaceAll('_', '-')
           .toLocaleLowerCase()}`;
       }
 

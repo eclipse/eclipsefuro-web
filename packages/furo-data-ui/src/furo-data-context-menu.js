@@ -82,7 +82,6 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     if (!this._menuNode) {
       this._queueTrigger = true;
     } else {
-
       const customEvent = new Event('open-furo-data-menu-requested', {
         composed: true,
         bubbles: true,
@@ -91,7 +90,6 @@ export class FuroDataContextMenu extends FBP(LitElement) {
         context,
         menu: this._menuNode,
         selectCallback: item => {
-
           const selectEvent = new Event('menu-item-selected', { composed: true, bubbles: true });
           selectEvent.detail = { context: this._context, menuitem: item.detail };
           this.dispatchEvent(selectEvent);

@@ -76,7 +76,6 @@ const tdWRepeat = fields => html`
  * @mixes FBP
  */
 class FuroDataTable extends FBP(LitElement) {
-
   constructor() {
     super();
     this._specs = Env.api.specs;

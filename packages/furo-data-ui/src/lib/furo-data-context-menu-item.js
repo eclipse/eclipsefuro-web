@@ -67,7 +67,6 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
    * @private
    */
   _openSub(byKeyboard) {
-
     const customEvent = new Event('opensub-requested', { composed: true, bubbles: true });
     customEvent.detail = { menu: this.menuitem, initiator: this };
     customEvent.byKeyboard = byKeyboard;
@@ -90,7 +89,6 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
    * @private
    */
   _selectItem() {
-
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     customEvent.detail = this.menuitem;
     this.dispatchEvent(customEvent);
