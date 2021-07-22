@@ -41,7 +41,6 @@ class FuroHeadTail extends HTMLElement {
     headEvent.detail = head;
     this.dispatchEvent(headEvent);
 
-
     const tailEvent = new Event('tail', { composed: true, bubbles: true });
     tailEvent.detail = tail;
     this.dispatchEvent(tailEvent);

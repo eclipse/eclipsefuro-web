@@ -14,12 +14,10 @@ class ProduceSnackbarData extends FBP(LitElement) {
     super();
 
     this._FBPAddWireHook('--click', () => {
-
       // eslint-disable-next-line wc/no-constructor-attributes
       let customEvent = new Event(`snackbar-label-${this.id}`, { composed: true, bubbles: true });
       customEvent.detail = this.snackbarLabel;
       this.dispatchEvent(customEvent);
-
 
       const customEventError = new Event('response-error', { composed: true, bubbles: true });
       customEventError.detail = {
@@ -55,7 +53,6 @@ class ProduceSnackbarData extends FBP(LitElement) {
         ],
       };
       this.dispatchEvent(customEventError);
-
 
       // eslint-disable-next-line wc/no-constructor-attributes
       customEvent = new Event(`snackbar-button-text-${this.id}`, { composed: true, bubbles: true });

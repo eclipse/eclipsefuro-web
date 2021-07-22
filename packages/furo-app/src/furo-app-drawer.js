@@ -81,7 +81,6 @@ class FuroAppDrawer extends FBP(LitElement) {
   set __isFloating(val) {
     this._isFloating = val;
     if (val) {
-
       const customEvent = new Event('is-floating', { composed: true, bubbles: true });
       this.dispatchEvent(customEvent);
     } else {

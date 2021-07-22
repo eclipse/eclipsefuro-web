@@ -175,7 +175,6 @@ class FuroNavigationPad extends FBP(LitElement) {
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
 
-
           endEvent.detail = event;
           this.dispatchEvent(endEvent);
           break;

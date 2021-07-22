@@ -11,18 +11,14 @@ import './furo-ui5-data-select.js';
  * The furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according
  * to the design specification of SAP Fiori Design System.
  *
+ * @fires {String} field-value-changed - Fires the field value when it changes.
+ *
  * @summary labeled select
  * @customElement
  * @demo demo-furo-ui5-data-select-labeled Basic Usage
  * @appliesMixin FBP
  */
 export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
-  /**
-   * Fired when the input value changed.
-   * the event detail is the value of the select
-   * @event value-changed
-   */
-
   constructor(props) {
     super(props);
     this.label = '';

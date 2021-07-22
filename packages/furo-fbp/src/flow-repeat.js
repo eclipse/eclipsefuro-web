@@ -87,7 +87,6 @@ export class FlowRepeat extends FBP(HTMLElement) {
     this.select(i);
 
     if (this._insertedItems.length - 1 === this.selectedIndex) {
-
       const customEvent = new Event('last-element-selected', { composed: true, bubbles: true });
       customEvent.detail = i;
       this.dispatchEvent(customEvent);
@@ -215,7 +214,6 @@ export class FlowRepeat extends FBP(HTMLElement) {
     this._insertedItems.splice(items.length);
 
     if (items.length > 0) {
-
       setTimeout(() => {
         const customEvent = new Event('items-in-dom', { composed: true, bubbles: false });
         customEvent.detail = items.length;

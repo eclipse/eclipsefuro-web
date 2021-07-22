@@ -193,7 +193,6 @@ class FuroLocation extends LitElement {
       }
 
       if (sendQueryChanged) {
-
         const customEvent = new Event('location-query-changed', { composed: true, bubbles: false });
         customEvent.detail = this._location;
 
@@ -238,7 +237,6 @@ class FuroLocation extends LitElement {
       // update history only once
       if (!e.__historyUpdated) {
         e.__historyUpdated = true;
-
 
         window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
 

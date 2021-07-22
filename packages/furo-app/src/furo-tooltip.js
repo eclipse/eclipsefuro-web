@@ -28,7 +28,6 @@ class FuroTooltip extends FBP(LitElement) {
     });
 
     this.parentNode.addEventListener('mouseout', () => {
-
       const customEvent = new Event('hide-tooltip-requested', { composed: true, bubbles: true });
       customEvent.detail = this;
       this.dispatchEvent(customEvent);

@@ -28,7 +28,6 @@ class FuroRelExists extends LitElement {
     });
 
     if (links.length > 0) {
-
       const customEvent = new Event('furo-rel-exists', { composed: true, bubbles: true });
       [customEvent.detail] = links;
       this.dispatchEvent(customEvent);

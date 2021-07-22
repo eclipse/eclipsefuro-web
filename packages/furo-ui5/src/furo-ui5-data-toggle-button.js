@@ -51,7 +51,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-toggle-button Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.default) {
-
   constructor() {
     super();
 
@@ -130,7 +129,6 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
     } else {
       this.setFnaFieldValue(this.pressed);
     }
-
 
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.pressed;

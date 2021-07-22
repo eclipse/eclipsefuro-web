@@ -33,8 +33,6 @@ import { i18n } from '@furo/framework/src/i18n.js';
  * @mixes FBP
  */
 export class FuroUi5PaginationBar extends FBP(LitElement) {
-
-
   constructor() {
     super();
     this.currentPage = 0;

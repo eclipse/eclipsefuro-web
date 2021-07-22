@@ -44,7 +44,6 @@ class FuroConfig extends LitElement {
 
   set section(val) {
     Config.watch(val, section => {
-
       const customEvent = new Event('config-updated', { composed: true, bubbles: true });
       customEvent.detail = section.detail._value;
       this.dispatchEvent(customEvent);

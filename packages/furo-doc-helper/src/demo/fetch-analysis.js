@@ -18,7 +18,6 @@ class FetchAnalysis extends FBP(LitElement) {
     fetch('/node_modules/@furo/data/analysis.json')
       .then(res => res.json())
       .then(analysis => {
-
         const customEvent = new Event('data', { composed: true, bubbles: true });
         customEvent.detail = analysis;
         this.dispatchEvent(customEvent);

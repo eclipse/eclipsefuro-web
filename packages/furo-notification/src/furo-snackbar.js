@@ -150,7 +150,6 @@ class FuroSnackbar extends FBP(LitElement) {
    * Send event `snackbar-dismiss-clicked` will be sent with payload which was set with show()
    */
   _dismiss() {
-
     const customEvent = new Event('snackbar-dismiss-clicked', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);

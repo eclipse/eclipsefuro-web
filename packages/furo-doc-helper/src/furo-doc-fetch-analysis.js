@@ -84,7 +84,6 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
       [this._analysis.__selectedClass] = this._analysis.classes;
     }
 
-
     const customEvent = new Event('data', { composed: true, bubbles: true });
     customEvent.detail = this._analysis;
     this.dispatchEvent(customEvent);

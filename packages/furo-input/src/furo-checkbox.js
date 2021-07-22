@@ -117,18 +117,15 @@ class FuroCheckbox extends FBP(LitElement) {
     if (this._value !== setTo) {
       this._value = setTo;
 
-
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.value;
       this.dispatchEvent(customEvent);
 
       if (this.checked) {
-
         const checkedEvent = new Event('checked', { composed: true, bubbles: true });
         checkedEvent.detail = this.value;
         this.dispatchEvent(checkedEvent);
       } else {
-
         const uncheckedEvent = new Event('unchecked', { composed: true, bubbles: true });
         uncheckedEvent.detail = this.value;
         this.dispatchEvent(uncheckedEvent);

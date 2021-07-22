@@ -71,7 +71,6 @@ class FuroKeydown extends FBP(LitElement) {
           keyevent.stopPropagation();
         }
 
-
         const customEvent = new Event('key', { composed: true, bubbles: true });
         customEvent.detail = keyevent;
         this.dispatchEvent(customEvent);

@@ -55,7 +55,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataRangeInput extends FuroRangeInput {
-
   constructor() {
     super();
     this.error = false;

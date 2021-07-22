@@ -103,7 +103,6 @@ describe('furo-data-password-input', () => {
         done();
       });
 
-
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = 'newPassword';
       dataPasswordInput.dispatchEvent(customEvent);

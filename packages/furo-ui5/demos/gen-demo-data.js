@@ -79,18 +79,14 @@ class GenDemoData extends LitElement {
         },
       },
     };
-    /**
-     * @event data
-     * Fired when data is generated
-     * detail payload: universaltest.Entity
-     */
+
     const customEvent = new Event('data', { composed: true, bubbles: true });
     customEvent.detail = data;
     this.dispatchEvent(customEvent);
   }
 
   /**
-   * @event value-state-list
+   * event value-state-list
    * Is fired if the valueStateList is generated
    * Available options are:
    * None

@@ -41,7 +41,6 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
   }
 
   select() {
-
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     customEvent.detail = this._item.data;
     this.dispatchEvent(customEvent);

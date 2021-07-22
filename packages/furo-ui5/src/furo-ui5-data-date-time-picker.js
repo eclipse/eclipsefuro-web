@@ -45,22 +45,14 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
+ * @fires {String} field-value-changed - Fires the field value when it changes in ISO 8601 format.
+ * @fires change - Fired when the input operation has finished by pressing Enter or on focusout.
+ *
  * @summary furo data datetime picker field
  * @customElement
  * @demo demo-furo-ui5-data-date-time-picker Basic Usage
  */
 export class FuroUi5DataDateTimePicker extends FieldNodeAdapter(DateTimePicker.default) {
-  /**
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   * @event change
-   */
-
-  /**
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   * the event detail is the date in ISO 8601 format
-   * @event value-changed
-   */
-
   constructor() {
     super();
     this.formatPattern = ''; // needed to avoid cldr errors

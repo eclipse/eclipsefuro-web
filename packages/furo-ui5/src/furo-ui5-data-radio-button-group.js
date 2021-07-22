@@ -25,14 +25,15 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * ```
  * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
  *
+ * @fires {selectedOption}  item-selected - Fired when the radio button is selected.
+ * @fires options-updated - Fires event options-updated after rebuilding option list.
+ *
  * @summary
  * @customElement
  * @demo demo-furo-ui5-data-radio-button-group Basic Usage
  * @appliesMixin FBP
  */
 export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
-
-
   constructor() {
     super();
 
@@ -365,18 +366,13 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
 
     /**
      * Fired when the value has changed
-     * @event value-changed
+     *  * @fires {String} field-value-changed - Fires the field value when it changes.
      * @type {Event}
      */
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = selectedOption;
     this.dispatchEvent(customEvent);
 
-    /**
-     * Fired when the radio button is selected.
-     * @event item-selected
-     * @type {Event}
-     */
     const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
     customSelectEvent.detail = selectedOption;
     this.dispatchEvent(customSelectEvent);
@@ -456,10 +452,6 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
       });
     }
 
-    /**
-     * Fires event options-updated after rebuilding option list
-     * @event options-updated
-     */
     this.dispatchEvent(
       new CustomEvent('options-updated', {
         detail: optionNodeList,

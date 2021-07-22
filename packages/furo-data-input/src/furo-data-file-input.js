@@ -34,7 +34,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 class FuroDataFileInput extends FuroFileDialog {
-
   constructor() {
     super();
     this._initBinder();
@@ -138,7 +137,6 @@ class FuroDataFileInput extends FuroFileDialog {
       });
       reader.addEventListener('progress', e => {
         if (e.lengthComputable) {
-
           const customEvent = new Event('progress', { composed: true, bubbles: true });
           customEvent.detail = e;
           this.dispatchEvent(customEvent);

@@ -47,6 +47,8 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @fires {} input -  Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
  * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
  *
+ * @fires {String} field-value-changed - Fires the field value when it changes.
+ *
  * @summary data number input field
  * @customElement
  * @demo demo-furo-ui5-data-number-input Basic usage (scalar , fat, wrapper values)
@@ -54,7 +56,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
-
   constructor() {
     super();
     // used to restore the state after a invalidation -> validation change
@@ -189,10 +190,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       this.setFnaFieldValue(value === '' ? 0 : value);
     }
 
-    /**
-     * Fired when value changed
-     * @event field-value-changed
-     */
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);

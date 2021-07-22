@@ -54,12 +54,10 @@ export class Helper {
       invalidInputEvent.detail = input.validity;
       caller.dispatchEvent(invalidInputEvent);
     } else {
-
       if (caller.value.length === 0) {
         const customEvent = new Event('value-cleared', { composed: true, bubbles: true });
         caller.dispatchEvent(customEvent);
       }
-
 
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = caller.value;

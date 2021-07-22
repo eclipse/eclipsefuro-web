@@ -34,8 +34,6 @@ import { Helper } from './lib/helper.js';
  * @appliesMixin FBP
  */
 export class FuroPasswordInput extends FBP(LitElement) {
-
-
   constructor() {
     super();
     this.valid = true;

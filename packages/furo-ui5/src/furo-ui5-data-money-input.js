@@ -185,7 +185,6 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
         this.setFnaFieldValue(value);
       }
 
-
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = value;
       this.dispatchEvent(customEvent);

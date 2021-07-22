@@ -26,7 +26,6 @@ export class AgentHelper {
     }
 
     if (qpChanged) {
-
       const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
       customEvent.detail = caller._queryParams;
       caller.dispatchEvent(customEvent);
@@ -45,7 +44,6 @@ export class AgentHelper {
     if (caller && caller._queryParams) {
       // eslint-disable-next-line no-param-reassign
       caller._queryParams = qp || {};
-
 
       const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
       customEvent.detail = caller._queryParams;

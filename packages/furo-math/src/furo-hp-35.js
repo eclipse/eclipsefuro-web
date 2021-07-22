@@ -7,6 +7,8 @@ import { FuroForthStack } from '@furo/logic/src/furo-forth-stack.js';
  *
  * http://h10032.www1.hp.com/ctg/Manual/c01579350
  *
+ * @fires {void} stackchange - Fired when something in stack changes
+ *
  * @summary calculator component
  * @customElement
  */
@@ -71,11 +73,7 @@ class FuroHp35 extends FuroForthStack {
     this.t = this._stack[this._stack.length - 4] || 0;
 
     this.stack = this._stack;
-    /**
-     * Fired when something in stack changes
-     * detail payload:
-     * @event stackchange
-     */
+
     const customEvent = new Event('stackchange', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
   }
@@ -345,7 +343,6 @@ class FuroHp35 extends FuroForthStack {
     // fallback returns calculation for 0
     return 1;
   }
-
 
   xroot(n) {
     if (n !== undefined && n !== '') {

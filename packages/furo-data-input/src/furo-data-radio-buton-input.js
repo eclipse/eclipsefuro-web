@@ -43,8 +43,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataRadioButtonInput extends FuroRadioButtonInput {
-
-
   constructor() {
     super();
     this.error = false;

@@ -108,7 +108,6 @@ describe('furo-data-search-input', () => {
         done();
       });
 
-
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = 'newText';
       secondSearchInput.dispatchEvent(customEvent);

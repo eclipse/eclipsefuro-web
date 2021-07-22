@@ -100,7 +100,6 @@ class FuroDeepLink extends LitElement {
       }
     }
     if (this._hts.length) {
-
       const customEvent = new Event('hts-out', { composed: true, bubbles: true });
       customEvent.detail = this._hts;
       this.dispatchEvent(customEvent);

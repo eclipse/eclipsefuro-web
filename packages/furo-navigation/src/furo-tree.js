@@ -727,12 +727,10 @@ export class FuroTree extends FBP(LitElement) {
 
       // only dispatch when the element contains a name
       if (this._focusedField.display_name._value != null) {
-
         const customEvent = new Event('node-focused', { composed: true, bubbles: true });
         customEvent.detail = this._focusedField;
         this.dispatchEvent(customEvent);
         if (this._focusedField.isBranch()) {
-
           const branchFocusedEvent = new Event('branch-focused', { composed: true, bubbles: true });
           branchFocusedEvent.detail = this._focusedField;
           this.dispatchEvent(branchFocusedEvent);
@@ -752,12 +750,10 @@ export class FuroTree extends FBP(LitElement) {
       this._selectedField = e.target;
 
       if (!this.qp) {
-
         const customEvent = new Event('node-selected', { composed: true, bubbles: true });
         customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
       } else if (this.__lastQP !== this._selectedField.id._value) {
-
         const customEvent = new Event('qp-change-requested', { composed: true, bubbles: true });
         const qp = {};
         this.__lastQP = this._selectedField.id._value;
@@ -767,12 +763,10 @@ export class FuroTree extends FBP(LitElement) {
       }
 
       if (this._selectedField.isBranch()) {
-
         const customEvent = new Event('branch-selected', { composed: true, bubbles: true });
         customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
       } else {
-
         const customEvent = new Event('leaf-selected', { composed: true, bubbles: true });
         customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
@@ -843,13 +837,11 @@ export class FuroTree extends FBP(LitElement) {
       node.toggleOpenClose = () => {
         node.open._value = !node.open._value;
         if (node.open._value) {
-
           const customEvent = new Event('node-opened', { composed: true, bubbles: false });
           setTimeout(() => {
             this.dispatchEvent(customEvent);
           }, 0);
         } else {
-
           const customEvent = new Event('node-closed', { composed: true, bubbles: false });
           setTimeout(() => {
             this.dispatchEvent(customEvent);

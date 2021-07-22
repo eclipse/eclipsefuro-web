@@ -43,6 +43,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @fires {Boolean} change -  Fired when the checkbox checked state changes.
  * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
  *
+ * @fires {Boolean} field-value-changed - Fires the field value when it changes.
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  * @summary data checkbox input field
@@ -50,7 +51,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-checkbox-input Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default) {
-
   constructor() {
     super();
 
@@ -157,10 +157,6 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
       this.setFnaFieldValue(this.checked);
     }
 
-    /**
-     * Fired when value changed
-     * @event field-value-changed
-     */
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.checked;
     this.dispatchEvent(customEvent);

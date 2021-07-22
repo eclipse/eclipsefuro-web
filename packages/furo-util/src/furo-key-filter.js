@@ -42,7 +42,6 @@ class FuroKeyFilter extends FBP(LitElement) {
     }
 
     if (this.keys.split(/\W+/).indexOf(key) !== -1) {
-
       const customEvent = new Event('matched', { composed: true, bubbles: true });
       customEvent.detail = keyboardEvent;
       this.dispatchEvent(customEvent);

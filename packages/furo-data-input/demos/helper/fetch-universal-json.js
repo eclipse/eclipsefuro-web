@@ -38,7 +38,7 @@ class FetchUniversalJson extends FBP(LitElement) {
       .then(res => res.json())
       .then(response => {
         /**
-         * @event data-loaded
+         * event data-loaded
          * Fired when universal.json is loaded
          * detail payload:
          */

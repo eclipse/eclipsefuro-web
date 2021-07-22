@@ -39,7 +39,6 @@ import './furo-checkbox.js';
  * @appliesMixin FBP
  */
 export class FuroCheckboxInput extends FBP(LitElement) {
-
   constructor() {
     super();
     this.valid = true;

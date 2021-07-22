@@ -246,7 +246,6 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       return true;
     }
 
-
     const customEvent = new Event('event-not-found', { composed: true, bubbles: true });
     customEvent.detail = flowEvent;
     this.dispatchEvent(customEvent);

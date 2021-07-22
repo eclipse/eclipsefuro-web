@@ -54,7 +54,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  */
 export class FuroDataTimeInput extends FuroTimeInput {
-
   constructor() {
     super();
     this.error = false;

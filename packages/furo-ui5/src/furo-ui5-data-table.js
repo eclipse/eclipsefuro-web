@@ -92,6 +92,8 @@ const ui5HeaderTemplate = fields =>
  * @fires {entity} arrow-down-on-last-row - Fired when the ArrowDown is pressed on the last row. The event detail is the original entity of the row
  * @fires {entity} tablerow-selected - Fired when the row is selected. The event detail is the original entity of the row.
  * @fires {entity} arrow-up-on-first-row - Fired when the ArrowUp is pressed on the first row. The event detail is the original entity of the row
+ * @fires {HTMLElement} data-loaded - Fired when the data is loaded into data table.
+ * the event detail is the data table self.
  *
  * @customElement
  * @demo demo-furo-ui5-data-table Basic usage
@@ -99,24 +101,6 @@ const ui5HeaderTemplate = fields =>
  * @demo demo-furo-ui5-data-table-repeats Usage with Repeats
  */
 export class FuroUi5DataTable extends FBP(LitElement) {
-  /**
-   * Fired when the row is selected.
-   * the event detail is the original entity of the row
-   * @event tablerow-selected
-   */
-
-  /**
-   * Fired when the ArrowDown is pressed on the last row.
-   * the event detail is the original entity of the row
-   * @event arrow-down-on-last-row
-   */
-
-  /**
-   * Fired when the ArrowUp is pressed on the first row.
-   * the event detail is the original entity of the row
-   * @event arrow-up-on-first-row
-   */
-
   constructor() {
     super();
     this.cols = [];
@@ -167,11 +151,6 @@ export class FuroUi5DataTable extends FBP(LitElement) {
 
     this._init();
 
-    /**
-     * Fired when the data is loaded into data table.
-     * the event detail is the data table self
-     * @event data-loaded
-     */
     this.dispatchEvent(
       new CustomEvent('data-loaded', {
         detail: this,

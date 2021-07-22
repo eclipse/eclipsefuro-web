@@ -104,11 +104,9 @@ class FuroCollapsibleBox extends FBP(LitElement) {
       const customEvent = new Event('opened', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
     } else {
-
       const customEvent = new Event('closed', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
     }
-
 
     const customEvent = new Event('toggled', { composed: true, bubbles: false });
     customEvent.detail = this._open;
