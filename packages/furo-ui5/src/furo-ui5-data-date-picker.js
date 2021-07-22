@@ -47,7 +47,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-date-picker Basic Usage
  */
 export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) {
-
   constructor() {
     super();
 
@@ -138,7 +137,6 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
             this.setFnaFieldValue('');
           }
       }
-
 
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.dateValue;

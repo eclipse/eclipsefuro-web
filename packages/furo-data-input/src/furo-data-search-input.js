@@ -53,8 +53,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataSearchInput extends FuroSearchInput {
-
-
   constructor() {
     super();
     this.error = false;

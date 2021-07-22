@@ -10,8 +10,6 @@ import { RepeaterNode } from './RepeaterNode.js';
  * @mixinFunction FNB
  */
 export const FieldNodeAdapter = superClass =>
-
-
   class extends superClass {
     constructor() {
       super();
@@ -265,7 +263,6 @@ export const FieldNodeAdapter = superClass =>
      */
     // eslint-disable-next-line class-methods-use-this
     onFnaRepeatedFieldChanged() {}
-
 
     /**
      * clean up on disconnect

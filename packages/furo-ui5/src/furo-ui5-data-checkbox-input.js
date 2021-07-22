@@ -51,7 +51,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-checkbox-input Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default) {
-
   constructor() {
     super();
 
@@ -157,7 +156,6 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
     } else {
       this.setFnaFieldValue(this.checked);
     }
-
 
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.checked;

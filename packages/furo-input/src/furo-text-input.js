@@ -38,7 +38,6 @@ import { Helper } from './lib/helper.js';
  * @appliesMixin FBP
  */
 export class FuroTextInput extends FBP(LitElement) {
-
   constructor() {
     super();
     this.valid = true;

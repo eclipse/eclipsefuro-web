@@ -31,7 +31,6 @@ class FuroDataEmmiter extends FBP(LitElement) {
    * Read .value of the bounded data object and emit data as json object.
    */
   trigger() {
-
     if (this.field) {
       const customEvent = new Event('data', { composed: true, bubbles: false });
       customEvent.detail = this.field._value;

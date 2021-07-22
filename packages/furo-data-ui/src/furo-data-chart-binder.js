@@ -215,7 +215,6 @@ class FuroDataChartBinder extends LitElement {
 
   _dataPointSelection(e, context, config) {
     if (config.dataPointIndex !== undefined) {
-
       const customEvent = new Event('data-point-clicked', { composed: true, bubbles: true });
       customEvent.detail = this.repeater.repeats[config.dataPointIndex];
       this.dispatchEvent(customEvent);

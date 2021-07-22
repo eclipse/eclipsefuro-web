@@ -44,13 +44,11 @@ class FuroFetchJson extends FBP(LitElement) {
         .then(res => res.json())
         .then(
           data => {
-
             const customEvent = new Event('data', { composed: true, bubbles: true });
             customEvent.detail = data;
             this.dispatchEvent(customEvent);
           },
           err => {
-
             const customEvent = new Event('parse-error', { composed: true, bubbles: true });
             customEvent.detail = err;
             this.dispatchEvent(customEvent);

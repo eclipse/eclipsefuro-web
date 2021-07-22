@@ -60,7 +60,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-radio-button Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataRadioButton extends FieldNodeAdapter(RadioButton.default) {
-
   constructor() {
     super();
 

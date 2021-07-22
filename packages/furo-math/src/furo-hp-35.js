@@ -344,7 +344,6 @@ class FuroHp35 extends FuroForthStack {
     return 1;
   }
 
-
   xroot(n) {
     if (n !== undefined && n !== '') {
       this.enter(n);

@@ -83,7 +83,6 @@ class FuroReverseDeepLink extends LitElement {
       qp = this._convert(linkObject);
     }
 
-
     const customEvent = new Event('converted', { composed: true, bubbles: true });
     customEvent.detail = qp;
     this.dispatchEvent(customEvent);

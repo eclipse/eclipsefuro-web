@@ -275,7 +275,6 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     });
   }
 
-
   _dispatchNotificationCounterUpdates(count) {
     const VALUE = count > 0 ? count : '';
     this.dispatchEvent(

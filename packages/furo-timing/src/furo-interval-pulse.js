@@ -55,7 +55,6 @@ class FuroIntervalPulse extends LitElement {
       this.dispatchEvent(customEvent);
 
       if (pos === 0) {
-
         const tockEvent = new Event('tock', { bubbles: true });
         tockEvent.detail = pos;
         this.dispatchEvent(tockEvent);

@@ -51,7 +51,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 class FuroDataDateInput extends FuroDateInput {
-
   constructor() {
     super();
     this.error = false;

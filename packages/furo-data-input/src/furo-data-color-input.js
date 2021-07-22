@@ -46,7 +46,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataColorInput extends FuroColorInput {
-
   constructor() {
     super();
     this.error = false;

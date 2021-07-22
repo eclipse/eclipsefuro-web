@@ -109,7 +109,6 @@ class FuroRadioButton extends FBP(LitElement) {
   set value(v) {
     this._value = !!v;
 
-
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);
@@ -119,7 +118,6 @@ class FuroRadioButton extends FBP(LitElement) {
       checkedEvent.detail = this.value;
       this.dispatchEvent(checkedEvent);
     } else {
-
       const uncheckedEvent = new Event('unchecked', { composed: true, bubbles: true });
       uncheckedEvent.detail = this.value;
       this.dispatchEvent(uncheckedEvent);

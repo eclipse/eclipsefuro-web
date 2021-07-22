@@ -251,7 +251,6 @@ class FuroCustomMethod extends FBP(LitElement) {
         this._hts[link.rel] = link;
       });
 
-
       const customEvent = new Event('hts-updated', { composed: true, bubbles: true });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
@@ -262,7 +261,6 @@ class FuroCustomMethod extends FBP(LitElement) {
    * Aborts a pending request
    */
   abortPendingRequest() {
-
     if (this._pendingRequests.length) {
       this._FBPTriggerWire('--abortDemanded', this._abortController);
     }

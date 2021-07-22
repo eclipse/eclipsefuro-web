@@ -45,7 +45,6 @@ class FuroEntityField extends LitElement {
     this.field = fieldNode;
 
     this.field.addEventListener('field-value-changed', e => {
-
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = e.detail.value;
       this.dispatchEvent(customEvent);

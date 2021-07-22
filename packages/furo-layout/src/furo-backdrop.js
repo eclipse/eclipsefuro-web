@@ -47,8 +47,6 @@ class FuroBackdrop extends FBP(LitElement) {
     super._FBPReady();
   }
 
-
-
   /**
    * Initiates the backdrop and shows the content on top of the backdrop area.
    */

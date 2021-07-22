@@ -13,7 +13,7 @@ class ProduceError extends FBP(LitElement) {
     super();
 
     this._FBPAddWireHook('--click', () => {
-      @fires {} response-error -  Fired when
+      // @fires {} response-error -  Fired when
       const customEvent = new Event('response-error', { composed: true, bubbles: true });
       customEvent.detail = {
         error: 'invalid username',

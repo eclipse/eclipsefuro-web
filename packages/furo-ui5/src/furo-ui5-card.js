@@ -38,9 +38,6 @@ import '@ui5/webcomponents/dist/Icon.js';
  * @demo demo-furo-ui5-card-binding With data binding
  */
 export class FuroUi5Card extends FBP(LitElement) {
-
-
-
   constructor() {
     super();
     this.icon = '';

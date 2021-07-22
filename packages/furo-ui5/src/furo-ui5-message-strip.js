@@ -83,7 +83,6 @@ export class FuroUi5MessageStrip extends FBP(LitElement) {
    * @private
    */
   _requestDisplay() {
-
     const customEvent = new Event('open-furo-ui5-message-strip-requested', {
       composed: true,
       bubbles: true,
@@ -96,7 +95,6 @@ export class FuroUi5MessageStrip extends FBP(LitElement) {
    * the event `message-strip-closed` will be sent with payload when the MessageStrip is closed
    */
   _close() {
-
     const customEvent = new Event('message-strip-closed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);

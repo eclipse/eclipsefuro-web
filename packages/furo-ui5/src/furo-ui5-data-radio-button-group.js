@@ -34,8 +34,6 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
-
-
   constructor() {
     super();
 
@@ -375,7 +373,6 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
     customEvent.detail = selectedOption;
     this.dispatchEvent(customEvent);
 
-
     const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
     customSelectEvent.detail = selectedOption;
     this.dispatchEvent(customSelectEvent);
@@ -454,7 +451,6 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
         this.appendChild(newOpt);
       });
     }
-
 
     this.dispatchEvent(
       new CustomEvent('options-updated', {

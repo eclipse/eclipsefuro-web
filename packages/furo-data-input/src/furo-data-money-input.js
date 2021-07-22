@@ -145,13 +145,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
       this.error = false;
 
-
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.binder.fieldValue;
       this.dispatchEvent(customEvent);
     });
   }
-
 
   /**
    * convert data to google.type.Money format

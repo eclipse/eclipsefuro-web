@@ -53,9 +53,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-date-time-picker Basic Usage
  */
 export class FuroUi5DataDateTimePicker extends FieldNodeAdapter(DateTimePicker.default) {
-
-
-
   constructor() {
     super();
     this.formatPattern = ''; // needed to avoid cldr errors

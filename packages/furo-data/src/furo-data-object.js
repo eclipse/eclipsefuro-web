@@ -138,7 +138,6 @@ export class FuroDataObject extends LitElement {
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     } else {
-
       const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
@@ -211,7 +210,6 @@ export class FuroDataObject extends LitElement {
     this.data.reset();
   }
 
-
   /**
    * Sets the model to an initial state according to the given type.
    *
@@ -270,7 +268,6 @@ export class FuroDataObject extends LitElement {
       this._queuedInjectResolver(this.data);
     }
 
-
     const customEvent = new Event('object-ready', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     setTimeout(() => {
@@ -284,7 +281,6 @@ export class FuroDataObject extends LitElement {
     });
 
     this.data.addEventListener('data-object-became-invalid', e => {
-
       const invalidEvent = new Event('data-object-became-invalid', {
         composed: true,
         bubbles: true,
@@ -294,15 +290,12 @@ export class FuroDataObject extends LitElement {
     });
 
     this.data.addEventListener('data-injected', e => {
-
       const injectedEvent = new Event('data-injected', { composed: true, bubbles: true });
       injectedEvent.detail = e.detail;
       this.dispatchEvent(injectedEvent);
     });
 
     this.data.addEventListener('field-value-changed', e => {
-
-
       const dataEvent = new Event('data-changed', { composed: true, bubbles: true });
       dataEvent.detail = this.data;
       this.dispatchEvent(dataEvent);
@@ -315,7 +308,6 @@ export class FuroDataObject extends LitElement {
         dataInjectEvent.detail = this.data;
         this.dispatchEvent(dataInjectEvent);
       }
-
 
       const valueChangedEvent = new Event('field-value-changed', { composed: true, bubbles: true });
       valueChangedEvent.detail = e.detail;

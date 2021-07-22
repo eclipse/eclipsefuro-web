@@ -76,7 +76,6 @@ class FuroDataTableToggle extends FBP(LitElement) {
     super.attributeChangedCallback(name, oldval, newval);
   }
 
-
   toggle() {
     this.on = !this.on;
     this.requestUpdate();

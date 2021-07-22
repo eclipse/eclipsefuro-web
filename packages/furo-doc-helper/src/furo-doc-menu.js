@@ -42,14 +42,12 @@ class FuroDocMenu extends FBP(LitElement) {
 
     // send selected, analysis.__selectedElement is set from furo-doc-fetch-analysis
     if (analysis.__selectedElement) {
-
       const customEvent = new Event('element', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedElement;
       this.dispatchEvent(customEvent);
     }
     // send selected class
     if (analysis.__selectedClass) {
-
       const customEvent = new Event('class', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedClass;
       this.dispatchEvent(customEvent);
@@ -57,7 +55,6 @@ class FuroDocMenu extends FBP(LitElement) {
 
     // send selected mixin
     if (analysis.__selectedMixin) {
-
       const customEvent = new Event('mixin', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedMixin;
       this.dispatchEvent(customEvent);

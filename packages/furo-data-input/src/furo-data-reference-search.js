@@ -161,7 +161,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.binder.fieldNode.display_name._value = item.data[this.displayField];
       this._updateField();
       this._closeList();
-
     });
 
     /**

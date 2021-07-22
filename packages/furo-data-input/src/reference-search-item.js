@@ -75,7 +75,6 @@ export class ReferenceSearchItem extends FBP(LitElement) {
   }
 
   select() {
-
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     customEvent.detail = this._item;
     this.dispatchEvent(customEvent);

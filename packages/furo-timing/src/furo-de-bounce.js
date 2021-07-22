@@ -84,7 +84,6 @@ class FuroDeBounce extends FBP(LitElement) {
    * @private
    */
   _createHandler(wait, immediate) {
-
     this.handler = this._debounce(
       wire => {
         this.dispatchEvent(

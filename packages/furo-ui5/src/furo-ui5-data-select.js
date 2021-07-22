@@ -443,7 +443,6 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       });
     }
 
-
     this.dispatchEvent(
       new CustomEvent('options-updated', {
         detail: optionNodeList,
@@ -530,11 +529,9 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       }
     }
 
-
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = selectedOption;
     this.dispatchEvent(customEvent);
-
 
     const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
     customSelectEvent.detail = selectedOption;

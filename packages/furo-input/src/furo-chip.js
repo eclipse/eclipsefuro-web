@@ -125,12 +125,10 @@ class FuroChip extends FBP(LitElement) {
     this.dispatchEvent(customEvent);
 
     if (this.selected) {
-
       const selectedEvent = new Event('selected', { composed: true, bubbles: true });
       selectedEvent.detail = this.value;
       this.dispatchEvent(selectedEvent);
     } else {
-
       const unselectedEvent = new Event('unselected', { composed: true, bubbles: true });
       unselectedEvent.detail = this.value;
       this.dispatchEvent(unselectedEvent);

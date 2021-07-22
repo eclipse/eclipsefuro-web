@@ -21,7 +21,6 @@ import { FBP } from '@furo/fbp';
 class FuroGetClipboard extends FBP(LitElement) {
   trigger() {
     navigator.clipboard.readText().then(clipText => {
-
       const customEvent = new Event('content', { composed: true, bubbles: true });
       if (this.json) {
         customEvent.detail = JSON.parse(clipText);

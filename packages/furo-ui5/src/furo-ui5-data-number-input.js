@@ -56,7 +56,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
-
   constructor() {
     super();
     // used to restore the state after a invalidation -> validation change
@@ -190,7 +189,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     } else {
       this.setFnaFieldValue(value === '' ? 0 : value);
     }
-
 
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;

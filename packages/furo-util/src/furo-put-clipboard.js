@@ -21,7 +21,6 @@ class FuroPutClipboard extends LitElement {
     this.data = data;
   }
 
-
   /**
    * Write data to the clipboard
    *

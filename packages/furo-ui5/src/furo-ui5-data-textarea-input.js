@@ -55,8 +55,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-textarea-input Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default) {
-
-
   constructor() {
     super();
     this.value = '';
@@ -198,7 +196,6 @@ export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default)
     } else {
       this.setFnaFieldValue(value === '' ? '' : value);
     }
-
 
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;

@@ -126,7 +126,6 @@ describe('furo-data-time-input', () => {
         done();
       });
 
-
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = '18:33';
       secondTimeInput.dispatchEvent(customEvent);

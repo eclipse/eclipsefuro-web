@@ -27,8 +27,6 @@ import { CollectionDropdownHelper } from './lib/DELETEMECollectionDropdownHelper
  * @demo demo-furo-ui5-data-collection-dropdown-auto Autoselect first
  */
 export class FuroUi5DataCollectionDropdown extends Select.default {
-
-
   constructor() {
     super();
 

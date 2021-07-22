@@ -39,7 +39,6 @@ class ProduceData extends FBP(LitElement) {
   }
 
   produce() {
-
     return fetch('/mockdata/trees/1/testdata.json')
       .then(res => res.json())
       .then(data => {

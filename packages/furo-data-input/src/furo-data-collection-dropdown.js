@@ -66,7 +66,6 @@ import { CollectionDropdownHelper } from './lib/CollectionDropdownHelper.js';
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FuroSelectInput {
-
   constructor() {
     super();
     this.error = false;
@@ -179,8 +178,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
   }
-
-
 
   /**
    * Updater for the list attr

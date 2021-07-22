@@ -101,8 +101,6 @@ const ui5HeaderTemplate = fields =>
  * @demo demo-furo-ui5-data-table-repeats Usage with Repeats
  */
 export class FuroUi5DataTable extends FBP(LitElement) {
-
-
   constructor() {
     super();
     this.cols = [];

@@ -112,7 +112,6 @@ export class FuroAppBarTop extends FBP(LitElement) {
     };
   }
 
-
   /**
    * @private
    * @return {CSSResult}
@@ -207,15 +206,12 @@ export class FuroAppBarTop extends FBP(LitElement) {
     this.setAttribute('navigation', '');
   }
 
-
   /**
    * Hides the navigation icon.
    */
   hideNavigationIcon() {
     this.removeAttribute('navigation');
   }
-
-
 
   /**
    * @private

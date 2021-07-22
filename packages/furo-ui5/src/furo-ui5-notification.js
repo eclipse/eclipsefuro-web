@@ -99,7 +99,6 @@ export class FuroUi5Notification extends LitElement {
     customEvent.detail = message;
     this.dispatchEvent(customEvent);
 
-
     const customActionEvent = new Event(`notification-custom-action-${command}`, {
       bubbles: true,
       composed: true,

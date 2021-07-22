@@ -116,7 +116,6 @@ import '@furo/layout/src/furo-backdrop.js';
  * @demo demo-furo-ui5-data-reference-search Basic Usage
  */
 export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)) {
-
   constructor() {
     super();
 

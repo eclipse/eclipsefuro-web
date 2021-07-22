@@ -39,7 +39,6 @@ import './furo-radio-button.js';
  * @appliesMixin FBP
  */
 export class FuroRadioButtonInput extends FBP(LitElement) {
-
   constructor() {
     super();
     this.valid = true;

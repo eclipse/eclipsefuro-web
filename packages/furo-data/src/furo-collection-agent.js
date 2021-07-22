@@ -33,7 +33,6 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @appliesMixin FBP
  */
 class FuroCollectionAgent extends FBP(LitElement) {
-
   constructor() {
     super();
     /**
@@ -540,7 +539,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
         this._hts.push(link);
       });
 
-
       const customEvent = new Event('hts-updated', { composed: true, bubbles: false });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
@@ -555,7 +553,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
-
       const customEvent = new Event('hts-injected', { composed: true, bubbles: false });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
@@ -578,7 +575,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * Aborts a pending request
    */
   abortPendingRequest() {
-
     if (this._pendingRequests.length) {
       this._FBPTriggerWire('--abortDemanded', this._abortController);
     }

@@ -36,7 +36,6 @@ import '@ui5/webcomponents/dist/ToggleButton.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton.default) {
-
   constructor() {
     super();
 
@@ -376,7 +375,6 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
     customEvent.detail = selectedOption;
     this.dispatchEvent(customEvent);
 
-
     const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
     customSelectEvent.detail = selectedOption;
     this.dispatchEvent(customSelectEvent);
@@ -459,7 +457,6 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
       });
     }
     this._render();
-
 
     this.dispatchEvent(
       new CustomEvent('options-updated', {

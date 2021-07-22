@@ -43,8 +43,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataCheckboxInput extends FuroCheckboxInput {
-
-
   constructor() {
     super();
     this.error = false;
@@ -128,7 +126,6 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
       }
     }
   }
-
 
   /**
    * pass the value to the underlieying component always as boolean

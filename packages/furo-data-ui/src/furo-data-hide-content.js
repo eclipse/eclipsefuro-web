@@ -112,7 +112,6 @@ class FuroDataHideContent extends FBP(LitElement) {
     this._hidden = hide;
 
     if (oldval !== hide) {
-
       this._notify('toggled');
     }
 
@@ -121,10 +120,8 @@ class FuroDataHideContent extends FBP(LitElement) {
     }
 
     if (hide) {
-
       this._notify('hided');
     } else {
-
       this._notify('showed');
     }
   }

@@ -302,7 +302,6 @@ class ReadAnalysis extends FBP(LitElement) {
       tagname: 'furo-api-fetch',
     };
     setTimeout(() => {
-
       const customEvent = new Event('data', { composed: true, bubbles: true });
       customEvent.detail = this.element;
       this.dispatchEvent(customEvent);

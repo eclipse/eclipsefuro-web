@@ -31,8 +31,6 @@
  * @customElement
  */
 class FuroApiFetch extends HTMLElement {
-
-
   constructor() {
     super();
     /**

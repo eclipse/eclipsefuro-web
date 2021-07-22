@@ -1,5 +1,5 @@
-import { FuroNumberInput } from '@furo/input/src/furo-number-input.js'
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'
+import { FuroNumberInput } from '@furo/input/src/furo-number-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-data-number-input` is a extension of furo-number-input which enables you to
@@ -54,13 +54,12 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataNumberInput extends FuroNumberInput {
-
   constructor() {
-    super()
-    this.error = false
-    this.disabled = false
+    super();
+    this.error = false;
+    this.disabled = false;
 
-    this._initBinder()
+    this._initBinder();
   }
 
   /**
@@ -69,7 +68,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
    * @private
    */
   _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this)
+    this.binder = new UniversalFieldNodeBinder(this);
 
     // set the attribute mappings
     this.binder.attributeMappings = {
@@ -82,7 +81,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
       step: 'step',
       min: 'min',
       max: 'max',
-    }
+    };
 
     // set the label mappings
     this.binder.labelMappings = {
@@ -92,7 +91,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
       disabled: 'disabled',
       condensed: 'condensed',
       hidden: 'hidden',
-    }
+    };
 
     this.binder.fatAttributesToConstraintsMappings = {
       max: 'value._constraints.max.is', // for the fieldnode constraint
@@ -100,35 +99,35 @@ export class FuroDataNumberInput extends FuroNumberInput {
       step: 'value._constraints.step.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
-    }
+    };
 
     this.binder.constraintsTofatAttributesMappings = {
       min: 'min',
       max: 'max',
       step: 'step',
       required: 'required',
-    }
+    };
 
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
-    this.binder.checkLabelandAttributeOverrrides()
+    this.binder.checkLabelandAttributeOverrrides();
 
     // the extended furo-number-input component uses _value
-    this.binder.targetValueField = '_value'
+    this.binder.targetValueField = '_value';
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
       // set flag empty on empty strings (for fat types)
       if (val.detail) {
-        this.binder.deleteLabel('empty')
+        this.binder.deleteLabel('empty');
       } else {
-        this.binder.addLabel('empty')
+        this.binder.addLabel('empty');
       }
 
       // update the value
-      this.binder.fieldValue = val.detail
-    })
+      this.binder.fieldValue = val.detail;
+    });
   }
 
   /**
@@ -136,7 +135,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
    * @param val
    */
   setValue(val) {
-    this.binder.fieldValue = val
+    this.binder.fieldValue = val;
   }
 
   /**
@@ -145,7 +144,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    this.binder.bindField(fieldNode)
+    this.binder.bindField(fieldNode);
   }
 
   /**
@@ -158,9 +157,9 @@ export class FuroDataNumberInput extends FuroNumberInput {
       (this.binder.fieldFormat === 'wrapper' && this.binder.fieldNode._value.value === null) ||
       (this.binder.fieldFormat === 'fat' && this.binder.fieldNode.labels.empty !== undefined)
     ) {
-      this.setValue(null)
+      this.setValue(null);
     }
   }
 }
 
-customElements.define('furo-data-number-input', FuroDataNumberInput)
+customElements.define('furo-data-number-input', FuroDataNumberInput);

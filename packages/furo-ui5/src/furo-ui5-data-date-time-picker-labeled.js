@@ -20,8 +20,6 @@ import './furo-ui5-form-field-container.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataDateTimePickerLabeled extends FBP(LitElement) {
-
-
   constructor(props) {
     super(props);
     this.label = '';

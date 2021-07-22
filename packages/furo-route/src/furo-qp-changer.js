@@ -63,7 +63,6 @@ class FuroQpChanger extends FBP(LitElement) {
     if (this._lastLocation !== location) {
       // notify furo location
 
-
       window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
       window.history.replaceState({}, '', location);
 
