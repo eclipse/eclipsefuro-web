@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.10.0...@furo/data-ui@1.10.1) (2021-07-22)
+
+
+### Bug Fixes
+
+* component name resolving with underscore in package name ([dcf0f75](https://github.com/theNorstroem/FuroBaseComponents/commit/dcf0f7528ec275f5ddaa516330621163fee4fc5b))
+
+
+
+
+
 # [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.9.7...@furo/data-ui@1.10.0) (2021-07-21)
 
 
