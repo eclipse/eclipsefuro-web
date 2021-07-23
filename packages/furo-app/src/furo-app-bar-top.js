@@ -17,6 +17,9 @@ import './furo-loading-indicator-bar.js';
  * @fires {MouseEvent} navigation-clicked - Fired when navigation icon is clicked
  * @fires {MouseEvent} navigation-menu-clicked - Fired when icon is menu and navigation is clicked
  *
+ * @slot {HTMLElement [0..n]} - default slot to add elements to the app bar top.
+ * @slot {HTMLElement [0..n]} extended - named slot to place additional elements.
+ *
  * @summary Toolbar to place on top
  * @customElement
  * @demo demo-furo-app-bar-top Usage
