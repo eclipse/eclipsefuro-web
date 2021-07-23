@@ -5,6 +5,8 @@ import '@furo/layout/src/furo-horizontal-flex';
 /**
  * `furo-button-bar`
  *
+ * @slot {HTMLElement [0..n]} - default slot to add action controls (e.g. button, furo-button, furo-ui5-button).
+ *
  * Tags: form
  * @summary automatic button bar
  * @customElement
