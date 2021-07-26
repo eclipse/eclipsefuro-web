@@ -6,6 +6,8 @@ import { Theme } from '@furo/framework/src/theme';
  * `furo-panel`
  * Simple content panel with predefined margins.
  *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
+ *
  * ### Styling
  * The following custom properties are available for styling:
  *

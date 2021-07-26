@@ -5,6 +5,8 @@ import { FBP } from '@furo/fbp';
 /**
  * `furo-vertical-scroller`
  *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
+ *
  * ```html
  * <furo-vertical-scroller>
  *   <your-content></your-content>

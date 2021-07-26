@@ -4,10 +4,11 @@ import { Theme } from '@furo/framework/src/theme';
 /**
  * `furo-vertical-flex`
  *
- *  Für vertikales anordnen von Komponenten. Die Höhe ist automatisch auf 100% gesetzt (display block).
+ * With this component, any elements can be aligned vertically. Similar to css flex.
+ * The attribute "flex" must be set for growing elements.
+ * The component takes up 100% of the space
  *
- *  Setze auf dem flexiblen Element das Attribut **flex**
- *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * ```html
  * <furo-vertical-flex>
@@ -18,7 +19,7 @@ import { Theme } from '@furo/framework/src/theme';
  * ```
  *  Tags: layout
  *
- * @summary vertical alignment of stuff
+ * @summary vertical alignment
  * @customElement
  * @demo demo-furo-vertical-flex Basic usage
  * @appliesMixin FBP
