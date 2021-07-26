@@ -7,6 +7,9 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * The furo-ui5-form-field-container gives the user a layout to manage
  * input field and labels according to the design specification of SAP Fiori.
  *
+ * @slot {HTMLElement} label - defines the label to be displayed.
+ * @slot {HTMLElement} - defines the form field to be displayed in the container element.
+ *
  * Example
  *
  * ```html

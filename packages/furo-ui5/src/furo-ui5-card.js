@@ -8,7 +8,8 @@ import '@ui5/webcomponents/dist/Card.js';
 import '@ui5/webcomponents/dist/Icon.js';
 
 /**
- * `furo-ui5-card` is a bindable card that represents information in the form of a tile with separate header and content areas.
+ * `furo-ui5-card`
+ * is a bindable card that represents information in the form of a tile with separate header and content areas.
  *
  * ```html
  *  <furo-ui5-card
@@ -21,14 +22,8 @@ import '@ui5/webcomponents/dist/Icon.js';
  *  </furo-ui5-card>
  *```
  *
- * ## Slots
- * ### action
- * Defines an action, displayed in the right most part of the header.
- *
- * Note: If status is set, the status text will be displayed, you can either have action, or status.
- *
- * ### content
- * Defines the content of the card
+ * @slot {HTMLElement [0..n]} action - defines an action, displayed in the right most part of the header. Note: If status is set, the status text will be displayed, you can either have action, or status.
+ * @slot {HTMLElement [0..n]} content - defines the content of the card
  *
  * @fires header-clicked - Fired when the card head is clicked. The header-interactive attribute must be set.
  * @fires header-click - Fired when interactive header was clicked.

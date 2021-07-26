@@ -21,6 +21,9 @@ import '@ui5/webcomponents/dist/Panel';
  *  This component is a container which has a header and a content area and is used for grouping and displaying information.
  *  It can be collapsed to save space on the screen.
  *
+ * @slot {HTMLElement [0..n]} action - defines an action, displayed in the right most part of the header panel.
+ * @slot {HTMLElement [0..n]} - defines the content of the panel
+ *
  * ### Styling
  * The following custom properties and mixins are available for styling:
  *
@@ -30,13 +33,6 @@ import '@ui5/webcomponents/dist/Panel';
  * `--furo-ui5-header-panel-icon-background-color` | background Color of the icon | --ui5-avatar-accent6 | #354a5f
  * `--furo-ui5-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0
  * `--furo-ui5-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)
- *
- * ## Slots
- * ### action
- * Defines an action, displayed in the right most part of the header panel.
- *
- * ### content
- * Defines the content of the card
  *
  *
  * @summary A bindable header panel
