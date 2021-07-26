@@ -52,15 +52,11 @@ const tdWRepeat = fields => html`
  * `furo-data-table`
  * Read only data table based on the response type from the rest api spec.
  *
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--furo-data-table-header-background` | Background color of the header row | --surface | white
- * `--furo-data-table-header-on-background` | Color of the header row | --on-surface | black
- * `--furo-data-table-background` | Background color of the element | --surface | white
- * `--furo-data-table-on-background` | Color of the element | --on-surface | black
- * `--data-table-separator` | Color of separator lines | --separator | rgba(0, 0, 0, .12)
- *
+ * @cssprop {white} [--furo-data-table-header-background=--surface] - Background color of the header row
+ * @cssprop {black} [--furo-data-table-header-on-background=--on-surface] - Color of the header row
+ * @cssprop {white} [--furo-data-table-background=--surface] - Background color of the element
+ * @cssprop {black} [--furo-data-table-on-background=--on-surface] - Color of the element
+ * @cssprop {rgba(0, 0, 0, .12)} [--data-table-separator=--separator] - Color of separator lines
  *
  * Tags: data-ui
  *
