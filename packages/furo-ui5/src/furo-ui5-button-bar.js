@@ -5,9 +5,9 @@ import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
 /**
  * `furo-ui5-button-bar`
  *  is a wrapper for buttons which gives a nice border and paddings to a group of buttons.
+ *  It uses the furo-button-bar which allows you to bind a data entity with HATEOAS information.
  *
- *  It uses the furo-button-bar which allows you to bind a entitiy.
- *
+ * @slot {HTMLElement [0..n]} - default slot to add action controls (e.g. button, furo-button, furo-ui5-button).
  *
  * ### Styling
  * The following custom properties and mixins are available for styling:

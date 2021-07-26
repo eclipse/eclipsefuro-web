@@ -4,10 +4,9 @@ import { Theme } from '@furo/framework/src/theme';
 /**
  * `furo-horizontal-flex`
  *
- *  Für horizontales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).
- *
- *  Setze auf dem flexiblen Element das Attribut **flex**
- *
+ * With this component, any elements can be aligned horizontally. Similar to css flex.
+ * The attribute "flex" must be set for growing elements.
+ * The component takes up 100% of the space.
  *
  * ```html
  * <furo-horizontal-flex>
@@ -16,6 +15,8 @@ import { Theme } from '@furo/framework/src/theme';
  *   <div>small</div>
  * </furo-horizontal-flex>
  * ```
+ * @slot {HTMLElement [0..n]} - default slot to add content.
+ *
  *  Tags: layout
  *
  * @summary horizontal alignment

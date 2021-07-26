@@ -14,6 +14,7 @@ import { BaseFilter } from './basefilter.js';
  *  The values of the component are not updated from this component. You have to do an additional binding by yourself if needed.
  *  Do not forget that the condition value always comes as a string, when binding to your component.
  *
+ * @slot {HTMLElement} - default slot to add a filter component (must emit a **value-changed** event).
  *
  * @summary slot for filters
  * @customElement

@@ -6,8 +6,10 @@ import { FBP } from '@furo/fbp';
  * `furo-resizer`
  *  container which let you resize its width.
  *
- *  Doubleclick on the handler to reset the width.
+ *  Double-click on the handler to reset the width.
  *  You need a counter part which flexes.
+ *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  *```html
  *   <furo-horizontal-flex>

@@ -3,11 +3,14 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import './furo-loading-indicator-bar.js';
 
-// todo: implement like this: https://material.io/design/components/cards.html#anatomy
-
 /**
  * `furo-card`
- *  is a container with a shadow and slots for media, content, actions,...
+ *  Cards contain content and actions about a single subject.
+ *  https://material.io/design/components/cards.html
+ *
+ * @slot {HTMLElement [0..n]} - default slot to add card content.
+ * @slot {HTMLElement [0..n]} media - named slot to add full screen media content.
+ * @slot {HTMLElement [0..n]} action - named slot to add card actions (normally button bar or buttons)
  *
  * @summary Material design card element
  * @customElement

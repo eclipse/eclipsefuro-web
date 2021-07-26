@@ -6,10 +6,12 @@ import './furo-horizontal-flex.js';
 import './furo-vertical-scroller.js';
 
 /**
- * `furo-split-view`  is a layouter for master detail views.
- *
+ * `furo-split-view`
+ * is a layout component to visualise main / detail views.
  * You can add the attribute scroll on the detail view to make the content scrollable.
  *
+ * @slot {HTMLElement [0..n]} master - default slot to add content to the main section.
+ * @slot {HTMLElement [0..n]} - default slot to add content to the detail section.
  *
  * ```html
  * <furo-split-view>

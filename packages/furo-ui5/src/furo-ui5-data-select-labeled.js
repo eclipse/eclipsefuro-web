@@ -11,6 +11,8 @@ import './furo-ui5-data-select.js';
  * The furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according
  * to the design specification of SAP Fiori Design System.
  *
+ * @slot {HTMLElement} valueStateMessage - defines the value state message that will be displayed as pop up under the input element.
+ *
  * @fires {String} field-value-changed - Fires the field value when it changes.
  *
  * @summary labeled select

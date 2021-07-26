@@ -69,6 +69,8 @@ const tdWRepeat = fields => html`
  * @fires {this} data-loaded -  Fired when inject data has successfully finished.
  * @fires {Array of raw Entities} checkstate-changed -  Fired when a row is checked or unchecked
  *
+ * @slot {HTMLElement [0..n]} - default slot to add elements to the footer (e.g. pagination component)
+ *
  * @summary type based data table
  * @demo demo-furo-data-table Data Table Standard
  * @demo demo-furo-data-table-row-selection Data Table with Row Selection

@@ -20,6 +20,8 @@ import '@furo/util/src/furo-keydown';
  * @fires {{context, menuitem}} open-furo-data-menu-requested -  Fired when context menu was triggered
  * @fires { {context, menuitem}} menu-item-selected -  Fired when a menu item is selected
  *
+ * @slot {HTMLElement} - default slot to add an individual context menu opener component (e.g. furo-icon-button).
+ *
  * @summary a context menu
  * @customElement
  * @demo demo-furo-data-context-menu Basic usage

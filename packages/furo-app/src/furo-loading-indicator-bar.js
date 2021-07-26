@@ -8,6 +8,8 @@ import { Theme } from '@furo/framework/src/theme';
  *
  * todo: make it like https://material.io/design/components/progress-indicators.html#
  *
+ * @slot {HTMLElement [0..n]} - this is an unnamed default slot.
+ *
  * @summary An ugly progress bar
  * @customElement
  * @demo demo-furo-app-bar-top Inside of the app bar

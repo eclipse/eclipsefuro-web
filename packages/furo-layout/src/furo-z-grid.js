@@ -3,11 +3,13 @@ import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 
 /**
- * `z-grid` is a grid which places your elements in a **z** pattern.
- *
+ * `z-grid`
+ * is a grid which places your elements in a **z** pattern.
  * It creates a grid which can be imagined as a grid with cells of the size *8rem x 8rem*.~
  *
  * The size on the x-axis can vary a little bit, according to the the available space.
+ *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * This component is nestable.
  *
@@ -65,8 +67,6 @@ import { FBP } from '@furo/fbp';
  *  :host([size='size-l'] ==> **1rem 2rem;**
  *
  *  :host([size='size-xl'] ==> **1rem 3rem;**
- *
- *
  *
  *  ## full-on-[size]
  *  To set full width on a specific current size, use `full-on-size-small` , `full-on-size-medium` , `full-on-size-large` ,`full-on-size-xlarge`.

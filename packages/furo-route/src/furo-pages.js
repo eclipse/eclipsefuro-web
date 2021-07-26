@@ -5,6 +5,8 @@ import { LitElement, html, css } from 'lit-element';
  *
  * Use this to build tabs, views, subviews,...
  *
+ * @slot {HTMLElement [0..n]} - default slot to add pages.
+ *
  * ### preconditions:
  * You have to implement a `:host([hidden]){display:none}` in your views css.
  *

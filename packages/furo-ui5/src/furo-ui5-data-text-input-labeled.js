@@ -11,6 +11,8 @@ import './furo-ui5-data-text-input.js';
  * The furo-ui5-data-text-input-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
+ * @slot {HTMLElement} icon - defines the icon to be displayed in the input element.
+ *
  * @fires {String} field-value-changed - Fires the field value when it changes.
  *
  * @slot {HTMLElement} icon - Defines the icon to be displayed in the input.

@@ -17,6 +17,9 @@ import { FBP } from '@furo/fbp';
  * @fires {void} closed -  Fired when collapsible box was closed.
  * @fires {Boolean} toggled -  Fired when collapsible-box was toggled,  true for open, false for closed.
  *
+ * @slot {HTMLElement [0..n]} - default unnamed slot to add content.
+ * @slot {HTMLElement [0..n]} context - slot to add context components on the right hand side.
+ *
  * @summary collapsible box with head
  * @customElement
  * @demo demo-furo-collapsible-box

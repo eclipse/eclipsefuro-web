@@ -18,6 +18,8 @@ import { FBP } from '@furo/fbp';
  * @fires {void} hided -  Fired when the content gets hided
  * @fires {void} showed -  Fired when the content gets visible
  *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
+ *
  * @summary hide content
  * @customElement
  * @demo demo-furo-data-hide-content

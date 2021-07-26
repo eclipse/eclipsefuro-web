@@ -4,10 +4,12 @@ import { FBP } from '@furo/fbp';
 import '@furo/layout';
 
 /**
- *
+ * `furo-form`
  * Form container with integrated activity indicator and three slots.
  *
- * `furo-form`
+ * @slot {HTMLElement [0..n]} - default slot to add form content.
+ * @slot {HTMLElement [0..n]} media - named slot to add full screen media content.
+ * @slot {HTMLElement [0..n]} action - named slot to add form actions (normally button bar or buttons)
  *
  * @summary form container
  * @customElement

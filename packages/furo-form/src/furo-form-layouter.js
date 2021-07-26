@@ -16,6 +16,8 @@ import { FBP } from '@furo/fbp';
  *
  * <furo-form-layouter></furo-form-layouter>
  *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
+ *
  * To customize the slotted elements inside furo-form-layouter there are several attributes.
  * - double | stretches the element over two units
  * - full | stretches the element to full width

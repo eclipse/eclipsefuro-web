@@ -4,16 +4,17 @@ import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-horizontal-flex';
 
 /**
- *
- * The API may change, documentation will follow
- *
  * `furo-app-drawer`
- * todo Describe the element
+ * Navigation drawers provide access to destinations and app functionality, such as switching accounts.
+ * They can either be permanently on-screen or controlled by a navigation menu icon.
  *
  * @fires is-floating - Fired when drawer is in floating mode. This event is fired when drawer is closed and opened.
  * @fires is-pinned - Fired when drawer is in pinned mode.
  * @fires drawer-opened - Fired when drawer was opened.
  * @fires drawer-closed - Fired when drawer was closed.
+ *
+ * @slot {HTMLElement} - default slot to add app content.
+ * @slot {HTMLElement} drawer - named slot for the drawer destinations.
  *
  * @summary Application drawer
  * @customElement
