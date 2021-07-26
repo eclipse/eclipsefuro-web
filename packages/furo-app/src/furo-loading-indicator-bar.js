@@ -10,7 +10,7 @@ import { Theme } from '@furo/framework/src/theme';
  *
  * @slot {HTMLElement [0..n]} - this is an unnamed default slot.
  *
- * @summary An ugly progress bar
+ * @summary progress bar
  * @customElement
  * @demo demo-furo-app-bar-top Inside of the app bar
  * @appliesMixin FBP
@@ -40,7 +40,6 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
           opacity: 0.8;
           background-color: var(--secondary);
           animation: colorchange 5s infinite;
-          @apply --loading-indicator-mixin;
         }
 
         :host([hidden]) {

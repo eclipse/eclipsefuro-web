@@ -62,9 +62,12 @@ class FuroTooltipDisplay extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Description
+       * Flag indicating the current start mode
        */
       start: { type: Boolean, reflect: true },
+      /**
+       * Flag indicating the current show mode
+       */
       show: { type: Boolean, reflect: true },
     };
   }

@@ -3,8 +3,8 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
 /**
- * `furo-tooltip` is used to trigger a tooltip which is displayed by `furo-tooltip-display`.
- *
+ * `furo-tooltip`
+ * is used to trigger a tooltip which is displayed by `furo-tooltip-display`.
  *
  * @fires {MouseEvent} show-tooltip-requested - Fired when mouseover on component, catched by furo-tooltip-display.
  * @fires {MouseEvent} hide-tooltip-requested - Fired when mouseout on component, catched by furo-tooltip-display.

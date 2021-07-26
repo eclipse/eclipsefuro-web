@@ -12,6 +12,10 @@ import './furo-loading-indicator-bar.js';
  * @slot {HTMLElement [0..n]} media - named slot to add full screen media content.
  * @slot {HTMLElement [0..n]} action - named slot to add card actions (normally button bar or buttons)
  *
+ * @cssprop {white} [--furo-card-background=--surface] - card background color
+ * @cssprop {8px} [--furo-card-padding=--spacing-xs] - card padding
+ * @cssprop {0} [--furo-card-margin=0] - card margin
+ *
  * @summary Material design card element
  * @customElement
  * @demo demo-furo-card
