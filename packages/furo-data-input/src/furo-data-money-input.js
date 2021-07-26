@@ -37,6 +37,8 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * - 'required': is mapped to 'required' attribute
  *
+ * @cssprop {N/A} [--spacing-xs=] - margin left currency select
+ *
  * @fires {google money object} value-changed -  Fired when value has changed from inside the component
  *
  * @summary  Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields

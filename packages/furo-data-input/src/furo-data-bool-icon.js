@@ -76,10 +76,12 @@ class FuroDataBoolIcon extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Description
+       * Defines the symbol for the true state
        */
-      myBool: { type: Boolean },
       symboltrue: { type: String },
+      /**
+       * Defines the symbol for the false state
+       */
       symbolfalse: { type: String },
     };
   }

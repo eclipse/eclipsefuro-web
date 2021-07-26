@@ -30,6 +30,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *  Every Attribute (boolean or string) which is set on furo-data-repeat which is not part of its own api, will be set on the child element.
  *  If you set condensed as an example, it will be set on the repeated element. It is not possible to set wires to the children.
  *
+ * @cssprop {N/A} [--spacing=N/A] - spacing right for the delete icon
  *
  *
  * @summary automatic display of repeated fields

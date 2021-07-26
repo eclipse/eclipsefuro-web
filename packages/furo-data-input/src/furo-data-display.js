@@ -8,14 +8,9 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * `furo-data-display`
  *  Displays a data field. If the type is a complex type (like google.type.Date), the display_name field is used.
  *
- *  * ### Styling
- * The following custom properties and mixins are available for styling:
+ * @cssprop {white} [--ellipsis-hover-background=white] - background color of the hovered text
  *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--ellipsis-hover-background` | background color of the hovered text | white | white
- *
- * * ### following labels of fat types are supported:
+ * ### following labels of fat types are supported:
  *
  * - 'error': state of input is error
  * - 'condensed': input has condensed display
