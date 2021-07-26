@@ -23,9 +23,13 @@ class FuroQrScanner extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Description
+       * If true, scanning stops after the QR code is recognised
        */
       stopOnCodeFound: { type: Boolean, attribute: 'stop-on-code-found' },
+      /**
+       * file path for a separate worker thread
+       * Default: '/worker/qr-scanner-worker.min.js'
+       */
       worker: { type: String },
     };
   }
