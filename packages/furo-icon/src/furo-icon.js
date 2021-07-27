@@ -13,8 +13,6 @@ if (!Iconset.default) {
  * to use furo icon you should
  * first import a svg set of icons and register it to @furo/framework/src/iconset
  *
- *
- *
  *```js
  * the set of icons can be defined in a iconSetName.js file which has content like this:
  *     export const iconSetName = {
@@ -22,6 +20,7 @@ if (!Iconset.default) {
  *          "left-arrow":"<g><path d='M12 xx.... z'></path></g>"
  *          ...
  *     };
+ *
  * then import the iconset and register it
  * import {iconSetName} from "./iconSetName";
  * import {Iconset} from "@furo/framework/src/furo.js";
@@ -42,10 +41,13 @@ if (!Iconset.default) {
  * <furo-icon icon="iconName" ></furo-icon>
  *```
  *
- * use css variable '--furo-icon-width' and '--furo-icon-height' to define the size
- * use '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors
+ * @cssprop {24px} [--furo-icon-width=24px] - width of the icon
+ * @cssprop {24px} [--furo-icon-height=24px] - height of the icon
+ * @cssprop {currentcolor} [--furo-icon-fill-color=currentcolor] - fill color of the icon
+ * @cssprop {none} [--furo-icon-stroke-color=none] - stroke color of the icon
  *
  * you can also define other properties lik viewport ,preserveAspectRatio...
+ *
  * @summary furo icon
  * @customElement
  * @demo demo-furo-icon-list list of the icons
