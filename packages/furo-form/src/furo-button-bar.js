@@ -4,6 +4,20 @@ import '@furo/layout/src/furo-horizontal-flex';
 
 /**
  * `furo-button-bar`
+ * The furo-button-bar component is a container for action controls such as buttons or icons.
+ * The controls are horizontally aligned (Flex model).
+ *
+ * It has the capability to bind a entity model (FieldNode with HATEOAS information). Due to the relation information
+ * in the HATEOAS, the buttons can be shown/hidden or activated/deactivated.
+ *
+ * ```
+ * <furo-button-bar ƒ-bind-entity="--dataModel">
+ *   <button rel="update" disableNoRel>Save</button>
+ *   <button rel="delete" disableNoRel>Delete</button>
+ * </furo-button-bar>
+ * ```
+ *
+ * @cssprop {8px} [--spacing-xs=8px] - margin of slotted elements
  *
  * @slot {HTMLElement [0..n]} - default slot to add action controls (e.g. button, furo-button, furo-ui5-button).
  *

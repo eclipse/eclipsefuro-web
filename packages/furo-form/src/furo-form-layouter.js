@@ -14,7 +14,9 @@ import { FBP } from '@furo/fbp';
  * The required variant is set using an attribute.
  * e.g. two, three, four and six
  *
+ * ```
  * <furo-form-layouter></furo-form-layouter>
+ * ```
  *
  * @slot {HTMLElement [0..n]} - default slot to add content.
  *
@@ -32,13 +34,8 @@ import { FBP } from '@furo/fbp';
  * `four` | two | one |
  * `six` | three | one |
  *
- * ### Styling
- * The following custom properties are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--furo-form-layouter-row-gap` | width of row gap | 0px | --
- * `--furo-form-layouter-column-gap` | width of column gap | 0px | --
+ * @cssprop {0px} [--furo-form-layouter-row-gap=0px] - width of row gap
+ * @cssprop {0px} [--furo-form-layouter-column-gap=0px] - width of column gap
  *
  * Tags: form
  * @summary Grid based form field row

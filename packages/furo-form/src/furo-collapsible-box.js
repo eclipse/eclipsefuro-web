@@ -13,6 +13,11 @@ import { FBP } from '@furo/fbp';
  * </furo-collapsible-box>
  *```
  *
+ * @cssprop {16px} [--furo-collapsible-box-padding=16px] - box padding
+ * @cssprop {white} [--furo-collapsible-box-background=white] - background color
+ * @cssprop {16px} [--furo-collapsible-box-margin=16px] - box margin
+ * @cssprop {gainsboro} [--separator-color=gainsboro] - border bottom of the head
+ *
  * @fires {void} opened -  Fired when collapsible box was opened.
  * @fires {void} closed -  Fired when collapsible box was closed.
  * @fires {Boolean} toggled -  Fired when collapsible-box was toggled,  true for open, false for closed.
