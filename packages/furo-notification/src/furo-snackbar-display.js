@@ -20,15 +20,10 @@ import '@furo/input';
  * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
  *
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--snackbar-background-color` | Color of background |`--on-primary` |  #212121
- * `--snackbar-label-color` | Color of label in snackbar| `--primary-variant,,` | #dedede
- * `--snackbar-button-text-color` | Color of button text | `--secondary` | #bb86fc
- * `--snackbar-border-distance` | Distance to the border of the parent element | `--spacing` | 24px
+ * @cssprop {#212121} [--snackbar-background-color=--on-primary] - Color of background
+ * @cssprop {#dedede} [--snackbar-label-color=--primary-variant] - Color of label in snackbar
+ * @cssprop {#bb86fc} [--snackbar-button-text-color=--secondary] - Color of button text
+ * @cssprop {24px} [--snackbar-border-distance=--spacing] - Distance to the border of the parent element
  *
  * @summary helper component to show a snackbar
  * @customElement
