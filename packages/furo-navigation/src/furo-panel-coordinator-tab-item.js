@@ -8,6 +8,11 @@ import '@furo/layout/src/furo-ripple';
  * `furo-mini-tab-item`
  * todo Describe your element
  *
+ * @cssprop {#fafafa} [--surface=N/A] - Border bottom color
+ * @cssprop {N/A} [--on-surface=N/A] - foreground color
+ * @cssprop {red} [--error=N/A] - error color
+ * @cssprop {16px} [--furo-button-padding=--spacing-s] - label padding, 0 var(--furo-button-padding, var(--spacing-s, 16px))
+ *
  * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
