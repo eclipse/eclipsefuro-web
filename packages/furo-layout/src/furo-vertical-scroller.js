@@ -5,14 +5,15 @@ import { FBP } from '@furo/fbp';
 /**
  * `furo-vertical-scroller`
  *
- * @slot {HTMLElement [0..n]} - default slot to add content.
- *
  * ```html
  * <furo-vertical-scroller>
  *   <your-content></your-content>
  * </furo-vertical-scroller>
  * ```
+ * @cssprop {N/A} [--surface=white] - Background color scrollbar
+ * @cssprop {N/A} [--on-surface=black] - Background color of the draggable scrolling element
  *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * @summary vertical scroll
  * @customElement

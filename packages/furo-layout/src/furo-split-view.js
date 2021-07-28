@@ -7,11 +7,8 @@ import './furo-vertical-scroller.js';
 
 /**
  * `furo-split-view`
- * is a layout component to visualise main / detail views.
+ * is a layout component to visualise main / detail views (left right layout for master detail views).
  * You can add the attribute scroll on the detail view to make the content scrollable.
- *
- * @slot {HTMLElement [0..n]} master - default slot to add content to the main section.
- * @slot {HTMLElement [0..n]} - default slot to add content to the detail section.
  *
  * ```html
  * <furo-split-view>
@@ -19,14 +16,11 @@ import './furo-vertical-scroller.js';
  *   <big-component scroll> </big-component>
  * </furo-split-view>
  * ```
- * ### Styling
- * The following custom properties are available for styling:
  *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--split-master-width` | width of the master slot | 270px | --
+ * @cssprop {N/A} [--split-master-width=270px] - width of the master slot
  *
- * Left right layout for master detail views
+ * @slot {HTMLElement [0..n]} master - default slot to add content to the main section.
+ * @slot {HTMLElement [0..n]} - default slot to add content to the detail section.
  *
  * @summary splitted layout
  * @customElement
