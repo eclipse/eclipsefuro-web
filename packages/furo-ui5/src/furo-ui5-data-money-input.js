@@ -431,8 +431,6 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
     return (
       Theme.getThemeForComponent('FuroDataMoneyInput') ||
       css`
-        /* https://material.io/design/components/text-fields.html#theming */
-
         #currency {
           width: 100px;
           min-width: 100px;

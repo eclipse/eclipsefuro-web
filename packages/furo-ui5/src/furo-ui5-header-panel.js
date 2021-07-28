@@ -27,13 +27,10 @@ import '@ui5/webcomponents/dist/Panel';
  * ### Styling
  * The following custom properties and mixins are available for styling:
  *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--furo-ui5-header-panel-icon-color` | Color of the icon  | --ui5-avatar-initials-color | #ffffff
- * `--furo-ui5-header-panel-icon-background-color` | background Color of the icon | --ui5-avatar-accent6 | #354a5f
- * `--furo-ui5-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0
- * `--furo-ui5-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)
- *
+ * @cssprop {#ffffff} [--furo-ui5-header-panel-icon-color=--ui5-avatar-initials-color] - Color of the icon
+ * @cssprop {#354a5f} [--furo-ui5-header-panel-icon-background-color=--ui5-avatar-accent6] - background Color of the icon
+ * @cssprop {#354a5f} [--furo-ui5-header-panel-splitter-start-color=--primary-dark] - the gradient-start hex-Color of the splitter
+ * @cssprop {rgba(8, 84, 16, 0)} [--furo-ui5-header-panel-splitter-end-rgba-color=--primary-rgb] - the gradient-end rgba-Color of the splitter
  *
  * @summary A bindable header panel
  * @customElement

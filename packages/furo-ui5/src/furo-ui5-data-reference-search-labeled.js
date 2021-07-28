@@ -53,15 +53,44 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * the label for the data-reference-search
+       * the service name
        */
       service: { type: String },
+      /**
+       * the label for the data-reference-search
+       */
       label: { type: String },
+      /**
+       * Path to response value item which is used for the id.
+       * By default this goes to *data.id*
+       */
       valueFieldPath: { type: String, attribute: 'value-field-path' },
+      /**
+       * Path to selection value node which is used for the display.
+       * By default this goes to *data.display_name*
+       */
       displayFieldPath: { type: String, attribute: 'display-field-path' },
+      /**
+       * Path to the node in the response value which contains the array with the selection items.
+       * By default this goes to *entitites*
+       */
       searchResponsePath: { type: String, attribute: 'search-response-path' },
+      /**
+       * Path to response value item of the exteded search which is used for the id.
+       * By default this goes to *data.id*.
+       * Only needed when your extended searcher does not have the id, display_name signature in the response.
+       */
       extendedValueFieldPath: { type: String, attribute: 'extended-value-field-path' },
+      /**
+       * Path to response value item of the exteded search which is used for the display.
+       * By default this goes to *data.display_name*.
+       * Only needed when your extended searcher does not have the id, display_name signature in the response.
+       */
       extendedDisplayFieldPath: { type: String, attribute: 'extended-display-field-path' },
+      /**
+       * Overrides the hint text from the **specs**.
+       * Use with caution, normally the specs defines this value.
+       */
       placeholder: { type: String },
       /**
        * Use this attribute to set a custom icon for your searcher
@@ -93,8 +122,6 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
       },
       /**
        * Define the extended searcher. Do not forget to import the searcher you want to use.
-       *
-       *
        */
       extendedSearcher: {
         type: String,

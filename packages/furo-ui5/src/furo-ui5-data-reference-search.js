@@ -20,7 +20,6 @@ import '@furo/layout/src/furo-backdrop.js';
  *  Bounded data must fullfill the  furo.reference signature. The service, deeplink,... is taken from the spec of your field.
  *  Do not forget to specify.
  *
- *
  *  *default usage*
  * ```html
  *   <furo-ui5-data-reference-search
@@ -46,8 +45,6 @@ import '@furo/layout/src/furo-backdrop.js';
  *   ƒ-bind-data="--data(*.is_person)"
  *   ></furo-ui5-data-reference-search-labeled>
  * ```
- *
- *
  *
  * ## supported meta and constraints
  * - **readonly: true** , set the element to readonly
@@ -105,6 +102,8 @@ import '@furo/layout/src/furo-backdrop.js';
  * ### Searcher Events
  * Fire a **@-record-selected** to set the item on the reference-search.
  * Fire a **@-close-requested** to close the extended search.
+ *
+ * @cssprop {#ffffff} [--furo-data-reference-search-list-background=--surface] - background color of the result list
  *
  * @fires {`Object` the complete item} item-selected -  Fired when a item was selected from the list.
  * @fires {`text`} change -  Fired when the input operation has finished by pressing Enter or on focusout.

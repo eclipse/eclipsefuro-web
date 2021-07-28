@@ -20,6 +20,8 @@ import { i18n } from '@furo/framework/src/i18n.js';
  * this pagination element loops the hts array and find out the pagination
  * information like prev, next, first and last
  *
+ * @cssprop {24px} [--furo-ui5-pagination-bar-padding-right=--spacing] - Right padding definition
+ * @cssprop {#ffffff} [--furo-ui5-pagination-bar-background-color=--surface-light] - Background color
  *
  * @fires {} pagination-first -  Is fired if the pagination button 'sys_first_page' was clicked
  * @fires {} pagination-last -  Is fired if the pagination button 'sys_last_page' was clicked
