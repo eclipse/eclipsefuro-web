@@ -5,7 +5,10 @@ import '@furo/layout/src/furo-ripple';
 import '@furo/icon/src/furo-icon.js';
 
 /**
- * `furo-button` displays a button.
+ * `furo-button`
+ * The furo-button component represents a simple push button. It enables users to trigger actions by clicking or
+ * tapping the furo-button, or by pressing certain keyboard keys, such as Enter.
+ * https://material.io/components/buttons
  *
  *  ```html
  *  <!-- Label can be set with attribute -->
@@ -16,6 +19,7 @@ import '@furo/icon/src/furo-icon.js';
  *  ```
  * <sample-furo-button></sample-furo-button>
  *
+ * @cssprop {16px} [--furo-button-padding=--spacing-s] - right padding
  *
  * @summary a button
  * @customElement

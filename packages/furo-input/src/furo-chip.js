@@ -23,26 +23,21 @@ import '@furo/layout/src/furo-ripple.js';
  *   </template>
  *  </furo-demo-snippet>
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--input-chip-unselected--bg-color` | background color of the unselected chip | `--background` | hex: #eeeeee
- * `--input-chip-outlined-unselected--bg-color` | background color of the unselected outlined chip |  | hex: #ffffff
- * `--input-chip-selected-bg-color` | background color of the selected chip | `--primary` | hex: #4caf4f
- * `--input-chip-selected-color` |  color of the selected chip | `--on-primary` | hex: #ffffff
- * `--input-chip-outlined-selected-bg-color-rgb` | rgba color of the background of the selected chip |  `--primary-rgb` with `--state-active` opacity | rgba: 76, 175, 80, 0.10
- * `--input-chip-outlined-selected-text-color` |  color of the text of the outlined selected chip |  `--primary`  | hex: #4caf50
- * `--input-chip-outlined-selected-border-color` | border color of the outlined selected chip |  `--on-background`  | hex: #000000
- * `--input-chip-outlined-selected-hover-bg-color-rgb` | rgba color of the background of the outlined selected chip by hovering|  `--on-background-rgb` with opacity `--state-hover` | rgba:  33, 33, 33, 0.04
- * `--input-chip-unselected-hover-bg-color-rgb` | rgba color of the background of the unselected chip by hovering|  `--on-background-rgb` with opacity `--state-hover` | rgba:  33, 33, 33, 0.04
- * `--input-chip-unselected-active-bg-color-rgb` | rgba color of the background of the unselected chip by clicking|  `--on-background-rgb` with opacity `--state-active` | rgba:  33, 33, 33, 0.10
- * `--input-chip-unselected-focus-bg-color-rgb` | rgba color of the background of the unselected chip by focusing|  `--on-background-rgb` with opacity `--state-focus` | rgba:  33, 33, 33, 0.12
- * `--input-chip-selected-active-bg-color-rgb` | rgba color of the background of the selected chip by clicking|  `--primary-rgb` with opacity `--state-active` | rgba:  76, 175, 80, 0.10
- * `--input-chip-selected-focus-bg-color-rgb` | rgba color of the background of the selected chip by focusing|  `--primary-rgb` with opacity `--state-focus` | rgba:  76, 175, 80, 0.12
- * `--input-chip-disabled-selected-bg-color-rgb` | rgba color of the background of the selected disabled chip|  `--on-background-rgb` with opacity `--state-disabled` | rgba:  33, 33, 33, 0.38
- * `--input-chip-outlined-disabled-selected-bg-color-rgb` | rgba color of the background of the outlined selected disabled chip|  `--on-background-rgb` with opacity `--state-disabled` | rgba:  33, 33, 33, 0.38
+ * @cssprop {#eeeeee} [--input-chip-unselected--bg-color=--background] - background color of the unselected chip
+ * @cssprop {#ffffff} [--input-chip-outlined-unselected--bg-color=--background] - background color of the unselected outlined chip
+ * @cssprop {#4caf4f} [--input-chip-selected-bg-color=--primary] - background color of the selected chip
+ * @cssprop {#ffffff} [--input-chip-selected-color=--on-primary] - color of the selected chip
+ * @cssprop {rgba: 76, 175, 80, 0.10} [--input-chip-outlined-selected-bg-color-rgb=--primary-rgb with --state-active opacity] - rgba color of the background of the selected chip
+ * @cssprop {#4caf50} [--input-chip-outlined-selected-text-color=--primary] - color of the text of the outlined selected chip
+ * @cssprop {#000000} [--input-chip-outlined-selected-border-color=--on-background] - border color of the outlined selected chip
+ * @cssprop {rgba:  33, 33, 33, 0.04} [--input-chip-outlined-selected-hover-bg-color-rgb=--on-background-rgb with opacity --state-hover] - rgba color of the background of the outlined selected chip by hovering
+ * @cssprop {rgba:  33, 33, 33, 0.04} [--input-chip-unselected-hover-bg-color-rgb=--on-background-rgb with opacity --state-hover] - rgba color of the background of the unselected chip by hovering
+ * @cssprop {rgba:  33, 33, 33, 0.10} [--input-chip-unselected-active-bg-color-rgb=--on-background-rgb with opacity --state-active] - rgba color of the background of the unselected chip by clicking
+ * @cssprop {rgba:  33, 33, 33, 0.12} [--input-chip-unselected-focus-bg-color-rgb=--on-background-rgb with opacity --state-focus] - rgba color of the background of the unselected chip by focusing
+ * @cssprop {rgba:  76, 175, 80, 0.10} [--input-chip-selected-active-bg-color-rgb=--primary-rgb with opacity --state-active] - rgba color of the background of the selected chip by clicking
+ * @cssprop {rgba:  76, 175, 80, 0.12} [--input-chip-selected-focus-bg-color-rgb=--primary-rgb with opacity --state-focus] - rgba color of the background of the selected chip by focusing
+ * @cssprop {rgba:  33, 33, 33, 0.38} [--input-chip-disabled-selected-bg-color-rgb=--on-background-rgb with opacity --state-disabled] - rgba color of the background of the selected disabled chip
+ * @cssprop {rgba:  33, 33, 33, 0.38} [--input-chip-outlined-disabled-selected-bg-color-rgb=--on-background-rgb with opacity --state-disabled] - rgba color of the background of the outlined selected disabled chip
  *
  * @fires {{String} the text value} value-changed -  Fired when value has changed from inside the component.
  * @fires {{String} the text value} selected -  Fired when the chip is selected.

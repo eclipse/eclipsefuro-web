@@ -8,7 +8,6 @@ import './furo-radio-button.js';
  * `furo-radio-button-input`
  *
  * radio-button input element which uses a custom `<furo-radio-button>` element. it has also hint, label and error message
- *
  * radio-button allow the user to select multiple options from a set.
  *
  * ### Sample
@@ -18,18 +17,12 @@ import './furo-radio-button.js';
  *   </template>
  *  </furo-demo-snippet>
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--input-hint-color` | Color of hint text | #999999 | --
- * `--input-error-text-color` | Color of error text | `--error` | red
- * `--input-active-label-color` | Color of the label when active  | `--primary` | #3f51b5
- * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
- * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
- * `--input-error-text-color` | Color of error text | `--error` | red
- * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
+ * @cssprop {#999999} [--input-hint-color=#999999] - Color of hint text
+ * @cssprop {red} [--input-error-text-color=--error] - Color of error text
+ * @cssprop {#3f51b5} [--input-active-label-color=--primary] - Color of the label when active
+ * @cssprop {#333333} [--input-activation-indicator-color=--disabled] - Color of activation indicator when not selected
+ * @cssprop {red} [--input-error-activation-indicator-color=--error] - Color of activation indicator in error state
+ * @cssprop {#3f51b5} [--input-active-activation-indicator-color=--primary] - Color of activation indicator in active state
  *
  * @fires ALL_BUBBLING_EVENTS_FROM_furo-radio-button - All bubbling events from [furo-radio-button](furo-radio-button) will be fired, because furo-radio-button-input uses furo-radio-button internally.
  *
@@ -67,6 +60,11 @@ export class FuroRadioButtonInput extends FBP(LitElement) {
     }
   }
 
+  /**
+   * Property definition
+   * @private
+   * @returns {{valid: {reflect: boolean, type: BooleanConstructor}, readonly: {reflect: boolean, type: BooleanConstructor}, _errortext: {type: StringConstructor}, hint: {reflect: boolean, type: StringConstructor}, errortext: {reflect: boolean, type: StringConstructor}, checked: {reflect: boolean, type: BooleanConstructor}, condensed: {reflect: boolean, type: BooleanConstructor}, disabled: {reflect: boolean, type: BooleanConstructor}, label: {reflect: boolean, type: StringConstructor}, error: {reflect: boolean, type: BooleanConstructor}, autofocus: {reflect: boolean, type: BooleanConstructor}, value: {type: BooleanConstructor}}}
+   */
   static get properties() {
     return {
       /**

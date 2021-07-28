@@ -6,10 +6,13 @@ import '@furo/icon/src/furo-icon.js';
 import '@furo/layout/src/furo-ripple';
 
 /**
- * # Experimental
- * The API may change, documentation will follow
- *
  * `furo-icon-button`
+ *
+ * The furo-icon-button component represents a simple push button with icon.
+ *
+ * @cssprop {inherit} [--disabled=inherit] - disabled color
+ * @cssprop {N/A} [--surface-light=N/A] - background color focus state
+ * @cssprop {N/A} [--surface-dark=N/A] - background color hover state
  *
  * @summary icon button element
  * @customElement
@@ -39,7 +42,6 @@ class FuroIconButton extends FBP(LitElement) {
 
   /**
    * Set the focus to the button
-   * @param e
    */
   focus() {
     this._FBPTriggerWire('--focus');

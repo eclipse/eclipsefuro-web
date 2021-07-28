@@ -16,25 +16,20 @@ import '@furo/layout/src/furo-ripple';
  *   </template>
  *  </furo-demo-snippet>
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--background` | hex: #ffffff
- * `--input-checkbox-unselected-border-color` | border color of the unchecked checkbox | `--on-background` | hex: #7E7E7E
- * `--input-checkbox-unselected-hover-bg-color-rgb` | background color of the unchecked checkbox by hovering | `--on-background-rgb` with `--state-hover` opacity | rgba: 33, 33, 33, 0.04
- * `--input-checkbox-unselected-focus-bg-color-rgb` | background color of the unchecked checkbox by focusing | `--on-background-rgb` with `--state-focus` opacity | rgba: 33, 33, 33, 0.12
- * `--input-checkbox-unselected-active-bg-color-rgb` | background color of the unchecked checkbox by pressing | `--on-background-rgb` with `--state-active` opacity | rgba: 33, 33, 33, 0.10
- * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--primary` | hex: #6200FD
- * `--input-checkbox-selected-hover-bg-color-rgb` | background color of the checked checkbox by hovering | `--primary-rgb`  with `--state-hover` opacity  | rgba: 76, 175, 80, 0.04
- * `--input-checkbox-selected-focus-bg-color-rgb` | background color of the checked checkbox by focusing | `--primary-rgb`  with `--state-focus` opacity  | rgba: 76, 175, 80, 0.12
- * `--input-checkbox-selected-active-bg-color-rgb` | background color of the checked checkbox by pressing | `--primary-rgb`  with `--state-active` opacity  | rgba: 76, 175, 80, 0.10
- * `--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--on-background` | hex: #B9B9B9
- * `--input-checkbox-disabled-selected-border-color-rgb` | border color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
- * `--input-checkbox-disabled-selected-bg-color-rgb` | background color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
- * `--input-checkbox-disabled-unselected-bg-color-rgb` | background color of the unchecked disabled checkbox | `--background-rgb`  with `--state-disabled` opacity| rgba: 238, 238, 238, 0.38
- * `--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
+ * @cssprop {#ffffff} [--input-checkbox-unselected-bg-color=--background] - background color of the unchecked checkbox
+ * @cssprop {#7E7E7E} [--input-checkbox-unselected-border-color=--on-background] - border color of the unchecked checkbox
+ * @cssprop {rgba: 33, 33, 33, 0.04} [--input-checkbox-unselected-hover-bg-color-rgb=--on-background-rgb with --state-hover opacity] - background color of the unchecked checkbox by hovering
+ * @cssprop {rgba: 33, 33, 33, 0.12} [--input-checkbox-unselected-focus-bg-color-rgb=--on-background-rgb with --state-focus opacity] - background color of the unchecked checkbox by focusing
+ * @cssprop {rgba: 33, 33, 33, 0.10} [--input-checkbox-unselected-active-bg-color-rgb=--on-background-rgb with --state-active opacity] - background color of the unchecked checkbox by pressing
+ * @cssprop {#6200FD} [--input-checkbox-selected-bg-color=--primary] - background color of the checked checkbox
+ * @cssprop {rgba: 76, 175, 80, 0.04} [--input-checkbox-selected-hover-bg-color-rgb=--primary-rgb  with --state-hover opacity] - background color of the checked checkbox by hovering
+ * @cssprop {rgba: 76, 175, 80, 0.12} [--input-checkbox-selected-focus-bg-color-rgb=--primary-rgb  with --state-focus opacity] - background color of the checked checkbox by focusing
+ * @cssprop {rgba: 76, 175, 80, 0.10} [--input-checkbox-selected-active-bg-color-rgb=--primary-rgb  with --state-active opacity] - background color of the checked checkbox by pressing
+ * @cssprop {#B9B9B9} [--input-checkbox-disabled-selected-bg-color=--on-background] - background color of the checked disabled checkbox
+ * @cssprop {rgba: 33, 33, 33, 0.38} [--input-checkbox-disabled-selected-border-color-rgb=--on-background-rgb with --state-disabled opacity] - border color of the checked disabled checkbox
+ * @cssprop {rgba: 33, 33, 33, 0.38} [--input-checkbox-disabled-selected-bg-color-rgb=--on-background-rgb with --state-disabled opacity] - background color of the checked disabled checkbox
+ * @cssprop {rgba: 238, 238, 238, 0.38} [--input-checkbox-disabled-unselected-bg-color-rgb=--background-rgb with --state-disabled opacity] - background color of the unchecked disabled checkbox
+ * @cssprop {rgba: 33, 33, 33, 0.38} [--input-checkbox-disabled-unselected-border-color=--on-background-rgb with --state-disabled opacity] - border color of the unchecked disabled checkbox
  *
  * @fires {{String} the text value} value-changed -  Fired when value has changed from inside the component.
  * @fires {{String} the text value} checked -  Fired when the checkbox is checked.
