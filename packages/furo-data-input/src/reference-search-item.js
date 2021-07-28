@@ -7,6 +7,12 @@ import { FBP } from '@furo/fbp';
  *
  * @fires {item} item-selected -  Fired when item is selected.
  *
+ * @cssprop {200ms} [--transition-duration=200ms] - Duration of the styling transitions
+ * @cssprop {8px} [--spacing-xs=8px] - Padding of the item
+ * @cssprop {rgba(var(--primary-rgb), var(--state-hover)} [--primary-rgb=rgba(var(--primary-rgb), var(--state-hover)] - background color hover state
+ * @cssprop {rgba(var(--primary-rgb), var(--state-hover)} [--primary-rgb=rgba(var(--primary-rgb), var(--state-hover)] - background color selected hover state
+ * @cssprop {N/A} [--primary=N/A] - foreground color
+ *
  * @summary representation of a result item
  * @customElement
  * @appliesMixin FBP
@@ -15,19 +21,6 @@ export class ReferenceSearchItem extends FBP(LitElement) {
   constructor() {
     super();
     this._item = {};
-  }
-
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Description
-       */
-      myBool: { type: Boolean },
-    };
   }
 
   injectItem(item) {

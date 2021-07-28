@@ -7,8 +7,8 @@ import '@furo/layout/src/furo-horizontal-flex';
 import './furo-loading-indicator-bar.js';
 
 /**
- * `furo-app-bar-top` Application top bar
- *
+ * `furo-app-bar-top`
+ * Application top bar
  *
  * @cssprop {#7f7f7f} [--furo-app-bar-top-background-light=--primary-light] - Light background color
  * @cssprop {#aFAFAF} [--furo-app-bar-top-background-dark=--primary-dark] - Dark background color

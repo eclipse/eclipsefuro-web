@@ -12,18 +12,6 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroDataMenuActionFilter extends FBP(LitElement) {
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Description
-       */
-      myBool: { type: Boolean },
-    };
-  }
 
   /**
    * flow is ready lifecycle method
@@ -63,7 +51,7 @@ class FuroDataMenuActionFilter extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <p>Hej, welcome</p>
+      ''
     `;
   }
 }

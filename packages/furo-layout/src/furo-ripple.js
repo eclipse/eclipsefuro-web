@@ -31,10 +31,7 @@ import { Theme } from '@furo/framework/src/theme.js';
  * </template>
  *</furo-demo-snippet>
  *
- *
- * ## style vars
- *  with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect
- *
+ * @cssprop {#000} [--furo-ripple-bg-color=radial-gradient(circle, var(--furo-ripple-bg-color, #000) 10%, transparent 10.01%)] - backgroud color of the ripple effect
  *
  * @summary add a ripple effect
  * @customElement

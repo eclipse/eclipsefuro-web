@@ -5,6 +5,8 @@ import { FBP } from '@furo/fbp';
  * `furo-data-table-toggle`
  * Toggle with HTML entity
  *
+ * @cssprop {8px} [--spacing-xxs=8px] - left spacing of the toggle sign
+ *
  * @fires descending - Fired on state toggle, Payload: identity
  * @fires ascending - Fired on state toggle, Payload: identity
  *

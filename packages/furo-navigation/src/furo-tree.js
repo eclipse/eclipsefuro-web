@@ -8,7 +8,11 @@ import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import './furo-tree-item.js';
 
 /**
- * `furo-tree` renders a tree,
+ * `furo-tree`
+ * renders a tree structure
+ *
+ * @cssprop {N/A} [--surface=white] - background color
+ * @cssprop {N/A} [--on-surface=#333333] - foreground color
  *
  * @fires {focused field} node-focused -  Fired when
  * @fires {focused field} branch-focused -  Fired when

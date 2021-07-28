@@ -9,20 +9,15 @@ import { Helper } from './lib/helper.js';
  *
  *  <furo-search-input label="Search" hint="Press escape to clear"></sample-furo-search-input>
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--input-hint-color` | Color of hint text | #999999 | --
- * `--input-label-color` | Color of label in field| `--disabled,` | #333333
- * `--input-label-float-color` | Color of label when floating | `--on-surface` | #333333
- * `--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5
- * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
- * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
- * `--input-error-text-color` | Color of error text | `--error` | red
- * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
- * `--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red
+ * @cssprop {#999999} [--input-hint-color=#999999] - Color of hint text
+ * @cssprop {#333333} [--input-label-color=--disabled] - Color of label in field
+ * @cssprop {#333333} [--input-label-float-color=--on-surface] - Color of label when floating
+ * @cssprop {#3f51b5} [--input-active-float-label-color=--primary] - Color of floating label when active
+ * @cssprop {#333333} [--input-activation-indicator-color=--disabled] - Color of activation indicator when not selected
+ * @cssprop {red} [--input-error-activation-indicator-color=--error] - Color of activation indicator in error state
+ * @cssprop {red} [--input-error-text-color=--error] - Color of error text
+ * @cssprop {#3f51b5} [--input-active-activation-indicator-color=--primary] - Color of activation indicator in active state
+ * @cssprop {red} [--input-active-error-activation-indicator-color=--error] - Color of activation indicator in active error state
  *
  * @fires {string} trailing-icon-clicked -  Fired when the trailing icon was clicked, with the value of the text input.This event bubbles.
  * @fires {string} leading-icon-clicked -  Fired when the leading icon was clicked, with the value of the text input.This event bubbles.

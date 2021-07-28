@@ -7,9 +7,20 @@ import '@furo/layout';
  * `furo-form`
  * Form container with integrated activity indicator and three slots.
  *
+ * ```
+ * <furo-form header-text="Heading">
+ *   <my-form></my-form>
+ * </furo-form>
+ * ```
+ *
  * @slot {HTMLElement [0..n]} - default slot to add form content.
  * @slot {HTMLElement [0..n]} media - named slot to add full screen media content.
  * @slot {HTMLElement [0..n]} action - named slot to add form actions (normally button bar or buttons)
+ *
+ * @cssprop {white} [--furo-form-background=--surface] - background color of the form
+ * @cssprop {8px} [--furo-form-padding=--spacing-xs] - form padding
+ * @cssprop {0} [--furo-form-margin=0] - form margin
+ * @cssprop {90em} [--furo-form-max-width=90em] - max form width
  *
  * @summary form container
  * @customElement
@@ -51,6 +62,9 @@ class FuroForm extends FBP(LitElement) {
        * Main title
        */
       headerText: { type: String, attribute: 'header-text' },
+      /**
+       * Secondary information
+       */
       secondaryText: { type: String, attribute: 'secondary-text' },
       hasaction: { type: Boolean, reflect: true },
       hasmedia: { type: Boolean, reflect: true },

@@ -7,14 +7,12 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * The furo-ui5-data-date-time-picker component allows the user to bind a date string
  * with IOS 8061 standard in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format likes "2017-01-15T01:30:15.01Z" to the ui5 date time picker and edit it.
  *
- *
  * you can define the formatPattern (e.g. 'dd.MM.yyyy hh:mm aa' ) to show the date according to format pattern. but the data in
  * the payload will still be in format [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)  (2017-01-15T01:30:15.01Z)
  *
  * The text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).
  * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
  * When the user makes changes to the datetime, the change event is fired, which enables you to react on any date change.
- *
  *
  * You can bind a `string`, `google.protobuf.Timestamp`, `int32`, `int64`.
  *

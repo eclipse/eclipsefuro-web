@@ -17,13 +17,13 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
    *  There is nothing more to do. The menu creates a transparent "backdrop" with absolut positions 0 0 0 0
    *
    * ```html
-   *
    *  <furo-data-context-menu-display></furo-data-context-menu-display>
-   *
    * ```
    *
+   * @cssprop {N/A} [--surface=N/A] - menu background color
+   * @cssprop {N/A} [--separator=N/A] - menu item border bottom color
    *
-   * @summary todo shortdescription
+   * @summary context menu
    * @customElement
    * @demo demo-furo-data-context-menu Basic usage
    * @appliesMixin FBP

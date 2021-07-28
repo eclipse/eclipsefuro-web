@@ -24,17 +24,12 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
  * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
  * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
+ * @cssprop {#FAFAFA} [--banner-background=--surface] - Color of background
+ * @cssprop {#333333} [--banner-on-background=--on-surface] - Default foreground color
+ * @cssprop {#3f83e3} [--banner-button-text-color=--primary] - Color of button text
+ * @cssprop {24px} [--banner-icon-margin-right=--spacing] - right margin of icon
+ * @cssprop {16px} [--banner-margin-bottom=--spacing-s] - bottom margin of the banner
  *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--banner-background` | Color of background |`--surface` |  #FAFAFA
- * `--banner-on-background` | Color of background |`--on-surface` |  #333333
- * `--banner-button-text-color` | Color of button text | `--primary` | #3f83e3
- * `--banner-icon-margin-right` | right margin of icon | `--spacing` | 24px
- * `--banner-margin-bottom`     | bottom margin of the banner   | `--spacing-s`     | 16px
-
  * @summary helper component to show a banner
  * @customElement
  * @demo demo-furo-banner-display banner display demo

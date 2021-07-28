@@ -8,12 +8,7 @@ import { Theme } from '@furo/framework/src/theme';
  *
  * @slot {HTMLElement [0..n]} - default slot to add content.
  *
- * ### Styling
- * The following custom properties are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--furo-panel-margin` | Margin size | 0 var(--spacing-s) 0 var(--spacing-s) | --
+ * @cssprop {0 var(--spacing-s) 0 var(--spacing-s)} [--furo-panel-margin=0 var(--spacing-s) 0 var(--spacing-s)] - Margin size
  *
  * @summary content panel with predefined margins
  * @customElement

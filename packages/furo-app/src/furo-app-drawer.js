@@ -16,6 +16,8 @@ import '@furo/layout/src/furo-horizontal-flex';
  * @slot {HTMLElement} - default slot to add app content.
  * @slot {HTMLElement} drawer - named slot for the drawer destinations.
  *
+ * @cssprop {rgba(0, 0, 0, 0.5)} [--furo-app-drawer-backdrop=rgba(0, 0, 0, 0.5)] - backdrop background color
+ *
  * @summary Application drawer
  * @customElement
  * @demo demo-furo-app-drawer

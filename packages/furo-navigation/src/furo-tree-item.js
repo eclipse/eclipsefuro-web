@@ -9,6 +9,19 @@ import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
  * `furo-tree-item`
  * todo Describe your element
  *
+ * @cssprop {N/A} [--tree-indentation-1=16px] - tree indention level 1
+ * @cssprop {N/A} [--tree-indentation-2=32px] - tree indention level 2
+ * @cssprop {N/A} [--tree-indentation-3=48px] - tree indention level 3
+ * @cssprop {N/A} [--tree-indentation-4=56px] - tree indention level 4
+ * @cssprop {N/A} [--tree-indentation-5=64px] - tree indention level 5
+ * @cssprop {N/A} [--tree-indentation-6=72px] - tree indention level 6
+ * @cssprop {N/A} [--tree-indentation-7=80px] - tree indention level 7
+ * @cssprop {N/A} [--tree-indentation-8=88px] - tree indention level 8
+ * @cssprop {N/A} [--tree-indentation-9=92px] - tree indention level 9
+ * @cssprop {N/A} [--tree-indentation-10=96px] - tree indention level 10
+ * @cssprop {N/A} [--tree-indentation-11=100px] - tree indention level 11
+ * @cssprop {N/A} [--tree-indentation-12=104px] - tree indention level 12
+ *
  * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP

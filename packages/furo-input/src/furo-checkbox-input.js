@@ -18,18 +18,13 @@ import './furo-checkbox.js';
  *   </template>
  *  </furo-demo-snippet>
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--input-hint-color` | Color of hint text | #999999 | --
- * `--input-error-text-color` | Color of error text | `--error` | red
- * `--input-active-label-color` | Color of the label when active  | `--primary` | #3f51b5
- * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
- * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
- * `--input-error-text-color` | Color of error text | `--error` | red
- * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
+ * @cssprop {#999999} [--input-hint-color=#999999] - Color of hint text
+ * @cssprop {red} [--input-error-text-color=--error] - Color of error text
+ * @cssprop {#3f51b5} [--input-active-label-color=--primary] - Color of the label when active
+ * @cssprop {#333333} [--input-activation-indicator-color=--disabled] - Color of activation indicator when not selected
+ * @cssprop {red} [--input-error-activation-indicator-color=--error] - Color of activation indicator in error state
+ * @cssprop {red} [--input-error-text-color=--error] - Color of error text
+ * @cssprop {#3f51b5} [--input-active-activation-indicator-color=--primary] - Color of activation indicator in active state
  *
  * @fires ALL_BUBBLING_EVENTS_FROM_furo-checkbox - All bubbling events from [furo-checkbox](furo-checkbox) will be fired, because furo-checkbox-input uses furo-checkbox internally.
  *

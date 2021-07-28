@@ -21,6 +21,21 @@ import '@ui5/webcomponents/dist/Icon.js';
  *      <div slot="content">content goes here</div>
  *  </furo-ui5-card>
  *```
+ * ## How To Use Semantic Colors
+ * You can use semantic colors to visualize the status or state. Set the attribute design="" with the following values:
+ * - Positive (--sapPositiveColor)
+ * - Negative (--sapNegativeColor)
+ * - Critical (--sapCriticalColor)
+ * - Neutral (--sapCriticalColor)
+ *
+ * * ```html
+ *  <furo-ui5-card
+ *    design="Positive"
+ *    icon="card"
+ *  >
+ *      <div slot="content">content goes here</div>
+ *  </furo-ui5-card>
+ *```
  *
  * @slot {HTMLElement [0..n]} action - defines an action, displayed in the right most part of the header. Note: If status is set, the status text will be displayed, you can either have action, or status.
  * @slot {HTMLElement [0..n]} content - defines the content of the card

@@ -8,8 +8,8 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
 
 /**
  * `furo-data-reference-search`
- *  searc a reference
- *  bounded data should be furo.reference
+ *  search a reference
+ *  bound data should be furo.reference
  *
  *```
  * <!--  furo-data-object will eine Referenz auflösen -->
@@ -54,13 +54,8 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * - 'required': is mapped to 'required' attribute
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property                                | Description | Default  | Fallback
- * -----------------------------------------------|-------------|----------|----------
- * `--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;
- * `--reference-search-no-result-hint` | color of hint when no result found | --accent | #ddb13d;
+ * @cssprop {#ffffff} [--furo-data-reference-search-list-background=--surface] - Background color of result list
+ * @cssprop {#ddb13d} [--reference-search-no-result-hint=--accent] - Color of hint when no result found
  *
  * @fires {{Object} item} item-selected -  Fired from inner element when item is selected
  * @fires {{String} term} search -  Fired when term is entered and bigger then min-term-length

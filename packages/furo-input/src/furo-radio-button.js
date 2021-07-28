@@ -7,8 +7,9 @@ import '@furo/layout/src/furo-ripple';
  *
  * radiobutton input element which uses a native `<input type="radio">` tag.
  *
- * lements of type radio are generally used in radio groups—collections of radio buttons describing a set of related options.
- * Only one radio button in a given group can be selected at the same time. Radio buttons are typically rendered as small circles, which are filled or highlighted when selected.
+ * Elements of type radio are generally used in radio groups—collections of radio buttons describing a set of related options.
+ * Only one radio button in a given group can be selected at the same time. Radio buttons are typically rendered
+ * as small circles, which are filled or highlighted when selected.
  *
  * ### Sample
  *  <furo-demo-snippet>
@@ -17,25 +18,19 @@ import '@furo/layout/src/furo-ripple';
  *   </template>
  *  </furo-demo-snippet>
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
- *
- * Custom property | Description | Default  | Fallback
- * ----------------|-------------|----------|----------
- * `--input-radiobutton-unselected-bg-color` | background color of the unchecked radiobutton | `--surface` | #ffffff
- * `--input-radiobutton-unselected-border-color` | border color of the unchecked radiobutton | `--separator` | #7E7E7E
- * `--input-radiobutton-unselected-hover-bg-color` | background color of the unchecked radiobutton by hovering | `--surface-light` | #F5F5F5
- * `--input-radiobutton-unselected-focus-bg-color` | background color of the unchecked radiobutton by focusing | `--surface-dark` | #DDDDDD
- * `--input-radiobutton-unselected-active-bg-color` | background color of the unchecked radiobutton by pressing | `--surface-dark` | #C0C0C0
- * `--input-radiobutton-selected-bg-color` | background color of the checked radiobutton | `--accent` | #6200FD
- * `--input-radiobutton-selected-hover-bg-color` | background color of the checked radiobutton by hovering | `--on-accent` | #D5C6E9
- * `--input-radiobutton-selected-focus-bg-color` | background color of the checked radiobutton by focusing | `--accent` | #6200FD
- * `--input-radiobutton-disabled-selected-bg-color` | background color of the checked disabled radiobutton | `--disable` | #B9B9B9
- * `--input-radiobutton-disabled-selected-border-color` | border color of the checked disabled radiobutton | `--disable` | #B9B9B9
- * `--input-radiobutton-disabled-unselected-bg-color` | background color of the unchecked disabled radiobutton | `--surface` | #ffffff
- * `--input-radiobutton-disabled-unselected-border-color` | border color of the unchecked disabled radiobutton | `--surface` | #aaaaaa
- * `--input-radiobutton-disabled-hover-bg-color` | background color of the unchecked disabled radiobutton by hovering| `--surface` | #ffffff
- *
+ * @cssprop {#ffffff} [--input-radiobutton-unselected-bg-color=--surface] - background color of the unchecked radiobutton
+ * @cssprop {#7E7E7E} [--input-radiobutton-unselected-border-color=--separator] - border color of the unchecked radiobutton
+ * @cssprop {#F5F5F5} [--input-radiobutton-unselected-hover-bg-color=--surface-light] - background color of the unchecked radiobutton by hovering
+ * @cssprop {#DDDDDD} [--input-radiobutton-unselected-focus-bg-color=--surface-dark] - background color of the unchecked radiobutton by focusing
+ * @cssprop {#C0C0C0} [--input-radiobutton-unselected-active-bg-color=--surface-dark] - background color of the unchecked radiobutton by pressing
+ * @cssprop {#6200FD} [--input-radiobutton-selected-bg-color=--accent] - background color of the checked radiobutton
+ * @cssprop {#D5C6E9} [--input-radiobutton-selected-hover-bg-color=--on-accent] - background color of the checked radiobutton by hovering
+ * @cssprop {#6200FD} [--input-radiobutton-selected-focus-bg-color=--accent] - background color of the checked radiobutton by focusing
+ * @cssprop {#B9B9B9} [--input-radiobutton-disabled-selected-bg-color=--disable] - background color of the checked disabled radiobutton
+ * @cssprop {#B9B9B9} [--input-radiobutton-disabled-selected-border-color=--disable] - border color of the checked disabled radiobutton
+ * @cssprop {#ffffff} [--input-radiobutton-disabled-unselected-bg-color=--surface] - background color of the unchecked disabled radiobutton
+ * @cssprop {#aaaaaa} [--input-radiobutton-disabled-unselected-border-color=--surface] - border color of the unchecked disabled radiobutton
+ * @cssprop {#ffffff} [--input-radiobutton-disabled-hover-bg-color=--surface] - background color of the unchecked disabled radiobutton by hovering
  *
  * @fires {{String} the text value} value-changed -  Fired when value has changed from inside the component.
  * @fires {{String} the text value} checked -  Fired when the radio-button is checked.

@@ -8,6 +8,8 @@ import { Helper } from './lib/helper.js';
  *
  *  <furo-textarea-input></furo-textarea-input>
  *
+ * @cssprop {#333333} [--input-activation-indicator-color=--disabled] - Color of activation indicator when not selected
+ *
  * @fires {the validity object of input} input-invalid -  Fired when input value is invalid.
  * @fires {void} value-cleared -  Fired when value has changed to EMPTY_STRING from inside the component.
  * @fires {String} value-changed -  Fired when value has changed from inside the component.
