@@ -27,7 +27,7 @@ class CellGoolgeProtobufAny extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CellDouble') ||
+      Theme.getThemeForComponent('CellGoogleProtobufAny') ||
       css`
         :host {
           display: none;
