@@ -19,7 +19,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
  * When the user makes changes to the time, the change event is fired, which enables you to react on any time change.
  *
- * You can bind a `string` or `google.type.TimeOfDay`.
+ * You can bind a `string` or `google.type.TimeOfDay` (https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto).
  *
  * ```html
  *  <furo-ui5-data-time-picker
@@ -32,7 +32,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * - **placeholder:"some string"** set the placeholder for the element
  * - **min:"11:42:35"** set the minDate for the element (use iso date in the constraint)
  * - **max:"23:59:59"** set the maxDate for the element (use iso date in the constraint)
- * - **pattern:"hh:mm:ss"** set the pattern for the element
+ * - **pattern:"HH:mm:ss"** set the pattern for the element
  *
  * The constraint **required** will mark the element as required
  *
