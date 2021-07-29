@@ -51,9 +51,9 @@ describe('furo-ui5-data-time-picker', () => {
           <furo-ui5-data-time-picker
             ƒ-bind-data="--entity(*.data.google_timeofday)"
           ></furo-ui5-data-time-picker>
-          <furo-ui5-data-date-time-picker
+          <furo-ui5-data-time-picker
             ƒ-bind-data="--entity(*.data.furo_data_time_input)"
-          ></furo-ui5-data-date-time-picker>
+          ></furo-ui5-data-time-picker>
           <furo-data-object
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
@@ -88,12 +88,21 @@ describe('furo-ui5-data-time-picker', () => {
     }, 0);
   });
 
-  it('should display date according to the defined pattern', done => {
+  it('should display date according to the defined pattern (google.type.TimeOfToday)', done => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
       assert.equal(timepicker.formatPattern, 'HH:mm:ss', 'pattern applied');
       assert.equal(timepicker._state.value, '16:23:45', 'check value');
       done();
     }, 10);
+  });
+
+  it('should display date according to the defined pattern (string)', done => {
+    dao.injectRaw(testRecordMeta);
+
+    setTimeout(() => {
+      assert.equal(timepicker2._state.value, '4:23:45 PM', 'check value');
+      done();
+    }, 16);
   });
 });
