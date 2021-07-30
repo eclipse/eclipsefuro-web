@@ -127,6 +127,10 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
               ></furo-ui5-data-display>
 
               <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.google_timeofday)"
+              ></furo-ui5-data-display>
+
+              <furo-ui5-data-display
                 value-state="Positive"
                 ƒ-bind-data="--entity(*.data.the_any_type)"
               ></furo-ui5-data-display>

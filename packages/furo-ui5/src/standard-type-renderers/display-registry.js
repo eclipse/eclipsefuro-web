@@ -117,8 +117,8 @@ import './celledit-google-protobuf-timestamp.js';
 import './celledit-google-protobuf-any.js';
 
 // import './celledit-google-type-color.js';
-// import './celledit-google-type-timeofday.js';
-// import './celledit-furo-reference.js';
+import './celledit-google-type-timeofday.js';
+import './celledit-furo-reference.js';
 import './celledit-furo-numberproperty.js';
 import './celledit-furo-integerproperty.js';
 import './celledit-furo-stringoptionproperty.js';
