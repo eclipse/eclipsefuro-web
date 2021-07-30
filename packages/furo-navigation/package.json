@@ -1,7 +1,7 @@
 {
   "name": "@furo/navigation",
   "description": "Furo navigation components",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-navigation",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -36,11 +36,11 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.30.1",
-    "@furo/data-input": "^1.13.1",
-    "@furo/form": "^1.7.1",
-    "@furo/icon": "^1.5.1",
-    "@furo/layout": "^1.7.1",
+    "@furo/data": "^1.30.2",
+    "@furo/data-input": "^1.13.2",
+    "@furo/form": "^1.7.2",
+    "@furo/icon": "^1.5.2",
+    "@furo/layout": "^1.7.2",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

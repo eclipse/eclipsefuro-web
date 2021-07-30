@@ -1,7 +1,7 @@
 {
   "name": "@furo/ui5",
   "description": "SAP UI5 Web Components",
-  "version": "0.36.1",
+  "version": "0.37.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-ui5",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -29,11 +29,11 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/data-ui": "^1.10.1",
+    "@furo/data-ui": "^1.10.2",
     "@furo/fbp": "^5.10.1",
-    "@furo/form": "^1.7.1",
+    "@furo/form": "^1.7.2",
     "@furo/framework": "^1.8.1",
-    "@furo/layout": "^1.7.1",
+    "@furo/layout": "^1.7.2",
     "@ui5/webcomponents": "1.0.0-rc.14",
     "@ui5/webcomponents-base": "0.34.0",
     "@ui5/webcomponents-fiori": "1.0.0-rc.14",
@@ -44,8 +44,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/app": "^1.5.1",
-    "@furo/data": "^1.30.1",
+    "@furo/app": "^1.5.2",
+    "@furo/data": "^1.30.2",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

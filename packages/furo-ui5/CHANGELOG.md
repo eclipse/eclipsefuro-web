@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.36.1...@furo/ui5@0.37.0) (2021-07-30)
+
+
+### Features
+
+* celledit component for type furo.Reference ([67911ad](https://github.com/theNorstroem/FuroBaseComponents/commit/67911ad851c50e0b4f33909e6851b1a2b84b251f))
+* labeled element for furo-ui5-data-time-picker ([1d75c91](https://github.com/theNorstroem/FuroBaseComponents/commit/1d75c91eea419bff53e37cb6948caa56f1f2a929))
+* new component that supports google.type.TimeOfDay ([9c93354](https://github.com/theNorstroem/FuroBaseComponents/commit/9c933545a0faf9d39944ed795b72291ecf763b48))
+
+
+
+
+
 ## [0.36.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.36.0...@furo/ui5@0.36.1) (2021-07-22)
 
 **Note:** Version bump only for package @furo/ui5
