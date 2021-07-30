@@ -51,3 +51,4 @@ import './demo-furo-ui5-data-property-display.js';
 import './demo-furo-ui5-data-select.js';
 import './demo-furo-ui5-data-select-labeled.js';
 import './demo-furo-ui5-data-time-picker.js';
+import './demo-furo-ui5-data-time-picker-labeled.js';

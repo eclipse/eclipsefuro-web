@@ -3719,7 +3719,7 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-time-picker component allows the user to bind a field of type google.type.TimeOfDay.\nRepresents a time of day. The date and time zone are either not significant\nor are specified elsewhere.\n\nhttps://sap.github.io/ui5-webcomponents/playground/components/TimePicker/\n\nSupported format options are pattern-based on Unicode LDML Date Format notation. For more information, see\nUTS #35: Unicode Locale Data Markup Language.\n\nFor example, if the format-pattern is \"hh:mm:ss\", a valid value string is \"11:42:35\" and the same is displayed in the input.\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the time, the change event is fired, which enables you to react on any time change.\n\nYou can bind a `string` or `google.type.TimeOfDay` (https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto).\n\n```html\n <furo-ui5-data-time-picker\n    ƒ-bind-data=\"--data(*.start_time)\">\n </furo-ui5-data-time-picker>\n```\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **min:\"11:42:35\"** set the minDate for the element (use iso date in the constraint)\n- **max:\"23:59:59\"** set the maxDate for the element (use iso date in the constraint)\n- **pattern:\"hh:mm:ss\"** set the pattern for the element\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
+      "description": "The furo-ui5-data-time-picker component allows the user to bind a field of type google.type.TimeOfDay.\nRepresents a time of day. The date and time zone are either not significant\nor are specified elsewhere.\n\nhttps://sap.github.io/ui5-webcomponents/playground/components/TimePicker/\n\nSupported format options are pattern-based on Unicode LDML Date Format notation. For more information, see\nUTS #35: Unicode Locale Data Markup Language.\n\nFor example, if the format-pattern is \"hh:mm:ss\", a valid value string is \"11:42:35\" and the same is displayed in the input.\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the time, the change event is fired, which enables you to react on any time change.\n\nYou can bind a `string` or `google.type.TimeOfDay` (https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto).\n\n```html\n <furo-ui5-data-time-picker\n    ƒ-bind-data=\"--data(*.start_time)\">\n </furo-ui5-data-time-picker>\n```\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **min:\"11:42:35\"** set the minDate for the element (use iso date in the constraint)\n- **max:\"23:59:59\"** set the maxDate for the element (use iso date in the constraint)\n- **pattern:\"HH:mm:ss\"** set the pattern for the element\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
       "summary": "furo data time picker field",
       "path": "src/furo-ui5-data-time-picker.js",
       "properties": [
@@ -3730,11 +3730,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 144,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 146,
               "column": 3
             }
           },
@@ -3752,11 +3752,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 138,
               "column": 3
             }
           },
@@ -3777,11 +3777,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 153,
               "column": 2
             },
             "end": {
-              "line": 176,
+              "line": 174,
               "column": 3
             }
           },
@@ -3801,11 +3801,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 178,
+              "line": 176,
               "column": 2
             },
             "end": {
-              "line": 194,
+              "line": 192,
               "column": 3
             }
           },
@@ -3821,11 +3821,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 194,
               "column": 2
             },
             "end": {
-              "line": 205,
+              "line": 203,
               "column": 3
             }
           },
@@ -3841,11 +3841,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 217,
+              "line": 215,
               "column": 3
             }
           },
@@ -3865,11 +3865,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 223,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 225,
+              "line": 223,
               "column": 3
             }
           },
@@ -3885,11 +3885,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 236,
               "column": 3
             }
           },
@@ -3912,11 +3912,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 242,
               "column": 2
             },
             "end": {
-              "line": 246,
+              "line": 244,
               "column": 3
             }
           },
@@ -3932,11 +3932,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 251,
               "column": 2
             },
             "end": {
-              "line": 258,
+              "line": 256,
               "column": 3
             }
           },
@@ -3956,11 +3956,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 263,
               "column": 2
             },
             "end": {
-              "line": 270,
+              "line": 268,
               "column": 3
             }
           },
@@ -3980,11 +3980,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 275,
               "column": 2
             },
             "end": {
-              "line": 307,
+              "line": 305,
               "column": 3
             }
           },
@@ -4013,7 +4013,7 @@
           "column": 7
         },
         "end": {
-          "line": 308,
+          "line": 306,
           "column": 1
         }
       },
@@ -4028,6 +4028,261 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-time-picker"
+    },
+    {
+      "description": "`furo-ui5-data-time-picker-labeled`\nThe furo-ui5-data-time-picker-labeled is a composition to easily use a complete input field with label according\nto the design specification of SAP Fiori Design System.",
+      "summary": "labeled input field",
+      "path": "src/furo-ui5-data-time-picker-labeled.js",
+      "properties": [
+        {
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "the label for the data-date-picker",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 6
+            },
+            "end": {
+              "line": 45,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "required",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 49,
+              "column": 33
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 57,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field is readonly.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 6
+            },
+            "end": {
+              "line": 63,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 31,
+              "column": 2
+            },
+            "end": {
+              "line": 34,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Orchestrates the data field connection to the inside",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 2
+            },
+            "end": {
+              "line": 88,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "FieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 94,
+              "column": 2
+            },
+            "end": {
+              "line": 110,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-time-picker-labeled",
+          "description": "Basic Usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 21,
+          "column": 7
+        },
+        "end": {
+          "line": 111,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataTimePickerLabeled",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "the label for the data-date-picker",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 6
+            },
+            "end": {
+              "line": 45,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "required",
+          "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 49,
+              "column": 33
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 57,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "A Boolean attribute which, if present, means this field is readonly.",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 6
+            },
+            "end": {
+              "line": 63,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-time-picker-labeled",
+      "mixins": [
+        "FBP"
+      ]
     },
     {
       "description": "`furo-ui5-data-display`\nThe furo-ui5-data-display is a composition to easily use a display field with label according\nto the design specification of SAP Fiori Design System.",

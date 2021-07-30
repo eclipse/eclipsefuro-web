@@ -17,30 +17,30 @@ describe('furo-ui5-data-time-picker', () => {
 
   const testRecordMeta = {
     data: {
-      "furo_data_time_input": "16:23:45.628",
-      "google_timeofday": {
-        "hours": 16,
-        "minutes": 23,
-        "seconds": 45,
-        "nanos": 0
-      }
+      furo_data_time_input: '16:23:45.628',
+      google_timeofday: {
+        hours: 16,
+        minutes: 23,
+        seconds: 45,
+        nanos: 0,
+      },
     },
     meta: {
       fields: {
-        "data.google_timeofday": {
-          "meta": {
-            "label": "google timeofday label via meta",
-            "readonly": false
+        'data.google_timeofday': {
+          meta: {
+            label: 'google timeofday label via meta',
+            readonly: false,
           },
-          "constraints": {
-            "max": {"is": "23:00:00","message": "MAX today 23:00:00"},
-            "min": {"is": "08:00:00","message": "MIN today 08:00:00"},
-            "pattern": {
-              "is": "HH:mm:ss",
-              "message": "Bitte ausfüllen!"
-            }
-          }
-        }
+          constraints: {
+            max: { is: '23:00:00', message: 'MAX today 23:00:00' },
+            min: { is: '08:00:00', message: 'MIN today 08:00:00' },
+            pattern: {
+              is: 'HH:mm:ss',
+              message: 'Bitte ausfüllen!',
+            },
+          },
+        },
       },
     },
   };

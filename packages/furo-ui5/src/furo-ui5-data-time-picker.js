@@ -88,9 +88,7 @@ export class FuroUi5DataTimePicker extends FieldNodeAdapter(TimePicker.default) 
     // input event is needed to get the reset of the field.
     // change is not fired if the user clears the input field.
     this.addEventListener('input', v => {
-      if (v.detail.value === '') {
-        this._updateFNA(v);
-      }
+      this._updateFNA(v);
     });
 
     // changed is fired when the input operation has finished by pressing Enter or on focusout.
