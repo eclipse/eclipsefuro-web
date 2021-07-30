@@ -7,7 +7,14 @@
       "month": 12,
       "year": 2020
     },
-    "google_timestamp": "1970-11-01T02:46:40.000000022Z"
+    "furo_data_time_input": "16:23:45.628",
+    "google_timestamp": "1970-11-01T02:46:40.000000022Z",
+    "google_timeofday": {
+      "hours": 16,
+      "minutes": 23,
+      "seconds": 45,
+      "nanos": 0
+    }
   },
   "meta": {
     "fields": {
@@ -41,6 +48,20 @@
           "min": {"is": "2020-07-30","message": "MIN 2020-07-30"},
           "pattern": {
             "is": "dd.MM.yy",
+            "message": "Bitte ausfüllen!"
+          }
+        }
+      },
+      "data.google_timeofday": {
+        "meta": {
+          "label": "google timeofday label via meta",
+          "readonly": false
+        },
+        "constraints": {
+          "max": {"is": "23:00:00","message": "MAX today 23:00:00"},
+          "min": {"is": "08:00:00","message": "MIN today 08:00:00"},
+          "pattern": {
+            "is": "HH:mm:ss",
             "message": "Bitte ausfüllen!"
           }
         }

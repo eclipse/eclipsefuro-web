@@ -5,7 +5,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 import '@furo/data/src/furo-data-object.js';
 
-import '../src/standard-type-renderers/display-registry.js';
+import '../src/standard-type-renderers/CELL-registry.js';
 import '../src/furo-catalog.js';
 
 describe('furo-ui5-data-table', () => {
@@ -281,27 +281,27 @@ describe('furo-ui5-data-table', () => {
         assert.equal(
           table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[0].children[0]
             .tagName,
-          'DISPLAY-STRING',
+          'CELL-STRING',
         );
         assert.equal(
           table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[1].children[0]
             .tagName,
-          'DISPLAY-STRING',
+          'CELL-STRING',
         );
         assert.equal(
           table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[2].children[0]
             .tagName,
-          'DISPLAY-GOOGLE-TYPE-MONEY',
+          'CELL-GOOGLE-TYPE-MONEY',
         );
         assert.equal(
           table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[3].children[0]
             .tagName,
-          'DISPLAY-GOOGLE-TYPE-DATE',
+          'CELL-GOOGLE-TYPE-DATE',
         );
         assert.equal(
           table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[4].children[0]
             .tagName,
-          'DISPLAY-GOOGLE-TYPE-DATE',
+          'CELL-GOOGLE-TYPE-DATE',
         );
         assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 4);
 

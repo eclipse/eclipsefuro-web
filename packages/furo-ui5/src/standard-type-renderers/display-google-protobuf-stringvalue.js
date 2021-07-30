@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { DisplayString } from './display-string.js';
 import { Theme } from '@furo/framework/src/theme';
 
 /**
@@ -14,104 +14,7 @@ import { Theme } from '@furo/framework/src/theme';
  * @customElement
  * @demo demo display-google-protobuf-stringvalue Basic Usage
  */
-class DisplayGoogleProtobufStringvalue extends LitElement {
-  constructor() {
-    super();
-    /**
-     *
-     * @type {string}
-     * @private
-     */
-    this._displayValue = '';
-  }
-
-  /**
-   * Component styles
-   * @returns {*}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('DisplayGoogleProtobufStringValue') ||
-      css`
-        :host {
-          display: inline;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        :host([disabled]) {
-          opacity: var(--_ui5_input_disabled_opacity, 0.4);
-        }
-
-        :host([data-size*='size-l']),
-        :host([data-size*='size-xl']) {
-          padding-top: 0.5rem;
-        }
-
-        :host([value-state='Positive']),
-        :host([value-state='Success']) {
-          color: var(--sapPositiveColor, #107e3e);
-        }
-
-        :host([value-state='Informative']),
-        :host([value-state='Information']) {
-          color: var(--sapInformativeColor, #0a6ed1);
-        }
-
-        :host([value-state='Negative']),
-        :host([value-state='Error']) {
-          color: var(--sapNegativeColor, #b00);
-        }
-
-        :host([value-state='Critical']),
-        :host([value-state='Warning']) {
-          color: var(--sapCrticalColor, #e9730c);
-        }
-      `
-    );
-  }
-
-  /**
-   * Binds a field node to the component
-   * @param {FieldNode} fieldNode
-   */
-  bindData(fieldNode) {
-    this._field = fieldNode;
-    if (this._field) {
-      this._field.addEventListener('field-value-changed', () => {
-        this._updateValue();
-      });
-
-      this._updateValue();
-    }
-  }
-
-  _updateValue() {
-    if (this._field && this._field.value) {
-      this._displayValue = this._field.value._value;
-      this.requestUpdate();
-    }
-  }
-
-  /**
-   * render function
-   * @private
-   * @returns {TemplateResult|TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      ${this._displayValue
-        ? html`
-            ${this._displayValue}
-          `
-        : html``}
-    `;
-  }
-}
+class DisplayGoogleProtobufStringvalue extends DisplayString {}
 
 window.customElements.define(
   'display-google-protobuf-stringvalue',

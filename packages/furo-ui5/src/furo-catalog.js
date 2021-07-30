@@ -10,6 +10,8 @@ import './furo-ui5-data-date-picker.js';
 import './furo-ui5-data-date-picker-labeled.js';
 import './furo-ui5-data-date-time-picker.js';
 import './furo-ui5-data-date-time-picker-labeled.js';
+import './furo-ui5-data-time-picker.js';
+import './furo-ui5-data-time-picker-labeled.js';
 import './furo-ui5-data-display.js';
 import './furo-ui5-data-money-input.js';
 import './furo-ui5-data-money-input-labeled.js';

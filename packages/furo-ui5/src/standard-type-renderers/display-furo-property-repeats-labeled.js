@@ -34,6 +34,7 @@ export class DisplayFuroPropertyRepeatsLabeled extends DisplayFuroPropertyRepeat
         const wrapper = document.createElement('furo-ui5-form-field-container');
         const label = document.createElement('ui5-label');
         label.setAttribute('slot', 'label');
+        label.setAttribute('show-colon', null);
         label.setAttribute('label', '');
 
         label.innerText = this._getPropertyLabel(item);
