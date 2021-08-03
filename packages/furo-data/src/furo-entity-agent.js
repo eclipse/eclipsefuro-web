@@ -27,12 +27,14 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @summary interface component to handle entity requests
  * @customElement
  * @demo demo-furo-entity-agent Basic usage
+ * @demo demo-use-of-data-js-modules Usage of JS data modules
  * @appliesMixin FBP
  */
 class FuroEntityAgent extends FBP(LitElement) {
   constructor() {
     super();
     this._servicedefinitions = Env.api.services;
+
     /**
      *
      * @type {*|{headers: [[string, string]], specs: {}, services: {}}}
@@ -86,7 +88,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Name des Services
+       * Name of the service
        */
       service: { type: String, attribute: true },
       /**
@@ -109,7 +111,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   }
 
   /**
-   * Setze den Service
+   * Set the service
    * @param service
    */
   set service(service) {
@@ -242,7 +244,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   }
 
   /**
-   * clear the query params that you have setted before
+   * clear the query params that you have set before
    */
   clearQp() {
     this._queryParams = {};
