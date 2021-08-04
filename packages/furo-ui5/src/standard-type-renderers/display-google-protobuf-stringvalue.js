@@ -1,5 +1,4 @@
 import { DisplayString } from './display-string.js';
-import { Theme } from '@furo/framework/src/theme';
 
 /**
  * `display-google-protobuf-stringvalue`
