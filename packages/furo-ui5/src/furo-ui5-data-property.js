@@ -134,20 +134,18 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
         repeater.injectItems(this.field.repeats);
       }
     } else {
-      this.field.data.addEventListener(
-        'branch-value-changed',
-        val => {
-          // avoid endless loop
-          if (JSON.stringify(propertyField.data._value) !== JSON.stringify(val.detail._value)) {
-            this._createPropComponent(propertyField);
-          }
-        },
-        { once: true },
-      );
-
       // data already in data-object
+      // eslint-disable-next-line no-lonely-if
       if (this.field.data['@type']) {
         this._createPropComponent(propertyField);
+      } else {
+        this.field.data.addEventListener(
+          'branch-value-changed',
+          () => {
+            this._createPropComponent(propertyField);
+          },
+          { once: true },
+        );
       }
     }
   }

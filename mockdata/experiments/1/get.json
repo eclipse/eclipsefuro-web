@@ -32,10 +32,7 @@
           "@type": "type.furo.com/furo.StringProperty",
           "data": "String01032020"
         },
-        "flags": [
-          "is-overwritable",
-          "my-prop"
-        ],
+        "flags": ["is-overwritable", "my-prop"],
         "display_name": "Contract",
         "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
         "meta": {
@@ -109,6 +106,8 @@
           "@type": "xx/google.protobuf.StringValue",
           "value": "text google.protobuf.StringValue"
         },
+
+
         "display_name": "Display",
         "id": "op33t",
         "code": "option",
@@ -129,6 +128,7 @@
           "id": "bb",
           "display_name": "The display b"
         },
+
         "id": "444",
         "code": "option",
         "meta": {
@@ -308,12 +308,6 @@
       "BBBB",
       "CCCC"
     ],
-    "google_timeofday": {
-      "hours": 16,
-      "minutes": 23,
-      "seconds": 45,
-      "nanos": 0
-    },
     "furo_data_money_input": {
       "display_name": "CHF 3'333.751",
       "currency_code": "CHF",

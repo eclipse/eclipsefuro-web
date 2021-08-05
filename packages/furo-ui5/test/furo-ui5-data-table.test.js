@@ -5,7 +5,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 import '@furo/data/src/furo-data-object.js';
 
-import '../src/standard-type-renderers/CELL-registry.js';
+import '../src/standard-type-renderers/display-registry.js';
 import '../src/furo-catalog.js';
 
 describe('furo-ui5-data-table', () => {
