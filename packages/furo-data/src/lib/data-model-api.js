@@ -2,7 +2,6 @@ import { Env } from '@furo/framework';
 import { DataObject } from './DataObject.js';
 
 export class DataModelApi {
-
   constructor() {
     /**
      * api specification definitions
@@ -17,14 +16,14 @@ export class DataModelApi {
    * @param type
    */
   setType(type) {
-    return new Promise((resolve, reject) =>{
+    return new Promise((resolve, reject) => {
       if (this._checkType(type)) {
         this._type = type;
         resolve(this.data);
       } else {
         reject(new Error('Type does not exist.'));
       }
-    })
+    });
   }
 
   /**

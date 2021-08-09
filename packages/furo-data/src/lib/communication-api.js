@@ -25,7 +25,6 @@
  *
  */
 export class CommunicationApi {
-
   constructor() {
     /**
      * LastRequest's response.
@@ -34,19 +33,19 @@ export class CommunicationApi {
      * then lastResponse will correspond to the result of the previous request.
      * @type {Object}
      */
-    this.lastRequest = {}
+    this.lastRequest = {};
     /**
      * True while request is in flight.
      * @type boolean
      */
-    this.isLoading = false
+    this.isLoading = false;
   }
 
-  registerResponseErrorCallback(errorFunction){
+  registerResponseErrorCallback(errorFunction) {
     this.cb_responseError = errorFunction;
   }
 
-  registerRequestStartedCallback(requestStarted){
+  registerRequestStartedCallback(requestStarted) {
     this.cb_requestStarted = requestStarted;
   }
 
@@ -58,17 +57,23 @@ export class CommunicationApi {
   invokeRequest(request) {
     return new Promise((resolve, reject) => {
       if (!request || !request.url) {
-        reject(new TypeError('No valid request object was passed. No operation is performed!', 'ApiFetch.js', '61'))
+        reject(
+          new TypeError(
+            'No valid request object was passed. No operation is performed!',
+            'ApiFetch.js',
+            '61',
+          ),
+        );
       }
-      this.lastRequest = request
+      this.lastRequest = request;
       this._executeRequest(request)
-        .then((r) => {
-          resolve(r)
+        .then(r => {
+          resolve(r);
         })
-        .catch((e) => {
-          reject(e)
-        })
-    })
+        .catch(e => {
+          reject(e);
+        });
+    });
   }
 
   /**
@@ -79,8 +84,8 @@ export class CommunicationApi {
    */
   abortRequest(controller) {
     // eslint-disable-next-line no-console
-    console.info('The request is about to be aborted', this)
-    controller.abort()
+    console.info('The request is about to be aborted', this);
+    controller.abort();
   }
 
   /**
@@ -91,8 +96,7 @@ export class CommunicationApi {
    */
   _executeRequest(request) {
     return new Promise((resolve, reject) => {
-
-      this.isLoading = true
+      this.isLoading = true;
 
       if (this.cb_requestStarted && typeof this.cb_requestStarted === 'function') {
         this.cb_requestStarted(request);
@@ -111,15 +115,16 @@ export class CommunicationApi {
        */
       fetch(request)
         .then(response => {
-          this._reworkRequest(response).then((r) => {
-              resolve(r)
-            },
-          ).catch((r) => {
-            reject(r)
-          })
+          this._reworkRequest(response)
+            .then(r => {
+              resolve(r);
+            })
+            .catch(r => {
+              reject(r);
+            });
         })
         .catch(err => {
-          this.isLoading = false
+          this.isLoading = false;
 
           if (err.name === 'AbortError') {
             // this.dispatchEvent(
@@ -130,14 +135,14 @@ export class CommunicationApi {
             //   }),
             // )
             // eslint-disable-next-line no-console
-            console.error('RequestService fetch aborted: ', err)
+            console.error('RequestService fetch aborted: ', err);
           }
           if (this.cb_responseError && typeof this.cb_responseError === 'function') {
             this.cb_responseError(request);
           }
-          reject(request)
-        })
-    })
+          reject(request);
+        });
+    });
   }
 
   /**
@@ -160,21 +165,19 @@ export class CommunicationApi {
    */
   _reworkRequest(response) {
     return new Promise((resolve, reject) => {
-
-
       /**
        * The status code 0 is accepted as a success because some schemes - e.g.
        * file:// - don't provide status codes.
        */
-      this.isLoading = false
+      this.isLoading = false;
 
-      const status = response.status || 0
+      const status = response.status || 0;
 
       if (status === 0 || (status >= 200 && status < 300)) {
         /**
          * Loaded without error, fires event `response` with full response object
          */
-        this.lastResponse = response
+        this.lastResponse = response;
 
         // this.dispatchEvent(
         //   new CustomEvent('response-raw', {
@@ -190,7 +193,7 @@ export class CommunicationApi {
          */
         this._parseResponse(response)
           .then(r => {
-            resolve(r)
+            resolve(r);
             // this.dispatchEvent(
             //   new CustomEvent('response', {
             //     detail: r,
@@ -200,7 +203,7 @@ export class CommunicationApi {
             // )
           })
           .catch(error => {
-            reject(error)
+            reject(error);
             // this.dispatchEvent(
             //   new CustomEvent('parse-error', {
             //     detail: error,
@@ -208,13 +211,13 @@ export class CommunicationApi {
             //     composed: true,
             //   }),
             // )
-          })
+          });
       } else {
         /**
          * Error detected
          */
-        this.lastResponse = undefined
-        reject(response)
+        this.lastResponse = undefined;
+        reject(response);
 
         // this.dispatchEvent(
         //   new CustomEvent('response-error-raw', {
@@ -291,11 +294,10 @@ export class CommunicationApi {
             //     composed: true,
             //   }),
             // )
-          })
+          });
       }
-    })
+    });
   }
-
 
   /**
    * parses response object according to lastRequest heaader informationen `content-type`
@@ -305,7 +307,7 @@ export class CommunicationApi {
    * @param response
    * @private
    */
-// eslint-disable-next-line class-methods-use-this
+  // eslint-disable-next-line class-methods-use-this
   _parseResponse(response) {
     return new Promise((resolve, reject) => {
       if (response) {
@@ -313,76 +315,74 @@ export class CommunicationApi {
           'text/plain': r => {
             r.text()
               .then(text => {
-                resolve(text)
+                resolve(text);
               })
               .catch(err => {
-                reject(err)
-              })
+                reject(err);
+              });
           },
           'text/html': r => {
             r.text()
               .then(text => {
-                resolve(text)
+                resolve(text);
               })
               .catch(err => {
-                reject(err)
-              })
+                reject(err);
+              });
           },
           'application/json': r => {
             r.json()
               .then(json => {
-                resolve(json)
+                resolve(json);
               })
               .catch(err => {
-                reject(err)
-              })
+                reject(err);
+              });
           },
           'application/octet-stream': r => {
             r.arrayBuffer()
               .then(buffer => {
-                resolve(buffer)
+                resolve(buffer);
               })
               .catch(err => {
-                reject(err)
-              })
+                reject(err);
+              });
           },
           'application/pdf': r => {
             r.blob()
               .then(blob => {
-                resolve(blob)
+                resolve(blob);
               })
               .catch(err => {
-                reject(err)
-              })
+                reject(err);
+              });
           },
           'image/jpeg': r => {
             r.blob()
               .then(blob => {
-                resolve(blob)
+                resolve(blob);
               })
               .catch(err => {
-                reject(err)
-              })
+                reject(err);
+              });
           },
           default: r => {
             r.json()
               .then(json => {
-                resolve(json)
+                resolve(json);
               })
               .catch(err => {
-                reject(err)
-              })
+                reject(err);
+              });
           },
-        }
-        const contentType = response.headers.get('content-type')
+        };
+        const contentType = response.headers.get('content-type');
         const typeHandler =
-          responseHandler[contentType.split(';')[0].trim()] || responseHandler.default
-        typeHandler(response)
+          responseHandler[contentType.split(';')[0].trim()] || responseHandler.default;
+        typeHandler(response);
       } else {
-        reject(new Error('no response'))
+        reject(new Error('no response'));
       }
-    })
+    });
   }
-
-
 }

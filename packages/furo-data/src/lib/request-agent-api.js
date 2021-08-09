@@ -1,16 +1,14 @@
-import { Env } from '@furo/framework'
-import { CommunicationApi } from './communication-api.js'
-import { AgentHelper } from './AgentHelper.js'
+import { Env } from '@furo/framework';
+import { CommunicationApi } from './communication-api.js';
+import { BaseAgent } from './base-agent.js';
 
-export class RequestAgentApi {
-
+export class RequestAgentApi extends BaseAgent {
   constructor() {
-    this._servicedefinitions = Env.api.services
-    this._commApi = new CommunicationApi()
-    this._abortController = null
-
-    this._service = ''
-    this._requestDataObject = null
+    super();
+    this._servicedefinitions = Env.api.services;
+    this._commApi = new CommunicationApi();
+    this._abortController = null;
+    this._requestDataObject = null;
     /**
      *
      * @type {*|{headers: [[string, string]], specs: {}, services: {}}}
@@ -22,26 +20,19 @@ export class RequestAgentApi {
      * @type {*[]}
      * @private
      */
-    this._pendingRequests = []
+    this._pendingRequests = [];
     /**
      * queue for calls, before hts is set
      * @type {*[]}
      * @private
      */
-    this._singleElementQueue = []
-    /**
-     *
-     * @type {{}}
-     * @private
-     */
-    this._queryParams = {}
+    this._singleElementQueue = [];
 
     /**
      * triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
      * @type {boolean}
      */
     this.loadOnHtsIn = false;
-
   }
 
   setService(serviceName) {
@@ -52,67 +43,159 @@ export class RequestAgentApi {
         this,
         'Available Services:',
         this._servicedefinitions,
-      )
-      return
+      );
+      return;
     }
-    this._service = this._servicedefinitions[serviceName]
+    this._service = this._servicedefinitions[serviceName];
     if (this._service.lifecycle && this._service.lifecycle.deprecated) {
       // eslint-disable-next-line no-console
       console.warn(
         `You are using a deprecated service (${serviceName}) ${this._service.lifecycle.info}`,
-      )
+      );
     }
   }
 
   bindRequestObject(dataObject) {
-    this._requestDataObject = dataObject
+    this._requestDataObject = dataObject;
   }
 
   abortPendingRequests() {
-    this._commApi.abortRequest(this._abortController)
+    this._commApi.abortRequest(this._abortController);
   }
 
   htsIn(hts) {
     return new Promise((resolve, reject) => {
       if (this._updateInternalHTS(hts)) {
-        resolve(this._hts)
+        resolve(this._hts);
 
         if (this.loadOnHtsIn) {
-          this.load()
+          this.load();
         }
 
         // there was a list,last,next call before the hts was set
         if (this._singleElementQueue.length > 0) {
-          this._singleElementQueue.pop()
-          this.load()
+          this._singleElementQueue.pop();
+          this.load();
         }
       } else {
-        reject()
+        reject();
       }
-    })
-
+    });
   }
 
   /**
    * loads the entity if hts is available
    */
   load() {
-    return new Promise((resolve, reject) =>{
-      const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'self', 'Get');
+    return new Promise((resolve, reject) => {
+      const hts = this.checkServiceAndHateoasLinkError('self', 'Get');
       if (!hts) {
         reject(new Error('No link.Relation self found'));
       } else {
-        this._commApi.invokeRequest(this._makeRequest(hts))
-          .then((response)=>{
+        this._commApi
+          .invokeRequest(this._makeRequest(hts))
+          .then(response => {
             resolve(response);
           })
-          .catch((error) =>{
+          .catch(error => {
             reject(error);
+          });
+      }
+    });
+  }
+
+  /**
+   * deletes the entity if hts is available
+   */
+  delete() {
+    return new Promise((resolve, reject) => {
+      const hts = this.checkServiceAndHateoasLinkError('delete', 'Delete');
+      if (!hts) {
+        reject(new Error('No link.Relation delete found'));
+      } else {
+        this._commApi
+          .invokeRequest(this._makeRequest(hts))
+          .then(response => {
+            resolve(response);
           })
+          .catch(error => {
+            reject(error);
+          });
+      }
+    });
+  }
+
+  /**
+   * saves the entity if hts is available
+   */
+  save() {
+    // eslint-disable-next-line consistent-return
+    return new Promise((resolve, reject) => {
+      // if no rel self is present but a rel create exists, take create
+      // rel self is consciously chosen
+      const htsSelf = this._hts.find(link => link.rel === 'self');
+      const htsCreate = this._hts.find(link => link.rel === 'create');
+
+      if (!htsSelf && htsCreate) {
+        return this.create();
       }
 
-    })
+      const hts = this.checkServiceAndHateoasLinkError('update', 'Update');
+      if (!hts) {
+        reject(new Error('No link.Relation update found'));
+      } else {
+        this._commApi
+          .invokeRequest(this._makeRequest(hts, this._requestDataObject))
+          .then(response => {
+            resolve(response);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      }
+    });
+  }
 
+  /**
+   * saves the entity with method put if hts is available
+   */
+  put() {
+    return new Promise((resolve, reject) => {
+      const hts = this.checkServiceAndHateoasLinkError('update', 'Update');
+      if (!hts) {
+        reject(new Error('No link.Relation update found'));
+      } else {
+        this._commApi
+          .invokeRequest(this._makeRequest(hts, this._requestDataObject))
+          .then(response => {
+            resolve(response);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      }
+    });
+  }
+
+  /**
+   * creating the entity if hts rel="create" is available
+   */
+  create() {
+    return new Promise((resolve, reject) => {
+      const hts = this.checkServiceAndHateoasLinkError('create', 'Create');
+      if (!hts) {
+        reject(new Error('No link.Relation create found'));
+      } else {
+        this._commApi
+          .invokeRequest(this._makeRequest(hts, this._requestDataObject))
+          .then(response => {
+            resolve(response);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      }
+    });
   }
 
   /**
@@ -126,7 +209,6 @@ export class RequestAgentApi {
    */
   // eslint-disable-next-line no-unused-vars
   _makeRequest(link, dataObject, abortController) {
-
     /**
      * Preparation of the request payload
      * @type {string}
@@ -142,8 +224,7 @@ export class RequestAgentApi {
     const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
     // generate accept field for header
-    const ACCEPT = AgentHelper.generateHeaderAccept(
-      this,
+    const ACCEPT = this.generateHeaderAccept(
       this._ApiEnvironment.services[link.service].services,
       REL_NAME,
     );
@@ -153,7 +234,7 @@ export class RequestAgentApi {
     }
 
     // get existing params from href and append query params
-    const params = AgentHelper.getParams(this, link);
+    const params = this.getParams(link);
 
     // append query params to params
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
@@ -162,9 +243,9 @@ export class RequestAgentApi {
     }
 
     // rebuild qp
-    const qp = AgentHelper.rebuildQPFromParams(params);
+    const qp = this.rebuildQPFromParams(params);
     // generate req
-    const req = AgentHelper.generateReq(link, qp);
+    const req = this.generateReq(link, qp);
 
     /**
      * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
@@ -263,17 +344,16 @@ export class RequestAgentApi {
     // convert link object to hts array
     if (hts && hts.rel && hts.method && hts.type && hts.href) {
       // eslint-disable-next-line no-param-reassign
-      hts = [hts]
+      hts = [hts];
     }
 
     if (hts && Array.isArray(hts)) {
-      this._hts = []
+      this._hts = [];
       hts.forEach(link => {
-        this._hts.push(link)
-      })
-      return true
+        this._hts.push(link);
+      });
+      return true;
     }
-    return false
+    return false;
   }
-
 }
