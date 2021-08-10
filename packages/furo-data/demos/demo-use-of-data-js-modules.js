@@ -49,6 +49,13 @@ class DemoUseOfDataJsModules extends FBP(LitElement) {
         rel: 'self',
         type: 'person.PersonEntity',
         service: 'PersonService',
+      },
+      {
+        href: '/mockdata/persons/1',
+        method: 'PATCH',
+        rel: 'update',
+        type: 'person.PersonEntity',
+        service: 'PersonService',
       }
     ];
 
@@ -58,7 +65,6 @@ class DemoUseOfDataJsModules extends FBP(LitElement) {
         this.requestAgentApi.setService('PersonService');
         this.requestAgentApi.htsIn(HTS_PERSON).then(() => {
           this.requestAgentApi.bindRequestObject(this.dataModelApi.data.data);
-          this.requestAgentApi.create();
 
           this.requestAgentApi
             .load()
@@ -67,6 +73,13 @@ class DemoUseOfDataJsModules extends FBP(LitElement) {
                 // eslint-disable-next-line no-console
                 console.log(d);
                 this.requestUpdate();
+                this.dataModelApi.data.data.name._value = 'New name set';
+
+                this.requestAgentApi.request('update', 'Update')
+                  .then((r)=>{console.log(r)})
+                  .catch((e)=>{
+                    console.log(e);
+                  });
               });
             })
             .catch(e => {

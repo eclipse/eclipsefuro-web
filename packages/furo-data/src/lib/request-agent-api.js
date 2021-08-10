@@ -84,7 +84,35 @@ export class RequestAgentApi extends BaseAgent {
   }
 
   /**
+   * Generic request method
+   * Pass link relation and service method. If a HATEOAS for that constellation is available, the request is invoked.
+   * @param relation
+   * @param serviceMethod
+   * @returns {Promise<unknown>}
+   */
+  request(relation, serviceMethod) {
+    return new Promise((resolve, reject) => {
+      const hts = this.checkServiceAndHateoasLinkError(relation, serviceMethod);
+      if (!hts) {
+        reject(new Error(`No link.Relation ${ relation } with method ${ serviceMethod } found`));
+      } else {
+        const service = this._service.services[serviceMethod];
+        this._commApi
+          .invokeRequest(this._makeRequest(hts, (service.data.request && service.data.request.length && service.data.request !== 'google.protobuf.Empty') ? this._requestDataObject : null))
+          .then(response => {
+            resolve(response);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      }
+    });
+  }
+
+  /**
    * loads the entity if hts is available
+   * link relation: `self`
+   * service method: `Get`
    */
   load() {
     return new Promise((resolve, reject) => {
@@ -106,6 +134,8 @@ export class RequestAgentApi extends BaseAgent {
 
   /**
    * deletes the entity if hts is available
+   * link relation: `delete`
+   * service method: `Delete`
    */
   delete() {
     return new Promise((resolve, reject) => {
@@ -127,6 +157,11 @@ export class RequestAgentApi extends BaseAgent {
 
   /**
    * saves the entity if hts is available
+   * link relation: `self`
+   * service method: `Create`
+   * or
+   * link relation: `update`
+   * service method: `Update`
    */
   save() {
     // eslint-disable-next-line consistent-return
@@ -158,6 +193,8 @@ export class RequestAgentApi extends BaseAgent {
 
   /**
    * saves the entity with method put if hts is available
+   * link relation: `update`
+   * service method: `Update`
    */
   put() {
     return new Promise((resolve, reject) => {
@@ -179,6 +216,8 @@ export class RequestAgentApi extends BaseAgent {
 
   /**
    * creating the entity if hts rel="create" is available
+   * link relation: `create`
+   * service method: `Create`
    */
   create() {
     return new Promise((resolve, reject) => {

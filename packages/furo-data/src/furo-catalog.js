@@ -11,4 +11,7 @@ import './furo-filter-field.js';
 import './furo-rel-exists.js';
 import './furo-reverse-deep-link.js';
 import './lib/UniversalFieldNodeBinder.js';
+import './lib/communication-api.js';
+import './lib/data-model-api.js';
+import './lib/request-agent-api.js';
 import './furo-sortby-container.js';
