@@ -202,12 +202,14 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    */
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
-      this._tmpFAT = val;
-      this.selectOptionById(this._tmpFAT.value);
-      this._updateAttributesFromFat(this._tmpFAT.attributes);
-      this._updateLabelsFromFat(this._tmpFAT.labels);
+      this._fatValue = val;
+      this._tmpValue = this._fatValue.value;
+      this.selectOptionById(this._fatValue.value);
+      this._updateAttributesFromFat(this._fatValue.attributes);
+      this._updateLabelsFromFat(this._fatValue.labels);
     } else {
-      this.selectOptionById(val);
+      this._tmpValue = val;
+      this.selectOptionById(this._tmpValue);
     }
   }
 
@@ -438,9 +440,18 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       });
 
       optionNodeList.forEach(newOpt => {
-        this.options.push(newOpt);
         this.appendChild(newOpt);
       });
+    }
+
+    /**
+     * if there is an active field binding
+     * the option should be re-selected
+     */
+    if (this.activeFieldBinding){
+      setTimeout(()=>{
+        this.selectOptionById(this._tmpValue);
+      },0)
     }
 
     this.dispatchEvent(
