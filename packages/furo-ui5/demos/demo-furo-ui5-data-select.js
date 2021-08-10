@@ -87,7 +87,7 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
               >Load Demo Data
             </furo-ui5-button>
             <furo-ui5-button design="Neutral" @-click="--demoDataReloadRequest"
-            >Reload Demo Data
+              >Reload Demo Data
             </furo-ui5-button>
             <h4 full>furo-ui5-data-select without ANY type binding.</h4>
             <furo-ui5-form-field-container>

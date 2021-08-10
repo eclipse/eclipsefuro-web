@@ -448,10 +448,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
      * if there is an active field binding
      * the option should be re-selected
      */
-    if (this.activeFieldBinding){
-      setTimeout(()=>{
+    if (this.activeFieldBinding) {
+      setTimeout(() => {
         this.selectOptionById(this._tmpValue);
-      },0)
+      }, 0);
     }
 
     this.dispatchEvent(
@@ -513,6 +513,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     if (this.activeFieldBinding) {
       if (this.isFat()) {
         if (newValue === '') {
+          this._tmpValue = null;
           this._tmpFAT.value = null;
           // add empty state
           if (this._tmpFAT.labels === null) {
@@ -520,6 +521,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
           }
           this._tmpFAT.labels.empty = true;
         } else {
+          this._tmpValue = newValue;
           this._tmpFAT.value = newValue;
           // remove empty state
           if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
@@ -534,8 +536,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
         }
         this.setFnaFieldValue(this._tmpFAT);
       } else if (this.isWrapper()) {
+        this._tmpValue = newValue === '' ? null : newValue;
         this.setFnaFieldValue(newValue === '' ? null : newValue);
       } else {
+        this._tmpValue = newValue;
         this.setFnaFieldValue(newValue === '' ? '' : newValue);
       }
     }
