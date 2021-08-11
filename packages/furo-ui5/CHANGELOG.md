@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.37.0...@furo/ui5@0.37.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* re-select option after update. ([1258e6e](https://github.com/theNorstroem/FuroBaseComponents/commit/1258e6eb1aad2aa6d7815a0eb2c1ba9d60579999))
+* single furo.Property renderer does not create elements after data update. ([f029758](https://github.com/theNorstroem/FuroBaseComponents/commit/f02975875f78f3b400cfde914f265796511ad018))
+* store last valid value after select ([f3936f3](https://github.com/theNorstroem/FuroBaseComponents/commit/f3936f3a04fb57f65665456b999ed2bf7396ee50))
+
+
+
+
+
 # [0.37.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.36.1...@furo/ui5@0.37.0) (2021-07-30)
 
 

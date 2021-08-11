@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.10.2...@furo/data-ui@1.10.3) (2021-08-11)
+
+
+### Bug Fixes
+
+* single furo.Property renderer does not create elements after data update. ([f029758](https://github.com/theNorstroem/FuroBaseComponents/commit/f02975875f78f3b400cfde914f265796511ad018))
+
+
+
+
+
 ## [1.10.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.10.1...@furo/data-ui@1.10.2) (2021-07-30)
 
 **Note:** Version bump only for package @furo/data-ui
