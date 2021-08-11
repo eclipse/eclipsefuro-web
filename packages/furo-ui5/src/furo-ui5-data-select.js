@@ -202,12 +202,14 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    */
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
-      this._tmpFAT = val;
-      this.selectOptionById(this._tmpFAT.value);
-      this._updateAttributesFromFat(this._tmpFAT.attributes);
-      this._updateLabelsFromFat(this._tmpFAT.labels);
+      this._fatValue = val;
+      this._tmpValue = this._fatValue.value;
+      this.selectOptionById(this._fatValue.value);
+      this._updateAttributesFromFat(this._fatValue.attributes);
+      this._updateLabelsFromFat(this._fatValue.labels);
     } else {
-      this.selectOptionById(val);
+      this._tmpValue = val;
+      this.selectOptionById(this._tmpValue);
     }
   }
 
@@ -438,9 +440,18 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       });
 
       optionNodeList.forEach(newOpt => {
-        this.options.push(newOpt);
         this.appendChild(newOpt);
       });
+    }
+
+    /**
+     * if there is an active field binding
+     * the option should be re-selected
+     */
+    if (this.activeFieldBinding) {
+      setTimeout(() => {
+        this.selectOptionById(this._tmpValue);
+      }, 0);
     }
 
     this.dispatchEvent(
@@ -502,6 +513,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     if (this.activeFieldBinding) {
       if (this.isFat()) {
         if (newValue === '') {
+          this._tmpValue = null;
           this._tmpFAT.value = null;
           // add empty state
           if (this._tmpFAT.labels === null) {
@@ -509,6 +521,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
           }
           this._tmpFAT.labels.empty = true;
         } else {
+          this._tmpValue = newValue;
           this._tmpFAT.value = newValue;
           // remove empty state
           if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
@@ -523,8 +536,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
         }
         this.setFnaFieldValue(this._tmpFAT);
       } else if (this.isWrapper()) {
+        this._tmpValue = newValue === '' ? null : newValue;
         this.setFnaFieldValue(newValue === '' ? null : newValue);
       } else {
+        this._tmpValue = newValue;
         this.setFnaFieldValue(newValue === '' ? '' : newValue);
       }
     }

@@ -82,9 +82,12 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
       </h2>
       <furo-demo-snippet>
         <template>
-          <furo-form-layouter>
-            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+          <furo-form-layouter two>
+            <furo-ui5-button design="Emphasized" @-click="--demoDataRequested"
               >Load Demo Data
+            </furo-ui5-button>
+            <furo-ui5-button design="Neutral" @-click="--demoDataReloadRequest"
+              >Reload Demo Data
             </furo-ui5-button>
             <h4 full>furo-ui5-data-select without ANY type binding.</h4>
             <furo-ui5-form-field-container>
@@ -329,6 +332,7 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
           <furo-collection-agent
             service="PersonService"
             ƒ-hts-in="--htsPerson"
+            ƒ-list="--demoDataReloadRequest"
             list-on-hts-in
             @-response="--responseCollection"
           >
