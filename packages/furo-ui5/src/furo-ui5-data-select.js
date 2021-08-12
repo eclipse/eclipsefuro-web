@@ -437,10 +437,12 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       const existingOptions = this.querySelectorAll('ui5-option');
       existingOptions.forEach(opt => {
         this.removeChild(opt);
+        this.options.pop();
       });
 
       optionNodeList.forEach(newOpt => {
         this.appendChild(newOpt);
+        this.options.push(newOpt);
       });
     }
 
@@ -450,6 +452,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
      */
     if (this.activeFieldBinding) {
       setTimeout(() => {
+
         this.selectOptionById(this._tmpValue);
       }, 0);
     }
@@ -514,27 +517,27 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       if (this.isFat()) {
         if (newValue === '') {
           this._tmpValue = null;
-          this._tmpFAT.value = null;
+          this._fatValue.value = null;
           // add empty state
-          if (this._tmpFAT.labels === null) {
-            this._tmpFAT.labels = {};
+          if (this._fatValue.labels === null) {
+            this._fatValue.labels = {};
           }
-          this._tmpFAT.labels.empty = true;
+          this._fatValue.labels.empty = true;
         } else {
           this._tmpValue = newValue;
-          this._tmpFAT.value = newValue;
+          this._fatValue.value = newValue;
           // remove empty state
-          if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
-            delete this._tmpFAT.labels.empty;
+          if (this._fatValue.labels && this._fatValue.labels.empty) {
+            delete this._fatValue.labels.empty;
           }
-          // init labels in_tmpFAT
-          if (this._tmpFAT.labels === null) {
-            this._tmpFAT.labels = {};
+          // init labels in _fatValue
+          if (this._fatValue.labels === null) {
+            this._fatValue.labels = {};
           }
           // set modified on changes
-          this._tmpFAT.labels.modified = true;
+          this._fatValue.labels.modified = true;
         }
-        this.setFnaFieldValue(this._tmpFAT);
+        this.setFnaFieldValue(this._fatValue);
       } else if (this.isWrapper()) {
         this._tmpValue = newValue === '' ? null : newValue;
         this.setFnaFieldValue(newValue === '' ? null : newValue);
