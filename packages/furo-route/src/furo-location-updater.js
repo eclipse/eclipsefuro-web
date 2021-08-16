@@ -127,7 +127,6 @@ class FuroLocationUpdater extends FBP(LitElement) {
       }
     }
 
-    // eslint-disable-next-line prefer-destructuring
     const location = `${window.location.pathname}${window.location.search}#${hash.join('&')}`;
     // notify furo location
     window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
