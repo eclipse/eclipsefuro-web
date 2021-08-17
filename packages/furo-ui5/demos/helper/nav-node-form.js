@@ -16,9 +16,9 @@ class NavNodeForm extends FBP(LitElement) {
     // eslint-disable-next-line no-param-reassign
     navnode.display_name._value = 'Display_name';
     // eslint-disable-next-line no-param-reassign
-    navnode.secondary_text._value = 'secondary';
+    navnode.name._value = 'Name';
     // eslint-disable-next-line no-param-reassign
-    navnode.icon._value = 'action';
+    navnode.first_name._value = 'First name';
     this._FBPTriggerWire('--navNode', navnode);
   }
 
@@ -52,15 +52,15 @@ class NavNodeForm extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-form-layouter one>
-        <furo-ui5-data-text-input-labeled
+        <furo-ui5-data-display
           ƒ-bind-data="--navNode(*.display_name)"
-        ></furo-ui5-data-text-input-labeled>
-        <furo-ui5-data-text-input-labeled
-          ƒ-bind-data="--navNode(*.secondary_text)"
-        ></furo-ui5-data-text-input-labeled>
-        <furo-ui5-data-text-input-labeled
-          ƒ-bind-data="--navNode(*.icon)"
-        ></furo-ui5-data-text-input-labeled>
+        ></furo-ui5-data-display>
+        <furo-ui5-data-display
+          ƒ-bind-data="--navNode(*.name)"
+        ></furo-ui5-data-display>
+        <furo-ui5-data-display
+          ƒ-bind-data="--navNode(*.first_name)"
+        ></furo-ui5-data-display>
       </furo-form-layouter>
     `;
   }
