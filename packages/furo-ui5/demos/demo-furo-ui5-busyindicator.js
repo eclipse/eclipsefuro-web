@@ -70,14 +70,14 @@ class DemoFuroUi5Busyindicator extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <div class="grid">
-            <ui5-card heading="Usage of Busy Indicator with cards">
+            <furo-ui5-card heading="Usage of Busy Indicator with cards">
               <furo-ui5-busyindicator
                 size="Small"
                 slot="action"
                 ƒ-activate="--activityStarted"
                 ƒ-deactivate="--activityStopped"
               ></furo-ui5-busyindicator>
-              <div style="padding: var(--spacing-xs) var(--spacing);">
+              <div slot='content' style="padding: var(--spacing-xs) var(--spacing);">
                 <p>
                   If you use furo-api-fetch for network requests via FETCH API, then use the custom
                   events to start/stop the activity. E.g. request-started, response, response-error
@@ -87,7 +87,7 @@ class DemoFuroUi5Busyindicator extends FBP(LitElement) {
                   >stop Activity</furo-ui5-button
                 >
               </div>
-            </ui5-card>
+            </furo-ui5-card>
           </div>
         </template>
       </furo-demo-snippet>

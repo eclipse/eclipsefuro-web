@@ -16,9 +16,9 @@ class NavNodeForm extends FBP(LitElement) {
     // eslint-disable-next-line no-param-reassign
     navnode.display_name._value = 'Display_name';
     // eslint-disable-next-line no-param-reassign
-    navnode.name._value = 'Name';
+    navnode.secondary_text._value = 'Secondary_text';
     // eslint-disable-next-line no-param-reassign
-    navnode.first_name._value = 'First name';
+    navnode.icon._value = 'menu';
     this._FBPTriggerWire('--navNode', navnode);
   }
 
@@ -56,10 +56,10 @@ class NavNodeForm extends FBP(LitElement) {
           ƒ-bind-data="--navNode(*.display_name)"
         ></furo-ui5-data-display>
         <furo-ui5-data-display
-          ƒ-bind-data="--navNode(*.name)"
+          ƒ-bind-data="--navNode(*.secondary_text)"
         ></furo-ui5-data-display>
         <furo-ui5-data-display
-          ƒ-bind-data="--navNode(*.first_name)"
+          ƒ-bind-data="--navNode(*.icon)"
         ></furo-ui5-data-display>
       </furo-form-layouter>
     `;
