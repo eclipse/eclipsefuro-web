@@ -25,6 +25,25 @@ describe('ValidatorNumbericTypes', () => {
     await element.updateComplete;
   });
 
+
+
+
+  // not every value will work, because of the behavior of the float type :-(
+  it('should check step 0.02 constraint on float', done => {
+    element.setAttribute('type', 'experiment.Constraints');
+    const EntityRoot = element.data;
+
+    EntityRoot.float._value = 0.02;
+    ValidatorNumericTypes.validateConstraints(EntityRoot.float).then(
+      () => {
+        // must be valid
+        done()
+      },
+      () => {},
+    );
+  });
+
+
   it('should check min constraint', done => {
     /**
      * Constraints are set like:
@@ -65,4 +84,20 @@ describe('ValidatorNumbericTypes', () => {
       },
     );
   });
+
+  it('should check constraint on float', done => {
+    element.setAttribute('type', 'experiment.Constraints');
+    const EntityRoot = element.data;
+
+    EntityRoot.float._value = 13;
+    ValidatorNumericTypes.validateConstraints(EntityRoot.float).then(
+      () => {},
+      error => {
+        assert.equal(error.name, 'max', 'max');
+        done();
+      },
+    );
+  });
+
+
 });

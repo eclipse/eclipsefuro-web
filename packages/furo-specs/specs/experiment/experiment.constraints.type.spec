@@ -162,3 +162,25 @@ fields:
             step:
                 is: "1000.00"
                 message: only in steps of 1000
+    float:
+      type: float
+      description: Float values
+      __proto:
+        number: 7
+        oneof: ""
+      __ui: null
+      meta:
+        default: ""
+        hint: ""
+        label: ""
+        options: null
+        readonly: false
+        repeated: false
+        typespecific: null
+      constraints:
+        max:
+          is: "12"
+          message: maximal 12
+        step:
+          is: "0.01"
+          message: step 0.01
