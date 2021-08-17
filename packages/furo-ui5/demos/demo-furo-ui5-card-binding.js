@@ -81,7 +81,7 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                 </furo-ui5-card>
 
                 <furo-data-object
-                  type="tree.Navigationnode"
+                  type="person.Person"
                   @-object-ready="--Navnode"
                 ></furo-data-object>
 

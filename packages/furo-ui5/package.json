@@ -42,8 +42,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/app": "^1.5.3",
-    "@furo/data": "^1.31.1",
+    "@furo/app": "^1.5.2",
+    "@furo/data": "^1.30.2",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
