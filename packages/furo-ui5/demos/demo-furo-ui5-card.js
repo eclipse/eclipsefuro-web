@@ -35,6 +35,7 @@ class DemoFuroUi5Card extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
       `
     );
   }
@@ -53,7 +54,7 @@ class DemoFuroUi5Card extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-vertical-scroller>
+            <furo-vertical-scroller style='padding: var(--spacing)'>
               <furo-ui5-card heading="heading" subheading="subheading" icon="card" status="enabled">
                 <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
                 <div slot="content">
