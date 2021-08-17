@@ -81,7 +81,7 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                 </furo-ui5-card>
 
                 <furo-data-object
-                  type="furo.navigation.Navigationnode"
+                  type="person.Person"
                   @-object-ready="--Navnode"
                 ></furo-data-object>
 
@@ -90,7 +90,7 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                 <!-- edit a Navigationnode -->
                 <furo-ui5-card
                   flex
-                  heading="Edit the data"
+                  heading="Display the data"
                   subheading="icons: action, account, badge, bell"
                   icon="card"
                 >
