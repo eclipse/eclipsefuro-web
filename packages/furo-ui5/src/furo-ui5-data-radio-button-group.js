@@ -19,8 +19,8 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * <furo-ui5-data-radio-button-group
  *    group-name="Option"
  *    ƒ-bind-data="--daoPerson(*.field)">
- *      <ui5-radiobutton text="Option A" selected name="Owner"></ui5-radiobutton>
- *      <ui5-radiobutton text="Option B with a very long text" name="Owner"></ui5-radiobutton>
+ *      <ui5-radio-button text="Option A" selected name="Owner"></ui5-radio-button>
+ *      <ui5-radio-button text="Option B with a very long text" name="Owner"></ui5-radio-button>
  * </furo-ui5-data-radio-button-group>
  * ```
  * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
@@ -42,7 +42,7 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
      * @type {string}
      * @private
      */
-    this._tagRadioButton = 'ui5-radiobutton';
+    this._tagRadioButton = 'ui5-radio-button';
 
     /**
      * Defines the name of the inner radio button. Radio buttons with the same name will form a radio button group.
@@ -125,7 +125,7 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
     };
 
     // changed is fired when the select operation has finished.
-    this.addEventListener('select', this._updateFNA);
+    this.addEventListener('change', this._updateFNA);
   }
 
   /**
@@ -282,7 +282,7 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
       });
 
       if (result) {
-        result.selected = true;
+        result.checked = true;
       }
     }
     return true;
