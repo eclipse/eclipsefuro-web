@@ -5,7 +5,7 @@ import './furo-ui5-form-field-container.js';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 import { Theme } from '@furo/framework';
-import '@ui5/webcomponents/dist/Input';
+import '@ui5/webcomponents/dist/Input.js';
 import './furo-ui5-data-text-input.js';
 import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';

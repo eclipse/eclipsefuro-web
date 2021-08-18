@@ -7,9 +7,9 @@ import slideUp from '@ui5/webcomponents-base/dist/animations/slideUp.js';
 import '@ui5/webcomponents-icons/dist/slim-arrow-up.js';
 import '@ui5/webcomponents/dist/Avatar.js';
 
-import '@ui5/webcomponents/dist/Label';
+import '@ui5/webcomponents/dist/Label.js';
 import '@ui5/webcomponents/dist/Icon.js';
-import '@ui5/webcomponents/dist/Panel';
+import '@ui5/webcomponents/dist/Panel.js';
 
 /**
  * `furo-ui5-header-panel`
