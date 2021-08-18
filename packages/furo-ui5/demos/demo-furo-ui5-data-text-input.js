@@ -119,7 +119,9 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             </div>
             <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 1em;">
               <div style="grid-column: span 4; justify-self: end; align-self: center;">
-                <ui5-label for="Input" wrapping-type="Normal" show-colon>Description (with a lot of chars)</ui5-label>
+                <ui5-label for="Input" wrapping-type="Normal" show-colon
+                  >Description (with a lot of chars)</ui5-label
+                >
               </div>
               <div style="grid-column: span 8;">
                 <furo-ui5-data-text-input
