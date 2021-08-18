@@ -1,15 +1,33 @@
-import './localeData.js';
-import { registerI18nLoader } from '@ui5/webcomponents-base/dist/asset-registries/i18n.js';
-import { setLanguage } from '@ui5/webcomponents-base/dist/config/Language.js';
 import { registerLocaleDataLoader } from '@ui5/webcomponents-base/dist/asset-registries/LocaleData.js';
+import { setLanguage } from '@ui5/webcomponents-base/dist/config/Language.js';
+import { registerI18nLoader } from '@ui5/webcomponents-base/dist/asset-registries/i18n.js';
+// workaround for elements which do not like lazy loading
+import '@ui5/webcomponents/dist/Button.js';
 
-import en from '../../assets/cldr/en.js';
+registerLocaleDataLoader('de_CH', () =>
+  import('@furo/ui5/assets/cldr/de_CH.js').then(cldr => cldr.default()),
+);
 
-// register cldr en
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('en', en);
+registerLocaleDataLoader('de_AT', () =>
+  import('@furo/ui5/assets/cldr/de_AT.js').then(cldr => cldr.default()),
+);
 
-setLanguage('en');
+registerLocaleDataLoader('de', () =>
+  import('@furo/ui5/assets/cldr/de.js').then(cldr => cldr.default()),
+);
+
+registerLocaleDataLoader('it', () =>
+  import('@furo/ui5/assets/cldr/it.js').then(cldr => cldr.default()),
+);
+
+registerLocaleDataLoader('en', () =>
+  import('@furo/ui5/assets/cldr/en.js').then(cldr => cldr.default()),
+);
+
+// Set a default language to prevent autoloading of cldrs which are not registered
+(async () => {
+  await setLanguage('en');
+})();
 
 // register i18n for ui5 webcomponents
 registerI18nLoader('@ui5/webcomponents', {
