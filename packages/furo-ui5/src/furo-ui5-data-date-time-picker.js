@@ -1,4 +1,4 @@
-import '@ui5/webcomponents/dist/generated/i18n/i18n-defaults';
+import '@ui5/webcomponents/dist/generated/i18n/i18n-defaults.js';
 import * as DateTimePicker from '@ui5/webcomponents/dist/DateTimePicker.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';

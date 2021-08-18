@@ -1,4 +1,4 @@
-import * as Select from '@ui5/webcomponents/dist/Select';
+import * as Select from '@ui5/webcomponents/dist/Select.js';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode.js';
 
