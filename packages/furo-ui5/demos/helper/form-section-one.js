@@ -130,12 +130,13 @@ class FormSectionOne extends FBP(LitElement) {
             content
             ƒ-.readonly="--disable"
             ƒ-bind-data="--entityTaskReady(*.owner)"
-            ƒ-inject-entities="--refCol(*.entities)"
+            ƒ-bind-options="--daoPersonCollection(*.entities)"
           ></furo-ui5-data-segmented-button>
         </furo-ui5-form-field-container>
       </furo-form-layouter>
 
       <furo-data-object type="task.Task" @-object-ready="--entityTaskReady"></furo-data-object>
+      <furo-data-object type='person.PersonCollection' @-object-ready="--daoPersonCollection" ƒ-inject-raw='--refCol'></furo-data-object>
       <furo-collection-agent
         service="PersonService"
         ƒ-hts-in="--entityTaskReady(*.owner.link._value)"

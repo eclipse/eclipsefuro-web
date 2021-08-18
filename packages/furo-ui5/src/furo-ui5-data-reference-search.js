@@ -960,7 +960,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           @-click="^^search-icon-clicked,--expandIconClicked"
         ></ui5-icon>
       </ui5-input>
-      <ui5-busyindicator size="Small" ?active="${this.busy}"></ui5-busyindicator>
+      <ui5-busy-indicator size="Small" ?active="${this.busy}"></ui5-busy-indicator>
       <ui5-list
         mode="SingleSelect"
         class="list"
