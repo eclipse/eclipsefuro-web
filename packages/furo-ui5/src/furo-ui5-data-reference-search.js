@@ -907,7 +907,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           width: inherit;
         }
 
-        ui5-busyindicator {
+        ui5-busy-indicator {
           position: absolute;
           left: 50%;
           top: 15px;

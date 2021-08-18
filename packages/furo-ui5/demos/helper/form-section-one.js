@@ -101,7 +101,6 @@ class FormSectionOne extends FBP(LitElement) {
           @-search="--term"
           ƒ-.disabled="--disable"
           ƒ-bind-data="--entityTaskReady(*.owner)"
-          ƒ-collection-in="--refCol"
         ></furo-ui5-data-reference-search-labeled>
 
         <furo-ui5-data-collection-dropdown-labeled
