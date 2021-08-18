@@ -74,7 +74,7 @@ export class FuroUi5MessageStripDisplay extends FBP(LitElement) {
    */
   show(source) {
     const messagestrip = document.createElement('ui5-messagestrip');
-    messagestrip.setAttribute('type', source.type ? source.type : 'Information');
+    messagestrip.setAttribute('design', source.type ? source.type : 'Information');
 
     if (source.noCloseButton) {
       messagestrip.setAttribute('no-close-button', true);
