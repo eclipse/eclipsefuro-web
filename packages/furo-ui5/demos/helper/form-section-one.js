@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -101,6 +101,7 @@ class FormSectionOne extends FBP(LitElement) {
           @-search="--term"
           ƒ-.disabled="--disable"
           ƒ-bind-data="--entityTaskReady(*.owner)"
+          ƒ-collection-in="--refCol"
         ></furo-ui5-data-reference-search-labeled>
 
         <furo-ui5-data-collection-dropdown-labeled
@@ -135,11 +136,7 @@ class FormSectionOne extends FBP(LitElement) {
       </furo-form-layouter>
 
       <furo-data-object type="task.Task" @-object-ready="--entityTaskReady"></furo-data-object>
-      <furo-data-object
-        type="person.PersonCollection"
-        @-object-ready="--daoPersonCollection"
-        ƒ-inject-raw="--refCol"
-      ></furo-data-object>
+      <furo-data-object type='person.PersonCollection' @-object-ready="--daoPersonCollection" ƒ-inject-raw='--refCol'></furo-data-object>
       <furo-collection-agent
         service="PersonService"
         ƒ-hts-in="--entityTaskReady(*.owner.link._value)"

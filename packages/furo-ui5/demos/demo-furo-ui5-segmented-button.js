@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -94,16 +94,10 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
               ƒ-bind-options="--collection(*.entities)"
               ƒ-bind-data="--entity(*.owner.id)"
             >
-              <ui5-segmented-button-item data-id="A" icon="menu"
-                >Option A</ui5-segmented-button-item
-              >
-              <ui5-segmented-button-item data-id="B"
-                >Option B with a very long text</ui5-segmented-button-item
-              >
+              <ui5-segmented-button-item data-id="A" icon="menu">Option A</ui5-segmented-button-item>
+              <ui5-segmented-button-item data-id="B">Option B with a very long text</ui5-segmented-button-item>
               <ui5-segmented-button-item data-id="C">Option C</ui5-segmented-button-item>
-              <ui5-segmented-button-item data-id="D" design="Negative"
-                >Option D</ui5-segmented-button-item
-              >
+              <ui5-segmented-button-item data-id="D" design="Negative">Option D</ui5-segmented-button-item>
             </furo-ui5-data-segmented-button>
 
             <div>
