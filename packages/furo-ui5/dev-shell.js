@@ -4,7 +4,7 @@ import { FBP } from '@furo/fbp';
 import '@furo/doc-helper/src/component-doc/initWithServices.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import('./src/lib/init.js').then(() => {
+import('./src/lib/init.js').then(async () => {
   // import with @furo/... because we are in a monorepo
   // eslint-disable-next-line import/no-extraneous-dependencies
   import('@furo/ui5/src/furo-catalog.js');

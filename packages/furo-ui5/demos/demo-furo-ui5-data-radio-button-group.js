@@ -98,9 +98,16 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.owner.id)"
             >
               <ui5-radio-button text="Option A" selected name="Owner"></ui5-radio-button>
-              <ui5-radio-button text="Option B with a very long text" name="Owner"></ui5-radio-button>
+              <ui5-radio-button
+                text="Option B with a very long text"
+                name="Owner"
+              ></ui5-radio-button>
               <ui5-radio-button text="Option C" name="Owner"></ui5-radio-button>
-              <ui5-radio-button text="Option D" name="Owner" value-state="Warning"></ui5-radio-button>
+              <ui5-radio-button
+                text="Option D"
+                name="Owner"
+                value-state="Warning"
+              ></ui5-radio-button>
             </furo-ui5-data-radio-button-group>
 
             <div>
