@@ -136,7 +136,11 @@ class FormSectionOne extends FBP(LitElement) {
       </furo-form-layouter>
 
       <furo-data-object type="task.Task" @-object-ready="--entityTaskReady"></furo-data-object>
-      <furo-data-object type='person.PersonCollection' @-object-ready="--daoPersonCollection" ƒ-inject-raw='--refCol'></furo-data-object>
+      <furo-data-object
+        type="person.PersonCollection"
+        @-object-ready="--daoPersonCollection"
+        ƒ-inject-raw="--refCol"
+      ></furo-data-object>
       <furo-collection-agent
         service="PersonService"
         ƒ-hts-in="--entityTaskReady(*.owner.link._value)"

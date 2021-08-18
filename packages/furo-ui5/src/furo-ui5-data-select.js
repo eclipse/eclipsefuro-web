@@ -452,7 +452,6 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
      */
     if (this.activeFieldBinding) {
       setTimeout(() => {
-
         this.selectOptionById(this._tmpValue);
       }, 0);
     }

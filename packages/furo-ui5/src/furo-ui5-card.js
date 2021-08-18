@@ -248,25 +248,27 @@ export class FuroUi5Card extends FBP(LitElement) {
    */
   render() {
     return html`
-      <ui5-card
-        ?no-content-padding="${this.noContentPadding}">
-        <ui5-card-header @-click="^^header-clicked"
-                         slot="header"
-                         ?interactive="${this.headerInteractive}"
-                         title-text="${this.heading}"
-                         subtitle-text="${this.subheading}" status="${this.status}">
+      <ui5-card ?no-content-padding="${this.noContentPadding}">
+        <ui5-card-header
+          @-click="^^header-clicked"
+          slot="header"
+          ?interactive="${this.headerInteractive}"
+          title-text="${this.heading}"
+          subtitle-text="${this.subheading}"
+          status="${this.status}"
+        >
           ${this.icon.length
             ? html`
-              <ui5-icon name="${this.icon}" slot="avatar"></ui5-icon>
-            `
+                <ui5-icon name="${this.icon}" slot="avatar"></ui5-icon>
+              `
             : html``}
           ${this.status !== ''
             ? html``
             : html`
-              <div slot="action">
-                <slot name="action"></slot>
-              </div>
-            `}
+                <div slot="action">
+                  <slot name="action"></slot>
+                </div>
+              `}
         </ui5-card-header>
 
         <div class="content">
