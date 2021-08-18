@@ -360,7 +360,7 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
       this._tmpFAT = val;
-      this.value = val.value;
+      this.value = val.value === null ? '' : val.value;
       // set empty value when label empty was given
       if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
         this.value = null;
@@ -368,7 +368,7 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
       this._updateAttributesFromFat(this._tmpFAT.attributes);
       this._updateLabelsFromFat(this._tmpFAT.labels);
     } else {
-      this.value = val;
+      this.value = val === null ? '' : val;
     }
   }
 

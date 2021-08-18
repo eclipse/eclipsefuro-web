@@ -472,7 +472,7 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
           ?required=${this.required}
           ƒ-bind-data="--data(*.currency_code)"
           ƒ-.suggestions="--suggestions"
-          @-value-changed=":STOP, --inputInput(*)"
+          @-field-value-changed=":STOP, --inputInput(*)"
         ></furo-ui5-data-text-input>
       </furo-horizontal-flex>
     `;

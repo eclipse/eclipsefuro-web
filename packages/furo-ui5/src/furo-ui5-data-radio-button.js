@@ -96,7 +96,7 @@ export class FuroUi5DataRadioButton extends FieldNodeAdapter(RadioButton.default
       design: null,
     };
 
-    this.addEventListener('select', this._updateFNA);
+    this.addEventListener('change', this._updateFNA);
   }
 
   /**
@@ -127,7 +127,7 @@ export class FuroUi5DataRadioButton extends FieldNodeAdapter(RadioButton.default
    */
   _updateFNA() {
     if (this.isFat()) {
-      this._tmpFAT.value = this.selected;
+      this._tmpFAT.value = this.checked;
       // set modified on changes
       if (this._tmpFAT.labels === null) {
         this._tmpFAT.labels = {};
@@ -136,11 +136,11 @@ export class FuroUi5DataRadioButton extends FieldNodeAdapter(RadioButton.default
 
       this.setFnaFieldValue(this._tmpFAT);
     } else {
-      this.setFnaFieldValue(this.selected);
+      this.setFnaFieldValue(this.checked);
     }
 
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
-    customEvent.detail = this.selected;
+    customEvent.detail = this.checked;
     this.dispatchEvent(customEvent);
   }
 
