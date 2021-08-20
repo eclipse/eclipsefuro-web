@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.10.2...@furo/route@1.10.3) (2021-08-20)
+
+
+### Bug Fixes
+
+* location updates on every trigger of setQP or setHash, even when the same data is set. ([45d2dbf](https://github.com/theNorstroem/FuroBaseComponents/commit/45d2dbf85b308d9af077eb5d8bc073cfdc986b9a))
+
+
+
+
+
 ## [1.10.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.10.1...@furo/route@1.10.2) (2021-07-30)
 
 **Note:** Version bump only for package @furo/route

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.30.2...@furo/data@1.31.0) (2021-08-20)
+
+
+### Features
+
+* furoBaseSpecs upgraded and switched from spectools to furo ([67c7921](https://github.com/theNorstroem/FuroBaseComponents/commit/67c79212af0da89d43739163bc45a502b3b7dadc))
+
+
+
+
+
 ## [1.30.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.30.1...@furo/data@1.30.2) (2021-07-30)
 
 **Note:** Version bump only for package @furo/data

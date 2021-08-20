@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.37.1...@furo/ui5@0.37.2) (2021-08-20)
+
+
+### Bug Fixes
+
+* correct sync of property options from Ui5 Select ([1d8f2ad](https://github.com/theNorstroem/FuroBaseComponents/commit/1d8f2ad73fa0ee7076e2b36c9784d78ab8fee5f5))
+
+
+
+
+
 ## [0.37.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.37.0...@furo/ui5@0.37.1) (2021-08-11)
 
 

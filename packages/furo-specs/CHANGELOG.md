@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/specs@1.23.0...@furo/specs@1.24.0) (2021-08-20)
+
+
+### Features
+
+* furoBaseSpecs upgraded and switched from spectools to furo ([67c7921](https://github.com/eclipse/eclipsefuro-web/commit/67c79212af0da89d43739163bc45a502b3b7dadc))
+
+
+
+
+
 # [1.23.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/specs@1.22.0...@furo/specs@1.23.0) (2021-07-21)
 
 
