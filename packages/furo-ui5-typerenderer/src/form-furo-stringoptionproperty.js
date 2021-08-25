@@ -7,7 +7,4 @@ class FormFuroStringoptionproperty extends FuroUi5DataSelectLabeled {
   }
 }
 
-window.customElements.define(
-  'form-furo-stringoptionproperty',
-  FormFuroStringoptionproperty,
-);
+window.customElements.define('form-furo-stringoptionproperty', FormFuroStringoptionproperty);

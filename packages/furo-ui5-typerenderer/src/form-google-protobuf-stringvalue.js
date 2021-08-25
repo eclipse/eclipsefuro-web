@@ -5,7 +5,4 @@ class FormGoogleProtobufStringvalue extends FuroUi5DataTextInputLabeled {
     super.bindData(fieldNode);
   }
 }
-window.customElements.define(
-  'form-google-protobuf-stringvalue',
-  FormGoogleProtobufStringvalue,
-);
+window.customElements.define('form-google-protobuf-stringvalue', FormGoogleProtobufStringvalue);

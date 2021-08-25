@@ -83,7 +83,6 @@ import './cell-google-protobuf-stringvalue.js';
 import './cell-google-protobuf-timestamp.js';
 import './cell-google-protobuf-any.js';
 
-
 import './celledit-string.js';
 import './celledit-int32.js';
 import './celledit-uint32.js';
@@ -122,8 +121,6 @@ import './celledit-furo-numberproperty.js';
 import './celledit-furo-integerproperty.js';
 import './celledit-furo-stringoptionproperty.js';
 import './celledit-furo-stringproperty.js';
-
-
 
 import './form-string.js';
 import './form-int32.js';

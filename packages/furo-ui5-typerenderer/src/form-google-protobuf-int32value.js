@@ -11,7 +11,4 @@ import { FormInt32 } from './form-int32.js';
  */
 class FormGoolgeProtobufIn32value extends FormInt32 {}
 
-window.customElements.define(
-  'form-google-protobuf-int32value',
-  FormGoolgeProtobufIn32value,
-);
+window.customElements.define('form-google-protobuf-int32value', FormGoolgeProtobufIn32value);

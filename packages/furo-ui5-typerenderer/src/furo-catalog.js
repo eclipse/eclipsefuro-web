@@ -1,1 +1,1 @@
-import './display-registry.js'
+import './registry.js';

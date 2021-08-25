@@ -11,7 +11,4 @@ import { FormInt32 } from './form-int32.js';
  */
 class FormGoolgeProtobufIn64value extends FormInt32 {}
 
-window.customElements.define(
-  'form-google-protobuf-int64value',
-  FormGoolgeProtobufIn64value,
-);
+window.customElements.define('form-google-protobuf-int64value', FormGoolgeProtobufIn64value);
