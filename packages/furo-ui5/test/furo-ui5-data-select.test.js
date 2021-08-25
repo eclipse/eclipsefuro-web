@@ -625,11 +625,10 @@ describe('furo-ui5-data-select', () => {
     daoCollection.addEventListener('data-injected', () => {
       assert.equal(input.activeFieldBinding, true);
       dao.data.data.description._value = '3';
-
       setTimeout(() => {
         assert.equal(input._syncedOptions[2].selected, true);
         done();
-      }, 16);
+      }, 116);
     });
 
     daoCollection.injectRaw(options);
