@@ -435,6 +435,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
           optionItem.setAttribute('disabled', 'true')
         }
 
+        if (item.icon !== undefined) {
+          optionItem.setAttribute('icon', item.icon)
+        }
+
         optionItem.innerText = FuroUi5DataSelect.getValueByPath(
           item,
           this._privilegedAttributes['display-field-path'],

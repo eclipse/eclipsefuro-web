@@ -124,7 +124,7 @@
       {
         "data": {
           "@type": "xx/furo.StringOptionProperty",
-          "id": "bb",
+          "id": "00",
           "display_name": "The display Ab"
         },
 
@@ -140,17 +140,19 @@
                 "options": {
                   "list": [
                     {
-                      "id": "0",
+                      "id": "00",
                       "display_name": "Please select",
+                      "icon" : "globe",
                       "disabled": true
                     },
                     {
                       "id": "aa",
-                      "display_name": "The display a"
+                      "display_name": "option a"
+
                     },
                     {
                       "id": "bb",
-                      "display_name": "The display b"
+                      "display_name": "option b"
                     }
                   ]
                 }
