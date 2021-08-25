@@ -57,8 +57,7 @@
           "@type": "xx/google.type.Date",
           "day": 8,
           "month": 11,
-          "year": 2022,
-          "display_name": "8.11.2022"
+          "year": 2021
         },
         "display_name": "A google.type.Date",
         "id": "a",
@@ -69,7 +68,7 @@
               "meta": {
                 "label": "Google Date",
                 "hint": "Additional information",
-                "readonly": true
+                "readonly": false
               },
               "constraints": {
                 "min": {
@@ -126,7 +125,7 @@
         "data": {
           "@type": "xx/furo.StringOptionProperty",
           "id": "bb",
-          "display_name": "The display b"
+          "display_name": "The display Ab"
         },
 
         "id": "444",

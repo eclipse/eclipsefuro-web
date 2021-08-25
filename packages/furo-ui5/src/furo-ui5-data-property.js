@@ -1,19 +1,16 @@
-import { LitElement, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
-import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js';
+import { LitElement, css } from 'lit-element'
+import { Theme } from '@furo/framework/src/theme'
+import { FBP } from '@furo/fbp'
+import { NodeEvent } from '@furo/framework/src/EventTreeNode.js'
+import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js'
 
 /**
  * `furo-ui5-data-property`
- *  Field for type furo.Property. It works with repeated types an nonrepeating type. Supported
+ *  Field for type furo.Property. This can be used to display "dynamic" fields aka properties.
+ *  It works with repeated types and non repeating property types.
  *
  *  ```html
- *  <!-- single Property -->
  *  <furo-ui5-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-ui5-data-property>
- *  <!-- repeated Property -->
- *  <furo-ui5-data-property ƒ-bind-data="--entity(*.type_property)"></furo-ui5-data-property>
- *
  *  ```
  *
  *  ## Example data for the data-object looks like this
@@ -99,147 +96,130 @@ import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js'
  */
 export class FuroUi5DataProperty extends FBP(LitElement) {
   bindData(propertyField) {
-    this.field = propertyField;
+    this.field = propertyField
 
     if (propertyField._isRepeater) {
       // we want a fresh list on every update of the list, because the types and order of the list items can change
       // eslint-disable-next-line no-param-reassign
-      propertyField.clearListOnNewData = true;
+      propertyField.clearListOnNewData = true
 
       // add flow repeat to parent and inject on repeated changes
       // repeated
-      const r = document.createElement('flow-repeat');
-      r.setAttribute('identity-path', 'id._value');
+      const r = document.createElement('flow-repeat')
+      r.setAttribute('identity-path', 'id._value')
 
-      let attrs = '';
-      const l = this.attributes.length;
+      let attrs = ''
+      const l = this.attributes.length
       // eslint-disable-next-line no-plusplus
       for (let i = 0; i < l; ++i) {
-        const { nodeName } = this.attributes.item(i);
-        const { nodeValue } = this.attributes.item(i);
+        const { nodeName } = this.attributes.item(i)
+        const { nodeValue } = this.attributes.item(i)
         if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
-          attrs += `${nodeName}="${nodeValue}"`;
+          attrs += `${nodeName}="${nodeValue}"`
         }
       }
-      r.innerHTML = `<template><furo-ui5-data-property ƒ-bind-data="--init" ${attrs}></furo-ui5-data-property></template>`;
+      r.innerHTML = `<template><furo-ui5-data-property ƒ-bind-data='--init' ${attrs}></furo-ui5-data-property></template>`
 
-      const repeater = this.parentNode.insertBefore(r, this);
-      this._createdRepeater = repeater;
+      const repeater = this.parentNode.insertBefore(r, this)
+      this._createdRepeater = repeater
 
       this.field.addEventListener('this-repeated-field-changed', () => {
-        repeater.injectItems(this.field.repeats);
-      });
+        repeater.injectItems(this.field.repeats)
+      })
       // inject if data is already here
       if (this.field.repeats.length > 0) {
-        repeater.injectItems(this.field.repeats);
+        repeater.injectItems(this.field.repeats)
       }
     } else {
       // data already in data-object
       // eslint-disable-next-line no-lonely-if
       if (this.field.data['@type']) {
-        this._createPropComponent(propertyField);
+        this._createPropComponent(propertyField)
       } else {
         this.field.data.addEventListener(
           'branch-value-changed',
           () => {
-            this._createPropComponent(propertyField);
+            this._createPropComponent(propertyField)
           },
           { once: true },
-        );
+        )
       }
     }
   }
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      const type = propertyField.data['@type']._value.replace(/.*\//, '');
-      let e;
+      const type = propertyField.data['@type']._value.replace(/.*\//, '')
 
-      // TODO, should check for the better generic solution
-      if (
-        type === 'furo.Reference' &&
-        propertyField.data &&
-        propertyField.data.link &&
-        propertyField.data.link.type
-      ) {
-        const c = `${propertyField.data.link.type._value.replace('.', '-')}-reference-search`;
-        e = document.createElement(c);
-      } else {
-        e = document.createElement(Ui5PropertyStandardMapping.typeMap[type]);
-      }
+      this.context = 'celledit'
+      this.renderName = `${this.context}-${type
+        .replace(/.*\//, '')
+        .replaceAll('.', '-')
+        .replaceAll('_', '-')
+        .toLocaleLowerCase()}`
+
+      const e = document.createElement(this.renderName)
+
 
       /**
        * Append all additional flags
        */
       if (propertyField.flags && propertyField.flags.repeats.length) {
-        const len = propertyField.flags.repeats.length;
+        const len = propertyField.flags.repeats.length
         // eslint-disable-next-line no-plusplus
         for (let f = 0; f < len; ++f) {
-          const flag = propertyField.flags.repeats[f]._value;
+          const flag = propertyField.flags.repeats[f]._value
           if (!flag.startsWith('@') && !flag.startsWith('ƒ')) {
-            e.setAttribute(flag, '');
+            e.setAttribute(flag, '')
           }
         }
       }
 
       // Grab all of the original's attributes, and pass them to the replacement
-      const l = this.attributes.length;
+      const l = this.attributes.length
       // eslint-disable-next-line no-plusplus
       for (let i = 0; i < l; ++i) {
-        const { nodeName } = this.attributes.item(i);
-        const { nodeValue } = this.attributes.item(i);
+        const { nodeName } = this.attributes.item(i)
+        const { nodeValue } = this.attributes.item(i)
         if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
-          e.setAttribute(nodeName, nodeValue);
+          e.setAttribute(nodeName, nodeValue)
         }
       }
 
       if (e.bindData) {
         switch (type) {
           // the input elements for string and number are just working with scalar values
-          case 'furo.StringProperty':
-          case 'furo.NumberProperty':
-          case 'furo.IntegerProperty':
-            e.bindData(propertyField.data.data);
-            break;
           case 'google.protobuf.FloatValue':
           case 'google.protobuf.Int32Value':
           case 'google.protobuf.UInt32Value':
           case 'google.protobuf.StringValue':
           case 'google.protobuf.BoolValue':
-            e.bindData(propertyField.data.value);
-            break;
-          case 'furo.fat.String':
-          case 'furo.fat.Int32':
-          case 'furo.fat.Int64':
-          case 'furo.fat.Bool':
-            e.bindData(propertyField.data);
-            break;
-          case 'furo.StringOptionProperty':
-            e.setAttribute('value-sub-field', 'id');
-            e.bindData(propertyField.data);
-            break;
+            e.bindData(propertyField.data.value)
+            break
+
           default:
-            e.bindData(propertyField.data);
+            e.bindData(propertyField.data)
         }
 
-        this._createdProp = this.parentNode.insertBefore(e, this);
+
+        this._createdProp = this.parentNode.insertBefore(e, this)
         propertyField.data.dispatchNodeEvent(
           new NodeEvent('this-metas-changed', propertyField.data, false),
-        );
-        this._property_created = true;
+        )
+        this._property_created = true
       } else {
         // eslint-disable-next-line no-console
-        console.warn(propertyField.data['@type']._value, 'not in map', this);
+        console.warn(propertyField.data['@type']._value, 'not in map', this)
       }
     }
   }
 
   disconnectedCallback() {
     if (this._createdProp) {
-      this._createdProp.remove();
+      this._createdProp.remove()
     }
     if (this._createdRepeater) {
-      this._createdRepeater.remove();
+      this._createdRepeater.remove()
     }
   }
 
@@ -252,8 +232,8 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
           display: none;
         }
       `
-    );
+    )
   }
 }
 
-window.customElements.define('furo-ui5-data-property', FuroUi5DataProperty);
+window.customElements.define('furo-ui5-data-property', FuroUi5DataProperty)
