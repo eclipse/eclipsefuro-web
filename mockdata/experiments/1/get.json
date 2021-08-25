@@ -141,7 +141,8 @@
                   "list": [
                     {
                       "id": "0",
-                      "display_name": "Please select"
+                      "display_name": "Please select",
+                      "disabled": true
                     },
                     {
                       "id": "aa",

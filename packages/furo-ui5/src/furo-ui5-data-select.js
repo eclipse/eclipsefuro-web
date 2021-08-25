@@ -203,8 +203,8 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
   onFnaFieldValueChanged(val) {
     const type = this.getDataType()
     if (type === 'furo.StringOptionProperty') {
-      this._tmpValue = val.id;
-      this._stringOptionValue = val;
+      this._tmpValue = val.id
+      this._stringOptionValue = val
       this.selectOptionById(this._tmpValue)
       return
     }
@@ -431,6 +431,9 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
           'data-id',
           FuroUi5DataSelect.getValueByPath(item, this._privilegedAttributes['id-field-path']),
         )
+        if (item.disabled === true) {
+          optionItem.setAttribute('disabled', 'true')
+        }
 
         optionItem.innerText = FuroUi5DataSelect.getValueByPath(
           item,
@@ -548,12 +551,12 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       } else if (this.isWrapper()) {
         this._tmpValue = newValue === '' ? null : newValue
         this.setFnaFieldValue(newValue === '' ? null : newValue)
-      } else if ( this.getDataType() === 'furo.StringOptionProperty') {
-        this._stringOptionValue.id = newValue;
-        this._stringOptionValue.display_name = selectedOption.textContent;
+      } else if (this.getDataType() === 'furo.StringOptionProperty') {
+        this._stringOptionValue.id = newValue
+        this._stringOptionValue.display_name = selectedOption.textContent
         this.setFnaFieldValue(this._stringOptionValue)
         return
-      }else {
+      } else {
         this._tmpValue = newValue
         this.setFnaFieldValue(newValue === '' ? '' : newValue)
       }
