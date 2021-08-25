@@ -59,7 +59,7 @@ class DemoFuroUi5DataProperty extends FBP(LitElement) {
               <furo-form-layouter two>
 
                 <!-- repeated Property -->
-                <furo-ui5-data-property context='celledit'
+                <furo-ui5-data-property
                   ƒ-bind-data="--entity(*.data.type_property)"
                 ></furo-ui5-data-property>
               </furo-form-layouter>

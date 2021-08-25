@@ -20,7 +20,7 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@ui5/webcomponents-icons/dist/project-definition-triangle-2.js';
 import '@ui5/webcomponents-icons/dist/collaborate.js';
 
-import '../src/standard-type-renderers/display-registry.js';
+import '@furo/ui5-typerenderer/src/registry.js';
 
 /**
  * `demo-furo-ui5-data-table-repeats`

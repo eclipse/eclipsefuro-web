@@ -19,7 +19,7 @@ import '@furo/form/src/furo-form-layouter.js';
 import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@ui5/webcomponents-icons/dist/project-definition-triangle-2';
 
-import '../src/standard-type-renderers/display-registry.js';
+import '@furo/ui5-typerenderer/src/registry.js';
 import './helper/data-table-col-tmpl.js';
 import './helper/data-table-col-tmpl-link.js';
 

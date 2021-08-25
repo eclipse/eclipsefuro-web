@@ -29,6 +29,9 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
+
+  },
+  "peerDependencies": {
     "@furo/ui5": "^0.37.2",
     "@furo/fbp": "^5.10.2",
     "@ui5/webcomponents": "1.0.0-rc.14",

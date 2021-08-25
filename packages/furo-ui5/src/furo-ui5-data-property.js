@@ -2,7 +2,7 @@ import { LitElement, css } from 'lit-element'
 import { Theme } from '@furo/framework/src/theme'
 import { FBP } from '@furo/fbp'
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js'
-import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js'
+
 
 /**
  * `furo-ui5-data-property`
@@ -99,7 +99,7 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
   constructor() {
     super();
     // default context
-    this.context = 'celledit' // todo: switch to form when the type renderers are ready
+    this.context = 'form' // todo: switch to form when the type renderers are ready
   }
 
   bindData(propertyField) {
@@ -214,7 +214,7 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
         this._property_created = true
       } else {
         // eslint-disable-next-line no-console
-        console.warn(propertyField.data['@type']._value, 'not in map', this)
+        console.warn(e, ': bind-data missing or not imported', this)
       }
     }
   }
