@@ -95,6 +95,13 @@ import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js'
  * @appliesMixin FBP
  */
 export class FuroUi5DataProperty extends FBP(LitElement) {
+
+  constructor() {
+    super();
+    // default context
+    this.context = 'celledit' // todo: switch to form when the type renderers are ready
+  }
+
   bindData(propertyField) {
     this.field = propertyField
 
@@ -150,8 +157,6 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
   _createPropComponent(propertyField) {
     if (!this._property_created) {
       const type = propertyField.data['@type']._value.replace(/.*\//, '')
-
-      this.context = 'celledit'
       this.renderName = `${this.context}-${type
         .replace(/.*\//, '')
         .replaceAll('.', '-')
