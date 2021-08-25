@@ -19,7 +19,7 @@ module.exports = config => {
         // npm run test -- --grep test/foo/bar.test.js
         // npm run test -- --grep test/bar/*
         {
-          pattern: config.grep ? config.grep : 'packages/furo-ui5/test/**/*.test.js',
+          pattern: config.grep ? config.grep : 'packages/furo-ui5-typerenderer/test/**/*.test.js',
           type: 'module',
         },
       ],
