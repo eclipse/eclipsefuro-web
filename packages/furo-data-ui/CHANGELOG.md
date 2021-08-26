@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.10.4...@furo/data-ui@1.11.0) (2021-08-26)
+
+
+### Features
+
+* furo-ui5-typerenderers initial version ([bf754a0](https://github.com/theNorstroem/FuroBaseComponents/commit/bf754a04239d5071e8d7a4eac1a09249887a0cc2))
+
+
+
+
+
 ## [1.10.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.10.3...@furo/data-ui@1.10.4) (2021-08-20)
 
 **Note:** Version bump only for package @furo/data-ui

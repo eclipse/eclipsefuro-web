@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.37.2...@furo/ui5@0.38.0) (2021-08-26)
+
+
+### Features
+
+* furo-ui5-data-property with type renderers ([26e1646](https://github.com/theNorstroem/FuroBaseComponents/commit/26e1646bcac14387f84e4b80668fe298110e1f9e))
+* furo-ui5-data-property with type renderers ([f078d67](https://github.com/theNorstroem/FuroBaseComponents/commit/f078d67660f9e0f762e50900c620af1d4f2bd2e6))
+* furo-ui5-data-select options with disabled state ([b67ae80](https://github.com/theNorstroem/FuroBaseComponents/commit/b67ae8033fcada35ef18e6215e7b8c8a2f220f9c))
+* furo-ui5-data-select options with disabled state ([e96c8ff](https://github.com/theNorstroem/FuroBaseComponents/commit/e96c8fff83441d4e8f84c8023d4cf8cb438f86a7))
+* furo-ui5-typerenderers init ([8707c04](https://github.com/theNorstroem/FuroBaseComponents/commit/8707c043d5eccb2c7f98193e49217b29311b4d9e))
+* furo-ui5-typerenderers initial version ([bf754a0](https://github.com/theNorstroem/FuroBaseComponents/commit/bf754a04239d5071e8d7a4eac1a09249887a0cc2))
+
+
+
+
+
 ## [0.37.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.37.1...@furo/ui5@0.37.2) (2021-08-20)
 
 

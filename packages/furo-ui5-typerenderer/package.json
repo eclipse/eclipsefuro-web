@@ -1,7 +1,7 @@
 {
   "name": "@furo/ui5-typerenderer",
   "description": "Furo-ui5 type renderers",
-  "version": "0.37.2",
+  "version": "0.38.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-ui5-typerenderer",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,20 +28,17 @@
     "test:compatibility": "../../node_modules/.bin/karma start --compatibility all --coverage",
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
-  "dependencies": {
-
-  },
   "peerDependencies": {
-    "@furo/ui5": "^0.37.2",
     "@furo/fbp": "^5.10.2",
     "@furo/framework": "^1.8.2",
+    "@furo/ui5": "^0.37.2",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@furo/app": "^1.5.3",
-    "@furo/data": "^1.31.0",
+    "@furo/data": "^1.31.1",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
