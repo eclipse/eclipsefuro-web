@@ -35,10 +35,6 @@
     "@furo/ui5": "^0.37.2",
     "@furo/fbp": "^5.10.2",
     "@furo/framework": "^1.8.2",
-    "@ui5/webcomponents": "1.0.0-rc.14",
-    "@ui5/webcomponents-base": "0.34.0",
-    "@ui5/webcomponents-fiori": "1.0.0-rc.14",
-    "@ui5/webcomponents-icons": "1.0.0-rc.14",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {
