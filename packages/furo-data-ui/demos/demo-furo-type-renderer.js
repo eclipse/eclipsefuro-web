@@ -19,7 +19,7 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@furo/data-ui/src/furo-catalog.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/standard-type-renderers/display-registry.js';
+import '@furo/ui5-typerenderer/src/registry.js';
 
 /**
  * `demo-furo-type-renderer`

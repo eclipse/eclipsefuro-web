@@ -57,8 +57,7 @@
           "@type": "xx/google.type.Date",
           "day": 8,
           "month": 11,
-          "year": 2022,
-          "display_name": "8.11.2022"
+          "year": 2021
         },
         "display_name": "A google.type.Date",
         "id": "a",
@@ -69,7 +68,7 @@
               "meta": {
                 "label": "Google Date",
                 "hint": "Additional information",
-                "readonly": true
+                "readonly": false
               },
               "constraints": {
                 "min": {
@@ -125,8 +124,8 @@
       {
         "data": {
           "@type": "xx/furo.StringOptionProperty",
-          "id": "bb",
-          "display_name": "The display b"
+          "id": "00",
+          "display_name": "Please select"
         },
 
         "id": "444",
@@ -141,16 +140,19 @@
                 "options": {
                   "list": [
                     {
-                      "id": "0",
-                      "display_name": "Please select"
+                      "id": "00",
+                      "display_name": "Please select",
+                      "icon" : "globe",
+                      "disabled": true
                     },
                     {
                       "id": "aa",
-                      "display_name": "The display a"
+                      "display_name": "option a"
+
                     },
                     {
                       "id": "bb",
-                      "display_name": "The display b"
+                      "display_name": "option b"
                     }
                   ]
                 }

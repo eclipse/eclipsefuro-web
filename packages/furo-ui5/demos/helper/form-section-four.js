@@ -1,7 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
-import '../../src/standard-type-renderers/display-registry.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/ui5-typerenderer/src/registry.js';
+
 /**
  * `form-section-four`
  *

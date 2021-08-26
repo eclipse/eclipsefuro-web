@@ -2,18 +2,14 @@ import { LitElement, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
-import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js';
 
 /**
  * `furo-ui5-data-property`
- *  Field for type furo.Property. It works with repeated types an nonrepeating type. Supported
+ *  Field for type furo.Property. This can be used to display "dynamic" fields aka properties.
+ *  It works with repeated types and non repeating property types.
  *
  *  ```html
- *  <!-- single Property -->
  *  <furo-ui5-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-ui5-data-property>
- *  <!-- repeated Property -->
- *  <furo-ui5-data-property ƒ-bind-data="--entity(*.type_property)"></furo-ui5-data-property>
- *
  *  ```
  *
  *  ## Example data for the data-object looks like this
@@ -98,6 +94,12 @@ import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js'
  * @appliesMixin FBP
  */
 export class FuroUi5DataProperty extends FBP(LitElement) {
+  constructor() {
+    super();
+    // default context
+    this.context = 'form'; // todo: switch to form when the type renderers are ready
+  }
+
   bindData(propertyField) {
     this.field = propertyField;
 
@@ -121,7 +123,7 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
           attrs += `${nodeName}="${nodeValue}"`;
         }
       }
-      r.innerHTML = `<template><furo-ui5-data-property ƒ-bind-data="--init" ${attrs}></furo-ui5-data-property></template>`;
+      r.innerHTML = `<template><furo-ui5-data-property ƒ-bind-data='--init' ${attrs}></furo-ui5-data-property></template>`;
 
       const repeater = this.parentNode.insertBefore(r, this);
       this._createdRepeater = repeater;
@@ -153,20 +155,13 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
   _createPropComponent(propertyField) {
     if (!this._property_created) {
       const type = propertyField.data['@type']._value.replace(/.*\//, '');
-      let e;
+      this.renderName = `${this.context}-${type
+        .replace(/.*\//, '')
+        .replaceAll('.', '-')
+        .replaceAll('_', '-')
+        .toLocaleLowerCase()}`;
 
-      // TODO, should check for the better generic solution
-      if (
-        type === 'furo.Reference' &&
-        propertyField.data &&
-        propertyField.data.link &&
-        propertyField.data.link.type
-      ) {
-        const c = `${propertyField.data.link.type._value.replace('.', '-')}-reference-search`;
-        e = document.createElement(c);
-      } else {
-        e = document.createElement(Ui5PropertyStandardMapping.typeMap[type]);
-      }
+      const e = document.createElement(this.renderName);
 
       /**
        * Append all additional flags
@@ -196,11 +191,6 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
       if (e.bindData) {
         switch (type) {
           // the input elements for string and number are just working with scalar values
-          case 'furo.StringProperty':
-          case 'furo.NumberProperty':
-          case 'furo.IntegerProperty':
-            e.bindData(propertyField.data.data);
-            break;
           case 'google.protobuf.FloatValue':
           case 'google.protobuf.Int32Value':
           case 'google.protobuf.UInt32Value':
@@ -208,16 +198,7 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
           case 'google.protobuf.BoolValue':
             e.bindData(propertyField.data.value);
             break;
-          case 'furo.fat.String':
-          case 'furo.fat.Int32':
-          case 'furo.fat.Int64':
-          case 'furo.fat.Bool':
-            e.bindData(propertyField.data);
-            break;
-          case 'furo.StringOptionProperty':
-            e.setAttribute('value-sub-field', 'id');
-            e.bindData(propertyField.data);
-            break;
+
           default:
             e.bindData(propertyField.data);
         }
@@ -229,7 +210,7 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
         this._property_created = true;
       } else {
         // eslint-disable-next-line no-console
-        console.warn(propertyField.data['@type']._value, 'not in map', this);
+        console.warn(e, ': bind-data missing or not imported', this);
       }
     }
   }

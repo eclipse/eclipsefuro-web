@@ -5,7 +5,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 import '@furo/data/src/furo-data-object.js';
 
-import '../src/standard-type-renderers/display-registry.js';
+import '@furo/ui5-typerenderer/src/registry.js';
 import '../src/furo-catalog.js';
 import '../demos/helper/data-table-col-tmpl-link.js';
 

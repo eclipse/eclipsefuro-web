@@ -133,15 +133,17 @@ export class FuroDataObject extends LitElement {
   validateAllFields() {
     // broadcast validation
     this.data.validateAllFields();
-    if (this.data._isValid) {
-      const customEvent = new Event('validation-success', { composed: true, bubbles: true });
-      customEvent.detail = this.data;
-      this.dispatchEvent(customEvent);
-    } else {
-      const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
-      customEvent.detail = this.data;
-      this.dispatchEvent(customEvent);
-    }
+    setTimeout(() => {
+      if (this.data._isValid) {
+        const customEvent = new Event('validation-success', { composed: true, bubbles: true });
+        customEvent.detail = this.data;
+        this.dispatchEvent(customEvent);
+      } else {
+        const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
+        customEvent.detail = this.data;
+        this.dispatchEvent(customEvent);
+      }
+    }, 64);
   }
 
   /**

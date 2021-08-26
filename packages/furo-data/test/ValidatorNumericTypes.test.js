@@ -25,9 +25,6 @@ describe('ValidatorNumbericTypes', () => {
     await element.updateComplete;
   });
 
-
-
-
   // not every value will work, because of the behavior of the float type :-(
   it('should check step 0.02 constraint on float', done => {
     element.setAttribute('type', 'experiment.Constraints');
@@ -37,12 +34,11 @@ describe('ValidatorNumbericTypes', () => {
     ValidatorNumericTypes.validateConstraints(EntityRoot.float).then(
       () => {
         // must be valid
-        done()
+        done();
       },
       () => {},
     );
   });
-
 
   it('should check min constraint', done => {
     /**
@@ -98,6 +94,4 @@ describe('ValidatorNumbericTypes', () => {
       },
     );
   });
-
-
 });
