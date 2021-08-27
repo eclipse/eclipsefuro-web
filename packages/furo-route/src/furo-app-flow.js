@@ -1,4 +1,4 @@
-import { LitElement, css } from 'lit-element';
+import { LitElement, css } from 'lit';
 
 // to ensure that data is of type FuroAppFlow
 function TypeAppFlow(name) {

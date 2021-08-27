@@ -1,4 +1,4 @@
-import { css } from 'lit-element';
+import { css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
 

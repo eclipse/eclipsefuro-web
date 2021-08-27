@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -457,9 +457,9 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="av:web"></furo-icon-with-label>
         <furo-icon-with-label icon="av:web-asset"></furo-icon-with-label>
       </div>
-      
-      
-      
+
+
+
       <h2>Iconset communicationIcons</h2>
       <p>
       <pre>
@@ -519,7 +519,7 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="communication:voicemail"></furo-icon-with-label>
         <furo-icon-with-label icon="communication:vpn-key"></furo-icon-with-label>
       </div>
-     
+
       <h2>Iconset deviceIcons</h2>
       <p>
       <pre>
@@ -608,7 +608,7 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="device:wifi-lock"></furo-icon-with-label>
         <furo-icon-with-label icon="device:wifi-tethering"></furo-icon-with-label>
       </div>
-     
+
       <h2>Iconset editorIcons</h2>
       <p>
       <pre>
@@ -686,7 +686,7 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="editor:vertical-align-top"></furo-icon-with-label>
         <furo-icon-with-label icon="editor:wrap-text"></furo-icon-with-label>
       </div>
-     
+
       <h2>Iconset hardwareIcons</h2>
       <p>
       <pre>
@@ -744,7 +744,7 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="hardware:videogame-asset"></furo-icon-with-label>
         <furo-icon-with-label icon="hardware:watch"></furo-icon-with-label>
       </div>
-          
+
       <h2>Iconset imageIcons</h2>
       <p>
       <pre>
@@ -909,7 +909,7 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="image:wb-iridescent"></furo-icon-with-label>
         <furo-icon-with-label icon="image:wb-sunny"></furo-icon-with-label>
       </div>
-           
+
       <h2>Iconset mapsIcons</h2>
       <p>
       <pre>
@@ -987,7 +987,7 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="map:transfer-within-a-station"></furo-icon-with-label>
         <furo-icon-with-label icon="map:zoom-out-map"></furo-icon-with-label>
       </div>
-            
+
       <h2>Iconset notificationIcons</h2>
       <p>
       <pre>
@@ -1051,8 +1051,8 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="notification:wc"></furo-icon-with-label>
         <furo-icon-with-label icon="notification:wifi"></furo-icon-with-label>
       </div>
-      
-      
+
+
       <h2>Iconset placesIcons</h2>
       <p>
       <pre>
@@ -1081,8 +1081,8 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="places:smoking-rooms"></furo-icon-with-label>
         <furo-icon-with-label icon="places:spa"></furo-icon-with-label>
       </div>
-      
-      
+
+
       <h2>Iconset socialIcons</h2>
       <p>
       <pre>
@@ -1122,7 +1122,7 @@ class DemoFuroIconList extends FBP(LitElement) {
         <furo-icon-with-label icon="social:share"></furo-icon-with-label>
         <furo-icon-with-label icon="social:whatshot"></furo-icon-with-label>
       </div>
-     
+
     `;
   }
 }

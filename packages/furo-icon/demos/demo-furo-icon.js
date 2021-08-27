@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -68,7 +68,7 @@ class DemoFuroIcon extends FBP(LitElement) {
 
 import {Init} from "@furo/framework/src/furo.js";
 import {Iconset} from "@furo/framework/src/furo.js";
-        
+
 import {FuroBaseIcons} from "@furo/icon/assets/iconsets/baseIcons";
 Iconset.registerIconset("default", FuroBaseIcons);</pre
       >

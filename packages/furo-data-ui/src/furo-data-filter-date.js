@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from 'lit';
 import '@furo/data-input/src/furo-data-date-input.js';
 import '@furo/data-input/src/furo-data-collection-dropdown.js';
 import { BaseFilter } from './basefilter.js';

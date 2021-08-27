@@ -35,7 +35,7 @@
     "@furo/icon": "^1.5.3",
     "@furo/input": "^1.8.3",
     "@furo/layout": "^1.7.3",
-    "lit-element": "^2.3.1"
+    "lit": "^2.0.0-rc.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

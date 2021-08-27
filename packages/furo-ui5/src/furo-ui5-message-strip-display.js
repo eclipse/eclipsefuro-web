@@ -1,4 +1,4 @@
-import { LitElement, css } from 'lit-element';
+import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';

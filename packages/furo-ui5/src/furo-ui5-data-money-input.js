@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import './furo-ui5-form-field-container.js';
 // eslint-disable-next-line import/no-extraneous-dependencies

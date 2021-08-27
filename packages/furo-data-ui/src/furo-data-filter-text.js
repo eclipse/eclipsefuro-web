@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from 'lit';
 import '@furo/data-input/src/furo-data-text-input.js';
 import { BaseFilter } from './basefilter.js';
 /**
