@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 /**
  * `furo-ui5-data-propertylist-display` allows the user to show repeated properties (furo.Property) in a readonly mode.

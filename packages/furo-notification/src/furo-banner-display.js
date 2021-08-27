@@ -1,7 +1,7 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
 import 'markdown-it/dist/markdown-it.js';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 /**
  * `furo-banner-display`

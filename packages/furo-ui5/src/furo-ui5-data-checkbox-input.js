@@ -1,5 +1,5 @@
 import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
-import { css } from 'lit-element';
+import { css } from 'lit';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';

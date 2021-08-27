@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -76,8 +76,8 @@ class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
               ƒ-parse-grpc-status="--error"
             ></furo-snackbar>
           </div>
-          <!-- this furo-banner-display should be place on the main page once 
-            <furo-snackbar-display></furo-snackbar-display> 
+          <!-- this furo-banner-display should be place on the main page once
+            <furo-snackbar-display></furo-snackbar-display>
           -->
         </template>
       </furo-demo-snippet>

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -67,7 +67,7 @@ class DemoFuroButton extends FBP(LitElement) {
                 </td>
                 <td>
                   <furo-button disabled label="raised"></furo-button>
-                </td> 
+                </td>
                 <td>
                   <furo-button raised label="other"></furo-button>
                 </td>
@@ -75,7 +75,7 @@ class DemoFuroButton extends FBP(LitElement) {
                   <furo-button disabled raised label="raised"></furo-button>
                 </td>
               </tr>
-             
+
                <tr>
                 <td>primary</td>
                 <td>
@@ -83,7 +83,7 @@ class DemoFuroButton extends FBP(LitElement) {
                 </td>
                 <td>
                   <furo-button primary disabled label="primary"></furo-button>
-                </td> 
+                </td>
                 <td>
                   <furo-button primary raised label="primary"></furo-button>
                 </td>
@@ -139,7 +139,7 @@ class DemoFuroButton extends FBP(LitElement) {
                 </td>
               </tr>
             </table>
-           
+
           </template>
         </furo-demo-snippet>
 

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
@@ -70,6 +70,7 @@ export class FuroTree extends FBP(LitElement) {
         '>',
       ].join(''),
     ]);
+
   }
 
   /**
@@ -643,7 +644,7 @@ export class FuroTree extends FBP(LitElement) {
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
           <tr>
             <td>
-              ${this._treeItemTepmplate}
+              <furo-tree-item ƒ-bind-data="--itemInjected(*.item)" ƒ-search="--trigger"></furo-tree-item>
             </td>
           </tr>
         </template>

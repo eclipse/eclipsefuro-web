@@ -1,5 +1,5 @@
 /* eslint-disable  import/no-extraneous-dependencies */
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 

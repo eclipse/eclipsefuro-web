@@ -30,8 +30,7 @@
   "dependencies": {
     "@furo/fbp": "^5.10.2",
     "@furo/framework": "^1.8.2",
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.1"
+    "lit": "^2.0.0-rc.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

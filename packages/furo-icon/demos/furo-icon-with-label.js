@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
 import '@furo/layout';
 // eslint-disable-next-line import/no-extraneous-dependencies

@@ -1,5 +1,5 @@
 import { FBP } from '@furo/fbp';
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
 /**
