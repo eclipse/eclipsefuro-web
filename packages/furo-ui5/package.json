@@ -34,8 +34,8 @@
     "@furo/form": "^1.7.4",
     "@furo/framework": "^1.8.2",
     "@furo/layout": "^1.7.3",
-    "@ui5/webcomponents": "1.0.0-rc.15",
-    "@ui5/webcomponents-fiori": "1.0.0-rc.15",
+    "@ui5/webcomponents": "next",
+    "@ui5/webcomponents-fiori": "next",
     "lit": "^2.0.0-rc.3",
     "markdown-it": "^9.0.1"
   },
