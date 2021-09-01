@@ -181,7 +181,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     this._optionList.addEventListener('this-repeated-field-changed', () => {
       this._updateOptions();
     });
-
+    this._updateOptions();
     return true;
   }
 
