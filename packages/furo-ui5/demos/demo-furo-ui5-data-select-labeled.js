@@ -95,13 +95,7 @@ class DemoFuroUi5DataSelectLabeled extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.type_with_options)"
               value-state="Information"
             >
-              <div slot="valueStateMessage">
-                Information message. This furo-ui5-data-select-labeled has an active field binding
-                but no option list binding. The options are provided from the bound field
-                specification. When the user selects a value, the value-changed event is fired
-                (Payload: ui5-option element or object from the option list) and the value is set to
-                the bound field.
-              </div>
+
             </furo-ui5-data-select-labeled>
             <furo-ui5-data-text-input
               ƒ-bind-data="--entity(*.data.type_with_options)"
@@ -118,11 +112,7 @@ class DemoFuroUi5DataSelectLabeled extends FBP(LitElement) {
               value-field-path="data.id"
 
             >
-              <div slot="valueStateMessage">
-                <ui5-icon name='globe'></ui5-icon>
-                Information message. This furo-ui5-data-select has a field binding to a
-                google.protobuf.StringValue.
-              </div>
+
             </furo-ui5-data-select-labeled>
             <furo-ui5-data-text-input-labeled
               ƒ-bind-data="--entityU(*.data.wrapper_string)"
@@ -139,10 +129,7 @@ class DemoFuroUi5DataSelectLabeled extends FBP(LitElement) {
               value-field-path="data.id"
               value-state="Information"
             >
-              <div slot="valueStateMessage">
-                Information message. This furo-ui5-data-select has a field binding to a
-                furo.fat.String.
-              </div>
+
             </furo-ui5-data-select-labeled>
             <furo-ui5-data-text-input-labeled
               ƒ-bind-data="--entityU(*.data.fat_string)"
