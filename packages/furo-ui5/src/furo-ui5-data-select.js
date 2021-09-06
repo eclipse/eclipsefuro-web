@@ -271,10 +271,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    * @param validity
    */
   onFnaFieldNodeBecameInvalid(validity) {
-    if (validity.description) {
-      // this value state should not be saved as a previous value state
-      this._setValueStateMessage('Error', validity.description);
-    }
+    // if (validity.description) {
+    // this value state should not be saved as a previous value state
+    this._setValueStateMessage('Error', validity.description);
+    // }
   }
 
   /**
@@ -388,8 +388,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    */
   _setValueStateMessage(valueState, message) {
     this.valueState = valueState;
-    // element was created in constructor
-    this._valueStateElement.innerText = message;
+    if (message !== undefined) {
+      // element was created in constructor
+      this._valueStateElement.innerText = message;
+    }
   }
 
   /**
