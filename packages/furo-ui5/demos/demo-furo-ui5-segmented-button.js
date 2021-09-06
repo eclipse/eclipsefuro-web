@@ -94,10 +94,10 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
               ƒ-bind-options="--collection(*.entities)"
               ƒ-bind-data="--entity(*.owner.id)"
             >
-              <ui5-togglebutton data-id="A" icon="menu">Option A</ui5-togglebutton>
-              <ui5-togglebutton data-id="B">Option B with a very long text</ui5-togglebutton>
-              <ui5-togglebutton data-id="C">Option C</ui5-togglebutton>
-              <ui5-togglebutton data-id="D" design="Negative">Option D</ui5-togglebutton>
+              <ui5-toggle-button data-id="A" icon="menu">Option A</ui5-toggle-button>
+              <ui5-toggle-button data-id="B">Option B with a very long text</ui5-toggle-button>
+              <ui5-toggle-button data-id="C">Option C</ui5-toggle-button>
+              <ui5-toggle-button data-id="D" design="Negative">Option D</ui5-toggle-button>
             </furo-ui5-data-segmented-button>
 
             <div>

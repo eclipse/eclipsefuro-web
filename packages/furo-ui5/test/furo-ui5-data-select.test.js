@@ -600,13 +600,6 @@ describe('furo-ui5-data-select', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(input));
 
-  it('should bind options', done => {
-    daoCollection.injectRaw(options);
-    setTimeout(() => {
-      assert.equal(input._optionList.repeats.length, 4);
-      done();
-    }, 0);
-  });
 
   it('should bind a field node', done => {
     daoCollection.injectRaw(options);
@@ -628,7 +621,7 @@ describe('furo-ui5-data-select', () => {
       setTimeout(() => {
         assert.equal(input._syncedOptions[2].selected, true);
         done();
-      }, 116);
+      }, 316);
     });
 
     daoCollection.injectRaw(options);
