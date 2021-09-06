@@ -11,7 +11,8 @@ import './furo-ui5-data-select.js';
  * The furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according
  * to the design specification of SAP Fiori Design System.
  *
- * @slot {HTMLElement} valueStateMessage - defines the value state message that will be displayed as pop up under the input element.
+ * @slot {HTMLElement[1]} valueStateMessage - defines the value state message that will be displayed as pop up under the input element.
+ * Only one element is allowed, only the innerText is transfered to the select input.
  *
  * @fires {String} field-value-changed - Fires the field value when it changes.
  *
@@ -30,7 +31,9 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
     this.displayFieldPath = 'display_name';
   }
 
-  /**
+
+
+/**
    * Focuses the underlying ui5 input element
    * @param {Object} options https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
    */
@@ -45,6 +48,13 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires();
+
+    const target = this.shadowRoot.getElementById("Input");
+    const item = this.querySelector('*[slot="valueStateMessage"]')
+    if(item){
+      target._valueStateElement.innerHTML = item.innerHTML
+      item.remove();
+    }
   }
 
   static get properties() {
@@ -124,6 +134,10 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
+        .hidden{
+          display: none;
+        }
       `
     );
   }
@@ -168,9 +182,12 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
           ƒ-bind-options="--options"
           ƒ-focus="--focus"
         >
-          <slot slot="valueStateMessage" name="valueStateMessage"></slot>
         </furo-ui5-data-select>
       </furo-ui5-form-field-container>
+      <div class='hidden'>
+        <slot name="valueStateMessage"></slot>
+      </div>
+
     `;
   }
 }

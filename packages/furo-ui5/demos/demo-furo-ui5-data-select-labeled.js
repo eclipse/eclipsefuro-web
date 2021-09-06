@@ -116,9 +116,10 @@ class DemoFuroUi5DataSelectLabeled extends FBP(LitElement) {
               id-field-path="data.id"
               display-field-path="data.display_name"
               value-field-path="data.id"
-              value-state="Information"
+
             >
               <div slot="valueStateMessage">
+                <ui5-icon name='globe'></ui5-icon>
                 Information message. This furo-ui5-data-select has a field binding to a
                 google.protobuf.StringValue.
               </div>
