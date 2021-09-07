@@ -97,7 +97,7 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
   constructor() {
     super();
     // default context
-    this.context = 'form'; // todo: switch to form when the type renderers are ready
+    this.context = 'form';
   }
 
   bindData(propertyField) {
