@@ -5142,7 +5142,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-ui5-data-segmented-button`\nThe furo-ui5-data-segmented-button component represents a drop-down list. The items inside define the available\noptions by using the furo-ui5-data-segmented-button component.\n\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field_with_meta_options)\">\n</furo-ui5-data-segmented-button>\n```\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field)\">\n     <ui5-togglebutton pressed>Option A</ui5-togglebutton>\n     <ui5-togglebutton>Option B</ui5-togglebutton>\n</furo-ui5-data-segmented-button>\n```",
+          "description": "`furo-ui5-data-segmented-button`\nThe furo-ui5-data-segmented-button component represents a drop-down list. The items inside define the available\noptions by using the furo-ui5-data-segmented-button component.\n\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field_with_meta_options)\">\n</furo-ui5-data-segmented-button>\n```\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field)\">\n     <ui5-toggle-button pressed>Option A</ui5-toggle-button>\n     <ui5-toggle-button>Option B</ui5-toggle-button>\n</furo-ui5-data-segmented-button>\n```",
           "name": "FuroUi5DataSegmentedButton",
           "members": [
             {
@@ -5279,7 +5279,7 @@
               },
               "description": "Inner component tag",
               "privacy": "private",
-              "default": "'ui5-togglebutton'"
+              "default": "'ui5-toggle-button'"
             },
             {
               "kind": "field",

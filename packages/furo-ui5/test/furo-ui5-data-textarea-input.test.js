@@ -158,7 +158,6 @@ describe('furo-ui5-data-textarea-input', () => {
       assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.valueStateMessage.length, 1, 'check valueStateMessage');
       assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       done();
     }, 0);
   });

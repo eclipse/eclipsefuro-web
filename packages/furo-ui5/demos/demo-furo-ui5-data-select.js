@@ -260,13 +260,10 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
                 id-field-path="data.id"
                 display-field-path="data.display_name"
                 value-field-path="data.id"
-                value-state="Information"
+
               >
                 <ui5-option data-id="">Options not yet available</ui5-option>
-                <div slot="valueStateMessage">
-                  Information message. This furo-ui5-data-select has a field binding to a
-                  furo.fat.String.
-                </div>
+
               </furo-ui5-data-select>
             </furo-ui5-form-field-container>
             <furo-ui5-data-text-input-labeled

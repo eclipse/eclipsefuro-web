@@ -93,8 +93,8 @@ class Ui5DemoPlayground extends FBP(LitElement) {
             icon="${this.icon}"
           >
             <furo-form-layouter one slot="content">
-              <ui5-togglebutton @-click="--readonlyClicked(*)">readonly</ui5-togglebutton>
-              <ui5-togglebutton @-click="--disableClicked(*)">disabled</ui5-togglebutton>
+              <ui5-toggle-button @-click="--readonlyClicked(*)">readonly</ui5-toggle-button>
+              <ui5-toggle-button @-click="--disableClicked(*)">disabled</ui5-toggle-button>
             </furo-form-layouter>
 
             <furo-button-bar slot="action">
