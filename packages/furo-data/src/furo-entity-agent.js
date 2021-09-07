@@ -176,7 +176,10 @@ class FuroEntityAgent extends FBP(LitElement) {
         for (const index in dataObject.__childNodes) {
           const field = dataObject.__childNodes[index];
           const val = field._deltaValue;
-          if (val !== undefined) {
+          // send complete object on type any
+          if (field['@type']) {
+            body[field._name] = field._value;
+          } else if (val !== undefined) {
             // send null if null was set!!
             if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
               body[field._name] = {};

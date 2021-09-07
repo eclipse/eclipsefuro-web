@@ -11,7 +11,7 @@ import './furo-ui5-data-select.js';
  * The furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according
  * to the design specification of SAP Fiori Design System.
  *
- * @slot {HTMLElement} valueStateMessage - defines the value state message that will be displayed as pop up under the input element.
+ * Only one element is allowed, only the innerText is transfered to the select input.
  *
  * @fires {String} field-value-changed - Fires the field value when it changes.
  *
@@ -24,13 +24,14 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
-    this.valueState = 'None';
     this.idFieldPath = 'id';
     this.valueFieldPath = 'id';
     this.displayFieldPath = 'display_name';
   }
 
-  /**
+
+
+/**
    * Focuses the underlying ui5 input element
    * @param {Object} options https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
    */
@@ -53,17 +54,7 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
        * the label for the data-number-input
        */
       label: { type: String },
-      /**
-       * Defines the value state of the furo-ui5-data-select.
-       *
-       * Available options are:
-       * None
-       * Error
-       * Warning
-       * Success
-       * Information
-       */
-      valueState: { type: String, attribute: 'value-state' },
+
       /**
        * A Boolean attribute which, if present, means this field is required and marked with *.
        */
@@ -124,6 +115,10 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
+        .hidden{
+          display: none;
+        }
       `
     );
   }
@@ -160,7 +155,6 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
           id="Input"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
-          value-state="${this.valueState}"
           id-field-path=${this.idFieldPath}
           display-field-path=${this.displayFieldPath}
           value-field-path=${this.valueFieldPath}
@@ -168,7 +162,6 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
           ƒ-bind-options="--options"
           ƒ-focus="--focus"
         >
-          <slot slot="valueStateMessage" name="valueStateMessage"></slot>
         </furo-ui5-data-select>
       </furo-ui5-form-field-container>
     `;

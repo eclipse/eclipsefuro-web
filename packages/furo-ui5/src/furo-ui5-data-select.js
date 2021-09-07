@@ -130,7 +130,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     super.connectedCallback();
 
     // created to avoid the default messages from ui5
-    const vse = this.querySelector('div[slot="valueStateMessage"]');
+    const vse = this.querySelector('*[slot="valueStateMessage"]');
     if (vse === null) {
       this._valueStateElement = document.createElement('div');
       this._valueStateElement.setAttribute('slot', 'valueStateMessage');
@@ -140,6 +140,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       this._valueStateElement = vse;
       this._previousValueState.message = vse.innerText;
     }
+
   }
 
   /**
@@ -181,7 +182,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     this._optionList.addEventListener('this-repeated-field-changed', () => {
       this._updateOptions();
     });
-
+    this._updateOptions();
     return true;
   }
 
@@ -271,10 +272,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    * @param validity
    */
   onFnaFieldNodeBecameInvalid(validity) {
-    if (validity.description) {
-      // this value state should not be saved as a previous value state
-      this._setValueStateMessage('Error', validity.description);
-    }
+    // if (validity.description) {
+    // this value state should not be saved as a previous value state
+    this._setValueStateMessage('Error', validity.description);
+    // }
   }
 
   /**
@@ -388,8 +389,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    */
   _setValueStateMessage(valueState, message) {
     this.valueState = valueState;
-    // element was created in constructor
-    this._valueStateElement.innerText = message;
+    if (message !== undefined) {
+      // element was created in constructor
+      this._valueStateElement.innerText = message;
+    }
   }
 
   /**
@@ -455,7 +458,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       });
 
       optionNodeList.forEach(newOpt => {
-        this.appendChild(newOpt);
+        this.insertBefore(newOpt, this._valueStateElement);
         this.options.push(newOpt);
       });
     }

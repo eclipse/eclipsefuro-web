@@ -8,6 +8,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
+import '../src/lib/ui5-icons.js';
 
 describe('furo-ui5-data-text-input-scalar', () => {
   let host;
@@ -91,7 +92,6 @@ describe('furo-ui5-data-text-input-scalar', () => {
       assert.equal(input._state.name, '', 'check name');
       assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, undefined, 'check maxlength');
-      assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       done();
     }, 16);
   });
@@ -145,8 +145,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
         assert.equal(input._state.name, '', 'check name');
         assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
         assert.equal(input._state.maxlength, undefined, 'check maxlength');
-        assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-        assert.equal(input.isFat(), false, 'check fieldFormat');
+          assert.equal(input.isFat(), false, 'check fieldFormat');
 
         assert.equal(
           input.shadowRoot.querySelector('input').value,

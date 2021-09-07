@@ -244,23 +244,7 @@ describe('furo-ui5-data-table-focus-tests', () => {
         tr,
       );
       done();
-    }, 10);
+    }, 210);
   });
 
-  it('should focus the last row via focusLast method', done => {
-    // initial data inject
-    dao.injectRaw(mockdata);
-    setTimeout(() => {
-      table.focusLast();
-
-      const tr3 = table.shadowRoot
-        .querySelectorAll('furo-ui5-table-row')[3]
-        .shadowRoot.querySelector('tr');
-      assert.equal(
-        table.shadowRoot.querySelectorAll('furo-ui5-table-row')[3].shadowRoot.activeElement,
-        tr3,
-      );
-      done();
-    }, 200);
-  });
 });
