@@ -194,8 +194,11 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
           case 'google.protobuf.FloatValue':
           case 'google.protobuf.Int32Value':
           case 'google.protobuf.UInt32Value':
+          case 'google.protobuf.Int64Value':
+          case 'google.protobuf.UInt64Value':
           case 'google.protobuf.StringValue':
           case 'google.protobuf.BoolValue':
+          case 'google.protobuf.DoubleValue':
             e.bindData(propertyField.data.value);
             break;
 
