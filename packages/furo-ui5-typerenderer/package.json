@@ -1,7 +1,7 @@
 {
   "name": "@furo/ui5-typerenderer",
   "description": "Furo-ui5 type renderers",
-  "version": "0.38.1",
+  "version": "0.38.2",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-ui5-typerenderer",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -38,7 +38,7 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@furo/app": "^1.5.3",
-    "@furo/data": "^1.31.1",
+    "@furo/data": "^1.31.2",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

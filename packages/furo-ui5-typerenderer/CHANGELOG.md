@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.38.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5-typerenderer@0.38.0...@furo/ui5-typerenderer@0.38.2) (2021-09-07)
+
+
+### Bug Fixes
+
+* typerenderer version ([cd70c9f](https://github.com/theNorstroem/FuroBaseComponents/commit/cd70c9f676e97972e3155e3e00985593c7f77b68))
+
+
+
+
+
 # 0.38.0 (2021-08-26)
 
 

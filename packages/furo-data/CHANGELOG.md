@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.31.1...@furo/data@1.31.2) (2021-09-07)
+
+
+### Bug Fixes
+
+* patch any type fields must send the complete object ([be6a867](https://github.com/theNorstroem/FuroBaseComponents/commit/be6a86736197fe21a9be3e0947873e36ac9f54e5))
+
+
+
+
+
 ## [1.31.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.31.0...@furo/data@1.31.1) (2021-08-26)
 
 **Note:** Version bump only for package @furo/data

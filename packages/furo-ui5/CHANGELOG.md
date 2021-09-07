@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.38.0...@furo/ui5@0.39.0) (2021-09-07)
+
+
+### Bug Fixes
+
+* patch any type fields must send the complete object ([be6a867](https://github.com/theNorstroem/FuroBaseComponents/commit/be6a86736197fe21a9be3e0947873e36ac9f54e5))
+* Set value state even when no message text was given ([112d40c](https://github.com/theNorstroem/FuroBaseComponents/commit/112d40ce6225322b0dd84c5dec62ba96ada63989))
+* value state message on labeled item ([e87f9cf](https://github.com/theNorstroem/FuroBaseComponents/commit/e87f9cf7356a24fd98f61c7ad7e50a8c61422666))
+* value state message removed from labeled select ([001092f](https://github.com/theNorstroem/FuroBaseComponents/commit/001092f0848f97a49f12cbc81d557c53af46ea5b))
+
+
+### Features
+
+* property type renderers ([7d75c7d](https://github.com/theNorstroem/FuroBaseComponents/commit/7d75c7df8589d24b126741ae4bf5a1864a7f316d))
+
+
+
+
+
 # [0.38.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.37.2...@furo/ui5@0.38.0) (2021-08-26)
 
 
