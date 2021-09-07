@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.38.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5-typerenderer@0.38.2...@furo/ui5-typerenderer@0.38.3) (2021-09-07)
+
+
+### Bug Fixes
+
+* package.json for ui5-typerenderer ([2d0d2b0](https://github.com/theNorstroem/FuroBaseComponents/commit/2d0d2b04e21757c5eca22393d4695d726f896377))
+
+
+
+
+
 ## [0.38.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5-typerenderer@0.38.0...@furo/ui5-typerenderer@0.38.2) (2021-09-07)
 
 
