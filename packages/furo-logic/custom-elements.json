@@ -157,6 +157,20 @@
               },
               "description": " Fired when the stack contents changes after put, drop,...",
               "name": "stack-changed"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when stack was swapped",
+              "name": "swapped"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when stack gets empty",
+              "name": "empty"
             }
           ],
           "superclass": {

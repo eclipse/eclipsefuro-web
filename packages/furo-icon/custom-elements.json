@@ -8,8 +8,42 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-icon`\n\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/src/iconset\n\n\n\n```js\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/src/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nYou can find some set in ./iconsets/...\n\nafter registering you can use those icons in furo-icon in any other component\n\n```html\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n```\n\nif you have imported an iconset with the name **default**, you can use the icon without set name:\n\n```html\n<furo-icon icon=\"iconName\" ></furo-icon>\n```\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
+          "description": "`furo-icon`\n\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/src/iconset\n\n```js\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\n\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/src/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nYou can find some set in ./iconsets/...\n\nafter registering you can use those icons in furo-icon in any other component\n\n```html\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n```\n\nif you have imported an iconset with the name **default**, you can use the icon without set name:\n\n```html\n<furo-icon icon=\"iconName\" ></furo-icon>\n```",
           "name": "FuroIcon",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "24px"
+              },
+              "description": "width of the icon",
+              "name": "--furo-icon-width",
+              "default": "24px"
+            },
+            {
+              "type": {
+                "text": "24px"
+              },
+              "description": "height of the icon",
+              "name": "--furo-icon-height",
+              "default": "24px"
+            },
+            {
+              "type": {
+                "text": "currentcolor"
+              },
+              "description": "fill color of the icon",
+              "name": "--furo-icon-fill-color",
+              "default": "currentcolor"
+            },
+            {
+              "type": {
+                "text": "none"
+              },
+              "description": "stroke color of the icon you can also define other properties lik viewport ,preserveAspectRatio...",
+              "name": "--furo-icon-stroke-color",
+              "default": "none"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -103,12 +137,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/sample-component.js",
-      "declarations": [],
-      "exports": []
     }
   ]
 }

@@ -199,13 +199,14 @@
               "kind": "field",
               "name": "stopOnCodeFound",
               "privacy": "public",
-              "description": "Description",
+              "description": "If true, scanning stops after the QR code is recognised",
               "attribute": "stop-on-code-found"
             },
             {
               "kind": "field",
               "name": "worker",
               "privacy": "public",
+              "description": "file path for a separate worker thread\nDefault: '/worker/qr-scanner-worker.min.js'",
               "attribute": "worker"
             }
           ],
@@ -221,11 +222,12 @@
           "attributes": [
             {
               "name": "stop-on-code-found",
-              "description": "Description",
+              "description": "If true, scanning stops after the QR code is recognised",
               "fieldName": "stopOnCodeFound"
             },
             {
               "name": "worker",
+              "description": "file path for a separate worker thread\nDefault: '/worker/qr-scanner-worker.min.js'",
               "fieldName": "worker"
             }
           ],
@@ -287,8 +289,7 @@
             },
             {
               "kind": "field",
-              "name": "onresult",
-              "default": "event => {\n      const speechToText = event.results[0][0].transcript;\n      console.log(event.results);\n\n      const customEvent = new Event('transcript', { composed: true, bubbles: true });\n      customEvent.detail = speechToText;\n      this.dispatchEvent(customEvent);\n    }"
+              "name": "onresult"
             },
             {
               "kind": "field",

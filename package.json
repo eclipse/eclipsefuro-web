@@ -4,10 +4,12 @@
   "devDependencies": {
     "husky": "^4.2.3",
     "lerna": "^3.20.2",
-    "polymer-cli": "^1.9.11"
+    "polymer-cli": "^1.9.11",
+    "@custom-elements-manifest/analyzer": "^0.5.3"
   },
   "scripts": {
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
+    "cem": "./scripts/cem.sh",
     "start": "./node_modules/.bin/es-dev-server  --app-index packages/furo-app/index.html --open",
     "test": "./node_modules/.bin/karma start --coverage",
     "lint:individual": "./scripts/lintIndividual.sh",

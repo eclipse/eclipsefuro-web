@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-app-bar-top` Application top bar",
+          "description": "`furo-app-bar-top`\nApplication top bar",
           "name": "FuroAppBarTop",
           "cssProperties": [
             {
@@ -26,6 +26,22 @@
               "description": "Dark background color",
               "name": "--furo-app-bar-top-background-dark",
               "default": "--primary-dark"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add elements to the app bar top.",
+              "name": ""
+            },
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "named slot to place additional elements.",
+              "name": "extended"
             }
           ],
           "members": [
@@ -158,8 +174,34 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "\nThe API may change, documentation will follow\n\n`furo-app-drawer`\ntodo Describe the element",
+          "description": "`furo-app-drawer`\nNavigation drawers provide access to destinations and app functionality, such as switching accounts.\nThey can either be permanently on-screen or controlled by a navigation menu icon.",
           "name": "FuroAppDrawer",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "rgba(0, 0, 0, 0.5)"
+              },
+              "description": "backdrop background color",
+              "name": "--furo-app-drawer-backdrop",
+              "default": "rgba(0, 0, 0, 0.5)"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement"
+              },
+              "description": "default slot to add app content.",
+              "name": ""
+            },
+            {
+              "type": {
+                "text": "HTMLElement"
+              },
+              "description": "named slot for the drawer destinations.",
+              "name": "drawer"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -313,8 +355,8 @@
           "attributes": [
             {
               "name": "float",
-              "description": "Use method floatDrawer or set this attribute to enable float mode",
-              "fieldName": "_isFloating"
+              "description": "let the menu float (hidden).",
+              "fieldName": "float"
             },
             {
               "name": "reverse",
@@ -325,11 +367,6 @@
               "name": "permanent",
               "description": "disables automatic floating mode",
               "fieldName": "permanent"
-            },
-            {
-              "name": "float",
-              "description": "let the menu float (hidden).",
-              "fieldName": "float"
             },
             {
               "name": "float-breakpoint",
@@ -374,8 +411,57 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-card`\n is a container with a shadow and slots for media, content, actions,...",
+          "description": "`furo-card`\n Cards contain content and actions about a single subject.\n https://material.io/design/components/cards.html",
           "name": "FuroCard",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "white"
+              },
+              "description": "card background color",
+              "name": "--furo-card-background",
+              "default": "--surface"
+            },
+            {
+              "type": {
+                "text": "8px"
+              },
+              "description": "card padding",
+              "name": "--furo-card-padding",
+              "default": "--spacing-xs"
+            },
+            {
+              "type": {
+                "text": "0"
+              },
+              "description": "card margin",
+              "name": "--furo-card-margin",
+              "default": "0"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add card content.",
+              "name": ""
+            },
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "named slot to add full screen media content.",
+              "name": "media"
+            },
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "named slot to add card actions (normally button bar or buttons)",
+              "name": "action"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -468,6 +554,15 @@
           "kind": "class",
           "description": "`loading-indicator`\nIndicates that something is in progress.\n\ntodo: make it like https://material.io/design/components/progress-indicators.html#",
           "name": "FuroLoadingIndicatorBar",
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "this is an unnamed default slot.",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -488,7 +583,7 @@
             "name": "LitElement",
             "package": "lit-element"
           },
-          "summary": "An ugly progress bar",
+          "summary": "progress bar",
           "tagName": "furo-loading-indicator-bar",
           "customElement": true
         }
@@ -523,7 +618,7 @@
               "kind": "field",
               "name": "start",
               "privacy": "public",
-              "description": "Description",
+              "description": "Flag indicating the current start mode",
               "attribute": "start",
               "reflects": true
             },
@@ -531,6 +626,7 @@
               "kind": "field",
               "name": "show",
               "privacy": "public",
+              "description": "Flag indicating the current show mode",
               "attribute": "show",
               "reflects": true
             }
@@ -538,11 +634,12 @@
           "attributes": [
             {
               "name": "start",
-              "description": "Description",
+              "description": "Flag indicating the current start mode",
               "fieldName": "start"
             },
             {
               "name": "show",
+              "description": "Flag indicating the current show mode",
               "fieldName": "show"
             }
           ],
@@ -578,7 +675,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-tooltip` is used to trigger a tooltip which is displayed by `furo-tooltip-display`.",
+          "description": "`furo-tooltip`\nis used to trigger a tooltip which is displayed by `furo-tooltip-display`.",
           "name": "FuroTooltip",
           "members": [
             {

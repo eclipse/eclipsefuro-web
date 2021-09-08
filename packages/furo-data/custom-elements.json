@@ -47,9 +47,7 @@
                 {
                   "name": "request"
                 }
-              ],
-              "description": "Requests are made via the Fetch API if possible.\nFallback XMLHttpRequest\n\n**payload** request object",
-              "privacy": "private"
+              ]
             },
             {
               "kind": "method",
@@ -96,32 +94,37 @@
             {
               "name": "fatal-error",
               "type": {
-                "text": "CustomEvent"
-              }
+                "text": "Request"
+              },
+              "description": "* Requests are made via the Fetch API if possible.Fallback XMLHttpRequest * @fires response-error-[status-code.firstChar]xx -    * Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx"
             },
             {
               "name": "request-started",
               "type": {
-                "text": "CustomEvent"
-              }
+                "text": "Request"
+              },
+              "description": "Fired when a request is sent."
             },
             {
               "name": "request-aborted",
               "type": {
-                "text": "CustomEvent"
-              }
+                "text": "Request"
+              },
+              "description": "Fired when a request was canceled."
             },
             {
               "name": "response-raw",
               "type": {
-                "text": "CustomEvent"
-              }
+                "text": "Object"
+              },
+              "description": "Fired when a response is received."
             },
             {
               "name": "response",
               "type": {
-                "text": "CustomEvent"
-              }
+                "text": "Object"
+              },
+              "description": "Fired when a response is received. Here you will get the parsed response Format depends on request header `content-type` supported types: - text/plain - application/json - image/jpeg (Blob) - application/octet-stream (ArrayBuffer) - application/pdf (Blob)"
             },
             {
               "name": "parse-error",
@@ -138,13 +141,21 @@
             {
               "name": "response-error",
               "type": {
-                "text": "CustomEvent"
-              }
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally."
             },
             {
               "type": {
                 "text": "CustomEvent"
               }
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a specific error event.",
+              "name": "response-error-[status-code]"
             }
           ],
           "superclass": {
@@ -540,6 +551,10 @@
               },
               "description": " Fired when hateoas was updated",
               "name": "hts-injected"
+            },
+            {
+              "description": "Fired if the request was successfully cancelled",
+              "name": "request-aborted"
             }
           ],
           "attributes": [
@@ -790,6 +805,10 @@
               },
               "description": " Fired when hts was updated by `ƒ-hts-in`.",
               "name": "hts-updated"
+            },
+            {
+              "description": "Fired if the request was successfully cancelled.",
+              "name": "request-aborted"
             }
           ],
           "attributes": [

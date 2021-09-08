@@ -22,7 +22,7 @@ if test -f "$CONF"; then
  echo $module
  # copy our manifest to the target
  cd $startDir/$module
- cem analyze --globs "src/**/*.js" --exclude **/furo-catalog.js --litelement
+ $cwd/node_modules/.bin/cem  analyze --globs "src/**/*.js" --exclude **/furo-catalog.js --litelement
 else
   echo "$CONF not found, skip $module "
 fi
