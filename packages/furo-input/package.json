@@ -2,8 +2,8 @@
   "name": "@furo/input",
   "description": "Base input components",
   "version": "1.8.3",
-  "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-input",
-  "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
+  "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-input",
+  "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
     "name": "",
     "email": "",

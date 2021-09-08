@@ -3,7 +3,7 @@
   "version": "5.10.2",
   "description": "Declarative programming with web-components.",
   "homepage": "https://furo.pro",
-  "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
+  "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
     "name": "",
     "email": "",

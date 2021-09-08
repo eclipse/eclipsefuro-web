@@ -2,8 +2,8 @@
   "name": "@furo/util",
   "version": "1.6.5",
   "description": "package sample",
-  "homepage": "https://github.com/veith/template-component-package",
-  "repository": "git@github.com:veith/template-component-package.git",
+  "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-util",
+  "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
     "name": "",
     "email": "",

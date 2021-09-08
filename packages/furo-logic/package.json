@@ -2,8 +2,8 @@
   "name": "@furo/logic",
   "description": "logic components for furo",
   "version": "1.5.2",
-  "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-logic",
-  "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
+  "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-logic",
+  "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
     "name": "",
     "email": "",

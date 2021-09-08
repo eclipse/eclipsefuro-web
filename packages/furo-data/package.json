@@ -2,8 +2,8 @@
   "name": "@furo/data",
   "description": "Furo data components",
   "version": "1.31.2",
-  "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-data",
-  "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
+  "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-data",
+  "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
     "name": "",
     "email": "",

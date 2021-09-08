@@ -2,8 +2,8 @@
   "name": "@furo/ui5-typerenderer",
   "description": "Furo-ui5 type renderers",
   "version": "0.38.3",
-  "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-ui5-typerenderer",
-  "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
+  "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-ui5-typerenderer",
+  "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
     "name": "",
     "email": "",
