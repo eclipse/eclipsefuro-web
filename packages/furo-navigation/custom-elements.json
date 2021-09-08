@@ -67,6 +67,40 @@
           "kind": "class",
           "description": "`furo-mini-tab-item`\ntodo Describe your element",
           "name": "FuroPanelCoordinatorTabItem",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#fafafa"
+              },
+              "description": "Border bottom color",
+              "name": "--surface",
+              "default": "N/A"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "foreground color",
+              "name": "--on-surface",
+              "default": "N/A"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "error color",
+              "name": "--error",
+              "default": "N/A"
+            },
+            {
+              "type": {
+                "text": "16px"
+              },
+              "description": "label padding, 0 var(--furo-button-padding, var(--spacing-s, 16px))",
+              "name": "--furo-button-padding",
+              "default": "--spacing-s"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -131,38 +165,31 @@
             },
             {
               "kind": "field",
-              "name": "_select",
-              "default": "() => {\n      this.selected = true;\n    }"
+              "name": "_select"
             },
             {
               "kind": "field",
-              "name": "_deselect",
-              "default": "() => {\n      this.selected = false;\n    }"
+              "name": "_deselect"
             },
             {
               "kind": "field",
-              "name": "_error",
-              "default": "() => {\n      this.haserror = true;\n    }"
+              "name": "_error"
             },
             {
               "kind": "field",
-              "name": "_inedit",
-              "default": "() => {\n      this.focused = true;\n    }"
+              "name": "_inedit"
             },
             {
               "kind": "field",
-              "name": "_focus",
-              "default": "() => {\n      this.focused = true;\n      // this.scrollIntoViewIfNeeded();\n      this.field.__tabHasFocus = true;\n      if (\n        this.scrollIntoViewIfNeeded &&\n        this.parentNode &&\n        this.parentNode.host.getAttribute('focused') !== null\n      ) {\n        this.scrollIntoViewIfNeeded();\n      }\n    }"
+              "name": "_focus"
             },
             {
               "kind": "field",
-              "name": "_unfocus",
-              "default": "() => {\n      this.field.__tabHasFocus = false;\n      this.focused = false;\n    }"
+              "name": "_unfocus"
             },
             {
               "kind": "field",
-              "name": "_clear",
-              "default": "() => {\n      this.inedit = false;\n      this.haserror = false;\n    }"
+              "name": "_clear"
             },
             {
               "kind": "field",
@@ -422,6 +449,104 @@
           "kind": "class",
           "description": "`furo-tree-item`\ntodo Describe your element",
           "name": "FuroTreeItem",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 1",
+              "name": "--tree-indentation-1",
+              "default": "16px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 2",
+              "name": "--tree-indentation-2",
+              "default": "32px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 3",
+              "name": "--tree-indentation-3",
+              "default": "48px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 4",
+              "name": "--tree-indentation-4",
+              "default": "56px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 5",
+              "name": "--tree-indentation-5",
+              "default": "64px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 6",
+              "name": "--tree-indentation-6",
+              "default": "72px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 7",
+              "name": "--tree-indentation-7",
+              "default": "80px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 8",
+              "name": "--tree-indentation-8",
+              "default": "88px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 9",
+              "name": "--tree-indentation-9",
+              "default": "92px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 10",
+              "name": "--tree-indentation-10",
+              "default": "96px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 11",
+              "name": "--tree-indentation-11",
+              "default": "100px"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "tree indention level 12",
+              "name": "--tree-indentation-12",
+              "default": "104px"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -615,8 +740,26 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-tree` renders a tree,",
+          "description": "`furo-tree`\nrenders a tree structure",
           "name": "FuroTree",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "background color",
+              "name": "--surface",
+              "default": "white"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "foreground color",
+              "name": "--on-surface",
+              "default": "#333333"
+            }
+          ],
           "members": [
             {
               "kind": "method",

@@ -8,8 +8,18 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-button` displays a button.\n\n ```html\n <!-- Label can be set with attribute -->\n <furo-button label=\"Label\"></furo-button>\n\n <!-- Label can be set inside tag -->\n <furo-button>Label</furo-button>\n ```\n<sample-furo-button></sample-furo-button>",
+          "description": "`furo-button`\nThe furo-button component represents a simple push button. It enables users to trigger actions by clicking or\ntapping the furo-button, or by pressing certain keyboard keys, such as Enter.\nhttps://material.io/components/buttons\n\n ```html\n <!-- Label can be set with attribute -->\n <furo-button label=\"Label\"></furo-button>\n\n <!-- Label can be set inside tag -->\n <furo-button>Label</furo-button>\n ```\n<sample-furo-button></sample-furo-button>",
           "name": "FuroButton",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "16px"
+              },
+              "description": "right padding",
+              "name": "--furo-button-padding",
+              "default": "--spacing-s"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -209,8 +219,66 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-checkbox-input`\n\nCheckbox input element which uses  `<furo-checkbox\">` element. In addition to that it has hint, label and error message\n\nCheckboxes allow the user to select multiple options from a set.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-checkbox-input label=\"This is the Label\"></furo-checkbox-input>\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-label-color` | Color of the label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5",
+          "description": "`furo-checkbox-input`\n\nCheckbox input element which uses  `<furo-checkbox\">` element. In addition to that it has hint, label and error message\n\nCheckboxes allow the user to select multiple options from a set.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-checkbox-input label=\"This is the Label\"></furo-checkbox-input>\n  </template>\n </furo-demo-snippet>",
           "name": "FuroCheckboxInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of the label when active",
+              "name": "--input-active-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -508,8 +576,122 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-checkbox`\n\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag.\n\nCheckboxes allow the user to to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-checkbox></furo-checkbox>\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--background` | hex: #ffffff\n`--input-checkbox-unselected-border-color` | border color of the unchecked checkbox | `--on-background` | hex: #7E7E7E\n`--input-checkbox-unselected-hover-bg-color-rgb` | background color of the unchecked checkbox by hovering | `--on-background-rgb` with `--state-hover` opacity | rgba: 33, 33, 33, 0.04\n`--input-checkbox-unselected-focus-bg-color-rgb` | background color of the unchecked checkbox by focusing | `--on-background-rgb` with `--state-focus` opacity | rgba: 33, 33, 33, 0.12\n`--input-checkbox-unselected-active-bg-color-rgb` | background color of the unchecked checkbox by pressing | `--on-background-rgb` with `--state-active` opacity | rgba: 33, 33, 33, 0.10\n`--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--primary` | hex: #6200FD\n`--input-checkbox-selected-hover-bg-color-rgb` | background color of the checked checkbox by hovering | `--primary-rgb`  with `--state-hover` opacity  | rgba: 76, 175, 80, 0.04\n`--input-checkbox-selected-focus-bg-color-rgb` | background color of the checked checkbox by focusing | `--primary-rgb`  with `--state-focus` opacity  | rgba: 76, 175, 80, 0.12\n`--input-checkbox-selected-active-bg-color-rgb` | background color of the checked checkbox by pressing | `--primary-rgb`  with `--state-active` opacity  | rgba: 76, 175, 80, 0.10\n`--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--on-background` | hex: #B9B9B9\n`--input-checkbox-disabled-selected-border-color-rgb` | border color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38\n`--input-checkbox-disabled-selected-bg-color-rgb` | background color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38\n`--input-checkbox-disabled-unselected-bg-color-rgb` | background color of the unchecked disabled checkbox | `--background-rgb`  with `--state-disabled` opacity| rgba: 238, 238, 238, 0.38\n`--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38",
+          "description": "`furo-checkbox`\n\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag.\n\nCheckboxes allow the user to to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-checkbox></furo-checkbox>\n  </template>\n </furo-demo-snippet>",
           "name": "FuroCheckbox",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#ffffff"
+              },
+              "description": "background color of the unchecked checkbox",
+              "name": "--input-checkbox-unselected-bg-color",
+              "default": "--background"
+            },
+            {
+              "type": {
+                "text": "#7E7E7E"
+              },
+              "description": "border color of the unchecked checkbox",
+              "name": "--input-checkbox-unselected-border-color",
+              "default": "--on-background"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.04"
+              },
+              "description": "background color of the unchecked checkbox by hovering",
+              "name": "--input-checkbox-unselected-hover-bg-color-rgb",
+              "default": "--on-background-rgb with --state-hover opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.12"
+              },
+              "description": "background color of the unchecked checkbox by focusing",
+              "name": "--input-checkbox-unselected-focus-bg-color-rgb",
+              "default": "--on-background-rgb with --state-focus opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.10"
+              },
+              "description": "background color of the unchecked checkbox by pressing",
+              "name": "--input-checkbox-unselected-active-bg-color-rgb",
+              "default": "--on-background-rgb with --state-active opacity"
+            },
+            {
+              "type": {
+                "text": "#6200FD"
+              },
+              "description": "background color of the checked checkbox",
+              "name": "--input-checkbox-selected-bg-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "rgba: 76, 175, 80, 0.04"
+              },
+              "description": "background color of the checked checkbox by hovering",
+              "name": "--input-checkbox-selected-hover-bg-color-rgb",
+              "default": "--primary-rgb  with --state-hover opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 76, 175, 80, 0.12"
+              },
+              "description": "background color of the checked checkbox by focusing",
+              "name": "--input-checkbox-selected-focus-bg-color-rgb",
+              "default": "--primary-rgb  with --state-focus opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 76, 175, 80, 0.10"
+              },
+              "description": "background color of the checked checkbox by pressing",
+              "name": "--input-checkbox-selected-active-bg-color-rgb",
+              "default": "--primary-rgb  with --state-active opacity"
+            },
+            {
+              "type": {
+                "text": "#B9B9B9"
+              },
+              "description": "background color of the checked disabled checkbox",
+              "name": "--input-checkbox-disabled-selected-bg-color",
+              "default": "--on-background"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.38"
+              },
+              "description": "border color of the checked disabled checkbox",
+              "name": "--input-checkbox-disabled-selected-border-color-rgb",
+              "default": "--on-background-rgb with --state-disabled opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.38"
+              },
+              "description": "background color of the checked disabled checkbox",
+              "name": "--input-checkbox-disabled-selected-bg-color-rgb",
+              "default": "--on-background-rgb with --state-disabled opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 238, 238, 238, 0.38"
+              },
+              "description": "background color of the unchecked disabled checkbox",
+              "name": "--input-checkbox-disabled-unselected-bg-color-rgb",
+              "default": "--background-rgb with --state-disabled opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.38"
+              },
+              "description": "border color of the unchecked disabled checkbox",
+              "name": "--input-checkbox-disabled-unselected-border-color",
+              "default": "--on-background-rgb with --state-disabled opacity"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -667,8 +849,130 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-chip`\n\nChips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.\n\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-chip  selected condensed text=\"selected\"  ></furo-chip>\n   <furo-chip  condensed text=\"selected\"  ></furo-chip>\n   <br/>\n   <br/>\n   <br/>\n   <furo-chip selected outlined  leading-icon=\"schedule\" trailing-icon=\"close\" text=\"hallo world\" ></furo-chip>\n   <furo-chip  outlined  leading-icon=\"schedule\" trailing-icon=\"close\" text=\"hallo world\" ></furo-chip>\n\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-chip-unselected--bg-color` | background color of the unselected chip | `--background` | hex: #eeeeee\n`--input-chip-outlined-unselected--bg-color` | background color of the unselected outlined chip |  | hex: #ffffff\n`--input-chip-selected-bg-color` | background color of the selected chip | `--primary` | hex: #4caf4f\n`--input-chip-selected-color` |  color of the selected chip | `--on-primary` | hex: #ffffff\n`--input-chip-outlined-selected-bg-color-rgb` | rgba color of the background of the selected chip |  `--primary-rgb` with `--state-active` opacity | rgba: 76, 175, 80, 0.10\n`--input-chip-outlined-selected-text-color` |  color of the text of the outlined selected chip |  `--primary`  | hex: #4caf50\n`--input-chip-outlined-selected-border-color` | border color of the outlined selected chip |  `--on-background`  | hex: #000000\n`--input-chip-outlined-selected-hover-bg-color-rgb` | rgba color of the background of the outlined selected chip by hovering|  `--on-background-rgb` with opacity `--state-hover` | rgba:  33, 33, 33, 0.04\n`--input-chip-unselected-hover-bg-color-rgb` | rgba color of the background of the unselected chip by hovering|  `--on-background-rgb` with opacity `--state-hover` | rgba:  33, 33, 33, 0.04\n`--input-chip-unselected-active-bg-color-rgb` | rgba color of the background of the unselected chip by clicking|  `--on-background-rgb` with opacity `--state-active` | rgba:  33, 33, 33, 0.10\n`--input-chip-unselected-focus-bg-color-rgb` | rgba color of the background of the unselected chip by focusing|  `--on-background-rgb` with opacity `--state-focus` | rgba:  33, 33, 33, 0.12\n`--input-chip-selected-active-bg-color-rgb` | rgba color of the background of the selected chip by clicking|  `--primary-rgb` with opacity `--state-active` | rgba:  76, 175, 80, 0.10\n`--input-chip-selected-focus-bg-color-rgb` | rgba color of the background of the selected chip by focusing|  `--primary-rgb` with opacity `--state-focus` | rgba:  76, 175, 80, 0.12\n`--input-chip-disabled-selected-bg-color-rgb` | rgba color of the background of the selected disabled chip|  `--on-background-rgb` with opacity `--state-disabled` | rgba:  33, 33, 33, 0.38\n`--input-chip-outlined-disabled-selected-bg-color-rgb` | rgba color of the background of the outlined selected disabled chip|  `--on-background-rgb` with opacity `--state-disabled` | rgba:  33, 33, 33, 0.38",
+          "description": "`furo-chip`\n\nChips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.\n\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-chip  selected condensed text=\"selected\"  ></furo-chip>\n   <furo-chip  condensed text=\"selected\"  ></furo-chip>\n   <br/>\n   <br/>\n   <br/>\n   <furo-chip selected outlined  leading-icon=\"schedule\" trailing-icon=\"close\" text=\"hallo world\" ></furo-chip>\n   <furo-chip  outlined  leading-icon=\"schedule\" trailing-icon=\"close\" text=\"hallo world\" ></furo-chip>\n\n  </template>\n </furo-demo-snippet>",
           "name": "FuroChip",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#eeeeee"
+              },
+              "description": "background color of the unselected chip",
+              "name": "--input-chip-unselected--bg-color",
+              "default": "--background"
+            },
+            {
+              "type": {
+                "text": "#ffffff"
+              },
+              "description": "background color of the unselected outlined chip",
+              "name": "--input-chip-outlined-unselected--bg-color",
+              "default": "--background"
+            },
+            {
+              "type": {
+                "text": "#4caf4f"
+              },
+              "description": "background color of the selected chip",
+              "name": "--input-chip-selected-bg-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#ffffff"
+              },
+              "description": "color of the selected chip",
+              "name": "--input-chip-selected-color",
+              "default": "--on-primary"
+            },
+            {
+              "type": {
+                "text": "rgba: 76, 175, 80, 0.10"
+              },
+              "description": "rgba color of the background of the selected chip",
+              "name": "--input-chip-outlined-selected-bg-color-rgb",
+              "default": "--primary-rgb with --state-active opacity"
+            },
+            {
+              "type": {
+                "text": "#4caf50"
+              },
+              "description": "color of the text of the outlined selected chip",
+              "name": "--input-chip-outlined-selected-text-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#000000"
+              },
+              "description": "border color of the outlined selected chip",
+              "name": "--input-chip-outlined-selected-border-color",
+              "default": "--on-background"
+            },
+            {
+              "type": {
+                "text": "rgba:  33, 33, 33, 0.04"
+              },
+              "description": "rgba color of the background of the outlined selected chip by hovering",
+              "name": "--input-chip-outlined-selected-hover-bg-color-rgb",
+              "default": "--on-background-rgb with opacity --state-hover"
+            },
+            {
+              "type": {
+                "text": "rgba:  33, 33, 33, 0.04"
+              },
+              "description": "rgba color of the background of the unselected chip by hovering",
+              "name": "--input-chip-unselected-hover-bg-color-rgb",
+              "default": "--on-background-rgb with opacity --state-hover"
+            },
+            {
+              "type": {
+                "text": "rgba:  33, 33, 33, 0.10"
+              },
+              "description": "rgba color of the background of the unselected chip by clicking",
+              "name": "--input-chip-unselected-active-bg-color-rgb",
+              "default": "--on-background-rgb with opacity --state-active"
+            },
+            {
+              "type": {
+                "text": "rgba:  33, 33, 33, 0.12"
+              },
+              "description": "rgba color of the background of the unselected chip by focusing",
+              "name": "--input-chip-unselected-focus-bg-color-rgb",
+              "default": "--on-background-rgb with opacity --state-focus"
+            },
+            {
+              "type": {
+                "text": "rgba:  76, 175, 80, 0.10"
+              },
+              "description": "rgba color of the background of the selected chip by clicking",
+              "name": "--input-chip-selected-active-bg-color-rgb",
+              "default": "--primary-rgb with opacity --state-active"
+            },
+            {
+              "type": {
+                "text": "rgba:  76, 175, 80, 0.12"
+              },
+              "description": "rgba color of the background of the selected chip by focusing",
+              "name": "--input-chip-selected-focus-bg-color-rgb",
+              "default": "--primary-rgb with opacity --state-focus"
+            },
+            {
+              "type": {
+                "text": "rgba:  33, 33, 33, 0.38"
+              },
+              "description": "rgba color of the background of the selected disabled chip",
+              "name": "--input-chip-disabled-selected-bg-color-rgb",
+              "default": "--on-background-rgb with opacity --state-disabled"
+            },
+            {
+              "type": {
+                "text": "rgba:  33, 33, 33, 0.38"
+              },
+              "description": "rgba color of the background of the outlined selected disabled chip",
+              "name": "--input-chip-outlined-disabled-selected-bg-color-rgb",
+              "default": "--on-background-rgb with opacity --state-disabled"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -875,8 +1179,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-color-input`\n\n <furo-color-input label=\"Color\" hint=\"Press escape to clear\"></sample-furo-color-input>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-color-input`\n\n <furo-color-input label=\"Color\" hint=\"Press escape to clear\"></sample-furo-color-input>",
           "name": "FuroColorInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -1211,8 +1589,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-date-input`\n\n### Sample\n <furo-date-input value=\"2020-02-20\" step=\"7\" label=\"Date\" hint=\"Type in a date\"></furo-date-input>\n\nIf you type in a date outside the min max range or the step, an \"error\" will be indicated. But not the error text.\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-date-input`\n\n### Sample\n <furo-date-input value=\"2020-02-20\" step=\"7\" label=\"Date\" hint=\"Type in a date\"></furo-date-input>\n\nIf you type in a date outside the min max range or the step, an \"error\" will be indicated. But not the error text.",
           "name": "FuroDateInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -1690,7 +2142,8 @@
               "name": "input-changed",
               "type": {
                 "text": "CustomEvent"
-              }
+              },
+              "description": "Is fired if native input change event is fired. Payload: target element."
             },
             {
               "type": {
@@ -1832,18 +2285,39 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "# Experimental\nThe API may change, documentation will follow\n\n`furo-icon-button`",
+          "description": "`furo-icon-button`\n\nThe furo-icon-button component represents a simple push button with icon.",
           "name": "FuroIconButton",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "inherit"
+              },
+              "description": "disabled color",
+              "name": "--disabled",
+              "default": "inherit"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "background color focus state",
+              "name": "--surface-light",
+              "default": "N/A"
+            },
+            {
+              "type": {
+                "text": "N/A"
+              },
+              "description": "background color hover state",
+              "name": "--surface-dark",
+              "default": "N/A"
+            }
+          ],
           "members": [
             {
               "kind": "method",
               "name": "focus",
-              "description": "Set the focus to the button",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
+              "description": "Set the focus to the button"
             },
             {
               "kind": "method",
@@ -1911,8 +2385,122 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-input-chip`\n\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag.\n\nCheckboxes allow the user to to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-input-chip></furo-input-chip>\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--background` | hex: #ffffff\n`--input-checkbox-unselected-border-color` | border color of the unchecked checkbox | `--on-background` | hex: #7E7E7E\n`--input-checkbox-unselected-hover-bg-color-rgb` | background color of the unchecked checkbox by hovering | `--on-background-rgb` with `--state-hover` opacity | rgba: 33, 33, 33, 0.04\n`--input-checkbox-unselected-focus-bg-color-rgb` | background color of the unchecked checkbox by focusing | `--on-background-rgb` with `--state-focus` opacity | rgba: 33, 33, 33, 0.12\n`--input-checkbox-unselected-active-bg-color-rgb` | background color of the unchecked checkbox by pressing | `--on-background-rgb` with `--state-active` opacity | rgba: 33, 33, 33, 0.10\n`--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--primary` | hex: #6200FD\n`--input-checkbox-selected-hover-bg-color-rgb` | background color of the checked checkbox by hovering | `--primary-rgb`  with `--state-hover` opacity  | rgba: 76, 175, 80, 0.04\n`--input-checkbox-selected-focus-bg-color-rgb` | background color of the checked checkbox by focusing | `--primary-rgb`  with `--state-focus` opacity  | rgba: 76, 175, 80, 0.12\n`--input-checkbox-selected-active-bg-color-rgb` | background color of the checked checkbox by pressing | `--primary-rgb`  with `--state-active` opacity  | rgba: 76, 175, 80, 0.10\n`--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--on-background` | hex: #B9B9B9\n`--input-checkbox-disabled-selected-border-color-rgb` | border color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38\n`--input-checkbox-disabled-selected-bg-color-rgb` | background color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38\n`--input-checkbox-disabled-unselected-bg-color-rgb` | background color of the unchecked disabled checkbox | `--background-rgb`  with `--state-disabled` opacity| rgba: 238, 238, 238, 0.38\n`--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38",
+          "description": "`furo-input-chip`\n\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag.\n\nCheckboxes allow the user to to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-input-chip></furo-input-chip>\n  </template>\n </furo-demo-snippet>",
           "name": "FuroInputChip",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#ffffff"
+              },
+              "description": "background color of the unchecked checkbox",
+              "name": "--input-checkbox-unselected-bg-color",
+              "default": "--background"
+            },
+            {
+              "type": {
+                "text": "#7E7E7E"
+              },
+              "description": "border color of the unchecked checkbox",
+              "name": "--input-checkbox-unselected-border-color",
+              "default": "--on-background"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.04"
+              },
+              "description": "background color of the unchecked checkbox by hovering",
+              "name": "--input-checkbox-unselected-hover-bg-color-rgb",
+              "default": "--on-background-rgb with --state-hover opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.12"
+              },
+              "description": "background color of the unchecked checkbox by focusing",
+              "name": "--input-checkbox-unselected-focus-bg-color-rgb",
+              "default": "--on-background-rgb with --state-focus opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.10"
+              },
+              "description": "background color of the unchecked checkbox by pressing",
+              "name": "--input-checkbox-unselected-active-bg-color-rgb",
+              "default": "--on-background-rgb with --state-active opacity"
+            },
+            {
+              "type": {
+                "text": "#6200FD"
+              },
+              "description": "background color of the checked checkbox",
+              "name": "--input-checkbox-selected-bg-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "rgba: 76, 175, 80, 0.04"
+              },
+              "description": "background color of the checked checkbox by hovering",
+              "name": "--input-checkbox-selected-hover-bg-color-rgb",
+              "default": "--primary-rgb  with --state-hover opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 76, 175, 80, 0.12"
+              },
+              "description": "background color of the checked checkbox by focusing",
+              "name": "--input-checkbox-selected-focus-bg-color-rgb",
+              "default": "--primary-rgb  with --state-focus opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 76, 175, 80, 0.10"
+              },
+              "description": "background color of the checked checkbox by pressing",
+              "name": "--input-checkbox-selected-active-bg-color-rgb",
+              "default": "--primary-rgb  with --state-active opacity"
+            },
+            {
+              "type": {
+                "text": "#B9B9B9"
+              },
+              "description": "background color of the checked disabled checkbox",
+              "name": "--input-checkbox-disabled-selected-bg-color",
+              "default": "--on-background"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.38"
+              },
+              "description": "border color of the checked disabled checkbox",
+              "name": "--input-checkbox-disabled-selected-border-color-rgb",
+              "default": "--on-background-rgb with --state-disabled opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.38"
+              },
+              "description": "background color of the checked disabled checkbox",
+              "name": "--input-checkbox-disabled-selected-bg-color-rgb",
+              "default": "--on-background-rgb with --state-disabled opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 238, 238, 238, 0.38"
+              },
+              "description": "background color of the unchecked disabled checkbox",
+              "name": "--input-checkbox-disabled-unselected-bg-color-rgb",
+              "default": "--background-rgb with --state-disabled opacity"
+            },
+            {
+              "type": {
+                "text": "rgba: 33, 33, 33, 0.38"
+              },
+              "description": "border color of the unchecked disabled checkbox",
+              "name": "--input-checkbox-disabled-unselected-border-color",
+              "default": "--on-background-rgb with --state-disabled opacity"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -2100,8 +2688,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-number-input`\n\n <sample-furo-number-input></sample-furo-number-input>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-number-input`\n\n <sample-furo-number-input></sample-furo-number-input>",
           "name": "FuroNumberInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -2525,8 +3187,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-password-input`\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-password-input`",
           "name": "FuroPasswordInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -2963,8 +3699,58 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-radio-button-input`\n\nradio-button input element which uses a custom `<furo-radio-button>` element. it has also hint, label and error message\n\nradio-button allow the user to select multiple options from a set.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-radio-button-input label=\"This is the Label\"></furo-radio-button-input>\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-label-color` | Color of the label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5",
+          "description": "`furo-radio-button-input`\n\nradio-button input element which uses a custom `<furo-radio-button>` element. it has also hint, label and error message\nradio-button allow the user to select multiple options from a set.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-radio-button-input label=\"This is the Label\"></furo-radio-button-input>\n  </template>\n </furo-demo-snippet>",
           "name": "FuroRadioButtonInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of the label when active",
+              "name": "--input-active-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -3255,8 +4041,114 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-radio-button`\n\nradiobutton input element which uses a native `<input type=\"radio\">` tag.\n\nlements of type radio are generally used in radio groups—collections of radio buttons describing a set of related options.\nOnly one radio button in a given group can be selected at the same time. Radio buttons are typically rendered as small circles, which are filled or highlighted when selected.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-radio-button></furo-radio-button>\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-radiobutton-unselected-bg-color` | background color of the unchecked radiobutton | `--surface` | #ffffff\n`--input-radiobutton-unselected-border-color` | border color of the unchecked radiobutton | `--separator` | #7E7E7E\n`--input-radiobutton-unselected-hover-bg-color` | background color of the unchecked radiobutton by hovering | `--surface-light` | #F5F5F5\n`--input-radiobutton-unselected-focus-bg-color` | background color of the unchecked radiobutton by focusing | `--surface-dark` | #DDDDDD\n`--input-radiobutton-unselected-active-bg-color` | background color of the unchecked radiobutton by pressing | `--surface-dark` | #C0C0C0\n`--input-radiobutton-selected-bg-color` | background color of the checked radiobutton | `--accent` | #6200FD\n`--input-radiobutton-selected-hover-bg-color` | background color of the checked radiobutton by hovering | `--on-accent` | #D5C6E9\n`--input-radiobutton-selected-focus-bg-color` | background color of the checked radiobutton by focusing | `--accent` | #6200FD\n`--input-radiobutton-disabled-selected-bg-color` | background color of the checked disabled radiobutton | `--disable` | #B9B9B9\n`--input-radiobutton-disabled-selected-border-color` | border color of the checked disabled radiobutton | `--disable` | #B9B9B9\n`--input-radiobutton-disabled-unselected-bg-color` | background color of the unchecked disabled radiobutton | `--surface` | #ffffff\n`--input-radiobutton-disabled-unselected-border-color` | border color of the unchecked disabled radiobutton | `--surface` | #aaaaaa\n`--input-radiobutton-disabled-hover-bg-color` | background color of the unchecked disabled radiobutton by hovering| `--surface` | #ffffff",
+          "description": "`furo-radio-button`\n\nradiobutton input element which uses a native `<input type=\"radio\">` tag.\n\nElements of type radio are generally used in radio groups—collections of radio buttons describing a set of related options.\nOnly one radio button in a given group can be selected at the same time. Radio buttons are typically rendered\nas small circles, which are filled or highlighted when selected.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-radio-button></furo-radio-button>\n  </template>\n </furo-demo-snippet>",
           "name": "FuroRadioButton",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#ffffff"
+              },
+              "description": "background color of the unchecked radiobutton",
+              "name": "--input-radiobutton-unselected-bg-color",
+              "default": "--surface"
+            },
+            {
+              "type": {
+                "text": "#7E7E7E"
+              },
+              "description": "border color of the unchecked radiobutton",
+              "name": "--input-radiobutton-unselected-border-color",
+              "default": "--separator"
+            },
+            {
+              "type": {
+                "text": "#F5F5F5"
+              },
+              "description": "background color of the unchecked radiobutton by hovering",
+              "name": "--input-radiobutton-unselected-hover-bg-color",
+              "default": "--surface-light"
+            },
+            {
+              "type": {
+                "text": "#DDDDDD"
+              },
+              "description": "background color of the unchecked radiobutton by focusing",
+              "name": "--input-radiobutton-unselected-focus-bg-color",
+              "default": "--surface-dark"
+            },
+            {
+              "type": {
+                "text": "#C0C0C0"
+              },
+              "description": "background color of the unchecked radiobutton by pressing",
+              "name": "--input-radiobutton-unselected-active-bg-color",
+              "default": "--surface-dark"
+            },
+            {
+              "type": {
+                "text": "#6200FD"
+              },
+              "description": "background color of the checked radiobutton",
+              "name": "--input-radiobutton-selected-bg-color",
+              "default": "--accent"
+            },
+            {
+              "type": {
+                "text": "#D5C6E9"
+              },
+              "description": "background color of the checked radiobutton by hovering",
+              "name": "--input-radiobutton-selected-hover-bg-color",
+              "default": "--on-accent"
+            },
+            {
+              "type": {
+                "text": "#6200FD"
+              },
+              "description": "background color of the checked radiobutton by focusing",
+              "name": "--input-radiobutton-selected-focus-bg-color",
+              "default": "--accent"
+            },
+            {
+              "type": {
+                "text": "#B9B9B9"
+              },
+              "description": "background color of the checked disabled radiobutton",
+              "name": "--input-radiobutton-disabled-selected-bg-color",
+              "default": "--disable"
+            },
+            {
+              "type": {
+                "text": "#B9B9B9"
+              },
+              "description": "border color of the checked disabled radiobutton",
+              "name": "--input-radiobutton-disabled-selected-border-color",
+              "default": "--disable"
+            },
+            {
+              "type": {
+                "text": "#ffffff"
+              },
+              "description": "background color of the unchecked disabled radiobutton",
+              "name": "--input-radiobutton-disabled-unselected-bg-color",
+              "default": "--surface"
+            },
+            {
+              "type": {
+                "text": "#aaaaaa"
+              },
+              "description": "border color of the unchecked disabled radiobutton",
+              "name": "--input-radiobutton-disabled-unselected-border-color",
+              "default": "--surface"
+            },
+            {
+              "type": {
+                "text": "#ffffff"
+              },
+              "description": "background color of the unchecked disabled radiobutton by hovering",
+              "name": "--input-radiobutton-disabled-hover-bg-color",
+              "default": "--surface"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -3414,8 +4306,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-range-input`\n\n <sample-furo-range-input></sample-furo-range-input>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-range-input`\n\n <sample-furo-range-input></sample-furo-range-input>",
           "name": "FuroRangeInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -3827,8 +4793,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-search-input`\n\n <furo-search-input label=\"Search\" hint=\"Press escape to clear\"></sample-furo-search-input>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-search-input`\n\n <furo-search-input label=\"Search\" hint=\"Press escape to clear\"></sample-furo-search-input>",
           "name": "FuroSearchInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -4252,8 +5292,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-select-input`\n\n <sample-furo-select-input></sample-furo-select-input>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-select-input`\n\n <sample-furo-select-input></sample-furo-select-input>",
           "name": "FuroSelectInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -4853,8 +5967,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-text-input`\n\n <sample-furo-text-input></sample-furo-text-input>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-text-input`\n\n <sample-furo-text-input></sample-furo-text-input>",
           "name": "FuroTextInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -5280,6 +6468,16 @@
           "kind": "class",
           "description": "`furo-textarea-input`\n\n <furo-textarea-input></furo-textarea-input>",
           "name": "FuroTextareaInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -5667,8 +6865,82 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-time-input`\n\n### Sample\n <furo-time-input value=\"12:15\" label=\"Time\" hint=\"Type in a time\"></furo-time-input>\n\nIf you type in a time outside the min max range or the step, an \"error\" will be indicated. But not the error text.\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-label-color` | Color of label in field| `--disabled,` | #333333\n`--input-label-float-color` | Color of label when floating | `--on-surface` | #333333\n`--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5\n`--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red",
+          "description": "`furo-time-input`\n\n### Sample\n <furo-time-input value=\"12:15\" label=\"Time\" hint=\"Type in a time\"></furo-time-input>\n\nIf you type in a time outside the min max range or the step, an \"error\" will be indicated. But not the error text.",
           "name": "FuroTimeInput",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "#999999"
+              },
+              "description": "Color of hint text",
+              "name": "--input-hint-color",
+              "default": "#999999"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label in field",
+              "name": "--input-label-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of label when floating",
+              "name": "--input-label-float-color",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of floating label when active",
+              "name": "--input-active-float-label-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "#333333"
+              },
+              "description": "Color of activation indicator when not selected",
+              "name": "--input-activation-indicator-color",
+              "default": "--disabled"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in error state",
+              "name": "--input-error-activation-indicator-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of error text",
+              "name": "--input-error-text-color",
+              "default": "--error"
+            },
+            {
+              "type": {
+                "text": "#3f51b5"
+              },
+              "description": "Color of activation indicator in active state",
+              "name": "--input-active-activation-indicator-color",
+              "default": "--primary"
+            },
+            {
+              "type": {
+                "text": "red"
+              },
+              "description": "Color of activation indicator in active error state",
+              "name": "--input-active-error-activation-indicator-color",
+              "default": "--error"
+            }
+          ],
           "members": [
             {
               "kind": "method",

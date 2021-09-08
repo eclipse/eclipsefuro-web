@@ -120,11 +120,8 @@
           ],
           "events": [
             {
-              "description": "of the clipboard",
-              "name": "content",
-              "type": {
-                "text": "*"
-              }
+              "description": " Fired when clipboard content is received",
+              "name": "content"
             }
           ],
           "attributes": [
@@ -830,15 +827,8 @@
               "type": {
                 "text": "*"
               },
-              "description": "Fired when clipboard content is received",
+              "description": "Fired when content is written to clipboard",
               "name": ""
-            },
-            {
-              "type": {
-                "text": "*"
-              },
-              "description": "written to clipboard",
-              "name": "content"
             }
           ],
           "attributes": [

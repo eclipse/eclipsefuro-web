@@ -622,8 +622,17 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-pages` is used to select one of its children to show.\n\nUse this to build tabs, views, subviews,...\n\n### preconditions:\nYou have to implement a `:host([hidden]){display:none}` in your views css.\n\n### flowbased auto wires\nfuro-pages provides auto wires, which are automatically triggered in the child elements if\nthey have flowbased enabled.\n\n| wire               | timing           |\n|:-------------------|:-----------------|\n| --pageDeActivated  | Every time the element changes to hidden   |\n| --pageActivated    | Triggered when the element is activated. Comes with a location object.\n| --pageQueryChanged  | Triggered when the page query changes. Comes with a location object.\n| --pageHashChanged  | Triggered when the page hash changes. Comes with a location object.\n\n## Attributes\n**default** set the default page to show\n\n**attr-for-selected** *(default: selected)*\n\n\nIf you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.",
+          "description": "`furo-pages` is used to select one of its children to show.\n\nUse this to build tabs, views, subviews,...",
           "name": "FuroPages",
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add pages. ### preconditions: You have to implement a `:host([hidden]){display:none}` in your views css. ### flowbased auto wires furo-pages provides auto wires, which are automatically triggered in the child elements if they have flowbased enabled. | wire               | timing           | |:-------------------|:-----------------| | --pageDeActivated  | Every time the element changes to hidden   | | --pageActivated    | Triggered when the element is activated. Comes with a location object. | --pageQueryChanged  | Triggered when the page query changes. Comes with a location object. | --pageHashChanged  | Triggered when the page hash changes. Comes with a location object. ## Attributes **default** set the default page to show **attr-for-selected** *(default: selected)* If you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -920,8 +929,7 @@
                 "type": {
                   "text": "boolean"
                 }
-              },
-              "default": "() => true"
+              }
             }
           ],
           "mixins": [

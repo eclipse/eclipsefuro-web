@@ -670,8 +670,7 @@
                 "type": {
                   "text": "boolean"
                 }
-              },
-              "default": "() => true"
+              }
             }
           ],
           "mixins": [
@@ -728,8 +727,7 @@
                 "type": {
                   "text": "boolean"
                 }
-              },
-              "default": "() => true"
+              }
             }
           ],
           "mixins": [
@@ -810,8 +808,7 @@
                 "type": {
                   "text": "boolean"
                 }
-              },
-              "default": "() => true"
+              }
             }
           ],
           "mixins": [
@@ -986,8 +983,7 @@
                 "type": {
                   "text": "boolean"
                 }
-              },
-              "default": "() => true"
+              }
             }
           ],
           "mixins": [
@@ -1105,8 +1101,7 @@
                 "type": {
                   "text": "boolean"
                 }
-              },
-              "default": "() => true"
+              }
             }
           ],
           "mixins": [

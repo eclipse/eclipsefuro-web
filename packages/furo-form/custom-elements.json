@@ -8,8 +8,27 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-button-bar`\n\nTags: form",
+          "description": "`furo-button-bar`\nThe furo-button-bar component is a container for action controls such as buttons or icons.\nThe controls are horizontally aligned (Flex model).\n\nIt has the capability to bind a entity model (FieldNode with HATEOAS information). Due to the relation information\nin the HATEOAS, the buttons can be shown/hidden or activated/deactivated.\n\n```\n<furo-button-bar ƒ-bind-entity=\"--dataModel\">\n  <button rel=\"update\" disableNoRel>Save</button>\n  <button rel=\"delete\" disableNoRel>Delete</button>\n</furo-button-bar>\n```",
           "name": "FuroButtonBar",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "8px"
+              },
+              "description": "margin of slotted elements",
+              "name": "--spacing-xs",
+              "default": "8px"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add action controls (e.g. button, furo-button, furo-ui5-button). Tags: form",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -181,6 +200,56 @@
           "kind": "class",
           "description": "`furo-collapsible-box` is a card which can be toggled to be open and closed\n\n```\n<furo-collapsible-box label=\"label\" open>\n <div>flex content in default slot</div>\n <div slot=\"context\">CTX on right side</div>\n</furo-collapsible-box>\n```",
           "name": "FuroCollapsibleBox",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "16px"
+              },
+              "description": "box padding",
+              "name": "--furo-collapsible-box-padding",
+              "default": "16px"
+            },
+            {
+              "type": {
+                "text": "white"
+              },
+              "description": "background color",
+              "name": "--furo-collapsible-box-background",
+              "default": "white"
+            },
+            {
+              "type": {
+                "text": "16px"
+              },
+              "description": "box margin",
+              "name": "--furo-collapsible-box-margin",
+              "default": "16px"
+            },
+            {
+              "type": {
+                "text": "gainsboro"
+              },
+              "description": "border bottom of the head",
+              "name": "--separator-color",
+              "default": "gainsboro"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default unnamed slot to add content.",
+              "name": ""
+            },
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "slot to add context components on the right hand side.",
+              "name": "context"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -389,8 +458,35 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, three, four and six\n\n<furo-form-layouter></furo-form-layouter>\n\nTo customize the slotted elements inside furo-form-layouter there are several attributes.\n- double | stretches the element over two units\n- full | stretches the element to full width\n- newline | forces a new line\n\n### Responsiveness\nColumns | narrow | narrower  |\n----------------|-------------|-------------|\n`one` | one | one |\n`two` | one | one |\n`three` | one | one |\n`four` | two | one |\n`six` | three | one |\n\n### Styling\nThe following custom properties are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-form-layouter-row-gap` | width of row gap | 0px | --\n`--furo-form-layouter-column-gap` | width of column gap | 0px | --\n\nTags: form",
+          "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, three, four and six\n\n```\n<furo-form-layouter></furo-form-layouter>\n```",
           "name": "FuroFormLayouter",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "0px"
+              },
+              "description": "width of row gap",
+              "name": "--furo-form-layouter-row-gap",
+              "default": "0px"
+            },
+            {
+              "type": {
+                "text": "0px"
+              },
+              "description": "width of column gap Tags: form",
+              "name": "--furo-form-layouter-column-gap",
+              "default": "0px"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add content. To customize the slotted elements inside furo-form-layouter there are several attributes. - double | stretches the element over two units - full | stretches the element to full width - newline | forces a new line ### Responsiveness Columns | narrow | narrower  | ----------------|-------------|-------------| `one` | one | one | `two` | one | one | `three` | one | one | `four` | two | one | `six` | three | one |",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -530,8 +626,65 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "\nForm container with integrated activity indicator and three slots.\n\n`furo-form`",
+          "description": "`furo-form`\nForm container with integrated activity indicator and three slots.\n\n```\n<furo-form header-text=\"Heading\">\n  <my-form></my-form>\n</furo-form>\n```",
           "name": "FuroForm",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "white"
+              },
+              "description": "background color of the form",
+              "name": "--furo-form-background",
+              "default": "--surface"
+            },
+            {
+              "type": {
+                "text": "8px"
+              },
+              "description": "form padding",
+              "name": "--furo-form-padding",
+              "default": "--spacing-xs"
+            },
+            {
+              "type": {
+                "text": "0"
+              },
+              "description": "form margin",
+              "name": "--furo-form-margin",
+              "default": "0"
+            },
+            {
+              "type": {
+                "text": "90em"
+              },
+              "description": "max form width",
+              "name": "--furo-form-max-width",
+              "default": "90em"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add form content.",
+              "name": ""
+            },
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "named slot to add full screen media content.",
+              "name": "media"
+            },
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "named slot to add form actions (normally button bar or buttons)",
+              "name": "action"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -574,6 +727,7 @@
               "kind": "field",
               "name": "secondaryText",
               "privacy": "public",
+              "description": "Secondary information",
               "attribute": "secondary-text"
             }
           ],
@@ -585,6 +739,7 @@
             },
             {
               "name": "secondary-text",
+              "description": "Secondary information",
               "fieldName": "secondaryText"
             },
             {
@@ -675,12 +830,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/sample-component.js",
-      "declarations": [],
-      "exports": []
     }
   ]
 }

@@ -361,6 +361,15 @@
               "attribute": "stack"
             }
           ],
+          "events": [
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when something in stack changes",
+              "name": "stackchange"
+            }
+          ],
           "attributes": [
             {
               "name": "x",

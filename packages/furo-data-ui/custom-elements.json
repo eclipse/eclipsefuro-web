@@ -883,8 +883,7 @@
             },
             {
               "kind": "field",
-              "name": "_repeatsChanged",
-              "default": "() => {\n      /**\n       * add flag _noicon if none of the group (between dividers) has no icons\n       */\n      let noicon = true;\n      let stage = [];\n      this._children.repeats.forEach((item, i, items) => {\n        /**\n         * if next item has a leading separator push before, otherwise push after loop\n         */\n        let pushed = false;\n        if (item.leading_divider._value && items[i + 1] && items[i + 1].leading_divider._value) {\n          stage.push(item);\n          pushed = true;\n        }\n\n        if (item.icon._value) {\n          noicon = false;\n        }\n        if (item.leading_divider._value) {\n          stage.forEach(stg => {\n            // eslint-disable-next-line no-param-reassign\n            stg._noicon = noicon;\n          });\n          stage = [];\n          noicon = true;\n        }\n        if (!pushed) {\n          stage.push(item);\n        }\n      });\n      noicon = true;\n      // do the last stage\n      stage.forEach(item => {\n        if (item.icon._value) {\n          noicon = false;\n        }\n        stage.forEach(i => {\n          // eslint-disable-next-line no-param-reassign\n          i._noicon = noicon;\n        });\n      });\n\n      this._FBPTriggerWire('--menuObject', this._children.repeats);\n    }"
+              "name": "_repeatsChanged"
             },
             {
               "kind": "field",
@@ -943,6 +942,15 @@
           "kind": "class",
           "description": "`furo-data-context-menu`\n A  [material design](https://material.io/components/menus/) context menu or menu element.\n\n You have to put a `furo-data-context-menu-display` element in one of the parent elements of the element where you use the `furo-data-context-menu`.\n The app-shell is a good place for that.\n\n```html\n <furo-data-context-menu condensed position=\"below\" ƒ-trigger=\"--menuClkd\" ƒ-bind-data=\"--menuObject\" @-menu-item-selected=\"--menuItem\">\n     <furo-icon-button icon=\"menu\" @-click=\"--menuClkd\"></furo-icon-button>\n </furo-data-context-menu>\n```",
           "name": "FuroDataContextMenu",
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement"
+              },
+              "description": "default slot to add an individual context menu opener component (e.g. furo-icon-button).",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -1440,6 +1448,15 @@
           "kind": "class",
           "description": "INITIAL VERSION\n\n`furo-data-filter-slot`\n Throw in any component to use it as a filter\n\n The component must emit a **value-changed** event with the value you want to have in the condition\n\n The component can emit a **clear** event to clear the filter\n\n The values of the component are not updated from this component. You have to do an additional binding by yourself if needed.\n Do not forget that the condition value always comes as a string, when binding to your component.",
           "name": "FuroDataFilterSlot",
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement"
+              },
+              "description": "default slot to add a filter component (must emit a **value-changed** event).",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -1788,6 +1805,15 @@
           "kind": "class",
           "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\n\n\n```\n<furo-data-hide-content ƒ-bind-data=\"--bind(*.bool)\" ƒ-hide=\"--hideClicked\" ƒ-show=\"--showClicked\">\n <div>some content</div>\n</furo-collapsible-box>\n```",
           "name": "FuroDataHideContent",
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add content.",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -1935,20 +1961,6 @@
               "name": "_FBPReady",
               "description": "flow is ready lifecycle method",
               "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "myBool",
-              "privacy": "public",
-              "description": "Description",
-              "attribute": "myBool"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "myBool",
-              "description": "Description",
-              "fieldName": "myBool"
             }
           ],
           "mixins": [
@@ -1985,6 +1997,16 @@
           "kind": "class",
           "description": "`furo-data-table-toggle`\nToggle with HTML entity",
           "name": "FuroDataTableToggle",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "8px"
+              },
+              "description": "left spacing of the toggle sign",
+              "name": "--spacing-xxs",
+              "default": "8px"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -2004,8 +2026,7 @@
             },
             {
               "kind": "method",
-              "name": "toggle",
-              "description": "Toggle state"
+              "name": "toggle"
             },
             {
               "kind": "field",
@@ -2032,13 +2053,15 @@
               "name": "ascending",
               "type": {
                 "text": "CustomEvent"
-              }
+              },
+              "description": "Fired on state toggle, Payload: identity"
             },
             {
               "name": "descending",
               "type": {
                 "text": "CustomEvent"
-              }
+              },
+              "description": "Fired on state toggle, Payload: identity"
             }
           ],
           "attributes": [
@@ -2079,8 +2102,59 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-data-table-header-background` | Background color of the header row | --surface | white\n`--furo-data-table-header-on-background` | Color of the header row | --on-surface | black\n`--furo-data-table-background` | Background color of the element | --surface | white\n`--furo-data-table-on-background` | Color of the element | --on-surface | black\n`--data-table-separator` | Color of separator lines | --separator | rgba(0, 0, 0, .12)\n\n\nTags: data-ui",
+          "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.",
           "name": "FuroDataTable",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "white"
+              },
+              "description": "Background color of the header row",
+              "name": "--furo-data-table-header-background",
+              "default": "--surface"
+            },
+            {
+              "type": {
+                "text": "black"
+              },
+              "description": "Color of the header row",
+              "name": "--furo-data-table-header-on-background",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "white"
+              },
+              "description": "Background color of the element",
+              "name": "--furo-data-table-background",
+              "default": "--surface"
+            },
+            {
+              "type": {
+                "text": "black"
+              },
+              "description": "Color of the element",
+              "name": "--furo-data-table-on-background",
+              "default": "--on-surface"
+            },
+            {
+              "type": {
+                "text": "rgba(0, 0, 0, .12)"
+              },
+              "description": "Color of separator lines Tags: data-ui",
+              "name": "--data-table-separator",
+              "default": "--separator"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add elements to the footer (e.g. pagination component)",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "method",
