@@ -14,9 +14,9 @@ import { FBP } from '@furo/fbp';
 class NavNodeForm extends FBP(LitElement) {
   bindData(navnode) {
     // eslint-disable-next-line no-param-reassign
-    navnode.display_name._value = 'Display_name';
+    navnode.description._value = 'Primary';
     // eslint-disable-next-line no-param-reassign
-    navnode.secondary_text._value = 'secondary';
+    navnode.secondary_text._value = 'Secondary';
     // eslint-disable-next-line no-param-reassign
     navnode.icon._value = 'action';
     this._FBPTriggerWire('--navNode', navnode);
@@ -52,15 +52,15 @@ class NavNodeForm extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-form-layouter one>
-        <furo-ui5-data-text-input-labeled
-          ƒ-bind-data="--navNode(*.display_name)"
-        ></furo-ui5-data-text-input-labeled>
-        <furo-ui5-data-text-input-labeled
+        <furo-ui5-data-text-input
+          ƒ-bind-data="--navNode(*.description)"
+        ></furo-ui5-data-text-input>
+        <furo-ui5-data-text-input
           ƒ-bind-data="--navNode(*.secondary_text)"
-        ></furo-ui5-data-text-input-labeled>
-        <furo-ui5-data-text-input-labeled
+        ></furo-ui5-data-text-input>
+        <furo-ui5-data-text-input
           ƒ-bind-data="--navNode(*.icon)"
-        ></furo-ui5-data-text-input-labeled>
+        ></furo-ui5-data-text-input>
       </furo-form-layouter>
     `;
   }

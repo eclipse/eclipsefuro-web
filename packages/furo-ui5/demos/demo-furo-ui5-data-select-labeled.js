@@ -95,7 +95,6 @@ class DemoFuroUi5DataSelectLabeled extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.type_with_options)"
               value-state="Information"
             >
-
             </furo-ui5-data-select-labeled>
             <furo-ui5-data-text-input
               ƒ-bind-data="--entity(*.data.type_with_options)"
@@ -110,9 +109,7 @@ class DemoFuroUi5DataSelectLabeled extends FBP(LitElement) {
               id-field-path="data.id"
               display-field-path="data.display_name"
               value-field-path="data.id"
-
             >
-
             </furo-ui5-data-select-labeled>
             <furo-ui5-data-text-input-labeled
               ƒ-bind-data="--entityU(*.data.wrapper_string)"
@@ -129,7 +126,6 @@ class DemoFuroUi5DataSelectLabeled extends FBP(LitElement) {
               value-field-path="data.id"
               value-state="Information"
             >
-
             </furo-ui5-data-select-labeled>
             <furo-ui5-data-text-input-labeled
               ƒ-bind-data="--entityU(*.data.fat_string)"

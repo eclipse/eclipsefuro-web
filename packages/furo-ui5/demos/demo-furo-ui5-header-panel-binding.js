@@ -83,7 +83,10 @@ class DemoFuroUi5HeaderPanelBinding extends FBP(LitElement) {
               <h3>Default</h3>
               <p>By default the panel is collapsible</p>
               <div class="demopanel">
-                <furo-ui5-header-panel ƒ-bind-nav-node="--Navnode">
+                <furo-ui5-header-panel
+                  ƒ-bind-header-text="--Navnode(*.description)"
+                  ƒ-bind-secondary-text="--Navnode(*.secondary_text)"
+                  ƒ-bind-icon="--Navnode(*.icon)">
                   <div>
                     <p>content goes here</p>
                   </div>
@@ -91,7 +94,7 @@ class DemoFuroUi5HeaderPanelBinding extends FBP(LitElement) {
               </div>
 
               <furo-data-object
-                type="furo.navigation.Navigationnode"
+                type="tree.Navigationnode"
                 @-object-ready="--Navnode"
               ></furo-data-object>
 

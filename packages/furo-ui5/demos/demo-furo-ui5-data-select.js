@@ -260,10 +260,8 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
                 id-field-path="data.id"
                 display-field-path="data.display_name"
                 value-field-path="data.id"
-
               >
                 <ui5-option data-id="">Options not yet available</ui5-option>
-
               </furo-ui5-data-select>
             </furo-ui5-form-field-container>
             <furo-ui5-data-text-input-labeled

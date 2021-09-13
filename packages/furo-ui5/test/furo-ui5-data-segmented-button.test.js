@@ -145,7 +145,7 @@ describe('furo-ui5-data-segmented-button', () => {
 
   it('should have options from API SPEC', done => {
     setTimeout(() => {
-      assert.equal(segmentedButton.querySelectorAll('ui5-toggle-button').length, 3);
+      assert.equal(segmentedButton.querySelectorAll('ui5-togglebutton').length, 3);
       done();
     }, 16);
   });

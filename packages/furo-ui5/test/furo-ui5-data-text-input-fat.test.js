@@ -163,7 +163,7 @@ describe('furo-ui5-data-text-input-fat', () => {
         assert.equal(input._state.value, 'fat string from record', 'check value');
         assert.equal(input._state.valueState, 'Error', 'check valueState');
         assert.equal(input._state.name, '', 'check name');
-          assert.equal(
+        assert.equal(
           input._previousValueState.message,
           'Your fat string is valid',
           'check valueStateMessage content',

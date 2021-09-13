@@ -29,9 +29,7 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
     this.displayFieldPath = 'display_name';
   }
 
-
-
-/**
+  /**
    * Focuses the underlying ui5 input element
    * @param {Object} options https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
    */
@@ -116,7 +114,7 @@ export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
           display: none;
         }
 
-        .hidden{
+        .hidden {
           display: none;
         }
       `

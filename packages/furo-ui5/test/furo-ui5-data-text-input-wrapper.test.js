@@ -161,7 +161,7 @@ describe('furo-ui5-data-text-input-wrapper', () => {
         assert.equal(input._state.valueState, 'None', 'check valueState');
         assert.equal(input._state.name, '', 'check name');
         assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
-          assert.equal(input.isWrapper(), true, 'check fieldFormat');
+        assert.equal(input.isWrapper(), true, 'check fieldFormat');
         done();
       }, 10);
     });
