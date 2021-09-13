@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.39.0...@furo/ui5@0.40.0) (2021-09-13)
+
+
+### Bug Fixes
+
+* linting, formatting, update demos ([47e44c7](https://github.com/eclipse/eclipsefuro-web/commit/47e44c75db226488b7aee009a306bd05c7dcabfe))
+* wrong tag names, tags will change with ui5 rc-15 ([69e1743](https://github.com/eclipse/eclipsefuro-web/commit/69e174394cf19af7fe23da7842f6186754346675))
+
+
+### Features
+
+* **base** Custom Elements Manifest generator added to npm scripts. ([446babc](https://github.com/eclipse/eclipsefuro-web/commit/446babc50b03b90f205f3ea18121471790d27b5c))
+
+
+
+
+
 # [0.39.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.38.0...@furo/ui5@0.39.0) (2021-09-07)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.10.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@5.10.2...@furo/fbp@5.10.3) (2021-09-13)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
 ## [5.10.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.10.1...@furo/fbp@5.10.2) (2021-08-20)
 
 **Note:** Version bump only for package @furo/fbp

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/timing@1.5.5...@furo/timing@1.6.0) (2021-09-13)
+
+
+### Features
+
+* **base** Custom Elements Manifest generator added to npm scripts. ([446babc](https://github.com/eclipse/eclipsefuro-web/commit/446babc50b03b90f205f3ea18121471790d27b5c))
+
+
+
+
+
 ## [1.5.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.5.4...@furo/timing@1.5.5) (2021-09-07)
 
 **Note:** Version bump only for package @furo/timing

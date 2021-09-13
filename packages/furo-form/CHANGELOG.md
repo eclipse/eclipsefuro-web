@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/form@1.7.5...@furo/form@1.8.0) (2021-09-13)
+
+
+### Features
+
+* **base** Custom Elements Manifest generator added to npm scripts. ([446babc](https://github.com/eclipse/eclipsefuro-web/commit/446babc50b03b90f205f3ea18121471790d27b5c))
+
+
+
+
+
 ## [1.7.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.7.4...@furo/form@1.7.5) (2021-09-07)
 
 **Note:** Version bump only for package @furo/form

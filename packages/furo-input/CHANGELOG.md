@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/input@1.8.3...@furo/input@1.9.0) (2021-09-13)
+
+
+### Features
+
+* **base** Custom Elements Manifest generator added to npm scripts. ([446babc](https://github.com/eclipse/eclipsefuro-web/commit/446babc50b03b90f205f3ea18121471790d27b5c))
+
+
+
+
+
 ## [1.8.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.8.2...@furo/input@1.8.3) (2021-08-20)
 
 **Note:** Version bump only for package @furo/input
