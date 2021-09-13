@@ -246,5 +246,4 @@ describe('furo-ui5-data-table-focus-tests', () => {
       done();
     }, 210);
   });
-
 });

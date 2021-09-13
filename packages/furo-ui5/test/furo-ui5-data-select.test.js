@@ -600,7 +600,6 @@ describe('furo-ui5-data-select', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(input));
 
-
   it('should bind a field node', done => {
     daoCollection.injectRaw(options);
 

@@ -116,9 +116,9 @@ describe('furo-ui5-data-segmented-button-bind', () => {
             display-field-path="data.display_name"
             ƒ-bind-data="--entity(*.owner.id)"
           >
-            <ui5-toggle-button data-id="A">Option A</ui5-toggle-button>
-            <ui5-toggle-button data-id="B">Option B with a very long text</ui5-toggle-button>
-            <ui5-toggle-button data-id="C">Option C</ui5-toggle-button>
+            <ui5-togglebutton data-id="A">Option A</ui5-togglebutton>
+            <ui5-togglebutton data-id="B">Option B with a very long text</ui5-togglebutton>
+            <ui5-togglebutton data-id="C">Option C</ui5-togglebutton>
           </furo-ui5-data-segmented-button>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
@@ -148,7 +148,7 @@ describe('furo-ui5-data-segmented-button-bind', () => {
 
   it('should have options from markup', done => {
     setTimeout(() => {
-      assert.equal(segmentedButton.querySelectorAll('ui5-toggle-button').length, 3);
+      assert.equal(segmentedButton.querySelectorAll('ui5-togglebutton').length, 3);
       done();
     }, 16);
   });
@@ -158,7 +158,7 @@ describe('furo-ui5-data-segmented-button-bind', () => {
     daoRepeater.injectRaw(testData);
 
     setTimeout(() => {
-      assert.equal(segmentedButton.querySelectorAll('ui5-toggle-button').length, 4);
+      assert.equal(segmentedButton.querySelectorAll('ui5-togglebutton').length, 4);
       done();
     }, 16);
   });

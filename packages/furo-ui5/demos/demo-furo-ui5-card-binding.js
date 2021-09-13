@@ -72,7 +72,9 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                   flex
                   heading="heading"
                   subheading="subheading"
-                  ƒ-bind-nav-node="--Navnode"
+                  ƒ-bind-heading='--Navnode(*.description)'
+                  ƒ-bind-subheading='--Navnode(*.secondary_text)'
+                  ƒ-bind-icon="--Navnode(*.icon)"
                 >
                   <div slot="action">
                     <furo-ui5-button>Action</furo-ui5-button>
@@ -81,7 +83,7 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                 </furo-ui5-card>
 
                 <furo-data-object
-                  type="furo.navigation.Navigationnode"
+                  type="tree.Navigationnode"
                   @-object-ready="--Navnode"
                 ></furo-data-object>
 

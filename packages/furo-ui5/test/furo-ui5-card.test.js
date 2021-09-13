@@ -17,7 +17,7 @@ describe('furo-ui5-card', () => {
         <template>
           <furo-ui5-card ƒ-bind-nav-node="--Navnode"></furo-ui5-card>
           <furo-data-object
-            type="furo.navigation.Navigationnode"
+            type="tree.Navigationnode"
             @-object-ready="--Navnode"
           ></furo-data-object>
         </template>
@@ -38,24 +38,24 @@ describe('furo-ui5-card', () => {
   });
 
   it('should update the title with binding on header text', done => {
-    const enitity = dao.getData();
-    card.bindHeading(enitity.display_name);
-    enitity.display_name._value = 'Title';
+    const entity = dao.getData();
+    card.bindHeading(entity.display_name);
+    entity.display_name._value = 'Title';
     assert.equal(card.heading, 'Title');
     done();
   });
 
   it('should update the icon with binding on icon ', done => {
-    const enitity = dao.getData();
-    card.bindIcon(enitity.icon);
-    enitity.icon._value = 'Title';
+    const entity = dao.getData();
+    card.bindIcon(entity.icon);
+    entity.icon._value = 'Title';
     assert.equal(card.icon, 'Title');
     done();
   });
   it('should update the bindSubheading with binding on bindSubheading ', done => {
-    const enitity = dao.getData();
-    card.bindSubheading(enitity.secondary_text);
-    enitity.secondary_text._value = 'subtitle';
+    const entity = dao.getData();
+    card.bindSubheading(entity.secondary_text);
+    entity.secondary_text._value = 'subtitle';
     assert.equal(card.subheading, 'subtitle');
     done();
   });

@@ -189,7 +189,7 @@ describe('furo-ui5-data-password-input', () => {
         assert.equal(input._state.name, '', 'check name');
         assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
         assert.equal(input._state.maxlength, undefined, 'check maxlength');
-          assert.equal(input.isFat(), false, 'check fieldFormat');
+        assert.equal(input.isFat(), false, 'check fieldFormat');
 
         done();
       }, 10);

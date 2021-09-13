@@ -17,7 +17,7 @@ describe('furo-ui5-header-panel', () => {
         <template>
           <furo-ui5-header-panel ƒ-bind-nav-node="--Navnode"></furo-ui5-header-panel>
           <furo-data-object
-            type="furo.navigation.Navigationnode"
+            type="tree.Navigationnode"
             @-object-ready="--Navnode"
           ></furo-data-object>
         </template>

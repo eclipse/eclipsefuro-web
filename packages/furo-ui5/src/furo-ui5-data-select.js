@@ -140,7 +140,6 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       this._valueStateElement = vse;
       this._previousValueState.message = vse.innerText;
     }
-
   }
 
   /**
