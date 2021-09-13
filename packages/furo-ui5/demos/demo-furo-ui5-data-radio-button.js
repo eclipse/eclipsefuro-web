@@ -25,7 +25,7 @@ import '../src/lib/ui5-icons.js';
 /**
  * `demo-furo-ui5-data-radio-button`
  *
- * @Summary basic usage of furo-ui5-data-segemented-button
+ * @Summary basic usage of furo-ui5-data-radio-button
  * @customElement
  * @appliesMixin FBP
  */
