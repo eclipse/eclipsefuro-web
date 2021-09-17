@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -76,7 +76,7 @@ class DemoFuroUi5MessageStripDisplay extends FBP(LitElement) {
             <furo-ui5-button-bar>
               <furo-ui5-button @-click="--staticError" design="Negative">show static error message</furo-ui5-button>
               <furo-ui5-button @-click="--staticInformation" design="Informative">show static information message</furo-ui5-button>
-              <furo-ui5-button @-click="--staticWarning" design="Negative">show static warning message</furo-ui5-button>
+              <furo-ui5-button @-click="--staticWarning" design="Attention">show static warning message</furo-ui5-button>
               <furo-ui5-button @-click="--staticSuccess" design="Positive">show static success message</furo-ui5-button>
             </furo-ui5-button-bar>
 
@@ -96,7 +96,7 @@ class DemoFuroUi5MessageStripDisplay extends FBP(LitElement) {
             <furo-ui5-button-bar>
               <furo-ui5-button @-click="--error" design="Negative">show error message</furo-ui5-button>
               <furo-ui5-button @-click="--information" design="Informative">show information message</furo-ui5-button>
-              <furo-ui5-button @-click="--warning" design="Negative">show warning message</furo-ui5-button>
+              <furo-ui5-button @-click="--warning" design="Attention">show warning message</furo-ui5-button>
               <furo-ui5-button @-click="--success" design="Positive">show success message</furo-ui5-button>
             </furo-ui5-button-bar>
 

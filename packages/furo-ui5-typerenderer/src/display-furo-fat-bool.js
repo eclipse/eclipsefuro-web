@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from 'lit';
 // eslint-disable-next-line no-unused-vars
 import { DisplayBool } from './display-bool.js';
 

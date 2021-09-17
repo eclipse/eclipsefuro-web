@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Iconset } from '@furo/framework/src/furo.js';
 import { FuroBaseIcons } from '../assets/iconsets/baseIcons.js';
 

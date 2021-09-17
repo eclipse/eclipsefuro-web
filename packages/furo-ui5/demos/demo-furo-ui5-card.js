@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -53,7 +53,7 @@ class DemoFuroUi5Card extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-vertical-scroller>
+            <furo-vertical-scroller style="padding: var(--spacing)">
               <furo-ui5-card heading="heading" subheading="subheading" icon="card" status="enabled">
                 <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
                 <div slot="content">

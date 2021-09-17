@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -83,7 +83,7 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
               ></furo-ui5-data-checkbox-input>
               <furo-ui5-data-checkbox-input
                 value-state="Error"
-                wrap
+                wrapping-type="Normal"
                 ƒ-bind-data="--entity(*.data.furo_data_bool_icon)"
               ></furo-ui5-data-checkbox-input>
               <furo-ui5-data-checkbox-input
@@ -107,6 +107,21 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
             ></furo-ui5-data-text-input>
           </furo-form-layouter>
 
+          <furo-form-layouter one>
+            <p full>
+              Value with indeterminate state. Defines whether the component is displayed as
+              partially checked. Only for google.protobuf.BoolValue or furo.fat.Bool
+            </p>
+            <div>
+              <furo-ui5-data-checkbox-input
+                ƒ-bind-data="--daoUniversal(*.wrapper_bool)"
+              ></furo-ui5-data-checkbox-input>
+              <furo-ui5-data-checkbox-input
+                ƒ-bind-data="--daoUniversal(*.fat_bool)"
+              ></furo-ui5-data-checkbox-input>
+            </div>
+          </furo-form-layouter>
+
           <furo-button-bar>
             <produce-qp-data
               hidden
@@ -121,6 +136,11 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
             @-object-ready="--entity"
             ƒ-inject-raw="--response"
           ></furo-data-object>
+          <furo-data-object
+            type="universaltest.Universaltest"
+            @-object-ready="--daoUniversal"
+          ></furo-data-object>
+
           <furo-deep-link
             service="ExperimentService"
             @-hts-out="--hts"

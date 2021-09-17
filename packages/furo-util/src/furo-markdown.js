@@ -1,9 +1,9 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import 'markdown-it/dist/markdown-it.js';
 
 import 'prismjs/prism.js';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 // do not convert every code block on the page!
 // eslint-disable-next-line no-undef

@@ -1,12 +1,10 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
 import '@ui5/webcomponents/dist/Label.js';
-import '@ui5/webcomponents/dist/Icon.js';
-import '@ui5/webcomponents-icons/dist/accept.js';
-import '@ui5/webcomponents-icons/dist/border.js';
+import '@furo/data-ui/src/furo-type-renderer.js';
 
 import './furo-ui5-form-field-container.js';
 

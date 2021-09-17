@@ -1,4 +1,4 @@
-import { html, css } from 'lit-element';
+import { html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 
 import '@furo/util/src/furo-pretty-json';

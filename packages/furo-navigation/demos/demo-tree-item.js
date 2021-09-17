@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from 'lit';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/navigation/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies

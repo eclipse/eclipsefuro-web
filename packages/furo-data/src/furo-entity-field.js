@@ -1,4 +1,4 @@
-import { LitElement, css } from 'lit-element';
+import { LitElement, css } from 'lit';
 
 /**
  * Use this component to interact with fields from an furo-data-object.

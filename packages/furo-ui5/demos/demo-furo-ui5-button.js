@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -66,6 +66,7 @@ class DemoFuroUi5Button extends FBP(LitElement) {
                     <furo-empty-spacer></furo-empty-spacer>
                     <furo-ui5-button design="Emphasized">Emphasized</furo-ui5-button>
                     <furo-ui5-button design="Positive">Positive</furo-ui5-button>
+                    <furo-ui5-button design="Attention">Attention</furo-ui5-button>
                     <furo-ui5-button design="Transparent">Transparent</furo-ui5-button>
                     <furo-ui5-button>Default</furo-ui5-button>
                   </furo-ui5-button-bar>

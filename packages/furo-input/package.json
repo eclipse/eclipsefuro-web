@@ -32,8 +32,7 @@
     "@furo/framework": "^1.8.3",
     "@furo/icon": "^1.6.0",
     "@furo/layout": "^1.8.0",
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.1",
+    "lit": "^2.0.0-rc.4",
     "signature_pad": "3.0.0-beta.4"
   },
   "devDependencies": {
