@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Env } from '@furo/framework';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
@@ -14,8 +14,7 @@ import '@ui5/webcomponents/dist/TableColumn.js';
 import '@ui5/webcomponents/dist/TableCell.js';
 
 import './lib/furo-ui5-table-row.js';
-// this dependence comes from furo-type-renderer
-import './furo-ui5-data-repeat.js';
+
 
 /**
  *
@@ -495,17 +494,19 @@ export class FuroUi5DataTable extends FBP(LitElement) {
     return html`
       <ui5-table ?sticky-column-header="${this.stickyColumnHeader}">
         ${ui5HeaderTemplate(this.cols)}
-        <template
-          is="flow-repeat"
+        <flow-repeat
           ƒ-inject-items="--data"
           internal-wire="--internal"
           ƒ-trigger-first="--triggerFirst"
           ƒ-trigger-last="--triggerLast"
         >
-          <furo-ui5-table-row ƒ-._data="--internal(*.item._value)" ƒ-focus="--trigger"
+          <template>
+            <furo-ui5-table-row ƒ-._data="--internal(*.item._value)" ƒ-focus="--trigger"
             >${ui5CellTemplate(this.cols)}
-          </furo-ui5-table-row>
-        </template>
+            </furo-ui5-table-row>
+          </template>
+        </flow-repeat>
+
       </ui5-table>
       ${this._showNoData
         ? html`

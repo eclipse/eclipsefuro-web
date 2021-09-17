@@ -1,4 +1,4 @@
-import '@ui5/webcomponents/dist/generated/i18n/i18n-defaults';
+import '@ui5/webcomponents/dist/generated/i18n/i18n-defaults.js';
 import * as DateTimePicker from '@ui5/webcomponents/dist/DateTimePicker.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
@@ -273,7 +273,9 @@ export class FuroUi5DataDateTimePicker extends FieldNodeAdapter(DateTimePicker.d
       this._constraintsFromFNA.min = constraints.min;
       if (this._privilegedAttributes.minDate === null) {
         const parts = constraints.min.is.match(/\d+/g);
-        this.minDate = this.formatValue(new Date(parts[0], parts[1] - 1, parts[2]));
+       console.log(constraints.min)
+        console.warn("not implemented")
+        // this.minDate = this.formatValue(new Date(parts[0], parts[1] - 1, parts[2]));
       }
     }
 
@@ -281,7 +283,9 @@ export class FuroUi5DataDateTimePicker extends FieldNodeAdapter(DateTimePicker.d
       this._constraintsFromFNA.max = constraints.max;
       if (this._privilegedAttributes.maxDate === null) {
         const parts = constraints.max.is.match(/\d+/g);
-        this.maxDate = this.formatValue(new Date(parts[0], parts[1] - 1, parts[2]));
+        console.log(constraints.max)
+        console.warn("not implemented")
+        // this.maxDate = this.formatValue(new Date(parts[0], parts[1] - 1, parts[2]));
       }
     }
   }

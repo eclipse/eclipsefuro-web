@@ -1,7 +1,7 @@
 import * as SegmentedButton from '@ui5/webcomponents/dist/SegmentedButton.js';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode.js';
-import '@ui5/webcomponents/dist/ToggleButton.js';
+import '@ui5/webcomponents/dist/SegmentedButtonItem.js';
 
 /**
  * `furo-ui5-data-segmented-button`
@@ -16,8 +16,8 @@ import '@ui5/webcomponents/dist/ToggleButton.js';
  * ```
  * <furo-ui5-data-segmented-button
  *    ƒ-bind-data="--daoPerson(*.field)">
- *      <ui5-togglebutton pressed>Option A</ui5-togglebutton>
- *      <ui5-togglebutton>Option B</ui5-togglebutton>
+ *      <ui5-segmented-button-item pressed>Option A</ui5-segmented-button-item>
+ *      <ui5-segmented-button-item>Option B</ui5-segmented-button-item>
  * </furo-ui5-data-segmented-button>
  * ```
  * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
@@ -25,7 +25,7 @@ import '@ui5/webcomponents/dist/ToggleButton.js';
  * @fires {selectedOption} item-selected - Fired when the toggle button was clicked.
  *
  * Payload:
- * - if no option binding is active: ui5-togglebutton
+ * - if no option binding is active: ui5-segmented-button-item
  * - if a RepeaterNode is bound: FieldNode
  *
  * @fires {optionNodeList} options-updated - Fired  after the option list was rebuilt
@@ -44,7 +44,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
      * @type {string}
      * @private
      */
-    this._tagItemComponent = 'ui5-togglebutton';
+    this._tagItemComponent = 'ui5-segmented-button-item';
 
     /**
      * Flag to indicate if a field is attached
@@ -366,7 +366,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
     /**
      * Fired when the value has changed
      * Payload:
-     *  - if no option binding is active: ui5-togglebutton
+     *  - if no option binding is active: ui5-segmented-button-item
      *  - if a RepeaterNode is bound: FieldNode
      *  * @fires {String} field-value-changed - Fires the field value when it changes.
      * @type {Event}

@@ -1,4 +1,4 @@
-import { LitElement, css } from 'lit-element';
+import { LitElement, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import './lib/ui5-data-repeat-delete.js';
@@ -118,6 +118,7 @@ export class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
   }
 
   set repeatedComponent(component) {
+
     // add flow repeat to parent and inject on repeated changes
     // repeated
     const container = document.createElement('furo-form-layouter');
@@ -162,7 +163,11 @@ export class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
 
     container.appendChild(r);
 
-    this.shadowRoot.appendChild(container);
+    this.updateComplete.then(()=>{
+      this.shadowRoot.appendChild(container);
+    })
+
+
   }
 
   /**

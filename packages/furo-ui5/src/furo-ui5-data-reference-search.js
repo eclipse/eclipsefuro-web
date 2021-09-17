@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
@@ -907,7 +907,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           width: inherit;
         }
 
-        ui5-busyindicator {
+        ui5-busy-indicator {
           position: absolute;
           left: 50%;
           top: 15px;
@@ -960,7 +960,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           @-click="^^search-icon-clicked,--expandIconClicked"
         ></ui5-icon>
       </ui5-input>
-      <ui5-busyindicator size="Small" ?active="${this.busy}"></ui5-busyindicator>
+      <ui5-busy-indicator size="Small" ?active="${this.busy}"></ui5-busy-indicator>
       <ui5-list
         mode="SingleSelect"
         class="list"
@@ -969,23 +969,22 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         @-load-more="--loadMore"
         @-last-element-selected="--lastListElementReached"
       >
-        <template
-          is="flow-repeat"
-          ƒ-inject-items="--resultList"
-          ƒ-select="--listOpened"
-          ƒ-deselect-all="--listDeselectAll"
-          ƒ-select-next-index="--arrowDownPressed"
-          ƒ-select-previous-index="--arrowUpPressed"
-          ƒ-trigger-selected="--enterPressedForSelect"
-        >
+        <flow-repeat  ƒ-inject-items="--resultList"
+                      ƒ-select="--listOpened"
+                      ƒ-deselect-all="--listDeselectAll"
+                      ƒ-select-next-index="--arrowDownPressed"
+                      ƒ-select-previous-index="--arrowUpPressed"
+                      ƒ-trigger-selected="--enterPressedForSelect">
+        <template>
           <ui5-reference-search-item
-            display-field="${this.displayFieldPath}"
+            display-field="data.display_name"
             ƒ-deselect="--itemDeSelected"
             ƒ-select="--trigger"
             ƒ-preselect="--itemSelected"
             ƒ-inject-item="--item"
           ></ui5-reference-search-item>
         </template>
+        </flow-repeat>
       </ui5-list>
       <furo-backdrop
         ƒ-show="--valueHelperRequested"

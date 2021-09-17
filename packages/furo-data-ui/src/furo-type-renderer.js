@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { Theme } from '@furo/framework';
 
@@ -155,7 +155,8 @@ class FuroTypeRenderer extends FBP(LitElement) {
   /**
    * Creates the component for repeated fields
    * Component naming: [package-type]-repeated
-   * Default: furo-ui5-data-repeat with single component
+   *
+   * Fallback: if no -repeated component is available, a flow-repeat is used...
    * @private
    */
   _createRepeatedDisplay() {

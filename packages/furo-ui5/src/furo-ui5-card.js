@@ -1,9 +1,10 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@ui5/webcomponents/dist/Card.js';
+import '@ui5/webcomponents/dist/CardHeader.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@ui5/webcomponents/dist/Icon.js';
 
@@ -247,13 +248,14 @@ export class FuroUi5Card extends FBP(LitElement) {
    */
   render() {
     return html`
-      <ui5-card
-        heading="${this.heading}"
-        subheading="${this.subheading}"
+      <ui5-card ?no-content-padding="${this.noContentPadding}">
+        <ui5-card-header
+          @-click="^^header-clicked"
+          slot="header"
+          ?interactive="${this.headerInteractive}"
+          title-text="${this.heading}"
+          subtitle-text="${this.subheading}"
         status="${this.status}"
-        ?header-interactive="${this.headerInteractive}"
-        ?no-content-padding="${this.noContentPadding}"
-        @-header-click="^^header-clicked"
       >
         ${this.icon.length
           ? html`
@@ -267,6 +269,8 @@ export class FuroUi5Card extends FBP(LitElement) {
                 <slot name="action"></slot>
               </div>
             `}
+        </ui5-card-header>
+
         <div class="content">
           <slot name="content"></slot>
         </div>

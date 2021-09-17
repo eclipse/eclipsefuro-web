@@ -31,8 +31,7 @@
   "dependencies": {
     "@furo/fbp": "^5.10.3",
     "@furo/framework": "^1.8.3",
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.1.1",
+    "lit": "^2.0.0-rc.4",
     "markdown-it": "^9.0.1",
     "prismjs": "^1.17.1"
   },

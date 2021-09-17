@@ -1,10 +1,10 @@
-import { LitElement, css } from 'lit-element';
+import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
 import { Theme } from '@furo/framework/src/theme.js';
-import '@ui5/webcomponents/dist/MessageStrip';
+import '@ui5/webcomponents/dist/MessageStrip.js';
 
 /**
  * `furo-ui5-message-strip-display`
@@ -74,7 +74,7 @@ export class FuroUi5MessageStripDisplay extends FBP(LitElement) {
    */
   show(source) {
     const messagestrip = document.createElement('ui5-messagestrip');
-    messagestrip.setAttribute('type', source.type ? source.type : 'Information');
+    messagestrip.setAttribute('design', source.type ? source.type : 'Information');
 
     if (source.noCloseButton) {
       messagestrip.setAttribute('no-close-button', true);

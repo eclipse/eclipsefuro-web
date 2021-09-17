@@ -1,5 +1,5 @@
 import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
-import { css } from 'lit-element';
+import { css } from 'lit';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
@@ -108,6 +108,8 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
       readonly: null,
       disabled: null,
       text: null,
+      indeterminate: null,
+      checked: null,
     };
 
     this.addEventListener('change', this._updateFNA);
@@ -145,7 +147,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    */
   _updateFNA() {
     if (this.isFat()) {
-      this._tmpFAT.value = this.checked;
+      this._tmpFAT.value = this.checked || this.indeterminate;
       // set modified on changes
       if (this._tmpFAT.labels === null) {
         this._tmpFAT.labels = {};
@@ -153,6 +155,8 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
       this._tmpFAT.labels.modified = true;
 
       this.setFnaFieldValue(this._tmpFAT);
+    } else if (this.isWrapper()) {
+      this.setFnaFieldValue(this.checked || this.indeterminate);
     } else {
       this.setFnaFieldValue(this.checked);
     }
@@ -170,9 +174,23 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
       this._tmpFAT = val;
-      this.checked = !!val.value;
+      if (val && val.value === null) {
+        this.checked = true;
+        this.indeterminate = true;
+      } else {
+        this.checked = !!val;
+        this.indeterminate = false;
+      }
       this._updateAttributesFromFat(this._tmpFAT.attributes);
       this._updateLabelsFromFat(this._tmpFAT.labels);
+    } else if (this.isWrapper()) {
+      if (val === null) {
+        this.checked = true;
+        this.indeterminate = true;
+      } else {
+        this.checked = !!val;
+        this.indeterminate = false;
+      }
     } else {
       this.checked = !!val;
     }

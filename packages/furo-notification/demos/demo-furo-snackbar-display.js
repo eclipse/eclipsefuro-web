@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -108,8 +108,8 @@ class DemoFuroSnackbarDisplay extends FBP(LitElement) {
               size="350px"
               ƒ-show="--show3"
             ></furo-snackbar>
-            <!-- this furo-banner-display should be place on the main page once 
-            <furo-snackbar-display></furo-snackbar-display> 
+            <!-- this furo-banner-display should be place on the main page once
+            <furo-snackbar-display></furo-snackbar-display>
           -->
           </template>
         </furo-demo-snippet>

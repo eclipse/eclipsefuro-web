@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -89,7 +89,7 @@ class DemoFuroUi5DataDateTimePickerLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>
-        Basic usage of furo-ui5-data-date-tiem-picker-labeled
+        Basic usage of furo-ui5-data-date-time-picker-labeled
       </h2>
       <p>
         If you want to simply use a data bound date time picker field with automatic label handling.
@@ -164,6 +164,7 @@ class DemoFuroUi5DataDateTimePickerLabeled extends FBP(LitElement) {
             @-object-ready="--entity"
             ƒ-inject-raw="--response"
           ></furo-data-object>
+
           <furo-deep-link
             service="ExperimentService"
             @-hts-out="--hts"

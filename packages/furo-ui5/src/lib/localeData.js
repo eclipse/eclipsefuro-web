@@ -1,43 +1,30 @@
 import { registerLocaleDataLoader } from '@ui5/webcomponents-base/dist/asset-registries/LocaleData.js';
+import { setLanguage } from '@ui5/webcomponents-base/dist/config/Language.js';
 
-// en
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('en', async runtimeLocaleId =>
-  (await fetch(`assets/cldr/en.json`)).json(),
+// workaround for elements which do not like lazy loading
+import '@ui5/webcomponents/dist/Button.js';
+
+registerLocaleDataLoader('de_CH', () =>
+  import('@furo/ui5/assets/cldr/de_CH.js').then(cldr => cldr.default()),
 );
 
-// de
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('de', async runtimeLocaleId =>
-  (await fetch(`assets/cldr/de.json`)).json(),
+registerLocaleDataLoader('de_AT', () =>
+  import('@furo/ui5/assets/cldr/de_AT.js').then(cldr => cldr.default()),
 );
 
-// de_CH
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('de_CH', async runtimeLocaleId =>
-  (await fetch(`assets/cldr/de_CH.json`)).json(),
+registerLocaleDataLoader('de', () =>
+  import('@furo/ui5/assets/cldr/de.js').then(cldr => cldr.default()),
 );
 
-// de_CH
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('es', async runtimeLocaleId =>
-  (await fetch(`assets/cldr/de_CH.json`)).json(),
+registerLocaleDataLoader('it', () =>
+  import('@furo/ui5/assets/cldr/it.js').then(cldr => cldr.default()),
 );
 
-// de_CH
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('fr', async runtimeLocaleId =>
-  (await fetch(`assets/cldr/de_CH.json`)).json(),
+registerLocaleDataLoader('en', () =>
+  import('@furo/ui5/assets/cldr/en.js').then(cldr => cldr.default()),
 );
 
-// de_CH
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('it', async runtimeLocaleId =>
-  (await fetch(`assets/cldr/de_CH.json`)).json(),
-);
-
-// de_CH
-// eslint-disable-next-line no-unused-vars
-registerLocaleDataLoader('zh_CN', async runtimeLocaleId =>
-  (await fetch(`assets/cldr/de_CH.json`)).json(),
-);
+// Set a default language to prevent autoloading of cldrs which are not registered
+(async () => {
+  await setLanguage('en');
+})();

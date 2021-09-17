@@ -1,11 +1,11 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import './furo-ui5-form-field-container.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 import { Theme } from '@furo/framework';
-import '@ui5/webcomponents/dist/Input';
+import '@ui5/webcomponents/dist/Input.js';
 import './furo-ui5-data-text-input.js';
 import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
@@ -472,7 +472,7 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
           ?required=${this.required}
           ƒ-bind-data="--data(*.currency_code)"
           ƒ-.suggestions="--suggestions"
-          @-value-changed=":STOP, --inputInput(*)"
+          @-field-value-changed=":STOP, --inputInput(*)"
         ></furo-ui5-data-text-input>
       </furo-horizontal-flex>
     `;

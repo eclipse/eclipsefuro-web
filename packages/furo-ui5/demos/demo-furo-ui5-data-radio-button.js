@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -25,7 +25,7 @@ import '../src/lib/ui5-icons.js';
 /**
  * `demo-furo-ui5-data-radio-button`
  *
- * @Summary basic usage of furo-ui5-data-radio-button
+ * @Summary basic usage of furo-ui5-data-segemented-button
  * @customElement
  * @appliesMixin FBP
  */

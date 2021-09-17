@@ -1,4 +1,4 @@
-import { LitElement, css } from 'lit-element';
+import { LitElement, css } from 'lit';
 import { Env } from '@furo/framework';
 import { DataObject } from './lib/DataObject.js';
 

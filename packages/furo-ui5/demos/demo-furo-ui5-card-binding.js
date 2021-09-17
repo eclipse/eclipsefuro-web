@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -92,7 +92,7 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                 <!-- edit a Navigationnode -->
                 <furo-ui5-card
                   flex
-                  heading="Edit the data"
+                  heading="Display the data"
                   subheading="icons: action, account, badge, bell"
                   icon="card"
                 >

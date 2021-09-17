@@ -1,4 +1,4 @@
-import { css } from 'lit-element';
+import { css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
 
@@ -39,13 +39,27 @@ export class FuroUi5ButtonBar extends FuroButtonBar {
           box-shadow: var(
             --furo-ui5-content-shadow,
             var(
-              --sapContent_Shadow0,
+              --sapContent_Shadow1,
               rgba(0, 0, 0, 0.1) 0px 0px 0px 1px,
               rgba(0, 0, 0, 0.1) 0px 2px 8px 0px
             )
           );
           background-color: #ffffff;
         }
+
+        :host([design='Footer']) {
+          border-radius: 0;
+          background-color: var(--sapPageFooter_Background);
+          border-top: 0.0625rem solid var(--sapPageFooter_BorderColor);
+          box-shadow: none;
+        }
+        :host([design='Subheader']) {
+          border-radius: 0;
+          background-color: var(--sapPageHeader_Background);
+          height: var(--_ui5_bar_subheader_height);
+          box-shadow: inset 0 -0.0625rem var(--sapPageHeader_BorderColor);
+        }
+
         :host([hidden]) {
           display: none;
         }
