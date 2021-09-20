@@ -78,7 +78,7 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
               slot="content"
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
-              ƒ-focus="--qp"
+              ƒ-focus="--focus"
             >
               <ui5-table-column slot="columns" min-width="900" style="width: 2rem" field="data.id"></ui5-table-column>
               <ui5-table-column slot="columns" demand-popin popin-text="Template" min-width="800"   style="width: 12rem" field="{data-table-col-tmpl}">
@@ -92,7 +92,7 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
               <ui5-table-column slot="columns"  style="width: 12rem;"  field="data.cost_limit">
               </ui5-table-column>
 
-              <ui5-table-column slot="columns"   field="data.start">
+              <ui5-table-column slot="columns"  context="celledit"  field="data.start">
 
               </ui5-table-column>
 
@@ -109,6 +109,7 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
           </furo-ui5-card>
 
           <furo-ui5-button-bar>
+            <furo-ui5-button @-click='--focus'>Focus</furo-ui5-button>
             <furo-empty-spacer></furo-empty-spacer>
             <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
           </furo-ui5-button-bar>
