@@ -71,12 +71,6 @@ class FormSectionThree extends FBP(LitElement) {
           </furo-horizontal-flex>
         </furo-ui5-form-field-container>
 
-        <furo-ui5-data-ro-labeled
-          ƒ-.disabled="--disable"
-          label="data-display-labeled"
-          ƒ-bind-data="--entity(*.data.furo_data_money_input)"
-        ></furo-ui5-data-ro-labeled>
-
         <furo-ui5-data-display
           ƒ-.disabled="--disable"
           label="data-display-labeled"

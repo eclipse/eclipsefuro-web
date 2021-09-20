@@ -133,6 +133,8 @@ export class CellGoogleTypeMoney extends LitElement {
         style: 'currency',
         currency: this._field.currency_code._value,
       }).format(this._valueObject.amount);
+    } else {
+      this._displayValue = '';
     }
 
     this.requestUpdate();
