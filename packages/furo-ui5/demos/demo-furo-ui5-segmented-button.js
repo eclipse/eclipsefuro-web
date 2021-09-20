@@ -67,7 +67,11 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
         <template>
           <furo-form-layouter one>
             <ui5-button full design="Emphasized" @-click="--load">load data</ui5-button>
-
+            <ui5-segmented-button>
+              <ui5-segmented-button-item>Map</ui5-segmented-button-item>
+              <ui5-segmented-button-item pressed>Satellite</ui5-segmented-button-item>
+              <ui5-segmented-button-item>Terrain</ui5-segmented-button-item>
+            </ui5-segmented-button>
             <p>
               Option items from spec. Type furo.Optionitem.
             </p>
