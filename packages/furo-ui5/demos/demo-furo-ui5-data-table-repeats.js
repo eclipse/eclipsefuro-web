@@ -80,9 +80,15 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
               ƒ-focus="--qp"
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
-              columns="data.id, data.display_name, data.cost_limit, data.start, data.end, data.description"
               @-tablerow-selected="--itemSelected"
-            ></furo-ui5-data-table>
+            >
+              <ui5-table-column slot="columns" field="data.id"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.display_name"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.cost_limit"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.start"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.end"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.description"></ui5-table-column>
+            </furo-ui5-data-table>
           </furo-ui5-card>
 
           <furo-ui5-button-bar>
@@ -101,8 +107,13 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
               slot="content"
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--daoProjectEntity(*.data.members)"
-              columns="first_name, name, phone_nr, skills"
-            ></furo-ui5-data-table>
+            >
+              <ui5-table-column slot="columns" field="first_name"></ui5-table-column>
+              <ui5-table-column slot="columns" field="name"></ui5-table-column>
+              <ui5-table-column slot="columns" field="phone_nr"></ui5-table-column>
+              <ui5-table-column slot="columns" field="skills"></ui5-table-column>
+
+            </furo-ui5-data-table>
           </furo-ui5-card>
 
           <furo-deep-link
