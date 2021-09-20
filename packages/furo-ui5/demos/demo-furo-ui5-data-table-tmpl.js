@@ -17,6 +17,7 @@ import '@furo/data/src/furo-deep-link.js';
 import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@ui5/webcomponents-icons/dist/project-definition-triangle-2';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -81,14 +82,16 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
               @-template-col-clicked="--rowData"
-              headers=",
-                       ${i18n.t('header2')},
-                       ${i18n.t('header3')}:-:,
-                       ${i18n.t('header4')}--:,
-                       ${i18n.t('header5')}|fix85,
-                       ${i18n.t('header6')}--:|fix400,|fix50"
-              columns="data.id, data.display_name, {data-table-col-tmpl}, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"
-            ></furo-ui5-data-table>
+            >
+              <ui5-table-column slot="columns" field="data.id"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.display_name"></ui5-table-column>
+              <ui5-table-column slot="columns" field="{data-table-col-tmpl}"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.cost_limit"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.start"></ui5-table-column>
+              <ui5-table-column slot="columns" field="data.end"></ui5-table-column>
+              <ui5-table-column slot="columns" field="{data-table-col-tmpl-link}"></ui5-table-column>
+
+            </furo-ui5-data-table>
           </furo-ui5-card>
 
           <furo-ui5-button-bar>
