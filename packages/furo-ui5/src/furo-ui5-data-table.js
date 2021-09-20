@@ -145,8 +145,6 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         const span = document.createElement('span')
         span.innerText = fieldNode.meta.label
         col.appendChild(span)
-
-
       }
 
       if(fieldPath.startsWith('{')) {
@@ -155,6 +153,8 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         this._wires.push(`--internal(*.item.${fieldPath})`)
       }
 
+      // append to table
+      this.shadowRoot.querySelector("ui5-table").appendChild(col)
     })
 
 
@@ -317,7 +317,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
   render() {
     return html`
       <ui5-table ?sticky-column-header='${this.stickyColumnHeader}' mode="${this.mode}">
-        <slot name='columns' slot='columns'></slot>
+
         <flow-repeat
           ƒ-inject-items='--data'
           internal-wire='--internal'
@@ -325,9 +325,8 @@ export class FuroUi5DataTable extends FBP(LitElement) {
           ƒ-trigger-last='--triggerLast'>
           ${this._rowRepeatTemplate}
         </flow-repeat>
-
-
       </ui5-table>
+      <slot></slot>
       ${this._showNoData
         ? html`
           <div class='no-data'>${this.noDataText}</div>
