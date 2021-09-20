@@ -42,7 +42,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
     this.cols = []
     this._specs = Env.api.specs
     this.data = []
-    this.mode="None"
+    this.mode = 'None'
 
   }
 
@@ -77,7 +77,6 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       } else if (this.noDataText) {
         this._showNoData = true
       }
-
       this.requestUpdate()
     })
 
@@ -120,7 +119,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
   }
 
   /**
-   * focus the last row
+   * focus the first row
    */
   focusFirst() {
     this._FBPTriggerWire('--triggerFirst')
@@ -134,6 +133,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
     this._ctx = []
     this._wires = []
     const fieldPaths = []
+
     this.querySelectorAll('ui5-table-column').forEach(col => {
       const fieldPath = col.getAttribute('field')
       fieldPaths.push(fieldPath)
@@ -147,22 +147,21 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         col.appendChild(span)
       }
 
-      if(fieldPath.startsWith('{')) {
-        this._wires.push('--internal(*.item)');
-      }else{
+      if (fieldPath.startsWith('{')) {
+        this._wires.push('--internal(*.item)')
+      } else {
         this._wires.push(`--internal(*.item.${fieldPath})`)
       }
 
       // append to table
-      this.shadowRoot.querySelector("ui5-table").appendChild(col)
+      this.shadowRoot.querySelector('ui5-table').appendChild(col)
     })
-
 
 
     this._rowRepeatTemplate = statichtml`<template>
         <furo-ui5-table-row ƒ-._data='--internal(*.item._value)' ƒ-focus='--trigger'>
           ${this._cellMap(fieldPaths)}
-               </furo-ui5-table-row>
+        </furo-ui5-table-row>
     </template>`
 
 
@@ -184,22 +183,18 @@ export class FuroUi5DataTable extends FBP(LitElement) {
     const items = []
     fieldPaths.forEach((fieldPath, index) => {
       let el = 'furo-type-renderer'
-      if(fieldPath.startsWith('{')){
+      if (fieldPath.startsWith('{')) {
         el = fieldPath.substr(1, fieldPath.length - 2)
       }
-      items.push(`<ui5-table-cell><${ el } `)
+      items.push(`<ui5-table-cell><${el} `)
       items.push(`ƒ-bind-data="${this._wires[index]}"`)
-      items.push(`context="${  this._ctx[index]  }"`)
-      items.push(`></${ el } ></ui5-table-cell>`)
+      items.push(`context="${this._ctx[index]}"`)
+      items.push(`></${el} ></ui5-table-cell>`)
     })
-
-    return  literal([
+    return literal([
       items.join(''),
     ])
   }
-
-
-
 
 
   /**
@@ -280,17 +275,17 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    */
   static get properties() {
     return {
-      context: {
-        type: String,
-      },
-
 
       /**
-       * the text which can be showed when there is no data in table.
-       * string
+       * Defines the mode of the component.
+       *
+       * Available options are:
+       * - MultiSelect
+       * - SingleSelect
+       * - None
        */
       mode: {
-        type: String
+        type: String,
       },
       /**
        * the text which can be showed when there is no data in table.
@@ -316,7 +311,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    */
   render() {
     return html`
-      <ui5-table ?sticky-column-header='${this.stickyColumnHeader}' mode="${this.mode}">
+      <ui5-table ?sticky-column-header='${this.stickyColumnHeader}' mode='${this.mode}'>
 
         <flow-repeat
           ƒ-inject-items='--data'
@@ -327,11 +322,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         </flow-repeat>
       </ui5-table>
       <slot></slot>
-      ${this._showNoData
-        ? html`
-          <div class='no-data'>${this.noDataText}</div>
-        `
-        : html``}
+      ${this._showNoData ? html`<div class='no-data'>${this.noDataText}</div>` : html``}
     `
   }
 }
