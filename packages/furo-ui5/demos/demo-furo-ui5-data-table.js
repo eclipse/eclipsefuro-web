@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import { i18n } from '@furo/framework/src/i18n.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
@@ -74,13 +75,39 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
             icon="project-definition-triangle-2"
           >
             <furo-ui5-data-table
+              mode="MultiSelect"
               slot="content"
-              popin-fields="data.id"
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
               ƒ-focus="--qp"
-              columns="data.id|min800, data.display_name, data.cost_limit, data.start, data.end, data.description"
-            ></furo-ui5-data-table>
+            >
+              <ui5-table-column slot="columns" min-width="1200"  style="width: 2rem" field="data.id"></ui5-table-column>
+              <ui5-table-column slot="columns" style="width: 12rem" field="{data-table-col-tmpl}">
+                <span style="line-height: 1.4rem">${i18n.t('header4')}</span>
+              </ui5-table-column>
+
+              <ui5-table-column slot="columns" min-width="1900" demand-popin popin-text="Display name" field="data.display_name" context="celledit">
+                <span style="line-height: 1.4rem">Display name</span>
+              </ui5-table-column>
+
+              <ui5-table-column slot="columns" min-width="900" popin-text="Do" field="data.cost_limit">
+                <span style="line-height: 1.4rem">Cost Limit</span>
+              </ui5-table-column>
+
+              <ui5-table-column slot="columns" min-width="600" popin-text="Dimensions" demand-popin field="data.start">
+                <span style="line-height: 1.4rem">Project start</span>
+              </ui5-table-column>
+
+              <ui5-table-column slot="columns" min-width="600" popin-text="Weight" demand-popin field="data.end">
+                <span style="line-height: 1.4rem">Project End</span>
+              </ui5-table-column>
+
+              <ui5-table-column slot="columns" field="data.description">
+                <span style="line-height: 1.4rem">Description</span>
+              </ui5-table-column>
+
+
+            </furo-ui5-data-table>
           </furo-ui5-card>
 
           <furo-ui5-button-bar>
