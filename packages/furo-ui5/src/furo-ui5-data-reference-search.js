@@ -132,6 +132,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
     this.debounceTimeout = 250;
     this.placeholder = '';
+    this.label = '';
 
     this.noDataText = 'no result found';
 
@@ -148,6 +149,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this._attributesFromFNA = {
       readonly: undefined,
       placeholder: undefined,
+      label: undefined,
     };
 
     this._constraintsFromFNA = {
@@ -160,6 +162,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this._privilegedAttributes = {
       readonly: null,
       placeholder: null,
+      label: null,
       required: null,
       disabled: null,
       icon: null,
@@ -305,6 +308,14 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
        * Use with caution, normally the specs defines this value.
        */
       placeholder: {
+        type: String,
+      },
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      label: {
         type: String,
       },
       /**
@@ -754,6 +765,19 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     }
   }
 
+
+  /**
+   * Update the label from the FNA
+   * @private
+   * @param label
+   */
+  onFnaLabelChanged(label) {
+    this._attributesFromFNA.label = label;
+    if (this._privilegedAttributes.label === null) {
+      this.label = label;
+    }
+  }
+
   /**
    * Updates the readonly state from FNA
    * @private
@@ -833,6 +857,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    * - `value-state-message`
    * - `icon`
    * - `placeholder`
+   * - `label`
    * - `required`
    * - `readonly`
    * - `disabled`
@@ -986,19 +1011,20 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         </template>
         </flow-repeat>
       </ui5-list>
-      <furo-backdrop
+      <ui5-dialog
         ƒ-show="--valueHelperRequested"
-        @-opened="--BackdropFocus"
+        @-after-open="--BackdropFocus"
         ƒ-close="--closeRequested, --recordSelected"
-        @-closed="--backdropClosed"
+        @-after-close="--backdropClosed"
+        stretch
+        header-text="${this.label}"
       >
         <div
           id="valueHelper"
-          style="width: 95vw; height: 95vh; background: var(--surface)"
           @-escape-filter-panel="--closeRequested"
           @-record-selected="--recordSelected"
         ></div>
-      </furo-backdrop>
+      </ui5-dialog>
       <furo-de-bounce
         ƒ-input-wire="--searchTerm"
         @-out="--debouncedSrch"
