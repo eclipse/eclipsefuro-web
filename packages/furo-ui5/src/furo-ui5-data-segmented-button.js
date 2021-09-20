@@ -121,6 +121,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
 
     // changed is fired when the select operation has finished.
     this.addEventListener('click', this._updateFNA);
+
   }
 
   /**
@@ -277,6 +278,9 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
       if (result) {
         result.pressed = true;
       }
+      // Update the internal state for ui5 navigation
+      this._state.items = Array.from(BUTTONS);
+
     }
     return true;
   }
