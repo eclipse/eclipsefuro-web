@@ -418,7 +418,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
     } else if (list && list.length) {
       // applies static option list items from spec or
       // option list items from meta
-      list.forEach(item => {
+      list.forEach((item, index) => {
         const optionItem = document.createElement(this._tagItemComponent);
         optionItem.setAttribute(
           'data-id',
@@ -456,6 +456,10 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
         this.appendChild(newOpt);
       });
     }
+
+    // Update the internal state for ui5 navigation
+    this._state.items = optionNodeList;
+
     this._render();
 
     this.dispatchEvent(
