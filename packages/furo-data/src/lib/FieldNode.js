@@ -76,6 +76,33 @@ export class FieldNode extends EventTreeNode {
     // inherit _validationDisabled from parent
     this._validationDisabled = this.__parentNode._validationDisabled;
 
+    /**
+     * Default value
+     * https://developers.google.com/protocol-buffers/docs/proto3#default
+     */
+    // set default value for numeric types, the default value is zero.
+    if (
+      (this.__specdefinitions[this._spec.type] !== undefined && this._spec.type === 'int32') ||
+      this._spec.type === 'double' ||
+      this._spec.type === 'float' ||
+      this._spec.type === 'int64' ||
+      this._spec.type === 'uint32' ||
+      this._spec.type === 'uint64' ||
+      this._spec.type === 'sint32' ||
+      this._spec.type === 'sint64' ||
+      this._spec.type === 'fixed32' ||
+      this._spec.type === 'fixed64' ||
+      this._spec.type === 'sfixed32' ||
+      this._spec.type === 'sfixed64'
+    ) {
+      this.__value = 0;
+    }
+
+    // set default value for bools, the default value is false.
+    if (this.__specdefinitions[this._spec.type] !== undefined && this._spec.type === 'bool') {
+      this.__value = false;
+    }
+
     // this types are not complex types in the json representation
     if (
       this.__specdefinitions[this._spec.type] !== undefined &&
