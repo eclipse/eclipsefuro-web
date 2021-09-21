@@ -311,7 +311,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    * @returns {TemplateResult}
    */
   render() {
-    return statichtml`
+    return html`
       <ui5-table ?sticky-column-header='${this.stickyColumnHeader}' mode='${this.mode}'>
 
         <flow-repeat
@@ -325,10 +325,10 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       </ui5-table>
       <slot></slot>
       ${this._showNoData
-      ? statichtml`
+      ? html`
             <div class='no-data'>${this.noDataText}</div>
           `
-      : statichtml``}
+      : html``}
     `
   }
 }

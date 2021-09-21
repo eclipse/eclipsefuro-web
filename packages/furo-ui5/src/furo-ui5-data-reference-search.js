@@ -956,6 +956,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         ui5-icon:hover {
           background: var(--sapButton_Hover_Background);
         }
+        #valueHelper{
+          height: 100%;
+        }
       `
     );
   }
