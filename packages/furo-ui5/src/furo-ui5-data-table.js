@@ -245,17 +245,6 @@ export class FuroUi5DataTable extends FBP(LitElement) {
           line-height: 3rem;
         }
 
-        ui5-table-column[center]::part(column) {
-          text-align: center;
-        }
-
-        ui5-table-column[right]::part(column) {
-          text-align: right;
-        }
-
-        ui5-table-cell::part(cell):focus {
-          outline: none;
-        }
       `
     );
   }

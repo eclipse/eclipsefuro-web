@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import { i18n } from '@furo/framework/src/i18n.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
@@ -125,6 +124,8 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
 
               <ui5-table-column slot="columns" min-width="800" field="data.description">
               </ui5-table-column>
+
+
             </furo-ui5-data-table>
           </furo-ui5-card>
 
