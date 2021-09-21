@@ -36,7 +36,7 @@
     "@furo/layout": "^1.8.0",
     "@ui5/webcomponents": "0.33.0",
     "@ui5/webcomponents-fiori": "0.33.0",
-    "lit": "^2.0.0-rc.4",
+    "lit": "^2.0.0",
     "markdown-it": "^9.0.1"
   },
   "devDependencies": {

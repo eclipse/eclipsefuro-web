@@ -173,6 +173,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
       // this._field.clearListOnNewData = true;
       this._field.addEventListener('this-repeated-field-changed', e => {
         el.injectItems(e.target.repeats);
+
       });
 
       this.parentNode.insertBefore(el, this);

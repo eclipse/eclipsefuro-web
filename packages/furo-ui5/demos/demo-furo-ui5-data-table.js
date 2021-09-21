@@ -89,16 +89,11 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
                 <span style="line-height: 1.4rem;">Display name</span>
               </ui5-table-column>
 
-              <ui5-table-column slot="columns"  style="width: 12rem;"  field="data.cost_limit">
-              </ui5-table-column>
+              <ui5-table-column slot="columns"  style="width: 12rem;"  field="data.cost_limit"></ui5-table-column>
 
-              <ui5-table-column slot="columns"  context="celledit"  field="data.start">
+              <ui5-table-column slot="columns"  context="celledit"  field="data.start"></ui5-table-column>
 
-              </ui5-table-column>
-
-              <ui5-table-column slot="columns"  field="data.end">
-
-              </ui5-table-column>
+              <ui5-table-column slot="columns"  field="data.end"></ui5-table-column>
 
               <ui5-table-column slot="columns" min-width="800"  field="data.description">
 

@@ -32,7 +32,7 @@
     "@furo/fbp": "^5.10.2",
     "@furo/framework": "^1.8.2",
     "@furo/ui5": "*",
-    "lit": "^2.0.0-rc.4"
+    "lit": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
