@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 
@@ -38,7 +38,9 @@ class DemoExtendedSearcher extends FBP(LitElement) {
    * @public
    * @param hts
    */
+  // eslint-disable-next-line class-methods-use-this
   htsIn(hts) {
+    // eslint-disable-next-line no-console
     console.log(hts);
   }
 
