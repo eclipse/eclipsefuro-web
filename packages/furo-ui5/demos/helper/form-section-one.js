@@ -130,6 +130,9 @@ class FormSectionOne extends FBP(LitElement) {
             ƒ-.readonly="--disable"
             ƒ-bind-data="--entityTaskReady(*.owner)"
             ƒ-bind-options="--daoPersonCollection(*.entities)"
+            id-field-path="data.id"
+            display-field-path="data.display_name"
+
           ></furo-ui5-data-segmented-button>
         </furo-ui5-form-field-container>
       </furo-form-layouter>

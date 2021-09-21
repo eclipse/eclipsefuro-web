@@ -15,7 +15,7 @@ import '@ui5/webcomponents/dist/TableCell.js'
 
 import './lib/furo-ui5-table-row.js'
 import { html as statichtml, literal } from 'lit/static-html.js'
-import { repeat } from 'lit/directives/repeat.js'
+
 
 /**
  * `furo-ui5-data-table` display entities in a ui5-table
