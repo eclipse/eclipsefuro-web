@@ -1,6 +1,10 @@
 import { registerLocaleDataLoader } from '@ui5/webcomponents-base/dist/asset-registries/LocaleData.js';
 import { setLanguage } from '@ui5/webcomponents-base/dist/config/Language.js';
 import { registerI18nLoader } from '@ui5/webcomponents-base/dist/asset-registries/i18n.js';
+
+// import { getNoConflict, setNoConflict } from "@ui5/webcomponents-base/dist/config/NoConflict.js";
+
+
 // workaround for elements which do not like lazy loading
 import '@ui5/webcomponents/dist/Button.js';
 
@@ -45,3 +49,5 @@ registerI18nLoader('@ui5/webcomponents-fiori', {
   en: 'assets/i18n/messagebundle_en.properties',
   de: 'assets/i18n/messagebundle_de.properties',
 });
+
+

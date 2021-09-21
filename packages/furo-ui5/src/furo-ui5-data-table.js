@@ -1,20 +1,20 @@
-import { LitElement, html, css } from 'lit';
-import { Env } from '@furo/framework';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp/src/fbp.js';
+import { LitElement, html, css } from 'lit'
+import { Env } from '@furo/framework'
+import { Theme } from '@furo/framework/src/theme'
+import { FBP } from '@furo/fbp/src/fbp.js'
 
-import '@furo/fbp/src/flow-repeat.js';
+import '@furo/fbp/src/flow-repeat.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-ui/src/furo-type-renderer.js';
+import '@furo/data-ui/src/furo-type-renderer.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-ui5-data-display.js';
+import '@furo/ui5/src/furo-ui5-data-display.js'
 
-import '@ui5/webcomponents/dist/Table.js';
-import '@ui5/webcomponents/dist/TableColumn.js';
-import '@ui5/webcomponents/dist/TableCell.js';
+import '@ui5/webcomponents/dist/Table.js'
+import '@ui5/webcomponents/dist/TableColumn.js'
+import '@ui5/webcomponents/dist/TableCell.js'
 
-import './lib/furo-ui5-table-row.js';
-import { html as statichtml, literal } from 'lit/static-html.js';
+import './lib/furo-ui5-table-row.js'
+import { html as statichtml, literal } from 'lit/static-html.js'
 
 /**
  * `furo-ui5-data-table` display entities in a ui5-table
@@ -27,8 +27,9 @@ import { html as statichtml, literal } from 'lit/static-html.js';
  * @fires {entity} arrow-down-on-last-row - Fired when the ArrowDown is pressed on the last row. The event detail is the original entity of the row
  * @fires {entity} tablerow-selected - Fired when the row is selected. The event detail is the original entity of the row.
  * @fires {entity} arrow-up-on-first-row - Fired when the ArrowUp is pressed on the first row. The event detail is the original entity of the row
- * @fires {HTMLElement} data-loaded - Fired when the data is loaded into data table.
- * the event detail is the data table self.
+ * @fires {HTMLElement} data-loaded - Fired when the data is loaded into data table. The event detail contains the data table self.
+ * @fires {Array with the selected items} rows-selected - Fired when the row selection in MultiSelect mode was changed
+ *
  *
  * @customElement
  * @demo demo-furo-ui5-data-table Basic usage
@@ -37,11 +38,33 @@ import { html as statichtml, literal } from 'lit/static-html.js';
  */
 export class FuroUi5DataTable extends FBP(LitElement) {
   constructor() {
-    super();
-    this.cols = [];
-    this._specs = Env.api.specs;
-    this.data = [];
-    this.mode = 'None';
+    super()
+    this.cols = []
+    this._specs = Env.api.specs
+    this.data = []
+    this.mode = 'None'
+
+
+  }
+
+  _FBPReady() {
+    super._FBPReady()
+    this.shadowRoot.querySelector('ui5-table').addEventListener('selectionChange', (e) => {
+      const affectedItems = []
+      e.detail.selectedRows.map(r => {
+        if (r._data) {
+          affectedItems.push(r._data)
+        }
+      })
+      /**
+      * @event rows-selected
+      * Fired when the row selection in MultiSelect mode was changed
+      * detail payload: Array with the selected items
+      */
+      const customEvent = new Event('rows-selected', {composed:true, bubbles: true});
+      customEvent.detail = affectedItems;
+      this.dispatchEvent(customEvent)
+    })
   }
 
   /**
@@ -51,36 +74,36 @@ export class FuroUi5DataTable extends FBP(LitElement) {
   bindData(data) {
     if (!data._isRepeater) {
       // eslint-disable-next-line no-console
-      console.warn('Invalid fieldNode in bindData. please bind a repeated field.');
-      return;
+      console.warn('Invalid fieldNode in bindData. please bind a repeated field.')
+      return
     }
 
     data.addEventListener('repeated-fields-all-removed', e => {
-      this.data = e.detail;
-      this._FBPTriggerWire('--data', this.data);
+      this.data = e.detail
+      this._FBPTriggerWire('--data', this.data)
       if (this.noDataText) {
-        this._showNoData = true;
+        this._showNoData = true
       }
-      this.requestUpdate();
-    });
+      this.requestUpdate()
+    })
 
     /**
      * new data arrived from CollectionNode
      */
     data.addEventListener('this-repeated-field-changed', e => {
-      this.data = e.detail.repeats;
-      this._FBPTriggerWire('--data', this.data);
+      this.data = e.detail.repeats
+      this._FBPTriggerWire('--data', this.data)
       if (this.data.length > 0) {
-        this._showNoData = false;
+        this._showNoData = false
       } else if (this.noDataText) {
-        this._showNoData = true;
+        this._showNoData = true
       }
-      this.requestUpdate();
-    });
+      this.requestUpdate()
+    })
 
-    this._fields = this._specs[data._spec.type].fields;
+    this._fields = this._specs[data._spec.type].fields
 
-    this._init();
+    this._init()
 
     this.dispatchEvent(
       new CustomEvent('data-loaded', {
@@ -88,24 +111,24 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         bubbles: true,
         composed: true,
       }),
-    );
+    )
   }
 
   /**
    * focus on the header of the table
    */
   focus() {
-    const table = this.shadowRoot.querySelector('ui5-table');
+    const table = this.shadowRoot.querySelector('ui5-table')
     if (table && table.shadowRoot) {
-      const header = table.shadowRoot.querySelector('tr');
+      const header = table.shadowRoot.querySelector('tr')
       // fix error when navigate without data
       header.addEventListener('keydown', e => {
-        const key = e.key || e.keyCode;
+        const key = e.key || e.keyCode
         if ((key === 'ArrowDown' || key === 40) && this.data.length === 0) {
-          e.stopPropagation();
+          e.stopPropagation()
         }
-      });
-      header.click();
+      })
+      header.click()
     }
   }
 
@@ -113,14 +136,14 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    * focus the first row
    */
   focusLast() {
-    this._FBPTriggerWire('--triggerLast');
+    this._FBPTriggerWire('--triggerLast')
   }
 
   /**
    * focus the first row
    */
   focusFirst() {
-    this._FBPTriggerWire('--triggerFirst');
+    this._FBPTriggerWire('--triggerFirst')
   }
 
   /**
@@ -128,42 +151,42 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _init() {
-    this._ctx = [];
-    this._wires = [];
-    const fieldPaths = [];
+    this._ctx = []
+    this._wires = []
+    const fieldPaths = []
 
     this.querySelectorAll('ui5-table-column').forEach(col => {
-      const fieldPath = col.getAttribute('field');
-      fieldPaths.push(fieldPath);
-      this._ctx.push(col.getAttribute('context') || 'cell');
+      const fieldPath = col.getAttribute('field')
+      fieldPaths.push(fieldPath)
+      this._ctx.push(col.getAttribute('context') || 'cell')
 
       // if no title was set, use the title from the field spec
       if (col.childElementCount === 0 && !fieldPath.startsWith('{')) {
-        const fieldNode = this._getSpecFieldFromPath(this._fields, fieldPath);
-        const span = document.createElement('span');
-        span.innerText = fieldNode.meta.label;
-        col.appendChild(span);
+        const fieldNode = this._getSpecFieldFromPath(this._fields, fieldPath)
+        const span = document.createElement('span')
+        span.innerText = fieldNode.meta.label
+        col.appendChild(span)
       }
 
       if (fieldPath.startsWith('{')) {
-        this._wires.push('--internal(*.item)');
+        this._wires.push('--internal(*.item)')
       } else {
-        this._wires.push(`--internal(*.item.${fieldPath})`);
+        this._wires.push(`--internal(*.item.${fieldPath})`)
       }
 
       // append to table
-      this.shadowRoot.querySelector('ui5-table').appendChild(col);
-    });
+      this.shadowRoot.querySelector('ui5-table').appendChild(col)
+    })
 
     this._rowRepeatTemplate = statichtml`<template>
         <furo-ui5-table-row ƒ-._data='--internal(*.item._value)' ƒ-focus='--trigger'>
           ${this._cellMap(fieldPaths)}
         </furo-ui5-table-row>
-    </template>`;
+    </template>`
 
-    this._showNoData = !!this.noDataText;
+    this._showNoData = !!this.noDataText
 
-    this.requestUpdate();
+    this.requestUpdate()
   }
 
   /**
@@ -173,18 +196,18 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    * @returns {TemplateResult|TemplateResult}
    */
   _cellMap(fieldPaths) {
-    const items = [];
+    const items = []
     fieldPaths.forEach((fieldPath, index) => {
-      let el = 'furo-type-renderer';
+      let el = 'furo-type-renderer'
       if (fieldPath.startsWith('{')) {
-        el = fieldPath.substr(1, fieldPath.length - 2);
+        el = fieldPath.substr(1, fieldPath.length - 2)
       }
-      items.push(`<ui5-table-cell><${el} `);
-      items.push(`ƒ-bind-data="${this._wires[index]}"`);
-      items.push(`context="${this._ctx[index]}"`);
-      items.push(`></${el} ></ui5-table-cell>`);
-    });
-    return literal([items.join('')]);
+      items.push(`<ui5-table-cell><${el} `)
+      items.push(`ƒ-bind-data="${this._wires[index]}"`)
+      items.push(`context="${this._ctx[index]}"`)
+      items.push(`></${el} ></ui5-table-cell>`)
+    })
+    return literal([items.join('')])
   }
 
   /**
@@ -197,32 +220,32 @@ export class FuroUi5DataTable extends FBP(LitElement) {
   // eslint-disable-next-line consistent-return
   _getSpecFieldFromPath(field, path) {
     if (field) {
-      const prop = field;
+      const prop = field
 
-      const parts = this._split(path);
+      const parts = this._split(path)
       if (parts.length > 1) {
         if (field.fields && field.fields[parts[0]]) {
-          return this._getSpecFieldFromPath(field.fields[parts[0]], parts.slice(1).join('.'));
+          return this._getSpecFieldFromPath(field.fields[parts[0]], parts.slice(1).join('.'))
         }
         if (!field[parts[0]]) {
-          return this._getSpecFieldFromPath(this._specs[field.type], parts.join('.'));
+          return this._getSpecFieldFromPath(this._specs[field.type], parts.join('.'))
         }
-        return this._getSpecFieldFromPath(field[parts[0]], parts.slice(1).join('.'));
+        return this._getSpecFieldFromPath(field[parts[0]], parts.slice(1).join('.'))
       }
-      const part = parts[0];
+      const part = parts[0]
 
       if (prop.fields && prop.fields[part] !== undefined) {
-        return prop.fields[part];
+        return prop.fields[part]
       }
       if (field[path]) {
-        return field[path];
+        return field[path]
       }
-      return this._getSpecFieldFromPath(this._specs[field.type], part);
+      return this._getSpecFieldFromPath(this._specs[field.type], part)
     }
     // eslint-disable-next-line no-console
     console.warn(
       `Invalid subfield '${path}' in the field-path. please set a correct field-path in cloumn.`,
-    );
+    )
   }
 
   /**
@@ -246,7 +269,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         }
 
       `
-    );
+    )
   }
 
   /**
@@ -280,7 +303,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         type: Boolean,
         attribute: 'sticky-column-header',
       },
-    };
+    }
   }
 
   /**
@@ -288,25 +311,26 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    * @returns {TemplateResult}
    */
   render() {
-    return html`
-      <ui5-table ?sticky-column-header="${this.stickyColumnHeader}" mode="${this.mode}">
+    return statichtml`
+      <ui5-table ?sticky-column-header='${this.stickyColumnHeader}' mode='${this.mode}'>
+
         <flow-repeat
-          ƒ-inject-items="--data"
-          internal-wire="--internal"
-          ƒ-trigger-first="--triggerFirst"
-          ƒ-trigger-last="--triggerLast"
+          ƒ-inject-items='--data'
+          internal-wire='--internal'
+          ƒ-trigger-first='--triggerFirst'
+          ƒ-trigger-last='--triggerLast'
         >
           ${this._rowRepeatTemplate}
         </flow-repeat>
       </ui5-table>
       <slot></slot>
       ${this._showNoData
-        ? html`
-            <div class="no-data">${this.noDataText}</div>
+      ? statichtml`
+            <div class='no-data'>${this.noDataText}</div>
           `
-        : html``}
-    `;
+      : statichtml``}
+    `
   }
 }
 
-customElements.define('furo-ui5-data-table', FuroUi5DataTable);
+customElements.define('furo-ui5-data-table', FuroUi5DataTable)
