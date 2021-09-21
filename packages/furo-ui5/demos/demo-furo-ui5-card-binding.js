@@ -72,8 +72,8 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                   flex
                   heading="heading"
                   subheading="subheading"
-                  ƒ-bind-heading='--Navnode(*.description)'
-                  ƒ-bind-subheading='--Navnode(*.secondary_text)'
+                  ƒ-bind-heading="--Navnode(*.description)"
+                  ƒ-bind-subheading="--Navnode(*.secondary_text)"
                   ƒ-bind-icon="--Navnode(*.icon)"
                 >
                   <div slot="action">

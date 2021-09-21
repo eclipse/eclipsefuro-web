@@ -9,6 +9,14 @@ import { FuroUi5DataDatePicker } from '@furo/ui5/src/furo-ui5-data-date-picker.j
  * @summary celledit renderer for google.type.Date
  * @customElement celledit-google-type-date
  */
-class CelleditGoogleTypeDate extends FuroUi5DataDatePicker {}
+class CelleditGoogleTypeDate extends FuroUi5DataDatePicker {
+  constructor() {
+    super()
+    this.addEventListener('click', e => {
+      e.stopPropagation();
+      e.preventDefault();
+    });
+  }
+}
 
 window.customElements.define('celledit-google-type-date', CelleditGoogleTypeDate);

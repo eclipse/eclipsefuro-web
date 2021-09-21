@@ -1,5 +1,5 @@
-import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js'
-import { FlowRepeat } from '@furo/fbp/src/flow-repeat'
+import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
+import { FlowRepeat } from '@furo/fbp/src/flow-repeat';
 
 /**
  * `furo-ui5-data-repeat`
@@ -31,17 +31,12 @@ import { FlowRepeat } from '@furo/fbp/src/flow-repeat'
  * @appliesMixin FBP
  */
 export class FuroUi5DataRepeat extends FieldNodeAdapter(FlowRepeat) {
-
-
-
   /**
    * @private
    */
   onFnaRepeatedFieldChanged() {
-    this.injectItems(this.__fieldNode.repeats)
+    this.injectItems(this.__fieldNode.repeats);
   }
-
-
 
   /**
    * Adds a repeated item
@@ -49,10 +44,10 @@ export class FuroUi5DataRepeat extends FieldNodeAdapter(FlowRepeat) {
    */
   add(data) {
     if (!this.readonly && this.__fieldNode) {
-      this.__fieldNode.add(data)
+      this.__fieldNode.add(data);
       if (this.focusOnCreate) {
         // setTimeout(()=>{
-        this._repeaterNode.select(this.__fieldNode.repeats.length - 1)
+        this._repeaterNode.select(this.__fieldNode.repeats.length - 1);
         // },16)
       }
     }
@@ -64,11 +59,9 @@ export class FuroUi5DataRepeat extends FieldNodeAdapter(FlowRepeat) {
    */
   addType(type) {
     if (this.field) {
-      this.__fieldNode.add({ '@type': type })
+      this.__fieldNode.add({ '@type': type });
     }
   }
-
-
 }
 
-window.customElements.define('furo-ui5-data-repeat', FuroUi5DataRepeat)
+window.customElements.define('furo-ui5-data-repeat', FuroUi5DataRepeat);

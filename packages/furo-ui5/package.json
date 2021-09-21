@@ -39,6 +39,10 @@
     "lit": "^2.0.0",
     "markdown-it": "^9.0.1"
   },
+  "peerDependencies": {
+    "@ui5/webcomponents-icons": "*",
+    "@ui5/webcomponents-base": "*"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
