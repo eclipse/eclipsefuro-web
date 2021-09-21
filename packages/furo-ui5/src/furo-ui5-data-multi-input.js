@@ -1,4 +1,4 @@
-import * as MultiInput from '@ui5/webcomponents/dist/MultiInput';
+import * as MultiInput from '@ui5/webcomponents/dist/MultiInput.js';
 
 import '@ui5/webcomponents/dist/Token.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
