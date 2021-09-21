@@ -1,6 +1,6 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme.js'
-import { FBP } from '@furo/fbp'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme.js';
+import { FBP } from '@furo/fbp';
 
 /**
  * `demo-extended-searcher`
@@ -12,8 +12,6 @@ import { FBP } from '@furo/fbp'
  * @appliesMixin FBP
  */
 class DemoExtendedSearcher extends FBP(LitElement) {
-
-
   /**
    * @private
    * @return {Object}
@@ -24,34 +22,34 @@ class DemoExtendedSearcher extends FBP(LitElement) {
        * Description
        */
       myBool: { type: Boolean },
-    }
+    };
   }
 
   /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
-    super._FBPReady()
+    super._FBPReady();
     // this._FBPTraceWires()
   }
 
   /**
-  * htsIn inject the hts
-  * @public
-  * @param hts
-  */
+   * htsIn inject the hts
+   * @public
+   * @param hts
+   */
   htsIn(hts) {
-      console.log(hts)
+    console.log(hts);
   }
 
-/**
+  /**
 * focus focuses the first element
 * @public
 
 */
-focus() {
+  focus() {
     this._FBPTriggerWire('|--focus', null);
-}
+  }
 
   /**
    * Themable Styles
@@ -60,17 +58,19 @@ focus() {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoExtendedSearcher') || css`
+    return (
+      Theme.getThemeForComponent('DemoExtendedSearcher') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -81,9 +81,9 @@ focus() {
     // language=HTML
     return html`
       <p>Hej, welcome</p>
-      <furo-ui5-data-text-input ƒ-focus='|--focus'></furo-ui5-data-text-input>
-    `
+      <furo-ui5-data-text-input ƒ-focus="|--focus"></furo-ui5-data-text-input>
+    `;
   }
 }
 
-window.customElements.define('demo-extended-searcher', DemoExtendedSearcher)
+window.customElements.define('demo-extended-searcher', DemoExtendedSearcher);

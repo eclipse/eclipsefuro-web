@@ -121,7 +121,6 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
 
     // changed is fired when the select operation has finished.
     this.addEventListener('click', this._updateFNA);
-
   }
 
   /**
@@ -280,7 +279,6 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
       }
       // Update the internal state for ui5 navigation
       this._state.items = Array.from(BUTTONS);
-
     }
     return true;
   }
@@ -324,7 +322,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
       if (selectedOption) {
         newValue = FuroUi5DataSegmentedButton.getValueByPath(
           selectedOption,
-          this._privilegedAttributes['value-field-path'],
+          this._privilegedAttributes['id-field-path'],
         )._value;
       }
     } else {
@@ -422,7 +420,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
     } else if (list && list.length) {
       // applies static option list items from spec or
       // option list items from meta
-      list.forEach((item, index) => {
+      list.forEach(item => {
         const optionItem = document.createElement(this._tagItemComponent);
         optionItem.setAttribute(
           'data-id',

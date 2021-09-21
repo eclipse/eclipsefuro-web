@@ -5,7 +5,7 @@ import { FBP } from '@furo/fbp';
 import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
-import './helper/demo-extended-searcher.js'
+import './helper/demo-extended-searcher.js';
 
 /**
  * `demo-furo-ui5-data-reference-search`

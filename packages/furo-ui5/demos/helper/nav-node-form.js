@@ -52,15 +52,11 @@ class NavNodeForm extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-form-layouter one>
-        <furo-ui5-data-text-input
-          ƒ-bind-data="--navNode(*.description)"
-        ></furo-ui5-data-text-input>
+        <furo-ui5-data-text-input ƒ-bind-data="--navNode(*.description)"></furo-ui5-data-text-input>
         <furo-ui5-data-text-input
           ƒ-bind-data="--navNode(*.secondary_text)"
         ></furo-ui5-data-text-input>
-        <furo-ui5-data-text-input
-          ƒ-bind-data="--navNode(*.icon)"
-        ></furo-ui5-data-text-input>
+        <furo-ui5-data-text-input ƒ-bind-data="--navNode(*.icon)"></furo-ui5-data-text-input>
       </furo-form-layouter>
     `;
   }

@@ -112,7 +112,6 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
               <ui5-table-column slot="columns" field="name"></ui5-table-column>
               <ui5-table-column slot="columns" field="phone_nr"></ui5-table-column>
               <ui5-table-column slot="columns" field="skills"></ui5-table-column>
-
             </furo-ui5-data-table>
           </furo-ui5-card>
 

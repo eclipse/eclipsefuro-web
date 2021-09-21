@@ -89,8 +89,10 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
               <ui5-table-column slot="columns" field="data.cost_limit"></ui5-table-column>
               <ui5-table-column slot="columns" field="data.start"></ui5-table-column>
               <ui5-table-column slot="columns" field="data.end"></ui5-table-column>
-              <ui5-table-column slot="columns" field="{data-table-col-tmpl-link}"></ui5-table-column>
-
+              <ui5-table-column
+                slot="columns"
+                field="{data-table-col-tmpl-link}"
+              ></ui5-table-column>
             </furo-ui5-data-table>
           </furo-ui5-card>
 

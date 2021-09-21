@@ -273,8 +273,8 @@ export class FuroUi5DataDateTimePicker extends FieldNodeAdapter(DateTimePicker.d
       this._constraintsFromFNA.min = constraints.min;
       if (this._privilegedAttributes.minDate === null) {
         const parts = constraints.min.is.match(/\d+/g);
-       console.log(constraints.min)
-        console.warn("not implemented")
+        console.log(constraints.min);
+        console.warn('not implemented');
         // this.minDate = this.formatValue(new Date(parts[0], parts[1] - 1, parts[2]));
       }
     }
@@ -283,8 +283,10 @@ export class FuroUi5DataDateTimePicker extends FieldNodeAdapter(DateTimePicker.d
       this._constraintsFromFNA.max = constraints.max;
       if (this._privilegedAttributes.maxDate === null) {
         const parts = constraints.max.is.match(/\d+/g);
-        console.log(constraints.max)
-        console.warn("not implemented")
+        // eslint-disable-next-line no-console
+        console.log(constraints.max);
+        // eslint-disable-next-line no-console
+        console.warn('not implemented');
         // this.maxDate = this.formatValue(new Date(parts[0], parts[1] - 1, parts[2]));
       }
     }
