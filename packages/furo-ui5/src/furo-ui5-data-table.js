@@ -49,22 +49,27 @@ export class FuroUi5DataTable extends FBP(LitElement) {
 
   _FBPReady() {
     super._FBPReady()
+    /**
+     * Listen to selection change from the table and build up a list with data items.
+     */
     this.shadowRoot.querySelector('ui5-table').addEventListener('selectionChange', (e) => {
       const affectedItems = []
-      e.detail.selectedRows.map(r => {
+      e.detail.selectedRows.forEach(r => {
         if (r._data) {
           affectedItems.push(r._data)
         }
       })
       /**
-      * @event rows-selected
-      * Fired when the row selection in MultiSelect mode was changed
-      * detail payload: Array with the selected items
-      */
-      const customEvent = new Event('rows-selected', {composed:true, bubbles: true});
-      customEvent.detail = affectedItems;
+       * @event rows-selected
+       * Fired when the row selection in MultiSelect mode was changed
+       * detail payload: Array with the selected items
+       */
+      const customEvent = new Event('rows-selected', { composed: true, bubbles: true })
+      customEvent.detail = affectedItems
       this.dispatchEvent(customEvent)
     })
+
+
   }
 
   /**
@@ -78,19 +83,32 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       return
     }
 
-    data.addEventListener('repeated-fields-all-removed', e => {
+    // spec metas can change
+    this._fields = this._specs[data._spec.type].fields
+
+    // protection against multiple calls of bindData
+    if (this.__fieldNode && this.__fieldNode.removeEventListener) {
+      console.warn('BindData can only be called once.')
+    }
+
+    this._init()
+
+    // add the main event listeners
+    data.addEventListener('repeated-fields-all-removed', (e) => {
+
       this.data = e.detail
       this._FBPTriggerWire('--data', this.data)
       if (this.noDataText) {
         this._showNoData = true
       }
       this.requestUpdate()
-    })
 
+    })
     /**
      * new data arrived from CollectionNode
      */
-    data.addEventListener('this-repeated-field-changed', e => {
+    data.addEventListener('this-repeated-field-changed', (e) => {
+
       this.data = e.detail.repeats
       this._FBPTriggerWire('--data', this.data)
       if (this.data.length > 0) {
@@ -99,11 +117,11 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         this._showNoData = true
       }
       this.requestUpdate()
+
     })
 
-    this._fields = this._specs[data._spec.type].fields
+    this.__fieldNode = data
 
-    this._init()
 
     this.dispatchEvent(
       new CustomEvent('data-loaded', {
@@ -113,6 +131,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       }),
     )
   }
+
 
   /**
    * focus on the header of the table
@@ -153,33 +172,31 @@ export class FuroUi5DataTable extends FBP(LitElement) {
   _init() {
     this._ctx = []
     this._wires = []
+    this._renderer = []
     const fieldPaths = []
 
     this.querySelectorAll('ui5-table-column').forEach(col => {
       const fieldPath = col.getAttribute('field')
       fieldPaths.push(fieldPath)
       this._ctx.push(col.getAttribute('context') || 'cell')
-
+      this._renderer.push(col.getAttribute('renderer') || 'furo-type-renderer')
       // if no title was set, use the title from the field spec
-      if (col.childElementCount === 0 && !fieldPath.startsWith('{')) {
+      if (col.childElementCount === 0) {
         const fieldNode = this._getSpecFieldFromPath(this._fields, fieldPath)
         const span = document.createElement('span')
-        span.innerText = fieldNode.meta.label
+        span.innerText = fieldNode?.meta?.label || fieldPath
         col.appendChild(span)
       }
 
-      if (fieldPath.startsWith('{')) {
-        this._wires.push('--internal(*.item)')
-      } else {
-        this._wires.push(`--internal(*.item.${fieldPath})`)
-      }
+
+      this._wires.push(`--item(${fieldPath})`)
 
       // append to table
       this.shadowRoot.querySelector('ui5-table').appendChild(col)
     })
 
     this._rowRepeatTemplate = statichtml`<template>
-        <furo-ui5-table-row ƒ-._data='--internal(*.item._value)' ƒ-focus='--trigger'>
+        <furo-ui5-table-row ƒ-set-data='--item(*)' ƒ-focus='--trigger'>
           ${this._cellMap(fieldPaths)}
         </furo-ui5-table-row>
     </template>`
@@ -198,14 +215,10 @@ export class FuroUi5DataTable extends FBP(LitElement) {
   _cellMap(fieldPaths) {
     const items = []
     fieldPaths.forEach((fieldPath, index) => {
-      let el = 'furo-type-renderer'
-      if (fieldPath.startsWith('{')) {
-        el = fieldPath.substr(1, fieldPath.length - 2)
-      }
-      items.push(`<ui5-table-cell><${el} `)
-      items.push(`ƒ-bind-data="${this._wires[index]}"`)
+      items.push(`<ui5-table-cell><${this._renderer[index]} `)
+      items.push(`ƒ-bind-data="${this._wires[index]}" `)
       items.push(`context="${this._ctx[index]}"`)
-      items.push(`></${el} ></ui5-table-cell>`)
+      items.push(`></${this._renderer[index]}></ui5-table-cell>`)
     })
     return literal([items.join('')])
   }
@@ -219,6 +232,16 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    */
   // eslint-disable-next-line consistent-return
   _getSpecFieldFromPath(field, path) {
+    if (path.startsWith('*')) {
+      if (path.length === 1) {
+        return field
+      }
+      // cut of *.
+      // eslint-disable-next-line no-param-reassign
+      path = path.substr(2, path.length - 1)
+
+    }
+
     if (field) {
       const prop = field
 
@@ -247,6 +270,23 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       `Invalid subfield '${path}' in the field-path. please set a correct field-path in cloumn.`,
     )
   }
+
+  /**
+   * setBusy Sets the busy state
+   * @public
+   */
+  setBusy() {
+    this.busy = true
+  }
+
+  /**
+   * unsetBusy Unsets the busy state
+   * @public
+   */
+  unsetBusy() {
+    this.busy = false
+  }
+
 
   /**
    * @private
@@ -303,6 +343,12 @@ export class FuroUi5DataTable extends FBP(LitElement) {
         type: Boolean,
         attribute: 'sticky-column-header',
       },
+      /**
+       * Busy state
+       */
+      busy: {
+        type: Boolean,
+      },
     }
   }
 
@@ -312,11 +358,10 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    */
   render() {
     return html`
-      <ui5-table ?sticky-column-header='${this.stickyColumnHeader}' mode='${this.mode}'>
+      <ui5-table ?sticky-column-header='${this.stickyColumnHeader}' mode='${this.mode}' ?busy='${this.busy}'>
 
         <flow-repeat
           ƒ-inject-items='--data'
-          internal-wire='--internal'
           ƒ-trigger-first='--triggerFirst'
           ƒ-trigger-last='--triggerLast'
         >
@@ -325,12 +370,13 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       </ui5-table>
       <slot></slot>
       ${this._showNoData
-      ? html`
-            <div class='no-data'>${this.noDataText}</div>
-          `
-      : html``}
+        ? html`
+          <div class='no-data'>${this.noDataText}</div>
+        `
+        : html``}
     `
   }
+
 }
 
 customElements.define('furo-ui5-data-table', FuroUi5DataTable)
