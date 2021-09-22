@@ -77,6 +77,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
     );
   }
 
+
   /**
    *@private
    */
@@ -160,23 +161,23 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @private
    */
   _createRepeatedDisplay() {
+
     const rRenderName = `${this.renderName}-repeated`;
     const elementRepeat = document.createElement(rRenderName);
     if (elementRepeat.bindData) {
       this._addElement(elementRepeat);
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      const el = document.createElement('flow-repeat');
+      this._fallbackFlowRepeat = document.createElement('flow-repeat');
       const tpl = document.createElement('template');
       tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`;
-      el.appendChild(tpl);
-      // this._field.clearListOnNewData = true;
-      this._field.addEventListener('this-repeated-field-changed', e => {
-        el.injectItems(e.target.repeats);
+      this._fallbackFlowRepeat.appendChild(tpl);
 
-      });
+      this.parentNode.insertBefore(this._fallbackFlowRepeat, this);
 
-      this.parentNode.insertBefore(el, this);
+      this._fallbackFlowRepeat.injectItems(this._field.repeats);
+
+
     } else {
       this._warning();
     }
