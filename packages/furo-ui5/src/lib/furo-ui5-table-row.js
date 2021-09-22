@@ -49,6 +49,10 @@ export class FuroUi5TableRow extends TableRow.default {
     }
   }
 
+  setData(d){
+    this._data = d
+  }
+
   _select() {
     if(this.mode === "MultiSelect"){
 

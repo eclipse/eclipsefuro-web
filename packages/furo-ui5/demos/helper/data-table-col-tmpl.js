@@ -62,7 +62,7 @@ class DataTableColTmpl extends FBP(LitElement) {
   bindData(data) {
     this.field = data;
     const members = [];
-    this.field.data.members._value.forEach(item => {
+    this.field.members._value.forEach(item => {
       members.push(item.display_name);
     });
 
