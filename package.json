@@ -3,7 +3,7 @@
   "description": "Collection of furo base components",
   "devDependencies": {
     "husky": "^4.2.3",
-    "lerna": "^3.20.2",
+    "lerna": "^3.22.1",
     "lit-html": "2.0.0-rc.3",
     "polymer-cli": "^1.9.11",
     "@custom-elements-manifest/analyzer": "^0.5.3"
