@@ -1752,7 +1752,7 @@
       "tagname": "furo-data-emmiter"
     },
     {
-      "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat ƒ-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         ƒ-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n To delete a item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).",
+      "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat ƒ-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         ƒ-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n To delete a item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
       "summary": "automatic display of repeated fields",
       "path": "src/furo-data-flow-repeat.js",
       "properties": [
@@ -1763,11 +1763,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 50,
               "column": 4
             },
             "end": {
-              "line": 46,
+              "line": 50,
               "column": 24
             }
           },
@@ -1786,11 +1786,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 56,
               "column": 2
             },
             "end": {
-              "line": 54,
+              "line": 58,
               "column": 3
             }
           },
@@ -1806,11 +1806,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 69,
+              "line": 73,
               "column": 3
             }
           },
@@ -1835,11 +1835,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 37,
+          "line": 41,
           "column": 7
         },
         "end": {
-          "line": 70,
+          "line": 74,
           "column": 1
         }
       },
