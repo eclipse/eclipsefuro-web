@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.41.1...@furo/ui5@0.41.2) (2021-09-23)
+
+
+### Bug Fixes
+
+* remove unwanted peer dependencies ([343e427](https://github.com/eclipse/eclipsefuro-web/commit/343e4270c64e1da0210198f3d4b0788b65f9d8a1))
+
+
+
+
+
 ## [0.41.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.41.0...@furo/ui5@0.41.1) (2021-09-23)
 
 **Note:** Version bump only for package @furo/ui5

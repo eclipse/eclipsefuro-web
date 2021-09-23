@@ -1,7 +1,7 @@
 {
   "name": "@furo/ui5",
   "description": "SAP UI5 Web Components",
-  "version": "0.41.1",
+  "version": "0.41.2",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-ui5",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -38,8 +38,6 @@
     "@ui5/webcomponents-fiori": "v0.33.0",
     "lit": "^2.0.0",
     "markdown-it": "^9.0.1"
-  },
-  "peerDependencies": {
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
