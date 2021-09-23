@@ -40,9 +40,8 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  * @appliesMixin FlowRepeat
  */
 export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
-
   constructor() {
-    super()
+    super();
     /**
      * Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to
      * `ƒ-focus="--itemSelected"`.
@@ -58,8 +57,6 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
     this.injectItems(this.__fieldNode.repeats);
   }
 
-
-
   /**
    * Adds a repeated item of the same type.
    * @param data
@@ -67,7 +64,7 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
   add(data) {
     if (!this.readonly && this.__fieldNode) {
       this.__fieldNode.add(data);
-      if (this.getAttribute("select-added-item") !== null ) {
+      if (this.getAttribute('select-added-item') !== null) {
         this.select(this.__fieldNode.repeats.length - 1);
       }
     }

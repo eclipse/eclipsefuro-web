@@ -12,7 +12,6 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroDataMenuActionFilter extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    * @private

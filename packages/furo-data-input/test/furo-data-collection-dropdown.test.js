@@ -139,16 +139,15 @@ describe('furo-data-collection-dropdown', () => {
       done();
     }, 300);
 
-
     deeplink.qpIn({ prj: 1 });
   });
 
   it('should update meta without options', done => {
     setTimeout(() => {
-          assert.equal(collectionDropdown1.binder.fieldNode._value, 'Build Documentation');
-          assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
+      assert.equal(collectionDropdown1.binder.fieldNode._value, 'Build Documentation');
+      assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
 
-          done();
+      done();
     }, 300);
 
     deeplink.qpIn({ prj: 2 });
