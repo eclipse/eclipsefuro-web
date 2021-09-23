@@ -112,7 +112,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "event de bouncer",
           "tagName": "furo-de-bounce",
@@ -220,7 +220,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "trigger an event in intervals",
           "tagName": "furo-interval-pulse",

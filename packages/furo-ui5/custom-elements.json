@@ -344,7 +344,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "furo-ui5-card",
           "customElement": true
@@ -481,7 +481,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-checkbox-input-labeled",
@@ -680,7 +680,7 @@
               },
               "description": "a list of privileged attributes. when those attributes are set in number-input components initially.\nthey can not be modified later via response or spec\nnull is used because getAttribute returns null or value",
               "privacy": "private",
-              "default": "{\n      readonly: null,\n      disabled: null,\n      text: null,\n    }"
+              "default": "{\n      readonly: null,\n      disabled: null,\n      text: null,\n      indeterminate: null,\n      checked: null,\n    }"
             }
           ],
           "mixins": [
@@ -919,7 +919,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-collection-dropdown-labeled",
@@ -1299,7 +1299,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-date-picker-labeled",
@@ -1622,7 +1622,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-date-time-picker-labeled",
@@ -1931,7 +1931,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-display",
@@ -2057,7 +2057,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-money-input-labeled",
@@ -2332,7 +2332,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Binds a entityObject field google.type.Money to a number-input and currency dropdown fields",
           "tagName": "furo-ui5-data-money-input",
@@ -2467,7 +2467,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled textarea field",
           "tagName": "furo-ui5-data-multi-input-labeled",
@@ -2848,7 +2848,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-number-input-labeled",
@@ -3312,7 +3312,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-password-input-labeled",
@@ -3741,7 +3741,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "display and bind types of type any",
           "tagName": "furo-ui5-data-property",
@@ -3797,7 +3797,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "furo-ui5-data-propertylist-display",
           "customElement": true
@@ -3828,7 +3828,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-ui5-data-radio-button-group`\nThe furo-ui5-data-radio-button-group component enables users to select a single option from a set of options.\nWhen a furo-ui5-data-radio-button-group is selected by the user, the select event is fired.\nWhen a furo-ui5-data-radio-button-group that is within a group is selected, the one that was previously selected gets automatically deselected.\nYou can group radio buttons by using the group-name property.\n\n```\n<furo-ui5-data-radio-button-group\n   group-name=\"Option\"\n   ƒ-bind-data=\"--daoPerson(*.field_with_meta_options)\">\n</furo-ui5-data-radio-button-group>\n```\n```\n<furo-ui5-data-radio-button-group\n   group-name=\"Option\"\n   ƒ-bind-data=\"--daoPerson(*.field)\">\n     <ui5-radiobutton text=\"Option A\" selected name=\"Owner\"></ui5-radiobutton>\n     <ui5-radiobutton text=\"Option B with a very long text\" name=\"Owner\"></ui5-radiobutton>\n</furo-ui5-data-radio-button-group>\n```",
+          "description": "`furo-ui5-data-radio-button-group`\nThe furo-ui5-data-radio-button-group component enables users to select a single option from a set of options.\nWhen a furo-ui5-data-radio-button-group is selected by the user, the select event is fired.\nWhen a furo-ui5-data-radio-button-group that is within a group is selected, the one that was previously selected gets automatically deselected.\nYou can group radio buttons by using the group-name property.\n\n```\n<furo-ui5-data-radio-button-group\n   group-name=\"Option\"\n   ƒ-bind-data=\"--daoPerson(*.field_with_meta_options)\">\n</furo-ui5-data-radio-button-group>\n```\n```\n<furo-ui5-data-radio-button-group\n   group-name=\"Option\"\n   ƒ-bind-data=\"--daoPerson(*.field)\">\n     <ui5-radio-button text=\"Option A\" selected name=\"Owner\"></ui5-radio-button>\n     <ui5-radio-button text=\"Option B with a very long text\" name=\"Owner\"></ui5-radio-button>\n</furo-ui5-data-radio-button-group>\n```",
           "name": "FuroUi5DataRadioButtonGroup",
           "members": [
             {
@@ -3965,7 +3965,7 @@
               },
               "description": "Inner radio component tag",
               "privacy": "private",
-              "default": "'ui5-radiobutton'"
+              "default": "'ui5-radio-button'"
             },
             {
               "kind": "field",
@@ -4586,7 +4586,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-reference-search-labeled",
@@ -4692,6 +4692,17 @@
             },
             {
               "kind": "method",
+              "name": "onFnaLabelChanged",
+              "parameters": [
+                {
+                  "name": "label"
+                }
+              ],
+              "description": "Update the label from the FNA",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "onFnaReadonlyChanged",
               "parameters": [
                 {
@@ -4752,7 +4763,7 @@
             {
               "kind": "method",
               "name": "readAttributes",
-              "description": "Reads the attributes which are set on the component dom.\n\nFollowing attributes can be set:\n- `value-state`\n- `value-state-message`\n- `icon`\n- `placeholder`\n- `required`\n- `readonly`\n- `disabled`\n\nUse this after manual or scripted update of the attributes."
+              "description": "Reads the attributes which are set on the component dom.\n\nFollowing attributes can be set:\n- `value-state`\n- `value-state-message`\n- `icon`\n- `placeholder`\n- `label`\n- `required`\n- `readonly`\n- `disabled`\n\nUse this after manual or scripted update of the attributes."
             },
             {
               "kind": "method",
@@ -4885,6 +4896,17 @@
             },
             {
               "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
               "name": "noDataText",
               "type": {
                 "text": "string"
@@ -4954,7 +4976,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      readonly: undefined,\n      placeholder: undefined,\n    }"
+              "default": "{\n      readonly: undefined,\n      placeholder: undefined,\n      label: undefined,\n    }"
             },
             {
               "kind": "field",
@@ -4970,7 +4992,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      readonly: null,\n      placeholder: null,\n      required: null,\n      disabled: null,\n      icon: null,\n    }"
+              "default": "{\n      readonly: null,\n      placeholder: null,\n      label: null,\n      required: null,\n      disabled: null,\n      icon: null,\n    }"
             },
             {
               "kind": "field",
@@ -5097,6 +5119,11 @@
               "fieldName": "placeholder"
             },
             {
+              "name": "label",
+              "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+              "fieldName": "label"
+            },
+            {
               "name": "min-term-length",
               "description": "The minimal length of search term to trigger a search.",
               "fieldName": "minTermLength"
@@ -5149,7 +5176,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "furo ui5 data reference search",
           "tagName": "furo-ui5-data-reference-search",
@@ -5177,189 +5204,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/furo-ui5-data-repeat.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`furo-ui5-data-repeat`\n Display for repeated fields.\n\n ```html\n <furo-ui5-data-repeat ƒ-bind-data=\"--data(*.repeaterfield)\"\n     repeated-component=\"furo-date-input\"\n     delete-icon=\"remove\"\n     ƒ-add=\"--addDateClicked\"\n     ></furo-ui5-data-repeat>\n\n     <!-- Add is controlled from outside, delete from inside of the item -->\n     <furo-ui5-data-repeat ƒ-bind-data=\"--data(*.repeatedcomplextype)\"\n     repeated-component=\"my-big-form\"\n     ƒ-add=\"--addClicked\"\n     ></furo-ui5-data-repeat>\n\n ```\n\n Every Attribute (boolean or string) which is set on furo-ui5-data-repeat which is not part of its own api, will be set on the child element.\n If you set condensed as an example, it will be set on the repeated element. It is not possible to set wires to the children.",
-          "name": "FuroUi5DataRepeat",
-          "members": [
-            {
-              "kind": "method",
-              "name": "onFnaRepeatedFieldChanged",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onFnaReadonlyChanged",
-              "parameters": [
-                {
-                  "name": "readonly"
-                }
-              ],
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "createAttribute",
-              "parameters": [
-                {
-                  "name": "options",
-                  "description": ":\"name\",\"type\":\"string\", \"spec\":{..}}  spec is optional",
-                  "type": {
-                    "text": "\"fieldName\""
-                  }
-                }
-              ],
-              "description": "Create a attribute for map<string,type> types\ncreate a field in a FieldNode, this is useful when using map<string,something>\nset the value option to init with values"
-            },
-            {
-              "kind": "method",
-              "name": "createAttributeByString",
-              "parameters": [
-                {
-                  "name": "fieldname"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "repeatedComponent",
-              "privacy": "public",
-              "description": "repeated-component to be used for the items.\nThe component must support ƒ-bind-data",
-              "attribute": "repeated-component"
-            },
-            {
-              "kind": "method",
-              "name": "_checkSize",
-              "description": "hide the element if array is empty",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "add",
-              "parameters": [
-                {
-                  "name": "data"
-                }
-              ],
-              "description": "Adds a repeated item"
-            },
-            {
-              "kind": "method",
-              "name": "addType",
-              "parameters": [
-                {
-                  "name": "type"
-                }
-              ],
-              "description": "Adds a repeated item with type"
-            },
-            {
-              "kind": "method",
-              "name": "_FBPReady",
-              "description": "flow is ready lifecycle method",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "deleteIcon",
-              "description": "Set the delete icon to enable deleting of a repeated element.",
-              "type": {
-                "text": "String"
-              },
-              "default": "undefined"
-            },
-            {
-              "kind": "field",
-              "name": "identityPath",
-              "privacy": "public",
-              "description": "*OPTIONAL*\nIdentity path of a single item.\nUse this if you have a field which identifies the item.\n\nIf you do not set the identity-path, the index will be used.",
-              "attribute": "identity-path"
-            },
-            {
-              "kind": "field",
-              "name": "focusOnCreate",
-              "privacy": "public",
-              "description": "set this attribute to set the focus to the created item after calling add().",
-              "attribute": "focus-on-create"
-            },
-            {
-              "kind": "field",
-              "name": "readonly",
-              "privacy": "public",
-              "description": "disables the add and delete method, note that the nodes from the model are not updated so the repeated elements\nare still editable. Prefer the usage of specs, metas or fat.",
-              "attribute": "readonly",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "repeated-component",
-              "description": "repeated-component to be used for the items.\nThe component must support ƒ-bind-data",
-              "fieldName": "repeatedComponent"
-            },
-            {
-              "name": "identity-path",
-              "description": "*OPTIONAL*\nIdentity path of a single item.\nUse this if you have a field which identifies the item.\n\nIf you do not set the identity-path, the index will be used.",
-              "fieldName": "identityPath"
-            },
-            {
-              "name": "focus-on-create",
-              "description": "set this attribute to set the focus to the created item after calling add().",
-              "fieldName": "focusOnCreate"
-            },
-            {
-              "name": "readonly",
-              "description": "disables the add and delete method, note that the nodes from the model are not updated so the repeated elements\nare still editable. Prefer the usage of specs, metas or fat.",
-              "fieldName": "readonly"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FieldNodeAdapter",
-              "package": "@furo/data/src/lib/FieldNodeAdapter.js"
-            },
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit-element"
-          },
-          "summary": "automatic display of repeated fields",
-          "tagName": "furo-ui5-data-repeat",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FuroUi5DataRepeat",
-          "declaration": {
-            "name": "FuroUi5DataRepeat",
-            "module": "src/furo-ui5-data-repeat.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-ui5-data-repeat",
-          "declaration": {
-            "name": "FuroUi5DataRepeat",
-            "module": "src/furo-ui5-data-repeat.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/furo-ui5-data-segmented-button.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-ui5-data-segmented-button`\nThe furo-ui5-data-segmented-button component represents a drop-down list. The items inside define the available\noptions by using the furo-ui5-data-segmented-button component.\n\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field_with_meta_options)\">\n</furo-ui5-data-segmented-button>\n```\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field)\">\n     <ui5-toggle-button pressed>Option A</ui5-toggle-button>\n     <ui5-toggle-button>Option B</ui5-toggle-button>\n</furo-ui5-data-segmented-button>\n```",
+          "description": "`furo-ui5-data-segmented-button`\nThe furo-ui5-data-segmented-button component represents a drop-down list. The items inside define the available\noptions by using the furo-ui5-data-segmented-button component.\n\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field_with_meta_options)\">\n</furo-ui5-data-segmented-button>\n```\n```\n<furo-ui5-data-segmented-button\n   ƒ-bind-data=\"--daoPerson(*.field)\">\n     <ui5-segmented-button-item pressed>Option A</ui5-segmented-button-item>\n     <ui5-segmented-button-item>Option B</ui5-segmented-button-item>\n</furo-ui5-data-segmented-button>\n```",
           "name": "FuroUi5DataSegmentedButton",
           "members": [
             {
@@ -5496,7 +5345,7 @@
               },
               "description": "Inner component tag",
               "privacy": "private",
-              "default": "'ui5-toggle-button'"
+              "default": "'ui5-segmented-button-item'"
             },
             {
               "kind": "field",
@@ -5605,7 +5454,7 @@
               "type": {
                 "text": "selectedOption"
               },
-              "description": "Fired when the toggle button was clicked. Payload: - if no option binding is active: ui5-toggle-button - if a RepeaterNode is bound: FieldNode",
+              "description": "Fired when the toggle button was clicked. Payload: - if no option binding is active: ui5-segmented-button-item - if a RepeaterNode is bound: FieldNode",
               "name": "item-selected"
             }
           ],
@@ -5648,8 +5497,17 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-ui5-data-select-labeled`\nThe furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according\nto the design specification of SAP Fiori Design System.\n\nOnly one element is allowed, only the innerText is transfered to the select input.",
+          "description": "`furo-ui5-data-select-labeled`\nThe furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according\nto the design specification of SAP Fiori Design System.",
           "name": "FuroUi5DataSelectLabeled",
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement"
+              },
+              "description": "defines the value state message that will be displayed as pop up under the input element.",
+              "name": "valueStateMessage"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -5814,7 +5672,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled select",
           "tagName": "furo-ui5-data-select-labeled",
@@ -6200,9 +6058,13 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-ui5-data-table` display entities in a ui5-table\n\n<furo-ui5-data-table\n no-data-text=\"No data available.\"\n ƒ-bind-data=\"--dao(*.entities)\"\n columns=\"data.id|min800, data.display_name|fix200, data.cost_limit, data.start\"\n></furo-ui5-data-table>",
+          "description": "`furo-ui5-data-table` display entities in a ui5-table\n\n<furo-ui5-data-table\n no-data-text=\"No data available.\"\n ƒ-bind-data=\"--dao(*.entities)\"\n></furo-ui5-data-table>",
           "name": "FuroUi5DataTable",
           "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady"
+            },
             {
               "kind": "method",
               "name": "bindData",
@@ -6226,7 +6088,7 @@
             {
               "kind": "method",
               "name": "focusFirst",
-              "description": "focus the last row"
+              "description": "focus the first row"
             },
             {
               "kind": "method",
@@ -6236,59 +6098,22 @@
             },
             {
               "kind": "method",
-              "name": "_bindColumnDataField",
+              "name": "_cellMap",
               "parameters": [
                 {
-                  "name": "fieldPath"
+                  "name": "fieldPaths"
                 },
                 {
-                  "name": "index"
+                  "name": "fields"
                 }
               ],
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_bindColumnTmplField",
-              "parameters": [
-                {
-                  "name": "fieldPath"
-                },
-                {
-                  "name": "index"
-                }
-              ],
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_parseWidth",
-              "parameters": [
-                {
-                  "name": "w"
-                }
-              ],
+              "description": "ui5 data table cell template",
+              "privacy": "private",
               "return": {
                 "type": {
-                  "text": "{style: string, minWidth: string}"
+                  "text": "TemplateResult|TemplateResult"
                 }
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_parsePosition",
-              "parameters": [
-                {
-                  "name": "t"
-                }
-              ],
-              "return": {
-                "type": {
-                  "text": "{center: boolean, text: string, right: boolean}"
-                }
-              },
-              "privacy": "private"
+              }
             },
             {
               "kind": "method",
@@ -6310,6 +6135,18 @@
               "privacy": "private"
             },
             {
+              "kind": "method",
+              "name": "setBusy",
+              "description": "setBusy Sets the busy state",
+              "privacy": "public"
+            },
+            {
+              "kind": "method",
+              "name": "unsetBusy",
+              "description": "unsetBusy Unsets the busy state",
+              "privacy": "public"
+            },
+            {
               "kind": "field",
               "name": "cols",
               "type": {
@@ -6323,17 +6160,6 @@
             },
             {
               "kind": "field",
-              "name": "popinFields",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "privacy": "public",
-              "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
-              "attribute": "popin-fields"
-            },
-            {
-              "kind": "field",
               "name": "data",
               "type": {
                 "text": "array"
@@ -6342,43 +6168,14 @@
             },
             {
               "kind": "field",
-              "name": "headers",
+              "name": "mode",
               "type": {
                 "text": "string"
               },
-              "default": "''",
+              "default": "'None'",
               "privacy": "public",
-              "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string.\ne.g.\n- id --:|min800,  name :-:|min400, here `|min800` represents the the minimum table width required to display this column in pixel.\n- id --:|fix120,  name :-:|fix120, here `|fix120` represents a fixed table cell width in pixel.\nBy default the column is always displayed.\n\nDefault position of header is left-justified.\n\nSupported variant:\nright-justified: `--:` , center-justified: `:-:`",
-              "attribute": "headers"
-            },
-            {
-              "kind": "field",
-              "name": "_headers",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "_headerTexts",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "context",
-              "privacy": "public",
-              "attribute": "context"
-            },
-            {
-              "kind": "field",
-              "name": "columns",
-              "privacy": "public",
-              "description": "list of field-paths which should be as columns displayed\ncomma separated list of field's path. e.g. data.id, data.display|min800 , here `min800` represents the the minimum table width required to display this column. By default it is always displayed.",
-              "attribute": "columns"
+              "description": "Defines the mode of the component.\n\nAvailable options are:\n- MultiSelect\n- SingleSelect\n- None",
+              "attribute": "mode"
             },
             {
               "kind": "field",
@@ -6393,6 +6190,13 @@
               "privacy": "public",
               "description": "define the header is sticky or not",
               "attribute": "sticky-column-header"
+            },
+            {
+              "kind": "field",
+              "name": "busy",
+              "privacy": "public",
+              "description": "Busy state",
+              "attribute": "busy"
             }
           ],
           "events": [
@@ -6401,7 +6205,7 @@
               "type": {
                 "text": "HTMLElement"
               },
-              "description": "Fired when the data is loaded into data table. the event detail is the data table self."
+              "description": "Fired when the data is loaded into data table. The event detail contains the data table self."
             },
             {
               "type": {
@@ -6423,22 +6227,20 @@
               },
               "description": "Fired when the ArrowUp is pressed on the first row. The event detail is the original entity of the row",
               "name": "arrow-up-on-first-row"
+            },
+            {
+              "type": {
+                "text": "Array with the selected items"
+              },
+              "description": "Fired when the row selection in MultiSelect mode was changed",
+              "name": "rows-selected"
             }
           ],
           "attributes": [
             {
-              "name": "context",
-              "fieldName": "context"
-            },
-            {
-              "name": "columns",
-              "description": "list of field-paths which should be as columns displayed\ncomma separated list of field's path. e.g. data.id, data.display|min800 , here `min800` represents the the minimum table width required to display this column. By default it is always displayed.",
-              "fieldName": "columns"
-            },
-            {
-              "name": "headers",
-              "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string.\ne.g.\n- id --:|min800,  name :-:|min400, here `|min800` represents the the minimum table width required to display this column in pixel.\n- id --:|fix120,  name :-:|fix120, here `|fix120` represents a fixed table cell width in pixel.\nBy default the column is always displayed.\n\nDefault position of header is left-justified.\n\nSupported variant:\nright-justified: `--:` , center-justified: `:-:`",
-              "fieldName": "headers"
+              "name": "mode",
+              "description": "Defines the mode of the component.\n\nAvailable options are:\n- MultiSelect\n- SingleSelect\n- None",
+              "fieldName": "mode"
             },
             {
               "name": "no-data-text",
@@ -6451,9 +6253,9 @@
               "fieldName": "stickyColumnHeader"
             },
             {
-              "name": "popin-fields",
-              "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
-              "fieldName": "popinFields"
+              "name": "busy",
+              "description": "Busy state",
+              "fieldName": "busy"
             }
           ],
           "mixins": [
@@ -6464,7 +6266,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "furo-ui5-data-table",
           "customElement": true
@@ -6637,7 +6439,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-text-input-labeled",
@@ -7147,7 +6949,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled textarea field",
           "tagName": "furo-ui5-data-textarea-input-labeled",
@@ -7531,7 +7333,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "labeled input field",
           "tagName": "furo-ui5-data-time-picker-labeled",
@@ -8052,7 +7854,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "form field container",
           "tagName": "furo-ui5-form-field-container",
@@ -8301,7 +8103,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "A bindable header panel",
           "tagName": "furo-ui5-header-panel",
@@ -8385,7 +8187,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "furo ui5 message strip",
           "tagName": "furo-ui5-message-strip-display",
@@ -8633,7 +8435,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "furo ui5 message strip",
           "tagName": "furo-ui5-message-strip",
@@ -8776,7 +8578,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "ui5 notification group display",
           "tagName": "furo-ui5-notification-group-display",
@@ -9019,7 +8821,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "ui5 notification list",
           "tagName": "furo-ui5-notification-list-display",
@@ -9216,7 +9018,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "a banner",
           "tagName": "furo-ui5-notification",
@@ -9387,7 +9189,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Pagination Bar",
           "tagName": "furo-ui5-pagination-bar",
@@ -9437,7 +9239,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "radio group",
           "tagName": "furo-ui5-radiogroup",
@@ -9834,6 +9636,15 @@
             },
             {
               "kind": "method",
+              "name": "setData",
+              "parameters": [
+                {
+                  "name": "d"
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "_select"
             },
             {
@@ -9859,6 +9670,12 @@
             }
           ],
           "events": [
+            {
+              "name": "ui5-selection-requested",
+              "type": {
+                "text": "Event"
+              }
+            },
             {
               "name": "tablerow-selected",
               "type": {
@@ -9915,70 +9732,6 @@
       "path": "src/lib/localeData.js",
       "declarations": [],
       "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/lib/ui5-data-repeat-delete.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`ui5-data-repeat-delete`\nDeletes a repeated item. Built for furo-ui5-data-repeat",
-          "name": "Ui5DataRepeatDelete",
-          "members": [
-            {
-              "kind": "method",
-              "name": "_FBPReady",
-              "description": "flow is ready lifecycle method",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "bindItem",
-              "parameters": [
-                {
-                  "name": "repeatedNode"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "privacy": "public",
-              "description": "Description",
-              "attribute": "icon"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "description": "Description",
-              "fieldName": "icon"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit-element"
-          },
-          "tagName": "ui5-data-repeat-delete",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "ui5-data-repeat-delete",
-          "declaration": {
-            "name": "Ui5DataRepeatDelete",
-            "module": "src/lib/ui5-data-repeat-delete.js"
-          }
-        }
-      ]
     },
     {
       "kind": "javascript-module",

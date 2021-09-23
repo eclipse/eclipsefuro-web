@@ -32,7 +32,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-component-page",
@@ -83,7 +83,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-demo-loader",
@@ -139,7 +139,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "furo-demo-page",
           "customElement": true
@@ -256,7 +256,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-demo-snippet",
@@ -319,7 +319,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-class",
@@ -382,7 +382,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-element",
@@ -445,7 +445,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-fetch-analysis",
@@ -499,7 +499,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-menu",
@@ -541,7 +541,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-page",
@@ -590,7 +590,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "shortdescription",
           "tagName": "side-navigation",
@@ -632,6 +632,178 @@
           "declaration": {
             "name": "Styling",
             "module": "src/styling.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/demo/demo-furo-demo-snippet.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`demo-furo-demo-snippet`\ntodo Describe your element",
+          "name": "DemoFuroDemoSnippet",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "myBool",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "myBool"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "myBool",
+              "description": "Description",
+              "fieldName": "myBool"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "demo-furo-demo-snippet",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "demo-furo-demo-snippet",
+          "declaration": {
+            "name": "DemoFuroDemoSnippet",
+            "module": "src/demo/demo-furo-demo-snippet.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/demo/fetch-analysis.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`fetch-analysis`\ntodo Describe your element",
+          "name": "FetchAnalysis",
+          "events": [
+            {
+              "type": {
+                "text": "analysis"
+              },
+              "description": " Fired when analysis loaded",
+              "name": "data"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "fetch-analysis",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "fetch-analysis",
+          "declaration": {
+            "name": "FetchAnalysis",
+            "module": "src/demo/fetch-analysis.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/demo/read-analysis.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`read-analysis`\ntodo Describe your element",
+          "name": "ReadAnalysis",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "element",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      description:\n        '`furo-api-fetch`\\n\\nfuro-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\\n\\n```html\\n<furo-api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></furo-api-fetch>\\n```',\n      summary: '',\n      path: 'packages/furo-data/furo-api-fetch.js',\n      properties: [\n        {\n          name: 'lastRequest',\n          type: 'Object',\n          description:\n            \"LastRequest's response.\\n\\nNote that lastResponse is set when ongoing request finishes, so if loading is true,\\nthen lastResponse will correspond to the result of the previous request.\",\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 69,\n              column: 8,\n            },\n            end: {\n              line: 69,\n              column: 24,\n            },\n          },\n          metadata: {\n            polymer: {\n              readOnly: false,\n            },\n          },\n          defaultValue: '{}',\n        },\n        {\n          name: 'xhrFallback',\n          type: 'boolean',\n          description: 'True if fetch API is not available',\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 79,\n              column: 8,\n            },\n            end: {\n              line: 79,\n              column: 24,\n            },\n          },\n          metadata: {\n            polymer: {\n              readOnly: false,\n            },\n          },\n          defaultValue: \"!window.hasOwnProperty('fetch')\",\n        },\n      ],\n      methods: [\n        {\n          name: 'invokeRequest',\n          description: 'Sends a HTTP request to the server',\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 87,\n              column: 4,\n            },\n            end: {\n              line: 90,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'request',\n              type: 'Request',\n              description:\n                '(The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request',\n            },\n            {\n              name: 'request',\n              type: 'Request',\n              description:\n                '(The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: 'abortRequest',\n          description: 'Aborts a pending request\\nYou have to submit an AbortController',\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 98,\n              column: 4,\n            },\n            end: {\n              line: 101,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'controller',\n              type: 'AbortController',\n              description:\n                '(The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)\\nhttps://developer.mozilla.org/en-US/docs/Web/API/AbortController',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: '_executeRequest',\n          description: 'Requests are made via the Fetch API if possible.\\nFallback XMLHttpRequest',\n          privacy: 'protected',\n          sourceRange: {\n            start: {\n              line: 110,\n              column: 4,\n            },\n            end: {\n              line: 159,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'request',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: '_invokeXHR',\n          description: 'Requests are made via fallback XMLHttpRequest',\n          privacy: 'private',\n          sourceRange: {\n            start: {\n              line: 166,\n              column: 4,\n            },\n            end: {\n              line: 214,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'request',\n            },\n          ],\n        },\n        {\n          name: '_reworkRequest',\n          description:\n            'Errorhandling according to Google rest-api-v3 Status Codes\\n(https://developers.google.com/maps-booking/reference/rest-api-v3/status_codes)\\n\\nDispatches event `response-error` and a specific error event with status code',\n          privacy: 'protected',\n          sourceRange: {\n            start: {\n              line: 233,\n              column: 4,\n            },\n            end: {\n              line: 296,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'response',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: '_parseResponse',\n          description:\n            'parses response object according to lastRequest heaader informationen `content-type`\\nyou will find the supported content-types in the declaration area\\nrespone Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]\\nDefault response handler is json!',\n          privacy: 'protected',\n          sourceRange: {\n            start: {\n              line: 305,\n              column: 4,\n            },\n            end: {\n              line: 402,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'response',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n      ],\n      staticMethods: [],\n      demos: [\n        {\n          url: 'demo/furo-api-fetch_demo.html',\n          description: '',\n        },\n      ],\n      metadata: {},\n      sourceRange: {\n        start: {\n          line: 12,\n          column: 0,\n        },\n        end: {\n          line: 404,\n          column: 1,\n        },\n      },\n      privacy: 'public',\n      superclass: 'HTMLElement',\n      name: 'ApiFetch',\n      attributes: [],\n      events: [\n        {\n          type: 'CustomEvent',\n          name: 'fatal-error(payload',\n          description: 'Requests are made via the Fetch API if possible.\\nFallback XMLHttpRequest',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'request-aborted',\n          description: 'Fired when a request was canceled.\\nPayload: request',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'request-started',\n          description: 'Fired when a request is sent.\\nPayload: request',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response',\n          description:\n            'Fired when a response is received.\\nHere you will get the parsed response\\nFormat depends on request header `content-type`\\nsupported types:\\n- text/plain\\n- application/json\\n- image/jpeg (Blob)\\n- application/octet-stream (ArrayBuffer)\\n- application/pdf (Blob)\\n\\nPayload: parsed response',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response-error',\n          description:\n            'Fired when an error has occoured.\\nThis is a general error event. The specific error events are fired additionally.',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response-error-[status-code]',\n          description: 'Fired when an error has occoured.\\nThis is a specific error event.',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response-raw',\n          description:\n            'Fired when a response is received.\\nHere you will get the raw response object\\nPayload: Raw response',\n          metadata: {},\n        },\n      ],\n      styling: {\n        cssVariables: [],\n        selectors: [],\n      },\n      slots: [],\n      tagname: 'furo-api-fetch',\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "myBool",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "myBool"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "analysis"
+              },
+              "description": " Fired when analysis loaded",
+              "name": "data"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "myBool",
+              "description": "Description",
+              "fieldName": "myBool"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "read-analysis",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "read-analysis",
+          "declaration": {
+            "name": "ReadAnalysis",
+            "module": "src/demo/read-analysis.js"
           }
         }
       ]
@@ -681,7 +853,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "class-panel",
@@ -738,7 +910,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "component-panel",
@@ -819,7 +991,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "demo-panel",
@@ -854,7 +1026,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "dev-shell",
           "customElement": true
@@ -937,7 +1109,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "inital-panel",
@@ -994,7 +1166,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "json-panel",
@@ -1056,7 +1228,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "main-stage",
           "customElement": true
@@ -1112,7 +1284,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "markdown-panel",
@@ -1166,178 +1338,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/demo/demo-furo-demo-snippet.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`demo-furo-demo-snippet`\ntodo Describe your element",
-          "name": "DemoFuroDemoSnippet",
-          "members": [
-            {
-              "kind": "method",
-              "name": "_FBPReady",
-              "description": "flow is ready lifecycle method",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "myBool",
-              "privacy": "public",
-              "description": "Description",
-              "attribute": "myBool"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "myBool",
-              "description": "Description",
-              "fieldName": "myBool"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit-element"
-          },
-          "summary": "todo shortdescription",
-          "tagName": "demo-furo-demo-snippet",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "demo-furo-demo-snippet",
-          "declaration": {
-            "name": "DemoFuroDemoSnippet",
-            "module": "src/demo/demo-furo-demo-snippet.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/demo/fetch-analysis.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`fetch-analysis`\ntodo Describe your element",
-          "name": "FetchAnalysis",
-          "events": [
-            {
-              "type": {
-                "text": "analysis"
-              },
-              "description": " Fired when analysis loaded",
-              "name": "data"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit-element"
-          },
-          "summary": "todo shortdescription",
-          "tagName": "fetch-analysis",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "fetch-analysis",
-          "declaration": {
-            "name": "FetchAnalysis",
-            "module": "src/demo/fetch-analysis.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/demo/read-analysis.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`read-analysis`\ntodo Describe your element",
-          "name": "ReadAnalysis",
-          "members": [
-            {
-              "kind": "method",
-              "name": "_FBPReady",
-              "description": "flow is ready lifecycle method",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "element",
-              "type": {
-                "text": "object"
-              },
-              "default": "{\n      description:\n        '`furo-api-fetch`\\n\\nfuro-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\\n\\n```html\\n<furo-api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></furo-api-fetch>\\n```',\n      summary: '',\n      path: 'packages/furo-data/furo-api-fetch.js',\n      properties: [\n        {\n          name: 'lastRequest',\n          type: 'Object',\n          description:\n            \"LastRequest's response.\\n\\nNote that lastResponse is set when ongoing request finishes, so if loading is true,\\nthen lastResponse will correspond to the result of the previous request.\",\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 69,\n              column: 8,\n            },\n            end: {\n              line: 69,\n              column: 24,\n            },\n          },\n          metadata: {\n            polymer: {\n              readOnly: false,\n            },\n          },\n          defaultValue: '{}',\n        },\n        {\n          name: 'xhrFallback',\n          type: 'boolean',\n          description: 'True if fetch API is not available',\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 79,\n              column: 8,\n            },\n            end: {\n              line: 79,\n              column: 24,\n            },\n          },\n          metadata: {\n            polymer: {\n              readOnly: false,\n            },\n          },\n          defaultValue: \"!window.hasOwnProperty('fetch')\",\n        },\n      ],\n      methods: [\n        {\n          name: 'invokeRequest',\n          description: 'Sends a HTTP request to the server',\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 87,\n              column: 4,\n            },\n            end: {\n              line: 90,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'request',\n              type: 'Request',\n              description:\n                '(The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request',\n            },\n            {\n              name: 'request',\n              type: 'Request',\n              description:\n                '(The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: 'abortRequest',\n          description: 'Aborts a pending request\\nYou have to submit an AbortController',\n          privacy: 'public',\n          sourceRange: {\n            start: {\n              line: 98,\n              column: 4,\n            },\n            end: {\n              line: 101,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'controller',\n              type: 'AbortController',\n              description:\n                '(The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)\\nhttps://developer.mozilla.org/en-US/docs/Web/API/AbortController',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: '_executeRequest',\n          description: 'Requests are made via the Fetch API if possible.\\nFallback XMLHttpRequest',\n          privacy: 'protected',\n          sourceRange: {\n            start: {\n              line: 110,\n              column: 4,\n            },\n            end: {\n              line: 159,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'request',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: '_invokeXHR',\n          description: 'Requests are made via fallback XMLHttpRequest',\n          privacy: 'private',\n          sourceRange: {\n            start: {\n              line: 166,\n              column: 4,\n            },\n            end: {\n              line: 214,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'request',\n            },\n          ],\n        },\n        {\n          name: '_reworkRequest',\n          description:\n            'Errorhandling according to Google rest-api-v3 Status Codes\\n(https://developers.google.com/maps-booking/reference/rest-api-v3/status_codes)\\n\\nDispatches event `response-error` and a specific error event with status code',\n          privacy: 'protected',\n          sourceRange: {\n            start: {\n              line: 233,\n              column: 4,\n            },\n            end: {\n              line: 296,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'response',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n        {\n          name: '_parseResponse',\n          description:\n            'parses response object according to lastRequest heaader informationen `content-type`\\nyou will find the supported content-types in the declaration area\\nrespone Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]\\nDefault response handler is json!',\n          privacy: 'protected',\n          sourceRange: {\n            start: {\n              line: 305,\n              column: 4,\n            },\n            end: {\n              line: 402,\n              column: 5,\n            },\n          },\n          metadata: {},\n          params: [\n            {\n              name: 'response',\n            },\n          ],\n          return: {\n            type: 'void',\n          },\n        },\n      ],\n      staticMethods: [],\n      demos: [\n        {\n          url: 'demo/furo-api-fetch_demo.html',\n          description: '',\n        },\n      ],\n      metadata: {},\n      sourceRange: {\n        start: {\n          line: 12,\n          column: 0,\n        },\n        end: {\n          line: 404,\n          column: 1,\n        },\n      },\n      privacy: 'public',\n      superclass: 'HTMLElement',\n      name: 'ApiFetch',\n      attributes: [],\n      events: [\n        {\n          type: 'CustomEvent',\n          name: 'fatal-error(payload',\n          description: 'Requests are made via the Fetch API if possible.\\nFallback XMLHttpRequest',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'request-aborted',\n          description: 'Fired when a request was canceled.\\nPayload: request',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'request-started',\n          description: 'Fired when a request is sent.\\nPayload: request',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response',\n          description:\n            'Fired when a response is received.\\nHere you will get the parsed response\\nFormat depends on request header `content-type`\\nsupported types:\\n- text/plain\\n- application/json\\n- image/jpeg (Blob)\\n- application/octet-stream (ArrayBuffer)\\n- application/pdf (Blob)\\n\\nPayload: parsed response',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response-error',\n          description:\n            'Fired when an error has occoured.\\nThis is a general error event. The specific error events are fired additionally.',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response-error-[status-code]',\n          description: 'Fired when an error has occoured.\\nThis is a specific error event.',\n          metadata: {},\n        },\n        {\n          type: 'CustomEvent',\n          name: 'response-raw',\n          description:\n            'Fired when a response is received.\\nHere you will get the raw response object\\nPayload: Raw response',\n          metadata: {},\n        },\n      ],\n      styling: {\n        cssVariables: [],\n        selectors: [],\n      },\n      slots: [],\n      tagname: 'furo-api-fetch',\n    }"
-            },
-            {
-              "kind": "field",
-              "name": "myBool",
-              "privacy": "public",
-              "description": "Description",
-              "attribute": "myBool"
-            }
-          ],
-          "events": [
-            {
-              "type": {
-                "text": "analysis"
-              },
-              "description": " Fired when analysis loaded",
-              "name": "data"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "myBool",
-              "description": "Description",
-              "fieldName": "myBool"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit-element"
-          },
-          "summary": "todo shortdescription",
-          "tagName": "read-analysis",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "read-analysis",
-          "declaration": {
-            "name": "ReadAnalysis",
-            "module": "src/demo/read-analysis.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/furo-doc/furo-demo-link.js",
       "declarations": [
         {
@@ -1369,7 +1369,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-demo-link",
@@ -1428,7 +1428,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-class-methods-item",
@@ -1498,7 +1498,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-class-methods",
@@ -1557,7 +1557,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-events-item",
@@ -1627,7 +1627,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-events",
@@ -1693,7 +1693,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-menu-class-item",
@@ -1759,7 +1759,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-menu-element-item",
@@ -1818,7 +1818,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-methods-item",
@@ -1888,7 +1888,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-methods",
@@ -1947,7 +1947,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-properties-item",
@@ -2017,7 +2017,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-doc-properties",
@@ -2031,6 +2031,130 @@
           "declaration": {
             "name": "FuroDocProperties",
             "module": "src/furo-doc/furo-doc-properties.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/side-navigation/side-navigation-group.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`side-navigation-group`\ntodo Describe your element",
+          "name": "SideNavigationGroup",
+          "members": [
+            {
+              "kind": "method",
+              "name": "injectItem",
+              "parameters": [
+                {
+                  "name": "group"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "basePath"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "side-navigation-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "side-navigation-group",
+          "declaration": {
+            "name": "SideNavigationGroup",
+            "module": "src/side-navigation/side-navigation-group.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/side-navigation/side-navigation-item.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`side-navigation-item`\ntodo Describe your element",
+          "name": "SideNavigationItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "injectItem",
+              "parameters": [
+                {
+                  "name": "item"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "basePath"
+            },
+            {
+              "kind": "field",
+              "name": "myBool",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "myBool"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "myBool",
+              "description": "Description",
+              "fieldName": "myBool"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "side-navigation-item",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "side-navigation-item",
+          "declaration": {
+            "name": "SideNavigationItem",
+            "module": "src/side-navigation/side-navigation-item.js"
           }
         }
       ]
@@ -2077,7 +2201,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-graph-renderer",
@@ -2159,7 +2283,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "furo-show-flow",
           "customElement": true
@@ -2172,130 +2296,6 @@
           "declaration": {
             "name": "FuroShowFlow",
             "module": "src/graph/furo-show-flow.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/side-navigation/side-navigation-group.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`side-navigation-group`\ntodo Describe your element",
-          "name": "SideNavigationGroup",
-          "members": [
-            {
-              "kind": "method",
-              "name": "injectItem",
-              "parameters": [
-                {
-                  "name": "group"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_FBPReady",
-              "description": "flow is ready lifecycle method",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "basePath"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit-element"
-          },
-          "summary": "todo shortdescription",
-          "tagName": "side-navigation-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "side-navigation-group",
-          "declaration": {
-            "name": "SideNavigationGroup",
-            "module": "src/side-navigation/side-navigation-group.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/side-navigation/side-navigation-item.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`side-navigation-item`\ntodo Describe your element",
-          "name": "SideNavigationItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "injectItem",
-              "parameters": [
-                {
-                  "name": "item"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_FBPReady",
-              "description": "flow is ready lifecycle method",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "basePath"
-            },
-            {
-              "kind": "field",
-              "name": "myBool",
-              "privacy": "public",
-              "description": "Description",
-              "attribute": "myBool"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "myBool",
-              "description": "Description",
-              "fieldName": "myBool"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit-element"
-          },
-          "summary": "todo shortdescription",
-          "tagName": "side-navigation-item",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "side-navigation-item",
-          "declaration": {
-            "name": "SideNavigationItem",
-            "module": "src/side-navigation/side-navigation-item.js"
           }
         }
       ]

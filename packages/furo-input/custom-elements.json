@@ -195,7 +195,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "a button",
           "tagName": "furo-button",
@@ -544,7 +544,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "checkbox input",
           "tagName": "furo-checkbox-input",
@@ -825,7 +825,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "checkbox input",
           "tagName": "furo-checkbox",
@@ -1155,7 +1155,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "chips",
           "tagName": "furo-chip",
@@ -1557,7 +1557,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Color input field",
           "tagName": "furo-color-input",
@@ -2046,7 +2046,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Date input field",
           "tagName": "furo-date-input",
@@ -2197,7 +2197,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "File input field",
           "tagName": "furo-file-dialog",
@@ -2261,7 +2261,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "dropzone for files",
           "tagName": "furo-file-drop",
@@ -2361,7 +2361,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "icon button element",
           "tagName": "furo-icon-button",
@@ -2664,7 +2664,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "input chips",
           "tagName": "furo-input-chip",
@@ -3155,7 +3155,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Number input field",
           "tagName": "furo-number-input",
@@ -3667,7 +3667,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Text input field",
           "tagName": "furo-password-input",
@@ -4009,7 +4009,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "radio-button input",
           "tagName": "furo-radio-button-input",
@@ -4282,7 +4282,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "radiobutton input",
           "tagName": "furo-radio-button",
@@ -4761,7 +4761,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Range input field",
           "tagName": "furo-range-input",
@@ -5260,7 +5260,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Search input field",
           "tagName": "furo-search-input",
@@ -5760,7 +5760,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Select input field",
           "tagName": "furo-select-input",
@@ -5935,7 +5935,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "draw or sign",
           "tagName": "furo-sign-pad",
@@ -6434,7 +6434,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Text input field",
           "tagName": "furo-text-input",
@@ -6833,7 +6833,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Textarea input field",
           "tagName": "furo-textarea-input",
@@ -7327,7 +7327,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Time input field",
           "tagName": "furo-time-input",
