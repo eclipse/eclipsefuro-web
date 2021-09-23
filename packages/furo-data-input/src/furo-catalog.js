@@ -12,7 +12,6 @@ import './furo-data-property-display.js';
 import './furo-data-radio-buton-input.js';
 import './furo-data-range-input.js';
 import './furo-data-reference-search.js';
-import './furo-data-repeat.js';
 import './furo-data-search-input.js';
 import './furo-data-text-input.js';
 import './furo-data-textarea-input.js';

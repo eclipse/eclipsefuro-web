@@ -132,29 +132,25 @@ describe('furo-data-collection-dropdown', () => {
   xit('a11y', () => axeReport(collectionDropdown1));
 
   it('should receive value with bind', done => {
-    entityObject.data.data.description.addEventListener('this-metas-changed', () => {
+    setTimeout(() => {
       assert.equal(collectionDropdown1.binder.fieldNode._meta.options.list.length, 2);
-      assert.equal(collectionDropdown1.binder.fieldNode._value, 'Furo Foundation');
+      assert.equal(collectionDropdown1.binder.fieldNode._value, 2);
       assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
       done();
-    });
+    }, 300);
+
 
     deeplink.qpIn({ prj: 1 });
   });
 
   it('should update meta without options', done => {
-    host._FBPAddWireHook('--hts', () => {
-      entityObject.data.data.description.addEventListener(
-        'this-metas-changed',
-        () => {
+    setTimeout(() => {
           assert.equal(collectionDropdown1.binder.fieldNode._value, 'Build Documentation');
           assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
 
           done();
-        },
-        { once: true },
-      );
-    });
+    }, 300);
+
     deeplink.qpIn({ prj: 2 });
   });
 
