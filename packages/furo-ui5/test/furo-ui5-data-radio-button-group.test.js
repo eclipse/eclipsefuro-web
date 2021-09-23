@@ -112,20 +112,8 @@ describe('furo-ui5-data-radio-button-group', () => {
       },
     ],
   };
-  const testDataArray = [
-    {
-      id: 1,
-      display_name: 'Item 1',
-    },
-    {
-      id: 2,
-      display_name: 'Item 2',
-    },
-    {
-      id: 3,
-      display_name: 'Item 3',
-    },
-  ];
+
+
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -158,7 +146,7 @@ describe('furo-ui5-data-radio-button-group', () => {
 
   it('should have the correct count of radio buttons', done => {
     setTimeout(() => {
-      const buttons = buttonGrp.querySelectorAll('ui5-radiobutton');
+      const buttons = buttonGrp.querySelectorAll('ui5-radio-button');
       assert.equal(buttons.length, 3);
       done();
     }, 16);
@@ -173,7 +161,7 @@ describe('furo-ui5-data-radio-button-group', () => {
 
   it('should have an options binding', done => {
     buttonGrp.addEventListener('options-updated', () => {
-      const buttons = buttonGrp.querySelectorAll('ui5-radiobutton');
+      const buttons = buttonGrp.querySelectorAll('ui5-radio-button');
       assert.equal(buttons.length, 4);
       done();
     });

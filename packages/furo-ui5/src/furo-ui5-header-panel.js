@@ -182,37 +182,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
       // toggle the panel
       panel.collapsed = !panel.collapsed;
       this.collapsed = panel.collapsed;
-      if (!panel.shouldAnimate()) {
-        panel.fireEvent('toggle');
-        return;
-      }
 
-      panel._animationRunning = true;
-      const elements = panel.getDomRef().querySelectorAll('.ui5-panel-content');
-      const animations = [];
-
-      [].forEach.call(elements, oElement => {
-        if (panel.collapsed) {
-          animations.push(
-            slideUp({
-              element: oElement,
-            }).promise(),
-          );
-        } else {
-          animations.push(
-            slideDown({
-              element: oElement,
-            }).promise(),
-          );
-        }
-      });
-
-      Promise.all(animations).then(() => {
-        panel._animationRunning = false;
-        panel._contentExpanded = !panel.collapsed;
-
-        panel.fireEvent('toggle');
-      });
     });
   }
 

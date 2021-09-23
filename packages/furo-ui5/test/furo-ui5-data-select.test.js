@@ -19,7 +19,7 @@ describe('furo-ui5-data-select', () => {
     data: {
       description: 'experiment data for testing',
       display_name: 'display_name',
-      id: '1',
+      id: '2',
       furo_data_checkbox_input: true,
       furo_data_text_input:
         'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.',
@@ -615,12 +615,14 @@ describe('furo-ui5-data-select', () => {
     input._privilegedAttributes['display-field-path'] = 'data.display_name';
 
     daoCollection.addEventListener('data-injected', () => {
-      assert.equal(input.activeFieldBinding, true);
-      dao.data.data.description._value = '3';
       setTimeout(() => {
-        assert.equal(input._syncedOptions[2].selected, true);
+      assert.equal(input.activeFieldBinding, true, "field binding");
+      dao.data.data.description._value = '3';
+        setTimeout(() => {
+        assert.equal(input.selectedOption.dataset.id, 3, "selected element");
         done();
-      }, 316);
+        }, 35);
+      }, 50);
     });
 
     daoCollection.injectRaw(options);
