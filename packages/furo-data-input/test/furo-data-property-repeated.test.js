@@ -65,7 +65,7 @@ describe('furo-data-property-repeated', () => {
   it('should bind data to repeated Property', done => {
     entityObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(dataProperty.field.repeats[1].data.year._value, '2022');
+        assert.equal(dataProperty.field.repeats[1].data.year._value, '2021');
         assert.equal(dataProperty.field.repeats[2].data.data._value, '34.23');
         done();
       }, 5);
