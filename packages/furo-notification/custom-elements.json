@@ -185,7 +185,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "helper component to show a banner",
           "tagName": "furo-banner-display",
@@ -405,7 +405,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "a banner",
           "tagName": "furo-banner",
@@ -590,7 +590,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "helper component to show a snackbar",
           "tagName": "furo-snackbar-display",
@@ -867,7 +867,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "a snackbar",
           "tagName": "furo-snackbar",

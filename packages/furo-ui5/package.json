@@ -34,12 +34,14 @@
     "@furo/form": "^1.8.0",
     "@furo/framework": "^1.8.3",
     "@furo/layout": "^1.8.0",
-    "@ui5/webcomponents": "1.0.0-rc.14",
-    "@ui5/webcomponents-base": "0.34.0",
-    "@ui5/webcomponents-fiori": "1.0.0-rc.14",
-    "@ui5/webcomponents-icons": "1.0.0-rc.14",
-    "lit-element": "^2.3.1",
+    "@ui5/webcomponents": "next",
+    "@ui5/webcomponents-fiori": "next",
+    "lit": "^2.0.0",
     "markdown-it": "^9.0.1"
+  },
+  "peerDependencies": {
+    "@ui5/webcomponents-icons": "*",
+    "@ui5/webcomponents-base": "*"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

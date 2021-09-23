@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
 import { Styling } from './styling.js';
 import '@furo/layout/src/furo-vertical-flex.js';

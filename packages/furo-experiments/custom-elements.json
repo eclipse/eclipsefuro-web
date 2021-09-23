@@ -69,7 +69,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Capture Audio",
           "tagName": "furo-capture-audio",
@@ -154,7 +154,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Capture video from Camera",
           "tagName": "furo-capture-video",
@@ -239,7 +239,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "qr code scanner",
           "tagName": "furo-qr-scanner",
@@ -317,7 +317,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Speech to text",
           "tagName": "furo-speech-recognition",

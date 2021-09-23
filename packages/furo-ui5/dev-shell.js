@@ -1,14 +1,17 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper/src/component-doc/initWithServices.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper/src/component-doc/main-stage.js';
-import './demos/demos.js';
-// import with @furo/... because we are in a monorepo
-// eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js';
-import './src/lib/init.js';
+import('./src/lib/init.js').then(async () => {
+  // import with @furo/... because we are in a monorepo
+  // eslint-disable-next-line import/no-extraneous-dependencies,babel/no-unused-expressions
+  import('@furo/ui5/src/furo-catalog.js');
+  // eslint-disable-next-line babel/no-unused-expressions,import/no-extraneous-dependencies
+  import('@furo/doc-helper/src/component-doc/main-stage.js');
+  // eslint-disable-next-line babel/no-unused-expressions
+  import('./demos/demos.js');
+});
 
 /**
  * A minimal dev shell

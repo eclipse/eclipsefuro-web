@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -75,18 +75,68 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
           >
             <furo-ui5-data-table
               slot="content"
-              popin-fields="data.id"
+              mode="MultiSelect"
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
-              ƒ-focus="--qp"
-              columns="data.id|min800, data.display_name, data.cost_limit, data.start, data.end, data.description"
-            ></furo-ui5-data-table>
+              ƒ-focus="--focus"
+              @-selection-change="--xxx"
+            >
+              <ui5-table-column
+                slot="columns"
+                min-width="900"
+                style="width: 2rem"
+                field="*.data.id"
+              ></ui5-table-column>
+              <ui5-table-column
+                slot="columns"
+                demand-popin
+                popin-text="Template"
+                min-width="800"
+                style="width: 12rem"
+                renderer="data-table-col-tmpl"
+                field="*.data"
+              >
+                <span style="line-height: 1.4rem">Template</span>
+              </ui5-table-column>
+
+              <ui5-table-column
+                slot="columns"
+                center
+                min-width="600"
+                field="*.data.display_name"
+                context="celledit"
+              >
+                <span style="line-height: 1.4rem;">Display name</span>
+              </ui5-table-column>
+
+              <ui5-table-column
+                slot="columns"
+                style="width: 12rem;"
+                field="*.data.cost_limit"
+              ></ui5-table-column>
+
+              <ui5-table-column
+                slot="columns"
+                context="celledit"
+                field="*.data.start"
+              ></ui5-table-column>
+
+              <ui5-table-column slot="columns" field="*.data.end"></ui5-table-column>
+
+              <ui5-table-column slot="columns" min-width="800" field="*.data.description">
+              </ui5-table-column>
+
+
+            </furo-ui5-data-table>
           </furo-ui5-card>
 
           <furo-ui5-button-bar>
+            <furo-ui5-button @-click="--focus">Focus</furo-ui5-button>
             <furo-empty-spacer></furo-empty-spacer>
             <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
           </furo-ui5-button-bar>
+
+          <furo-pretty-json ƒ-inject-data="--xxx"></furo-pretty-json>
 
           <furo-data-object
             type="project.ProjectCollection"

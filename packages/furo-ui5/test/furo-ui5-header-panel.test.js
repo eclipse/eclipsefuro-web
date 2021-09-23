@@ -40,16 +40,10 @@ describe('furo-ui5-header-panel', () => {
   it('should collapse on toggleCollapse', done => {
     assert.equal(panel.collapsed, false, 'should start open');
 
-    panel.shadowRoot.querySelector('ui5-panel').addEventListener(
-      'toggle',
-      () => {
-        assert.equal(panel.collapsed, true, 'should be closed');
-        done();
-      },
-      { once: true },
-    );
-
     panel.toggleCollapse();
+
+    assert.equal(panel.collapsed, true, 'should be closed');
+    done()
   });
 
   it('should update the title with binding on header text', done => {

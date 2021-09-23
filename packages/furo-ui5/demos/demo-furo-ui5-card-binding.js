@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -72,8 +72,8 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                   flex
                   heading="heading"
                   subheading="subheading"
-                  ƒ-bind-heading='--Navnode(*.description)'
-                  ƒ-bind-subheading='--Navnode(*.secondary_text)'
+                  ƒ-bind-heading="--Navnode(*.description)"
+                  ƒ-bind-subheading="--Navnode(*.secondary_text)"
                   ƒ-bind-icon="--Navnode(*.icon)"
                 >
                   <div slot="action">
@@ -92,7 +92,7 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                 <!-- edit a Navigationnode -->
                 <furo-ui5-card
                   flex
-                  heading="Edit the data"
+                  heading="Display the data"
                   subheading="icons: action, account, badge, bell"
                   icon="card"
                 >

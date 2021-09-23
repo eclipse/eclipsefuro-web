@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 
@@ -12,7 +12,6 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroDataMenuActionFilter extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    * @private

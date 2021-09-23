@@ -142,7 +142,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Toolbar to place on top",
           "tagName": "furo-app-bar-top",
@@ -387,7 +387,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Application drawer",
           "tagName": "furo-app-drawer",
@@ -528,7 +528,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Material design card element",
           "tagName": "furo-card",
@@ -581,7 +581,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "progress bar",
           "tagName": "furo-loading-indicator-bar",
@@ -651,7 +651,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "helper component for tooltip",
           "tagName": "furo-tooltip-display",
@@ -753,7 +753,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "defines and triggers a tooltip",
           "tagName": "furo-tooltip",

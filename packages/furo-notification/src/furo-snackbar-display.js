@@ -1,6 +1,6 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
-import '@furo/input';
+import '@furo/input/src/furo-button.js';
 
 /**
  * `furo-snackbar-display`

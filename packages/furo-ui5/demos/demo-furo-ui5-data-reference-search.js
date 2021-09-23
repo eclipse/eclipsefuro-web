@@ -1,10 +1,11 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
+import './helper/demo-extended-searcher.js';
 
 /**
  * `demo-furo-ui5-data-reference-search`
@@ -85,6 +86,7 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
                 <p>min-term-length set to 1 character</p>
                 <furo-ui5-data-reference-search
                   ƒ-bind-data="--entityReady(*.owner)"
+                  extended-searcher="demo-extended-searcher"
                   min-term-length="1"
                 >
                 </furo-ui5-data-reference-search>

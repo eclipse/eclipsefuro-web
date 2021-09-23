@@ -145,14 +145,14 @@ describe('furo-ui5-data-segmented-button', () => {
 
   it('should have options from API SPEC', done => {
     setTimeout(() => {
-      assert.equal(segmentedButton.querySelectorAll('ui5-togglebutton').length, 3);
+      assert.equal(segmentedButton.querySelectorAll('ui5-segmented-button-item').length, 3);
       done();
     }, 16);
   });
 
   it('should have the basic attribute values', done => {
     setTimeout(() => {
-      assert.equal(segmentedButton.buttons.length, 0, 'option count');
+
       assert.equal(segmentedButton._privilegedAttributes.readonly, null, 'readonly state');
       assert.equal(segmentedButton._privilegedAttributes['id-field-path'], 'id', 'idFieldPath');
       assert.equal(

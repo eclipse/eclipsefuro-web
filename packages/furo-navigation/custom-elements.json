@@ -41,7 +41,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-mini-tabs",
@@ -226,7 +226,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-panel-coordinator-tab-item",
@@ -363,7 +363,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "tab navigation for panel-coordinator",
           "tagName": "furo-panel-coordinator-tabs",
@@ -423,7 +423,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "dislay a navigationNode as title",
           "tagName": "furo-panel-head",
@@ -708,7 +708,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-tree-item",
@@ -1056,7 +1056,8 @@
             },
             {
               "kind": "field",
-              "name": "_treeItemTepmplate"
+              "name": "_treeItemTepmplate",
+              "default": "statichtml`<template><tr><td>${l}</td></tr></template>`"
             },
             {
               "kind": "field",
@@ -1245,7 +1246,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "tree navigation menu",
           "tagName": "furo-tree",

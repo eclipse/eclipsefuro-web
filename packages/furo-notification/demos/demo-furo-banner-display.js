@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -105,8 +105,8 @@ class DemoFuroBannerDisplay extends FBP(LitElement) {
               <produce-banner-data
                 id="banner1"
                 label="banner 1"
-                banner-text="Test 
-Newline 
+                banner-text="Test
+Newline
 *stuff*  *ddd* (c) (C) (r) (R) (tm) (TM) (p) (P) +-"
                 @-banner-text-banner1="--setBannerText1"
                 @-show-banner1="--show1"

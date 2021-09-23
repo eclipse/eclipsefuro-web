@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { Theme } from '@furo/framework';
 
@@ -155,7 +155,8 @@ class FuroTypeRenderer extends FBP(LitElement) {
   /**
    * Creates the component for repeated fields
    * Component naming: [package-type]-repeated
-   * Default: furo-ui5-data-repeat with single component
+   *
+   * Fallback: if no -repeated component is available, a flow-repeat is used...
    * @private
    */
   _createRepeatedDisplay() {
@@ -165,16 +166,14 @@ class FuroTypeRenderer extends FBP(LitElement) {
       this._addElement(elementRepeat);
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      const el = document.createElement('flow-repeat');
+      this._fallbackFlowRepeat = document.createElement('flow-repeat');
       const tpl = document.createElement('template');
       tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`;
-      el.appendChild(tpl);
-      // this._field.clearListOnNewData = true;
-      this._field.addEventListener('this-repeated-field-changed', e => {
-        el.injectItems(e.target.repeats);
-      });
+      this._fallbackFlowRepeat.appendChild(tpl);
 
-      this.parentNode.insertBefore(el, this);
+      this.parentNode.insertBefore(this._fallbackFlowRepeat, this);
+
+      this._fallbackFlowRepeat.injectItems(this._field.repeats);
     } else {
       this._warning();
     }

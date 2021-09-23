@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -6,10 +6,10 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/ui5/src/furo-catalog.js';
-import '@furo/data/src/furo-data-object.js';
-import '@furo/data/src/furo-entity-agent.js';
-import '@furo/data/src/furo-collection-agent.js';
-import '@furo/data/src/furo-deep-link.js';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/data/src/furo-catalog.js';
+
 import '@furo/form/src/furo-form-layouter.js';
 import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -20,12 +20,12 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 /**
- * `demo-furo-ui5-data-repeat`
+ * `demo-furo-data-flow-repeat`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataRepeat extends FBP(LitElement) {
+class DemoFuroDataFlowRepeat extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -65,18 +65,22 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
           <template>
             <furo-vertical-scroller>
               <furo-form header-text="Data repeat demo" hasmedia hasaction>
-                <furo-form-layouter two>
-                  <furo-ui5-data-repeat
+                <furo-form-layouter four>
+                  <furo-data-flow-repeat
                     ƒ-bind-data="--entity(*.data.fat_string_repeated)"
-                    repeated-component="furo-ui5-data-text-input"
-                    delete-icon="delete"
-                    focus-on-create
+                    focus-added-item
                     ƒ-add="--addClkd"
-                  ></furo-ui5-data-repeat>
-
-                  <furo-ui5-button @-click="--addClkd">add</furo-ui5-button>
+                  >
+                    <template>
+                      <furo-ui5-data-text-input-labeled
+                        ƒ-bind-data="--init"
+                        ƒ-focus="--itemSelected"
+                      ></furo-ui5-data-text-input-labeled>
+                    </template>
+                  </furo-data-flow-repeat>
                 </furo-form-layouter>
               </furo-form>
+              <furo-ui5-button @-click="--addClkd">add</furo-ui5-button>
 
               <furo-ui5-button @-click="--init">Reset</furo-ui5-button>
               <p>Click on the links below to load data</p>
@@ -108,4 +112,4 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-repeat', DemoFuroUi5DataRepeat);
+window.customElements.define('demo-furo-data-flow-repeat', DemoFuroDataFlowRepeat);

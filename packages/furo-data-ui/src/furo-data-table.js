@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
 import { Env } from '@furo/framework';
 import { Theme } from '@furo/framework/src/theme';

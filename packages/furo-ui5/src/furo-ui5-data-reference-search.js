@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
@@ -132,6 +132,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
     this.debounceTimeout = 250;
     this.placeholder = '';
+    this.label = '';
 
     this.noDataText = 'no result found';
 
@@ -148,6 +149,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this._attributesFromFNA = {
       readonly: undefined,
       placeholder: undefined,
+      label: undefined,
     };
 
     this._constraintsFromFNA = {
@@ -160,6 +162,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this._privilegedAttributes = {
       readonly: null,
       placeholder: null,
+      label: null,
       required: null,
       disabled: null,
       icon: null,
@@ -184,9 +187,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     if (typeof val.link === 'object' && val.link.service !== '') {
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
-    } else {
+    } else if (Env.api.specs[this.__fieldNode._spec.type].fields?.link?.meta?.default) {
       // todo: check if the defaults from the field itself (not the defaults from the used type) are given
       // try the defaults from the ref type
+
       this._FBPTriggerWire(
         '--detectedService',
         Env.api.specs[this.__fieldNode._spec.type].fields.link.meta.default.service,
@@ -305,6 +309,14 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
        * Use with caution, normally the specs defines this value.
        */
       placeholder: {
+        type: String,
+      },
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      label: {
         type: String,
       },
       /**
@@ -755,6 +767,18 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   }
 
   /**
+   * Update the label from the FNA
+   * @private
+   * @param label
+   */
+  onFnaLabelChanged(label) {
+    this._attributesFromFNA.label = label;
+    if (this._privilegedAttributes.label === null) {
+      this.label = label;
+    }
+  }
+
+  /**
    * Updates the readonly state from FNA
    * @private
    * @param readonly
@@ -833,6 +857,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    * - `value-state-message`
    * - `icon`
    * - `placeholder`
+   * - `label`
    * - `required`
    * - `readonly`
    * - `disabled`
@@ -907,7 +932,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           width: inherit;
         }
 
-        ui5-busyindicator {
+        ui5-busy-indicator {
           position: absolute;
           left: 50%;
           top: 15px;
@@ -931,6 +956,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         ui5-icon:hover {
           background: var(--sapButton_Hover_Background);
         }
+        #valueHelper{
+          height: 100%;
+        }
       `
     );
   }
@@ -944,9 +972,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     return html`
       <ui5-input
         id="input"
-        ?required=${this.required}
-        ?readonly=${this.readonly}
-        ?disabled=${this.disabled}
+        ?required="${this.required}"
+        ?readonly="${this.readonly}"
+        ?disabled="${this.disabled}"
         value-state="${this.valueState}"
         ƒ-.value="--displayValue"
         @-blur="--blured"
@@ -960,7 +988,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           @-click="^^search-icon-clicked,--expandIconClicked"
         ></ui5-icon>
       </ui5-input>
-      <ui5-busyindicator size="Small" ?active="${this.busy}"></ui5-busyindicator>
+      <ui5-busy-indicator size="Small" ?active="${this.busy}"></ui5-busy-indicator>
       <ui5-list
         mode="SingleSelect"
         class="list"
@@ -969,8 +997,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         @-load-more="--loadMore"
         @-last-element-selected="--lastListElementReached"
       >
-        <template
-          is="flow-repeat"
+        <flow-repeat
           ƒ-inject-items="--resultList"
           ƒ-select="--listOpened"
           ƒ-deselect-all="--listDeselectAll"
@@ -978,28 +1005,31 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           ƒ-select-previous-index="--arrowUpPressed"
           ƒ-trigger-selected="--enterPressedForSelect"
         >
-          <ui5-reference-search-item
-            display-field="${this.displayFieldPath}"
-            ƒ-deselect="--itemDeSelected"
-            ƒ-select="--trigger"
-            ƒ-preselect="--itemSelected"
-            ƒ-inject-item="--item"
-          ></ui5-reference-search-item>
-        </template>
+          <template>
+            <ui5-reference-search-item
+              display-field="data.display_name"
+              ƒ-deselect="--itemDeSelected"
+              ƒ-select="--trigger"
+              ƒ-preselect="--itemSelected"
+              ƒ-inject-item="--item"
+            ></ui5-reference-search-item>
+          </template>
+        </flow-repeat>
       </ui5-list>
-      <furo-backdrop
+      <ui5-dialog
         ƒ-show="--valueHelperRequested"
-        @-opened="--BackdropFocus"
+        @-after-open="--BackdropFocus"
         ƒ-close="--closeRequested, --recordSelected"
-        @-closed="--backdropClosed"
+        @-after-close="--backdropClosed"
+        stretch
+        header-text="${this.label}"
       >
         <div
           id="valueHelper"
-          style="width: 95vw; height: 95vh; background: var(--surface)"
           @-escape-filter-panel="--closeRequested"
           @-record-selected="--recordSelected"
         ></div>
-      </furo-backdrop>
+      </ui5-dialog>
       <furo-de-bounce
         ƒ-input-wire="--searchTerm"
         @-out="--debouncedSrch"

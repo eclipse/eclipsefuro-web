@@ -1,4 +1,4 @@
-import { css } from 'lit-element/lib/css-tag.js';
+import { css } from 'lit';
 
 export const DefaultTheme = {
   ThemedComponent: css`

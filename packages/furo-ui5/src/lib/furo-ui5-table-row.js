@@ -49,13 +49,27 @@ export class FuroUi5TableRow extends TableRow.default {
     }
   }
 
+  setData(d){
+    this._data = d
+  }
+
   _select() {
+    if(this.mode === "MultiSelect"){
+
+
+      /**
+      * @event multiselect-change
+      * Fired when selection was changed in multiselect mode
+      */
+      this.dispatchEvent(new Event('ui5-selection-requested', {composed:true, bubbles: true}));
+    }
+
     /**
      * @fires {entity} tablerow-selected - Fired when the row is selected. The event detail is the original entity of the row.
      */
     this.dispatchEvent(
       new CustomEvent('tablerow-selected', {
-        detail: this._data,
+        detail: this._data._value,
         bubbles: true,
         composed: true,
       }),

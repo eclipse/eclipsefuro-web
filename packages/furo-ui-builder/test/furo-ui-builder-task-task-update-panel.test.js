@@ -34,7 +34,7 @@ describe('furo-ui-builder-task-task-update-panel', () => {
     const titleElement = panel.shadowRoot.querySelector('furo-panel-head');
     panel._FBPAddWireHook('--response', (response) =>{
       setTimeout(()=>{
-        assert.equal(titleElement.shadowRoot.querySelector('h1').innerHTML, '<!---->Rework documentation<!---->');
+        assert.equal(titleElement.shadowRoot.querySelector('h1').innerText, 'Rework documentation');
         done();
       },18);
 

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
@@ -11,7 +11,7 @@ import './furo-ui5-data-select.js';
  * The furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according
  * to the design specification of SAP Fiori Design System.
  *
- * Only one element is allowed, only the innerText is transfered to the select input.
+ * @slot {HTMLElement} valueStateMessage - defines the value state message that will be displayed as pop up under the input element.
  *
  * @fires {String} field-value-changed - Fires the field value when it changes.
  *

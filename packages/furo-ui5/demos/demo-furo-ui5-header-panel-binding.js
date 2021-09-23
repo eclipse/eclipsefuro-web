@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -86,7 +86,8 @@ class DemoFuroUi5HeaderPanelBinding extends FBP(LitElement) {
                 <furo-ui5-header-panel
                   ƒ-bind-header-text="--Navnode(*.description)"
                   ƒ-bind-secondary-text="--Navnode(*.secondary_text)"
-                  ƒ-bind-icon="--Navnode(*.icon)">
+                  ƒ-bind-icon="--Navnode(*.icon)"
+                >
                   <div>
                     <p>content goes here</p>
                   </div>

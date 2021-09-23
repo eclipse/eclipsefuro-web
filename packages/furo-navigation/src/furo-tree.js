@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
@@ -6,6 +6,7 @@ import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import '@furo/layout/src/furo-vertical-flex';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import './furo-tree-item.js';
+import { html as statichtml, literal } from 'lit/static-html.js';
 
 /**
  * `furo-tree`
@@ -61,7 +62,8 @@ export class FuroTree extends FBP(LitElement) {
      */
     // eslint-disable-next-line wc/no-constructor-attributes
     this.treeItemComponent = this.getAttribute('tree-item-component') || 'furo-tree-item';
-    this._treeItemTepmplate = html([
+
+    const l = literal([
       [
         '<',
         this.treeItemComponent,
@@ -70,6 +72,8 @@ export class FuroTree extends FBP(LitElement) {
         '>',
       ].join(''),
     ]);
+
+    this._treeItemTepmplate = statichtml`<template><tr><td>${l}</td></tr></template>`;
   }
 
   /**
@@ -636,18 +640,16 @@ export class FuroTree extends FBP(LitElement) {
    */
   render() {
     // language=HTML
+
     return html`
-     <furo-vertical-flex>
-      <div class="tablewrapper" flex>
-      <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
-          <tr>
-            <td>
+      <furo-vertical-flex>
+        <div class='tablewrapper' flex>
+          <table>
+            <flow-repeat ƒ-inject-items='--treeChanged' ƒ-trigger-all='--searchRequested' identity-path='id._value'>
               ${this._treeItemTepmplate}
-            </td>
-          </tr>
-        </template>
-      </table>
+            </flow-repeat>
+
+          </table>
       </furo-vertical-flex>
       </div>
     `;

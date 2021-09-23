@@ -166,7 +166,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "automatic button bar",
           "tagName": "furo-button-bar",
@@ -434,7 +434,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "collapsible box with head",
           "tagName": "furo-collapsible-box",
@@ -602,7 +602,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Grid based form field row",
           "tagName": "furo-form-layouter",
@@ -759,7 +759,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "form container",
           "tagName": "furo-form",
@@ -813,7 +813,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Zweigespaltene Formularzeile",
           "tagName": "furo-input-row",

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Styling } from '@furo/doc-helper/src/styling.js';
@@ -19,7 +19,7 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@furo/data-ui/src/furo-catalog.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5-typerenderer/src/display-registry.js';
+import '@furo/ui5-typerenderer/src/registry.js';
 
 /**
  * `demo-furo-type-renderer`

@@ -175,7 +175,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "forth like stack",
           "tagName": "furo-forth-stack",

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
@@ -97,10 +97,17 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
               ƒ-bind-options="--collection(*.entities)"
               ƒ-bind-data="--entity(*.owner.id)"
             >
-              <ui5-radiobutton text="Option A" selected name="Owner"></ui5-radiobutton>
-              <ui5-radiobutton text="Option B with a very long text" name="Owner"></ui5-radiobutton>
-              <ui5-radiobutton text="Option C" name="Owner"></ui5-radiobutton>
-              <ui5-radiobutton text="Option D" name="Owner" value-state="Warning"></ui5-radiobutton>
+              <ui5-radio-button text="Option A" selected name="Owner"></ui5-radio-button>
+              <ui5-radio-button
+                text="Option B with a very long text"
+                name="Owner"
+              ></ui5-radio-button>
+              <ui5-radio-button text="Option C" name="Owner"></ui5-radio-button>
+              <ui5-radio-button
+                text="Option D"
+                name="Owner"
+                value-state="Warning"
+              ></ui5-radio-button>
             </furo-ui5-data-radio-button-group>
 
             <div>

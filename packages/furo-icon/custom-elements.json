@@ -120,7 +120,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "furo icon",
           "tagName": "furo-icon",

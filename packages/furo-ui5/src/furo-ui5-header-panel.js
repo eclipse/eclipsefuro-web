@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import slideDown from '@ui5/webcomponents-base/dist/animations/slideDown.js';
@@ -7,9 +7,9 @@ import slideUp from '@ui5/webcomponents-base/dist/animations/slideUp.js';
 import '@ui5/webcomponents-icons/dist/slim-arrow-up.js';
 import '@ui5/webcomponents/dist/Avatar.js';
 
-import '@ui5/webcomponents/dist/Label';
+import '@ui5/webcomponents/dist/Label.js';
 import '@ui5/webcomponents/dist/Icon.js';
-import '@ui5/webcomponents/dist/Panel';
+import '@ui5/webcomponents/dist/Panel.js';
 
 /**
  * `furo-ui5-header-panel`
@@ -182,37 +182,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
       // toggle the panel
       panel.collapsed = !panel.collapsed;
       this.collapsed = panel.collapsed;
-      if (!panel.shouldAnimate()) {
-        panel.fireEvent('toggle');
-        return;
-      }
 
-      panel._animationRunning = true;
-      const elements = panel.getDomRef().querySelectorAll('.ui5-panel-content');
-      const animations = [];
-
-      [].forEach.call(elements, oElement => {
-        if (panel.collapsed) {
-          animations.push(
-            slideUp({
-              element: oElement,
-            }).promise(),
-          );
-        } else {
-          animations.push(
-            slideDown({
-              element: oElement,
-            }).promise(),
-          );
-        }
-      });
-
-      Promise.all(animations).then(() => {
-        panel._animationRunning = false;
-        panel._contentExpanded = !panel.collapsed;
-
-        panel.fireEvent('toggle');
-      });
     });
   }
 

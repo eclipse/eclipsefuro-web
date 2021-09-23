@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -101,7 +101,7 @@ class FormSectionOne extends FBP(LitElement) {
           @-search="--term"
           ƒ-.disabled="--disable"
           ƒ-bind-data="--entityTaskReady(*.owner)"
-          ƒ-collection-in="--refCol"
+          label="reference"
         ></furo-ui5-data-reference-search-labeled>
 
         <furo-ui5-data-collection-dropdown-labeled
@@ -125,17 +125,27 @@ class FormSectionOne extends FBP(LitElement) {
           <ui5-label label slot="label" for="Custom" show-colon
             >Use it for small option lists
           </ui5-label>
+
           <furo-ui5-data-segmented-button
             style="max-width: 100%;"
             content
             ƒ-.readonly="--disable"
-            ƒ-bind-data="--entityTaskReady(*.owner)"
-            ƒ-inject-entities="--refCol(*.entities)"
+            ƒ-bind-data="--entityTaskReady(*.owner.id)"
+            ƒ-bind-options="--daoPersonCollection(*.entities)"
+            id-field-path="data.id"
+            display-field-path="data.display_name"
+
           ></furo-ui5-data-segmented-button>
-        </furo-ui5-form-field-container>
+
+
       </furo-form-layouter>
 
       <furo-data-object type="task.Task" @-object-ready="--entityTaskReady"></furo-data-object>
+      <furo-data-object
+        type="person.PersonCollection"
+        @-object-ready="--daoPersonCollection"
+        ƒ-inject-raw="--refCol"
+      ></furo-data-object>
       <furo-collection-agent
         service="PersonService"
         ƒ-hts-in="--entityTaskReady(*.owner.link._value)"

@@ -90,18 +90,11 @@ describe('furo-data-checkbox-input', () => {
   });
 
   it('should receive value with bind', done => {
-    host._FBPAddWireHook('--hts', () => {
-      dataObject.addEventListener(
-        'data-changed',
-        () => {
-          setTimeout(() => {
-            assert.equal(dataCheckboxInput.binder.fieldNode._value, true);
-            done();
-          }, 300);
-        },
-        { once: true },
-      );
-    });
+    setTimeout(() => {
+      assert.equal(dataCheckboxInput.binder.fieldNode._value, true);
+      done();
+    }, 300);
+
     deeplink.qpIn({ exp: 1 });
   });
 
@@ -116,7 +109,7 @@ describe('furo-data-checkbox-input', () => {
             console.log(dataCheckboxInput._theInputElement);
 
             assert.equal(dataCheckboxInput.getAttribute('label'), 'checkbox label via meta');
-            assert.equal(dataCheckboxInput.getAttribute('readonly'), '');
+            assert.equal(dataCheckboxInput.getAttribute('readonly'), null);
             done();
           }, 0);
         },

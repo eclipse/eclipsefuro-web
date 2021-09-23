@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -83,7 +83,7 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 </furo-ui5-button-bar>
               </ui5-panel>
 
-              <ui5-panel header-text="Furo-ui5-button-bar with bound entity">
+              <ui5-panel header-text="Furo-ui5-button-bar with bound entity and design='Footer'">
                 <p>
                   Please throttle your network connection in the dev console to see the pending
                   request state.
@@ -92,7 +92,7 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                   <furo-ui5-button @-click="--load">Load response with HATEOAS</furo-ui5-button>
                 </furo-form-layouter>
                 </br>
-                <furo-ui5-button-bar
+                <furo-ui5-button-bar design="Footer"
                   ƒ-bind-entity="--entity"
                   ƒ-disable-all="--reqStarted"
                   ƒ-enable-all="--response"

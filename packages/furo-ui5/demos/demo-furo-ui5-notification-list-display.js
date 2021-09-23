@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
@@ -68,11 +68,11 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
             <ui5-shellbar @-notifications-click="--notificationsRequested(*.detail.targetRef)"
                           primary-title="gRPC Status Notifications"
                           secondary-title=""
-                          ƒ-.notification-count="--notificationCounterUpdated"
+                          ƒ-.notifications-count="--notificationCounterUpdated"
                           show-notifications
             ></ui5-shellbar>
 
-            <ui5-popover ƒ-open-by="--notificationsRequested" placement-type="bottom">
+            <ui5-popover ƒ-show-at="--notificationsRequested" placement-type="bottom">
               <div class="popover-content">
                 <!-- gRPC Error Handling, display and creator components-->
                 <furo-ui5-notification-list-display header-text="Notifications &amp; Errors"
