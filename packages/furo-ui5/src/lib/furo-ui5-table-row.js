@@ -69,7 +69,7 @@ export class FuroUi5TableRow extends TableRow.default {
      */
     this.dispatchEvent(
       new CustomEvent('tablerow-selected', {
-        detail: this._data,
+        detail: this._data._value,
         bubbles: true,
         composed: true,
       }),

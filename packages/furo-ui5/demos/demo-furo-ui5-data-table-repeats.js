@@ -139,7 +139,7 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
 
           <furo-entity-agent
             service="ProjectService"
-            ƒ-hts-in="--itemSelected(*.links._value)"
+            ƒ-hts-in="--itemSelected(*.links)"
             load-on-hts-in
             @-load-success="--projectLoaded"
           ></furo-entity-agent>
