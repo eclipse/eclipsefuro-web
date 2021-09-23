@@ -1,12 +1,12 @@
-import { LitElement, html, css } from 'lit'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp'
-import '@furo/fbp/src/flow-repeat'
-import { FieldNode } from '@furo/data/src/lib/FieldNode'
-import '@furo/layout/src/furo-vertical-flex'
-import { NodeEvent } from '@furo/framework/src/EventTreeNode.js'
-import './furo-tree-item.js'
-import { html as statichtml, literal } from 'lit/static-html.js'
+import { LitElement, html, css } from 'lit';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/fbp/src/flow-repeat';
+import { FieldNode } from '@furo/data/src/lib/FieldNode';
+import '@furo/layout/src/furo-vertical-flex';
+import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
+import './furo-tree-item.js';
+import { html as statichtml, literal } from 'lit/static-html.js';
 
 /**
  * `furo-tree`
@@ -35,25 +35,25 @@ import { html as statichtml, literal } from 'lit/static-html.js'
  */
 export class FuroTree extends FBP(LitElement) {
   constructor() {
-    super()
+    super();
     /**
      * Flat list representation of the tree
      * @type {Array}
      * @private
      */
-    this._flatTree = []
+    this._flatTree = [];
     /**
      *
      * @type {number}
      */
-    this.tabindex = 0
-    this._searchTerm = ''
+    this.tabindex = 0;
+    this._searchTerm = '';
     /**
      *
      * @type {number}
      */
-    this.expandDepth = 2
-    this._searchIsActive = false
+    this.expandDepth = 2;
+    this._searchIsActive = false;
     /**
      * If you want to use a custom component for the tree-item, set this attribute.
      * The default item component is **furo-tree-item**.
@@ -61,7 +61,7 @@ export class FuroTree extends FBP(LitElement) {
      * @type {*|string|string}
      */
     // eslint-disable-next-line wc/no-constructor-attributes
-    this.treeItemComponent = this.getAttribute('tree-item-component') || 'furo-tree-item'
+    this.treeItemComponent = this.getAttribute('tree-item-component') || 'furo-tree-item';
 
     const l = literal([
       [
@@ -71,10 +71,9 @@ export class FuroTree extends FBP(LitElement) {
         this.treeItemComponent,
         '>',
       ].join(''),
+    ]);
 
-    ])
-
-    this._treeItemTepmplate = statichtml`<template><tr><td>${l}</td></tr></template>`
+    this._treeItemTepmplate = statichtml`<template><tr><td>${l}</td></tr></template>`;
   }
 
   /**
@@ -83,9 +82,9 @@ export class FuroTree extends FBP(LitElement) {
   collapseFocused() {
     // close when opened, parent when closed
     if (!this._focusedField.isBranch() && this._focusedField.open._value) {
-      this._focusedField.toggleOpenClose()
+      this._focusedField.toggleOpenClose();
     } else {
-      this.focusParent()
+      this.focusParent();
     }
   }
 
@@ -95,9 +94,9 @@ export class FuroTree extends FBP(LitElement) {
   expandFocused() {
     // open when closed, next when opened
     if (!this._focusedField.isBranch() && !this._focusedField.open._value) {
-      this._focusedField.toggleOpenClose()
+      this._focusedField.toggleOpenClose();
     } else {
-      this.focusNext()
+      this.focusNext();
     }
   }
 
@@ -105,21 +104,21 @@ export class FuroTree extends FBP(LitElement) {
    * expands the focused node recursive
    */
   expandFocusedRecursive() {
-    this._focusedField.expandRecursive()
+    this._focusedField.expandRecursive();
   }
 
   /**
    * collapses the focused node recursive
    */
   collapseFocusedRecursive() {
-    this._focusedField.collapseRecursive()
+    this._focusedField.collapseRecursive();
   }
 
   /**
    * selects the focused element.
    */
   selectFocused() {
-    this._focusedField.selectItem()
+    this._focusedField.selectItem();
   }
 
   /**
@@ -129,40 +128,40 @@ export class FuroTree extends FBP(LitElement) {
    */
   search(term) {
     if (term.length > 1) {
-      this._searchTerm = term
-      this.searchOpenTree()
+      this._searchTerm = term;
+      this.searchOpenTree();
     } else {
-      this._resetSearch()
+      this._resetSearch();
     }
-    return this._foundSearchItems
+    return this._foundSearchItems;
   }
 
   searchOpenTree() {
-    this._searchIsActive = true
-    const d = { term: this._searchTerm, results: [] }
-    this._foundSearchItems = d.results
-    this._FBPTriggerWire('--searchRequested', d)
+    this._searchIsActive = true;
+    const d = { term: this._searchTerm, results: [] };
+    this._foundSearchItems = d.results;
+    this._FBPTriggerWire('--searchRequested', d);
 
     // select first result
     if (d.results.length > 0) {
-      d.results[0].triggerFocus()
+      d.results[0].triggerFocus();
     }
-    this._updateSearchmatchAttributesOnItems()
-    this.requestUpdate()
+    this._updateSearchmatchAttributesOnItems();
+    this.requestUpdate();
   }
 
   _resetSearch() {
-    this._searchIsActive = false
-    this._searchTerm = ''
-    this._foundSearchItems = []
-    this._updateSearchmatchAttributesOnItems()
+    this._searchIsActive = false;
+    this._searchTerm = '';
+    this._foundSearchItems = [];
+    this._updateSearchmatchAttributesOnItems();
   }
 
   _updateSearchmatchAttributesOnItems() {
-    this._rootNode.broadcastEvent(new NodeEvent('search-didnt-match', this._rootNode, true))
+    this._rootNode.broadcastEvent(new NodeEvent('search-didnt-match', this._rootNode, true));
     this._foundSearchItems.forEach(node => {
-      node.dispatchNodeEvent(new NodeEvent('search-matched', this._rootNode, false))
-    })
+      node.dispatchNodeEvent(new NodeEvent('search-matched', this._rootNode, false));
+    });
   }
 
   /**
@@ -171,9 +170,9 @@ export class FuroTree extends FBP(LitElement) {
    * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusParent() {
-    const parent = this._focusedField.getParentElement()
+    const parent = this._focusedField.getParentElement();
     if (parent.triggerFocus) {
-      parent.triggerFocus()
+      parent.triggerFocus();
     }
   }
 
@@ -183,30 +182,30 @@ export class FuroTree extends FBP(LitElement) {
    * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusPrevious() {
-    let prev
+    let prev;
     if (this._searchIsActive) {
       for (let i = 0; i < this._foundSearchItems.length; i += 1) {
         if (this._foundSearchItems[i].__flatTreeIndex >= this._focusedField.__flatTreeIndex) {
-          prev = this._foundSearchItems[i - 1]
-          break
+          prev = this._foundSearchItems[i - 1];
+          break;
         }
       }
       // select last
       if (!prev) {
-        prev = this._foundSearchItems[this._foundSearchItems.length - 1]
+        prev = this._foundSearchItems[this._foundSearchItems.length - 1];
       }
     } else {
-      prev = this._focusedField.getPrevElement()
+      prev = this._focusedField.getPrevElement();
     }
 
     if (prev) {
-      prev.triggerFocus()
+      prev.triggerFocus();
     }
   }
 
   qpIn(qpObject) {
     if (qpObject[this.qp]) {
-      this.selectById(qpObject[this.qp])
+      this.selectById(qpObject[this.qp]);
     }
   }
 
@@ -217,100 +216,100 @@ export class FuroTree extends FBP(LitElement) {
    */
   locationIn(locationObject) {
     if (locationObject.query[this.qp]) {
-      const selected = this.selectById(locationObject.query[this.qp])
+      const selected = this.selectById(locationObject.query[this.qp]);
       if (!selected) {
         // Store qp, for later binding
-        this.__tmpQP = locationObject.query[this.qp]
+        this.__tmpQP = locationObject.query[this.qp];
       }
-      return selected
+      return selected;
     }
-    return false
+    return false;
   }
 
   selectById(nodeID) {
     for (let i = this._flatTree.length - 1; i >= 0; i -= 1) {
-      const node = this._flatTree[i]
+      const node = this._flatTree[i];
       if (String(node.id._value) === String(nodeID)) {
-        node.selectItem()
+        node.selectItem();
 
         // update focused
-        this._focusedField = this._selectedField || this._focusedField
+        this._focusedField = this._selectedField || this._focusedField;
         /**
          * Fire event, when qp is set, because the selectItem will not fire
          */
         if (this.qp) {
-          const customEvent = new Event('node-selected', { composed: true, bubbles: true })
-          customEvent.detail = this._selectedField
-          this.dispatchEvent(customEvent)
+          const customEvent = new Event('node-selected', { composed: true, bubbles: true });
+          customEvent.detail = this._selectedField;
+          this.dispatchEvent(customEvent);
         }
-        return node
+        return node;
       }
     }
-    return false
+    return false;
   }
 
   /**
    * select the previous visible item
    */
   selectPrev() {
-    this._focusedField = this._selectedField || this._focusedField
-    this.focusPrevious()
+    this._focusedField = this._selectedField || this._focusedField;
+    this.focusPrevious();
     // open the focused field
-    this._focusedField.selectItem()
+    this._focusedField.selectItem();
   }
 
   /**
    * expands the currently selected node recursive
    */
   expandNodeRecursive() {
-    this._selectedField.expandRecursive()
+    this._selectedField.expandRecursive();
   }
 
   expandAll() {
-    this._flatTree[0].expandRecursive()
+    this._flatTree[0].expandRecursive();
   }
 
   collapseAll() {
-    this._flatTree[0].collapseRecursive()
+    this._flatTree[0].collapseRecursive();
   }
 
   /**
    * expands the currently selected node recursive
    */
   collapseNodeRecursive() {
-    this._selectedField.collapseRecursive()
+    this._selectedField.collapseRecursive();
   }
 
   /**
    * toggles the currently selected node
    */
   toggle() {
-    this._selectedField.toggleOpenClose()
+    this._selectedField.toggleOpenClose();
   }
 
   addSubNode(rawNode) {
-    const newnode = this._selectedField.children.add(rawNode)
-    this._init()
+    const newnode = this._selectedField.children.add(rawNode);
+    this._init();
 
     setTimeout(() => {
-      newnode.selectItem()
-    }, 0)
+      newnode.selectItem();
+    }, 0);
   }
 
   deleteNode() {
-    this._selectedField.__parentNode.deleteChild(this._selectedField.__index)
-    this.selectPrev()
-    this._init()
+    this._selectedField.__parentNode.deleteChild(this._selectedField.__index);
+    this.selectPrev();
+    this._init();
   }
 
   /**
    * select the next visible item
    */
   selectNext() {
-    this._focusedField = this._selectedField || this._focusedField
-    this.focusNext()
+    this._focusedField = this._selectedField || this._focusedField;
+    this.focusNext();
     // open the focused field
-    this._focusedField.selectItem()
+    this._focusedField.selectItem();
   }
 
   triggerNavigation(key) {
@@ -319,49 +318,49 @@ export class FuroTree extends FBP(LitElement) {
         // not reseting the search at this position is by intention.
         if (this._focusedField._isSelected) {
           // openclose
-          this._focusedField.toggleOpenClose()
+          this._focusedField.toggleOpenClose();
         } else {
           // open the focused field
-          this._focusedField.selectItem()
+          this._focusedField.selectItem();
         }
-        break
+        break;
 
       case 'ArrowDown':
-        this.focusNext()
-        break
+        this.focusNext();
+        break;
       case 'ArrowUp':
-        this.focusPrevious()
-        break
+        this.focusPrevious();
+        break;
 
       case 'PageDown':
         for (let i = 0; i < 10; i += 1) {
-          this.focusNext()
+          this.focusNext();
         }
 
-        break
+        break;
       case 'PageUp':
         for (let i = 0; i < 10; i += 1) {
-          this.focusPrevious()
+          this.focusPrevious();
         }
-        break
+        break;
 
       case 'End':
-        this.focusLast()
-        break
+        this.focusLast();
+        break;
       case 'Home':
-        this.focusFirst()
-        break
+        this.focusFirst();
+        break;
 
       case 'ArrowLeft':
-        this.collapseFocused()
-        break
+        this.collapseFocused();
+        break;
 
       case 'ArrowRight':
-        this.expandFocused()
-        break
+        this.expandFocused();
+        break;
 
       case 'Escape':
-        break
+        break;
       default:
     }
   }
@@ -374,7 +373,7 @@ export class FuroTree extends FBP(LitElement) {
    * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusFirst() {
-    this._flatTree[0].triggerFocus()
+    this._flatTree[0].triggerFocus();
   }
 
   /**
@@ -385,8 +384,8 @@ export class FuroTree extends FBP(LitElement) {
    * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusLast() {
-    this.__visibleTree = this._flatTree.filter(node => !node._isHidden)
-    this.__visibleTree[this.__visibleTree.length - 1].triggerFocus()
+    this.__visibleTree = this._flatTree.filter(node => !node._isHidden);
+    this.__visibleTree[this.__visibleTree.length - 1].triggerFocus();
   }
 
   /**
@@ -395,24 +394,24 @@ export class FuroTree extends FBP(LitElement) {
    * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusNext() {
-    let next
+    let next;
 
     if (this._searchIsActive) {
       for (let i = this._foundSearchItems.length - 1; i >= 0; i -= 1) {
         if (this._foundSearchItems[i].__flatTreeIndex <= this._focusedField.__flatTreeIndex) {
-          next = this._foundSearchItems[i + 1]
-          break
+          next = this._foundSearchItems[i + 1];
+          break;
         }
       }
       // select first
       if (!next) {
-        [next] = this._foundSearchItems
+        [next] = this._foundSearchItems;
       }
     } else {
-      next = this._focusedField.getNextVisibleElement()
+      next = this._focusedField.getNextVisibleElement();
     }
     if (next) {
-      next.triggerFocus()
+      next.triggerFocus();
     }
   }
 
@@ -471,14 +470,14 @@ export class FuroTree extends FBP(LitElement) {
        * indicates that the element is focused
        */
       focused: { type: Boolean, reflect: true },
-    }
+    };
   }
 
   /**
    * focuses the tree itself. You can use this in combination with keyboard navigation (furo-navigation-pad)
    */
   focus() {
-    super.focus()
+    super.focus();
   }
 
   /**
@@ -486,7 +485,7 @@ export class FuroTree extends FBP(LitElement) {
    * @private
    */
   _FBPReady() {
-    super._FBPReady()
+    super._FBPReady();
     // this._FBPTraceWires();
 
     /**
@@ -494,16 +493,16 @@ export class FuroTree extends FBP(LitElement) {
      * select the root node
      */
     this._FBPAddWireHook('--headClicked', () => {
-      this._flatTree[0].selectItem()
-    })
+      this._flatTree[0].selectItem();
+    });
 
     // update the focused state
     this.addEventListener('focusin', () => {
-      this.focused = true
-    })
+      this.focused = true;
+    });
     this.addEventListener('focusout', () => {
-      this.focused = false
-    })
+      this.focused = false;
+    });
   }
 
   /**
@@ -632,7 +631,7 @@ export class FuroTree extends FBP(LitElement) {
           display: none;
         }
       `
-    )
+    );
   }
 
   /**
@@ -653,7 +652,7 @@ export class FuroTree extends FBP(LitElement) {
           </table>
       </furo-vertical-flex>
       </div>
-    `
+    `;
   }
 
   /**
@@ -664,28 +663,28 @@ export class FuroTree extends FBP(LitElement) {
    */
   bindData(treeNode) {
     if (treeNode.root === undefined) {
-      this._rootNode = treeNode
+      this._rootNode = treeNode;
     } else {
-      this._rootNode = treeNode.root
+      this._rootNode = treeNode.root;
     }
-    this._rootNode.children.clearListOnNewData = true
+    this._rootNode.children.clearListOnNewData = true;
     this._rootNode.children.addEventListener('this-repeated-field-changed', () => {
-      this._setTitle(this._rootNode)
-      this._init()
-    })
+      this._setTitle(this._rootNode);
+      this._init();
+    });
 
-    this._setTitle(this._rootNode)
-    this._init()
+    this._setTitle(this._rootNode);
+    this._init();
   }
 
   _setTitle(treeNode) {
     if (this.headerText && treeNode.display_name) {
       // eslint-disable-next-line no-param-reassign
-      treeNode.display_name._value = this.headerText
+      treeNode.display_name._value = this.headerText;
     }
     if (this.secondaryText && treeNode.secondary_text) {
       // eslint-disable-next-line no-param-reassign
-      treeNode.secondary_text._value = this.secondaryText
+      treeNode.secondary_text._value = this.secondaryText;
     }
   }
 
@@ -695,33 +694,33 @@ export class FuroTree extends FBP(LitElement) {
    * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusSelected() {
-    this._selectedField.triggerFocus()
+    this._selectedField.triggerFocus();
   }
 
   _init() {
-    this._buildFlatTree(this._rootNode)
+    this._buildFlatTree(this._rootNode);
 
     // set visible on root node
-    this._rootNode.children.broadcastEvent(new NodeEvent('ancestor-visible', this._rootNode))
+    this._rootNode.children.broadcastEvent(new NodeEvent('ancestor-visible', this._rootNode));
 
     if (!this.__listenersInitialized) {
-      this._initFocusAndSelectEvents()
+      this._initFocusAndSelectEvents();
     }
-    this.__listenersInitialized = true
+    this.__listenersInitialized = true;
 
     // initial focus on first element
     if (this._focusedField === undefined && this._flatTree.length > 0) {
-      [this._focusedField] = this._flatTree
-      this._focusedField.triggerFocus()
+      [this._focusedField] = this._flatTree;
+      this._focusedField.triggerFocus();
     }
 
     // select item if qp was set before
     if (this.__tmpQP !== undefined) {
       // because the tree is built async
       setTimeout(() => {
-        this.selectById(this.__tmpQP)
-        this.__tmpQP = undefined
-      }, 0)
+        this.selectById(this.__tmpQP);
+        this.__tmpQP = undefined;
+      }, 0);
     }
   }
 
@@ -729,89 +728,89 @@ export class FuroTree extends FBP(LitElement) {
     // Internal Event, when a node gets focused
     this._rootNode.addEventListener('tree-node-focused', e => {
       // broadcast blur
-      this._rootNode.broadcastEvent(new NodeEvent('tree-node-blur-requested'))
-      this._focusedField = e.target
+      this._rootNode.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
+      this._focusedField = e.target;
 
       // only dispatch when the element contains a name
       if (this._focusedField.display_name._value != null) {
-        const customEvent = new Event('node-focused', { composed: true, bubbles: true })
-        customEvent.detail = this._focusedField
-        this.dispatchEvent(customEvent)
+        const customEvent = new Event('node-focused', { composed: true, bubbles: true });
+        customEvent.detail = this._focusedField;
+        this.dispatchEvent(customEvent);
         if (this._focusedField.isBranch()) {
-          const branchFocusedEvent = new Event('branch-focused', { composed: true, bubbles: true })
-          branchFocusedEvent.detail = this._focusedField
-          this.dispatchEvent(branchFocusedEvent)
+          const branchFocusedEvent = new Event('branch-focused', { composed: true, bubbles: true });
+          branchFocusedEvent.detail = this._focusedField;
+          this.dispatchEvent(branchFocusedEvent);
         } else {
-          const leafFocusedEvent = new Event('leaf-focused', { composed: true, bubbles: true })
-          leafFocusedEvent.detail = this._focusedField
-          this.dispatchEvent(leafFocusedEvent)
+          const leafFocusedEvent = new Event('leaf-focused', { composed: true, bubbles: true });
+          leafFocusedEvent.detail = this._focusedField;
+          this.dispatchEvent(leafFocusedEvent);
         }
       }
-    })
+    });
 
     // Internal Event, when a node gets selected
     this._rootNode.addEventListener('tree-node-selected', e => {
       //---
       // broadcast deselect
-      this._rootNode.broadcastEvent(new NodeEvent('tree-node-unselection-requested'))
-      this._selectedField = e.target
+      this._rootNode.broadcastEvent(new NodeEvent('tree-node-unselection-requested'));
+      this._selectedField = e.target;
 
       if (!this.qp) {
-        const customEvent = new Event('node-selected', { composed: true, bubbles: true })
-        customEvent.detail = this._selectedField
-        this.dispatchEvent(customEvent)
+        const customEvent = new Event('node-selected', { composed: true, bubbles: true });
+        customEvent.detail = this._selectedField;
+        this.dispatchEvent(customEvent);
       } else if (this.__lastQP !== this._selectedField.id._value) {
-        const customEvent = new Event('qp-change-requested', { composed: true, bubbles: true })
-        const qp = {}
-        this.__lastQP = this._selectedField.id._value
-        qp[this.qp] = this._selectedField.id._value
-        customEvent.detail = qp
-        this.dispatchEvent(customEvent)
+        const customEvent = new Event('qp-change-requested', { composed: true, bubbles: true });
+        const qp = {};
+        this.__lastQP = this._selectedField.id._value;
+        qp[this.qp] = this._selectedField.id._value;
+        customEvent.detail = qp;
+        this.dispatchEvent(customEvent);
       }
 
       if (this._selectedField.isBranch()) {
-        const customEvent = new Event('branch-selected', { composed: true, bubbles: true })
-        customEvent.detail = this._selectedField
-        this.dispatchEvent(customEvent)
+        const customEvent = new Event('branch-selected', { composed: true, bubbles: true });
+        customEvent.detail = this._selectedField;
+        this.dispatchEvent(customEvent);
       } else {
-        const customEvent = new Event('leaf-selected', { composed: true, bubbles: true })
-        customEvent.detail = this._selectedField
-        this.dispatchEvent(customEvent)
+        const customEvent = new Event('leaf-selected', { composed: true, bubbles: true });
+        customEvent.detail = this._selectedField;
+        this.dispatchEvent(customEvent);
       }
-    })
+    });
   }
 
   _buildFlatTree(tree) {
-    this._flatTree = [tree]
+    this._flatTree = [tree];
     // eslint-disable-next-line no-param-reassign
-    tree.__flatTreeIndex = 0
-    let startlevel = 0
+    tree.__flatTreeIndex = 0;
+    let startlevel = 0;
     if (this.hideRootNode === true) {
-      startlevel = -1
+      startlevel = -1;
       // this._flatTree.pop();
-      this._flatTree[0]._isHidden = true
+      this._flatTree[0]._isHidden = true;
     } else {
       // eslint-disable-next-line no-param-reassign
-      tree._isRoot = true
+      tree._isRoot = true;
       // eslint-disable-next-line no-param-reassign
-      tree.open._value = true
+      tree.open._value = true;
     }
 
     if (this.rootAsHeader === true) {
-      this._flatTree[0]._rootAsHeader = true
-      startlevel = -1
+      this._flatTree[0]._rootAsHeader = true;
+      startlevel = -1;
     }
 
-    this._parseTreeRecursive(tree, startlevel, this.depth)
+    this._parseTreeRecursive(tree, startlevel, this.depth);
 
     for (let len = this._flatTree.length; len > 0; len -= 1) {
-      const index = len - 1
-      const node = this._flatTree[index]
+      const index = len - 1;
+      const node = this._flatTree[index];
 
       // open field if entity contains a field open with true
       if (!node.open) {
-        node.addChildProperty('open', new FieldNode(node, { type: 'bool' }, 'open'))
-        node.open._value = false
+        node.addChildProperty('open', new FieldNode(node, { type: 'bool' }, 'open'));
+        node.open._value = false;
       }
 
       // Traverse the flat tree, it is simpler then the nested tree
@@ -819,135 +818,135 @@ export class FuroTree extends FBP(LitElement) {
       node.getNextVisibleElement = () => {
         for (let i = index + 1; i < this._flatTree.length; i += 1) {
           if (!this._flatTree[i]._isHidden) {
-            return this._flatTree[i]
+            return this._flatTree[i];
           }
         }
-        return false
-      }
+        return false;
+      };
       // prev active element
       node.getPrevElement = () => {
         for (let i = index - 1; i >= 0; i -= 1) {
           if (!this._flatTree[i]._isHidden) {
-            return this._flatTree[i]
+            return this._flatTree[i];
           }
         }
-        return false
-      }
+        return false;
+      };
 
       // is branch
-      node.isBranch = () => node.children.repeats.length === 0
+      node.isBranch = () => node.children.repeats.length === 0;
 
       // get Parent
-      node.getParentElement = () => node.__parentNode.__parentNode
+      node.getParentElement = () => node.__parentNode.__parentNode;
 
       // add openclose method to treeNode
       node.toggleOpenClose = () => {
-        node.open._value = !node.open._value
+        node.open._value = !node.open._value;
         if (node.open._value) {
-          const customEvent = new Event('node-opened', { composed: true, bubbles: false })
+          const customEvent = new Event('node-opened', { composed: true, bubbles: false });
           setTimeout(() => {
-            this.dispatchEvent(customEvent)
-          }, 0)
+            this.dispatchEvent(customEvent);
+          }, 0);
         } else {
-          const customEvent = new Event('node-closed', { composed: true, bubbles: false })
+          const customEvent = new Event('node-closed', { composed: true, bubbles: false });
           setTimeout(() => {
-            this.dispatchEvent(customEvent)
-          }, 0)
+            this.dispatchEvent(customEvent);
+          }, 0);
         }
-      }
+      };
 
       // focuss the current node
       // ?? maybe we want also do a tab-node-focused in panel-coordinator.tabs?
       node.triggerFocus = () => {
-        node.dispatchNodeEvent(new NodeEvent('tree-node-focused', this, true))
-        node.dispatchNodeEvent(new NodeEvent('this-node-focused', this, false))
-      }
+        node.dispatchNodeEvent(new NodeEvent('tree-node-focused', this, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-focused', this, false));
+      };
 
       // selects the current item
       node.selectItem = () => {
         // focus the selected
-        node.triggerFocus()
+        node.triggerFocus();
 
-        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', node, true))
-        node.dispatchNodeEvent(new NodeEvent('this-node-selected', node, false))
+        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', node, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-selected', node, false));
 
         // used to open the paths upwards from the selected node
-        node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true))
-      }
+        node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
+      };
 
       // if a descendant was selected, we ensure to open the path
       node.addEventListener('descendant-selected', () => {
-        node.open._value = true
-      })
+        node.open._value = true;
+      });
 
       // expand recursive
       node.expandRecursive = () => {
-        const event = new NodeEvent('recursive-expand-requested', node)
-        node.broadcastEvent(event)
+        const event = new NodeEvent('recursive-expand-requested', node);
+        node.broadcastEvent(event);
 
-        const customEvent = new Event('nodes-expanded', { composed: true, bubbles: false })
+        const customEvent = new Event('nodes-expanded', { composed: true, bubbles: false });
         setTimeout(() => {
-          this.dispatchEvent(customEvent)
-        }, 0)
-      }
+          this.dispatchEvent(customEvent);
+        }, 0);
+      };
 
       node.addEventListener('recursive-expand-requested', e => {
         // stop exanding after  a depth of 2
         if (e.detail.depth + this.expandDepth <= node.depth) {
-          e.stopBroadcast()
+          e.stopBroadcast();
         }
 
-        node.open._value = true
-      })
+        node.open._value = true;
+      });
 
       // collapse recursive
       node.collapseRecursive = () => {
-        node.broadcastEvent(new NodeEvent('recursive-collapse-requested', node))
+        node.broadcastEvent(new NodeEvent('recursive-collapse-requested', node));
 
-        const customEvent = new Event('nodes-collapsed', { composed: true, bubbles: false })
+        const customEvent = new Event('nodes-collapsed', { composed: true, bubbles: false });
         setTimeout(() => {
-          this.dispatchEvent(customEvent)
-        }, 0)
-      }
+          this.dispatchEvent(customEvent);
+        }, 0);
+      };
 
       node.addEventListener('recursive-collapse-requested', () => {
-        node.open._value = false
-      })
+        node.open._value = false;
+      });
     }
 
     // open the root ode
     // eslint-disable-next-line no-param-reassign
-    tree.open._value = true
+    tree.open._value = true;
 
     this._FBPTriggerWire(
       '--treeChanged',
       this._flatTree.filter(node => !node._isHidden),
-    )
+    );
   }
 
   _parseTreeRecursive(tree, level, maxdepth) {
     if (maxdepth > 0 && !(level < maxdepth)) {
-      return
+      return;
     }
     // eslint-disable-next-line no-param-reassign
-    tree.depth = level
+    tree.depth = level;
     // do not indent on group labels
     if (!(tree.is_group_label && tree.is_group_label._value === true)) {
       // eslint-disable-next-line no-param-reassign
-      level += 1
+      level += 1;
     }
 
     tree.children.repeats.forEach(node => {
       // eslint-disable-next-line no-param-reassign
-      node.depth = level
-      const i = this._flatTree.push(node)
+      node.depth = level;
+      const i = this._flatTree.push(node);
       // eslint-disable-next-line no-param-reassign
-      node.__flatTreeIndex = i - 1
+      node.__flatTreeIndex = i - 1;
       if (node.children.repeats.length > 0) {
-        this._parseTreeRecursive(node, level, maxdepth)
+        this._parseTreeRecursive(node, level, maxdepth);
       }
-    })
+    });
   }
 }
 
-window.customElements.define('furo-tree', FuroTree)
+window.customElements.define('furo-tree', FuroTree);

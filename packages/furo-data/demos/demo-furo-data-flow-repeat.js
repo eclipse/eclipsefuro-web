@@ -69,7 +69,8 @@ class DemoFuroDataFlowRepeat extends FBP(LitElement) {
                   <furo-data-flow-repeat
                     ƒ-bind-data="--entity(*.data.fat_string_repeated)"
                     focus-added-item
-                    ƒ-add="--addClkd">
+                    ƒ-add="--addClkd"
+                  >
                     <template>
                       <furo-ui5-data-text-input-labeled
                         ƒ-bind-data="--init"

@@ -77,7 +77,6 @@ class FuroTypeRenderer extends FBP(LitElement) {
     );
   }
 
-
   /**
    *@private
    */
@@ -161,7 +160,6 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @private
    */
   _createRepeatedDisplay() {
-
     const rRenderName = `${this.renderName}-repeated`;
     const elementRepeat = document.createElement(rRenderName);
     if (elementRepeat.bindData) {
@@ -176,8 +174,6 @@ class FuroTypeRenderer extends FBP(LitElement) {
       this.parentNode.insertBefore(this._fallbackFlowRepeat, this);
 
       this._fallbackFlowRepeat.injectItems(this._field.repeats);
-
-
     } else {
       this._warning();
     }
