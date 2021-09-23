@@ -43,8 +43,6 @@ export class FuroUi5DataTable extends FBP(LitElement) {
     this._specs = Env.api.specs
     this.data = []
     this.mode = 'None'
-
-
   }
 
   _FBPReady() {
@@ -56,7 +54,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       const affectedItems = []
       e.detail.selectedRows.forEach(r => {
         if (r._data) {
-          affectedItems.push(r._data)
+          affectedItems.push(r._data._value)
         }
       })
       /**
@@ -189,14 +187,14 @@ export class FuroUi5DataTable extends FBP(LitElement) {
       }
 
 
-      this._wires.push(`--item(${fieldPath})`)
+      this._wires.push(`--init(${fieldPath})`)
 
       // append to table
       this.shadowRoot.querySelector('ui5-table').appendChild(col)
     })
 
     this._rowRepeatTemplate = statichtml`<template>
-        <furo-ui5-table-row ƒ-set-data='--item(*)' ƒ-focus='--trigger'>
+        <furo-ui5-table-row ƒ-set-data='--init(*)' ƒ-focus='--trigger'>
           ${this._cellMap(fieldPaths)}
         </furo-ui5-table-row>
     </template>`

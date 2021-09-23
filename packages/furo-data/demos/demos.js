@@ -5,3 +5,4 @@ import './demo-furo-entity-agent.js';
 import './demo-furo-collection-agent.js';
 import './demo-furo-custom-method.js';
 import './demo-furo-sortby-container.js';
+import './demo-furo-data-flow-repeat.js';
