@@ -266,10 +266,11 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
    */
   _updateField(value) {
     let numberStr = '';
-    if (value.units !== 0) {
+
+    if (value.units && value.units !== 0) {
       numberStr = value.units;
     }
-    if (value.nanos !== 0) {
+    if (value.nanos && value.nanos !== 0) {
       let nanoValue = value.nanos;
       if (nanoValue < 0) {
         nanoValue *= -1;
@@ -289,10 +290,8 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
     const type = this.getDataType();
     switch (type) {
       case 'google.type.Money':
-        if (value.currency_code && value.nanos !== null && value.units !== null) {
-          this._tmpValue = value;
-          this._updateField(value);
-        }
+        this._tmpValue = value;
+        this._updateField(value);
         break;
       default:
         break;

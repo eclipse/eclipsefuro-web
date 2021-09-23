@@ -129,12 +129,12 @@ class FormSectionOne extends FBP(LitElement) {
           <furo-ui5-data-segmented-button
             style="max-width: 100%;"
             content
+            id-field-path="data.id"
+            value-field-path="data.id"
+            display-field-path="data.display_name"
             ƒ-.readonly="--disable"
             ƒ-bind-data="--entityTaskReady(*.owner.id)"
             ƒ-bind-options="--daoPersonCollection(*.entities)"
-            id-field-path="data.id"
-            display-field-path="data.display_name"
-
           ></furo-ui5-data-segmented-button>
 
 
