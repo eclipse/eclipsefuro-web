@@ -349,7 +349,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       this._updateAttributesFromFat(this._tmpFAT.attributes);
       this._updateLabelsFromFat(this._tmpFAT.labels);
     } else {
-      this.value = val;
+      this.value = val || 0;
     }
   }
 
