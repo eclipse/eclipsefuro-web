@@ -119,7 +119,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Application Flow => routing",
           "tagName": "furo-app-flow-router",
@@ -215,7 +215,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Application Flow => routing",
           "tagName": "furo-app-flow",
@@ -372,7 +372,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Document title",
           "tagName": "furo-document-title",
@@ -463,7 +463,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "deep linking helper",
           "tagName": "furo-location-updater",
@@ -598,7 +598,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "url watcher",
           "tagName": "furo-location",
@@ -707,7 +707,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Simple content switcher",
           "tagName": "furo-pages",
@@ -821,7 +821,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Complex content switcher based on furo-tree",
           "tagName": "furo-panel-coordinator",
@@ -889,7 +889,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "deep linking helper",
           "tagName": "furo-qp-changer",
@@ -940,7 +940,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "customElement": true
         }

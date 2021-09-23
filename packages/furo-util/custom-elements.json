@@ -79,7 +79,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "fetch json data",
           "tagName": "furo-fetch-json",
@@ -139,7 +139,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "get clipboard content",
           "tagName": "furo-get-clipboard",
@@ -323,7 +323,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "keyboard event filter",
           "tagName": "furo-key-filter",
@@ -460,7 +460,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "keyboard event listener",
           "tagName": "furo-keydown",
@@ -573,7 +573,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "renders markdown data",
           "tagName": "furo-markdown",
@@ -708,7 +708,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "keyboard navigation helper",
           "tagName": "furo-navigation-pad",
@@ -764,7 +764,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "pretty prints json data",
           "tagName": "furo-pretty-json",
@@ -840,7 +840,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "write content to clipboard",
           "tagName": "furo-put-clipboard",

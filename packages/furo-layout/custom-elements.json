@@ -75,7 +75,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Display component for furo-backdrop",
           "tagName": "furo-backdrop-display",
@@ -148,7 +148,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "show content with backdrop",
           "tagName": "furo-backdrop",
@@ -214,7 +214,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "fill the space in a furo-xxxx-flex",
           "tagName": "furo-empty-spacer",
@@ -252,7 +252,7 @@
           "members": [],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "horizontal alignment",
           "tagName": "furo-horizontal-flex",
@@ -364,7 +364,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "content panel with predefined margins",
           "tagName": "furo-panel",
@@ -533,7 +533,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "resizable box",
           "tagName": "furo-resizer",
@@ -597,7 +597,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "add a ripple effect",
           "tagName": "furo-ripple",
@@ -677,7 +677,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "a grid splitter",
           "tagName": "furo-split-grid",
@@ -753,7 +753,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "splitted layout",
           "tagName": "furo-split-view",
@@ -791,7 +791,7 @@
           "members": [],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "vertical alignment",
           "tagName": "furo-vertical-flex",
@@ -853,7 +853,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "vertical scroll",
           "tagName": "furo-vertical-scroller",
@@ -989,7 +989,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "grid with a z pattern",
           "tagName": "furo-z-grid",

@@ -100,7 +100,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Displays a icon/symbol for a boolean value",
           "tagName": "furo-data-bool-icon",
@@ -1033,7 +1033,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Displays a data field",
           "tagName": "furo-data-display",
@@ -1525,7 +1525,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields",
           "tagName": "furo-data-money-input",
@@ -1807,7 +1807,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "helper for furo-data-property",
           "tagName": "furo-data-property-display",
@@ -1875,7 +1875,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "display and bind types of type any",
           "tagName": "furo-data-property",
@@ -2499,7 +2499,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "autocomplete searcher for referenced types",
           "tagName": "furo-data-reference-search",
@@ -2662,7 +2662,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "automatic display of repeated fields",
           "tagName": "furo-data-repeat",
@@ -3283,7 +3283,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "representation of a result item",
           "tagName": "reference-search-item",
@@ -3608,7 +3608,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "data-repeat-delete",
           "customElement": true

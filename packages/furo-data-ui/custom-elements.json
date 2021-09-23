@@ -108,7 +108,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "base component to make a bindable filter",
           "tagName": "furo-data-filter-doc",
@@ -475,7 +475,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "Display charts with data objects",
           "tagName": "furo-chart-display",
@@ -826,7 +826,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "connect data to a chart",
           "tagName": "furo-data-chart-binder",
@@ -909,7 +909,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "tagName": "furo-data-context-menu-display",
           "customElement": true
@@ -1066,7 +1066,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "a context menu",
           "tagName": "furo-data-context-menu",
@@ -1929,7 +1929,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "hide content",
           "tagName": "furo-data-hide-content",
@@ -1971,7 +1971,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "todo shortdescription",
           "tagName": "furo-data-menu-action-filter",
@@ -2078,7 +2078,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "helper for furo-data-table",
           "tagName": "furo-data-table-toggle",
@@ -2448,7 +2448,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "type based data table",
           "tagName": "furo-data-table",
@@ -2494,7 +2494,7 @@
             {
               "kind": "method",
               "name": "_createRepeatedDisplay",
-              "description": "Creates the component for repeated fields\nComponent naming: [package-type]-repeated\nDefault: furo-ui5-data-repeat with single component",
+              "description": "Creates the component for repeated fields\nComponent naming: [package-type]-repeated\n\nFallback: if no -repeated component is available, a flow-repeat is used...",
               "privacy": "private"
             },
             {
@@ -2569,7 +2569,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "type rendering",
           "tagName": "furo-type-renderer",
@@ -2718,7 +2718,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "helper",
           "tagName": "furo-data-context-menu-item",
@@ -2819,7 +2819,7 @@
           ],
           "superclass": {
             "name": "LitElement",
-            "package": "lit-element"
+            "package": "lit"
           },
           "summary": "helper",
           "tagName": "furo-data-context-submenu",
