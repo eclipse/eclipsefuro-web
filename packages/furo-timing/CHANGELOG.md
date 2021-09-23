@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/timing@1.6.0...@furo/timing@1.7.0) (2021-09-23)
+
+
+### Bug Fixes
+
+* version change of lit ([783d0ae](https://github.com/eclipse/eclipsefuro-web/commit/783d0ae3f16fa585de3eb1f5a24b801e2707113d))
+
+
+### Features
+
+* lit 2.0.0 ([4854ce4](https://github.com/eclipse/eclipsefuro-web/commit/4854ce42d714619add246b0cded236508903ab01))
+
+
+
+
+
 # [1.6.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/timing@1.5.5...@furo/timing@1.6.0) (2021-09-13)
 
 

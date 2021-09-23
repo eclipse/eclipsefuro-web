@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.38.4...@furo/ui5-typerenderer@0.39.0) (2021-09-23)
+
+
+### Bug Fixes
+
+* display of null values, dao init ([172961d](https://github.com/eclipse/eclipsefuro-web/commit/172961ddce5b48483be6653eeca4c9247e9923a5))
+* version change of lit ([783d0ae](https://github.com/eclipse/eclipsefuro-web/commit/783d0ae3f16fa585de3eb1f5a24b801e2707113d))
+
+
+### Features
+
+* lit 2.0.0 ([4854ce4](https://github.com/eclipse/eclipsefuro-web/commit/4854ce42d714619add246b0cded236508903ab01))
+
+
+
+
+
 ## [0.38.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.38.3...@furo/ui5-typerenderer@0.38.4) (2021-09-13)
 
 **Note:** Version bump only for package @furo/ui5-typerenderer

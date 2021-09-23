@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.32.0...@furo/data@1.33.0) (2021-09-23)
+
+
+### Bug Fixes
+
+* version change of lit ([783d0ae](https://github.com/eclipse/eclipsefuro-web/commit/783d0ae3f16fa585de3eb1f5a24b801e2707113d))
+
+
+### Features
+
+* furo-data-flow-repeat, a bindable flow-repeat ([cdf06fe](https://github.com/eclipse/eclipsefuro-web/commit/cdf06fe05483cf260f7cc2af23a1839a331dfadf))
+* lit 2.0.0 ([4854ce4](https://github.com/eclipse/eclipsefuro-web/commit/4854ce42d714619add246b0cded236508903ab01))
+
+
+
+
+
 # [1.32.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.31.2...@furo/data@1.32.0) (2021-09-13)
 
 

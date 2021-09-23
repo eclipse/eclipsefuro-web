@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-ui@1.12.0...@furo/data-ui@1.13.0) (2021-09-23)
+
+
+### Bug Fixes
+
+* furo-type-renderer Multiple event listener on fallback renderer removed ([7d3f826](https://github.com/eclipse/eclipsefuro-web/commit/7d3f826ca0e93fba948ae6ba916b9af90ce6d3a5))
+* version change of lit ([783d0ae](https://github.com/eclipse/eclipsefuro-web/commit/783d0ae3f16fa585de3eb1f5a24b801e2707113d))
+
+
+### Features
+
+* lit 2.0.0 ([4854ce4](https://github.com/eclipse/eclipsefuro-web/commit/4854ce42d714619add246b0cded236508903ab01))
+
+
+
+
+
 # [1.12.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-ui@1.11.1...@furo/data-ui@1.12.0) (2021-09-13)
 
 

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.40.0...@furo/ui5@0.41.0) (2021-09-23)
+
+
+### Bug Fixes
+
+* display of null values, dao init ([172961d](https://github.com/eclipse/eclipsefuro-web/commit/172961ddce5b48483be6653eeca4c9247e9923a5))
+* extended reference searcher with full height ([f7ef132](https://github.com/eclipse/eclipsefuro-web/commit/f7ef132d1e3e0cf0030ba2921c042dcdfb74a3de))
+* furo-ui5-data-segmented-button keyboard navigation ([394b9c0](https://github.com/eclipse/eclipsefuro-web/commit/394b9c076967e8addb4c1f4788bacd5b35b25843))
+* furo-ui5-data-segmented-button keyboard navigation warnings ([7eddb6a](https://github.com/eclipse/eclipsefuro-web/commit/7eddb6a28a472e01b865e9b6ecda5636d27ec1b8))
+* import paths ([4f5f9b0](https://github.com/eclipse/eclipsefuro-web/commit/4f5f9b0340295b0227e74bd2db1dd2d174f5af77))
+* padding for size m ([916ffb5](https://github.com/eclipse/eclipsefuro-web/commit/916ffb53dbfb557d054e3106e2748c9f009d2be5))
+* version change of lit ([783d0ae](https://github.com/eclipse/eclipsefuro-web/commit/783d0ae3f16fa585de3eb1f5a24b801e2707113d))
+
+
+### Features
+
+* furo ui5 reference seracher uses ui5 dialog instead furo backdrop. ([6b7c3bc](https://github.com/eclipse/eclipsefuro-web/commit/6b7c3bccc6e2da9be8005b30db4fc4e90595dd25))
+* furo-data-flow-repeat, a bindable flow-repeat ([cdf06fe](https://github.com/eclipse/eclipsefuro-web/commit/cdf06fe05483cf260f7cc2af23a1839a331dfadf))
+* furo-ui5-data-table renderer attribute for columns ([aaf2d39](https://github.com/eclipse/eclipsefuro-web/commit/aaf2d39ab05d4f760c68dcdd6b66919d71866bf0))
+* furo-ui5-data-table with per col configuration ([b2bc12e](https://github.com/eclipse/eclipsefuro-web/commit/b2bc12e0989bb2d332c10247f3ed247dfe7af2c0))
+* lit 2.0.0 ([4854ce4](https://github.com/eclipse/eclipsefuro-web/commit/4854ce42d714619add246b0cded236508903ab01))
+* ui5-furo-data-table MultiSelect ([022d070](https://github.com/eclipse/eclipsefuro-web/commit/022d07012b047304f9638d2538010fc8a4cdccc4))
+
+
+
+
+
 # [0.40.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.39.0...@furo/ui5@0.40.0) (2021-09-13)
 
 

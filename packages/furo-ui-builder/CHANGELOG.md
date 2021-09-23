@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui-builder@1.11.0...@furo/ui-builder@1.11.1) (2021-09-23)
+
+
+### Bug Fixes
+
+* version change of lit ([783d0ae](https://github.com/eclipse/eclipsefuro-web/commit/783d0ae3f16fa585de3eb1f5a24b801e2707113d))
+
+
+
+
+
 # [1.11.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui-builder@1.10.1...@furo/ui-builder@1.11.0) (2021-07-21)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@furo/ui5",
   "description": "SAP UI5 Web Components",
-  "version": "0.40.0",
+  "version": "0.41.0",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-ui5",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -29,25 +29,25 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/data-ui": "^1.12.0",
-    "@furo/fbp": "^5.10.3",
-    "@furo/form": "^1.8.0",
-    "@furo/framework": "^1.8.3",
-    "@furo/layout": "^1.8.0",
+    "@furo/data-ui": "^1.13.0",
+    "@furo/fbp": "^5.11.0",
+    "@furo/form": "^1.9.0",
+    "@furo/framework": "^1.9.0",
+    "@furo/layout": "^1.9.0",
     "@ui5/webcomponents": "next",
     "@ui5/webcomponents-fiori": "next",
     "lit": "^2.0.0",
     "markdown-it": "^9.0.1"
   },
   "peerDependencies": {
-    "@ui5/webcomponents-icons": "*",
-    "@ui5/webcomponents-base": "*"
+    "@ui5/webcomponents-base": "*",
+    "@ui5/webcomponents-icons": "*"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/app": "^1.6.0",
-    "@furo/data": "^1.32.0",
+    "@furo/app": "^1.7.0",
+    "@furo/data": "^1.33.0",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

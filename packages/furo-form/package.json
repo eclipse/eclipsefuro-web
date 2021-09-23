@@ -1,6 +1,6 @@
 {
   "name": "@furo/form",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "form",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-form",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
@@ -28,17 +28,17 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.10.3",
-    "@furo/framework": "^1.8.3",
-    "@furo/layout": "^1.8.0",
+    "@furo/fbp": "^5.11.0",
+    "@furo/framework": "^1.9.0",
+    "@furo/layout": "^1.9.0",
     "lit": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.32.0",
-    "@furo/data-input": "^1.14.0",
-    "@furo/input": "^1.9.0",
+    "@furo/data": "^1.33.0",
+    "@furo/data-input": "^1.15.0",
+    "@furo/input": "^1.10.0",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
