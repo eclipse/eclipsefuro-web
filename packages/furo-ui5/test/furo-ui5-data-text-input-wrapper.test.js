@@ -115,7 +115,7 @@ describe('furo-ui5-data-text-input-wrapper', () => {
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, false, 'check required');
       assert.equal(input._state.type, 'Text', 'check type');
-      assert.equal(input._state.value, null, 'check value');
+      assert.equal(input._state.value, "", 'check value');
       assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.name, '', 'check name');
       assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
