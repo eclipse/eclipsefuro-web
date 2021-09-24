@@ -21,8 +21,12 @@ export class Helper {
       case 'sfixed64':
         return 0;
       default:
-        return undefined;
+        return null;
     }
+  }
+
+  static indeterminateDefault() {
+    return null;
   }
 
   /**

@@ -156,6 +156,13 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   /**
+   * removes all children
+   */
+  reset() {
+    this.removeAllChildren();
+  }
+
+  /**
    * deletes all repeated fields on this node
    */
   removeAllChildren() {

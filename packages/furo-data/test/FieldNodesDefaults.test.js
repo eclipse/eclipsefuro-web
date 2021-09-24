@@ -30,15 +30,16 @@ describe('FieldNodesDefaults', () => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-data-object');
     done();
   });
-  it('should set the defaults like protobuf', done => {
+
+  it('should set indeterminate default value', done => {
     element.setAttribute('type', 'experiment.Experiment');
 
     const handler = () => {
-      assert.equal(element.data.description._value, '');
-      assert.equal(element.data.furo_data_checkbox_input._value, false);
+      assert.equal(element.data.description._value, null);
+      assert.equal(element.data.furo_data_checkbox_input._value, null);
 
-      assert.equal(element.data.furo_data_date_input_google._value.year === 0, true);
-      assert.equal(element.data.furo_data_date_input_google._value.month === 0, true);
+      assert.equal(element.data.furo_data_date_input_google._value.year, null);
+      assert.equal(element.data.furo_data_date_input_google._value.month, null);
 
       done();
     };
@@ -55,8 +56,8 @@ describe('FieldNodesDefaults', () => {
       element.data.furo_data_date_input_google.reset();
       assert.equal(element.data.description._value, null);
 
-      assert.equal(element.data.furo_data_date_input_google._value.year === null, true);
-      assert.equal(element.data.furo_data_date_input_google._value.month === null, true);
+      assert.equal(element.data.furo_data_date_input_google._value.year, null);
+      assert.equal(element.data.furo_data_date_input_google._value.month, null);
 
       done();
     };
