@@ -1,7 +1,7 @@
 {
   "name": "@furo/config",
   "description": "Furo config components",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-config",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -30,7 +30,7 @@
   "dependencies": {
     "@furo/fbp": "^5.11.0",
     "@furo/framework": "^1.9.0",
-    "@furo/util": "^1.8.0",
+    "@furo/util": "^1.8.1",
     "lit": "^2.0.0"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "@furo/navigation",
   "description": "Furo navigation components",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-navigation",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.33.0",
+    "@furo/data": "^1.33.1",
     "@furo/data-input": "^1.15.0",
     "@furo/form": "^1.9.0",
     "@furo/icon": "^1.7.0",

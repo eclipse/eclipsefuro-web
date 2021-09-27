@@ -4,7 +4,7 @@
   "keywords": [
     "routing"
   ],
-  "version": "1.12.0",
+  "version": "1.12.1",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-route",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -34,15 +34,15 @@
   "dependencies": {
     "@furo/fbp": "^5.11.0",
     "@furo/framework": "^1.9.0",
-    "@furo/util": "^1.8.0",
+    "@furo/util": "^1.8.1",
     "lit": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.33.0",
+    "@furo/data": "^1.33.1",
     "@furo/layout": "^1.9.0",
-    "@furo/navigation": "^1.10.0",
+    "@furo/navigation": "^1.10.1",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

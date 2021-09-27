@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.41.2...@furo/ui5@0.41.3) (2021-09-27)
+
+
+### Bug Fixes
+
+* typo in version number ([b670ea0](https://github.com/eclipse/eclipsefuro-web/commit/b670ea0b5f5d85f681720d43e5f1a8bfafea6908))
+
+
+
+
+
 ## [0.41.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.41.1...@furo/ui5@0.41.2) (2021-09-23)
 
 
