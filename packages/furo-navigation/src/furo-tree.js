@@ -63,11 +63,11 @@ export class FuroTree extends FBP(LitElement) {
     this.treeItemComponent = this.getAttribute('tree-item-component') || 'furo-tree-item';
     this._treeItemTepmplate = html([
       [
-        '<',
+        '<template><tr><td><',
         this.treeItemComponent,
         ' ƒ-bind-data="--itemInjected(*.item)" ƒ-search="--trigger"></',
         this.treeItemComponent,
-        '>',
+        '></td></tr></template>',
       ].join(''),
     ]);
   }
@@ -640,13 +640,9 @@ export class FuroTree extends FBP(LitElement) {
      <furo-vertical-flex>
       <div class="tablewrapper" flex>
       <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
-          <tr>
-            <td>
+        <flow-repeat  ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
               ${this._treeItemTepmplate}
-            </td>
-          </tr>
-        </template>
+        </flow-repeat>
       </table>
       </furo-vertical-flex>
       </div>

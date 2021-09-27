@@ -24,37 +24,37 @@ import './furo-ui5-data-repeat.js';
  */
 const getTemplateColumn = field => {
   if (field.template && field.template.length) {
-    const el = document.createElement(field.template);
-    el.setAttribute('ƒ-bind-data', field.wire);
-    return el;
+    return `<${field.template}  ƒ-bind-data=${field.wire}></${field.template}>`
   }
-  return html`
-    <span>no template found</span>
-  `;
+  return `<span>no template found</span>`;
 };
 /**
  * ui5 data table cell template
  * @param fields
  * @returns {TemplateResult|TemplateResult}
  */
-const ui5CellTemplate = fields => html`
-  ${fields.map(
-    f => html`
-      <ui5-table-cell>
-        ${f.template
-          ? html`
-              ${getTemplateColumn(f)}
-            `
-          : html`
-              <furo-type-renderer
-                ƒ-bind-data="${f.wire}"
-                context="${f.context}"
-              ></furo-type-renderer>
-            `}
-      </ui5-table-cell>
-    `,
-  )}
-`;
+const ui5CellTemplate = fields => {
+  const tpl = [
+    '<template><furo-ui5-table-row ƒ-._data="--internal(*.item._value)" ƒ-focus="--trigger">'
+  ]
+
+  fields.forEach(
+    f => {
+      tpl.push('<ui5-table-cell>')
+      if (f.template) {
+        tpl.push(getTemplateColumn(f))
+      } else {
+        tpl.push(`<furo-type-renderer ƒ-bind-data="${f.wire}" context="${f.context}"> </furo-type-renderer>`)
+      }
+      tpl.push('</ui5-table-cell>')
+    }
+
+  )
+  tpl.push('</furo-ui5-table-row></template>')
+
+  return html([tpl.join("")])
+}
+
 
 /**
  * ui5 data table header template
@@ -76,7 +76,7 @@ const ui5HeaderTemplate = fields =>
             min-width="${f.colMinWidth}"
             >${f.colHeaderText}
           </ui5-table-column>
-        `,
+        `
     )}
   `;
 
@@ -236,6 +236,8 @@ export class FuroUi5DataTable extends FBP(LitElement) {
     });
 
     this._showNoData = !!this.noDataText;
+
+    this._rowTemplate = ui5CellTemplate(this.cols)
 
     this.requestUpdate();
   }
@@ -495,17 +497,16 @@ export class FuroUi5DataTable extends FBP(LitElement) {
     return html`
       <ui5-table ?sticky-column-header="${this.stickyColumnHeader}">
         ${ui5HeaderTemplate(this.cols)}
-        <template
-          is="flow-repeat"
-          ƒ-inject-items="--data"
+        <flow-repeat ƒ-inject-items="--data"
           internal-wire="--internal"
           ƒ-trigger-first="--triggerFirst"
           ƒ-trigger-last="--triggerLast"
         >
-          <furo-ui5-table-row ƒ-._data="--internal(*.item._value)" ƒ-focus="--trigger"
-            >${ui5CellTemplate(this.cols)}
-          </furo-ui5-table-row>
-        </template>
+
+          ${this._rowTemplate}
+
+
+        </flow-repeat>
       </ui5-table>
       ${this._showNoData
         ? html`

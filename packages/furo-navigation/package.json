@@ -1,7 +1,7 @@
 {
   "name": "@furo/navigation",
   "description": "Furo navigation components",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-navigation",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
