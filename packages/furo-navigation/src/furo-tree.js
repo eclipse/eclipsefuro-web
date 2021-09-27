@@ -62,18 +62,15 @@ export class FuroTree extends FBP(LitElement) {
      */
     // eslint-disable-next-line wc/no-constructor-attributes
     this.treeItemComponent = this.getAttribute('tree-item-component') || 'furo-tree-item';
-
-    const l = literal([
+    this._treeItemTepmplate = html([
       [
-        '<',
+        '<template><tr><td><',
         this.treeItemComponent,
         ' ƒ-bind-data="--itemInjected(*.item)" ƒ-search="--trigger"></',
         this.treeItemComponent,
-        '>',
+        '></td></tr></template>',
       ].join(''),
     ]);
-
-    this._treeItemTepmplate = statichtml`<template><tr><td>${l}</td></tr></template>`;
   }
 
   /**
