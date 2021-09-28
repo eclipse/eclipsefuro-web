@@ -49,9 +49,11 @@ describe('furo data oneof', () => {
 
     EntityRoot.furo_data_checkbox_input._value = true;
     EntityRoot.display_name._value = 'Some Text';
+    assert.equal(EntityRoot.furo_data_checkbox_input._value, null);
+
     EntityRoot.furo_data_checkbox_input._value = false;
-    assert.equal(EntityRoot.display_name._value, '');
     assert.equal(EntityRoot.furo_data_checkbox_input._value, false);
+    assert.equal(EntityRoot.display_name._value, null);
 
     done();
   });
@@ -70,7 +72,8 @@ describe('furo data oneof', () => {
     const jsonval = EntityRoot.getJson();
 
     // eslint-disable-next-line no-prototype-builtins
-    assert.equal(JSON.parse(JSON.stringify(jsonval)).hasOwnProperty('update_mask'), false);
+    assert.equal(JSON.parse(JSON.stringify(jsonval)).hasOwnProperty('update_mask'), true);
+    assert.equal(jsonval.update_mask, null);
     done();
   });
 

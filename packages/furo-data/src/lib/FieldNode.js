@@ -368,7 +368,7 @@ export class FieldNode extends EventTreeNode {
     // set default values according to https://developers.google.com/protocol-buffers/docs/proto3#default
     this.__childNodes.forEach(n => {
       // eslint-disable-next-line no-prototype-builtins
-      if (val && !val.hasOwnProperty(n._name)) {
+      if (!val || !val.hasOwnProperty(n._name)) {
         // object or repeater
         if (n.__childNodes.length > 0) {
           if (n.repeats) {
@@ -380,37 +380,29 @@ export class FieldNode extends EventTreeNode {
             n._value = {};
           }
         } else {
-          // skalar value
-          // todo:  maybe set to undefined if no spec default is given
+          // scalar value
           // eslint-disable-next-line no-param-reassign
-          n._value = Helper.defaultForType(n._spec.type);
+          n._value = Helper.indeterminateDefault();
         }
       }
     });
 
-    if (this && this._spec && this._spec.__proto && this._spec.__proto.oneof) {
+    /**
+     * Handling of OneOf FieldNodes
+     * - check if the FieldNode is part of a oneOf definition
+     * - if the FieldNode has data, apply data and reset all other fields of the oneOf definition
+     * - if the FieldNode is undefined, do nothing
+     */
+    if (this && val !== null && this._spec && this._spec.__proto && this._spec.__proto.oneof) {
       // clear oneof siblings
       const oneofGorup = this._spec.__proto.oneof;
       // avoid recursion with __oneofrecusion
-      if (oneofGorup !== '' && !this.__oneofrecusion) {
+      if (oneofGorup.length) {
         this.__parentNode.__childNodes.forEach(sibling => {
           if (sibling !== this && sibling._spec.__proto.oneof === oneofGorup) {
             // eslint-disable-next-line no-param-reassign
-            sibling.__oneofrecusion = true;
-            // eslint-disable-next-line no-param-reassign
             sibling._oldvalue = this._value;
-            if (sibling._spec.type === 'string') {
-              // eslint-disable-next-line no-param-reassign
-              sibling.__value = '';
-              // eslint-disable-next-line no-param-reassign
-              sibling._value = '';
-            } else {
-              // eslint-disable-next-line no-param-reassign
-              sibling.__value = undefined;
-              // eslint-disable-next-line no-param-reassign
-              sibling._value = undefined;
-            }
-
+            sibling.reset();
             if (sibling.__childNodes.length > 0) {
               // eslint-disable-next-line no-param-reassign
               sibling.__childNodes = [];

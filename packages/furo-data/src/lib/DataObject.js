@@ -77,7 +77,7 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
-   * Injecten eines raw models wie bspw body oder entity einer collection
+   * injects a raw model e.g. body data of a collection or entity
    * @param rawEntity
    */
   injectRaw(rawEntity) {
@@ -244,7 +244,7 @@ export class DataObject extends EventTreeNode {
           }
         } else {
           // eslint-disable-next-line no-param-reassign
-          n._value = Helper.defaultForType(n._spec.type);
+          n._value = Helper.indeterminateDefault();
         }
       }
     });

@@ -192,35 +192,29 @@ describe('furo-data-object', () => {
   it('should be possible to reset to last injected state', done => {
     element.setAttribute('type', 'project.ProjectEntity');
 
+    const handler = () => {
+      assert.equal(element.json.data.display_name,"Furo Foundation, CHF 150'000.00");
+      done();
+    };
+
     fetch('/mockdata/projects/1/testmeta.json')
       .then(res => res.json())
       .then(response => {
         element.injectRaw(response);
-
-        assert.equal(element.json.data.display_name, response.data.display_name);
-
-        done();
+        element.data.data.display_name._value = "changed value";
+        element.data.addEventListener('data-injected', handler, { once: true });
+        element.reset();
       });
-  });
-
-  it('should validate a fieldnode against the specs', done => {
-    element.setAttribute('type', 'experiment.Experiment');
-    // assert.equal(element.data.furo_data_text_input._value, "Ein text per default");
-    const handler = () => {
-      assert.equal(element.data.furo_data_text_input._value, '');
-      assert.equal(element.data.furo_data_text_input._pristine, true);
-      done();
-    };
-    element.data.addEventListener('data-injected', handler, { once: true });
-
-    element.injectRaw({ id: 12, display_name: 'party' });
   });
 
   it('should set the values like injected, remove defaults,...', done => {
     element.setAttribute('type', 'experiment.Default');
     assert.equal(element.data.description._value, 'Ein text per default');
     const handler = () => {
-      assert.equal(element.data.description._value, '');
+      assert.equal(element.data.description._value, null);
+      assert.equal(element.data.display_name._value, 'party');
+      assert.equal(element.data.furo_data_checkbox_input._pristine, true);
+      assert.equal(element.data.furo_data_checkbox_input._value, null);
       done();
     };
     element.data.addEventListener('data-injected', handler, { once: true });
@@ -236,7 +230,7 @@ describe('furo-data-object', () => {
 
     // after response inject
     const handler = () => {
-      assert.equal(element.data.data.description._value, '');
+      assert.equal(element.data.data.description._value, null);
       assert.equal(element.data.data.furo_data_checkbox_input._meta.label, 'Label from response');
       assert.equal(element.data.data.furo_data_checkbox_input._meta.readonly, true);
       done();
