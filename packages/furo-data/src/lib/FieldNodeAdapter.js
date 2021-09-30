@@ -120,6 +120,7 @@ export const FieldNodeAdapter = superClass =>
 
       // notify for initial data
       this.__fieldValueChangedHandler();
+      this.__repeatedFieldChangedHandler();
 
       // run meta checks on initial bind
       this.__fieldMetasChangedHandler();
