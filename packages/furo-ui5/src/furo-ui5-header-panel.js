@@ -211,7 +211,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
 
         ui5-panel {
           padding: var(--spacing, 24px) var(--spacing, 24px) 0 var(--spacing, 24px);
-          background: var(--surface, white);
+          background: var(--sapGroup_ContentBackground, white);
           min-height: 5rem;
           box-sizing: border-box;
           border-bottom: none;
@@ -260,7 +260,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
           text-align: center;
           justify-content: center;
           align-items: center;
-          background: var(--surface, white);
+          background: var(--sapGroup_ContentBackground, white);
           border-bottom: 1px solid var(--sapGroup_TitleBorderColor);
           position: absolute;
           bottom: 0;
