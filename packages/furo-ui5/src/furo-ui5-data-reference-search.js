@@ -11,7 +11,7 @@ import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
 import '@ui5/webcomponents-icons/dist/value-help.js';
 import '@ui5/webcomponents-icons/dist/search.js';
-import '@furo/layout/src/furo-backdrop.js';
+import './furo-ui5-dialog.js'
 
 /**
  * The furo-ui5-data-reference-search
@@ -410,6 +410,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         this.icon = 'value-help';
       }
 
+      this._dialog = this.shadowRoot.getElementById('dialog');
       this._hasExtendedSearcher = true;
       this._valueHelperComponent = document.createElement(this.extendedSearcher);
       this._valueHelperComponent.style.height = '100%';
@@ -432,7 +433,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         this._valueHelperComponent.htsIn(hts);
       });
 
-      this.shadowRoot.getElementById('valueHelper').appendChild(this._valueHelperComponent);
+      this._dialog.appendChild(this._valueHelperComponent);
+
     }
 
     // the input field
@@ -956,9 +958,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         ui5-icon:hover {
           background: var(--sapButton_Hover_Background);
         }
-        #valueHelper{
-          height: 100%;
-        }
+
+
       `
     );
   }
@@ -1016,20 +1017,19 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           </template>
         </flow-repeat>
       </ui5-list>
-      <ui5-dialog
+      <furo-ui5-dialog
         ƒ-show="--valueHelperRequested"
         @-after-open="--BackdropFocus"
         ƒ-close="--closeRequested, --recordSelected"
         @-after-close="--backdropClosed"
         stretch
         header-text="${this.label}"
-      >
-        <div
-          id="valueHelper"
           @-escape-filter-panel="--closeRequested"
           @-record-selected="--recordSelected"
-        ></div>
-      </ui5-dialog>
+        id="dialog"
+      >
+
+      </furo-ui5-dialog>
       <furo-de-bounce
         ƒ-input-wire="--searchTerm"
         @-out="--debouncedSrch"
