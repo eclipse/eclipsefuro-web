@@ -269,32 +269,9 @@ export const FBP = superClass =>
       for (let x = l; x >= 0; --x) {
         let element = nl[x];
 
-        // template is=flow-repeat..
+        // skip template tags
         if (element.tagName === 'TEMPLATE') {
-          if (element.getAttribute('is') === 'flow-repeat') {
-            const original = element;
-            // Create a replacement tag of the desired type
-            const replacement = document.createElement('flow-repeat');
-
-            // Grab all of the original's attributes, and pass them to the replacement
-            const attrcount = original.attributes.length;
-            // eslint-disable-next-line no-plusplus
-            for (let i = 0; i < attrcount; ++i) {
-              const { nodeName } = original.attributes.item(i);
-              const { nodeValue } = original.attributes.item(i);
-              replacement.setAttribute(nodeName, nodeValue);
-            }
-
-            // Persist contents
-            const tpl = document.createElement('template');
-            tpl.content.append(original.content);
-
-            replacement.appendChild(tpl);
-
-            // Switch!
-            original.parentNode.replaceChild(replacement, original);
-            element = replacement;
-          }
+          continue;
         }
 
         for (let i = 0; i < element.attributes.length; i += 1) {
@@ -563,19 +540,6 @@ export const FBP = superClass =>
       return { receivingWire, path };
     }
 
-    disconnectedCallback() {
-      // clear wires first
-      this.__wirebundle = {};
-      this.__wireQueue = [];
-      /* remove event listeners */
-      this.__FBPEventlistener.forEach(e => {
-        e.element.removeEventListener(e.event, e.handler);
-      });
-
-      if (super.disconnectedCallback) {
-        super.disconnectedCallback();
-      }
-    }
 
     /**
      * Reads a value from a path.  If any sub-property in the path is `undefined`,
