@@ -124,6 +124,23 @@ export class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
+   * Set a reference to append the repeated elements in to the ref instead of appending them before the repeater itself.
+   * @param ref
+   */
+  setInsertRef(ref){
+    this._insertMode = "appendchild"
+    this._insertTarget = ref
+  }
+
+  _insertToDom(attachedElem, reference){
+    if(this._insertMode === "appendchild"){
+      this._insertTarget.appendChild(attachedElem)
+    }else{
+      this.parentNode.insertBefore(attachedElem, reference);
+    }
+  }
+
+  /**
    * Triggers the wire --itemDeSelected on all items
    */
   deselectAll() {
@@ -177,7 +194,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
 
         // move the nodes
         this._insertedItems[i].children.forEach(attachedElem => {
-          this.parentNode.insertBefore(attachedElem, reference);
+          this._insertToDom(attachedElem, reference);
         });
         elem._FBPTriggerWire('--init', e);
       } else {
@@ -258,7 +275,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
 
     this._insertedItems[i] = handle;
 
-    this.parentNode.insertBefore(elem.shadowRoot.firstElementChild, this);
+    this._insertToDom(elem.shadowRoot.firstElementChild, this);
     return elem;
   }
 
