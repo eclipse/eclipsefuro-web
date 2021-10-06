@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.41.3...@furo/ui5@0.42.0) (2021-10-06)
+
+
+### Bug Fixes
+
+* handling of oneOf FieldNodes. Check if FieldNode is part of an oneOf definition. Check if FieldNode has data. Set data and reset all ofther fields of the oneOf definition ([2af19c4](https://github.com/eclipse/eclipsefuro-web/commit/2af19c4ce5ac6b6e264ddd60bcfc86e717315b20))
+* use to the correct SAP Style vars ([0f82746](https://github.com/eclipse/eclipsefuro-web/commit/0f827463dd4e6505335c79e6b0cfa73024ecf311))
+
+
+### Features
+
+* **furo-ui5-dialog:** Extended ui5-dialog witch will render itself in place or where the next display is located. ([65c3d26](https://github.com/eclipse/eclipsefuro-web/commit/65c3d26ae688108a9493a0cdc89e5f23904a54e2))
+
+
+
+
+
 ## [0.41.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.41.2...@furo/ui5@0.41.3) (2021-09-27)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@furo/navigation",
   "description": "Furo navigation components",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-navigation",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -28,18 +28,18 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.11.0",
-    "@furo/framework": "^1.9.0",
+    "@furo/fbp": "^5.12.0",
+    "@furo/framework": "^1.9.1",
     "lit": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.33.1",
-    "@furo/data-input": "^1.15.0",
-    "@furo/form": "^1.9.0",
-    "@furo/icon": "^1.7.0",
-    "@furo/layout": "^1.9.0",
+    "@furo/data": "^1.33.2",
+    "@furo/data-input": "^1.15.1",
+    "@furo/form": "^1.9.1",
+    "@furo/icon": "^1.7.1",
+    "@furo/layout": "^1.9.1",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

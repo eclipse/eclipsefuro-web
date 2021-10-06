@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.12.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@5.11.0...@furo/fbp@5.12.0) (2021-10-06)
+
+
+### Features
+
+* **flow-repeat:** Define a target for the insertions of the flow repeat with setInsertRef(domref). ([4c2cde2](https://github.com/eclipse/eclipsefuro-web/commit/4c2cde2115ef5a6e5e41f4d0f6f8354ba9dd5dd7))
+* **furo-ui5-dialog:** Extended ui5-dialog witch will render itself in place or where the next display is located. ([65c3d26](https://github.com/eclipse/eclipsefuro-web/commit/65c3d26ae688108a9493a0cdc89e5f23904a54e2))
+
+
+
+
+
 # [5.11.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@5.10.3...@furo/fbp@5.11.0) (2021-09-23)
 
 

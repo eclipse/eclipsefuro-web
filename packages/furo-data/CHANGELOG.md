@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.33.1...@furo/data@1.33.2) (2021-10-06)
+
+
+### Bug Fixes
+
+* handling of oneOf FieldNodes. Check if FieldNode is part of an oneOf definition. Check if FieldNode has data. Set data and reset all ofther fields of the oneOf definition ([2af19c4](https://github.com/eclipse/eclipsefuro-web/commit/2af19c4ce5ac6b6e264ddd60bcfc86e717315b20))
+* notifiy repeated fields on initial bind too ([b4fd939](https://github.com/eclipse/eclipsefuro-web/commit/b4fd9394d243675107de073cfdd5342ee2ea057a))
+
+
+
+
+
 ## [1.33.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.33.0...@furo/data@1.33.1) (2021-09-27)
 
 **Note:** Version bump only for package @furo/data

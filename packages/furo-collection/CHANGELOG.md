@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.9...@furo/collection@1.5.10) (2021-10-06)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [1.5.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.8...@furo/collection@1.5.9) (2021-09-27)
 
 **Note:** Version bump only for package @furo/collection
