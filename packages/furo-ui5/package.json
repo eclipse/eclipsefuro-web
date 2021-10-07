@@ -36,6 +36,8 @@
     "@furo/layout": "^1.9.1",
     "@ui5/webcomponents": "0.33.0",
     "@ui5/webcomponents-fiori": "0.33.0",
+    "@ui5/webcomponents-base": "0.33.0",
+    "@ui5/webcomponents-icons": "0.33.0",
     "lit": "^2.0.0",
     "markdown-it": "^9.0.1"
   },
