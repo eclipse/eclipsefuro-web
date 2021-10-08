@@ -1,4 +1,4 @@
-import * as Button from '@ui5/webcomponents/dist/Button.js';
+import * as Button from '@ui5/webcomponents/dist/Button.js'
 
 /**
  * `furo-ui5-button`
@@ -30,14 +30,30 @@ export class FuroUi5Button extends Button.default {
    * Sets the button state to disabled
    */
   disable() {
-    this.setAttribute('disabled', 'true');
+    this.setAttribute('disabled', 'true')
   }
 
   /**
    * Sets the button state to enabled
    */
   enable() {
-    this.removeAttribute('disabled');
+    this.removeAttribute('disabled')
   }
+
+  /**
+   * shows the button, when it was hidden before
+   */
+  show() {
+    this.hidden = false;
+  }
+
+  /**
+   * hides the button
+   */
+  hide() {
+    this.hidden = true;
+  }
+
 }
-window.customElements.define('furo-ui5-button', FuroUi5Button);
+
+window.customElements.define('furo-ui5-button', FuroUi5Button)
