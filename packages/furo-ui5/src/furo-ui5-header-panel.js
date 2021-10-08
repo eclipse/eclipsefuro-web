@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
-import slideDown from '@ui5/webcomponents-base/dist/animations/slideDown.js';
-import slideUp from '@ui5/webcomponents-base/dist/animations/slideUp.js';
+// import slideDown from '@ui5/webcomponents-base/dist/animations/slideDown.js';
+// import slideUp from '@ui5/webcomponents-base/dist/animations/slideUp.js';
 
 import '@ui5/webcomponents-icons/dist/slim-arrow-up.js';
 import '@ui5/webcomponents/dist/Avatar.js';

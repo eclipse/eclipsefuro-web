@@ -86,6 +86,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
 
     // protection against multiple calls of bindData
     if (this.__fieldNode && this.__fieldNode.removeEventListener) {
+      // eslint-disable-next-line no-console
       console.warn('BindData can only be called once.')
     }
 
