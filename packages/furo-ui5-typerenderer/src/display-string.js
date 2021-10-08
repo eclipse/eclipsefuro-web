@@ -78,13 +78,8 @@ export class DisplayString extends LitElement {
    */
   render() {
     // language=HTML
-    return html`
-      ${this._field
-        ? html`
-            ${this._field._value}
-          `
-        : html``}
-    `;
+    // prettier-ignore
+    return html`${this._field ? html`${this._field._value}` : html``}`;
   }
 }
 

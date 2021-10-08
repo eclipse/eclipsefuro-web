@@ -47,13 +47,13 @@ describe('display-google-protobuf-any', () => {
   it('should update the dynamic type any to google.type.Money', done => {
     Env.locale = 'de';
     dao.addEventListener('data-injected', () => {
-      setTimeout(()=>{
-      assert.equal(display._field['@type']._value, 'type.googleapis.com/google.type.Money');
-      assert.equal(display._field.units._value, '1000');
-      assert.equal(display._field.nanos._value, '55000000');
-      assert.equal(display._field.currency_code._value, 'EUR');
-      done();
-      },16)
+      setTimeout(() => {
+        assert.equal(display._field['@type']._value, 'type.googleapis.com/google.type.Money');
+        assert.equal(display._field.units._value, '1000');
+        assert.equal(display._field.nanos._value, '55000000');
+        assert.equal(display._field.currency_code._value, 'EUR');
+        done();
+      }, 16);
     });
 
     dao.injectRaw({
@@ -69,13 +69,13 @@ describe('display-google-protobuf-any', () => {
   it('should update the dynamic type any to google.type.Date', done => {
     Env.locale = 'de';
     dao.addEventListener('data-injected', () => {
-      setTimeout(()=>{
-      assert.equal(display._field['@type']._value, 'type.googleapis.com/google.type.Date');
-      assert.equal(display._field.day._value, '1');
-      assert.equal(display._field.month._value, '12');
-      assert.equal(display._field.year._value, '2025');
-      done();
-      },16)
+      setTimeout(() => {
+        assert.equal(display._field['@type']._value, 'type.googleapis.com/google.type.Date');
+        assert.equal(display._field.day._value, '1');
+        assert.equal(display._field.month._value, '12');
+        assert.equal(display._field.year._value, '2025');
+        done();
+      }, 16);
     });
     dao.injectRaw({
       the_any_type: {
