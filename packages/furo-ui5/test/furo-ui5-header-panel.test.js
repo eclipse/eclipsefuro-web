@@ -43,7 +43,7 @@ describe('furo-ui5-header-panel', () => {
     panel.toggleCollapse();
 
     assert.equal(panel.collapsed, true, 'should be closed');
-    done()
+    done();
   });
 
   it('should update the title with binding on header text', done => {

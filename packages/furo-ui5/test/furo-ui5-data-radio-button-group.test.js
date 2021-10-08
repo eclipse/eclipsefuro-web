@@ -113,8 +113,6 @@ describe('furo-ui5-data-radio-button-group', () => {
     ],
   };
 
-
-
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>

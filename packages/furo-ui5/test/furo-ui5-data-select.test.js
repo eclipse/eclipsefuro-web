@@ -616,11 +616,11 @@ describe('furo-ui5-data-select', () => {
 
     daoCollection.addEventListener('data-injected', () => {
       setTimeout(() => {
-      assert.equal(input.activeFieldBinding, true, "field binding");
-      dao.data.data.description._value = '3';
+        assert.equal(input.activeFieldBinding, true, 'field binding');
+        dao.data.data.description._value = '3';
         setTimeout(() => {
-        assert.equal(input.selectedOption.dataset.id, 3, "selected element");
-        done();
+          assert.equal(input.selectedOption.dataset.id, 3, 'selected element');
+          done();
         }, 35);
       }, 50);
     });

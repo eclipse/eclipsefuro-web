@@ -11,7 +11,7 @@ import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
 import '@ui5/webcomponents-icons/dist/value-help.js';
 import '@ui5/webcomponents-icons/dist/search.js';
-import './furo-ui5-dialog.js'
+import './furo-ui5-dialog.js';
 
 /**
  * The furo-ui5-data-reference-search
@@ -434,7 +434,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       });
 
       this._dialog.appendChild(this._valueHelperComponent);
-
     }
 
     // the input field
@@ -958,8 +957,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         ui5-icon:hover {
           background: var(--sapButton_Hover_Background);
         }
-
-
       `
     );
   }
@@ -1024,11 +1021,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         @-after-close="--backdropClosed"
         stretch
         header-text="${this.label}"
-          @-escape-filter-panel="--closeRequested"
-          @-record-selected="--recordSelected"
+        @-escape-filter-panel="--closeRequested"
+        @-record-selected="--recordSelected"
         id="dialog"
       >
-
       </furo-ui5-dialog>
       <furo-de-bounce
         ƒ-input-wire="--searchTerm"

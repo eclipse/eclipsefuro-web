@@ -21,8 +21,8 @@ import './furo-ui5-data-collection-dropdown.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.label = '';
 
     this.subField = 'data';

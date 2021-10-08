@@ -52,7 +52,6 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires()
     this._FBPTriggerWire('--qpIn', { query: { tsk: 1 } });
-
   }
 
   /**

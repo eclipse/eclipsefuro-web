@@ -125,8 +125,6 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
 
               <ui5-table-column slot="columns" min-width="800" field="*.data.description">
               </ui5-table-column>
-
-
             </furo-ui5-data-table>
           </furo-ui5-card>
 

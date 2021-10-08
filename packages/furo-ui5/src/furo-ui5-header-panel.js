@@ -182,7 +182,6 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
       // toggle the panel
       panel.collapsed = !panel.collapsed;
       this.collapsed = panel.collapsed;
-
     });
   }
 

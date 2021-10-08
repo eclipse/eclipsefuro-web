@@ -49,19 +49,17 @@ export class FuroUi5TableRow extends TableRow.default {
     }
   }
 
-  setData(d){
-    this._data = d
+  setData(d) {
+    this._data = d;
   }
 
   _select() {
-    if(this.mode === "MultiSelect"){
-
-
+    if (this.mode === 'MultiSelect') {
       /**
-      * @event multiselect-change
-      * Fired when selection was changed in multiselect mode
-      */
-      this.dispatchEvent(new Event('ui5-selection-requested', {composed:true, bubbles: true}));
+       * @event multiselect-change
+       * Fired when selection was changed in multiselect mode
+       */
+      this.dispatchEvent(new Event('ui5-selection-requested', { composed: true, bubbles: true }));
     }
 
     /**
