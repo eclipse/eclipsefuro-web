@@ -17,8 +17,8 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  * @demo demo-cell-furo-property-repeats Basic Usage
  */
 export class CellFuroPropertyRepeated extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.elementList = [];
     this._typeResolved = false;
   }

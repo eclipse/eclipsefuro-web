@@ -17,8 +17,8 @@ import { FieldNode } from '@furo/data/src/lib/FieldNode';
  * @demo demo-celledit-furo-property Basic Usage
  */
 export class CelleditFuroProperty extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.noDataText = '';
 
     // Flag, if data part has type information

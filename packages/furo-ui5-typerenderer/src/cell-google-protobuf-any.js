@@ -14,8 +14,8 @@ import { Theme } from '@furo/framework';
  * @demo demo cell-google-protobuf-any Basic Usage
  */
 class CellGoolgeProtobufAny extends LitElement {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this._typeResolved = false;
   }
