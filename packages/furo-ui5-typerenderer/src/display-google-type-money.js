@@ -142,9 +142,8 @@ export class DisplayGoogleTypeMoney extends LitElement {
    */
   render() {
     // language=HTML
-    return html`
-      <span>${this._displayValue}</span>
-    `;
+    // prettier-ignore
+    return html`${this._displayValue}`;
   }
 }
 

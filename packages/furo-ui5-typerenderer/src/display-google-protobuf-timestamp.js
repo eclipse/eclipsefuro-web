@@ -106,9 +106,8 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
    */
   render() {
     // language=HTML
-    return html`
-      ${this._displayValue}
-    `;
+    // prettier-ignore
+    return html`${this._displayValue}`;
   }
 }
 

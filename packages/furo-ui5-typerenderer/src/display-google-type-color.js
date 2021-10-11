@@ -103,9 +103,8 @@ class DisplayGoolgeTypeColor extends LitElement {
    */
   render() {
     // language=HTML
-    return html`
-      ${this._getTemplate()}
-    `;
+    // prettier-ignore
+    return html`${this._getTemplate()}`;
   }
 }
 
