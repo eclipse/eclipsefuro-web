@@ -20,8 +20,8 @@ import './furo-ui5-data-checkbox-input.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.label = '';
   }
 

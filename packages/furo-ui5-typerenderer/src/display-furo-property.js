@@ -17,8 +17,8 @@ import { FieldNode } from '@furo/data/src/lib/FieldNode';
  * @demo demo-display-furo-property Basic Usage
  */
 export class DisplayFuroProperty extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.noDataText = '';
 
     // Flag, if data part has type information

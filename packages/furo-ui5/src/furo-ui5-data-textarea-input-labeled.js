@@ -23,8 +23,8 @@ export class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
    *  * @fires {String} field-value-changed - Fires the field value when it changes.
    */
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.label = '';
     this.rows = 0;
     this.growingMaxLines = 0;

@@ -19,8 +19,8 @@ import './furo-ui5-data-money-input.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.label = '';
   }
 

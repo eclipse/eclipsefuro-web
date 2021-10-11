@@ -14,9 +14,8 @@ import { Theme } from '@furo/framework';
  * @demo demo display-google-protobuf-any Basic Usage
  */
 class DisplayGoolgeProtobufAny extends LitElement {
-  constructor(props) {
-    super(props);
-
+  constructor() {
+    super();
     this._typeResolved = false;
   }
 

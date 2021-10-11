@@ -59,8 +59,8 @@ class FuroResizer extends FBP(LitElement) {
     };
   }
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     /**
      * remove the listeners

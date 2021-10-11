@@ -22,8 +22,8 @@ import './furo-ui5-data-text-input.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.label = '';
   }
 

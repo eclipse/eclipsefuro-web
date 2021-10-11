@@ -23,8 +23,8 @@ import './furo-ui5-data-password-input.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.label = '';
   }
 

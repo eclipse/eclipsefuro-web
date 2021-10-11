@@ -28,10 +28,14 @@
     "test:compatibility": "../../node_modules/.bin/karma start --compatibility all --coverage",
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@furo/fbp": "^5.10.2",
     "@furo/framework": "^1.8.2",
     "@furo/ui5": "*",
+    "@ui5/webcomponents": "0.33.0",
+    "@ui5/webcomponents-fiori": "0.33.0",
+    "@ui5/webcomponents-base": "0.33.0",
+    "@ui5/webcomponents-icons": "0.33.0",
     "lit": "^2.0.0"
   },
   "devDependencies": {

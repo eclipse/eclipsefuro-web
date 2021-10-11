@@ -39,5 +39,20 @@ export class FuroUi5Button extends Button.default {
   enable() {
     this.removeAttribute('disabled');
   }
+
+  /**
+   * shows the button, when it was hidden before
+   */
+  show() {
+    this.hidden = false;
+  }
+
+  /**
+   * hides the button
+   */
+  hide() {
+    this.hidden = true;
+  }
 }
+
 window.customElements.define('furo-ui5-button', FuroUi5Button);

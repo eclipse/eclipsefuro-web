@@ -117,7 +117,9 @@ describe('furo-ui5-data-segmented-button-bind', () => {
             ƒ-bind-data="--entity(*.owner.id)"
           >
             <ui5-segmented-button-item data-id="A">Option A</ui5-segmented-button-item>
-            <ui5-segmented-button-item data-id="B">Option B with a very long text</ui5-segmented-button-item>
+            <ui5-segmented-button-item data-id="B"
+              >Option B with a very long text</ui5-segmented-button-item
+            >
             <ui5-segmented-button-item data-id="C">Option C</ui5-segmented-button-item>
           </furo-ui5-data-segmented-button>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>

@@ -152,7 +152,6 @@ describe('furo-ui5-data-segmented-button', () => {
 
   it('should have the basic attribute values', done => {
     setTimeout(() => {
-
       assert.equal(segmentedButton._privilegedAttributes.readonly, null, 'readonly state');
       assert.equal(segmentedButton._privilegedAttributes['id-field-path'], 'id', 'idFieldPath');
       assert.equal(

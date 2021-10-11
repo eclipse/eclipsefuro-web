@@ -19,8 +19,8 @@ import './furo-ui5-data-number-input.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.label = '';
     this.icon = '';
   }
