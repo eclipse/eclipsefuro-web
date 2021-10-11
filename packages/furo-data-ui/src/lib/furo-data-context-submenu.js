@@ -15,8 +15,8 @@ import './furo-data-context-menu-item.js';
  * @appliesMixin FBP
  */
 export class FuroDataContextSubmenu extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.borderDistance = 48;
   }
 

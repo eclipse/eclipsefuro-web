@@ -193,7 +193,7 @@ describe('furo-data-object', () => {
     element.setAttribute('type', 'project.ProjectEntity');
 
     const handler = () => {
-      assert.equal(element.json.data.display_name,"Furo Foundation, CHF 150'000.00");
+      assert.equal(element.json.data.display_name, "Furo Foundation, CHF 150'000.00");
       done();
     };
 
@@ -201,7 +201,7 @@ describe('furo-data-object', () => {
       .then(res => res.json())
       .then(response => {
         element.injectRaw(response);
-        element.data.data.display_name._value = "changed value";
+        element.data.data.display_name._value = 'changed value';
         element.data.addEventListener('data-injected', handler, { once: true });
         element.reset();
       });

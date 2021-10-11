@@ -13,8 +13,8 @@ import { FuroForthStack } from '@furo/logic/src/furo-forth-stack.js';
  * @customElement
  */
 class FuroHp35 extends FuroForthStack {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this._PIdivby180 = 0.017453292519943295;
     this.radMode = false;
   }

@@ -33,8 +33,8 @@ import './inital-panel.js';
  * @appliesMixin FBP
  */
 class MainStage extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this._pkgjson = {};
   }
 

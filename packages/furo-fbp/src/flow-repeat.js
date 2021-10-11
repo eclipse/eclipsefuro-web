@@ -127,15 +127,15 @@ export class FlowRepeat extends FBP(HTMLElement) {
    * Set a reference to append the repeated elements in to the ref instead of appending them before the repeater itself.
    * @param ref
    */
-  setInsertRef(ref){
-    this._insertMode = "appendchild"
-    this._insertTarget = ref
+  setInsertRef(ref) {
+    this._insertMode = 'appendchild';
+    this._insertTarget = ref;
   }
 
-  _insertToDom(attachedElem, reference){
-    if(this._insertMode === "appendchild"){
-      this._insertTarget.appendChild(attachedElem)
-    }else{
+  _insertToDom(attachedElem, reference) {
+    if (this._insertMode === 'appendchild') {
+      this._insertTarget.appendChild(attachedElem);
+    } else {
       this.parentNode.insertBefore(attachedElem, reference);
     }
   }

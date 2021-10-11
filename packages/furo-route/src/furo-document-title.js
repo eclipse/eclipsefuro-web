@@ -48,8 +48,8 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroDocumentTitle extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.prefix = '';
     // eslint-disable-next-line wc/no-constructor-attributes
     this.title = '';

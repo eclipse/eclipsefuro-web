@@ -267,10 +267,11 @@ export const FBP = superClass =>
       const l = nl.length - 1;
       // eslint-disable-next-line no-plusplus
       for (let x = l; x >= 0; --x) {
-        let element = nl[x];
+        const element = nl[x];
 
         // skip template tags
         if (element.tagName === 'TEMPLATE') {
+          // eslint-disable-next-line no-continue
           continue;
         }
 
@@ -539,7 +540,6 @@ export const FBP = superClass =>
 
       return { receivingWire, path };
     }
-
 
     /**
      * Reads a value from a path.  If any sub-property in the path is `undefined`,
