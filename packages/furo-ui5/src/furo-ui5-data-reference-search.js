@@ -184,7 +184,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     }
 
     // set the service by wire, because collection-agent can not handle empty service entries
-    if (typeof val.link === 'object' && val.link.service !== '') {
+    if (typeof val.link === 'object' && val.link.service !== null) {
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     } else if (Env.api.specs[this.__fieldNode._spec.type].fields?.link?.meta?.default) {
