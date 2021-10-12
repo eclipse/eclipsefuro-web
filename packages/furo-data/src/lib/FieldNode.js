@@ -24,6 +24,8 @@ import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
  * - *node-field-added* **bubbles**, when a sub field was added to a field
  * - *this-node-field-deleted*, when a sub field was added to a field
  * - *node-field-deleted* **bubbles**, when a sub field was added to a field
+ * - *any-type-removed*, fired before a node of type any changes its inner type
+ * - *any-type-created*, fired when a node of type any is created or the type was changed
 
  *
  * ## internal broadcasted events
@@ -563,6 +565,7 @@ export class FieldNode extends EventTreeNode {
   _createAnyType(val) {
     // remove if type changes
     if (val && this.__anyCreated && this['@type'] && this['@type']._value !== val['@type']) {
+      this.dispatchNodeEvent(new NodeEvent('any-type-removed', this, false));
       for (let i = this.__childNodes.length - 1; i >= 0; i -= 1) {
         const field = this.__childNodes[i];
         if (!val[field._name]) {
@@ -578,6 +581,8 @@ export class FieldNode extends EventTreeNode {
       this._createVendorType(val['@type'].replace(/.*\//, '')); // create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
       this.__anyCreated = true;
       this.createField({ fieldName: '@type', type: 'string', value: val['@type'] });
+      this.dispatchNodeEvent(new NodeEvent('any-type-created', val['@type'], false));
+
     }
   }
 
