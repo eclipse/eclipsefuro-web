@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.42.0...@furo/ui5@0.43.0) (2021-10-12)
+
+
+### Bug Fixes
+
+* add used dependencies ([3192252](https://github.com/eclipse/eclipsefuro-web/commit/31922521ff6c0f235a728a6603bdf5dd9462ae31))
+
+
+### Features
+
+* **furo-ui5-button:** hide and show as methods ([e19bfeb](https://github.com/eclipse/eclipsefuro-web/commit/e19bfebd3c3c1c75860b98018ddbf8cdffc79ddc))
+
+
+
+
+
 # [0.42.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.41.3...@furo/ui5@0.42.0) (2021-10-06)
 
 

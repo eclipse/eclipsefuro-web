@@ -1,7 +1,7 @@
 {
   "name": "@furo/config",
   "description": "Furo config components",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-config",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -28,9 +28,9 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.12.0",
-    "@furo/framework": "^1.9.1",
-    "@furo/util": "^1.8.2",
+    "@furo/fbp": "^5.12.1",
+    "@furo/framework": "^1.9.2",
+    "@furo/util": "^1.8.3",
     "lit": "^2.0.0"
   },
   "devDependencies": {

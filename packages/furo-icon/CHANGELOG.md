@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/icon@1.7.1...@furo/icon@1.7.2) (2021-10-12)
+
+**Note:** Version bump only for package @furo/icon
+
+
+
+
+
 ## [1.7.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/icon@1.7.0...@furo/icon@1.7.1) (2021-10-06)
 
 **Note:** Version bump only for package @furo/icon

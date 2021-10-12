@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.39.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.39.1...@furo/ui5-typerenderer@0.39.2) (2021-10-12)
+
+
+### Bug Fixes
+
+* add prettier-ignore comment to avoid adding spaces to string data ([4c5982a](https://github.com/eclipse/eclipsefuro-web/commit/4c5982aed5cdb6c94ff14b5ebd43aceee41fd981))
+* remove whitespace which was created by the formater. // prettier-ignore rule added ([f13db3e](https://github.com/eclipse/eclipsefuro-web/commit/f13db3e16268d033c0e68fbd2bfc568c51b85283))
+
+
+
+
+
 ## [0.39.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.39.0...@furo/ui5-typerenderer@0.39.1) (2021-10-06)
 
 **Note:** Version bump only for package @furo/ui5-typerenderer

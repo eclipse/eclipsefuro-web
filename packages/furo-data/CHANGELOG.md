@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.33.2...@furo/data@1.34.0) (2021-10-12)
+
+
+### Features
+
+* Fieldnodes of type any, notify before they change the type and after they change the type. ([12bf34e](https://github.com/eclipse/eclipsefuro-web/commit/12bf34e0e6f3cfe7c15f90d1f6d00807b32be987))
+
+
+
+
+
 ## [1.33.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.33.1...@furo/data@1.33.2) (2021-10-06)
 
 
