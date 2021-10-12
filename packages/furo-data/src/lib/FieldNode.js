@@ -26,7 +26,7 @@ import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
  * - *node-field-deleted* **bubbles**, when a sub field was added to a field
  * - *any-type-removed*, fired before a node of type any changes its inner type
  * - *any-type-created*, fired when a node of type any is created or the type was changed
-
+ *
  *
  * ## internal broadcasted events
  * - *parent-readonly-meta-set*, when readonly was set on a parent field
