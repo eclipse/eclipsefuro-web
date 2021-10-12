@@ -2,9 +2,9 @@
   "name": "@furo/experiments",
   "description": "Experimental furo components",
   "main": "src/furo-catalog.js",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "dependencies": {
-    "@furo/fbp": "^5.12.1",
+    "@furo/fbp": "^5.12.2",
     "lit": "^2.0.0",
     "qr-scanner": "^1.2.0"
   },

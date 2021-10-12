@@ -1,7 +1,7 @@
 {
   "name": "@furo/math",
   "description": "Furo math components",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-math",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -28,14 +28,14 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.12.1",
-    "@furo/logic": "^1.7.2",
+    "@furo/fbp": "^5.12.2",
+    "@furo/logic": "^1.7.3",
     "lit": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/framework": "^1.9.2",
+    "@furo/framework": "^1.9.3",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
