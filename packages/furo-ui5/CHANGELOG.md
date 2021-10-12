@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.43.1...@furo/ui5@0.44.0) (2021-10-12)
+
+
+### Features
+
+* reference searcher can handle malformed hts links ([bd72340](https://github.com/eclipse/eclipsefuro-web/commit/bd7234060a7c5cc7d5bddfa067082f7c1af428ee))
+
+
+
+
+
 ## [0.43.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.43.0...@furo/ui5@0.43.1) (2021-10-12)
 
 **Note:** Version bump only for package @furo/ui5
