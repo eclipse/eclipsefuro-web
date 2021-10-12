@@ -40,18 +40,19 @@ class RepeatedData extends FBP(LitElement) {
         }
       </style>
       <h4>Repeated Zeitunddatum</h4>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <div class="box">
-          <furo-data-date-input ƒ-bind-data="--itemInjected(*.item.date)"></furo-data-date-input>
-          <furo-data-time-input ƒ-bind-data="--itemInjected(*.item.time)"></furo-data-time-input>
-          --
-          <div style="background-color: #e2e2e2">
-            <repeated-string ƒ-bind-data="--itemInjected(*.item.repstring)"></repeated-string>
+      <flow-repeat ƒ-inject-items="--data">
+        <template>
+          <div class="box">
+            <furo-data-date-input ƒ-bind-data="--itemInjected(*.item.date)"></furo-data-date-input>
+            <furo-data-time-input ƒ-bind-data="--itemInjected(*.item.time)"></furo-data-time-input>
+            --
+            <div style="background-color: #e2e2e2">
+              <repeated-string ƒ-bind-data="--itemInjected(*.item.repstring)"></repeated-string>
+            </div>
+            --
           </div>
-          --
-        </div>
-      </template>
-
+        </template>
+      </flow-repeat>
       <button @-click="--add">add</button>
     `;
   }

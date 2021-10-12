@@ -81,12 +81,14 @@ class SideNavigationGroup extends FBP(LitElement) {
     return html`
       <div class="label">${this.item.group}</div>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--items">
-          <side-navigation-item
-            base-path="${this.basePath}"
-            ƒ-inject-item="--item"
-          ></side-navigation-item>
-        </template>
+        <flow-repeat ƒ-inject-items="--items">
+          <template>
+            <side-navigation-item
+              base-path="${this.basePath}"
+              ƒ-inject-item="--item"
+            ></side-navigation-item>
+          </template>
+        </flow-repeat>
       </ul>
     `;
   }

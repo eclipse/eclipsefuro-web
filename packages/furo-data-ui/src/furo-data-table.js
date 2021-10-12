@@ -1,4 +1,6 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, css } from 'lit';
+import { html } from 'lit/static-html.js';
+
 import { FBP } from '@furo/fbp';
 import { Env } from '@furo/framework';
 import { Theme } from '@furo/framework/src/theme';
@@ -18,7 +20,8 @@ const tableHeaders = fields =>
             role="columnheader"
             scope="col"
           >
-            ${f.meta.label}<furo-data-table-toggle
+            ${f.meta.label}
+            <furo-data-table-toggle
               sortable="${f.sortable}"
               field="${f.id}"
             ></furo-data-table-toggle>
@@ -32,9 +35,11 @@ const tdWRepeat = fields => html`
       ${f.meta.repeated
         ? html`
             <td class="table-cell" numeric="${f.ui.flags.includes('align-right')}">
-              <template is="flow-repeat" ƒ-inject-items="${f.wire}" internal-wire="--internal">
-                <div ƒ-.inner-text="--internal(*.item.display_name)"></div>
-              </template>
+              <flow-repeat ƒ-inject-items="${f.wire}" internal-wire="--internal">
+                <template>
+                  <div ƒ-.inner-text="--internal(*.item.display_name)"></div>
+                </template>
+              </flow-repeat>
             </td>
           `
         : html`
@@ -558,16 +563,18 @@ class FuroDataTable extends FBP(LitElement) {
             </tr>
           </thead>
           <tbody @-input="--rowCheckChanged(*)">
-            <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
-              <tr class="table-row" aria-selected="false">
-                <td class="table-cell cell--checkbox col-checkbox">
-                  <div class="cell-checkbox">
-                    <furo-checkbox tabindex="-1"></furo-checkbox>
-                  </div>
-                </td>
-                ${tdWRepeat(this.cols)}
-              </tr>
-            </template>
+            <flow-repeat ƒ-inject-items="--collectionData" internal-wire="--internal">
+              <template>
+                <tr class="table-row" aria-selected="false">
+                  <td class="table-cell cell--checkbox col-checkbox">
+                    <div class="cell-checkbox">
+                      <furo-checkbox tabindex="-1"></furo-checkbox>
+                    </div>
+                  </td>
+                  ${tdWRepeat(this.cols)}
+                </tr>
+              </template>
+            </flow-repeat>
           </tbody>
         </table>
         <slot></slot>

@@ -103,9 +103,11 @@ class FuroDocMethods extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>Methods</h2>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-methods-item ƒ-data="--item"></furo-doc-methods-item>
-      </template>
+      <flow-repeat ƒ-inject-items="--data">
+        <template>
+          <furo-doc-methods-item ƒ-data="--item"></furo-doc-methods-item>
+        </template>
+      </flow-repeat>
     `;
   }
 }

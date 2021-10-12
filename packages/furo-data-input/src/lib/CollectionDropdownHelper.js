@@ -250,7 +250,9 @@ export class CollectionDropdownHelper {
   static setOptionItems(caller) {
     if (
       caller._dropdownList &&
-      (caller.autoSelectFirst || caller._optionNeedToBeRendered || caller._fieldNodeToUpdate._value)
+      (caller.autoSelectFirst ||
+        caller._optionNeedToBeRendered ||
+        caller._fieldNodeToUpdate?._value)
     ) {
       // convert array list to id, label structure
       if (typeof caller._dropdownList[0] === 'string') {

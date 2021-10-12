@@ -96,9 +96,11 @@ class FuroDocEvents extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>Events</h2>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
-      </template>
+      <flow-repeat ƒ-inject-items="--data">
+        <template>
+          <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
+        </template>
+      </flow-repeat>
     `;
   }
 }

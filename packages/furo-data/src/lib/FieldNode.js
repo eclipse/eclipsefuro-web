@@ -582,7 +582,6 @@ export class FieldNode extends EventTreeNode {
       this.__anyCreated = true;
       this.createField({ fieldName: '@type', type: 'string', value: val['@type'] });
       this.dispatchNodeEvent(new NodeEvent('any-type-created', val['@type'], false));
-
     }
   }
 

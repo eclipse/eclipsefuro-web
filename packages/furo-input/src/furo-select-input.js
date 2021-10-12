@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/icon/src/furo-icon.js';
-import '@furo/fbp/src/flow-repeat';
+import '@furo/fbp/src/flow-repeat.js';
 import { Helper } from './lib/helper.js';
 
 /**
@@ -46,6 +46,9 @@ export class FuroSelectInput extends FBP(LitElement) {
     this._FBPAddWireHook('--inputInput', e => {
       Helper.triggerValueChanged(this, e);
     });
+    const target = this.shadowRoot.getElementById('input');
+    const repeater = this.shadowRoot.getElementById('repeater');
+    repeater.setInsertRef(target);
   }
 
   set _value(v) {
@@ -314,6 +317,7 @@ export class FuroSelectInput extends FBP(LitElement) {
     // save parsed selection option array
     this.selectOptions = arr;
     this._FBPTriggerWire('--selection', arr);
+
     // trigger setting value after the options are injected to guarantee the correct selection
     if (this._v) {
       this._value = this._v;
@@ -729,14 +733,16 @@ export class FuroSelectInput extends FBP(LitElement) {
             ƒ-.value="--value"
             ƒ-focus="--focus"
           >
-            <template is="flow-repeat" ƒ-inject-items="--selection">
+          </select>
+          <flow-repeat id="repeater" ƒ-inject-items="--selection">
+            <template>
               <option
                 ƒ-.value="--item(*.id)"
                 ƒ-.selected="--item(*.selected)"
                 ƒ-.inner-text="--item(*.label)"
               ></option>
             </template>
-          </select>
+          </flow-repeat>
           <furo-icon class="expand" icon="expand-more"></furo-icon>
         </div>
         <furo-icon

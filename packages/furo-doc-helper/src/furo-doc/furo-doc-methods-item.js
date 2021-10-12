@@ -103,19 +103,22 @@ class FuroDocMethodsItem extends FBP(LitElement) {
     }
     this.cname = this.method.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
     return html`
-      <strong>${this.cname}</strong> (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-        <span class="name" ƒ-.inner-text="--item(*.name)"></span> :
-        <span class="type" ƒ-.inner-text="--item(*.type)"></span></template
+      <strong>${this.cname}</strong> (<flow-repeat ƒ-inject-items="--data(*.params)"
+        ><template>
+          <span class="name" ƒ-.inner-text="--item(*.name)"></span> :
+          <span class="type" ƒ-.inner-text="--item(*.type)"></span></template></flow-repeat
       >) ⟹ <span class="return">${this.method.return.type}</span>
 
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-          <li>
-            <span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br />
-            <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown>
-          </li>
-        </template>
+        <flow-repeat ƒ-inject-items="--data(*.params)">
+          <template>
+            <li>
+              <span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br />
+              <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown>
+            </li>
+          </template>
+        </flow-repeat>
       </ul>
     `;
   }

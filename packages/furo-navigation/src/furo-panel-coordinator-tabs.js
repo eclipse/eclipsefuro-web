@@ -299,9 +299,11 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value">
-        <furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item>
-      </template>
+      <flow-repeat ƒ-inject-items="--itemsInjected" identity-path="id._value">
+        <template>
+          <furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item>
+        </template>
+      </flow-repeat>
     `;
   }
 }

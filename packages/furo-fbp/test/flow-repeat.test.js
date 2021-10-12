@@ -30,10 +30,11 @@ describe('flow-repeat', () => {
               <b>neu</b>
               <rep-item ƒ-raw="--inject" ƒ.-innerHTML="--itemSelected" @-click="--xx"></rep-item>
               <rep-item ƒ-index="--inject(*.index)" ƒ-yy="--xx"></rep-item>
-
-              <template is="flow-repeat" ƒ-inject-items="--inject(*.item.arr)">
-                <div ƒ-.inner-text="--item"></div>
-              </template>
+              <flow-repeat ƒ-inject-items="--inject(*.item.arr)">
+                <template>
+                  <div ƒ-.inner-text="--item"></div>
+                </template>
+              </flow-repeat>
             </li>
           </template>
         </flow-repeat>

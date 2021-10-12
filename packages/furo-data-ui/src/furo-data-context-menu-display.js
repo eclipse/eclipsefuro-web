@@ -390,22 +390,19 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         @-mousefocus="--mousefocus"
       >
         <!-- the wires --itemSelected and --itemDeSelected means focus, they come from flow-repeat -->
-        <template
-          id="repeater"
-          is="flow-repeat"
-          ƒ-inject-items="--menuObject"
-          ƒ-select="--mousefocus"
-        >
-          <div>
-            <furo-data-context-menu-item
-              ƒ-index="--index"
-              ƒ-select="--trigger"
-              ƒ-set-focused="--itemSelected"
-              ƒ-unset-focused="--itemDeSelected"
-              ƒ-bind-data="--itemInjected(*.item)"
-            ></furo-data-context-menu-item>
-          </div>
-        </template>
+        <flow-repeat id="repeater" ƒ-inject-items="--menuObject" ƒ-select="--mousefocus">
+          <template>
+            <div>
+              <furo-data-context-menu-item
+                ƒ-index="--index"
+                ƒ-select="--trigger"
+                ƒ-set-focused="--itemSelected"
+                ƒ-unset-focused="--itemDeSelected"
+                ƒ-bind-data="--itemInjected(*.item)"
+              ></furo-data-context-menu-item>
+            </div>
+          </template>
+        </flow-repeat>
         <furo-navigation-pad @-navigated="--nav"></furo-navigation-pad>
       </div>
     `;

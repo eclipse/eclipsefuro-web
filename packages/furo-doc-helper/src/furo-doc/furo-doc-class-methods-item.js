@@ -109,12 +109,14 @@ class FuroDocClassMethodsItem extends FBP(LitElement) {
       <span class="inherited"> Inherited from ${this.method.inheritedFrom}</span>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-          <li>
-            <span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br />
-            <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown>
-          </li>
-        </template>
+        <flow-repeat ƒ-inject-items="--data(*.params)">
+          <template>
+            <li>
+              <span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br />
+              <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown>
+            </li>
+          </template>
+        </flow-repeat>
       </ul>
     `;
   }

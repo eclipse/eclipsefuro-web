@@ -95,9 +95,11 @@ class FuroDocProperties extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>Attributes & Properties</h2>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-properties-item ƒ-data="--item"></furo-doc-properties-item>
-      </template>
+      <flow-repeat ƒ-inject-items="--data">
+        <template>
+          <furo-doc-properties-item ƒ-data="--item"></furo-doc-properties-item>
+        </template>
+      </flow-repeat>
     `;
   }
 }

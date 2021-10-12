@@ -112,23 +112,29 @@ class FuroDocMenu extends FBP(LitElement) {
     return html`
       <h3>Elements</h3>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--elements" identity-path="name">
-          <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
-        </template>
+        <flow-repeat ƒ-inject-items="--elements" identity-path="name">
+          <template>
+            <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
+          </template>
+        </flow-repeat>
       </ul>
 
       <h3>Mixins</h3>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--mixins" identity-path="name">
-          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
-        </template>
+        <flow-repeat ƒ-inject-items="--mixins" identity-path="name">
+          <template>
+            <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
+          </template>
+        </flow-repeat>
       </ul>
 
       <h3>Classes</h3>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--classes" identity-path="name">
-          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
-        </template>
+        <flow-repeat ƒ-inject-items="--classes" identity-path="name">
+          <template>
+            <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
+          </template>
+        </flow-repeat>
       </ul>
     `;
   }

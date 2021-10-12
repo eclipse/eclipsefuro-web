@@ -250,13 +250,6 @@ export class FlowRepeat extends FBP(HTMLElement) {
     const elem = document.createElement('empty-fbp-node');
     elem.attachShadow({ mode: 'open' });
 
-    // this is sometimes needed when template is="flow-repeat" is used.
-    if (this.template === undefined) {
-      const t = this.querySelector('template');
-      if (t && t.content) {
-        this.template = t.content;
-      }
-    }
     elem.shadowRoot.appendChild(this.template.cloneNode(true));
     elem._appendFBP(elem.shadowRoot);
 

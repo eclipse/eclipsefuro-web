@@ -66,10 +66,11 @@ class DemoFuroCollectionAgent extends FBP(LitElement) {
             ></furo-deep-link>
             <!-- Styles in furo-card are just for the demo -->
             <furo-card style="width: 300px; margin: 30px" header-text="Some data" secondary-text="">
-              <template is="flow-repeat" ƒ-inject-items="--response(*.entities)">
-                <p ƒ-.inner-text="--item(*.data.display_name)"></p>
-              </template>
-
+              <flow-repeat ƒ-inject-items="--response(*.entities)">
+                <template>
+                  <p ƒ-.inner-text="--item(*.data.display_name)"></p>
+                </template>
+              </flow-repeat>
               <furo-horizontal-flex slot="action">
                 <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
               </furo-horizontal-flex>

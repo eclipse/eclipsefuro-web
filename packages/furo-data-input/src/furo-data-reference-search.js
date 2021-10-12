@@ -611,22 +611,23 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         ƒ-focus="--focusReceived"
       ></furo-search-input>
       <div class="list" @-item-selected="--itemSelected">
-        <template
-          is="flow-repeat"
+        <flow-repeat
           ƒ-inject-items="--listItemsInjected"
           ƒ-select="--listOpened"
           ƒ-select-next-index="--arrowDownPressed"
           ƒ-select-previous-index="--arrowUpPressed"
           ƒ-trigger-selected="--enterPressedForSelect"
         >
-          <reference-search-item
-            ƒ-.index="--index"
-            ƒ-deselect="--itemDeSelected"
-            ƒ-select="--trigger"
-            ƒ-preselect="--itemSelected"
-            ƒ-inject-item="--item"
-          ></reference-search-item>
-        </template>
+          <template>
+            <reference-search-item
+              ƒ-.index="--index"
+              ƒ-deselect="--itemDeSelected"
+              ƒ-select="--trigger"
+              ƒ-preselect="--itemSelected"
+              ƒ-inject-item="--item"
+            ></reference-search-item>
+          </template>
+        </flow-repeat>
         <div class="maxresulthint">${this.maxResultsHint}</div>
       </div>
     `;

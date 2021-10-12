@@ -190,7 +190,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
       return {
         id: item,
         label: e,
-        selected: this._fieldNodeToUpdate._value === item,
+        selected: this._fieldNodeToUpdate?._value === item,
         _original: item,
       };
     });
