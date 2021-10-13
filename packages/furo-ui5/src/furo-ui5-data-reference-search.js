@@ -177,9 +177,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     if (this.__fieldNode.__childNodes.length === 0) {
       // assuming a scalar
       this.value = { id: val, display_name: val };
-      this._FBPTriggerWire('--displayValue', val);
+      this._FBPTriggerWire('--displayValue', val || "");
     } else {
-      this._FBPTriggerWire('--displayValue', val.display_name);
+      this._FBPTriggerWire('--displayValue', val.display_name || "");
       this.value = val;
     }
 
