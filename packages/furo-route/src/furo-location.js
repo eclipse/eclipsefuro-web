@@ -8,7 +8,7 @@ import { LitElement, css } from 'lit';
  * @fires {Location object} location-hash-changed -  Fired when Hash portion of the location changed
  * @fires {Location object} location-query-changed -  Fired when Query portion of the location changed
  * @fires {Location object} location-changed -  Fired when something in the location changed
- * @fires {Location object} url-space-entered -  Fired when the path matches the url-space-regex, useful to detect if someone enters the current url
+ * @fires {Location object} url-space-entered -  Fired when the path matches the url-space-regex and neither a search query or hash was given, useful to detect if someone enters the current url
  * @fires {void} __beforeReplaceState -  Fired when before the state will be updated
  *
  * @summary url watcher
@@ -127,7 +127,7 @@ class FuroLocation extends LitElement {
           return;
         }
 
-        if(window.location.pathname.match(`${this.urlSpaceRegex  }$`)){
+        if(window.location.search === "" && window.location.hash === "" && window.location.pathname.match(`${this.urlSpaceRegex  }$`)){
           const customEvent = new Event('url-space-entered', { composed: false, bubbles: false });
           customEvent.detail = this._location;
           this.dispatchEvent(customEvent);
