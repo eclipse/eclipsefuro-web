@@ -290,6 +290,12 @@ export class FuroUi5DataTable extends FBP(LitElement) {
           font-variant-numeric: lining-nums tabular-nums;
         }
 
+
+        :host([hidden]) {
+          display: none;
+        }
+
+
         .no-data {
           height: 3rem;
           text-align: center;
