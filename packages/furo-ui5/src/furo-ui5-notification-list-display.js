@@ -302,7 +302,7 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
         const group = document.createElement('ui5-li-notification-group');
         group.setAttribute('show-close', '');
         group.setAttribute('show-counter', '');
-        group.heading = this.groupTitleMessage;
+        group.titleText = this.groupTitleMessage;
         group.target = this.target;
 
         this.localizedMsg.forEach(msg => {
@@ -310,7 +310,7 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
           notification.setAttribute('show-close', '');
           // notification.setAttribute('priority', 'Low')
           notification.read = true;
-          notification.heading = '';
+          notification.titleText = '';
           notification.target = this.target;
           notification.innerHTML = this._md.renderInline(msg.message);
           // save the initial message for the later usage
@@ -338,7 +338,7 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
           const group = document.createElement('ui5-li-notification-group');
           group.setAttribute('show-close', '');
           group.setAttribute('show-counter', '');
-          group.heading = this.groupTitleHelp;
+          group.titleText = this.groupTitleHelp;
           group.target = this.target;
 
           /**
@@ -352,7 +352,7 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
             notification.setAttribute('show-close', '');
             notification.setAttribute('priority', 'Low');
             notification.read = true;
-            notification.heading = item.description;
+            notification.titleText = item.description;
             notification.target = this.target;
             // save the initial message for the later usage
             notification.message = this.message;
@@ -386,7 +386,7 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
           const group = document.createElement('ui5-li-notification-group');
           group.setAttribute('show-close', '');
           group.setAttribute('show-counter', '');
-          group.heading = this.groupTitleBadRequest;
+          group.titleText = this.groupTitleBadRequest;
           group.target = this.target;
 
           /**
@@ -400,7 +400,7 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
             notification.setAttribute('show-close', '');
             notification.setAttribute('priority', this.priority);
             notification.read = true;
-            notification.heading = item.field;
+            notification.titleText = item.field;
             notification.target = this.target;
             // save the initial message for the later usage
             notification.message = this.message;
