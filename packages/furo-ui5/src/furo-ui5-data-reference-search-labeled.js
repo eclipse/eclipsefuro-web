@@ -139,6 +139,14 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   }
 
   /**
+   * sets the filter to the inner furo-ui5-data-reference-search
+   * @param filter
+   */
+  setFilter(filter) {
+    this._FBPTriggerWire('--filter', filter);
+  }
+
+  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
@@ -165,6 +173,7 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
           extended-display-field-path="${this.extendedDisplayFieldPath}"
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
+          ƒ-set-filter="--filter"
         ></furo-ui5-data-reference-search>
       </furo-ui5-form-field-container>
     `;
