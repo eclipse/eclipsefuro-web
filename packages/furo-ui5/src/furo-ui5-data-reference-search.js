@@ -177,9 +177,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     if (this.__fieldNode.__childNodes.length === 0) {
       // assuming a scalar
       this.value = { id: val, display_name: val };
-      this._FBPTriggerWire('--displayValue', val || "");
+      this._FBPTriggerWire('--displayValue', val || '');
     } else {
-      this._FBPTriggerWire('--displayValue', val.display_name || "");
+      this._FBPTriggerWire('--displayValue', val.display_name || '');
       this.value = val;
     }
 
@@ -898,6 +898,17 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   }
 
   /**
+   * Sets the filter.
+   * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side
+   * or do btoa(JSON.stringify(FILTER))
+   *
+   * @param filter
+   */
+  setFilter(filter) {
+    this._FBPTriggerWire('--filter', filter);
+  }
+
+  /**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -1042,6 +1053,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       <!-- todo: ƒ-cancel-request="--searchTerm" -->
       <furo-collection-agent
         ƒ-.service="--detectedService, |--service"
+        ƒ-set-filter="--filter"
         ƒ-search="--debouncedSrch"
         ƒ-next="--loadMore"
         page-size="${this.maxItemsToDisplay}"
