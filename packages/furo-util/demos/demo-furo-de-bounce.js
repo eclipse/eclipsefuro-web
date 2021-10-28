@@ -11,7 +11,7 @@ import '@furo/layout';
 import './helper/produce-massive-load.js';
 // import "@furo/data-input/demos/helper/produce-qp-data.js";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/timing/src/furo-catalog.js';
+import '@furo/util/src/furo-catalog.js';
 
 /**
  * `demo-furo-de-bounce`

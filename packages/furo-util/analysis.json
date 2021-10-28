@@ -2,6 +2,193 @@
   "schema_version": "1.0.0",
   "elements": [
     {
+      "description": "`furo-de-bounce`\n is a component with a input-wire, that, as long as it continues to be triggered, will not\n be invoked. The wire will be triggered after it stops being called for\n N milliseconds. If `immediate` is passed as a attribute, it triggers the input-wire on the\n leading edge, instead of the trailing.",
+      "summary": "event de bouncer",
+      "path": "src/furo-de-bounce.js",
+      "properties": [
+        {
+          "name": "immediate",
+          "type": "boolean | null | undefined",
+          "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 2
+            },
+            "end": {
+              "line": 72,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "wait",
+          "type": "number | null | undefined",
+          "description": "Debounce time in milliseconds\nDefault value: 250",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 2
+            },
+            "end": {
+              "line": 77,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 24,
+              "column": 2
+            },
+            "end": {
+              "line": 27,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_createHandler",
+          "description": "Internal create of debounce handler function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 85,
+              "column": 2
+            },
+            "end": {
+              "line": 99,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wait"
+            },
+            {
+              "name": "immediate"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "inputWire",
+          "description": "Debounce function",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 2
+            },
+            "end": {
+              "line": 107,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-de-bounce",
+          "description": "Basic usage"
+        },
+        {
+          "url": "demo-furo-de-bounce-immediately",
+          "description": "Immediate usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 117,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroDeBounce",
+      "attributes": [
+        {
+          "name": "immediate",
+          "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 2
+            },
+            "end": {
+              "line": 72,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "wait",
+          "description": "Debounce time in milliseconds\nDefault value: 250",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 2
+            },
+            "end": {
+              "line": 77,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-de-bounce",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-fetch-json`\n Fetches and parses json data from a source.\n\n ```html\n <furo-fetch-json src=\"/example.json\" ƒ-fetch=\"--FBPready\" @-data=\"--contentReceived\"></furo-fetch-json>\n ```",
       "summary": "fetch json data",
       "path": "src/furo-fetch-json.js",
@@ -13,11 +200,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 25,
+              "line": 28,
               "column": 6
             },
             "end": {
-              "line": 25,
+              "line": 28,
               "column": 27
             }
           },
@@ -35,11 +222,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 40,
               "column": 2
             },
             "end": {
-              "line": 64,
+              "line": 57,
               "column": 3
             }
           },
@@ -52,11 +239,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 65,
               "column": 2
             },
             "end": {
-              "line": 75,
+              "line": 68,
               "column": 3
             }
           },
@@ -76,11 +263,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 15,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 76,
+          "line": 78,
           "column": 1
         }
       },
@@ -93,11 +280,11 @@
           "description": "the url you want to fetch",
           "sourceRange": {
             "start": {
-              "line": 25,
+              "line": 28,
               "column": 6
             },
             "end": {
-              "line": 25,
+              "line": 28,
               "column": 27
             }
           },
@@ -105,20 +292,7 @@
           "type": "string | null | undefined"
         }
       ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "data",
-          "description": "data\nFired when data received and json parsed\ndetail payload: {Object} json data",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "parse-error",
-          "description": "parse-error\nFired when json is not parseable\ndetail payload: error",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -141,11 +315,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 43,
               "column": 29
             }
           },
@@ -163,11 +337,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 19,
+              "line": 21,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 32,
               "column": 3
             }
           },
@@ -183,11 +357,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 49,
+          "line": 55,
           "column": 1
         }
       },
@@ -200,11 +374,11 @@
           "description": "Convert clipboard content to json",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 43,
               "column": 29
             }
           },
@@ -212,14 +386,7 @@
           "type": "boolean | null | undefined"
         }
       ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "content",
-          "description": "content\nFired when clipboard content is received\ndetail payload: {*} content of the clipboard",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -242,11 +409,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 30,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 46,
               "column": 3
             }
           },
@@ -266,11 +433,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 12,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 54,
+          "line": 47,
           "column": 1
         }
       },
@@ -278,17 +445,1250 @@
       "superclass": "HTMLElement",
       "name": "FuroHeadTail",
       "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-head-tail"
+    },
+    {
+      "description": "`furo-forth-stack` is a declarative stack, inspired by the forth stack.\n\nhttps://hackaday.com/2017/01/27/forth-the-hackers-language/\nhttp://wiki.laptop.org/go/Forth_stack_operators\nhttp://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks",
+      "summary": "forth like stack",
+      "path": "src/furo-forth-stack.js",
+      "properties": [
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Current size of the stack",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 42,
+              "column": 2
+            },
+            "end": {
+              "line": 44,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "clearStack",
+          "description": "Empties the stack and set the stack-size to 0",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 2
+            },
+            "end": {
+              "line": 52,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "put",
+          "description": "Add an element to the stack",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 2
+            },
+            "end": {
+              "line": 63,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ],
+          "return": {
+            "desc": "Number The actual size of the stack"
+          }
+        },
+        {
+          "name": "swap",
+          "description": "swap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 77,
+              "column": 2
+            },
+            "end": {
+              "line": 84,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "drop",
+          "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 2
+            },
+            "end": {
+              "line": 107,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "dup",
+          "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 120,
+              "column": 2
+            },
+            "end": {
+              "line": 124,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "over",
+          "description": "over **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 137,
+              "column": 2
+            },
+            "end": {
+              "line": 141,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "rot",
+          "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 153,
+              "column": 2
+            },
+            "end": {
+              "line": 164,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "rrot",
+          "description": "rrot **( n1 n2 n3 -- n3 n1 n2 )**\n\n   Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.\n   The top elemen the stack gets moved to the bottom of the stack.\n\n   1 2 3 rot\n   gives you:\n\n   3 1 2 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 177,
+              "column": 2
+            },
+            "end": {
+              "line": 188,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_move",
+          "description": "moves element of an array from index to index*",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 197,
+              "column": 2
+            },
+            "end": {
+              "line": 202,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "arr"
+            },
+            {
+              "name": "fromIndex"
+            },
+            {
+              "name": "toIndex"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_notifyStackChange",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 204,
+              "column": 2
+            },
+            "end": {
+              "line": 208,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 20,
+          "column": 7
+        },
+        "end": {
+          "line": 209,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "FuroForthStack",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-forth-stack"
+    },
+    {
+      "description": "`hp-35` is a declarative rpn calculator component.\n\nsee https://hansklav.home.xs4all.nl/rpn/\n\nhttp://h10032.www1.hp.com/ctg/Manual/c01579350",
+      "summary": "calculator component",
+      "path": "src/furo-hp-35.js",
+      "properties": [
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Current size of the stack",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 42,
+              "column": 2
+            },
+            "end": {
+              "line": 44,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "x",
+          "type": "Number",
+          "description": "current x",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 27,
+              "column": 6
+            },
+            "end": {
+              "line": 27,
+              "column": 49
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "0"
+        },
+        {
+          "name": "y",
+          "type": "Number",
+          "description": "current y",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 6
+            },
+            "end": {
+              "line": 32,
+              "column": 49
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "0"
+        },
+        {
+          "name": "z",
+          "type": "number | null | undefined",
+          "description": "current z",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 36,
+              "column": 6
+            },
+            "end": {
+              "line": 36,
+              "column": 49
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "0"
+        },
+        {
+          "name": "t",
+          "type": "number | null | undefined",
+          "description": "current t",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 40,
+              "column": 6
+            },
+            "end": {
+              "line": 40,
+              "column": 49
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "0"
+        },
+        {
+          "name": "stack",
+          "type": "Array | null | undefined",
+          "description": "the stack.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 44,
+              "column": 6
+            },
+            "end": {
+              "line": 44,
+              "column": 58
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "readOnly": true,
+              "attributeType": "Array"
+            }
+          }
+        },
+        {
+          "name": "radMode",
+          "type": "boolean | null | undefined",
+          "description": "Set to true to use rad, default is deg",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 48,
+              "column": 6
+            },
+            "end": {
+              "line": 48,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "_PIdivby180",
+          "type": "number | null | undefined",
+          "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 35
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "clearStack",
+          "description": "Empties the stack and set the stack-size to 0",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 49,
+              "column": 2
+            },
+            "end": {
+              "line": 52,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "put",
+          "description": "Add an element to the stack",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 59,
+              "column": 2
+            },
+            "end": {
+              "line": 63,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ],
+          "return": {
+            "desc": "Number The actual size of the stack"
+          },
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "swap",
+          "description": "swap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 92,
+              "column": 2
+            },
+            "end": {
+              "line": 95,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "drop",
+          "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 96,
+              "column": 2
+            },
+            "end": {
+              "line": 107,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "dup",
+          "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 120,
+              "column": 2
+            },
+            "end": {
+              "line": 124,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "over",
+          "description": "over **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 137,
+              "column": 2
+            },
+            "end": {
+              "line": 141,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "rot",
+          "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 107,
+              "column": 2
+            },
+            "end": {
+              "line": 111,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "rrot",
+          "description": "rrot **( n1 n2 n3 -- n3 n1 n2 )**\n\n   Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.\n   The top elemen the stack gets moved to the bottom of the stack.\n\n   1 2 3 rot\n   gives you:\n\n   3 1 2 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 177,
+              "column": 2
+            },
+            "end": {
+              "line": 188,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "_move",
+          "description": "moves element of an array from index to index*",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 197,
+              "column": 2
+            },
+            "end": {
+              "line": 202,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "arr"
+            },
+            {
+              "name": "fromIndex"
+            },
+            {
+              "name": "toIndex"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "_notifyStackChange",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "furo-forth-stack.js",
+            "start": {
+              "line": 204,
+              "column": 2
+            },
+            "end": {
+              "line": 208,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroForthStack"
+        },
+        {
+          "name": "enter",
+          "description": "Enter a number",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 2
+            },
+            "end": {
+              "line": 66,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "updateXYZT",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 2
+            },
+            "end": {
+              "line": 78,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "roll",
+          "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 123,
+              "column": 2
+            },
+            "end": {
+              "line": 125,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "add",
+          "description": "Process an addition",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 133,
+              "column": 2
+            },
+            "end": {
+              "line": 147,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "substract",
+          "description": "Process a substraction",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 154,
+              "column": 2
+            },
+            "end": {
+              "line": 168,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "sqrt",
+          "description": "Perform square root operation",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 175,
+              "column": 2
+            },
+            "end": {
+              "line": 187,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "ln",
+          "description": "Perform log operation",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 194,
+              "column": 2
+            },
+            "end": {
+              "line": 206,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "cos",
+          "description": "Perform cos operation",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 213,
+              "column": 2
+            },
+            "end": {
+              "line": 232,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "sin",
+          "description": "Perform sin operation",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 239,
+              "column": 2
+            },
+            "end": {
+              "line": 258,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "tan",
+          "description": "Perform tan operation",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 265,
+              "column": 2
+            },
+            "end": {
+              "line": 284,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "abs",
+          "description": "Perform abs operation",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 291,
+              "column": 2
+            },
+            "end": {
+              "line": 303,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "reciprocal",
+          "description": "Perform reciprocal operation",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 310,
+              "column": 2
+            },
+            "end": {
+              "line": 322,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "exp",
+          "description": "Perform exp operation\n\nreturns e^x, where x is the argument, and e is Euler's number (also known as Napier's constant), the base of the natural logarithms.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 331,
+              "column": 2
+            },
+            "end": {
+              "line": 344,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "xroot",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 346,
+              "column": 2
+            },
+            "end": {
+              "line": 359,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n"
+            }
+          ]
+        },
+        {
+          "name": "multiply",
+          "description": "Process a multiplication",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 366,
+              "column": 2
+            },
+            "end": {
+              "line": 379,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "pow",
+          "description": "Process power",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 386,
+              "column": 2
+            },
+            "end": {
+              "line": 398,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "divide",
+          "description": "Process a division",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 405,
+              "column": 2
+            },
+            "end": {
+              "line": 419,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "n",
+              "type": "Number"
+            }
+          ],
+          "return": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "clear",
+          "description": "clear the stack",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 424,
+              "column": 2
+            },
+            "end": {
+              "line": 427,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 428,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "FuroForthStack",
+      "name": "FuroHp35",
+      "attributes": [
+        {
+          "name": "x",
+          "description": "current x",
+          "sourceRange": {
+            "start": {
+              "line": 27,
+              "column": 6
+            },
+            "end": {
+              "line": 27,
+              "column": 49
+            }
+          },
+          "metadata": {},
+          "type": "Number"
+        },
+        {
+          "name": "y",
+          "description": "current y",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 6
+            },
+            "end": {
+              "line": 32,
+              "column": 49
+            }
+          },
+          "metadata": {},
+          "type": "Number"
+        },
+        {
+          "name": "z",
+          "description": "current z",
+          "sourceRange": {
+            "start": {
+              "line": 36,
+              "column": 6
+            },
+            "end": {
+              "line": 36,
+              "column": 49
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "t",
+          "description": "current t",
+          "sourceRange": {
+            "start": {
+              "line": 40,
+              "column": 6
+            },
+            "end": {
+              "line": 40,
+              "column": 49
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "stack",
+          "description": "the stack.",
+          "sourceRange": {
+            "start": {
+              "line": 44,
+              "column": 6
+            },
+            "end": {
+              "line": 44,
+              "column": 58
+            }
+          },
+          "metadata": {},
+          "type": "Array | null | undefined"
+        },
+        {
+          "name": "rad-mode",
+          "description": "Set to true to use rad, default is deg",
+          "sourceRange": {
+            "start": {
+              "line": 48,
+              "column": 6
+            },
+            "end": {
+              "line": 48,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
       "events": [
         {
           "type": "CustomEvent",
-          "name": "head",
-          "description": "head\nFired when Array was splitted\ndetail payload: {Any} first element of array",
+          "name": "x-changed",
+          "description": "Fired when the `x` property changes.",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "tail",
-          "description": "tail\nFired when Array was splitted\ndetail payload: {Array || Any} the tail from the injected array (e1 - 1n)",
+          "name": "y-changed",
+          "description": "Fired when the `y` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "z-changed",
+          "description": "Fired when the `z` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "t-changed",
+          "description": "Fired when the `t` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "stack-changed",
+          "description": "Fired when the `stack` property changes.",
           "metadata": {}
         }
       ],
@@ -297,7 +1697,195 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-head-tail"
+      "tagname": "furo-hp-35"
+    },
+    {
+      "description": "`furo-interval-pulse`\n\nPulses a tick event every `interval` ms duration and every `takt` a tock event is also fired.",
+      "summary": "trigger an event in intervals",
+      "path": "src/furo-interval-pulse.js",
+      "properties": [
+        {
+          "name": "interval",
+          "type": "number | null | undefined",
+          "description": "Duration of a tact in ms.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 30,
+              "column": 6
+            },
+            "end": {
+              "line": 30,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "takt",
+          "type": "number | null | undefined",
+          "description": "Number of ticks per tact.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 34,
+              "column": 28
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "auto",
+          "type": "boolean | null | undefined",
+          "description": "Starts interval automatically",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 19
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "start",
+          "description": "Starts the pulsing.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 2
+            },
+            "end": {
+              "line": 62,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "stop",
+          "description": "Stops the pulsing.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 2
+            },
+            "end": {
+              "line": 69,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 79,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "FuroIntervalPulse",
+      "attributes": [
+        {
+          "name": "interval",
+          "description": "Duration of a tact in ms.",
+          "sourceRange": {
+            "start": {
+              "line": 30,
+              "column": 6
+            },
+            "end": {
+              "line": 30,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "takt",
+          "description": "Number of ticks per tact.",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 34,
+              "column": 28
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "auto",
+          "description": "Starts interval automatically",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 19
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-interval-pulse",
+      "mixins": [
+        "FBP"
+      ]
     },
     {
       "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\" keys=\"Escape\"></furo-key-filter>\n```",
@@ -311,11 +1899,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 59,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 59,
               "column": 28
             }
           },
@@ -332,11 +1920,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 63,
               "column": 6
             },
             "end": {
-              "line": 66,
+              "line": 63,
               "column": 30
             }
           },
@@ -353,11 +1941,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 70,
+              "line": 67,
               "column": 28
             }
           },
@@ -374,11 +1962,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 73,
               "column": 6
             },
             "end": {
-              "line": 76,
+              "line": 73,
               "column": 32
             }
           },
@@ -395,11 +1983,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 77,
               "column": 6
             },
             "end": {
-              "line": 80,
+              "line": 77,
               "column": 29
             }
           },
@@ -416,11 +2004,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 84,
+              "line": 81,
               "column": 32
             }
           },
@@ -438,11 +2026,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 24,
+              "line": 26,
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 48,
               "column": 3
             }
           },
@@ -462,11 +2050,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 88,
+          "line": 94,
           "column": 1
         }
       },
@@ -479,11 +2067,11 @@
           "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 59,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 59,
               "column": 28
             }
           },
@@ -495,11 +2083,11 @@
           "description": "Modifier key **shift** must be pressed too to match",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 63,
               "column": 6
             },
             "end": {
-              "line": 66,
+              "line": 63,
               "column": 30
             }
           },
@@ -511,11 +2099,11 @@
           "description": "Modifier key **alt** must be pressed too to match",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 70,
+              "line": 67,
               "column": 28
             }
           },
@@ -527,11 +2115,11 @@
           "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 73,
               "column": 6
             },
             "end": {
-              "line": 76,
+              "line": 73,
               "column": 32
             }
           },
@@ -543,11 +2131,11 @@
           "description": "Modifier key **meta** must be pressed too to match",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 77,
               "column": 6
             },
             "end": {
-              "line": 80,
+              "line": 77,
               "column": 29
             }
           },
@@ -559,11 +2147,11 @@
           "description": "Modifier key **control** must be pressed too to match",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 84,
+              "line": 81,
               "column": 32
             }
           },
@@ -571,14 +2159,7 @@
           "type": "boolean | null | undefined"
         }
       ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "matched",
-          "description": "matched\nFired when key matches the options\ndetail payload: keyboardEvent",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -601,11 +2182,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 23,
+              "line": 25,
               "column": 6
             },
             "end": {
-              "line": 23,
+              "line": 25,
               "column": 27
             }
           },
@@ -622,11 +2203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 27,
+              "line": 29,
               "column": 31
             }
           },
@@ -643,11 +2224,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 30,
               "column": 6
             },
             "end": {
-              "line": 28,
+              "line": 30,
               "column": 28
             }
           },
@@ -664,11 +2245,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 31,
               "column": 6
             },
             "end": {
-              "line": 29,
+              "line": 31,
               "column": 29
             }
           },
@@ -685,11 +2266,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 32,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 32,
               "column": 29
             }
           },
@@ -706,11 +2287,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 31,
+              "line": 33,
               "column": 30
             }
           },
@@ -727,11 +2308,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 34,
               "column": 6
             },
             "end": {
-              "line": 32,
+              "line": 34,
               "column": 69
             }
           },
@@ -748,11 +2329,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 35,
               "column": 6
             },
             "end": {
-              "line": 33,
+              "line": 35,
               "column": 71
             }
           },
@@ -767,14 +2348,14 @@
         {
           "name": "_FBPReady",
           "description": "flow is ready lifecycle method",
-          "privacy": "protected",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 43,
               "column": 2
             },
             "end": {
-              "line": 80,
+              "line": 78,
               "column": 3
             }
           },
@@ -790,11 +2371,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 81,
+          "line": 88,
           "column": 1
         }
       },
@@ -807,11 +2388,11 @@
           "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
           "sourceRange": {
             "start": {
-              "line": 23,
+              "line": 25,
               "column": 6
             },
             "end": {
-              "line": 23,
+              "line": 25,
               "column": 27
             }
           },
@@ -823,11 +2404,11 @@
           "description": "Set this attribute to listen to the keydown event global (window).",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 27,
+              "line": 29,
               "column": 31
             }
           },
@@ -839,11 +2420,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 30,
               "column": 6
             },
             "end": {
-              "line": 28,
+              "line": 30,
               "column": 28
             }
           },
@@ -855,11 +2436,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 31,
               "column": 6
             },
             "end": {
-              "line": 29,
+              "line": 31,
               "column": 29
             }
           },
@@ -871,11 +2452,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 32,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 32,
               "column": 29
             }
           },
@@ -887,11 +2468,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 31,
+              "line": 33,
               "column": 30
             }
           },
@@ -903,11 +2484,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 34,
               "column": 6
             },
             "end": {
-              "line": 32,
+              "line": 34,
               "column": 69
             }
           },
@@ -919,11 +2500,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 35,
               "column": 6
             },
             "end": {
-              "line": 33,
+              "line": 35,
               "column": 71
             }
           },
@@ -931,14 +2512,7 @@
           "type": "boolean | null | undefined"
         }
       ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "key",
-          "description": "key\nFired when key was catched on target\ndetail payload: keyevent",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -961,11 +2535,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 50,
               "column": 2
             },
             "end": {
-              "line": 48,
+              "line": 52,
               "column": 3
             }
           },
@@ -980,11 +2554,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 54,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 57,
               "column": 3
             }
           },
@@ -999,11 +2573,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 38,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 38,
               "column": 31
             }
           },
@@ -1021,11 +2595,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 64,
               "column": 2
             },
             "end": {
-              "line": 66,
+              "line": 70,
               "column": 3
             }
           },
@@ -1045,11 +2619,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 76,
               "column": 2
             },
             "end": {
-              "line": 76,
+              "line": 80,
               "column": 3
             }
           },
@@ -1069,11 +2643,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 83,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 93,
+              "line": 97,
               "column": 3
             }
           },
@@ -1093,11 +2667,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 99,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 103,
               "column": 3
             }
           },
@@ -1113,11 +2687,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 295,
+              "line": 299,
               "column": 2
             },
             "end": {
-              "line": 299,
+              "line": 303,
               "column": 3
             }
           },
@@ -1139,11 +2713,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 22,
           "column": 0
         },
         "end": {
-          "line": 300,
+          "line": 304,
           "column": 1
         }
       },
@@ -1156,11 +2730,11 @@
           "description": "source of the md",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 50,
               "column": 2
             },
             "end": {
-              "line": 48,
+              "line": 52,
               "column": 3
             }
           },
@@ -1172,11 +2746,11 @@
           "description": "markdown string",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 54,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 57,
               "column": 3
             }
           },
@@ -1188,11 +2762,11 @@
           "description": "allow unsafe md. (writing html, components,...)",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 38,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 38,
               "column": 31
             }
           },
@@ -1212,6 +2786,100 @@
       ]
     },
     {
+      "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad ignored-keys=\"Escape\" @-navigated=\"--navpad\"></furo-navigation-pad>\n\n ```",
+      "summary": "keyboard navigation helper",
+      "path": "src/furo-navigation-pad.js",
+      "properties": [
+        {
+          "name": "ignoredKeys",
+          "type": "string | null | undefined",
+          "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 46,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 62
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 2
+            },
+            "end": {
+              "line": 183,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 198,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroNavigationPad",
+      "attributes": [
+        {
+          "name": "ignored-keys",
+          "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
+          "sourceRange": {
+            "start": {
+              "line": 46,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 62
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-navigation-pad",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-pretty-json`\nPretty json with highlighting",
       "summary": "pretty prints json data",
       "path": "src/furo-pretty-json.js",
@@ -1223,11 +2891,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 61,
+              "line": 59,
               "column": 2
             },
             "end": {
-              "line": 70,
+              "line": 68,
               "column": 3
             }
           },
@@ -1247,11 +2915,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 100,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 105,
               "column": 3
             }
           },
@@ -1266,11 +2934,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 98,
               "column": 3
             }
           },
@@ -1295,7 +2963,7 @@
           "column": 0
         },
         "end": {
-          "line": 108,
+          "line": 106,
           "column": 1
         }
       },
@@ -1323,11 +2991,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 56,
               "column": 29
             }
           },
@@ -1345,11 +3013,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 17,
+              "line": 19,
               "column": 2
             },
             "end": {
-              "line": 19,
+              "line": 21,
               "column": 3
             }
           },
@@ -1365,22 +3033,24 @@
         },
         {
           "name": "trigger",
-          "description": "",
+          "description": "Write data to the clipboard",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 21,
+              "line": 28,
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 45,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "data"
+              "name": "data",
+              "type": "Object",
+              "description": "Serializable data"
             }
           ],
           "return": {
@@ -1393,11 +3063,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 57,
+          "line": 68,
           "column": 1
         }
       },
@@ -1410,11 +3080,11 @@
           "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 56,
               "column": 29
             }
           },
@@ -1422,181 +3092,38 @@
           "type": "boolean | null | undefined"
         }
       ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "content",
-          "description": "content\nFired when clipboard content is received\ndetail payload: {*} content of the clipboard",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
       },
       "slots": [],
       "tagname": "furo-put-clipboard"
-    },
+    }
+  ],
+  "classes": [
     {
-      "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad ignored-keys=\"Escape\" @-navigated=\"--navpad\"></furo-navigation-pad>\n\n ```",
-      "summary": "keyboard navigation helper",
-      "path": "src/furo-navigation-pad.js",
-      "properties": [
-        {
-          "name": "ignoredKeys",
-          "type": "string | null | undefined",
-          "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 35,
-              "column": 6
-            },
-            "end": {
-              "line": 35,
-              "column": 62
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "_FBPReady",
-          "description": "flow is ready lifecycle method",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 42,
-              "column": 2
-            },
-            "end": {
-              "line": 232,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        }
-      ],
+      "description": "",
+      "summary": "",
+      "path": "src/lib/EmptyStackError.js",
+      "properties": [],
+      "methods": [],
       "staticMethods": [],
       "demos": [],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 23,
-          "column": 0
+          "line": 0,
+          "column": 7
         },
         "end": {
-          "line": 250,
+          "line": 10,
           "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "FuroNavigationPad",
-      "attributes": [
-        {
-          "name": "ignored-keys",
-          "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
-          "sourceRange": {
-            "start": {
-              "line": 35,
-              "column": 6
-            },
-            "end": {
-              "line": 35,
-              "column": 62
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        }
-      ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "arrow-down-pressed",
-          "description": "arrow-down-pressed\nFired when ArrowDown key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "arrow-left-pressed",
-          "description": "arrow-left-pressed\nFired when ArrowLeft key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "arrow-right-pressed",
-          "description": "arrow-right-pressed\nFired when ArrowRight key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "arrow-up-pressed",
-          "description": "arrow-up-pressed\nFired when ArrowUp key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "end-pressed",
-          "description": "end-pressed\nFired when End key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "enter-pressed",
-          "description": "enter-pressed\nFired when Enter key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "escape-pressed",
-          "description": "escape-pressed\nFired when Escape key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "home-pressed",
-          "description": "home-pressed\nFired when Home key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "navigated",
-          "description": "navigated\nFired when one of the keys was pressed\ndetail payload: key",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "page-down-pressed",
-          "description": "page-down-pressed\nFired when PageDown key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "page-up-pressed",
-          "description": "page-up-pressed\nFired when PageUp key was pressed\ndetail payload: keyboard event",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-navigation-pad",
-      "mixins": [
-        "FBP"
-      ]
+      "superclass": "Error",
+      "name": "EmpptyStackError"
     }
   ]
 }
