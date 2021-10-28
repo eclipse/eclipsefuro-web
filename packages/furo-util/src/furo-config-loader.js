@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
-import '@furo/util/src/furo-fetch-json';
+import './furo-fetch-json.js';
 import { Config } from './lib/Config.js';
 
 /**

@@ -1,3 +1,5 @@
+import './furo-config.js';
+import './furo-config-loader.js';
 import './furo-de-bounce.js';
 import './furo-fetch-json.js';
 import './furo-get-clipboard.js';

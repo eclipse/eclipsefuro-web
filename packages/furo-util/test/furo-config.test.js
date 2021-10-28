@@ -47,7 +47,7 @@ describe('furo-config', () => {
       done();
     });
 
-    configLoader.setAttribute('src', '/package.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/package.json');
     configLoader.setAttribute('section', 'package');
   });
 
@@ -62,7 +62,7 @@ describe('furo-config', () => {
       { once: true },
     );
 
-    configLoader.setAttribute('src', '/package.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/package.json');
     configLoader.setAttribute('section', 'package');
   });
 
@@ -75,14 +75,14 @@ describe('furo-config', () => {
 
     config.setAttribute('section', 'package');
     config.addEventListener('config-updated', d => {
-      assert.equal(d.detail.name, 'furo-base-components');
+      assert.equal(d.detail.name, '@furo/util');
       done();
     });
     secondConfig.setAttribute('section', 'lerna');
     configLoader.setAttribute('src', '/base/lerna.json');
 
     secondConfigLoader.setAttribute('section', 'package');
-    secondConfigLoader.setAttribute('src', '/base/package.json');
+    secondConfigLoader.setAttribute('src', '/base/packages/furo-util/package.json');
   });
 
   it('should load a config file with loader and notifiy via furo-config', done => {
@@ -95,7 +95,7 @@ describe('furo-config', () => {
       },
       { once: true },
     );
-    configLoader.setAttribute('src', '/package.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/package.json');
     configLoader.setAttribute('section', 'package');
   });
 
@@ -111,7 +111,7 @@ describe('furo-config', () => {
       },
       { once: true },
     );
-    configLoader.setAttribute('src', '/base/packages/furo-config/test/test.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/test/test.json');
     configLoader.setAttribute('section', 'package');
   });
 
@@ -127,7 +127,7 @@ describe('furo-config', () => {
       },
       { once: true },
     );
-    configLoader.setAttribute('src', '/base/packages/furo-config/test/test.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/test/test.json');
     configLoader.setAttribute('section', 'package');
   });
 
@@ -142,7 +142,7 @@ describe('furo-config', () => {
       },
       { once: true },
     );
-    configLoader.setAttribute('src', '/base/packages/furo-config/test/array.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/test/array.json');
     configLoader.setAttribute('section', 'arr');
   });
 
@@ -160,7 +160,7 @@ describe('furo-config', () => {
       },
       { once: true },
     );
-    configLoader.setAttribute('src', '/base/packages/furo-config/test/test.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/test/test.json');
     configLoader.setAttribute('section', 'package');
   });
 
@@ -176,7 +176,7 @@ describe('furo-config', () => {
       },
       { once: true },
     );
-    configLoader.setAttribute('src', '/base/packages/furo-config/test/test.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/test/test.json');
     configLoader.setAttribute('section', 'package');
   });
 
@@ -193,7 +193,7 @@ describe('furo-config', () => {
       },
       { once: true },
     );
-    configLoader.setAttribute('src', '/base/packages/furo-config/test/test.json');
+    configLoader.setAttribute('src', '/base/packages/furo-util/test/test.json');
     configLoader.setAttribute('section', 'package');
   });
 });
