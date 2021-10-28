@@ -10,24 +10,16 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^4.3.8",
+    "lerna": "^3.22.1",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.4.1",
     "lit-html": "2.0.0-rc.3",
-    "lerna": "^4.0.0"
+    "prettier": "^2.4.1"
   },
   "scripts": {
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "cem": "./scripts/cem.sh",
-    "start": "./node_modules/.bin/es-dev-server  --app-index packages/furo-app/index.html --open",
-    "test": "./node_modules/.bin/karma start --coverage",
-    "lint:individual": "./scripts/lintIndividual.sh",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:fix": "./node_modules/.bin/eslint --fix --ext .js  \"packages/**/src/*.js\" --ignore-path .gitignore",
-    "lint:eslint": "./node_modules/.bin/eslint --ext .js  \"packages/**/src/*.js\" --ignore-path .gitignore",
-    "lint:prettier": "./node_modules/.bin/prettier \"packages/**/src/*.js\" --check --ignore-path .gitignore",
-    "format": "npm run format:eslint && npm run format:prettier",
-    "format:eslint": "./node_modules/.bin/eslint --ext .js  \"packages/**/src/*.js\" --fix --ignore-path .gitignore",
-    "format:prettier": "./node_modules/.bin/prettier \"packages/**/src/*.js\" --write --ignore-path .gitignore"
+    "test:fbp": "web-test-runner --files packages/furo-fbp/test/**/*.test.js --coverage",
+    "test:fbp:watch": "web-test-runner --files packages/furo-fbp/test/**/*.test.js --watch"
   },
   "author": "veith",
   "license": "MIT",

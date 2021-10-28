@@ -40,7 +40,9 @@ export class FlowRepeat extends FBP(HTMLElement) {
         this.deselect(this.selectedIndex);
       }
 
-      this._insertedItems[index].virtualElement._FBPTriggerWire('--itemSelected');
+      this._insertedItems[index].virtualElement._FBPTriggerWire(
+        '--itemSelected'
+      );
       this.selectedIndex = index;
     }
   }
@@ -87,7 +89,10 @@ export class FlowRepeat extends FBP(HTMLElement) {
     this.select(i);
 
     if (this._insertedItems.length - 1 === this.selectedIndex) {
-      const customEvent = new Event('last-element-selected', { composed: true, bubbles: true });
+      const customEvent = new Event('last-element-selected', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = i;
       this.dispatchEvent(customEvent);
     }
@@ -117,8 +122,13 @@ export class FlowRepeat extends FBP(HTMLElement) {
    * Triggers the wire --itemDeSelected on last selected item
    */
   deselect() {
-    if (this.selectedIndex !== undefined && this._insertedItems[this.selectedIndex]) {
-      this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire('--itemDeSelected');
+    if (
+      this.selectedIndex !== undefined &&
+      this._insertedItems[this.selectedIndex]
+    ) {
+      this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire(
+        '--itemDeSelected'
+      );
       this.selectedIndex = undefined;
     }
   }
@@ -173,7 +183,9 @@ export class FlowRepeat extends FBP(HTMLElement) {
     items.forEach((e, i, a) => {
       let identity = false;
       if (this.identityPath) {
-        identity = this.identityPath.split('.').reduce((acc, part) => acc && acc[part], e);
+        identity = this.identityPath
+          .split('.')
+          .reduce((acc, part) => acc && acc[part], e);
       }
 
       let elem;
@@ -188,7 +200,10 @@ export class FlowRepeat extends FBP(HTMLElement) {
         elem = this._buildDomNode(identity, i);
         // Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
         let reference = this;
-        if (this._insertedItems[i + 1] && this._insertedItems[i + 1].children[0]) {
+        if (
+          this._insertedItems[i + 1] &&
+          this._insertedItems[i + 1].children[0]
+        ) {
           [reference] = this._insertedItems[i + 1].children;
         }
 
@@ -222,17 +237,22 @@ export class FlowRepeat extends FBP(HTMLElement) {
     });
 
     // überzählige elemente aus dem dom entfernen
-    this._insertedItems.slice(items.length, this._insertedItems.length).forEach(handle => {
-      handle.children.forEach(attachedElem => {
-        attachedElem.remove();
+    this._insertedItems
+      .slice(items.length, this._insertedItems.length)
+      .forEach(handle => {
+        handle.children.forEach(attachedElem => {
+          attachedElem.remove();
+        });
       });
-    });
     // überzählige elemente aus dem array entfernen
     this._insertedItems.splice(items.length);
 
     if (items.length > 0) {
       setTimeout(() => {
-        const customEvent = new Event('items-in-dom', { composed: true, bubbles: false });
+        const customEvent = new Event('items-in-dom', {
+          composed: true,
+          bubbles: false,
+        });
         customEvent.detail = items.length;
         this.dispatchEvent(customEvent);
       }, 0);
@@ -302,27 +322,31 @@ export class FlowRepeat extends FBP(HTMLElement) {
   triggerFirst(e) {
     if (this._insertedItems[0]) {
       this._insertedItems[0].virtualElement._FBPTriggerWire('--trigger', e);
-      this._insertedItems[0].virtualElement._FBPTriggerWire('--triggerFirst', e);
+      this._insertedItems[0].virtualElement._FBPTriggerWire(
+        '--triggerFirst',
+        e
+      );
     }
   }
 
   triggerLast(e) {
     if (this._insertedItems[this._insertedItems.length - 1]) {
-      this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire(
-        '--trigger',
-        e,
-      );
-      this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire(
-        '--triggerLast',
-        e,
-      );
+      this._insertedItems[
+        this._insertedItems.length - 1
+      ].virtualElement._FBPTriggerWire('--trigger', e);
+      this._insertedItems[
+        this._insertedItems.length - 1
+      ].virtualElement._FBPTriggerWire('--triggerLast', e);
     }
   }
 
   triggerIndex(i, data) {
     if (this._insertedItems[i]) {
       this._insertedItems[i].virtualElement._FBPTriggerWire('--trigger', data);
-      this._insertedItems[i].virtualElement._FBPTriggerWire('--triggerIndex', data);
+      this._insertedItems[i].virtualElement._FBPTriggerWire(
+        '--triggerIndex',
+        data
+      );
     } else {
       // eslint-disable-next-line no-console
       console.warn('Out of index', this);

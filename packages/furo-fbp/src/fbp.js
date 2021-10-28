@@ -67,12 +67,20 @@ export const FBP = superClass =>
             // check for hooks
             if (typeof receiver === 'function') {
               receiver(detailData);
-            } else if (typeof receiver.element[receiver.method] === 'function') {
+            } else if (
+              typeof receiver.element[receiver.method] === 'function'
+            ) {
               let response;
               // array spreaden
-              if (Array.isArray(detailData) && receiver.element[receiver.method].length > 1) {
+              if (
+                Array.isArray(detailData) &&
+                receiver.element[receiver.method].length > 1
+              ) {
                 // eslint-disable-next-line prefer-spread
-                response = receiver.element[receiver.method].apply(receiver.element, detailData);
+                response = receiver.element[receiver.method].apply(
+                  receiver.element,
+                  detailData
+                );
               } else {
                 let data = detailData;
                 if (receiver.path) {
@@ -98,7 +106,7 @@ export const FBP = superClass =>
               // eslint-disable-next-line no-console
               console.warn(
                 `${receiver.method} is neither a listener nor a function of ${receiver.element.nodeName}`,
-                receiver.element,
+                receiver.element
               );
             }
           });
@@ -185,7 +193,7 @@ export const FBP = superClass =>
               console.groupEnd();
             }
           },
-          true,
+          true
         );
       }
     }
@@ -245,7 +253,7 @@ export const FBP = superClass =>
             }
           }
         },
-        true,
+        true
       );
     }
 
@@ -287,7 +295,9 @@ export const FBP = superClass =>
               }
               wirebundle[r.receivingWire].push({
                 element,
-                property: this.__toCamelCase(element.attributes[i].name.substr(3)),
+                property: this.__toCamelCase(
+                  element.attributes[i].name.substr(3)
+                ),
                 path: r.path,
               });
             });
@@ -306,7 +316,9 @@ export const FBP = superClass =>
               }
               wirebundle[r.receivingWire].push({
                 element,
-                method: this.__toCamelCase(element.attributes[i].name.substr(2)),
+                method: this.__toCamelCase(
+                  element.attributes[i].name.substr(2)
+                ),
                 attrName: element.attributes[i].name.substr(2),
                 path: r.path,
               });
@@ -404,7 +416,10 @@ export const FBP = superClass =>
                   detailData = e;
                 } else {
                   // send event subprop with *.notDetail.xxx
-                  detailData = self._pathGet(e, match[1].substr(2, match[1].length));
+                  detailData = self._pathGet(
+                    e,
+                    match[1].substr(2, match[1].length)
+                  );
                 }
               } else {
                 // send host property
@@ -421,7 +436,10 @@ export const FBP = superClass =>
             if (match !== null && match.length > 1) {
               const prop = match[1];
               const theEvent = match[0];
-              const customEvent = new Event(theEvent, { composed: false, bubbles: true });
+              const customEvent = new Event(theEvent, {
+                composed: false,
+                bubbles: true,
+              });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
@@ -435,7 +453,10 @@ export const FBP = superClass =>
               }
               e.currentTarget.dispatchEvent(customEvent);
             } else {
-              const customEvent = new Event(wire, { composed: false, bubbles: true });
+              const customEvent = new Event(wire, {
+                composed: false,
+                bubbles: true,
+              });
               customEvent.detail = e.detail;
               e.currentTarget.dispatchEvent(customEvent);
             }
@@ -445,7 +466,10 @@ export const FBP = superClass =>
             if (match !== null && match.length > 1) {
               const prop = match[1];
               const theEvent = match[0];
-              const customEvent = new Event(theEvent, { composed: false, bubbles: true });
+              const customEvent = new Event(theEvent, {
+                composed: false,
+                bubbles: true,
+              });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
@@ -459,7 +483,10 @@ export const FBP = superClass =>
               }
               self.dispatchEvent(customEvent);
             } else {
-              const customEvent = new Event(wire, { composed: false, bubbles: true });
+              const customEvent = new Event(wire, {
+                composed: false,
+                bubbles: true,
+              });
               customEvent.detail = e.detail;
               self.dispatchEvent(customEvent);
             }
@@ -469,7 +496,10 @@ export const FBP = superClass =>
             if (match !== null && match.length > 1) {
               const prop = match[1];
               const theEvent = match[0];
-              const customEvent = new Event(theEvent, { composed: true, bubbles: true });
+              const customEvent = new Event(theEvent, {
+                composed: true,
+                bubbles: true,
+              });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
@@ -483,7 +513,10 @@ export const FBP = superClass =>
               }
               e.currentTarget.dispatchEvent(customEvent);
             } else {
-              const customEvent = new Event(wire, { composed: true, bubbles: true });
+              const customEvent = new Event(wire, {
+                composed: true,
+                bubbles: true,
+              });
               customEvent.detail = e.detail;
               e.currentTarget.dispatchEvent(customEvent);
             }

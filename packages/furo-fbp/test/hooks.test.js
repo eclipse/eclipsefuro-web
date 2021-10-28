@@ -102,8 +102,11 @@ describe('hooks', () => {
     host.subproperty = { a: 3, b: 4 };
 
     // eslint-disable-next-line func-names
-    bubble.hit = function() {
-      const customEvent = new Event('hitted', { composed: true, bubbles: true });
+    bubble.hit = function () {
+      const customEvent = new Event('hitted', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = 3333;
       this.dispatchEvent(customEvent);
     };
@@ -120,8 +123,11 @@ describe('hooks', () => {
     });
 
     // eslint-disable-next-line func-names
-    bubble.hit = function() {
-      const customEvent = new Event('hitted', { composed: true, bubbles: true });
+    bubble.hit = function () {
+      const customEvent = new Event('hitted', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = 3333;
       this.dispatchEvent(customEvent);
     };
@@ -138,7 +144,7 @@ describe('hooks', () => {
         assert.equal(d, 33);
         done();
       },
-      true,
+      true
     );
     assert.equal(r, 1);
     host._FBPTriggerWire('--nonexist', 33);
@@ -153,7 +159,7 @@ describe('hooks', () => {
         assert.equal(d, 0);
         done();
       },
-      true,
+      true
     );
 
     assert.equal(dd.innerText, 'x');

@@ -29,6 +29,7 @@ ls node_modules/@furo
 rm -rf node_modules/@furo
 mkdir -p node_modules/@furo
 
+INIT_CWD=`pwd`
 
 for package in ${packages[@]}; do
   npmname=`node -e "console.log(require(\"${INIT_CWD}/${package}/package.json\").name)"`
@@ -39,4 +40,4 @@ for package in ${packages[@]}; do
 
   fi
 done
-ln -sfv ${INIT_CWD}/packages/furo-testhelper ${INIT_CWD}/node_modules/@furo/testhelper
+
