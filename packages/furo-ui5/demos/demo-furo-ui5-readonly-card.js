@@ -17,7 +17,7 @@ import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js';
+
 
 import '@ui5/webcomponents/dist/Card.js';
 

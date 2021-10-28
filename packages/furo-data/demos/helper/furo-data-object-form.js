@@ -45,18 +45,15 @@ class FuroDataObjectForm extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return (
+    return css`
+      :host {
+        display: block;
+      }
 
-      css`
-        :host {
-          display: block;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
+      :host([hidden]) {
+        display: none;
+      }
+    `;
   }
 
   /**

@@ -7,7 +7,7 @@ import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/fetch-universal-json.js';
+
 
 import '@ui5/webcomponents/dist/Icon.js';
 

@@ -19,7 +19,7 @@ import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/input/src/furo-button.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js';
+
 
 import '@ui5/webcomponents/dist/Icon.js';
 import '../src/lib/ui5-icons.js';

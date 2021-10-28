@@ -4,7 +4,7 @@ import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
 import '@ui5/webcomponents/dist/Label.js';
-import '@furo/data-ui/src/furo-type-renderer.js';
+import '@furo/data/src/furo-type-renderer.js';
 
 import './furo-ui5-form-field-container.js';
 

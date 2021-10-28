@@ -55,10 +55,6 @@ pwd
 npm run lint
 cd ../../
 
-cd packages/furo-data-util
-pwd
-npm run lint
-cd ../../
 
 cd packages/furo-doc-helper
 pwd

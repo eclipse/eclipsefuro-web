@@ -12,7 +12,7 @@ import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-deep-link';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-entity-agent';
 // eslint-disable-next-line import/no-extraneous-dependencies

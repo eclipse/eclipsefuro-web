@@ -14,3 +14,4 @@ import './furo-rel-exists.js';
 import './furo-reverse-deep-link.js';
 import './lib/UniversalFieldNodeBinder.js';
 import './furo-sortby-container.js';
+import './furo-type-renderer.js';

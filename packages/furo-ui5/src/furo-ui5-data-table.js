@@ -5,7 +5,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 
 import '@furo/fbp/src/flow-repeat.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-ui/src/furo-type-renderer.js';
+import '@furo/data/src/furo-type-renderer.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/ui5/src/furo-ui5-data-display.js';
 

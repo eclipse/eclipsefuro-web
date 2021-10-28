@@ -12,8 +12,8 @@ import '@furo/data/src/furo-entity-agent.js';
 import '@furo/data/src/furo-deep-link.js';
 import '@furo/form/src/furo-form-layouter.js';
 import '@furo/form/src/furo-button-bar.js';
-import '@furo/data-input/demos/helper/produce-qp-data.js';
-import '@furo/data-input/demos/helper/fetch-universal-json.js';
+
+
 import '@ui5/webcomponents/dist/Icon.js';
 import '../src/lib/ui5-icons.js';
 /**

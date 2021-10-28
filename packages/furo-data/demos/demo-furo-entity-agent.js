@@ -21,20 +21,17 @@ class DemoFuroEntityAgent extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return (
+    return css`
+      :host {
+        display: block;
+        height: 100%;
+        padding-right: var(--spacing);
+      }
 
-      css`
-        :host {
-          display: block;
-          height: 100%;
-          padding-right: var(--spacing);
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
+      :host([hidden]) {
+        display: none;
+      }
+    `;
   }
 
   /**
