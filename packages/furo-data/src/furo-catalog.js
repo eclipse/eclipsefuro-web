@@ -1,3 +1,4 @@
+import './furo-append-object.js';
 import './furo-api-fetch.js';
 import './furo-collection-agent.js';
 import './furo-custom-method.js';

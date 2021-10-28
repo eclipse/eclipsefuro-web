@@ -1,6 +1,6 @@
 import { fixture, html } from '@open-wc/testing';
 import 'axe-core/axe.min.js';
-import '../src/furo-catalog.js';
+import '@furo/data';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 
 describe('furo-append-object', () => {
