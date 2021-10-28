@@ -39,10 +39,6 @@ cd ../../
 # npm run lint
 # cd ../../
 
-cd packages/furo-config
-pwd
-npm run lint
-cd ../../
 
 cd packages/furo-data
 pwd
@@ -100,15 +96,7 @@ pwd
 npm run lint
 cd ../../
 
-cd packages/furo-logic
-pwd
-npm run lint
-cd ../../
 
-cd packages/furo-math
-pwd
-npm run lint
-cd ../../
 
 cd packages/furo-navigation
 pwd
@@ -126,11 +114,6 @@ npm run lint
 cd ../../
 
 
-
-cd packages/furo-timing
-pwd
-npm run lint
-cd ../../
 
 cd packages/furo-util
 pwd
