@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import '@furo/icon/src/furo-icon.js';
 import './furo-checkbox.js';
@@ -253,7 +253,7 @@ export class FuroCheckboxInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroCheckboxInput') ||
+
       css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {

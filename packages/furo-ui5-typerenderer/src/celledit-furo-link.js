@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `celledit-furo-link`
@@ -17,7 +17,7 @@ class CelleditFuroLink extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CelleditFuroLink') ||
+
       css`
         :host {
           display: inline;

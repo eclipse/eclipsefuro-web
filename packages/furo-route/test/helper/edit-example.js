@@ -1,4 +1,4 @@
-import { Theme } from '@furo/framework/src/theme';
+
 import { html, css } from 'lit';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 
@@ -41,7 +41,7 @@ class EditExample extends BasePanel {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('EditExample') ||
+
       css`
         :host {
           display: block;

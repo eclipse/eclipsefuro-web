@@ -4,7 +4,7 @@ import './furo-ui5-form-field-container.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
-import { Theme } from '@furo/framework';
+
 import '@ui5/webcomponents/dist/Input.js';
 import './furo-ui5-data-text-input.js';
 import { FieldNode } from '@furo/data/src/lib/FieldNode';
@@ -428,7 +428,7 @@ export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDataMoneyInput') ||
+
       css`
         #currency {
           width: 100px;

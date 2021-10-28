@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework';
+
 
 /**
  * `cell-google-protobuf-any`
@@ -27,7 +27,7 @@ class CellGoolgeProtobufAny extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CellGoogleProtobufAny') ||
+
       css`
         :host {
           display: none;

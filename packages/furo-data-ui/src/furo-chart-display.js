@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
 
@@ -465,7 +465,7 @@ class FuroChartDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDataChartDisplay') ||
+
       css`
         :host {
           display: block;

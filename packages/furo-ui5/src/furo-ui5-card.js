@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -153,7 +153,7 @@ export class FuroUi5Card extends FBP(LitElement) {
    */
   static get styles() {
     return (
-      Theme.getThemeForComponent('FuroUi5Card') ||
+
       css`
         :host {
           display: block;

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `display-furo-link`
@@ -17,7 +17,7 @@ class DisplayFuroLink extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayFuroLink') ||
+
       css`
         :host {
           display: inline;

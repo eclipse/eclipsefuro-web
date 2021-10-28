@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 /**
@@ -142,7 +142,7 @@ export class FuroUi5FormFieldContainer extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5FormFieldContainer') ||
+
       css`
         :host {
           display: block;

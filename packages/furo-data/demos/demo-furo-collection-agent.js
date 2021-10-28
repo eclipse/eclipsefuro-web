@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -24,7 +24,7 @@ class DemoFuroCollectionAgent extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroCollectionAgent') ||
+
       css`
         :host {
           display: block;

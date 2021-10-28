@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `cell-string`
@@ -18,7 +18,7 @@ export class CellString extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CellString') ||
+
       css`
         :host {
           display: inline;

@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import { Theme } from '@furo/framework/src/theme';
+
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
 /**
@@ -44,7 +44,7 @@ export class DisplayFuroPropertyRepeated extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayFuroPropertyRepeated') ||
+
       css`
         :host {
           display: none;

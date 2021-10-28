@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 // eslint-disable-next-line import/no-unresolved
 import '@ui5/webcomponents/dist/ColorPalette.js';
 
@@ -26,7 +26,7 @@ class CellGoolgeTypeColor extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CellGoolgeTypeColor') ||
+
       css`
         :host {
           display: block;

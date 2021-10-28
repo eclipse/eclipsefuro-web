@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -25,7 +25,7 @@ class DemoFuroUi5HeaderPanelBinding extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent(this.name) ||
+
       css`
         :host {
           display: block;

@@ -3,7 +3,7 @@ import { FBP } from '@furo/fbp';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import '@ui5/webcomponents/dist/MessageStrip.js';
 
 /**
@@ -108,7 +108,7 @@ export class FuroUi5MessageStripDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5MessageStripDisplay') ||
+
       css`
         :host {
           display: block;

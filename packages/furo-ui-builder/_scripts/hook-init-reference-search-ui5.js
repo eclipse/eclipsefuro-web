@@ -29,7 +29,7 @@ class HookInitReferenceSearchUi5 {
 
       u33e.addImport("@furo/data");
       u33e.addImport("@furo/ui5/src/furo-catalog.js");
-      u33e.addImport("@furo/timing/src/furo-de-bounce.js");
+      u33e.addImport("@furo/util/src/furo-de-bounce.js");
 
       // https://www.base64encode.org/
       u33e.addMethod("bindData", "field",

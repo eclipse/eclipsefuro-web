@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
@@ -173,7 +173,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDataPropertyDisplay') ||
+
       css`
         :host {
           display: none;

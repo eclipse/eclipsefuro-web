@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import { Theme } from '@furo/framework/src/theme';
+
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import '@ui5/webcomponents/dist/Label.js';
@@ -102,7 +102,7 @@ export class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
 
   static get styles() {
     return (
-      Theme.getThemeForComponent('FuroUi5DataCollectionDropdownLabeled') ||
+
       css`
         :host {
           display: block;

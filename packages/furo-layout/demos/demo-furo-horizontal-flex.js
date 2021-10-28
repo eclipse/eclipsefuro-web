@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
@@ -25,7 +25,7 @@ class DemoFuroHorizontalFlex extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroHorizontalFlex') ||
+
       css`
         :host {
           display: block;

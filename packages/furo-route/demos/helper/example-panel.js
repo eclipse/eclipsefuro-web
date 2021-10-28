@@ -1,5 +1,5 @@
 import { html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 import '@furo/util/src/furo-pretty-json';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -61,7 +61,7 @@ class ExamplePanel extends BasePanel {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('ExamplePanel') ||
+
       css`
         :host {
           display: block;

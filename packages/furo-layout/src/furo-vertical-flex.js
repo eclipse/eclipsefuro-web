@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `furo-vertical-flex`
@@ -33,7 +33,7 @@ class FuroVerticalFlex extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroVerticalFlex') ||
+
       css`
         :host {
           display: block;

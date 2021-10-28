@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
@@ -105,7 +105,7 @@ export class BaseFilter extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('BaseFilter') ||
+
       css`
         :host {
           display: block;

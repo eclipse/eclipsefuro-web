@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -30,7 +30,7 @@ class NavNodeForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('NavNodeForm') ||
+
       css`
         :host {
           display: block;

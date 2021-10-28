@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 import '@ui5/webcomponents/dist/Label.js';
@@ -182,7 +182,7 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5DataReferenceSearchLabeled') ||
+
       css`
         :host {
           display: block;

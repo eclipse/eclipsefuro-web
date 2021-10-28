@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework/src/theme.js';
+
 
 import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
@@ -100,7 +100,7 @@ export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5NotificationListDisplay') ||
+
       css`
         :host {
           display: block;

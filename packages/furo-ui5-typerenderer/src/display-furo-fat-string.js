@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `display-furo-fat-string`
@@ -27,7 +27,7 @@ class DisplayFuroFatString extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayFuroFatString') ||
+
       css`
         :host {
           display: inline;

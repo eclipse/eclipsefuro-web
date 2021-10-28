@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 import QrScanner from 'qr-scanner';
 
@@ -70,7 +70,7 @@ class FuroQrScanner extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroQrScanner') ||
+
       css`
         :host {
           display: block;

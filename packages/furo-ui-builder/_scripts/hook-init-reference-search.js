@@ -27,7 +27,7 @@ class HookInitReferenceSearch {
 
       u33e.addImport("@furo/data");
       u33e.addImport("@furo/data-input");
-      u33e.addImport("@furo/timing/src/furo-de-bounce.js");
+      u33e.addImport("@furo/util/src/furo-de-bounce.js");
 
       // https://www.base64encode.org/
       u33e.addMethod("bindData", "field",

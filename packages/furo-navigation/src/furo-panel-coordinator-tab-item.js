@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 
 import '@furo/layout/src/furo-ripple';
@@ -137,7 +137,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroPanelCoordinatorTabItem') ||
+
       css`
         :host {
           display: inline-block;

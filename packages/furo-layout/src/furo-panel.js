@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `furo-panel`
@@ -51,7 +51,7 @@ class FuroPanel extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroPanel') ||
+
       css`
         :host {
           display: block;

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 import './furo-doc-methods-item.js';
@@ -74,7 +74,7 @@ class FuroDocMethods extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDocMethods') ||
+
       css`
         :host {
           display: block;

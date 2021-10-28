@@ -1,12 +1,12 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 import { Env } from '@furo/framework';
 
 import '@furo/fbp/src/flow-repeat.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/timing/src/furo-de-bounce.js';
+import '@furo/util/src/furo-de-bounce.js';
 import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
 import '@ui5/webcomponents-icons/dist/value-help.js';
@@ -916,7 +916,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5DataReferenceSearch') ||
+
       css`
         :host {
           display: inline-block;

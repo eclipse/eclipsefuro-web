@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -51,7 +51,7 @@ class SimulateError extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('SimulateError') ||
+
       css`
         :host {
           display: inline-block;

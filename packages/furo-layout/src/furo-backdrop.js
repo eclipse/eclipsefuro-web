@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -75,7 +75,7 @@ class FuroBackdrop extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroBackdrop') ||
+
       css`
         :host {
           display: none;

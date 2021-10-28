@@ -23,7 +23,7 @@
   "imports": [
     "@furo/data",
     "@furo/data-input",
-    "@furo/timing/src/furo-de-bounce.js"
+    "@furo/util/src/furo-de-bounce.js"
   ],
   "component_name": "task-task-reference-search",
   "path": "./generates/ui_specs/taskservice/task-task-reference-search.u33e",

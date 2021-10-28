@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -37,7 +37,7 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataTextInput') ||
+
       css`
         :host {
           display: block;

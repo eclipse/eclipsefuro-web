@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
@@ -7,7 +7,7 @@ import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/layout/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/timing/src/furo-de-bounce.js';
+import '@furo/util/src/furo-de-bounce.js';
 
 /**
  * `demo-furo-backdrop`
@@ -24,7 +24,7 @@ class DemoFuroBackdrop extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent(this.name) ||
+
       css`
         :host {
           display: block;

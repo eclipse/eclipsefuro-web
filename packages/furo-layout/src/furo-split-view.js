@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework/src/theme';
+
 
 import './furo-horizontal-flex.js';
 import './furo-vertical-scroller.js';
@@ -45,7 +45,7 @@ class FuroSplitView extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroSplitView') ||
+
       css`
         :host {
           display: block;

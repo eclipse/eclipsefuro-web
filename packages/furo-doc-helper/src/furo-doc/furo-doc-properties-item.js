@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 
@@ -48,7 +48,7 @@ class FuroDocPropertiesItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDocPropertiesItem') ||
+
       css`
         :host {
           display: block;

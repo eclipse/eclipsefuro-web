@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import { Theme } from '@furo/framework/src/theme';
+
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import './furo-ui5-form-field-container.js';
@@ -72,7 +72,7 @@ export class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5DataCheckboxInputLabeled') ||
+
       css`
         :host {
           display: block;

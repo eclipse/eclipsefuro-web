@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import '@furo/icon/src/furo-icon.js';
 import { Helper } from './lib/helper.js';
@@ -303,7 +303,7 @@ export class FuroNumberInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroNumberInput') ||
+
       css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 // eslint-disable-next-line import/no-unresolved
 import '@ui5/webcomponents/dist/Link.js';
 
@@ -29,7 +29,7 @@ class DisplayFuroReference extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayFuroReference') ||
+
       css`
         :host {
           display: inline;

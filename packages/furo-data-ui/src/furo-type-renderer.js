@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import { Theme } from '@furo/framework';
+
 
 /**
  * `furo-type-renderer`
@@ -68,7 +68,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroTypeRenderer') ||
+
       css`
         :host {
           display: none;

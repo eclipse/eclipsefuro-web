@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 import '@furo/util/src/furo-pretty-json.js';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
@@ -79,7 +79,7 @@ class JsonPanel extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('JsonPanel') ||
+
       css`
         :host {
           display: block;

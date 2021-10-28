@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BasePanel } from '@furo/route/src/lib/BasePanel';
-import { Theme } from '@furo/framework/src/theme';
+
 import { html, css } from 'lit';
 
 import '@furo/util/src/furo-pretty-json';
@@ -44,7 +44,7 @@ class EditExample extends BasePanel {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('EditExample') ||
+
       css`
         :host {
           display: block;

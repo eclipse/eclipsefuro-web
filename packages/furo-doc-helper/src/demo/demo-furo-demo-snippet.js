@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 // demo imports
 import '../furo-catalog.js';
@@ -45,7 +45,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroDemoSnippet') ||
+
       css`
         :host {
           display: block;

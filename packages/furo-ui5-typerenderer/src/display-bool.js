@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import '@ui5/webcomponents/dist/Icon.js';
 import '@ui5/webcomponents-icons/dist/accept.js';
 import '@ui5/webcomponents-icons/dist/border.js';
@@ -20,7 +20,7 @@ export class DisplayBool extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayBool') ||
+
       css`
         :host {
           display: inline;

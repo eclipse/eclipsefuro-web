@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -43,7 +43,7 @@ class FuroDocEventsItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDocEventsItem') ||
+
       css`
         :host {
           display: block;

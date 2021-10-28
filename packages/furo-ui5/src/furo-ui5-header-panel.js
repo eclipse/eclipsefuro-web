@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 // import slideDown from '@ui5/webcomponents-base/dist/animations/slideDown.js';
 // import slideUp from '@ui5/webcomponents-base/dist/animations/slideUp.js';
@@ -193,7 +193,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5HeaderPanel') ||
+
       css`
         :host {
           display: block;

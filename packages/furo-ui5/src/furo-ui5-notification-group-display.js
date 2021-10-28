@@ -5,7 +5,7 @@ import '@ui5/webcomponents-fiori/dist/NotificationListGroupItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
-import { Theme } from '@furo/framework/src/theme.js';
+
 
 /**
  * `furo-ui5-notification-group`
@@ -227,7 +227,7 @@ export class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5NotificationGroupDisplay') ||
+
       css`
         :host {
           display: block;

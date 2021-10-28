@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Styling } from '@furo/doc-helper/src/styling.js';
 import { FBP } from '@furo/fbp';
@@ -28,7 +28,7 @@ class DemoFuroDataTableRowSelection extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroDataTableRowSelection') || [
+       [
         css`
           :host {
             display: block;

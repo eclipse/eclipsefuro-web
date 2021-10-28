@@ -1,5 +1,5 @@
 import { css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
 
 /**
@@ -29,7 +29,7 @@ export class FuroUi5ButtonBar extends FuroButtonBar {
    */
   static get styles() {
     return (
-      Theme.getThemeForComponent('FuroUi5ButtonBar') ||
+
       css`
         :host {
           display: block;

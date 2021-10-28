@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-horizontal-flex';
 import '@furo/data-input/src/furo-data-bool-icon';
@@ -279,7 +279,7 @@ export class FuroTreeItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroTreeItem') ||
+
       css`
         :host {
           display: block;

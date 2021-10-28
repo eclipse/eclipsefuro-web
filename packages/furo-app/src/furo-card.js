@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import './furo-loading-indicator-bar.js';
 
@@ -54,7 +54,7 @@ class FuroCard extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroCard') ||
+
       css`
         :host {
           display: block;

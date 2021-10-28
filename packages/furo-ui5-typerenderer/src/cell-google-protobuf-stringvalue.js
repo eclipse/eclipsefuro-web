@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `cell-google-protobuf-stringvalue`
@@ -32,7 +32,7 @@ class CellGoogleProtobufStringvalue extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CellGoogleProtobufStringValue') ||
+
       css`
         :host {
           display: inline;

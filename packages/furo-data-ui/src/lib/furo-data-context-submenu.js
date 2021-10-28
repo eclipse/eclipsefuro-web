@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 // import '@furo/fbp/src/flow-repeat'; // disabled for tests :-(
 // import '@furo/util/src/furo-navigation-pad';
@@ -240,7 +240,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDataMenuDisplay') ||
+
       css`
         :host {
           z-index: 10;

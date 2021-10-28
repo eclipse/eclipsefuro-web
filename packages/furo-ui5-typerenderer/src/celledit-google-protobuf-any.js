@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework';
+
 
 /**
  * `celledit-google-protobuf-any`
@@ -27,7 +27,7 @@ class CelleditGoolgeProtobufAny extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CelleditDouble') ||
+
       css`
         :host {
           display: none;

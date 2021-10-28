@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { Env } from '@furo/framework';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 import '@furo/fbp/src/flow-repeat.js';
@@ -282,7 +282,7 @@ export class FuroUi5DataTable extends FBP(LitElement) {
    */
   static get styles() {
     return (
-      Theme.getThemeForComponent('FuroUi5DataTable') ||
+
       css`
         :host {
           display: block;

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-ripple';
 /**
@@ -172,7 +172,7 @@ class FuroRadioButton extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroRadioButton') ||
+
       css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {

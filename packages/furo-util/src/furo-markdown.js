@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import 'markdown-it/dist/markdown-it.js';
 
 import 'prismjs/prism.js';
@@ -111,7 +111,7 @@ class FuroMarkdown extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroMarkdown') ||
+
       css`
         :host {
           display: block;

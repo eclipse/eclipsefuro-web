@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
@@ -23,7 +23,7 @@ class DemoFuroFormLayouter extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroFormLayouter') ||
+
       css`
         :host {
           display: block;

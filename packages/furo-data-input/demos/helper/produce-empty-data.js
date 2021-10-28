@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -52,7 +52,7 @@ class ProduceEmptyData extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('ProduceEmptyData') ||
+
       css`
         :host {
           display: inline-block;

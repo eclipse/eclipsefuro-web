@@ -67,7 +67,7 @@ export class {{.component_name | replace "-" "_" | camelcase}} extends {{.extend
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent("{{if .theme}}{{.theme}}{{else}}{{.component_name | replace "-" "_" | camelcase}}{{end}}") || css`
+    return  css`
       {{$tpl := dict "indent" 4 "data" .style.children}}{{template "style" $tpl}}
     `
   }

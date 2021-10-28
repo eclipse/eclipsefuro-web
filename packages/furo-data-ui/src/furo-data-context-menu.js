@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 import '@furo/util/src/furo-keydown';
 
@@ -139,7 +139,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDataMenu') ||
+
       css`
         :host {
           display: inline-block;

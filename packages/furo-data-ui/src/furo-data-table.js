@@ -3,7 +3,7 @@ import { html } from 'lit/static-html.js';
 
 import { FBP } from '@furo/fbp';
 import { Env } from '@furo/framework';
-import { Theme } from '@furo/framework/src/theme';
+
 
 import '@furo/fbp/src/flow-repeat.js';
 import './furo-data-table-toggle.js';
@@ -220,7 +220,7 @@ class FuroDataTable extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDataTable') ||
+
       css`
         :host {
           display: block;

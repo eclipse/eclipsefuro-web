@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import './side-navigation-item.js';
 /**
@@ -39,7 +39,7 @@ class SideNavigationGroup extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('SideNavigationGroup') ||
+
       css`
         :host {
           display: block;

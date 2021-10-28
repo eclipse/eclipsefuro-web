@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework';
+
 
 /**
  * `display-google-protobuf-any`
@@ -26,7 +26,7 @@ class DisplayGoolgeProtobufAny extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayDouble') ||
+
       css`
         :host {
           display: none;

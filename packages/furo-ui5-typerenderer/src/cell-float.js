@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { Env } from '@furo/framework/src/furo.js';
 
 /**
@@ -23,7 +23,7 @@ export class CellFloat extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CellFloat') ||
+
       css`
         :host {
           display: block;

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { Env } from '@furo/framework/src/furo.js';
 /**
  * `display-double`
@@ -27,7 +27,7 @@ export class DisplayDouble extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayDouble') ||
+
       css`
         :host {
           display: inline;

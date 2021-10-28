@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 
 import '@furo/layout/src/furo-horizontal-flex.js';
@@ -43,7 +43,7 @@ export class FuroUi5PaginationBar extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5PaginationBar') ||
+
       css`
         :host {
           width: 100%;

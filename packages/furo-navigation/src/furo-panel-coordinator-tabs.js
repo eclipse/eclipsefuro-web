@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 import './furo-panel-coordinator-tab-item.js';
@@ -219,7 +219,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroPanelCoordinatorTabs') ||
+
       css`
         :host {
           display: block;

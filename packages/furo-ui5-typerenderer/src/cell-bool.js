@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import '@ui5/webcomponents/dist/Icon.js';
 import '@ui5/webcomponents-icons/dist/accept.js';
 import '@ui5/webcomponents-icons/dist/border.js';
@@ -19,7 +19,7 @@ export class CellBool extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('CellBool') ||
+
       css`
         :host {
           display: block;

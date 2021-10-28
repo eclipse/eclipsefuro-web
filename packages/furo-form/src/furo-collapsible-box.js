@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import '@furo/layout/src/furo-horizontal-flex';
 import { FBP } from '@furo/fbp';
 
@@ -217,7 +217,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroCollapsibleBox') ||
+
       css`
         :host {
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),

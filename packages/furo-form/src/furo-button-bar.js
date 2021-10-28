@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import '@furo/layout/src/furo-horizontal-flex';
 
 /**
@@ -217,7 +217,7 @@ export class FuroButtonBar extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroButtonBar') ||
+
       css`
         :host {
           display: block;

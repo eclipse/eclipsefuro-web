@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 
 /**
  * `furo-ripple` gives the ripple effect to a element
@@ -58,7 +58,7 @@ class FuroRipple extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroRipple') ||
+
       css`
         :host {
           pointer-events: none;
