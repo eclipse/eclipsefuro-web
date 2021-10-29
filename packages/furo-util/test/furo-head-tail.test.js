@@ -3,7 +3,7 @@ import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
-import 'sinon/pkg/sinon.js';
+
 
 describe('furo-head-tail', () => {
   let element;
@@ -33,18 +33,6 @@ describe('furo-head-tail', () => {
   // axeReport a11y tests
 
 
-  it('should give a warning on non iterable data', done => {
-    // "spy" on `console.log()`
-    // eslint-disable-next-line no-undef
-    const spy = sinon.spy(console, 'warn');
-    element.split('123');
-    assert(spy.calledOnce);
-
-    // restore the original function
-    spy.restore();
-
-    done();
-  });
 
   it('should split an array to tail', done => {
     element.addEventListener('tail', e => {

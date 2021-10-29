@@ -5,7 +5,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';
 import '@furo/data';
-import '@furo/ui5-typerenderer/src/display-string.js';
+import './helper/display-string.js';
 
 describe('furo-type-renderer', () => {
   let host;

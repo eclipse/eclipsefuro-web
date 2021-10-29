@@ -13,7 +13,7 @@ describe('furo-fetch-json', () => {
       <test-bind>
         <template>
           <furo-fetch-json
-            src="/base/mockdata/experiments/1/get.json"
+            src="/mockdata/experiments/1/get.json"
             ƒ-fetch-src="--fetchSrc"
             ƒ-fetch="--fetch"
             @-data="--contentReceived"
@@ -40,7 +40,7 @@ describe('furo-fetch-json', () => {
       assert.equal(err.name, 'SyntaxError');
       done();
     });
-    host._FBPTriggerWire('--fetchSrc', '/base/mockdata/____404');
+    host._FBPTriggerWire('--fetchSrc', '/mockdata/____404');
   });
 
   it('should fetch a source with fetch-src', done => {
@@ -53,7 +53,7 @@ describe('furo-fetch-json', () => {
       assert.equal(e.data.id, 2);
       done();
     });
-    host._FBPTriggerWire('--fetchSrc', '/base/mockdata/projects/2/get.json');
+    host._FBPTriggerWire('--fetchSrc', '/mockdata/projects/2/get.json');
   });
 
   it('should be a furo-fetch-json', done => {

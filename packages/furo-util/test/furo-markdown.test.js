@@ -33,7 +33,7 @@ describe('furo-markdown', () => {
 
 
   it('should fetch and render a md file', async () => {
-    await element.fetchMd('/base/packages/furo-util/test/helper/test.md');
+    await element.fetchMd('/packages/furo-util/test/helper/test.md');
     const c = element.shadowRoot.querySelectorAll('*');
     assert.equal(c[0].innerText, 'Test');
     assert.equal(c[1].innerText, 'done');

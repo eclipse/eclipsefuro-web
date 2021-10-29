@@ -168,7 +168,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/pdf');
 
-    const request = new Request('/base/packages/furo-data/test/sample.pdf', {
+    const request = new Request('/packages/furo-data/test/sample.pdf', {
       method: 'GET',
       headers,
     });
@@ -179,7 +179,7 @@ describe('furo-api-fetch', () => {
   });
 
   it('should parse response with default handler (json)', done => {
-    const request = new Request('/base/packages/furo-data/test/wellformed-json.json', {
+    const request = new Request('/packages/furo-data/test/wellformed-json.json', {
       method: 'GET',
     });
     element.addEventListener('response', () => {
@@ -192,7 +192,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const request = new Request('/base/packages/furo-data/test/malformed-json.json', {
+    const request = new Request('/packages/furo-data/test/malformed-json.json', {
       method: 'GET',
       headers,
     });
@@ -207,7 +207,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const request = new Request('/base/packages/furo-data/test/wellformed-json.json', {
+    const request = new Request('/packages/furo-data/test/wellformed-json.json', {
       method: 'GET',
       headers,
     });
