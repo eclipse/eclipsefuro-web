@@ -30,8 +30,6 @@ describe('furo-fetch-json', () => {
   });
 
 
-
-
   it('should emit an error', done => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-fetch-json');
     /**

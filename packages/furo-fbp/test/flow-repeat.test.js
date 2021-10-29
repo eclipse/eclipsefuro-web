@@ -1,5 +1,5 @@
 import { fixture, html } from '@open-wc/testing';
-import { assert } from '@esm-bundle/chai';
+import { assert , expect} from '@esm-bundle/chai';
 
 import '../src/flow-repeat.js';
 import '../src/testhelper/test-bind.js'; // for testing with wires and hooks
