@@ -1,0 +1,2369 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-config-loader.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-config-loader`\n\nladet eine Konfiguration in eine vorgegebene Sektion. Diese lassen sich mit furo-config in jeder Komponente verwenden.\n\n```\n  <furo-config-loader src=\"/custom/view-config.json\" section=\"views\"></furo-config-loader>\n\n```",
+          "name": "FuroConfigLoader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "src",
+              "privacy": "public",
+              "description": "src\nQuelle der Konfiguration",
+              "attribute": "src"
+            },
+            {
+              "kind": "field",
+              "name": "section",
+              "privacy": "public",
+              "description": "section\nDie Sektion in der die Antwort gesichert wird",
+              "attribute": "section"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when the config is loaded with the loaded config as detail.",
+              "name": "config-loaded"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "src",
+              "description": "src\nQuelle der Konfiguration",
+              "fieldName": "src"
+            },
+            {
+              "name": "section",
+              "description": "section\nDie Sektion in der die Antwort gesichert wird",
+              "fieldName": "section"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "load config files",
+          "tagName": "furo-config-loader",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-config-loader",
+          "declaration": {
+            "name": "FuroConfigLoader",
+            "module": "src/furo-config-loader.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-config.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-config`\n\n Access config data\n\n\n```html\n  <furo-config-loader section=\"views\" src=\"/viewconfig.json\"></furo-config>\n  <furo-config-loader section=\"second\" src=\"/second.json\"></furo-config>\n  <furo-config section=\"views\" @-config-updated=\"--conf\"></furo-config>\n  <furo-config section=\"second.section.deep\" @-config-updated=\"--deepconf\"></furo-config>\n```",
+          "name": "FuroConfig",
+          "members": [
+            {
+              "kind": "field",
+              "name": "section",
+              "privacy": "public",
+              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
+              "attribute": "section"
+            },
+            {
+              "kind": "field",
+              "name": "config",
+              "description": "The current section of the config, which was defined by `section`.",
+              "default": "Config"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "config.section"
+              },
+              "description": "Fired when section changed",
+              "name": "config-updated"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "section",
+              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
+              "fieldName": "section"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "config access",
+          "tagName": "furo-config",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-config",
+          "declaration": {
+            "name": "FuroConfig",
+            "module": "src/furo-config.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-de-bounce.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-de-bounce`\n is a component with a input-wire, that, as long as it continues to be triggered, will not\n be invoked. The wire will be triggered after it stops being called for\n N milliseconds. If `immediate` is passed as a attribute, it triggers the input-wire on the\n leading edge, instead of the trailing.",
+          "name": "FuroDeBounce",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "immediate",
+              "privacy": "public",
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+              "attribute": "immediate"
+            },
+            {
+              "kind": "field",
+              "name": "wait",
+              "privacy": "public",
+              "description": "Debounce time in milliseconds\nDefault value: 250",
+              "attribute": "wait"
+            },
+            {
+              "kind": "method",
+              "name": "_createHandler",
+              "parameters": [
+                {
+                  "name": "wait"
+                },
+                {
+                  "name": "immediate"
+                }
+              ],
+              "description": "Internal create of debounce handler function",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "inputWire",
+              "parameters": [
+                {
+                  "name": "wire"
+                }
+              ],
+              "description": "Debounce function"
+            },
+            {
+              "kind": "field",
+              "name": "_debounce",
+              "default": "function debounce(func, wait, immediate) {\n      let timeout;\n      return function debouncer() {\n        const context = this;\n        // eslint-disable-next-line prefer-rest-params\n        const args = arguments;\n        const later = function applyLater() {\n          timeout = null;\n          if (!immediate) func.apply(context, args);\n        };\n        const callNow = immediate && !timeout;\n        clearTimeout(timeout);\n        timeout = setTimeout(later, wait);\n        if (callNow) func.apply(context, args);\n      };\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "_immediate",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_wait",
+              "type": {
+                "text": "number"
+              },
+              "default": "250"
+            }
+          ],
+          "events": [
+            {
+              "name": "out",
+              "type": {
+                "text": "*"
+              },
+              "description": "Fired after `input-wire` stops being called for N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge. object param from inputWire"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "wait",
+              "description": "Debounce time in milliseconds\nDefault value: 250",
+              "fieldName": "wait"
+            },
+            {
+              "name": "immediate",
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+              "fieldName": "immediate"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "event de bouncer",
+          "tagName": "furo-de-bounce",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-de-bounce",
+          "declaration": {
+            "name": "FuroDeBounce",
+            "module": "src/furo-de-bounce.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-fetch-json.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-fetch-json`\n Fetches and parses json data from a source.\n\n ```html\n <furo-fetch-json src=\"/example.json\" ƒ-fetch=\"--FBPready\" @-data=\"--contentReceived\"></furo-fetch-json>\n ```",
+          "name": "FuroFetchJson",
+          "members": [
+            {
+              "kind": "method",
+              "name": "fetch",
+              "description": "fetch and parse the data from specified `src`.\n\nUse fetch-src if you want to pass the source url",
+              "return": {
+                "type": {
+                  "text": "Promise<any>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "fetchSrc",
+              "parameters": [
+                {
+                  "name": "source"
+                },
+                {
+                  "description": "source",
+                  "name": "String"
+                }
+              ],
+              "description": "fetch json data from source",
+              "return": {
+                "type": {
+                  "text": "Promise<any>"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "src",
+              "privacy": "public",
+              "description": "the url you want to fetch",
+              "attribute": "src"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "{Object} json data"
+              },
+              "description": " Fired when data received and json parsed",
+              "name": "data"
+            },
+            {
+              "type": {
+                "text": "error"
+              },
+              "description": " Fired when json is not parseable",
+              "name": "parse-error"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "src",
+              "description": "the url you want to fetch",
+              "fieldName": "src"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "fetch json data",
+          "tagName": "furo-fetch-json",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-fetch-json",
+          "declaration": {
+            "name": "FuroFetchJson",
+            "module": "src/furo-fetch-json.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-forth-stack.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-forth-stack` is a declarative stack, inspired by the forth stack.\n\nhttps://hackaday.com/2017/01/27/forth-the-hackers-language/\nhttp://wiki.laptop.org/go/Forth_stack_operators\nhttp://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks",
+          "name": "FuroForthStack",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "description": "Current size of the stack",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "clearStack",
+              "description": "Empties the stack and set the stack-size to 0"
+            },
+            {
+              "kind": "method",
+              "name": "put",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ],
+              "description": "Add an element to the stack",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "swap",
+              "description": "\nswap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "drop",
+              "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "dup",
+              "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "over",
+              "description": "\nover **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "rot",
+              "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "rrot",
+              "description": "rrot **( n1 n2 n3 -- n3 n1 n2 )**\n\n   Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.\n   The top elemen the stack gets moved to the bottom of the stack.\n\n   1 2 3 rot\n   gives you:\n\n   3 1 2 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "_move",
+              "parameters": [
+                {
+                  "name": "arr"
+                },
+                {
+                  "name": "fromIndex"
+                },
+                {
+                  "name": "toIndex"
+                }
+              ],
+              "description": "moves element of an array from index to index*",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_notifyStackChange"
+            },
+            {
+              "kind": "field",
+              "name": "_stack",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Number"
+              },
+              "description": " Fired when the stack size changes with Integer with the current size of the stack.",
+              "name": "stack-size-changed"
+            },
+            {
+              "type": {
+                "text": "the top element"
+              },
+              "description": " Fired when stack was rotated",
+              "name": "rotated"
+            },
+            {
+              "type": {
+                "text": "the top element"
+              },
+              "description": " Fired when the stack contents changes after put, drop,...",
+              "name": "stack-changed"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when stack was swapped",
+              "name": "swapped"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when stack gets empty",
+              "name": "empty"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "forth like stack",
+          "tagName": "furo-forth-stack",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FuroForthStack",
+          "declaration": {
+            "name": "FuroForthStack",
+            "module": "src/furo-forth-stack.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-forth-stack",
+          "declaration": {
+            "name": "FuroForthStack",
+            "module": "src/furo-forth-stack.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-get-clipboard.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-get-clipboard`\n get the clipboard content from the OS.\n\n```html\n\n<furo-get-clipboard ƒ-trigger=\"--clipboardContentRequested\" @-content=\"--contentReceived\">\n</furo-get-clipboard>\n\n```",
+          "name": "FuroGetClipboard",
+          "members": [
+            {
+              "kind": "method",
+              "name": "trigger"
+            },
+            {
+              "kind": "field",
+              "name": "json",
+              "privacy": "public",
+              "description": "Convert clipboard content to json",
+              "attribute": "json"
+            }
+          ],
+          "events": [
+            {
+              "description": " Fired when clipboard content is received",
+              "name": "content"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "json",
+              "description": "Convert clipboard content to json",
+              "fieldName": "json"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "get clipboard content",
+          "tagName": "furo-get-clipboard",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-get-clipboard",
+          "declaration": {
+            "name": "FuroGetClipboard",
+            "module": "src/furo-get-clipboard.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-head-tail.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "\n`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-head-tail ƒ-split=\"--arrayData\" @-head=\"--firstElement\" @-tail=\"--restOfArray\"></furo-head-tail>\n```",
+          "name": "FuroHeadTail",
+          "members": [
+            {
+              "kind": "method",
+              "name": "split",
+              "parameters": [
+                {
+                  "name": "iterable"
+                }
+              ],
+              "description": "Splits an iterable to its head (first item) and its tail (the rest) parts.\n\n```\n[\"a\", \"b\", \"c\", \"d\"]\n |_|  |___________|\n  ^      ^\n  |      |\n  |     TAIL   => [\"b\", \"c\", \"d\"]\n HEAD          => \"a\"\n```"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "{Any}"
+              },
+              "description": " Fired when Array was splitted, contains the first element of array.",
+              "name": "head"
+            },
+            {
+              "type": {
+                "text": "Array | Any"
+              },
+              "description": " Fired when Array was splitted. {Array || Any} is the tail from the injected array (e1 - 1n)",
+              "name": "tail"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "summary": "split an array",
+          "tagName": "furo-head-tail",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-head-tail",
+          "declaration": {
+            "name": "FuroHeadTail",
+            "module": "src/furo-head-tail.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-hp-35.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`hp-35` is a declarative rpn calculator component.\n\nsee https://hansklav.home.xs4all.nl/rpn/\n\nhttp://h10032.www1.hp.com/ctg/Manual/c01579350",
+          "name": "FuroHp35",
+          "members": [
+            {
+              "kind": "method",
+              "name": "enter",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Enter a number"
+            },
+            {
+              "kind": "method",
+              "name": "updateXYZT"
+            },
+            {
+              "kind": "method",
+              "name": "swap",
+              "description": "\nswap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "rot",
+              "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "roll",
+              "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top"
+            },
+            {
+              "kind": "method",
+              "name": "add",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Process an addition",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "substract",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Process a substraction",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "sqrt",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform square root operation",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "ln",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform log operation",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "cos",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform cos operation",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "sin",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform sin operation",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "tan",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform tan operation",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "abs",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform abs operation",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "reciprocal",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform reciprocal operation",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exp",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Perform exp operation\n\nreturns e^x, where x is the argument, and e is Euler's number (also known as Napier's constant), the base of the natural logarithms.",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "xroot",
+              "parameters": [
+                {
+                  "name": "n"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "multiply",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Process a multiplication",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "pow",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Process power",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "divide",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "Number"
+                  }
+                }
+              ],
+              "description": "Process a division",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "clear",
+              "description": "clear the stack"
+            },
+            {
+              "kind": "field",
+              "name": "_PIdivby180",
+              "type": {
+                "text": "number"
+              },
+              "default": "0.017453292519943295",
+              "privacy": "public",
+              "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+              "attribute": "_PIdivby180"
+            },
+            {
+              "kind": "field",
+              "name": "radMode",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Set to true to use rad, default is deg",
+              "attribute": "radMode"
+            },
+            {
+              "kind": "field",
+              "name": "x",
+              "privacy": "public",
+              "description": "current x",
+              "type": {
+                "text": "Number"
+              },
+              "attribute": "x"
+            },
+            {
+              "kind": "field",
+              "name": "y",
+              "privacy": "public",
+              "description": "current y",
+              "type": {
+                "text": "Number"
+              },
+              "attribute": "y"
+            },
+            {
+              "kind": "field",
+              "name": "z",
+              "privacy": "public",
+              "description": "current z",
+              "attribute": "z"
+            },
+            {
+              "kind": "field",
+              "name": "t",
+              "privacy": "public",
+              "description": "current t",
+              "attribute": "t"
+            },
+            {
+              "kind": "field",
+              "name": "stack",
+              "privacy": "public",
+              "description": "the stack.",
+              "attribute": "stack"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "description": "Current size of the stack",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "clearStack",
+              "description": "Empties the stack and set the stack-size to 0",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "put",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ],
+              "description": "Add an element to the stack",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "drop",
+              "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "dup",
+              "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "over",
+              "description": "\nover **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "rrot",
+              "description": "rrot **( n1 n2 n3 -- n3 n1 n2 )**\n\n   Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.\n   The top elemen the stack gets moved to the bottom of the stack.\n\n   1 2 3 rot\n   gives you:\n\n   3 1 2 <- Top",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_move",
+              "parameters": [
+                {
+                  "name": "arr"
+                },
+                {
+                  "name": "fromIndex"
+                },
+                {
+                  "name": "toIndex"
+                }
+              ],
+              "description": "moves element of an array from index to index*",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_notifyStackChange",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_stack",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when something in stack changes",
+              "name": "stackchange"
+            },
+            {
+              "type": {
+                "text": "Number"
+              },
+              "description": " Fired when the stack size changes with Integer with the current size of the stack.",
+              "name": "stack-size-changed",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "type": {
+                "text": "the top element"
+              },
+              "description": " Fired when stack was rotated",
+              "name": "rotated",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "type": {
+                "text": "the top element"
+              },
+              "description": " Fired when the stack contents changes after put, drop,...",
+              "name": "stack-changed",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when stack was swapped",
+              "name": "swapped",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when stack gets empty",
+              "name": "empty",
+              "inheritedFrom": {
+                "name": "FuroForthStack",
+                "module": "src/furo-forth-stack.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "x",
+              "description": "current x",
+              "type": {
+                "text": "Number"
+              },
+              "fieldName": "x"
+            },
+            {
+              "name": "y",
+              "description": "current y",
+              "type": {
+                "text": "Number"
+              },
+              "fieldName": "y"
+            },
+            {
+              "name": "z",
+              "description": "current z",
+              "fieldName": "z"
+            },
+            {
+              "name": "t",
+              "description": "current t",
+              "fieldName": "t"
+            },
+            {
+              "name": "stack",
+              "description": "the stack.",
+              "fieldName": "stack"
+            },
+            {
+              "name": "radMode",
+              "description": "Set to true to use rad, default is deg",
+              "fieldName": "radMode"
+            },
+            {
+              "name": "_PIdivby180",
+              "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+              "fieldName": "_PIdivby180"
+            }
+          ],
+          "superclass": {
+            "name": "FuroForthStack",
+            "module": "/src/furo-forth-stack.js"
+          },
+          "summary": "calculator component",
+          "tagName": "furo-hp-35",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-hp-35",
+          "declaration": {
+            "name": "FuroHp35",
+            "module": "src/furo-hp-35.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-interval-pulse.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-interval-pulse`\n\nPulses a tick event every `interval` ms duration and every `takt` a tock event is also fired.",
+          "name": "FuroIntervalPulse",
+          "members": [
+            {
+              "kind": "method",
+              "name": "start",
+              "description": "Starts the pulsing."
+            },
+            {
+              "kind": "method",
+              "name": "stop",
+              "description": "Stops the pulsing."
+            },
+            {
+              "kind": "field",
+              "name": "interval",
+              "type": {
+                "text": "number"
+              },
+              "default": "200",
+              "privacy": "public",
+              "description": "Duration of a tact in ms.",
+              "attribute": "interval"
+            },
+            {
+              "kind": "field",
+              "name": "takt",
+              "type": {
+                "text": "number"
+              },
+              "default": "4",
+              "privacy": "public",
+              "description": "Number of ticks per tact.",
+              "attribute": "takt"
+            },
+            {
+              "kind": "field",
+              "name": "auto",
+              "privacy": "public",
+              "description": "Starts interval automatically",
+              "attribute": "auto"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "Number"
+              },
+              "description": "Fired on every interval with the position of the pulse starting at 0.",
+              "name": "tick"
+            },
+            {
+              "type": {
+                "text": "Number"
+              },
+              "description": "Fired nth interval defined by takt.",
+              "name": "tock"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "interval",
+              "description": "Duration of a tact in ms.",
+              "fieldName": "interval"
+            },
+            {
+              "name": "takt",
+              "description": "Number of ticks per tact.",
+              "fieldName": "takt"
+            },
+            {
+              "name": "auto",
+              "description": "Starts interval automatically",
+              "fieldName": "auto"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "trigger an event in intervals",
+          "tagName": "furo-interval-pulse",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-interval-pulse",
+          "declaration": {
+            "name": "FuroIntervalPulse",
+            "module": "src/furo-interval-pulse.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-key-filter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\" keys=\"Escape\"></furo-key-filter>\n```",
+          "name": "FuroKeyFilter",
+          "members": [
+            {
+              "kind": "method",
+              "name": "filter",
+              "parameters": [
+                {
+                  "name": "keyboardEvent"
+                }
+              ],
+              "description": "Check the event and dispatch matched when the conditions are fulfilled."
+            },
+            {
+              "kind": "field",
+              "name": "keys",
+              "privacy": "public",
+              "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
+              "attribute": "keys"
+            },
+            {
+              "kind": "field",
+              "name": "shift",
+              "privacy": "public",
+              "description": "Modifier key **shift** must be pressed too to match",
+              "attribute": "shift"
+            },
+            {
+              "kind": "field",
+              "name": "alt",
+              "privacy": "public",
+              "description": "Modifier key **alt** must be pressed too to match",
+              "attribute": "alt"
+            },
+            {
+              "kind": "field",
+              "name": "command",
+              "privacy": "public",
+              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
+              "attribute": "command"
+            },
+            {
+              "kind": "field",
+              "name": "meta",
+              "privacy": "public",
+              "description": "Modifier key **meta** must be pressed too to match",
+              "attribute": "meta"
+            },
+            {
+              "kind": "field",
+              "name": "control",
+              "privacy": "public",
+              "description": "Modifier key **control** must be pressed too to match",
+              "attribute": "control"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when key matches the options",
+              "name": "matched"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "keys",
+              "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
+              "fieldName": "keys"
+            },
+            {
+              "name": "shift",
+              "description": "Modifier key **shift** must be pressed too to match",
+              "fieldName": "shift"
+            },
+            {
+              "name": "alt",
+              "description": "Modifier key **alt** must be pressed too to match",
+              "fieldName": "alt"
+            },
+            {
+              "name": "command",
+              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
+              "fieldName": "command"
+            },
+            {
+              "name": "meta",
+              "description": "Modifier key **meta** must be pressed too to match",
+              "fieldName": "meta"
+            },
+            {
+              "name": "control",
+              "description": "Modifier key **control** must be pressed too to match",
+              "fieldName": "control"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "keyboard event filter",
+          "tagName": "furo-key-filter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-key-filter",
+          "declaration": {
+            "name": "FuroKeyFilter",
+            "module": "src/furo-key-filter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-keydown.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-key-press`\n Listen to keypress events on parent element\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)",
+          "name": "FuroKeydown",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "key",
+              "privacy": "public",
+              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
+              "attribute": "key"
+            },
+            {
+              "kind": "field",
+              "name": "global",
+              "privacy": "public",
+              "description": "Set this attribute to listen to the keydown event global (window).",
+              "attribute": "global"
+            },
+            {
+              "kind": "field",
+              "name": "alt",
+              "privacy": "public",
+              "attribute": "alt"
+            },
+            {
+              "kind": "field",
+              "name": "ctrl",
+              "privacy": "public",
+              "attribute": "ctrl"
+            },
+            {
+              "kind": "field",
+              "name": "meta",
+              "privacy": "public",
+              "attribute": "meta"
+            },
+            {
+              "kind": "field",
+              "name": "shift",
+              "privacy": "public",
+              "attribute": "shift"
+            },
+            {
+              "kind": "field",
+              "name": "preventDefault",
+              "privacy": "public",
+              "attribute": "prevent-default"
+            },
+            {
+              "kind": "field",
+              "name": "stopPropagation",
+              "privacy": "public",
+              "attribute": "stop-propagation"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": "Fired when key was catched on target",
+              "name": "key"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "key",
+              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
+              "fieldName": "key"
+            },
+            {
+              "name": "global",
+              "description": "Set this attribute to listen to the keydown event global (window).",
+              "fieldName": "global"
+            },
+            {
+              "name": "alt",
+              "fieldName": "alt"
+            },
+            {
+              "name": "ctrl",
+              "fieldName": "ctrl"
+            },
+            {
+              "name": "meta",
+              "fieldName": "meta"
+            },
+            {
+              "name": "shift",
+              "fieldName": "shift"
+            },
+            {
+              "name": "prevent-default",
+              "fieldName": "preventDefault"
+            },
+            {
+              "name": "stop-propagation",
+              "fieldName": "stopPropagation"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "keyboard event listener",
+          "tagName": "furo-keydown",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-keydown",
+          "declaration": {
+            "name": "FuroKeydown",
+            "module": "src/furo-keydown.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-markdown.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-markdown`\n Renders given md data with parseMarkdown or loads a md file with `mdsrc=\"source.md\"`",
+          "name": "FuroMarkdown",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mdsrc",
+              "privacy": "public",
+              "description": "source of the md",
+              "attribute": "mdsrc"
+            },
+            {
+              "kind": "field",
+              "name": "markdown",
+              "privacy": "public",
+              "description": "markdown string",
+              "attribute": "markdown"
+            },
+            {
+              "kind": "method",
+              "name": "fetchMd",
+              "parameters": [
+                {
+                  "name": "src"
+                }
+              ],
+              "description": "fetch markdown from a url or path",
+              "return": {
+                "type": {
+                  "text": "Promise<string | never>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "parseMarkdown",
+              "parameters": [
+                {
+                  "name": "markdown"
+                }
+              ],
+              "description": "Parse markdown string to html content"
+            },
+            {
+              "kind": "method",
+              "name": "_parseMarkdown",
+              "parameters": [
+                {
+                  "name": "markdown"
+                }
+              ],
+              "description": "parse markdown string to html content",
+              "return": {
+                "type": {
+                  "text": "TemplateResult | TemplateResult"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "markdownRendered",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "unsafe",
+              "privacy": "public",
+              "description": "allow unsafe md. (writing html, components,...)",
+              "attribute": "unsafe"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "unsafe",
+              "description": "allow unsafe md. (writing html, components,...)",
+              "fieldName": "unsafe"
+            },
+            {
+              "name": "mdsrc",
+              "description": "source of the md",
+              "fieldName": "mdsrc"
+            },
+            {
+              "name": "markdown",
+              "description": "markdown string",
+              "fieldName": "markdown"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "renders markdown data",
+          "tagName": "furo-markdown",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-markdown",
+          "declaration": {
+            "name": "FuroMarkdown",
+            "module": "src/furo-markdown.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-navigation-pad.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad ignored-keys=\"Escape\" @-navigated=\"--navpad\"></furo-navigation-pad>\n\n ```",
+          "name": "FuroNavigationPad",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "ignoredKeys",
+              "privacy": "public",
+              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
+              "attribute": "ignored-keys"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "String"
+              },
+              "description": "Generic navigation event, fired when one of the navigation keys was pressed, detail contains one of these: Escape | Enter | ArrowDown | ArrowUp |ArrowLeft|ArrowRight| PageUp | PageDown | Home | End",
+              "name": "navigated"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when Enter key was pressed.",
+              "name": "enter-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when ArrowDown key was pressed.",
+              "name": "arrow-down-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when ArrowUp key was pressed.",
+              "name": "arrow-up-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when ArrowLeft key was pressed.",
+              "name": "arrow-left-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when ArrowRight key was pressed.",
+              "name": "arrow-right-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when Escape key was pressed.",
+              "name": "escape-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when PageUp key was pressed.",
+              "name": "page-up-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when PageDown key was pressed.",
+              "name": "page-down-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when Home key was pressed.",
+              "name": "home-pressed"
+            },
+            {
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": " Fired when End key was pressed.",
+              "name": "end-pressed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "ignored-keys",
+              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
+              "fieldName": "ignoredKeys"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "keyboard navigation helper",
+          "tagName": "furo-navigation-pad",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-navigation-pad",
+          "declaration": {
+            "name": "FuroNavigationPad",
+            "module": "src/furo-navigation-pad.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-pretty-json.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-pretty-json`\nPretty json with highlighting",
+          "name": "FuroPrettyJson",
+          "members": [
+            {
+              "kind": "method",
+              "name": "injectData",
+              "parameters": [
+                {
+                  "name": "json"
+                }
+              ],
+              "description": "Inject JSON data"
+            },
+            {
+              "kind": "method",
+              "name": "_syntaxHighlight",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "json"
+                }
+              ]
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "pretty prints json data",
+          "tagName": "furo-pretty-json",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-pretty-json",
+          "declaration": {
+            "name": "FuroPrettyJson",
+            "module": "src/furo-pretty-json.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-put-clipboard.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-put-clipboard`\n put content to the clipboard of the OS.\n\n```html\n\n<furo-put-clipboard json ƒ-trigger=\"--putDataToClipboard\" @-content-putted=\"--contentInClipboard\">\n</furo-put-clipboard>\n\n```",
+          "name": "FuroPutClipboard",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setData",
+              "parameters": [
+                {
+                  "name": "data"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "trigger",
+              "parameters": [
+                {
+                  "name": "data",
+                  "description": "Serializable data",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Write data to the clipboard"
+            },
+            {
+              "kind": "field",
+              "name": "json",
+              "privacy": "public",
+              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
+              "attribute": "json"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "*"
+              },
+              "description": "Fired when content is written to clipboard",
+              "name": ""
+            }
+          ],
+          "attributes": [
+            {
+              "name": "json",
+              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
+              "fieldName": "json"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "write content to clipboard",
+          "tagName": "furo-put-clipboard",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-put-clipboard",
+          "declaration": {
+            "name": "FuroPutClipboard",
+            "module": "src/furo-put-clipboard.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/doc/furo-demo-snippet.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-demo-snippet`\ntodo Describe your element",
+          "name": "FuroDemoSnippet",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "template"
+            },
+            {
+              "kind": "field",
+              "name": "markdown",
+              "default": "`\\`\\`\\`html\\n${t.innerHTML}\\n\\`\\`\\``"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'fullscreen'"
+            },
+            {
+              "kind": "field",
+              "name": "source",
+              "privacy": "public",
+              "description": "Description",
+              "attribute": "source",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "demo",
+              "privacy": "public",
+              "attribute": "demo",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "flow",
+              "privacy": "public",
+              "attribute": "flow",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "fullscreen",
+              "privacy": "public",
+              "attribute": "fullscreen",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "noDemo",
+              "privacy": "public",
+              "attribute": "no-demo",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "source",
+              "description": "Description",
+              "fieldName": "source"
+            },
+            {
+              "name": "demo",
+              "fieldName": "demo"
+            },
+            {
+              "name": "flow",
+              "fieldName": "flow"
+            },
+            {
+              "name": "fullscreen",
+              "fieldName": "fullscreen"
+            },
+            {
+              "name": "no-demo",
+              "fieldName": "noDemo"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "furo-demo-snippet",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-demo-snippet",
+          "declaration": {
+            "name": "FuroDemoSnippet",
+            "module": "src/doc/furo-demo-snippet.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/doc/styling.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Styling",
+          "members": [
+            {
+              "kind": "field",
+              "name": "theme",
+              "static": true
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Styling",
+          "declaration": {
+            "name": "Styling",
+            "module": "src/doc/styling.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/Config.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Config",
+          "members": [
+            {
+              "kind": "method",
+              "name": "append",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "obj"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "deepCreate",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "parent"
+                },
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "obj"
+                }
+              ],
+              "description": "create nodes a long they are objects"
+            },
+            {
+              "kind": "method",
+              "name": "watch",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "cb"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Config",
+          "declaration": {
+            "name": "Config",
+            "module": "src/lib/Config.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/EmptyStackError.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "EmpptyStackError",
+          "superclass": {
+            "name": "Error",
+            "module": "src/lib/EmptyStackError.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "EmpptyStackError",
+          "declaration": {
+            "name": "EmpptyStackError",
+            "module": "src/lib/EmptyStackError.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/doc/graph/furo-graph-renderer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-graph-renderer`\nPaint a SVG from the received graph data",
+          "name": "FuroGraphRenderer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "draw",
+              "parameters": [
+                {
+                  "name": "graph"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "node"
+              },
+              "description": " Fired on mouseover of a attr node",
+              "name": "show-tooltip-requested"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "todo shortdescription",
+          "tagName": "furo-graph-renderer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-graph-renderer",
+          "declaration": {
+            "name": "FuroGraphRenderer",
+            "module": "src/doc/graph/furo-graph-renderer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/doc/graph/furo-show-flow.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-show-flow`\nRenders a flow from dom node or html source",
+          "name": "FuroShowFlow",
+          "members": [
+            {
+              "kind": "method",
+              "name": "parseHtml",
+              "parameters": [
+                {
+                  "name": "source",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Parse html content"
+            },
+            {
+              "kind": "method",
+              "name": "parseTemplate",
+              "parameters": [
+                {
+                  "name": "template"
+                },
+                {
+                  "description": "node",
+                  "name": "dom",
+                  "type": {
+                    "text": "dom"
+                  }
+                }
+              ],
+              "description": "Parse a dom node"
+            },
+            {
+              "kind": "method",
+              "name": "_setWireEdges"
+            },
+            {
+              "kind": "method",
+              "name": "_recursiveParse",
+              "parameters": [
+                {
+                  "name": "node"
+                },
+                {
+                  "name": "parentNode"
+                }
+              ]
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "furo-show-flow",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-show-flow",
+          "declaration": {
+            "name": "FuroShowFlow",
+            "module": "src/doc/graph/furo-show-flow.js"
+          }
+        }
+      ]
+    }
+  ]
+}
