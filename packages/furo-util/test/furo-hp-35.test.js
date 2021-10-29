@@ -30,7 +30,7 @@ describe('furo-hp-35', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should be possible to enter some numbers', done => {
     element.enter(3);

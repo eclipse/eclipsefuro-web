@@ -30,7 +30,7 @@ describe('furo-key-filter', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should filter', done => {
     element.addEventListener('matched', d => {

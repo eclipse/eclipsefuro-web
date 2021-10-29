@@ -29,8 +29,8 @@ describe('furo-fetch-json', () => {
     await element.updateComplete;
   });
 
-  // a11y tests
-  it('a11y', () => axeReport(element));
+
+
 
   it('should emit an error', done => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-fetch-json');

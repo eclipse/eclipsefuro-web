@@ -30,7 +30,7 @@ describe('furo-app-flow', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should fire an app-flow and ignore array', done => {
     element.event = 'test';

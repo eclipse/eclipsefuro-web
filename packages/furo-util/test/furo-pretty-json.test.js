@@ -30,7 +30,7 @@ describe('furo-pretty-json', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should accept json', done => {
     element.injectData({ a: 1, b: true, c: 12 });

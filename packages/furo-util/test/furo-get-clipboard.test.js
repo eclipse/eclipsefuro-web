@@ -34,7 +34,7 @@ describe('furo-get-clipboard', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should return the clipboard content on content event', done => {
     element.addEventListener('content', d => {

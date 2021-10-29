@@ -60,7 +60,7 @@ describe('furo-resizer', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should care about the min width', done => {
     element.setAttribute('minwidth', '180');

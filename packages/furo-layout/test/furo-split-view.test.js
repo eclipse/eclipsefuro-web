@@ -30,5 +30,5 @@ describe('furo-split-view', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 });

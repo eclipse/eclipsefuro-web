@@ -34,7 +34,7 @@ describe('furo-put-clipboard', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should write setted data to clipboard', done => {
     element.addEventListener('content-putted', d => {

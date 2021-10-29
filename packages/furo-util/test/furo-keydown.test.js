@@ -30,7 +30,7 @@ describe('furo-keydown', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should fire the key event when key was pressed', done => {
     element.addEventListener(

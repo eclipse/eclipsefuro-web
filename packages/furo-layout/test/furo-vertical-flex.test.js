@@ -30,5 +30,5 @@ describe('furo-vertical-flex', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 });

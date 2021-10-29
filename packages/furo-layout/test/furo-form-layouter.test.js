@@ -30,7 +30,7 @@ describe('furo-form-layouter', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should be a furo-form-layouter', () => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-form-layouter');

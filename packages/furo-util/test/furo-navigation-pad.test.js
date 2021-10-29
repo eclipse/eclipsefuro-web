@@ -30,7 +30,7 @@ describe('furo-navigation-pad', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should fire navigated', done => {
     element.addEventListener(

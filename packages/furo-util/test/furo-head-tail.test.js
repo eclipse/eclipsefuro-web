@@ -31,7 +31,7 @@ describe('furo-head-tail', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should give a warning on non iterable data', done => {
     // "spy" on `console.log()`

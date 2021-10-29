@@ -30,7 +30,7 @@ describe('furo-qp-changer', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should dispatch a _locationchanged event', done => {
     element.addEventListener('__furoLocationChanged', e => {

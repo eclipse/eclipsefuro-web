@@ -30,7 +30,7 @@ describe('furo-interval-pulse', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should fire interval event', done => {
     element.addEventListener('tock', () => {

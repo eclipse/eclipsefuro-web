@@ -30,7 +30,7 @@ describe('furo-de-bounce', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should set attributes', done => {
     element.wait = 3000;
