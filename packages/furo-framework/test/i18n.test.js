@@ -5,8 +5,9 @@ import { Env } from '../src/environment.js';
 import { Translations } from './translations.js';
 
 describe('i18n', () => {
+  // todo: @maltenorstroem ? is this really what we want?
   it('should return bare key if no resource bundle is registered', done => {
-    assert.equal(i18n.t('key'), 'key**');
+    assert.equal(i18n.t('key'), 'key');
     done();
   });
 
