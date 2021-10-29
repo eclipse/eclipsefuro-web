@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-alpha.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@5.12.2...@furo/fbp@6.0.0-alpha.0) (2021-10-29)
+
+
+### Features
+
+* initial open wc env ([a5c1880](https://github.com/eclipse/eclipsefuro-web/commit/a5c18800a4cfe755ac12b53fdabba3d6f8e1f276))
+* make package scripts similar ([baee77e](https://github.com/eclipse/eclipsefuro-web/commit/baee77e972661de51a7c2a403dfcc82f59c19f32))
+* testing ([8eff5d8](https://github.com/eclipse/eclipsefuro-web/commit/8eff5d8b42e6ca941e08173c473f492749157aa4))
+* Testing for all packages ([4052d27](https://github.com/eclipse/eclipsefuro-web/commit/4052d276aac0691bd4102b0083f50d4e29fea5cf))
+
+
+
+
+
 ## [5.12.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@5.12.1...@furo/fbp@5.12.2) (2021-10-12)
 
 **Note:** Version bump only for package @furo/fbp

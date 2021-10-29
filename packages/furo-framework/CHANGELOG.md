@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@1.9.3...@furo/framework@2.0.0-alpha.0) (2021-10-29)
+
+
+### Features
+
+* initial open wc env ([a5c1880](https://github.com/eclipse/eclipsefuro-web/commit/a5c18800a4cfe755ac12b53fdabba3d6f8e1f276))
+* make package scripts similar ([baee77e](https://github.com/eclipse/eclipsefuro-web/commit/baee77e972661de51a7c2a403dfcc82f59c19f32))
+* Testing for all packages ([4052d27](https://github.com/eclipse/eclipsefuro-web/commit/4052d276aac0691bd4102b0083f50d4e29fea5cf))
+
+
+
+
+
 ## [1.9.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@1.9.2...@furo/framework@1.9.3) (2021-10-12)
 
 **Note:** Version bump only for package @furo/framework

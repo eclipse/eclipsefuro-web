@@ -1,6 +1,6 @@
 {
   "name": "@furo/fbp",
-  "version": "6.0.0-alpha",
+  "version": "6.0.0-alpha.0",
   "description": "Declarative programming with web-components.",
   "homepage": "https://fbp.furo.pro",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
@@ -25,14 +25,12 @@
     "test": "../../node_modules/.bin/web-test-runner  --coverage",
     "test:watch": "../../node_modules/.bin/web-test-runner  --watch"
   },
-
   "publishConfig": {
     "access": "public"
   },
   "engines": {
     "node": ">=10.0"
   },
-
   "customElements": "custom-elements.json",
   "eslintConfig": {
     "extends": [
@@ -57,4 +55,3 @@
     ]
   }
 }
-
