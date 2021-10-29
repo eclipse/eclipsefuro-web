@@ -38824,6 +38824,26 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/tree/specs/navigation/navigationnode.type.spec.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "spec"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "spec",
+            "module": "src/tree/specs/navigation/navigationnode.type.spec.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/tree/demos/helper/produce-data.js",
       "declarations": [
         {
@@ -38935,26 +38955,6 @@
           "declaration": {
             "name": "TreeDemoForm",
             "module": "src/tree/demos/helper/tree-demo-form.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/tree/specs/navigation/navigationnode.type.spec.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "spec"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "spec",
-            "module": "src/tree/specs/navigation/navigationnode.type.spec.js"
           }
         }
       ]
