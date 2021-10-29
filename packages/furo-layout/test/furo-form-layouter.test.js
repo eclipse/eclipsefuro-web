@@ -1,7 +1,7 @@
 import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
-import { axeReport } from 'pwa-helpers/axe-report.js';
-import '@furo/form';
+
+import '../src/furo-form-layouter.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
 
 describe('furo-form-layouter', () => {
@@ -29,7 +29,7 @@ describe('furo-form-layouter', () => {
     done();
   });
 
-  // axeReport a11y tests
+
 
 
   it('should be a furo-form-layouter', () => {

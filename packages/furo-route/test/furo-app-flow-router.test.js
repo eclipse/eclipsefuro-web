@@ -1,6 +1,5 @@
 import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
-import { axeReport } from 'pwa-helpers/axe-report.js';
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
 
@@ -49,8 +48,7 @@ describe('furo-app-flow-router', () => {
     done();
   });
 
-  // axeReport a11y tests
-  it('a11y', () => axeReport(router));
+
 
   it('should map defined mappings path', () => {
     flow.event = 'unauthorized';

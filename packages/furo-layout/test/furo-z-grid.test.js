@@ -1,6 +1,7 @@
 import { fixture, html } from '@open-wc/testing';
 import '@furo/layout/src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind.js';
+import { assert } from '@esm-bundle/chai';
 
 describe('furo-z-grid', () => {
   let element;
