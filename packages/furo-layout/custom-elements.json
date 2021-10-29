@@ -234,6 +234,174 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/furo-form-layouter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, three, four and six\n\n```\n<furo-form-layouter></furo-form-layouter>\n```",
+          "name": "FuroFormLayouter",
+          "cssProperties": [
+            {
+              "type": {
+                "text": "0px"
+              },
+              "description": "width of row gap",
+              "name": "--furo-form-layouter-row-gap",
+              "default": "0px"
+            },
+            {
+              "type": {
+                "text": "0px"
+              },
+              "description": "width of column gap Tags: form",
+              "name": "--furo-form-layouter-column-gap",
+              "default": "0px"
+            }
+          ],
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add content. To customize the slotted elements inside furo-form-layouter there are several attributes. - double | stretches the element over two units - full | stretches the element to full width - newline | forces a new line ### Responsiveness Columns | narrow | narrower  | ----------------|-------------|-------------| `one` | one | one | `two` | one | one | `three` | one | one | `four` | two | one | `six` | three | one |",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "_checkSize",
+              "parameters": [
+                {
+                  "name": "width"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_fireResize"
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "flow is ready lifecycle method",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "narrow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "narrower",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "breakpointBig",
+              "type": {
+                "text": "number"
+              },
+              "default": "810",
+              "privacy": "public",
+              "description": "Set custom breakpoint big\nDefault: \"810\"",
+              "attribute": "breakpoint-big",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "breakpointSmall",
+              "type": {
+                "text": "number"
+              },
+              "default": "405",
+              "privacy": "public",
+              "description": "Set custom breakpoints small\nDefault: \"405\"",
+              "attribute": "breakpoint-small",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "narrowFix",
+              "privacy": "public",
+              "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
+              "attribute": "narrow-fix",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "narrowerFix",
+              "privacy": "public",
+              "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
+              "attribute": "narrower-fix",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "layout-changed",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "breakpoint-big",
+              "description": "Set custom breakpoint big\nDefault: \"810\"",
+              "fieldName": "breakpointBig"
+            },
+            {
+              "name": "breakpoint-small",
+              "description": "Set custom breakpoints small\nDefault: \"405\"",
+              "fieldName": "breakpointSmall"
+            },
+            {
+              "name": "narrow-fix",
+              "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
+              "fieldName": "narrowFix"
+            },
+            {
+              "name": "narrower-fix",
+              "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
+              "fieldName": "narrowerFix"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "Grid based form field row",
+          "tagName": "furo-form-layouter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-form-layouter",
+          "declaration": {
+            "name": "FuroFormLayouter",
+            "module": "src/furo-form-layouter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/furo-horizontal-flex.js",
       "declarations": [
         {

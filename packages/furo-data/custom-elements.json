@@ -179,6 +179,85 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/furo-append-object.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`append-object`",
+          "name": "FuroAppendObject",
+          "members": [
+            {
+              "kind": "method",
+              "name": "init",
+              "parameters": [
+                {
+                  "name": "object",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Set an initial object. Otherwise you will start with an empty object, which can also be useful sometimes."
+            },
+            {
+              "kind": "method",
+              "name": "append",
+              "parameters": [
+                {
+                  "name": "object",
+                  "type": {
+                    "text": "Object"
+                  }
+                }
+              ],
+              "description": "Append the properties of an object to the inital object."
+            },
+            {
+              "kind": "field",
+              "name": "initialObject",
+              "type": {
+                "text": "Object"
+              },
+              "description": "The initial object is an empty object.",
+              "default": "{}"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "{object} the extended object"
+              },
+              "description": " Fired when something is appended to the initial object.",
+              "name": "appended"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp/src/fbp.js"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "summary": "append data to object literals",
+          "tagName": "furo-append-object",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-append-object",
+          "declaration": {
+            "name": "FuroAppendObject",
+            "module": "src/furo-append-object.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/furo-collection-agent.js",
       "declarations": [
         {
@@ -1248,6 +1327,156 @@
           "declaration": {
             "name": "FuroDataFlowRepeat",
             "module": "src/furo-data-flow-repeat.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-data-hide-content.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\n\n\n```\n<furo-data-hide-content ƒ-bind-data=\"--bind(*.bool)\" ƒ-hide=\"--hideClicked\" ƒ-show=\"--showClicked\">\n <div>some content</div>\n</furo-collapsible-box>\n```",
+          "name": "FuroDataHideContent",
+          "slots": [
+            {
+              "type": {
+                "text": "HTMLElement [0..n]"
+              },
+              "description": "default slot to add content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode",
+                  "description": "a Field object",
+                  "type": {
+                    "text": "Object|FieldNode"
+                  }
+                }
+              ],
+              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`"
+            },
+            {
+              "kind": "method",
+              "name": "_checkInversedState",
+              "parameters": [
+                {
+                  "name": "bool"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "hides the content"
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "shows the content"
+            },
+            {
+              "kind": "method",
+              "name": "toggle",
+              "description": "Toggle the current visibility state."
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "_notify",
+              "parameters": [
+                {
+                  "name": "eventname"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_hidden",
+              "privacy": "private",
+              "description": "Internal variable to update the attribute, which triggers the css",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideOnFalse",
+              "privacy": "public",
+              "description": "Hide element on false instead of true",
+              "attribute": "hide-on-false"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "{Boolean} current visibility state"
+              },
+              "description": " Fired when the visibility changed",
+              "name": "value-changed"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": " Fired when the content gets hided",
+              "name": "hided"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": " Fired when the content gets visible",
+              "name": "showed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "hidden",
+              "description": "Internal variable to update the attribute, which triggers the css",
+              "fieldName": "_hidden"
+            },
+            {
+              "name": "hide-on-false",
+              "description": "Hide element on false instead of true",
+              "fieldName": "hideOnFalse"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "hide content",
+          "tagName": "furo-data-hide-content",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-data-hide-content",
+          "declaration": {
+            "name": "FuroDataHideContent",
+            "module": "src/furo-data-hide-content.js"
           }
         }
       ]
@@ -2539,6 +2768,127 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/furo-type-renderer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-type-renderer`\nThe furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
+          "name": "FuroTypeRenderer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode"
+                }
+              ],
+              "description": "Evaluates the component name\nSpecial treatment for google.protobuf.Any"
+            },
+            {
+              "kind": "method",
+              "name": "_createDisplay",
+              "description": "Creates the component for single fields",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_createRepeatedDisplay",
+              "description": "Creates the component for repeated fields\nComponent naming: [package-type]-repeated\n\nFallback: if no -repeated component is available, a flow-repeat is used...",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_addElement",
+              "parameters": [
+                {
+                  "name": "el"
+                }
+              ],
+              "description": "Attribute handling\nAdding to DOM",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_warning"
+            },
+            {
+              "kind": "field",
+              "name": "tpl",
+              "default": "html``"
+            },
+            {
+              "kind": "field",
+              "name": "context",
+              "type": {
+                "text": "string"
+              },
+              "default": "'display'",
+              "privacy": "public",
+              "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+              "attribute": "context"
+            },
+            {
+              "kind": "field",
+              "name": "valueState",
+              "privacy": "public",
+              "description": "Value State",
+              "attribute": "value-state",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
+              "attribute": "disabled"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value-state",
+              "description": "Value State",
+              "fieldName": "valueState"
+            },
+            {
+              "name": "disabled",
+              "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "context",
+              "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+              "fieldName": "context"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp/src/fbp.js"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "type rendering",
+          "tagName": "furo-type-renderer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-type-renderer",
+          "declaration": {
+            "name": "FuroTypeRenderer",
+            "module": "src/furo-type-renderer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/lib/AgentHelper.js",
       "declarations": [
         {
@@ -2717,7 +3067,7 @@
                   "name": "rawEntity"
                 }
               ],
-              "description": "Injecten eines raw models wie bspw body oder entity einer collection"
+              "description": "injects a raw model e.g. body data of a collection or entity"
             },
             {
               "kind": "method",
@@ -2895,7 +3245,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "\n## internal events\n- *this-field-became-invalid*, when a field gets invalid\n- *field-became-invalid* **bubbles**, when a field gets invalid\n- *this-field-became-valid*, when a field gets valid\n- *field-became-valid* **bubbles**, when a field gets valid\n- *this-field-value-changed*, when the value of a field changed\n- *field-value-changed* **bubbles**, when the value of a field changed\n- *this-metas-changed*, when the metas of a field changed\n- *metas-changed* **bubbles**, when the meta of a field changed\n- *oneof-field-cleared*, when a field in a oneof group was cleared\n- *oneof-field-changed*, when a field in a oneof group was changed\n- *this-node-field-added*, when a sub field was added to a field\n- *node-field-added* **bubbles**, when a sub field was added to a field\n- *this-node-field-deleted*, when a sub field was added to a field\n- *node-field-deleted* **bubbles**, when a sub field was added to a field\n\n\n## internal broadcasted events\n- *parent-readonly-meta-set*, when readonly was set on a parent field",
+          "description": "\n## internal events\n- *this-field-became-invalid*, when a field gets invalid\n- *field-became-invalid* **bubbles**, when a field gets invalid\n- *this-field-became-valid*, when a field gets valid\n- *field-became-valid* **bubbles**, when a field gets valid\n- *this-field-value-changed*, when the value of a field changed\n- *field-value-changed* **bubbles**, when the value of a field changed\n- *this-metas-changed*, when the metas of a field changed\n- *metas-changed* **bubbles**, when the meta of a field changed\n- *oneof-field-cleared*, when a field in a oneof group was cleared\n- *oneof-field-changed*, when a field in a oneof group was changed\n- *this-node-field-added*, when a sub field was added to a field\n- *node-field-added* **bubbles**, when a sub field was added to a field\n- *this-node-field-deleted*, when a sub field was added to a field\n- *node-field-deleted* **bubbles**, when a sub field was added to a field\n- *any-type-removed*, fired before a node of type any changes its inner type\n- *any-type-created*, fired when a node of type any is created or the type was changed\n\n\n## internal broadcasted events\n- *parent-readonly-meta-set*, when readonly was set on a parent field",
           "name": "FieldNode",
           "members": [
             {
@@ -3401,6 +3751,11 @@
             },
             {
               "kind": "method",
+              "name": "indeterminateDefault",
+              "static": true
+            },
+            {
+              "kind": "method",
               "name": "isNumericType",
               "static": true,
               "parameters": [
@@ -3470,6 +3825,11 @@
               "kind": "method",
               "name": "reinit",
               "description": "resets the field to the initial _values from the spec"
+            },
+            {
+              "kind": "method",
+              "name": "reset",
+              "description": "removes all children"
             },
             {
               "kind": "method",
