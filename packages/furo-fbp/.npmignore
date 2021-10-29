@@ -10,6 +10,7 @@ test
 .gitignore
 .npmignore
 .prettierrc
+demos
 analysis.json
 dev-shell.js
 documentation.json
