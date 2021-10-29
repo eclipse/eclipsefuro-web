@@ -4,12 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "karma.conf.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/empty-fbp-node.js",
       "declarations": [
         {
