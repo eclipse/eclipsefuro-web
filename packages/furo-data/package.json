@@ -1,7 +1,7 @@
 {
   "name": "@furo/data",
   "description": "Furo data components",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-data",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -26,8 +26,8 @@
     "test:watch": "../../node_modules/.bin/web-test-runner  --watch"
   },
   "dependencies": {
-    "@furo/fbp": "^6.0.0-alpha.0",
-    "@furo/framework": "^2.0.0-alpha.0",
+    "@furo/fbp": "^6.0.0-alpha.1",
+    "@furo/framework": "^2.0.0-alpha.1",
     "lit": "^2.0.2"
   },
   "publishConfig": {
