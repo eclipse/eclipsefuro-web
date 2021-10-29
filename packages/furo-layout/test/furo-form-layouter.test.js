@@ -1,5 +1,5 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 import { axeReport } from 'pwa-helpers/axe-report.js';
 import '@furo/form';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks

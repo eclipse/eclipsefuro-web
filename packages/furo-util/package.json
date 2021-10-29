@@ -9,6 +9,12 @@
     "email": "",
     "url": ""
   },
+  "keywords": [
+    "web-components",
+    "flow based programming",
+    "flowbased",
+    "flow"
+  ],
   "license": "MIT",
   "main": "src/furo-catalog.js",
   "scripts": {
@@ -31,6 +37,13 @@
     "dagre": "^0.8.4"
   },
 
+
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=10.0"
+  },
 
   "customElements": "custom-elements.json",
   "eslintConfig": {

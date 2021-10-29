@@ -18,9 +18,9 @@
   },
   "scripts": {
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
-    "cem": "./scripts/cem.sh",
-    "test:fbp": "web-test-runner --files packages/furo-fbp/test/**/*.test.js --coverage",
-    "test:fbp:watch": "web-test-runner --files packages/furo-fbp/test/**/*.test.js --watch"
+    "cem:all": "./scripts/cem.sh",
+    "test:all": "web-test-runner --files packages/**/*.test.js --coverage",
+    "test:all:watch": "web-test-runner --files packages/**/*.test.js --watch"
   },
   "author": "veith",
   "license": "MIT",

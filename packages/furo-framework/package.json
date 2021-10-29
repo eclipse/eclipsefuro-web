@@ -5,10 +5,16 @@
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-framework",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
-    "name": "",
+    "name": "veith",
     "email": "",
     "url": ""
   },
+  "keywords": [
+    "web-components",
+    "flow based programming",
+    "flowbased",
+    "flow"
+  ],
   "license": "MIT",
   "main": "src/furo.js",
   "scripts": {
@@ -28,34 +34,18 @@
   "engines": {
     "node": ">=10.0"
   },
+
+  "customElements": "custom-elements.json",
   "eslintConfig": {
-    "globals": {
-      "assert": "writable"
-    },
-    "plugins": [
-      "lit"
-    ],
-    "env": {
-      "browser": true
-    },
     "extends": [
-      "@open-wc/eslint-config",
-      "eslint-config-prettier",
-      "plugin:lit/recommended"
-    ],
-    "rules": {
-      "import/no-cycle": 1,
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true,
-          "optionalDependencies": true,
-          "peerDependencies": true
-        }
+      "@open-wc",
+      "prettier"
       ]
-    }
   },
-  "prettier": "@open-wc/prettier-config",
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -67,6 +57,6 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "customElements": "custom-elements.json"
 }
+}
+

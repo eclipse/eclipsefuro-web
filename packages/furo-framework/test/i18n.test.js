@@ -1,4 +1,4 @@
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import { i18n } from '../src/i18n.js';
 import { Env } from '../src/environment.js';

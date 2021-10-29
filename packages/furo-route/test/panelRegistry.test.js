@@ -1,4 +1,4 @@
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
