@@ -1,6 +1,6 @@
 {
   "name": "@furo/util",
-  "version": "1.8.4",
+  "version": "2.0.0-alpha",
   "description": "package sample",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-util",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",

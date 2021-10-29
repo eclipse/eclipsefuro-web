@@ -284,7 +284,7 @@ export const FBP = superClass =>
         }
 
         for (let i = 0; i < element.attributes.length; i += 1) {
-          // collect data receiver
+          // collect data property receiver
           if (element.attributes[i].name.startsWith('ƒ-.')) {
             // split multiple wires
             element.attributes[i].value.split(',').forEach(w => {

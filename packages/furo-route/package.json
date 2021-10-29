@@ -1,10 +1,7 @@
 {
 	"name": "@furo/route",
 	"description": "Routing components",
-	"keywords": [
-		"routing"
-	],
-	"version": "1.12.4",
+  "version": "2.0.0-alpha",
 	"homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-route",
 	"repository": "git@github.com:eclipse/eclipsefuro-web.git",
 	"author": {
@@ -16,7 +13,7 @@
     "web-components",
     "flow based programming",
     "flowbased",
-    "flow"
+    "routing"
   ],
 	"license": "MIT",
 	"main": "src/furo-catalog.js",
