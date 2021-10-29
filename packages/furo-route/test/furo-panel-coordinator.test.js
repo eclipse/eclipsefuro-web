@@ -83,7 +83,7 @@ describe('furo-panel-coordinator', () => {
     furoPannelCoordinator._notifiyOpenPanels();
   });
 
-  it('should show Page when a tree node is selected', done => {
+  xit('should show Page when a tree node is selected', done => {
     furoPannelCoordinator.addEventListener('panels-changed', () => {
       done();
     });
@@ -95,7 +95,7 @@ describe('furo-panel-coordinator', () => {
     dataProducer.produce();
   });
 
-  it('should close all Pages via closeAll', done => {
+  xit('should close all Pages via closeAll', done => {
     furoPannelCoordinator.addEventListener(
       'panels-changed',
       () => {
@@ -117,7 +117,7 @@ describe('furo-panel-coordinator', () => {
     dataProducer.produce();
   });
 
-  it('should remove node by id via _removeNodeById', done => {
+  xit('should remove node by id via _removeNodeById', done => {
     furoPannelCoordinator.addEventListener(
       'panels-changed',
       () => {
