@@ -9,11 +9,17 @@
     "email": "",
     "url": ""
   },
+  "keywords": [
+    "web-components",
+    "flow based programming",
+    "furo data binding",
+    "flow"
+  ],
   "license": "MIT",
   "main": "src/furo-catalog.js",
   "scripts": {
     "analyze": "../../node_modules/.bin/cem analyze --litelement",
-    "start": "../../node_modules/.bin/web-dev-server --app-index demo/index.html --open",
+    "start": "../../node_modules/.bin/web-dev-server --app-index demos/index.html --open",
     "lint": "../../node_modules/.bin/eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
     "format": "../../node_modules/.bin/eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
     "test": "../../node_modules/.bin/web-test-runner  --coverage",
@@ -30,35 +36,18 @@
   "engines": {
     "node": ">=10.0"
   },
+
+  "customElements": "custom-elements.json",
   "eslintConfig": {
-    "globals": {
-      "assert": "writable",
-      "expect": "writable"
-    },
-    "plugins": [
-      "lit"
-    ],
-    "env": {
-      "browser": true
-    },
     "extends": [
-      "@open-wc/eslint-config",
-      "eslint-config-prettier",
-      "plugin:lit/recommended"
-    ],
-    "rules": {
-      "import/no-cycle": 1,
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true,
-          "optionalDependencies": true,
-          "peerDependencies": true
-        }
+      "@open-wc",
+      "prettier"
       ]
-    }
   },
-  "prettier": "@open-wc/prettier-config",
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -70,6 +59,6 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "customElements": "custom-elements.json"
 }
+}
+

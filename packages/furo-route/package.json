@@ -14,7 +14,21 @@
 	},
 	"license": "MIT",
 	"main": "src/furo-catalog.js",
-	"publishConfig": {
+  "scripts": {
+    "analyze": "../../node_modules/.bin/cem analyze --litelement",
+    "start": "../../node_modules/.bin/web-dev-server --app-index demos/index.html --open",
+    "lint": "../../node_modules/.bin/eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "format": "../../node_modules/.bin/eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
+    "test": "../../node_modules/.bin/web-test-runner  --coverage",
+    "test:watch": "../../node_modules/.bin/web-test-runner  --watch"
+  },
+  "dependencies": {
+    "@furo/fbp": "^5.12.2",
+    "@furo/framework": "^1.9.3",
+    "lit": "^2.0.0"
+  },
+
+  "publishConfig": {
 		"access": "public"
 	},
 	"engines": {

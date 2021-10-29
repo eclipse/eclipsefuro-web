@@ -12,21 +12,12 @@
   "license": "MIT",
   "main": "src/furo-catalog.js",
   "scripts": {
-    "start": "../../node_modules/.bin/es-dev-server --root-dir ../../ --app-index packages/furo-ui5/index.html --open",
-    "update-docs": "../../node_modules/@furo/doc-helper/src/component-doc/buildTree.js",
-    "gen:cldr": "./scripts/generate-cldr-modules.sh de_CH it_CH fr_CH de de_AT en en_GB it fr es",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "../../node_modules/.bin/eslint --ext .js . --ignore-path .gitignore",
-    "lint:prettier": "../../node_modules/.bin/prettier \"**/*.js\" --check --ignore-path .gitignore",
-    "format": "npm run format:eslint && npm run format:prettier",
-    "format:eslint": "../../node_modules/.bin/eslint --ext .js . --fix --ignore-path .gitignore",
-    "format:prettier": "../../node_modules/.bin/prettier \"**/*.js\" --write --ignore-path .gitignore",
-    "test": "../../node_modules/.bin/karma start --coverage",
-    "test:watch": "../../node_modules/.bin/karma start --auto-watch=true --single-run=false",
-    "test:update-snapshots": "../../node_modules/.bin/karma start --update-snapshots",
-    "test:prune-snapshots": "../../node_modules/.bin/karma start --prune-snapshots",
-    "test:compatibility": "../../node_modules/.bin/karma start --compatibility all --coverage",
-    "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
+    "analyze": "../../node_modules/.bin/cem analyze --litelement",
+    "start": "../../node_modules/.bin/web-dev-server --app-index demos/index.html --open",
+    "lint": "../../node_modules/.bin/eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "format": "../../node_modules/.bin/eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
+    "test": "../../node_modules/.bin/web-test-runner  --coverage",
+    "test:watch": "../../node_modules/.bin/web-test-runner  --watch"
   },
   "dependencies": {
     "@furo/fbp": "^5.12.2",
