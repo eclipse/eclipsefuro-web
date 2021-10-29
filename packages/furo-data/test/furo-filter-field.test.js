@@ -4,7 +4,7 @@ import { assert } from '@esm-bundle/chai';
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/testhelper/initEnv.js';
+import './initEnv.js';
 
 describe('furo-filter-field', () => {
   let element;
