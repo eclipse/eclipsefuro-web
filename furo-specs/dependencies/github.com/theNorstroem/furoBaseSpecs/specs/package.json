@@ -1,0 +1,9 @@
+{
+  "name": "@furo/spec-basetypes",
+  "description": "installable Furo spec base types",
+  "license": "MIT",
+  "version": "1.10.1",
+  "publishConfig": {
+    "access": "public"
+  }
+}
