@@ -1,0 +1,6 @@
+- type: 'tree.TreeEntity #TreeEntity with Tree'
+  fields:
+    data: 'tree.Tree:1 #contains a tree.Tree'
+    links: '[] furo.Link:2 #Hateoas links'
+    meta: 'furo.Meta:3 #Meta for the response'
+  target: tree.proto

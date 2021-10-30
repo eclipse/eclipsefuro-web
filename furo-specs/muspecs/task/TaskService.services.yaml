@@ -1,0 +1,10 @@
+- name: TaskService
+  description: service specs for the task api
+  package: taskservice
+  target: service.proto
+  methods:
+    - md: 'List: GET /mockdata/tasks/list.json google.protobuf.Empty , task.TaskCollection #The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.'
+    - md: 'Create: GET /mockdata/tasks/create.json task.Task , task.TaskEntity #Creates a new Task'
+    - md: 'Get: GET /mockdata/tasks/{tsk}/get.json google.protobuf.Empty , task.TaskEntity #The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task'
+    - md: 'Update: GET /mockdata/tasks/{tsk}/update.json task.Task , task.TaskEntity #Updates a Task, partial updates are not supported'
+    - md: 'Delete: GET /mockdata/tasks/{tsk}/delete.json google.protobuf.Empty , google.protobuf.Empty #Delete a Task'

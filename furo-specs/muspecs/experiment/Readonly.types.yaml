@@ -1,0 +1,5 @@
+- type: 'experiment.Readonly #Readonly spec for testing'
+  fields:
+    project: '- project.Project:1 #Identity of a experiment'
+    meta: 'furo.Meta:3 #Meta for the response'
+  target: experiment.proto

@@ -1,0 +1,10 @@
+- name: AuthService
+  description: service specs for the auth api
+  package: authservice
+  target: authservice.proto
+  methods:
+    - md: 'List: GET /api/auths google.protobuf.Empty , auth.AuthCollection #The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.'
+    - md: 'Create: POST /api/auths auth.Auth , auth.AuthEntity #Creates a new Auth'
+    - md: 'Get: GET /api/auths/{uid} google.protobuf.Empty , auth.AuthEntity #The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth'
+    - md: 'Update: PATCH /api/auths/{uid} auth.Auth , auth.AuthEntity #Updates a Auth, partial updates are supported'
+    - md: 'Delete: DELETE /api/auth google.protobuf.Empty , google.protobuf.Empty #Logout ala delete a auth session'

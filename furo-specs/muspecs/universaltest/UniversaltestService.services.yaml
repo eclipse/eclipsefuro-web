@@ -1,0 +1,6 @@
+- name: UniversaltestService
+  description: service specs for the universaltest api
+  package: UniversaltestService
+  target: universaltestservice.proto
+  methods:
+    - md: 'Create: POST /mockdata/universaltests universaltest.Universaltest , universaltest.UniversaltestEntity #Creates a new universaltest'

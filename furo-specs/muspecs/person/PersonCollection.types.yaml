@@ -1,0 +1,6 @@
+- type: 'person.PersonCollection #PersonCollection with repeated PersonEntity'
+  fields:
+    meta: 'furo.Meta:2 #Meta for the response'
+    links: '[] furo.Link:3 #Hateoas links'
+    entities: '[] person.PersonEntity:4 #Contains a person.PersonEntity repeated'
+  target: person.proto

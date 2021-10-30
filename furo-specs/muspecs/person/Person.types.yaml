@@ -1,0 +1,11 @@
+- type: 'person.Person #Person message type'
+  fields:
+    id: '- string:1 #Identity of a person'
+    display_name: '- string:2 #Localized String representation of a person'
+    name: '* string:3 #Name of a person'
+    first_name: 'string:4 #First name of a person'
+    phone_nr: 'string:5 #Internal phone number'
+    skills: '[] string:6 #List of main skills of a person'
+    update_mask: 'google.protobuf.FieldMask:7 #Contains a field_mask which fields of the targeted resource are going to be updated'
+    sex: 'string:8 #sex'
+  target: person.proto

@@ -1,0 +1,6 @@
+- type: 'person.PersonEntity #PersonEntity with Person'
+  fields:
+    data: 'person.Person:1 #contains a person.Person'
+    links: '[] furo.Link:2 #Hateoas links'
+    meta: 'furo.Meta:3 #Meta for the response'
+  target: person.proto

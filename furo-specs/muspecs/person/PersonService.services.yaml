@@ -1,0 +1,10 @@
+- name: PersonService
+  description: service specs for the person api
+  package: personservice
+  target: service.proto
+  methods:
+    - md: 'List: GET /mockdata/persons/list.json google.protobuf.Empty , person.PersonCollection #The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.'
+    - md: 'Create: GET /mockdata/persons/create.json person.Person , person.PersonEntity #Creates a new Person'
+    - md: 'Get: GET /mockdata/persons/{prs}/get.json google.protobuf.Empty , person.PersonEntity #The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person'
+    - md: 'Update: PATCH /mockdata/persons/{prs}/update.json person.Person , person.PersonEntity #Updates a Person, partial updates are supported'
+    - md: 'Delete: GET /mockdata/persons/{prs}/delete.json google.protobuf.Empty , google.protobuf.Empty #Delete a Person'

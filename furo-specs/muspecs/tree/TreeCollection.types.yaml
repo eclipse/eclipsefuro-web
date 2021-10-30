@@ -1,0 +1,6 @@
+- type: 'tree.TreeCollection #TreeCollection with repeated TreeEntity'
+  fields:
+    meta: 'furo.Meta:2 #Meta for the response'
+    links: '[] furo.Link:3 #Hateoas links'
+    entities: '[] tree.TreeEntity:4 #Contains a tree.TreeEntity repeated'
+  target: tree.proto

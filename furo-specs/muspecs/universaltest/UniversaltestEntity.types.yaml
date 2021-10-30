@@ -1,0 +1,6 @@
+- type: 'universaltest.UniversaltestEntity #UniversaltestEntity with Universaltest type in data'
+  fields:
+    data: 'universaltest.Universaltest:1 #contains a universaltest.Universaltest'
+    links: '[] furo.Link:2 #Hateoas links'
+    meta: 'furo.Meta:3 #Meta for the response'
+  target: universaltest.proto

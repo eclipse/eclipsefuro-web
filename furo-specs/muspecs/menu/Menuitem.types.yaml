@@ -1,0 +1,12 @@
+- type: 'menu.Menuitem #Item of a contextual menu'
+  fields:
+    icon: 'string:1 #Leading icon of the menu'
+    display_name: '- string:2 #String representation of the menu item. Menu item text'
+    disabled: 'bool:3 #Display actions as disabled when they can only be used sometimes, under certain conditions. They should be displayed as disabled rather than removing them.'
+    command: 'string:4 #Keyboard command hint'
+    action: 'string:5 #String representation of the menu item action'
+    leading_divider: 'bool:6 #Item has a leading divider line'
+    children: '[] menu.Menuitem:7 #Children of this item'
+    flags: '- [] string:8 #Attribute flags e.g. important, negative, positive'
+    payload: '- [] google.protobuf.Any:9 #Optional payload'
+  target: menu.proto

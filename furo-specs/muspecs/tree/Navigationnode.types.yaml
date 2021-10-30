@@ -1,0 +1,15 @@
+- type: 'tree.Navigationnode #Item of the navigationtree'
+  fields:
+    id: 'string:1 #Id of the node'
+    display_name: '- string:2 #String representation of the node'
+    secondary_text: 'string:3 #Secondary text of the node'
+    description: 'string:4 #description of the node'
+    icon: 'string:5 #icon of the node'
+    panel: '- string:6 #Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)'
+    key_words: 'string:7 #key words of the node'
+    has_error: 'bool:8 #if node has error'
+    open: 'bool:9 #node is open or not'
+    link: 'furo.Link:10 #Deeplink information of this node'
+    is_group_label: 'bool:11 #This node is a group label'
+    children: '[] tree.Navigationnode:12 #Children of this node'
+  target: tree.proto

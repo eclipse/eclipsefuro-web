@@ -1,0 +1,6 @@
+- type: 'auth.AuthEntity #AuthEntity with Auth'
+  fields:
+    data: 'auth.Auth:1 #contains a auth.Auth'
+    links: '[] furo.Link:2 #Hateoas links'
+    meta: 'furo.Meta:3 #Meta for the response'
+  target: auth.proto

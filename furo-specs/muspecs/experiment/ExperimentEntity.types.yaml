@@ -1,0 +1,6 @@
+- type: 'experiment.ExperimentEntity #ExperimentEntity with Experiment'
+  fields:
+    data: 'experiment.Experiment:1 #contains a experiment.Experiment'
+    links: '[] furo.Link:2 #Hateoas links'
+    meta: 'furo.Meta:3 #Meta for the response'
+  target: experiment.proto

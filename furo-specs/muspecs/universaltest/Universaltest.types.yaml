@@ -1,0 +1,17 @@
+- type: 'universaltest.Universaltest #oneof experiment spec for testing'
+  fields:
+    id: 'string:1 #Identity of a universaltes type'
+    scalar_string: 'string:2 #field of a scalar string for the Universaltest'
+    wrapper_string: 'google.protobuf.StringValue:3 #field of a wrapper string for the Universaltest'
+    fat_string: 'furo.fat.String:4 #field of a fat string for the Universaltest'
+    scalar_int32: 'int32:5 #field of a scalar int32 for the Universaltest'
+    wrapper_int32: 'google.protobuf.Int32Value:6 #field of a wrapper int32 for the Universaltest'
+    fat_int32: 'furo.fat.Int32:7 #field of a fat int32 for the Universaltest'
+    fat_string_list: 'furo.fat.String:8 #field of a fat string for the Universaltest'
+    wrapper_bool: 'google.protobuf.BoolValue:9 #field of a wrapper boolean for the Universaltest'
+    fat_bool: 'furo.fat.Bool:10 #field of a fat bool for the Universaltest'
+    fat_string_repeated: '[] furo.fat.String:11 #field of repeated fat string for the Universaltest'
+    fat_double: 'furo.fat.Double:12 #field of furo.fat.double for the Universaltest'
+    fat_float: 'furo.fat.Float:13 #field of furo.fat.float for the Universaltest'
+    fat_int64: 'furo.fat.Int64:14 #field of a fat int64 for the Universaltest'
+  target: universaltest.proto
