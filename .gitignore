@@ -3,5 +3,4 @@ node_modules
 build
 .idea
 .DS_Store
-.furo
 packages/experiments
