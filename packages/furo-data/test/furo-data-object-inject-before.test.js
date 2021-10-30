@@ -1,8 +1,9 @@
 import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
-
+import './initEnv.js';
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
+
 
 describe('furo-data-object-inject-before', () => {
   let element;
@@ -12,7 +13,7 @@ describe('furo-data-object-inject-before', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-data-object></furo-data-object>
+          <furo-data-object type='tree.Tree'></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -30,7 +31,7 @@ describe('furo-data-object-inject-before', () => {
   });
 
   it('should update meta on server meta data', done => {
-    element.setAttribute('type', 'tree.Tree');
+
 
     fetch('/mockdata/trees/test_injectB.json')
       .then(res => res.json())

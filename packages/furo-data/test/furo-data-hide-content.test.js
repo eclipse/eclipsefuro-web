@@ -6,7 +6,8 @@ import { assert } from '@esm-bundle/chai';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';
-import '@furo/data/src/furo-data-object.js';
+import '../src/furo-data-object.js';
+import '../src/furo-data-hide-content.js';
 
 describe('furo-data-hide-content', () => {
   let element;
@@ -35,6 +36,7 @@ describe('furo-data-hide-content', () => {
     await host.updateComplete;
     await element.updateComplete;
     await dataObject.updateComplete;
+
   });
 
   it('should be a furo-data-hide-content', done => {
