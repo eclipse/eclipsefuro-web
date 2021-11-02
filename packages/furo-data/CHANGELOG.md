@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-alpha.1...@furo/data@2.0.0-rc.0) (2021-11-02)
+
+
+### Bug Fixes
+
+* Test are using the integrated specs now, all tests green again. ([ae1232b](https://github.com/eclipse/eclipsefuro-web/commit/ae1232baa9da825c3b7731e1559d6538b5213ea4))
+
+
+
+
+
 # [2.0.0-alpha.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-alpha.0...@furo/data@2.0.0-alpha.1) (2021-10-29)
 
 **Note:** Version bump only for package @furo/data
