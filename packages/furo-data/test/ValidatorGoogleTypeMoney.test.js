@@ -39,7 +39,7 @@ describe('ValidatorGoogleTypeMoney', () => {
     ValidatorGoogleTypeMoney.validateConstraints(EntityRoot.money).then(
       () => {},
       error => {
-        assert.equal(error.message, 'is required**', 'required');
+        assert.equal(error.message, 'money is required**', 'required');
         assert.equal(error.name, 'required', 'required');
         done();
       },
