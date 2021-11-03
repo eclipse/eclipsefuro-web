@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.45.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.44.1...@furo/ui5@0.45.0) (2021-11-03)
+
+
+### Bug Fixes
+
+* attr heading changed to title-text ([434ab89](https://github.com/eclipse/eclipsefuro-web/commit/434ab89479c55c186990504daa11c9da9f620d90))
+* furo-ui5-data-table resolving field specification, additional check for type ANY ([7a859e6](https://github.com/eclipse/eclipsefuro-web/commit/7a859e61bfa3f8352f353f667df5f963652b9e51))
+
+
+### Features
+
+* furo-ui5-data-reference-search can receive a filter that is delegated to the inner api agent. ([7e281ac](https://github.com/eclipse/eclipsefuro-web/commit/7e281acba3bbf38a908664af022a692df19bb762))
+
+
+
+
+
 ## [0.44.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.44.0...@furo/ui5@0.44.1) (2021-10-13)
 
 **Note:** Version bump only for package @furo/ui5

@@ -1,6 +1,6 @@
 {
   "name": "@furo/collection",
-  "version": "1.5.12",
+  "version": "1.5.13",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
@@ -18,7 +18,7 @@
     "@furo/layout": "^1.9.3",
     "@furo/navigation": "^1.10.4",
     "@furo/notification": "^1.8.3",
-    "@furo/route": "^1.12.4",
+    "@furo/route": "^1.12.5",
     "@furo/timing": "^1.7.4",
     "@furo/util": "^1.8.4"
   },
