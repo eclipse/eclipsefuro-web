@@ -123,7 +123,7 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
           attrs += `${nodeName}="${nodeValue}"`;
         }
       }
-      r.innerHTML = `<template><furo-ui5-data-property ƒ-bind-data='--init' ${attrs}></furo-ui5-data-property></template>`;
+      r.innerHTML = `<template><furo-ui5-data-property ƒ-bind-data="--init" ${attrs}></furo-ui5-data-property></template>`;
 
       const repeater = this.parentNode.insertBefore(r, this);
       this._createdRepeater = repeater;
@@ -144,7 +144,9 @@ export class FuroUi5DataProperty extends FBP(LitElement) {
         this.field.data.addEventListener(
           'branch-value-changed',
           () => {
-            this._createPropComponent(propertyField);
+            if (this.field.data['@type']) {
+              this._createPropComponent(propertyField);
+            }
           },
           { once: true },
         );
