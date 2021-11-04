@@ -1,5 +1,7 @@
 import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp';
+//TODO: replace fetch-json in config loader with furo-api-fetch.js
+//TODO: delete this file
 
 /**
  * `furo-fetch-json`

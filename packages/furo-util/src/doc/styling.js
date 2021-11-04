@@ -1,5 +1,6 @@
 import { css } from 'lit';
-
+//TODO move the style to the demo snippet
+//TODO: DELETE this file
 export class Styling {
   static get theme() {
     // language=CSS

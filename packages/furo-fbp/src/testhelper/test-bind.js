@@ -1,6 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import { FBP } from '../fbp.js';
-
+// TODO: replace all usages of this component in the tests with flow-bind
+// TODO: delete this component
 /**
  * `flow-bind`
  *
