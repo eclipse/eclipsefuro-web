@@ -1,4 +1,5 @@
-export class Helper {
+// TODO: find a good name
+export class ScalarTypeHelper {
   // get the default value of a type,  according to https://developers.google.com/protocol-buffers/docs/proto3#default
   static defaultForType(type) {
     switch (type) {

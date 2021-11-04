@@ -4,7 +4,6 @@ import './furo-empty-spacer.js';
 import './furo-horizontal-flex.js';
 import './furo-panel.js';
 import './furo-resizer.js';
-import './furo-ripple.js';
 import './furo-split-grid.js';
 import './furo-split-view.js';
 import './furo-vertical-flex.js';

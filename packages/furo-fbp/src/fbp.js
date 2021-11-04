@@ -1,7 +1,7 @@
 /**
  * furo-fbp base class
  *
- * [read the guide](/guide/md/fbp-wires/)
+ * [read the guide](https://fbp.furo.pro/docs/installation/)
  *
  * ## Tracing all wires in a component
  *

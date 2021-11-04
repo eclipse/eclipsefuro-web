@@ -9,7 +9,8 @@ export class AgentHelper {
    * @fires {qp} qp-changed -  Fired when query params changed
    * @fires {qp} qp-set -  Fired when query params are replaced
    * @fires {hts} xxx-rejected -  Fired when the request for a rel was rejected because the hts was not available
-
+   *
+   * TODO: convert to a base class, so the agents can extend this class
    */
   static updateQp(caller, qp) {
     let qpChanged = false;

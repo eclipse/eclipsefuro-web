@@ -6,10 +6,10 @@ import { FBP } from '@furo/fbp';
  * `furo-data-hide-content` hides content in dependency to a boolean field value.
  *
  * It is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.
- *
+ * TODO: should work with FieldNodeAdapter and also support furo.fat.Bool and google.protobuf.BoolValue
  *
  *```
- * <furo-data-hide-content ƒ-bind-data="--bind(*.bool)" ƒ-hide="--hideClicked" ƒ-show="--showClicked">
+ * <furo-data-hide-content ƒ-bind-data="--bind(*.bool)">
  *  <div>some content</div>
  * </furo-collapsible-box>
  *```

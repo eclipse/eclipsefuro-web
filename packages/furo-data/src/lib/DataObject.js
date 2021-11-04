@@ -1,7 +1,7 @@
 import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import { FieldNode } from './FieldNode.js';
 import { RepeaterNode } from './RepeaterNode.js';
-import { Helper } from './Helper.js';
+import { ScalarTypeHelper } from './ScalarTypeHelper.js';
 
 /**
  * EntityNode is usually the root node of an eventTree
@@ -244,7 +244,7 @@ export class DataObject extends EventTreeNode {
           }
         } else {
           // eslint-disable-next-line no-param-reassign
-          n._value = Helper.indeterminateDefault();
+          n._value = ScalarTypeHelper.indeterminateDefault();
         }
       }
     });

@@ -15,8 +15,12 @@ class FuroRelExists extends LitElement {
    * Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
    *
    * inject returns true for existing links and false for non existing links.
+   * TODO: implement bind data too
+   * TODO: emit a event with bool which is triggered on any change of the hts array or binded data
+   * Todo: Better and consistent names for the events
    *
-   * @param linkArray
+   *
+   * @param []furo.Link Array of furo links
    * @return {boolean}
    */
   inject(linkArray) {

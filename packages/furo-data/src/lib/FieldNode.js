@@ -1,7 +1,7 @@
 import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 // eslint-disable-next-line import/no-cycle
 import { RepeaterNode } from './RepeaterNode.js';
-import { Helper } from './Helper.js';
+import { ScalarTypeHelper } from './ScalarTypeHelper.js';
 import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
 import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
 import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
@@ -384,7 +384,7 @@ export class FieldNode extends EventTreeNode {
         } else {
           // scalar value
           // eslint-disable-next-line no-param-reassign
-          n._value = Helper.indeterminateDefault();
+          n._value = ScalarTypeHelper.indeterminateDefault();
         }
       }
     });
@@ -443,8 +443,8 @@ export class FieldNode extends EventTreeNode {
 
     // DO NOT validate readonly fields
     if (!(this._meta && this._meta.readonly && this._meta.readonly === true)) {
-      const isNumericType = Helper.isNumericType(this._spec.type);
-      const isScalarType = Helper.isScalarType(this._spec.type);
+      const isNumericType = ScalarTypeHelper.isNumericType(this._spec.type);
+      const isScalarType = ScalarTypeHelper.isScalarType(this._spec.type);
 
       if (isScalarType) {
         if (isNumericType) {
