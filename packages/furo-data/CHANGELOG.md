@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.0...@furo/data@2.0.0-rc.1) (2021-11-04)
+
+
+### Features
+
+* unused files deleted, todos added ([9ab59b8](https://github.com/eclipse/eclipsefuro-web/commit/9ab59b806da22f32b61c8790a63f728dcf5845d0))
+
+
+
+
+
 # [2.0.0-rc.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-alpha.1...@furo/data@2.0.0-rc.0) (2021-11-02)
 
 
