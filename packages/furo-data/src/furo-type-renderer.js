@@ -2,7 +2,6 @@ import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 /**
- * `furo-type-renderer`
  * The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you
  * on the console if the requested `context-[type-name]` does not exist or was not imported.
  *

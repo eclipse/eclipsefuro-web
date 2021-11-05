@@ -3,7 +3,7 @@ import { LitElement, css } from 'lit';
 /**
  * Use this component to interact with fields from an furo-data-object.
  *
- * You can set the field value or listen to changes of a field.
+ * You can update the field value or listen to changes of a field.
  *
  * @fires {*} value-changed -  Fired when the field value or a child value of it was changed.
  * @summary interact with single field of a data object
@@ -16,9 +16,16 @@ class FuroEntityField extends LitElement {
    * @param v
    */
   setValue(v) {
+    /**
+     * The value of the node which was connected with bind-data
+     */
     this.value = v;
   }
 
+  /**
+   * Setter
+   * @param v
+   */
   set value(v) {
     this._value = v;
     this.field._value = v;
