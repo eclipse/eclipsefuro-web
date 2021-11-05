@@ -5,9 +5,30 @@ import { Env } from '@furo/framework';
 import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
- * `furo-entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.
+ * `furo-entity-agent` is an interface component to handle entity requests.
  *
- * If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
+ * > **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of
+ * > the values are sent.
+ *
+ * > **Hint** PUT will send all fields which are not marked as **readonly**.
+ * > If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
+ *
+ * ```html
+ * <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
+ * <furo-entity-agent
+ * service="ProjectService"
+ * ƒ-hts-in="--hts" @-response="--response"
+ * ></furo-entity-agent>
+ *
+ *
+ * <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
+ * <furo-data-object
+ * type="project.ProjectEntity"
+ * ƒ-inject-raw="--response"
+ * ></furo-data-object>
+ * ```
+ *
+ *
  *
  * @fires {hts} response-hts-updated -  Fired when hts was updated from the response.
  * @fires {response} load-success -  Fired when `load()` was successful.
@@ -596,12 +617,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed, --requestFinished"
-        @-parse-error="^^req-failed, --requestFinished"
-        @-fatal-error="--requestFinished"
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abortDemanded"
+              @-response="--responseParsed, --requestFinished, ^^req-success"
+              @-response-error="^^req-failed, --requestFinished"
+              @-parse-error="^^req-failed, --requestFinished"
+              @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;
