@@ -3,9 +3,11 @@ import { FieldNode } from './FieldNode.js';
 import { RepeaterNode } from './RepeaterNode.js';
 
 /**
+ * Use this class to make your component bindable without handling with the internals of FieldNode.
  *
+ * Read more in the GUIDE section please.
  *
- * @summary Please read the guide for a better understanding
+ * @summary Binding methods for fieldNodes
  * @polymer
  * @mixinFunction FNB
  */

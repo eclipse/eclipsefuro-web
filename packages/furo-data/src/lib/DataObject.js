@@ -10,6 +10,10 @@ export class DataObject extends EventTreeNode {
   constructor(parentNode, type, specs) {
     super(parentNode);
 
+    /**
+     * reference to the specs
+     * @private
+     */
     this.__specdefinitions = specs;
     this._spec = this.__specdefinitions[type];
     this._type = type;
@@ -254,6 +258,11 @@ export class DataObject extends EventTreeNode {
     }
   }
 
+  /**
+   * Update meta and constraint fields
+   * @param metaAndConstraints
+   * @private
+   */
   __updateMetaAndConstraints(metaAndConstraints) {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have

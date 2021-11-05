@@ -35,8 +35,15 @@ import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 export class FieldNode extends EventTreeNode {
   constructor(parentNode, fieldSpec, fieldName) {
     super(parentNode);
+    /**
+     * ref to the specs
+     * @private
+     */
     this.__specdefinitions = parentNode.__specdefinitions;
 
+    /**
+     * Reference to the current spec definition of the fieldNode
+     */
     this._spec = fieldSpec;
 
     if (this._spec.meta) {
@@ -69,13 +76,40 @@ export class FieldNode extends EventTreeNode {
       })();
     }
 
+    /**
+     * Name of the field
+     * @private
+     */
     this._name = fieldName;
+    /**
+     *
+     * @private
+     */
     this.__index = fieldName;
+    /**
+     * getter setter store
+     * @type {null}
+     * @private
+     */
     this.__value = null;
+    /**
+     * Pristine state of the fieldNode, this is always set to true when new data is injected and is false if the value itself or the value of a child node gets changed.
+     * @type {boolean}
+     */
     this._pristine = true;
+    /**
+     * Validity of the fieldNode, this is always set to true when new data is injected and is false if the value itself validates to false or the value of a child node validates to false.
+     * @type {boolean}
+     */
     this._isValid = true;
 
-    // inherit _validationDisabled from parent
+
+    /**
+     *
+     * also inherit _validationDisabled from parent
+     * @type {boolean|*}
+     * @private
+     */
     this._validationDisabled = this.__parentNode._validationDisabled;
 
     // this types are not complex types in the json representation
@@ -200,7 +234,11 @@ export class FieldNode extends EventTreeNode {
       }
     });
 
-    // store __initialValue value for setting the field back to the defaults
+    /**
+     * store __initialValue value for setting the field back to the defaults
+     * @type {string}
+     * @private
+     */
     this.__initialValue = JSON.stringify(this._value);
   }
 
@@ -232,6 +270,7 @@ export class FieldNode extends EventTreeNode {
 
   /**
    * infinite recursive element protection
+   * @private
    */
   _hasAncestorOfType(type) {
     if (this._type === type) {
@@ -472,6 +511,12 @@ export class FieldNode extends EventTreeNode {
     return validity;
   }
 
+  /**
+   *
+   * @param metaAndConstraints
+   * @param level
+   * @private
+   */
   __updateMetaAndConstraints(metaAndConstraints, level) {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
@@ -627,6 +672,10 @@ export class FieldNode extends EventTreeNode {
     this.dispatchNodeEvent(new NodeEvent('node-field-deleted', this._name, true));
   }
 
+  /**
+   * Set the value of the field to the specified defaults.
+   * @param val
+   */
   set defaultvalue(val) {
     // if the default value is already an object, number,array do nothing otherwise try to parse json
     if (typeof val === 'string') {
