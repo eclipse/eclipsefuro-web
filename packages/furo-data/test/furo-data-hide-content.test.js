@@ -50,7 +50,7 @@ describe('furo-data-hide-content', () => {
     assert.equal(element.getAttribute('hidden'), null);
 
     element.addEventListener(
-      'hided',
+      'hid',
       () => {
         assert.equal(element.hidden, true);
         done();
@@ -111,7 +111,7 @@ describe('furo-data-hide-content', () => {
     element.show();
     assert.equal(element.getAttribute('hidden'), null);
     element.addEventListener(
-      'hided',
+      'hid',
       () => {
         assert.equal(element.hidden, true);
         done();
