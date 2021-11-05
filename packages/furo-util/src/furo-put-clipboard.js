@@ -11,7 +11,7 @@ import { LitElement, css } from 'lit';
  *
  *```
  *
- * @fires {*}  - Fired when content is written to clipboard
+ * @fires {*} content-put - Fired when content is written to clipboard
  *
  * @summary write content to clipboard
  * @customElement
@@ -39,7 +39,7 @@ class FuroPutClipboard extends LitElement {
     }
 
     navigator.clipboard.writeText(d).then(() => {
-      const customEvent = new Event('content-putted', { composed: true, bubbles: true });
+      const customEvent = new Event('content-put', { composed: true, bubbles: true });
       customEvent.detail = d;
       this.dispatchEvent(customEvent);
     });

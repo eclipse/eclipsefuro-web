@@ -1,11 +1,11 @@
 /**
- * `furo-api-fetch`
+ * Use `furo-api-fetch` to fetch data from the network.
  *
- * furo-api-fetch can be used for network requests via FETCH API
  *
  * ```html
- * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
+ * <furo-api-fetch ƒ-invoke-request="--Request"></furo-api-fetch>
  * ```
+ *
  * @fires {Request} request-aborted - Fired when a request was canceled.
  * @fires {Request} request-started - Fired when a request is sent.
  * @fires {Object} response-raw - Fired when a response is received.
@@ -20,12 +20,12 @@
  * - application/octet-stream (ArrayBuffer)
  * - application/pdf (Blob)
  *
- * @fires {Object}  response-error Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
- * @fires {Object} response-error-[status-code] Fired when an error has occoured. This is a specific error event.
- * @fires {Request} fatal-error - * Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
- *  * @fires response-error-[status-code.firstChar]xx -    * Fired when an error has occoured.
- * This is a group error event. E.g. response-error-5xx, response-error-4xx
- *
+ * @fires {Object}  response-error - Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] - Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ * @fires {Object} response-error-4xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-5xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-raw - Fired when a error has occoured.
  *
  * @summary fetch data from network
  * @customElement
