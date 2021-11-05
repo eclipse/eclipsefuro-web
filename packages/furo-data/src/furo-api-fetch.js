@@ -75,6 +75,11 @@ class FuroApiFetch extends HTMLElement {
     controller.abort();
   }
 
+  /**
+   *
+   * @param request
+   * @private
+   */
   _executeRequest(request) {
     /**
      * dispatches fatal-error

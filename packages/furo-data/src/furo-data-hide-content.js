@@ -132,6 +132,11 @@ class FuroDataHideContent extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @param eventname
+   * @private
+   */
   _notify(eventname) {
     const customEvent = new Event(eventname, { composed: true, bubbles: false });
     customEvent.detail = this.hidden;

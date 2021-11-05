@@ -53,6 +53,11 @@ import { AgentHelper } from './lib/AgentHelper.js';
 class FuroEntityAgent extends FBP(LitElement) {
   constructor() {
     super();
+    /**
+     * Reference to the services
+     * @type {{}}
+     * @private
+     */
     this._servicedefinitions = Env.api.services;
     /**
      *

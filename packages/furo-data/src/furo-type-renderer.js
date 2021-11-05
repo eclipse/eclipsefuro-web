@@ -195,6 +195,10 @@ class FuroTypeRenderer extends FBP(LitElement) {
     this.parentNode.insertBefore(el, this);
   }
 
+  /**
+   *
+   * @private
+   */
   _warning() {
     // eslint-disable-next-line no-console
     console.warn(
