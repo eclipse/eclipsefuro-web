@@ -13,7 +13,9 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  *    </template>
  *  </furo-data-flow-repeat>
  *  ```
- *  To delete a item, implement something which triggers the `deleteNode` method on the fieldNode itself.
+ *  *The wire `--init` is fired from furo-data-flow-repeat*
+ *
+ *  If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.
  *
  *  ## Available wires in the template:
  *
@@ -59,7 +61,8 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
 
   /**
    * Adds a repeated item of the same type.
-   * @param data
+   *
+   * @param data {Object} Object that match the type of the repeated node.
    */
   add(data) {
     if (!this.readonly && this.__fieldNode) {

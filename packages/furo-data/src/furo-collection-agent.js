@@ -6,19 +6,24 @@ import { Env } from '@furo/framework';
 import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
- * `furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.
+ * `furo-collection-agent` is an interface component to handle collection requests.
  *
  *
  *
  *
- * How to use:
  * ```html
  *    <furo-collection-agent
  *                      service="Servicename"
  *                      ƒ-hts-in="--hts"
- *                      list-on-hts-in
  *                    ></furo-collection-agent>
+ *
+ * <!-- produces hts -->
+ * <furo-deep-link
+ *    service="Servicename" @-hts-out="--hts"></furo-deep-link>
+ *
  * ```
+ *
+ * *before you can do any requests, the service and the HATEOAS must be defined*
  *
  * @fires {*} ALL_BUBBLING_EVENTS_FROM_furo-api-fetch -  All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.
  * @fires {hts} response-hts-updated -  Fired when the hts was updated by the received response.
@@ -594,13 +599,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed, --requestFinished"
-        @-request-aborted="^^req-aborted"
-        @-parse-error="^^req-failed, --requestFinished"
-        @-fatal-error="--requestFinished"
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abortDemanded"
+              @-response="--responseParsed, --requestFinished, ^^req-success"
+              @-response-error="^^req-failed, --requestFinished"
+              @-request-aborted="^^req-aborted"
+              @-parse-error="^^req-failed, --requestFinished"
+              @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

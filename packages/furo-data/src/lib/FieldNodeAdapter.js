@@ -80,7 +80,7 @@ export const FieldNodeAdapter = superClass =>
 
     /**
      * Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.
-     * @param fieldNode
+     * @param fieldNode {FieldNode|RepeaterNode} - FieldNode or RepeaterNode
      * @public
      */
     bindData(fieldNode) {

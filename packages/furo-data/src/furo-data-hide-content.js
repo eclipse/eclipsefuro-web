@@ -8,21 +8,20 @@ import { FBP } from '@furo/fbp';
  * It is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.
  * TODO: should work with FieldNodeAdapter and also support furo.fat.Bool and google.protobuf.BoolValue
  *
- *```
+ *```html
  * <furo-data-hide-content ƒ-bind-data="--bind(*.bool)">
  *  <div>some content</div>
  * </furo-collapsible-box>
  *```
  *
- * @fires {{Boolean} current visibility state} value-changed -  Fired when the visibility changed
- * @fires {void} hided -  Fired when the content gets hided
+ * @fires {Boolean} value-changed -  Fired when the visibility changed, contains the current visibility state
+ * @fires {void} hid -  Fired when the content gets hid
  * @fires {void} showed -  Fired when the content gets visible
  *
  * @slot {HTMLElement [0..n]} - default slot to add content.
  *
- * @summary hide content
+ * @summary hide content with a boolean fieldnode
  * @customElement
- * @demo demo-furo-data-hide-content
  * @appliesMixin FBP
  */
 class FuroDataHideContent extends FBP(LitElement) {
@@ -79,7 +78,12 @@ class FuroDataHideContent extends FBP(LitElement) {
     });
   }
 
-  // inverses the bool based on hindOnFalse
+  /**
+   * inverses the bool based on hideOnFalse
+   * @param bool
+   * @return {boolean|*}
+   * @private
+   */
   _checkInversedState(bool) {
     return this.hideOnFalse ? !bool : bool;
   }
@@ -122,7 +126,7 @@ class FuroDataHideContent extends FBP(LitElement) {
     }
 
     if (hide) {
-      this._notify('hided');
+      this._notify('hid');
     } else {
       this._notify('showed');
     }
