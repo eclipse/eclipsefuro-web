@@ -14,11 +14,16 @@ import { FBP } from '@furo/fbp';
  * The required variant is set using an attribute.
  * e.g. two, three, four and six
  *
- * ```
- * <furo-form-layouter></furo-form-layouter>
+ * ```html
+ * <!-- four coulumn layout -->
+ * <furo-form-layouter four>
+ *    <input-element></input-element>
+ *    <input-element double></input-element>
+ *    <input-element newline></input-element>
+ *    <input-element full></input-element>
+ * </furo-form-layouter>
  * ```
  *
- * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * To customize the slotted elements inside furo-form-layouter there are several attributes.
  * - double | stretches the element over two units
@@ -36,6 +41,8 @@ import { FBP } from '@furo/fbp';
  *
  * @cssprop {0px} [--furo-form-layouter-row-gap=0px] - width of row gap
  * @cssprop {0px} [--furo-form-layouter-column-gap=0px] - width of column gap
+ *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * Tags: form
  * @summary Grid based form field row

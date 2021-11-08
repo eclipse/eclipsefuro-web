@@ -5,6 +5,10 @@ import { LitElement, css } from 'lit';
  *
  * You can update the field value or listen to changes of a field.
  *
+ * ```html
+ * <furo-entity-field ƒ-bind-data="--dataObject(*.field)"></furo-entity-field>
+ * ```
+ *
  * @fires {*} value-changed -  Fired when the field value or a child value of it was changed.
  * @summary interact with single field of a data object
  * @customElement

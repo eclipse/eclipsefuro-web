@@ -4,6 +4,11 @@ import { LitElement, css } from 'lit';
  * `furo-rel-exists`
  * Checks if a rel exists in a hateaos Link array
  *
+ *  * ```html
+ * <furo-rel-exists ƒ-inject="--HTS-array"></furo-rel-exists>
+ * ```
+ *
+ *
  * @fires {Object Hateoas Link} furo-rel-exists -  Fired when rel exists in `linkArray`.
  * @fires {void} rel-dont-exist -  Fired when rel does not exists in `linkArray`.
  *
