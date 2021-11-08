@@ -9,7 +9,6 @@ import { FBP } from '@furo/fbp';
  *
  * The size on the x-axis can vary a little bit, according to the the available space.
  *
- * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * This component is nestable.
  *
@@ -27,15 +26,6 @@ import { FBP } from '@furo/fbp';
  *  </furo-z-grid>
  * ```
  *
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=4rem] - card content height with vspan=1, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=8rem] - card content height with vspan=2, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=12rem] - card content height with vspan=3, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=16rem] - card content height with vspan=4, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=20rem] - card content height with vspan=5, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=24rem] - card content height with vspan=6, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=28rem] - card content height with vspan=7, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=32rem] - card content height with vspan=8, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
- * @cssprop {N/A} [--furo-ui5-cardContentHeight=36rem] - card content height with vspan=9, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
  *
  *  ## sizes
  *  The sizes are calculated from the available space that the grid becomes from its parent.
@@ -101,6 +91,18 @@ import { FBP } from '@furo/fbp';
  * **last-col** refers to the last column.
  * **last-row** refers to the last line/row.
  *
+ *
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=4rem] - card content height with vspan=1, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=8rem] - card content height with vspan=2, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=12rem] - card content height with vspan=3, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=16rem] - card content height with vspan=4, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=20rem] - card content height with vspan=5, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=24rem] - card content height with vspan=6, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=28rem] - card content height with vspan=7, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=32rem] - card content height with vspan=8, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ * @cssprop {N/A} [--furo-ui5-cardContentHeight=36rem] - card content height with vspan=9, --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight
+ *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  * @summary grid with a z pattern
  * @customElement
  * @demo demo-furo-z-grid

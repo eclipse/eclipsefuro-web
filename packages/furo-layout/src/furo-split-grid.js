@@ -6,8 +6,6 @@ import { FBP } from '@furo/fbp';
  * `split-grid`
  * will split your screen contents horizontally (in cols) and put them vertically (left at top) when the available space is to small.
  *
- * @slot left {HTMLElement} - slot to add a component on the left hand side.
- * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * ```html
  *  <!-- a simple layout manager with two columns  -->
@@ -50,7 +48,8 @@ import { FBP } from '@furo/fbp';
  * **last-col** refers to the last column.
  * There is no line name available
  *
- *
+ * @slot left {HTMLElement} - slot to add a component on the left hand side.
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  * @summary a grid splitter
  * @customElement
  * @demo demo-furo-split-grid

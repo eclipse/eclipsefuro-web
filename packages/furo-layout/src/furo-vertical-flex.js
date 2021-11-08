@@ -8,7 +8,6 @@ import { LitElement, html, css } from 'lit';
  * The attribute "flex" must be set for growing elements.
  * The component takes up 100% of the space
  *
- * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  * ```html
  * <furo-vertical-flex>
@@ -17,8 +16,10 @@ import { LitElement, html, css } from 'lit';
  *   <div>small</div>
  * </furo-vertical-flex>
  * ```
+ *
  *  Tags: layout
  *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  * @summary vertical alignment
  * @customElement
  * @demo demo-furo-vertical-flex Basic usage
