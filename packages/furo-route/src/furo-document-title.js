@@ -129,6 +129,7 @@ class FuroDocumentTitle extends FBP(LitElement) {
 
   /**
    * Renders the title and set it as document title
+   * @private
    */
   async _setDocumentTitle() {
     document.title = this.prefix + this.title + this.suffix;

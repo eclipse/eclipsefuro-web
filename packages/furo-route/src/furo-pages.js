@@ -1,34 +1,34 @@
 import { LitElement, html, css } from 'lit';
 
 /**
- * `furo-pages` is used to select one of its children to show.
  *
- * Use this to build tabs, views, subviews,...
+ * Use `furo-pages` to build tabs, views, subviews,...
+ *
+ *
+ * ## preconditions:
+ * The components used in a furo-page must implement a **hidden** attribute css to set itself to display none.
+ *
+ * ```css
+ * :host([hidden]){
+ *    display:none
+ *  }
+ *```
+ *
+ * ## flowbased auto wires
+ * furo-pages provides auto wires, which are automatically triggered in the child elements if
+ * they support FBP. Each wire will forward a `locationObject`
+ *
+ * -  `--pageActivated` : Is triggerd when the element is activated.
+ * -  `--pageDeActivated` : Is triggerd when another page is activated. Empty wire.
+ * -  `--pageQueryChanged` : Is triggerd when the page query changes.
+ * -  `--pageHashChanged` : Is triggerd when the page hash changes.
+ * -  `--pageReActivated` : Is triggerd when the locatioin contains the same page which already was acitvated.
+ *
+ *
+ *
+ * @prop {String} default - Set the default page to show.
  *
  * @slot {HTMLElement [0..n]} - default slot to add pages.
- *
- * ### preconditions:
- * You have to implement a `:host([hidden]){display:none}` in your views css.
- *
- * ### flowbased auto wires
- * furo-pages provides auto wires, which are automatically triggered in the child elements if
- * they have flowbased enabled.
- *
- * | wire               | timing           |
- * |:-------------------|:-----------------|
- * | --pageDeActivated  | Every time the element changes to hidden   |
- * | --pageActivated    | Triggered when the element is activated. Comes with a location object.
- * | --pageQueryChanged  | Triggered when the page query changes. Comes with a location object.
- * | --pageHashChanged  | Triggered when the page hash changes. Comes with a location object.
- *
- * ## Attributes
- * **default** set the default page to show
- *
- * **attr-for-selected** *(default: selected)*
- *
- *
- * If you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.
- *
  * @summary Simple content switcher
  * @demo demo-furo-panel-coordinator with panel coordinator
  * @customElement
@@ -37,13 +37,33 @@ class FuroPages extends LitElement {
   constructor() {
     super();
     // eslint-disable-next-line wc/no-constructor-attributes
+    /**
+     * @private
+     */
     this._fallback = this.getAttribute('default');
+    /**
+     * @private
+     */
     // eslint-disable-next-line wc/no-constructor-attributes
     this._default = this.querySelector(`*[name=${this._fallback}]`);
+    /**
+     * **attr-for-selected** If you do not want to have *selected* as attribute to mark the selected state, change this value.
+     * @type {string|string}
+     * @private
+     */
     // eslint-disable-next-line wc/no-constructor-attributes
     this._attrForSelected = this.getAttribute('attr-for-selected') || 'selected';
+    /**
+     * @private
+     */
     this._lastQP = [];
+    /**
+     * @private
+     */
     this._lastHash = [];
+    /**
+     * @private
+     */
     this._lastPageName = '';
 
     // set all to hidden
@@ -108,14 +128,7 @@ class FuroPages extends LitElement {
     return this.injectLocation(pseudolocation);
   }
 
-  /**
-   * Deprecated: use ƒ-inject-location.
-   *
-   * @param location
-   */
-  set location(location) {
-    return this.injectLocation(location);
-  }
+
 
   /**
    * Inject the location Object from furo-location. The page which is defined in location.pathSegments[0] will get activated.

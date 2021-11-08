@@ -19,6 +19,11 @@ class FuroLocation extends LitElement {
     super();
     // eslint-disable-next-line wc/no-constructor-attributes
     this.style.display = 'none';
+    /**
+     *
+     * @type {{host}}
+     * @private
+     */
     this._location = {
       host: window.location.host,
     };
