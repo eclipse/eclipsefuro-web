@@ -68,6 +68,12 @@ class FuroPrettyJson extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @param json
+   * @return {string}
+   * @private
+   */
   static _syntaxHighlight(json) {
     if (typeof json !== 'string') {
       // eslint-disable-next-line no-param-reassign

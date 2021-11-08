@@ -84,6 +84,7 @@ class FuroMarkdown extends LitElement {
    * parse markdown string to html content
    * @param markdown
    * @return {TemplateResult | TemplateResult}
+   * @private
    */
   _parseMarkdown(markdown) {
     const md = window.markdownit({

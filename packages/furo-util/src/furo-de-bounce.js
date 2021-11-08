@@ -45,7 +45,15 @@ class FuroDeBounce extends FBP(LitElement) {
   constructor() {
     super();
 
-    // as taken from Underscore.js
+
+    /**
+     * as taken from Underscore.js
+     * @param func
+     * @param wait
+     * @param immediate
+     * @return {(function(): void)|*}
+     * @private
+     */
     this._debounce = function debounce(func, wait, immediate) {
       let timeout;
       return function debouncer() {
@@ -62,7 +70,17 @@ class FuroDeBounce extends FBP(LitElement) {
         if (callNow) func.apply(context, args);
       };
     };
+    /**
+     *
+     * @type {boolean}
+     * @private
+     */
     this._immediate = false;
+    /**
+     *
+     * @type {number}
+     * @private
+     */
     this._wait = 250;
     this._createHandler(this._wait, this._immediate);
   }
