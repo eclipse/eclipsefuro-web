@@ -4,8 +4,6 @@
  * - i18n
  * - Init
  * - Sys
- * - Theme
- * - Iconset
  */
 export { Env } from './environment.js';
 export { i18n } from './i18n.js';
