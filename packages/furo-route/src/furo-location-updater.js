@@ -9,7 +9,11 @@ import { FBP } from '@furo/fbp';
  * The furo-location component will fire the location events as usual.
  *
  * ```html
- *  <furo-location-updater ƒ-set-qp="--QueryParamKeyValuePairs" ƒ-set-hash="--HashKeyValuePairs"></furo-location-updater>
+ *
+ *  <furo-location-updater
+ *     ƒ-set-qp="--QueryParamKeyValuePairs"
+ *     ƒ-set-hash="--HashKeyValuePairs"></furo-location-updater>
+ *
  * ```
  *
  * @fires {Number} __beforeReplaceState -  Fired when before the state will be updated, with `window.performance.now()`.

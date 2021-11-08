@@ -5,7 +5,7 @@ import { LitElement, html, css } from 'lit';
  * Use `furo-pages` to build tabs, views, subviews,...
  *
  *
- * ## preconditions:
+ * ## preconditions
  * The components used in a furo-page must implement a **hidden** attribute css to set itself to display none.
  *
  * ```css
@@ -13,6 +13,22 @@ import { LitElement, html, css } from 'lit';
  *    display:none
  *  }
  *```
+ *
+ * ## usage
+ *
+ * ```html
+ *
+ * <furo-pages ƒ-inject-location="--locationChanged" default="home">
+ *    <page-home name="home"></page-home>
+ *    <other-page name="more"></other-page>
+ *    <view-404 name="404"></view-404>
+ * </furo-pages>
+ *
+ * <furo-location @-location-changed="--locationChanged"></furo-location>
+ * ```
+ * *If the url is `/` or `/home`, page-home is displayed.*
+ * *If the url is `/more`,  other-page is displayed.*
+ * *If the url does not match any of the names and a 404 is available, the 404 is displayed.*
  *
  * ## flowbased auto wires
  * furo-pages provides auto wires, which are automatically triggered in the child elements if
