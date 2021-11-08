@@ -1,29 +1,44 @@
 /**
  * furo-fbp base class
  *
- * [read the guide](https://fbp.furo.pro/docs/installation/)
+ * [read the guide](https://fbp.furo.pro/)
  *
- * ## Tracing all wires in a component
+ *
+ * ### **_FBPTriggerWire**
+ * <small>**_FBPTriggerWire**(*wire* `` *detailData* `` ) ⟹ `void`</small>
+ *
+ * Triggers a wire
+ *
+ * - <small>wire (String) Name of the wire like --buttonClicked</small>
+ * - <small>detailData (*) data to pass</small>
+ *
+ *
+ * ### **_FBPAddWireHook**
+ * <small>**_FBPAddWireHook**(*wire* `` *cb* `` *before* `` ) ⟹ `number`</small>
+ *
+ *
+ *
+ * - <small>wire (String) Name of the wire</small>
+ * - <small>cb (function) Callback function cb(detailData)</small>
+ * - <small>before (Boolean) append before the components are triggered, default is false</small>
+ *
+ *
+ * ### **_FBPTraceWires**
+ * <small>**_FBPTraceWires**() ⟹ `void`</small>
  *
  * Log all triggered wires for this component. This function may help you at debugging.
- * **Attention** This works only with wires with at least 1 receiver.
- *
  * Select your element in the dev console and call `$0._FBPTraceWires()`
  *
- * To trace your element immediately after fbp is ready, use this snippet
  *
- * ```
- * _FBPReady(){
- *   super._FBPReady();
- *   this._FBPTraceWires()
- *}
- * ```
- * ## Debuging a wire
+ *
+ * ### **_FBPDebug**
+ * <small>**_FBPDebug**(*wire* `` *openDebugger* `` ) ⟹ `void`</small>
  *
  * Get information for the triggered wire. This function may help you at debugging.
- *
  * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
  *
+ * - <small>wire </small>
+ * - <small>openDebugger opens the debugger console, so you can inspect your component.</small>
  *
  *
  *
@@ -38,12 +53,31 @@ export const FBP = superClass =>
   class extends superClass {
     constructor() {
       super();
+      /**
+       * used to store the listeners
+       * @type {*[]}
+       * @private
+       */
       this.__FBPEventlistener = [];
+      /**
+       *
+       * @type {{}}
+       * @private
+       */
       this.__wirebundle = {};
+      /**
+       *
+       * @type {*[]}
+       * @private
+       */
       this.__wireQueue = [];
     }
 
-    // Auto append fbp for lit elements
+
+    /**
+     * Auto append fbp for lit elements
+     * @private
+     */
     firstUpdated() {
       // ensure to append only once
       if (!this.__fbpAppended) {
@@ -58,7 +92,7 @@ export const FBP = superClass =>
      * Triggers a wire
      * @param wire (String) Name of the wire like --buttonClicked
      * @param detailData (*) data to pass
-     * @public
+     * @private
      */
     _FBPTriggerWire(wire, detailData) {
       if (this.__fbp_ready) {
@@ -122,7 +156,7 @@ export const FBP = superClass =>
      * @param cb (function) Callback function cb(detailData)
      * @param [before] (Boolean) append before the components are triggered, default is false
      * @returns {number} Index of hook
-     * @public
+     * @private
      */
     _FBPAddWireHook(wire, cb, before) {
       // eslint-disable-next-line no-param-reassign
@@ -144,7 +178,7 @@ export const FBP = superClass =>
      * Select your element in the dev console and call `$0._FBPTraceWires()`
      *
      *
-     * @public
+     * @private
      */
     _FBPTraceWires() {
       const self = this;
@@ -204,7 +238,7 @@ export const FBP = superClass =>
      *
      * @param wire
      * @param openDebugger opens the debugger console, so you can inspect your component.
-     * @public
+     * @private
      */
     _FBPDebug(wire, openDebugger) {
       const self = this;
@@ -257,6 +291,13 @@ export const FBP = superClass =>
       );
     }
 
+
+    /**
+     *
+     * @param str
+     * @return {*}
+     * @private
+     */
     // eslint-disable-next-line class-methods-use-this
     __toCamelCase(str) {
       return str.replace(/-([a-z])/g, g => g[1].toUpperCase());
@@ -375,6 +416,7 @@ export const FBP = superClass =>
        * @param eventname
        * @param type
        * @param wire
+       * @private
        */
       function registerEvent(eventname, type, wire, element) {
         // find properties in wire
@@ -552,16 +594,29 @@ export const FBP = superClass =>
      * Livecycle method
      * This method is called, when the wires are ready.
      * And triggers the --FBPready wire. This does *not* respect a lit updateComplete
+     * @private
      */
     _FBPReady() {
       this.__fbp_ready = true;
       this._FBPTriggerWire('--FBPready');
     }
 
+    /**
+     *
+     * @param wire
+     * @param detailData
+     * @private
+     */
     __enqueueTrigger(wire, detailData) {
       this.__wireQueue.push({ w: wire, d: detailData });
     }
 
+    /**
+     *
+     * @param w
+     * @return {{path, receivingWire}}
+     * @private
+     */
     // eslint-disable-next-line class-methods-use-this
     __resolveWireAndPath(w) {
       // finde --wire(*.xx.yy)  => group1 = --wire  group2 = xx.yy
@@ -580,8 +635,8 @@ export const FBP = superClass =>
      *
      * @param {Object} root Object from which to dereference path from
      * @param {string | !Array<string|number>} path Path to read
-     * @return {*} Value at path, or `undefined` if the path could not be
-     *  fully dereferenced.
+     * @return {*} Value at path, or `undefined` if the path could not be fully dereferenced.
+     * @private
      */
     _pathGet(root, path) {
       let prop = root;
@@ -606,6 +661,7 @@ export const FBP = superClass =>
      * @param {string | !Array<string|number>} path Path to set
      * @param {*} value Value to set to path
      * @return {string | boolean} The normalized version of the input path, return false if no prop
+     * @private
      */
     _pathSet(root, path, value) {
       let prop = root;
@@ -644,6 +700,7 @@ export const FBP = superClass =>
      * @param {string | !Array<string|number>} path Input path
      * @return {!Array<string>} Array of path parts
      * @suppress {checkTypes}
+     * @private
      */
     // eslint-disable-next-line class-methods-use-this
     _split(path) {
