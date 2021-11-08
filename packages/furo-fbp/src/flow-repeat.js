@@ -155,6 +155,15 @@ export class FlowRepeat extends FBP(HTMLElement) {
     this.select(i);
   }
 
+  /**
+   * Triggers the currently selected item.
+   *
+   * Triggers the wire `--trigger` on the every item.
+   *
+   * Triggers the wire `--triggerIndex` on the every item.
+   *
+   * @param data {*} - Data to forward.
+   */
   triggerSelected(data) {
     this.triggerIndex(this.selectedIndex, data);
   }
@@ -163,9 +172,9 @@ export class FlowRepeat extends FBP(HTMLElement) {
   /**
    * Triggers all nodes.
    *
-   * Triggers the wire --trigger on the every item.
+   * Triggers the wire `--trigger` on the every item.
    *
-   * Triggers the wire --triggerIndex on the every item.
+   * Triggers the wire `--triggerIndex` on the every item.
    *
    * @param data {*} - data to forward
    */
@@ -241,6 +250,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
+   * Inject items to repeat.
    *
    * @param items {Array} - Items to repeat
    */
@@ -404,7 +414,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
-   * Triggers the wire --trigger on the first item.
+   * Triggers the wire `--trigger` on the first item.
    *
    * Triggers the wire --triggerFirst on the first item.
    *
@@ -421,7 +431,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
-   * Triggers the wire --trigger on the last item.
+   * Triggers the wire `--trigger` on the last item.
    *
    * Triggers the wire --triggerLast on the last item.
    *
@@ -439,9 +449,9 @@ export class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
-   * Triggers the wire --trigger on the  item.
+   * Triggers the wire `--trigger` on the  item.
    *
-   * Triggers the wire --triggerIndex on the  item.
+   * Triggers the wire `--triggerIndex` on the  item.
    *
    *
    * @param i {int} - index of item that you want to trigger.
