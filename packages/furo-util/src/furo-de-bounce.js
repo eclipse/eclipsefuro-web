@@ -2,19 +2,21 @@ import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp';
 
 /**
- * `furo-de-bounce`
- *  is a component with a input-wire, that, as long as it continues to be triggered, will not
- *  be invoked. The wire will be triggered after it stops being called for
- *  N milliseconds. If `immediate` is passed as a attribute, it triggers the input-wire on the
- *  leading edge, instead of the trailing.
+ * The Debounce technique allow us to “group” multiple sequential calls in a single one.
  *
- * @fires {*} out - Fired after `input-wire` stops being called for N milliseconds.
- * If `immediate`is set to TRUE, it fires on the leading edge. object param from inputWire
+ * [Read more about debouncing here](https://css-tricks.com/debouncing-throttling-explained-examples/)
  *
+ *
+ *
+ * ```html
+ * <furo-de-bounce ƒ-trigger="--searchStringEntered" @-debounced="--debouncedSrch">
+ * </furo-de-bounce>
+ * ```
+ *
+ * @fires {*} debounced - Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge.
+ * // TODO: remove @out and ƒ-input-wire in q2 2022
  * @summary event de bouncer
  * @customElement
- * @demo demo-furo-de-bounce Basic usage
- * @demo demo-furo-de-bounce-immediately Immediate usage
  * @appliesMixin FBP
  */
 class FuroDeBounce extends FBP(LitElement) {
@@ -110,6 +112,11 @@ class FuroDeBounce extends FBP(LitElement) {
             bubbles: true,
             composed: true,
           }),
+          new CustomEvent('debounced', {
+            detail: wire,
+            bubbles: true,
+            composed: true,
+          }),
         );
       },
       wait,
@@ -118,11 +125,20 @@ class FuroDeBounce extends FBP(LitElement) {
   }
 
   /**
+   * Trigger the debounce
+   * @param {*} data - Any data, will be dispatched on the `debounced` event.
+   */
+  trigger(data){
+    this.handler(data);
+  }
+
+  /**
    * Debounce function
    * @param wire
    */
   inputWire(wire) {
     this.handler(wire);
+    console.warn("input-wire is deprecated, use the trigger method instead",this)
   }
 
   static get styles() {
