@@ -1,5 +1,5 @@
 import { LitElement } from 'lit';
-import { EmpptyStackError } from './lib/EmptyStackError.js';
+import { EmptyStackError } from './lib/EmptyStackError.js';
 
 /**
  * `furo-forth-stack` is a declarative stack, inspired by the forth stack.
@@ -104,7 +104,7 @@ export class FuroForthStack extends LitElement {
       }
       return e;
     }
-    return new EmpptyStackError('Stack is empty');
+    return new EmptyStackError('Stack is empty');
   }
 
   /**

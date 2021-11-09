@@ -4,13 +4,12 @@ import './furo-fetch-json.js';
 import { Config } from './lib/Config.js';
 
 /**
- * `furo-config-loader`
+ * `furo-config-loader` loads a configuration json in to the defined section.
  *
- * ladet eine Konfiguration in eine vorgegebene Sektion. Diese lassen sich mit furo-config in jeder Komponente verwenden.
+ * To access the config values, use `furo-config`.
  *
- * ```
+ * ```html
  *   <furo-config-loader src="/custom/view-config.json" section="views"></furo-config-loader>
- *
  * ```
  *
  * @fires {Object} config-loaded - Fired when the config is loaded with the loaded config as detail.
@@ -27,16 +26,14 @@ class FuroConfigLoader extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * src
-       * Quelle der Konfiguration
+       * File source
        */
       src: {
         type: String,
       },
 
       /**
-       * section
-       * Die Sektion in der die Antwort gesichert wird
+       * Targeted section to load the config in.
        */
       section: {
         type: String,

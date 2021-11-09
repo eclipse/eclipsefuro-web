@@ -30,6 +30,9 @@ class ConfigTree extends EventTreeNode {
 
 const sharedConfig = new ConfigTree(null);
 
+/**
+ * Config Class for `furo-config`. Not intended for direct usage.
+ */
 export class Config {
   static append(section, obj) {
     this.deepCreate(sharedConfig, section, obj);
@@ -82,6 +85,4 @@ export class Config {
     }, sharedConfig);
     targetNode.addEventListener('config-updated', cb);
   }
-
-  // this.identityPath.split('.').reduce((acc, part) => acc && acc[part], e);
 }

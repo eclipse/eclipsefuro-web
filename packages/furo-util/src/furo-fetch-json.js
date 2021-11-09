@@ -37,7 +37,7 @@ class FuroFetchJson extends FBP(LitElement) {
    *
    * Use fetch-src if you want to pass the source url
    *
-   * @return {Promise<any>}
+   * @return {Promise}
    */
   // eslint-disable-next-line consistent-return
   fetch() {
@@ -63,7 +63,7 @@ class FuroFetchJson extends FBP(LitElement) {
    * fetch json data from source
    * @param String source
    *
-   * @return {Promise<any>}
+   * @return {Promise}
    */
   fetchSrc(source) {
     this.src = source;

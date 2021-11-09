@@ -14,6 +14,8 @@ import { FBP } from '@furo/fbp';
  * ```
  *
  * @fires {*} debounced - Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge.
+ * @fires {*} out - deprecated, use debounced instead.
+ *
  * // TODO: remove @out and ƒ-input-wire in q2 2022
  * @summary event de bouncer
  * @customElement
@@ -135,6 +137,8 @@ class FuroDeBounce extends FBP(LitElement) {
   /**
    * Debounce function
    * @param wire
+   * @private
+   * @deprecated
    */
   inputWire(wire) {
     this.handler(wire);
