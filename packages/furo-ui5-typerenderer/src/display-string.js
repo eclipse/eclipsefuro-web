@@ -21,6 +21,7 @@ export class DisplayString extends LitElement {
       css`
         :host {
           display: inline;
+          word-break: break-all;
         }
 
         :host([hidden]) {
