@@ -37,7 +37,7 @@ describe('furo-put-clipboard', () => {
 
 
   it('should write setted data to clipboard', done => {
-    element.addEventListener('content-putted', d => {
+    element.addEventListener('content-put', d => {
       assert.equal(d.detail, 'Data');
       done();
     });
@@ -47,7 +47,7 @@ describe('furo-put-clipboard', () => {
   });
 
   it('should write to clipboard', done => {
-    element.addEventListener('content-putted', d => {
+    element.addEventListener('content-put', d => {
       assert.equal(d.detail, 'SUCCESS');
       done();
     });

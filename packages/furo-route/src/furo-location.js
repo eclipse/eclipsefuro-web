@@ -4,13 +4,13 @@ import { LitElement, css } from 'lit';
  * `furo-location` watches for URL changes and notifies you. The location object which is fired from furo-location can be used
  * for page navigation in furo-pages or for deep link resolution.
  *
- *  ```html
+ * ```html
  *
  *  <furo-location @-location-changed="--locationChanged"></furo-location>
  *
- *  <furo-pages ƒ-inject-location="--locationChanged">...
+ *       <furo-pages ƒ-inject-location="--locationChanged">...
  *
- *  ```
+ * ```
  *
  * @fires {Location object} location-path-changed -  Fired when Path portion of the location changed
  * @fires {Location object} location-hash-changed -  Fired when Hash portion of the location changed
