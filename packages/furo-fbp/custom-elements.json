@@ -25,6 +25,8 @@
             {
               "kind": "method",
               "name": "firstUpdated",
+              "description": "Auto append fbp for lit elements",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -44,7 +46,7 @@
                 }
               ],
               "description": "Triggers a wire",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -73,7 +75,7 @@
                   "text": "number"
                 }
               },
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -83,7 +85,7 @@
               "kind": "method",
               "name": "_FBPTraceWires",
               "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -102,7 +104,7 @@
                 }
               ],
               "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -116,6 +118,12 @@
                   "name": "str"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -141,6 +149,7 @@
               "kind": "method",
               "name": "_FBPReady",
               "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -157,6 +166,7 @@
                   "name": "detailData"
                 }
               ],
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -170,6 +180,12 @@
                   "name": "w"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "{path, receivingWire}"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -200,6 +216,7 @@
                   "text": "*"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -237,6 +254,7 @@
                   "text": "string | boolean"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -260,6 +278,7 @@
                   "text": "!Array<string>"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -269,8 +288,10 @@
               "kind": "field",
               "name": "__FBPEventlistener",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "used to store the listeners",
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -281,8 +302,9 @@
               "kind": "field",
               "name": "__wirebundle",
               "type": {
-                "text": "object"
+                "text": "{}"
               },
+              "privacy": "private",
               "default": "{}",
               "inheritedFrom": {
                 "name": "FBP",
@@ -293,8 +315,9 @@
               "kind": "field",
               "name": "__wireQueue",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -321,12 +344,14 @@
       "declarations": [
         {
           "kind": "mixin",
-          "description": "furo-fbp base class\n\n[read the guide](/guide/md/fbp-wires/)\n\n## Tracing all wires in a component\n\nLog all triggered wires for this component. This function may help you at debugging.\n**Attention** This works only with wires with at least 1 receiver.\n\nSelect your element in the dev console and call `$0._FBPTraceWires()`\n\nTo trace your element immediately after fbp is ready, use this snippet\n\n```\n_FBPReady(){\n  super._FBPReady();\n  this._FBPTraceWires()\n}\n```\n## Debuging a wire\n\nGet information for the triggered wire. This function may help you at debugging.\n\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+          "description": "furo-fbp base class\n\n[read the guide](https://fbp.furo.pro/)\n\n\n### **_FBPTriggerWire**\n<small>**_FBPTriggerWire**(*wire* `` *detailData* `` ) ⟹ `void`</small>\n\nTriggers a wire\n\n- <small>wire (String) Name of the wire like --buttonClicked</small>\n- <small>detailData (*) data to pass</small>\n\n\n### **_FBPAddWireHook**\n<small>**_FBPAddWireHook**(*wire* `` *cb* `` *before* `` ) ⟹ `number`</small>\n\n\n\n- <small>wire (String) Name of the wire</small>\n- <small>cb (function) Callback function cb(detailData)</small>\n- <small>before (Boolean) append before the components are triggered, default is false</small>\n\n\n### **_FBPTraceWires**\n<small>**_FBPTraceWires**() ⟹ `void`</small>\n\nLog all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`\n\n\n\n### **_FBPDebug**\n<small>**_FBPDebug**(*wire* `` *openDebugger* `` ) ⟹ `void`</small>\n\nGet information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`\n\n- <small>wire </small>\n- <small>openDebugger opens the debugger console, so you can inspect your component.</small>",
           "name": "FBP",
           "members": [
             {
               "kind": "method",
-              "name": "firstUpdated"
+              "name": "firstUpdated",
+              "description": "Auto append fbp for lit elements",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -342,7 +367,7 @@
                 }
               ],
               "description": "Triggers a wire",
-              "privacy": "public"
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -367,13 +392,13 @@
                   "text": "number"
                 }
               },
-              "privacy": "public"
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "_FBPTraceWires",
               "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-              "privacy": "public"
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -388,7 +413,7 @@
                 }
               ],
               "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-              "privacy": "public"
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -397,7 +422,13 @@
                 {
                   "name": "str"
                 }
-              ]
+              ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -414,7 +445,8 @@
             {
               "kind": "method",
               "name": "_FBPReady",
-              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete"
+              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -426,7 +458,8 @@
                 {
                   "name": "detailData"
                 }
-              ]
+              ],
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -435,7 +468,13 @@
                 {
                   "name": "w"
                 }
-              ]
+              ],
+              "return": {
+                "type": {
+                  "text": "{path, receivingWire}"
+                }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -461,7 +500,8 @@
                 "type": {
                   "text": "*"
                 }
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -494,7 +534,8 @@
                 "type": {
                   "text": "string | boolean"
                 }
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -513,30 +554,35 @@
                 "type": {
                   "text": "!Array<string>"
                 }
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
               "name": "__FBPEventlistener",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "used to store the listeners",
+              "privacy": "private",
               "default": "[]"
             },
             {
               "kind": "field",
               "name": "__wirebundle",
               "type": {
-                "text": "object"
+                "text": "{}"
               },
+              "privacy": "private",
               "default": "{}"
             },
             {
               "kind": "field",
               "name": "__wireQueue",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "privacy": "private",
               "default": "[]"
             }
           ],
@@ -565,21 +611,28 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`flow-bind`\n\n Custom element to allow using furo-fbp's template features in a html document.\n It comes very handy, when you want write tests or make some demos.\n\n```\n<test-fixture id=\"basic\">\n  <template>\n   <flow-bind id=\"elem\">\n     <template>\n       <div id=\"sender\" @-click=\"--data-received\">sender</div>\n       <div id=\"receiver\" ƒ-render=\"--data-received\">receiver</div>\n     </template>\n   </flow-bind>\n  </template>\n</test-fixture>\n```",
+          "description": "`flow-bind`\n\n Custom element to allow using furo-fbp's template features in a html document.\n It comes very handy, when you want write tests or make some demos.\n\n```html\n<test-fixture id=\"basic\">\n  <template>\n   <flow-bind id=\"elem\">\n     <template>\n       <div id=\"sender\" @-click=\"--data-received\">sender</div>\n       <div id=\"receiver\" ƒ-render=\"--data-received\">receiver</div>\n     </template>\n   </flow-bind>\n  </template>\n</test-fixture>\n```",
           "name": "FlowBind",
           "members": [
             {
               "kind": "field",
-              "name": "template"
+              "name": "template",
+              "privacy": "private"
             },
             {
               "kind": "field",
               "name": "_host",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private",
               "default": "elem"
             },
             {
               "kind": "method",
               "name": "firstUpdated",
+              "description": "Auto append fbp for lit elements",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -599,7 +652,7 @@
                 }
               ],
               "description": "Triggers a wire",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -628,7 +681,7 @@
                   "text": "number"
                 }
               },
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -638,7 +691,7 @@
               "kind": "method",
               "name": "_FBPTraceWires",
               "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -657,7 +710,7 @@
                 }
               ],
               "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -671,6 +724,12 @@
                   "name": "str"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -696,6 +755,7 @@
               "kind": "method",
               "name": "_FBPReady",
               "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -712,6 +772,7 @@
                   "name": "detailData"
                 }
               ],
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -725,6 +786,12 @@
                   "name": "w"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "{path, receivingWire}"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -755,6 +822,7 @@
                   "text": "*"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -792,6 +860,7 @@
                   "text": "string | boolean"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -815,6 +884,7 @@
                   "text": "!Array<string>"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -824,8 +894,10 @@
               "kind": "field",
               "name": "__FBPEventlistener",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "used to store the listeners",
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -836,8 +908,9 @@
               "kind": "field",
               "name": "__wirebundle",
               "type": {
-                "text": "object"
+                "text": "{}"
               },
+              "privacy": "private",
               "default": "{}",
               "inheritedFrom": {
                 "name": "FBP",
@@ -848,8 +921,9 @@
               "kind": "field",
               "name": "__wireQueue",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -888,7 +962,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`flow-repeat`\n\nCustom element to repeat Arrays",
+          "description": "`flow-repeat`\n\nCustom element to repeat Arrays. The repeated items are injected *before* the `flow-repeat` element. If you need the repeated items inside of an other dom node, use [`setInsertRef`](./flow-repeat/#setinsertref)\n\n\n```html\n<flow-repeat ƒ-inject-items=\"--dataArray\">\n <template>\n  <repeated-item index=\"${this.index}\" ƒ-inject=\"--init\">\n</template>\n</flow-repeat>\n```\n> **Note**: if you want to bind a repeater node, use `furo-data-flow-repeat`.\n\n\n ## Available wires in the template:\n\n > **Note**: Each repeated item has its own closed scope. You can not use the wires outside of the `template`.\n > Use events to interact with components outside of the template.\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
           "name": "FlowRepeat",
           "members": [
             {
@@ -901,59 +975,82 @@
               "name": "select",
               "parameters": [
                 {
-                  "name": "index"
+                  "name": "index",
+                  "description": "Index of item to select",
+                  "type": {
+                    "text": "int"
+                  }
                 }
               ],
-              "description": "Triggers the wire --itemSelected on selected item and --itemDeSelected on last selected Item"
+              "description": "Triggers the wire `--itemSelected` on selected item and `--itemDeSelected` on last selected Item."
             },
             {
               "kind": "method",
               "name": "selectIdentity",
               "parameters": [
                 {
-                  "name": "identifier"
+                  "name": "identifier",
+                  "description": "Identity from `identity-path`",
+                  "type": {
+                    "text": "*"
+                  }
                 }
               ],
-              "description": "Select item by its identity.\n\nUsing this method only makes sense when you have set the identity-path.\nIf you already work with indexes, use select(index).\n\nTODO: consider to return a promise"
+              "description": "Select item by its identity.\n\nUsing this method only works when you have set the `identity-path`."
             },
             {
               "kind": "method",
               "name": "selectNextIndex",
-              "description": "select Next index"
+              "description": "Selects next index.  If none was selected, the first index will be selected.\n\nIf you reached the last index, the first index will be selected.\n\nIf you reach the last element, `last-element-selected` will fire.\n\nTriggers the wire `--itemSelected` on selected item and `--itemDeSelected` on last selected Item"
             },
             {
               "kind": "method",
-              "name": "selectPreviousIndex"
+              "name": "selectPreviousIndex",
+              "description": "Selects the previous index.\n\nIf you are on the first item, the last will be selected.\n\nTriggers the wire `--itemSelected` on selected item and `--itemDeSelected` on last selected Item"
             },
             {
               "kind": "method",
               "name": "triggerSelected",
               "parameters": [
                 {
-                  "name": "data"
+                  "name": "data",
+                  "description": "Data to forward.",
+                  "type": {
+                    "text": "*"
+                  }
                 }
-              ]
+              ],
+              "description": "Triggers the currently selected item.\n\nTriggers the wire `--trigger` on the every item.\n\nTriggers the wire `--triggerIndex` on the every item."
             },
             {
               "kind": "method",
               "name": "triggerAll",
               "parameters": [
                 {
-                  "name": "data"
+                  "name": "data",
+                  "description": "data to forward",
+                  "type": {
+                    "text": "*"
+                  }
                 }
-              ]
+              ],
+              "description": "Triggers all nodes.\n\nTriggers the wire `--trigger` on the every item.\n\nTriggers the wire `--triggerIndex` on the every item."
             },
             {
               "kind": "method",
               "name": "deselect",
-              "description": "Triggers the wire --itemDeSelected on last selected item"
+              "description": "Triggers the wire `--itemDeSelected` on the last selected item"
             },
             {
               "kind": "method",
               "name": "setInsertRef",
               "parameters": [
                 {
-                  "name": "ref"
+                  "name": "ref",
+                  "description": "Node to append the repeated items.",
+                  "type": {
+                    "text": "DomNode"
+                  }
                 }
               ],
               "description": "Set a reference to append the repeated elements in to the ref instead of appending them before the repeater itself."
@@ -968,12 +1065,13 @@
                 {
                   "name": "reference"
                 }
-              ]
+              ],
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "deselectAll",
-              "description": "Triggers the wire --itemDeSelected on all items"
+              "description": "Triggers the wire `--itemDeSelected` on all items"
             },
             {
               "kind": "method",
@@ -982,16 +1080,27 @@
                 {
                   "name": "parent"
                 }
-              ]
+              ],
+              "return": {
+                "type": {
+                  "text": "null|*"
+                }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "injectItems",
               "parameters": [
                 {
-                  "name": "items"
+                  "name": "items",
+                  "description": "Items to repeat",
+                  "type": {
+                    "text": "Array"
+                  }
                 }
-              ]
+              ],
+              "description": "Inject items to repeat."
             },
             {
               "kind": "method",
@@ -1003,41 +1112,67 @@
                 {
                   "name": "i"
                 }
-              ]
+              ],
+              "return": {
+                "type": {
+                  "text": "HTMLElement"
+                }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "triggerFirst",
               "parameters": [
                 {
-                  "name": "e"
+                  "name": "data",
+                  "description": "data to forward to the item.",
+                  "type": {
+                    "text": "*"
+                  }
                 }
-              ]
+              ],
+              "description": "Triggers the wire `--trigger` on the first item.\n\nTriggers the wire --triggerFirst on the first item."
             },
             {
               "kind": "method",
               "name": "triggerLast",
               "parameters": [
                 {
-                  "name": "e"
+                  "name": "data",
+                  "description": "data to forward to the item.",
+                  "type": {
+                    "text": "*"
+                  }
                 }
-              ]
+              ],
+              "description": "Triggers the wire `--trigger` on the last item.\n\nTriggers the wire --triggerLast on the last item."
             },
             {
               "kind": "method",
               "name": "triggerIndex",
               "parameters": [
                 {
-                  "name": "i"
+                  "name": "i",
+                  "description": "index of item that you want to trigger.",
+                  "type": {
+                    "text": "int"
+                  }
                 },
                 {
-                  "name": "data"
+                  "name": "data",
+                  "description": "data to forward to the item.",
+                  "type": {
+                    "text": "*"
+                  }
                 }
-              ]
+              ],
+              "description": "Triggers the wire `--trigger` on the  item.\n\nTriggers the wire `--triggerIndex` on the  item."
             },
             {
               "kind": "field",
               "name": "template",
+              "privacy": "private",
               "default": "undefined"
             },
             {
@@ -1046,11 +1181,14 @@
               "type": {
                 "text": "array"
               },
+              "privacy": "private",
               "default": "[]"
             },
             {
               "kind": "method",
               "name": "firstUpdated",
+              "description": "Auto append fbp for lit elements",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1070,7 +1208,7 @@
                 }
               ],
               "description": "Triggers a wire",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1099,7 +1237,7 @@
                   "text": "number"
                 }
               },
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1109,7 +1247,7 @@
               "kind": "method",
               "name": "_FBPTraceWires",
               "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1128,7 +1266,7 @@
                 }
               ],
               "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1142,6 +1280,12 @@
                   "name": "str"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1167,6 +1311,7 @@
               "kind": "method",
               "name": "_FBPReady",
               "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1183,6 +1328,7 @@
                   "name": "detailData"
                 }
               ],
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1196,6 +1342,12 @@
                   "name": "w"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "{path, receivingWire}"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1226,6 +1378,7 @@
                   "text": "*"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1263,6 +1416,7 @@
                   "text": "string | boolean"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1286,6 +1440,7 @@
                   "text": "!Array<string>"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1295,8 +1450,10 @@
               "kind": "field",
               "name": "__FBPEventlistener",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "used to store the listeners",
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1307,8 +1464,9 @@
               "kind": "field",
               "name": "__wirebundle",
               "type": {
-                "text": "object"
+                "text": "{}"
               },
+              "privacy": "private",
               "default": "{}",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1319,8 +1477,9 @@
               "kind": "field",
               "name": "__wireQueue",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1404,6 +1563,8 @@
             {
               "kind": "method",
               "name": "firstUpdated",
+              "description": "Auto append fbp for lit elements",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1423,7 +1584,7 @@
                 }
               ],
               "description": "Triggers a wire",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1452,7 +1613,7 @@
                   "text": "number"
                 }
               },
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1462,7 +1623,7 @@
               "kind": "method",
               "name": "_FBPTraceWires",
               "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1481,7 +1642,7 @@
                 }
               ],
               "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1495,6 +1656,12 @@
                   "name": "str"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1520,6 +1687,7 @@
               "kind": "method",
               "name": "_FBPReady",
               "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1536,6 +1704,7 @@
                   "name": "detailData"
                 }
               ],
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1549,6 +1718,12 @@
                   "name": "w"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "{path, receivingWire}"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1579,6 +1754,7 @@
                   "text": "*"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1616,6 +1792,7 @@
                   "text": "string | boolean"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1639,6 +1816,7 @@
                   "text": "!Array<string>"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1648,8 +1826,10 @@
               "kind": "field",
               "name": "__FBPEventlistener",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "used to store the listeners",
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1660,8 +1840,9 @@
               "kind": "field",
               "name": "__wirebundle",
               "type": {
-                "text": "object"
+                "text": "{}"
               },
+              "privacy": "private",
               "default": "{}",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1672,8 +1853,9 @@
               "kind": "field",
               "name": "__wireQueue",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1713,6 +1895,8 @@
             {
               "kind": "method",
               "name": "firstUpdated",
+              "description": "Auto append fbp for lit elements",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1732,7 +1916,7 @@
                 }
               ],
               "description": "Triggers a wire",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1761,7 +1945,7 @@
                   "text": "number"
                 }
               },
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1771,7 +1955,7 @@
               "kind": "method",
               "name": "_FBPTraceWires",
               "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1790,7 +1974,7 @@
                 }
               ],
               "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-              "privacy": "public",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1804,6 +1988,12 @@
                   "name": "str"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1829,6 +2019,7 @@
               "kind": "method",
               "name": "_FBPReady",
               "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1845,6 +2036,7 @@
                   "name": "detailData"
                 }
               ],
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1858,6 +2050,12 @@
                   "name": "w"
                 }
               ],
+              "return": {
+                "type": {
+                  "text": "{path, receivingWire}"
+                }
+              },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1888,6 +2086,7 @@
                   "text": "*"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1925,6 +2124,7 @@
                   "text": "string | boolean"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1948,6 +2148,7 @@
                   "text": "!Array<string>"
                 }
               },
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
                 "module": "src/fbp.js"
@@ -1957,8 +2158,10 @@
               "kind": "field",
               "name": "__FBPEventlistener",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "used to store the listeners",
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1969,8 +2172,9 @@
               "kind": "field",
               "name": "__wirebundle",
               "type": {
-                "text": "object"
+                "text": "{}"
               },
+              "privacy": "private",
               "default": "{}",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1981,8 +2185,9 @@
               "kind": "field",
               "name": "__wireQueue",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FBP",

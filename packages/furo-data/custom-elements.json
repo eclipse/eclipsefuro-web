@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-api-fetch`\n\nfuro-api-fetch can be used for network requests via FETCH API\n\n```html\n<furo-api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></furo-api-fetch>\n```",
+          "description": "Use `furo-api-fetch` to fetch data from the network.\n\n\n```html\n<furo-api-fetch ƒ-invoke-request=\"--Request\"></furo-api-fetch>\n```",
           "name": "FuroApiFetch",
           "members": [
             {
@@ -47,7 +47,8 @@
                 {
                   "name": "request"
                 }
-              ]
+              ],
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -96,7 +97,7 @@
               "type": {
                 "text": "Request"
               },
-              "description": "* Requests are made via the Fetch API if possible.Fallback XMLHttpRequest * @fires response-error-[status-code.firstChar]xx -    * Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx"
+              "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest"
             },
             {
               "name": "request-started",
@@ -135,8 +136,9 @@
             {
               "name": "response-error-raw",
               "type": {
-                "text": "CustomEvent"
-              }
+                "text": "Object"
+              },
+              "description": "Fired when a error has occoured."
             },
             {
               "name": "response-error",
@@ -156,6 +158,20 @@
               },
               "description": "Fired when an error has occoured. This is a specific error event.",
               "name": "response-error-[status-code]"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-4xx"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-5xx"
             }
           ],
           "superclass": {
@@ -179,90 +195,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/furo-append-object.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`append-object`",
-          "name": "FuroAppendObject",
-          "members": [
-            {
-              "kind": "method",
-              "name": "init",
-              "parameters": [
-                {
-                  "name": "object",
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "description": "Set an initial object. Otherwise you will start with an empty object, which can also be useful sometimes."
-            },
-            {
-              "kind": "method",
-              "name": "append",
-              "parameters": [
-                {
-                  "name": "object",
-                  "type": {
-                    "text": "Object"
-                  }
-                }
-              ],
-              "description": "Append the properties of an object to the inital object."
-            },
-            {
-              "kind": "field",
-              "name": "initialObject",
-              "type": {
-                "text": "Object"
-              },
-              "description": "The initial object is an empty object.",
-              "default": "{}"
-            }
-          ],
-          "events": [
-            {
-              "type": {
-                "text": "{object} the extended object"
-              },
-              "description": " Fired when something is appended to the initial object.",
-              "name": "appended"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp/src/fbp.js"
-            }
-          ],
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "summary": "append data to object literals",
-          "tagName": "furo-append-object",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-append-object",
-          "declaration": {
-            "name": "FuroAppendObject",
-            "module": "src/furo-append-object.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/furo-collection-agent.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.\n\n\n\n\nHow to use:\n```html\n   <furo-collection-agent\n                     service=\"Servicename\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in\n                   ></furo-collection-agent>\n```",
+          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n\n\n```html\n   <furo-collection-agent\n                     service=\"Servicename\"\n                     ƒ-hts-in=\"--hts\"\n                   ></furo-collection-agent>\n\n<!-- produces hts -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
           "name": "FuroCollectionAgent",
           "members": [
             {
@@ -720,13 +657,13 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-custom-method`\ninterface component to handle custom methods.",
+          "description": "`furo-custom-method` is a interface component to handle custom methods.\n\n```html\n<furo-custom-method\nservice=\"Servicename\"\nmethod=\"release\"\nƒ-hts-in=\"--hts\"\nƒ-trigger=\"--customClick\"\n></furo-custom-method>\n\n<!-- produces hts -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n* *before you can do any requests, the service, method and the HATEOAS must be known*",
           "name": "FuroCustomMethod",
           "members": [
             {
               "kind": "field",
               "name": "service",
-              "description": "Name des Services",
+              "description": "Name of the service.",
               "parameters": [
                 {
                   "name": "service"
@@ -759,7 +696,8 @@
                 {
                   "name": "dataObject"
                 }
-              ]
+              ],
+              "description": "Binds a furo-data-object type."
             },
             {
               "kind": "method",
@@ -873,7 +811,7 @@
               "kind": "field",
               "name": "method",
               "privacy": "public",
-              "description": "Name der Methode",
+              "description": "Name of the custom method / rel.",
               "attribute": "method"
             }
           ],
@@ -893,12 +831,12 @@
           "attributes": [
             {
               "name": "service",
-              "description": "Name des Services",
+              "description": "Name of the service.",
               "fieldName": "service"
             },
             {
               "name": "method",
-              "description": "Name der Methode",
+              "description": "Name of the custom method / rel.",
               "fieldName": "method"
             }
           ],
@@ -930,75 +868,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/furo-data-emmiter.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`furo-data-emmiter`\n emits/fires the value from a data-object.\n\n ```html\n  <furo-data-emmiter\n       ƒ-trigger=\"--jsonDataRequested\"\n       ƒ-bind-data=\"--dataObject\"",
-          "name": "FuroDataEmmiter",
-          "members": [
-            {
-              "kind": "method",
-              "name": "bindData",
-              "parameters": [
-                {
-                  "name": "field",
-                  "description": "a object from furo-data-object",
-                  "type": {
-                    "text": "Object|FieldNode"
-                  }
-                }
-              ],
-              "description": "Bind a data object. The trigger method will not fire until an object was bounded."
-            },
-            {
-              "kind": "method",
-              "name": "trigger",
-              "description": "Read .value of the bounded data object and emit data as json object."
-            }
-          ],
-          "events": [
-            {
-              "type": {
-                "text": "json data of a data object"
-              },
-              "description": " Fired when trigger was called and data binding was done",
-              "name": "data"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "summary": "emit value of data object",
-          "tagName": "furo-data-emmiter",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-data-emmiter",
-          "declaration": {
-            "name": "FuroDataEmmiter",
-            "module": "src/furo-data-emmiter.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/furo-data-flow-repeat.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat ƒ-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         ƒ-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n To delete a item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
+          "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat ƒ-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         ƒ-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n *The wire `--init` is fired from furo-data-flow-repeat*\n\n If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
           "name": "FuroDataFlowRepeat",
           "members": [
             {
@@ -1016,7 +890,11 @@
               "name": "add",
               "parameters": [
                 {
-                  "name": "data"
+                  "name": "data",
+                  "description": "Object that match the type of the repeated node.",
+                  "type": {
+                    "text": "Object"
+                  }
                 }
               ],
               "description": "Adds a repeated item of the same type."
@@ -1080,7 +958,11 @@
               "name": "bindData",
               "parameters": [
                 {
-                  "name": "fieldNode"
+                  "name": "fieldNode",
+                  "description": "FieldNode or RepeaterNode",
+                  "type": {
+                    "text": "FieldNode|RepeaterNode"
+                  }
                 }
               ],
               "description": "Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.",
@@ -1337,7 +1219,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\n\n\n```\n<furo-data-hide-content ƒ-bind-data=\"--bind(*.bool)\" ƒ-hide=\"--hideClicked\" ƒ-show=\"--showClicked\">\n <div>some content</div>\n</furo-collapsible-box>\n```",
+          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO: should work with FieldNodeAdapter and also support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content ƒ-bind-data=\"--bind(*.bool)\">\n <div>some content</div>\n</furo-collapsible-box>\n```",
           "name": "FuroDataHideContent",
           "slots": [
             {
@@ -1370,7 +1252,14 @@
                 {
                   "name": "bool"
                 }
-              ]
+              ],
+              "description": "inverses the bool based on hideOnFalse",
+              "return": {
+                "type": {
+                  "text": "boolean|*"
+                }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -1402,7 +1291,8 @@
                 {
                   "name": "eventname"
                 }
-              ]
+              ],
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -1423,17 +1313,17 @@
           "events": [
             {
               "type": {
-                "text": "{Boolean} current visibility state"
+                "text": "Boolean"
               },
-              "description": " Fired when the visibility changed",
+              "description": " Fired when the visibility changed, contains the current visibility state",
               "name": "value-changed"
             },
             {
               "type": {
                 "text": "void"
               },
-              "description": " Fired when the content gets hided",
-              "name": "hided"
+              "description": " Fired when the content gets hid",
+              "name": "hid"
             },
             {
               "type": {
@@ -1465,7 +1355,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "summary": "hide content",
+          "summary": "hide content with a boolean fieldnode",
           "tagName": "furo-data-hide-content",
           "customElement": true
         }
@@ -1686,7 +1576,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-deep-link`\nResolve deep links HATEOAS based on the query params and the selected service.\n\n*Deeplink inside of a furo-page*\n```html\n<furo-deep-link service=\"TaskService\" ƒ-qp-in=\"--pageQueryChanged(*.query)\" @-hts-out=\"--serviceHTS\"></furo-deep-link>\n```\n\nServices must be registered in the Env:\n\n```html\nimport {Services,Types} from \"./apiConfig.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\nUsually this is done in your src/configs/init.js",
+          "description": "`furo-deep-link`\nResolve deep links HATEOAS based on the query params and the selected service.\n\n```html\n<furo-deep-link\n service=\"TaskService\"\n ƒ-qp-in=\"--pageQueryChanged(*.query)\" @-hts-out=\"--serviceHTS\">\n </furo-deep-link>\n```\n*Deeplink inside of a furo-page*\n\n\nThe services must be registered in the Env:\n\n```html\nimport {Services,Types} from \"./furo-spec.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\n\n\nUsually this is done in your src/configs/init.js",
           "name": "FuroDeepLink",
           "members": [
             {
@@ -1762,7 +1652,7 @@
               "type": {
                 "text": "[]HTSLinks"
               },
-              "description": "Fired when hateoas is available ```json [ { \"rel\": \"list\", \"href\": \"/api/mockdata/tasks/list.json\", \"method\": \"GET\", \"service\": \"TaskService\" }, { \"rel\": \"create\", \"href\": \"api.otherhost.com/mockdata/tasks\", \"method\": \"PUT\", \"service\": \"TaskService\" } ] ```",
+              "description": "Fired when hateoas is available",
               "name": "hts-out"
             }
           ],
@@ -1799,7 +1689,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.\n\nIf you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`",
+          "description": "`furo-entity-agent` is an interface component to handle entity requests.\n\n> **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of\n> the values are sent.\n\n> **Hint** PUT will send all fields which are not marked as **readonly**.\n> If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`\n\n```html\n<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n<furo-entity-agent\nservice=\"ProjectService\"\nƒ-hts-in=\"--hts\" @-response=\"--response\"\n></furo-entity-agent>\n\n\n<!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n<furo-data-object\ntype=\"project.ProjectEntity\"\nƒ-inject-raw=\"--response\"\n></furo-data-object>\n```",
           "name": "FuroEntityAgent",
           "members": [
             {
@@ -1997,7 +1887,12 @@
             },
             {
               "kind": "field",
-              "name": "_servicedefinitions"
+              "name": "_servicedefinitions",
+              "description": "Reference to the services",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -2196,7 +2091,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Use this component to interact with fields from an furo-data-object.\n\nYou can set the field value or listen to changes of a field.",
+          "description": "Use this component to interact with fields from an furo-data-object.\n\nYou can update the field value or listen to changes of a field.\n\n```html\n<furo-entity-field ƒ-bind-data=\"--dataObject(*.field)\"></furo-entity-field>\n```",
           "name": "FuroEntityField",
           "members": [
             {
@@ -2211,7 +2106,13 @@
             },
             {
               "kind": "field",
-              "name": "value"
+              "name": "value",
+              "description": "Setter",
+              "parameters": [
+                {
+                  "name": "v"
+                }
+              ]
             },
             {
               "kind": "method",
@@ -2259,246 +2160,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/furo-filter-and.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "# DEPRECATED\n\nPlaceholder component to describe nested filters\n\n`furo-filter-or` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-or` you will set the bracket around the items inside.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```",
-          "name": "FuroFilterAnd",
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "summary": "and filter bracket",
-          "tagName": "furo-filter-and",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-filter-and",
-          "declaration": {
-            "name": "FuroFilterAnd",
-            "module": "src/furo-filter-and.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/furo-filter-container.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "# DEPRECATED\nPlaceholder component to describe nested filters\n\n`furo-filter-or` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-or` you will set the bracket around the items inside.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```",
-          "name": "FuroFilterContainer",
-          "members": [
-            {
-              "kind": "method",
-              "name": "_appendAnd",
-              "parameters": [
-                {
-                  "name": "node"
-                },
-                {
-                  "name": "filterArray"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_appendOr",
-              "parameters": [
-                {
-                  "name": "node"
-                },
-                {
-                  "name": "filterArray"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_scanfilterFields",
-              "parameters": [
-                {
-                  "name": "node"
-                },
-                {
-                  "name": "filterArray"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "display",
-              "type": {
-                "text": "string"
-              },
-              "default": "'none'"
-            },
-            {
-              "kind": "field",
-              "name": "type"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "summary": "Placeholder component to describe nested filters",
-          "tagName": "furo-filter-container",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-filter-container",
-          "declaration": {
-            "name": "FuroFilterContainer",
-            "module": "src/furo-filter-container.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/furo-filter-field.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "#DEPRECATED\n`furo-filter-field` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-field` you will set the field, operator and value of a filter item.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```\n\n\n ## Fitler operators\n\n| Operator          | Meaning                            |\n|:----------------- |:---------------------------------- |\n| lt  oder <        | lower than |\n| lte oder <=       | lower than or equal |\n| gt  oder >        | greater than |\n| gte oder >=       | greater than or equal |\n| eq  oder =        | equal |\n|  **more operators**     ||\n| in                | in |\n| btw               | between |\n| btwe              | between but including the values  |\n| is null           | is null, true,false |\n| sw                | starts with |\n| ew                | ends with |\n| con               | contains |\n| **negations**     ||\n| !eq               | not equal |\n| !btw              | outside, not between |\n| !null             | not null |\n| !con              | does not contain |\n| !sw               | does not starts with |\n| !ew               | does not ends with |\n| !in               | not in |",
-          "name": "FuroFilterField",
-          "members": [
-            {
-              "kind": "field",
-              "name": "is",
-              "privacy": "public",
-              "description": "Defines the operator.",
-              "attribute": "is"
-            },
-            {
-              "kind": "field",
-              "name": "field",
-              "privacy": "public",
-              "description": "Defines the field you want to filter",
-              "attribute": "field"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "description": "Defines the value to filter",
-              "attribute": "value"
-            },
-            {
-              "kind": "method",
-              "name": "setValue",
-              "parameters": [
-                {
-                  "name": "v"
-                }
-              ],
-              "description": "Set the value"
-            },
-            {
-              "kind": "method",
-              "name": "bindData",
-              "parameters": [
-                {
-                  "name": "field"
-                }
-              ],
-              "description": "Use this method if you have a data-object"
-            },
-            {
-              "kind": "method",
-              "name": "_notifyChanges"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "is",
-              "description": "Defines the operator.",
-              "fieldName": "is"
-            },
-            {
-              "name": "field",
-              "description": "Defines the field you want to filter",
-              "fieldName": "field"
-            },
-            {
-              "name": "value",
-              "description": "Defines the value to filter",
-              "fieldName": "value"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "summary": "set a filter field",
-          "tagName": "furo-filter-field",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-filter-field",
-          "declaration": {
-            "name": "FuroFilterField",
-            "module": "src/furo-filter-field.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/furo-filter-or.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "#DEPRECATED\nPlaceholder component to describe nested filters\n\n`furo-filter-or` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.\n With `furo-filter-or` you will set the bracket around the items inside.\n\n\n```html\n<!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))\n<furo-filter-container>\n <furo-filter-and>\n   <`furo-filter-or`>\n     <furo-filter-field field=\"description\" is=\"in\" ƒ-set-value=\"--defaultChanged\"></furo-filter-field>\n     <furo-filter-field field=\"start\" is=\"gte\" ƒ-set-value=\"--startChanged\"></furo-filter-field>\n   </furo-filter-or>\n   <furo-filter-or>\n     <furo-filter-field field=\"end\" is=\"lte\" ƒ-set-value=\"--endChanged\"></furo-filter-field>\n     <furo-filter-field field=\"cost_limit\" is=\"eq\" ƒ-set-value=\"--costlimitChanged\"></furo-filter-field>\n   </furo-filter-or>\n </furo-filter-and>\n</furo-filter-container>\n```",
-          "name": "FuroFilterOr",
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "summary": "or filter bracket",
-          "tagName": "furo-filter-or",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-filter-or",
-          "declaration": {
-            "name": "FuroFilterOr",
-            "module": "src/furo-filter-or.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/furo-rel-exists.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-rel-exists`\nChecks if a rel exists in a hateaos Link array",
+          "description": "`furo-rel-exists`\nChecks if a rel exists in a hateaos Link array\n\n * ```html\n<furo-rel-exists ƒ-inject=\"--HTS-array\"></furo-rel-exists>\n```",
           "name": "FuroRelExists",
           "members": [
             {
@@ -2507,9 +2173,14 @@
               "parameters": [
                 {
                   "name": "linkArray"
+                },
+                {
+                  "description": "furo.Link Array of furo links",
+                  "name": "",
+                  "optional": true
                 }
               ],
-              "description": "Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.\n\ninject returns true for existing links and false for non existing links.",
+              "description": "Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.\n\ninject returns true for existing links and false for non existing links.\nTODO: implement bind data too\nTODO: emit a event with bool which is triggered on any change of the hts array or binded data\nTodo: Better and consistent names for the events",
               "return": {
                 "type": {
                   "text": "boolean"
@@ -2692,87 +2363,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/furo-sortby-container.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`furo-sortby-container`\n\nThe string value should follow SQL syntax: comma separated list of fields. For example: \"foo,bar\".\nThe default sorting order is ascending. To specify descending order for a field, a suffix \" desc\" should be\nappended to the field name. For example: \"foo desc,bar\".\nRedundant space characters in the syntax are insignificant. \"foo,bar desc\" and \"  foo ,  bar  desc  \" are equivalent.",
-          "name": "FuroSortbyContainer",
-          "members": [
-            {
-              "kind": "method",
-              "name": "addAscendingField",
-              "parameters": [
-                {
-                  "name": "field"
-                }
-              ],
-              "description": "foo,bar"
-            },
-            {
-              "kind": "method",
-              "name": "addDescendingField",
-              "parameters": [
-                {
-                  "name": "field"
-                }
-              ],
-              "description": "foo,bar desc"
-            },
-            {
-              "kind": "method",
-              "name": "clear",
-              "description": "Clears the sort_by query and fires sortby-condition-updated"
-            },
-            {
-              "kind": "method",
-              "name": "_mapSorterToQuery",
-              "description": "https://cloud.google.com/apis/design/design_patterns#sorting_order",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "sorter",
-              "type": {
-                "text": "object"
-              },
-              "default": "{}"
-            }
-          ],
-          "events": [
-            {
-              "name": "sortby-condition-updated",
-              "type": {
-                "text": "sortQueryArray"
-              },
-              "description": "Is fired if a new sort condition is set."
-            }
-          ],
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "tagName": "furo-sortby-container",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-sortby-container",
-          "declaration": {
-            "name": "FuroSortbyContainer",
-            "module": "src/furo-sortby-container.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/furo-type-renderer.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-type-renderer`\nThe furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
+          "description": "The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
           "name": "FuroTypeRenderer",
           "members": [
             {
@@ -2810,7 +2405,8 @@
             },
             {
               "kind": "method",
-              "name": "_warning"
+              "name": "_warning",
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -2893,7 +2489,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "## This is a helper class for the agents\n\nUpdate query params\na qp like {\"active\":true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired",
           "name": "AgentHelper",
           "members": [
             {
@@ -2907,8 +2503,7 @@
                 {
                   "name": "qp"
                 }
-              ],
-              "description": "Update query params\na qp like {\"active\":true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired"
+              ]
             },
             {
               "kind": "method",
@@ -3021,6 +2616,29 @@
                 }
               },
               "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "qp"
+              },
+              "description": " Fired when query params changed",
+              "name": "qp-changed"
+            },
+            {
+              "type": {
+                "text": "qp"
+              },
+              "description": " Fired when query params are replaced",
+              "name": "qp-set"
+            },
+            {
+              "type": {
+                "text": "hts"
+              },
+              "description": " Fired when the request for a rel was rejected because the hts was not available TODO: convert to a base class, so the agents can extend this class",
+              "name": "xxx-rejected"
             }
           ]
         }
@@ -3142,7 +2760,9 @@
                 {
                   "name": "metaAndConstraints"
                 }
-              ]
+              ],
+              "description": "Update meta and constraint fields",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -3193,6 +2813,8 @@
             {
               "kind": "field",
               "name": "__specdefinitions",
+              "description": "reference to the specs",
+              "privacy": "private",
               "default": "specs"
             },
             {
@@ -3270,7 +2892,8 @@
                   "name": "type"
                 }
               ],
-              "description": "infinite recursive element protection"
+              "description": "infinite recursive element protection",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -3334,7 +2957,8 @@
                 {
                   "name": "level"
                 }
-              ]
+              ],
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -3375,7 +2999,13 @@
             },
             {
               "kind": "field",
-              "name": "defaultvalue"
+              "name": "defaultvalue",
+              "description": "Set the value of the field to the specified defaults.",
+              "parameters": [
+                {
+                  "name": "val"
+                }
+              ]
             },
             {
               "kind": "field",
@@ -3435,11 +3065,14 @@
             },
             {
               "kind": "field",
-              "name": "__specdefinitions"
+              "name": "__specdefinitions",
+              "description": "ref to the specs",
+              "privacy": "private"
             },
             {
               "kind": "field",
               "name": "_spec",
+              "description": "Reference to the current spec definition of the fieldNode",
               "default": "{ type: vType }",
               "type": {
                 "text": "object"
@@ -3448,11 +3081,14 @@
             {
               "kind": "field",
               "name": "_name",
+              "description": "Name of the field",
+              "privacy": "private",
               "default": "fieldName"
             },
             {
               "kind": "field",
               "name": "__index",
+              "privacy": "private",
               "default": "fieldName"
             },
             {
@@ -3461,6 +3097,8 @@
               "type": {
                 "text": "null"
               },
+              "description": "getter setter store",
+              "privacy": "private",
               "default": "null"
             },
             {
@@ -3469,6 +3107,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Pristine state of the fieldNode, this is always set to true when new data is injected and is false if the value itself or the value of a child node gets changed.",
               "default": "true"
             },
             {
@@ -3477,15 +3116,26 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Validity of the fieldNode, this is always set to true when new data is injected and is false if the value itself validates to false or the value of a child node validates to false.",
               "default": "true"
             },
             {
               "kind": "field",
-              "name": "_validationDisabled"
+              "name": "_validationDisabled",
+              "description": "\nalso inherit _validationDisabled from parent",
+              "type": {
+                "text": "boolean|*"
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "__initialValue"
+              "name": "__initialValue",
+              "description": "store __initialValue value for setting the field back to the defaults",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private"
             }
           ],
           "superclass": {
@@ -3511,7 +3161,7 @@
       "declarations": [
         {
           "kind": "mixin",
-          "description": "",
+          "description": "Use this class to make your component bindable without handling with the internals of FieldNode.\n\nRead more in the GUIDE section please.",
           "name": "FieldNodeAdapter",
           "members": [
             {
@@ -3552,7 +3202,11 @@
               "name": "bindData",
               "parameters": [
                 {
-                  "name": "fieldNode"
+                  "name": "fieldNode",
+                  "description": "FieldNode or RepeaterNode",
+                  "type": {
+                    "text": "FieldNode|RepeaterNode"
+                  }
                 }
               ],
               "description": "Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.",
@@ -3716,7 +3370,7 @@
               "name": "superClass"
             }
           ],
-          "summary": "Please read the guide for a better understanding"
+          "summary": "Binding methods for fieldNodes"
         }
       ],
       "exports": [
@@ -3726,76 +3380,6 @@
           "declaration": {
             "name": "FieldNodeAdapter",
             "module": "src/lib/FieldNodeAdapter.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/lib/Helper.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Helper",
-          "members": [
-            {
-              "kind": "method",
-              "name": "defaultForType",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "type"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "indeterminateDefault",
-              "static": true
-            },
-            {
-              "kind": "method",
-              "name": "isNumericType",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "type"
-                }
-              ],
-              "description": "checks if a type is numeric (usefull when you want to compare min or max constraints)",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "isScalarType",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "type"
-                }
-              ],
-              "description": "checks if a type is scalar",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Helper",
-          "declaration": {
-            "name": "Helper",
-            "module": "src/lib/Helper.js"
           }
         }
       ]
@@ -4003,255 +3587,59 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/lib/UniversalFieldNodeBinder.js",
+      "path": "src/lib/ScalarTypeHelper.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "DEPRECATED `UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes\na API for data binding purposes.\n\nGoogle wrapper types are handled like skalar values\n\n## specifity\n**meta < fat annotations**\n**attributes on element > fat annotations > meta**\n\nSpec meta and dynamic meta is handled in DataObject and FieldNode.\n\nIf meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.",
-          "name": "UniversalFieldNodeBinder",
+          "description": "",
+          "name": "ScalarTypeHelper",
           "members": [
             {
               "kind": "method",
-              "name": "bindField",
+              "name": "defaultForType",
+              "static": true,
               "parameters": [
                 {
-                  "name": "field"
-                }
-              ],
-              "description": "binds the fieldNode and read the metas"
-            },
-            {
-              "kind": "field",
-              "name": "fieldValue",
-              "description": "returns the current value of the field",
-              "parameters": [
-                {
-                  "name": "val"
-                }
-              ],
-              "return": {
-                "type": {
-                  "text": "*"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "addLabel",
-              "parameters": [
-                {
-                  "name": "label"
-                }
-              ],
-              "description": "adds a label to the fat fieldNode. Adding labels to scalar or complex works too, but will never updated on the fieldNode."
-            },
-            {
-              "kind": "method",
-              "name": "deleteLabel",
-              "parameters": [
-                {
-                  "name": "label"
-                }
-              ],
-              "description": "deletes a label from a fat fieldNode"
-            },
-            {
-              "kind": "method",
-              "name": "setAttribute",
-              "parameters": [
-                {
-                  "name": "name"
-                },
-                {
-                  "name": "value"
-                }
-              ],
-              "description": "Sets the value of a named attribute of the current node. Like value-state=\"Error\".\nDo not forget to add the mappings with `xxx.attributeMappings = { 'value-state': 'valueState' };` to reflect the value to your component."
-            },
-            {
-              "kind": "method",
-              "name": "removeAttribute",
-              "parameters": [
-                {
-                  "name": "name"
-                }
-              ],
-              "description": "removes a named attribute from the fieldNode."
-            },
-            {
-              "kind": "method",
-              "name": "_updateVirtualNode",
-              "parameters": [
-                {
-                  "name": "field"
-                }
-              ],
-              "description": "Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_addVirtualAttribute",
-              "parameters": [
-                {
-                  "name": "name"
-                },
-                {
-                  "name": "value"
-                }
-              ],
-              "description": "Adds or updates a attribute to the virtual node and set the attribute on the target component if mapping is defined",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_pathSet",
-              "parameters": [
-                {
-                  "name": "path",
-                  "description": "String a.b.c.d"
-                },
-                {
-                  "name": "value"
-                }
-              ],
-              "description": "helper to set deep paths",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_removeVirtualAttribute",
-              "parameters": [
-                {
-                  "name": "name"
-                }
-              ],
-              "description": "Removes a attribute from the virtual node and sets the attribute on the target component to null, so lit will remove it on reflected attributes.\n\n https://lit-element.polymer-project.org/guide/properties#attributes",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_addVirtualLabel",
-              "parameters": [
-                {
-                  "name": "name"
-                }
-              ],
-              "description": "Adds a label to the virtual node label set and sets the label on the target component to `true` if mapping is defined.",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_removeVirtualLabel",
-              "parameters": [
-                {
-                  "name": "name"
-                }
-              ],
-              "description": "Removes a label from the virtual node label set and sets the label on the target component to `false` if mapping is defined.",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "checkLabelandAttributeOverrrides",
-              "description": "check overrides from the used component, setted attributes overrides all internal settings.\nAll we have to do is removing the setted mappings for the current instance.\n\n**Hint:** Do this after initializing the mappings."
-            },
-            {
-              "kind": "method",
-              "name": "detectFormat",
-              "parameters": [
-                {
-                  "name": "field"
-                }
-              ],
-              "description": "detects the kind of the fieldNode (scalar, fat)",
-              "return": {
-                "type": {
-                  "text": "string|undefined"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_updateVirtualNodeFromMeta",
-              "parameters": [
-                {
-                  "name": "fieldmeta"
-                }
-              ],
-              "description": "updates the virtual node attributes and labels with metas from the fieldnode",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_updateVirtualNodeFromMetaConstraints",
-              "parameters": [
-                {
-                  "name": "constraints"
+                  "name": "type"
                 }
               ]
             },
             {
-              "kind": "field",
-              "name": "target",
-              "default": "target"
+              "kind": "method",
+              "name": "indeterminateDefault",
+              "static": true
             },
             {
-              "kind": "field",
-              "name": "fieldFormat",
-              "default": "undefined"
+              "kind": "method",
+              "name": "isNumericType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "description": "checks if a type is numeric (usefull when you want to compare min or max constraints)",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
             },
             {
-              "kind": "field",
-              "name": "_metastore",
-              "type": {
-                "text": "object"
-              },
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "targetValueField",
-              "type": {
-                "text": "string"
-              },
-              "description": "Define the property for the value on the component. If the value in the fieldnode changes\nthis property will be updated",
-              "default": "'value'"
-            },
-            {
-              "kind": "field",
-              "name": "labelMappings",
-              "type": {
-                "text": "{}"
-              },
-              "description": "Define the mappings for the labels / flags which will be set on the component if it is set in the fieldnode.\n\n```\n // set the label mappings\n // fat-label: componentProperty\nthis.binder.labelMappings = {\n  'error': '_error',\n  'readonly': 'readonly',\n  'required': 'required',\n  'disabled': 'disabled'\n};\n```",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "attributeMappings",
-              "type": {
-                "text": "{}"
-              },
-              "description": "Define the mappings for the attributes which will be set on the component if it is set in the fieldnode.\n\n```\n // set the attribute mappings\n this.binder.attributeMappings = {\n   'label': 'placeholder', // map label to placeholder\n   'placeholder': 'placeholder', // map placeholder to placeholder\n   'hint': '_hint',\n   'icon': 'leadingIcon', // icon and leading icon maps to the same\n   'leading-icon': 'leadingIcon',// icon and leading icon maps to the same\n   'value-state': '_valueState',\n   'value-state-message': '_valueStateMessage',\n   'errortext': '_errorMsg', // name errortext is for compatibility with spec\n   'warning-msg': '_warningMsg',\n   'success-msg': '_successMsg',\n   'information-msg': '_informationMsg',\n   'pattern': 'pattern',\n   'maxlength': 'maxlength', // for the input element itself\n };\n```",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "fatAttributesToConstraintsMappings",
-              "type": {
-                "text": "{}"
-              },
-              "description": "Define the attributes which maps to the field constraints.\n\n```\nthis.fatAttributesToConstraintsMappings = {\n  'max': 'value._constraints.max.is',// for the fieldnode max constraint\n  'min': 'value._constraints.min.is',// for the fieldnode min constraint\n  'min-msg': 'value._constraints.min.message',// for the fieldnode min constraint message\n  'max-msg': 'value._constraints.max.message',// for the fieldnode max constraint message\n}\n```",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "constraintsTofatAttributesMappings",
-              "type": {
-                "text": "object"
-              },
-              "default": "{}"
+              "kind": "method",
+              "name": "isScalarType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
+              "description": "checks if a type is scalar",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
             }
           ]
         }
@@ -4259,10 +3647,10 @@
       "exports": [
         {
           "kind": "js",
-          "name": "UniversalFieldNodeBinder",
+          "name": "ScalarTypeHelper",
           "declaration": {
-            "name": "UniversalFieldNodeBinder",
-            "module": "src/lib/UniversalFieldNodeBinder.js"
+            "name": "ScalarTypeHelper",
+            "module": "src/lib/ScalarTypeHelper.js"
           }
         }
       ]

@@ -291,14 +291,6 @@
             "name": "Sys",
             "module": "./system.js"
           }
-        },
-        {
-          "kind": "js",
-          "name": "Iconset",
-          "declaration": {
-            "name": "Iconset",
-            "module": "./iconset.js"
-          }
         }
       ]
     },
@@ -354,55 +346,6 @@
           "declaration": {
             "name": "i18n",
             "module": "src/i18n.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/iconset.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "`Iconset` class , works together with `furo-icon`\n\nto use furo-icon you should\nfirst import a svg set of icons and register it to Iconset\n\nThe complete [list of the built in icons](?t=demo-FuroIcon-0) can be found here.\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n\n```javascript\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\n```\n\nthen import the iconset and register it\n\n```javascript\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/src/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nafter registering you can use those icons in furo-icon in any other component\n\n```html\n<furo-icon icon=\"iconSetName:iconName\" ></furo-icon>\n```\n\n\nIcons from the default set can be used without the set name:\n```html\n<furo-icon icon=\"iconName\" ></furo-icon>\n```",
-          "name": "Iconset",
-          "members": [
-            {
-              "kind": "method",
-              "name": "registerIconset",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "setName"
-                },
-                {
-                  "name": "icons"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "get",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "setName"
-                },
-                {
-                  "name": "iconName"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Iconset",
-          "declaration": {
-            "name": "Iconset",
-            "module": "src/iconset.js"
           }
         }
       ]

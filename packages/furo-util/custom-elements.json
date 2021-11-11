@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-config-loader`\n\nladet eine Konfiguration in eine vorgegebene Sektion. Diese lassen sich mit furo-config in jeder Komponente verwenden.\n\n```\n  <furo-config-loader src=\"/custom/view-config.json\" section=\"views\"></furo-config-loader>\n\n```",
+          "description": "`furo-config-loader` loads a configuration json in to the defined section.\n\nTo access the config values, use `furo-config`.\n\n```html\n  <furo-config-loader src=\"/custom/view-config.json\" section=\"views\"></furo-config-loader>\n```",
           "name": "FuroConfigLoader",
           "members": [
             {
@@ -21,14 +21,14 @@
               "kind": "field",
               "name": "src",
               "privacy": "public",
-              "description": "src\nQuelle der Konfiguration",
+              "description": "File source",
               "attribute": "src"
             },
             {
               "kind": "field",
               "name": "section",
               "privacy": "public",
-              "description": "section\nDie Sektion in der die Antwort gesichert wird",
+              "description": "Targeted section to load the config in.",
               "attribute": "section"
             }
           ],
@@ -44,12 +44,12 @@
           "attributes": [
             {
               "name": "src",
-              "description": "src\nQuelle der Konfiguration",
+              "description": "File source",
               "fieldName": "src"
             },
             {
               "name": "section",
-              "description": "section\nDie Sektion in der die Antwort gesichert wird",
+              "description": "Targeted section to load the config in.",
               "fieldName": "section"
             }
           ],
@@ -144,7 +144,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-de-bounce`\n is a component with a input-wire, that, as long as it continues to be triggered, will not\n be invoked. The wire will be triggered after it stops being called for\n N milliseconds. If `immediate` is passed as a attribute, it triggers the input-wire on the\n leading edge, instead of the trailing.",
+          "description": "The Debounce technique allow us to “group” multiple sequential calls in a single one.\n\n[Read more about debouncing here](https://css-tricks.com/debouncing-throttling-explained-examples/)\n\n\n\n```html\n<furo-de-bounce ƒ-trigger=\"--searchStringEntered\" @-debounced=\"--debouncedSrch\">\n</furo-de-bounce>\n```",
           "name": "FuroDeBounce",
           "members": [
             {
@@ -183,17 +183,50 @@
             },
             {
               "kind": "method",
+              "name": "trigger",
+              "parameters": [
+                {
+                  "name": "data",
+                  "description": "Any data, will be dispatched on the `debounced` event.",
+                  "type": {
+                    "text": "*"
+                  }
+                }
+              ],
+              "description": "Trigger the debounce"
+            },
+            {
+              "kind": "method",
               "name": "inputWire",
               "parameters": [
                 {
                   "name": "wire"
                 }
               ],
-              "description": "Debounce function"
+              "description": "Debounce function",
+              "privacy": "private"
             },
             {
               "kind": "field",
               "name": "_debounce",
+              "description": "as taken from Underscore.js",
+              "parameters": [
+                {
+                  "name": "func"
+                },
+                {
+                  "name": "wait"
+                },
+                {
+                  "name": "immediate"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "(function(): void)|*"
+                }
+              },
+              "privacy": "private",
               "default": "function debounce(func, wait, immediate) {\n      let timeout;\n      return function debouncer() {\n        const context = this;\n        // eslint-disable-next-line prefer-rest-params\n        const args = arguments;\n        const later = function applyLater() {\n          timeout = null;\n          if (!immediate) func.apply(context, args);\n        };\n        const callNow = immediate && !timeout;\n        clearTimeout(timeout);\n        timeout = setTimeout(later, wait);\n        if (callNow) func.apply(context, args);\n      };\n    }"
             },
             {
@@ -202,6 +235,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -210,6 +244,7 @@
               "type": {
                 "text": "number"
               },
+              "privacy": "private",
               "default": "250"
             }
           ],
@@ -219,7 +254,14 @@
               "type": {
                 "text": "*"
               },
-              "description": "Fired after `input-wire` stops being called for N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge. object param from inputWire"
+              "description": "deprecated, use debounced instead. // TODO: remove @out and ƒ-input-wire in q2 2022"
+            },
+            {
+              "name": "debounced",
+              "type": {
+                "text": "*"
+              },
+              "description": "Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge."
             }
           ],
           "attributes": [
@@ -275,7 +317,7 @@
               "description": "fetch and parse the data from specified `src`.\n\nUse fetch-src if you want to pass the source url",
               "return": {
                 "type": {
-                  "text": "Promise<any>"
+                  "text": "Promise"
                 }
               }
             },
@@ -294,7 +336,7 @@
               "description": "fetch json data from source",
               "return": {
                 "type": {
-                  "text": "Promise<any>"
+                  "text": "Promise"
                 }
               }
             },
@@ -1347,7 +1389,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\" keys=\"Escape\"></furo-key-filter>\n```",
+          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```html\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\" keys=\"Escape\"></furo-key-filter>\n```",
           "name": "FuroKeyFilter",
           "members": [
             {
@@ -1476,7 +1518,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-key-press`\n Listen to keypress events on parent element\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)",
+          "description": "`furo-keydown` attaches a keypress listener to the parent element and gives you handy events to work with.\n\nWhen you set `alt`, `ctrl` or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)\n\n```html\n<furo-keydown key=\"Enter\" @-key=\"--enterPressed\"></furo-keydown>\n<furo-keydown ctrl key=\"c\" @-key=\"--copyRequest\"></furo-keydown>\n```",
           "name": "FuroKeydown",
           "members": [
             {
@@ -1503,36 +1545,42 @@
               "kind": "field",
               "name": "alt",
               "privacy": "public",
+              "description": "`alt` key must be pressed to trigger the `key` event.",
               "attribute": "alt"
             },
             {
               "kind": "field",
               "name": "ctrl",
               "privacy": "public",
+              "description": "`ctrl` key must be pressed to trigger the `key` event.",
               "attribute": "ctrl"
             },
             {
               "kind": "field",
               "name": "meta",
               "privacy": "public",
+              "description": "`meta` key must be pressed to trigger the `key` event.",
               "attribute": "meta"
             },
             {
               "kind": "field",
               "name": "shift",
               "privacy": "public",
+              "description": "`shift` key must be pressed to trigger the `key` event.",
               "attribute": "shift"
             },
             {
               "kind": "field",
               "name": "preventDefault",
               "privacy": "public",
+              "description": "Set this attribute to prevent the event default of the keypress event.",
               "attribute": "prevent-default"
             },
             {
               "kind": "field",
               "name": "stopPropagation",
               "privacy": "public",
+              "description": "Set this to true to stop the event propagation of the keypress event.",
               "attribute": "stop-propagation"
             }
           ],
@@ -1558,26 +1606,32 @@
             },
             {
               "name": "alt",
+              "description": "`alt` key must be pressed to trigger the `key` event.",
               "fieldName": "alt"
             },
             {
               "name": "ctrl",
+              "description": "`ctrl` key must be pressed to trigger the `key` event.",
               "fieldName": "ctrl"
             },
             {
               "name": "meta",
+              "description": "`meta` key must be pressed to trigger the `key` event.",
               "fieldName": "meta"
             },
             {
               "name": "shift",
+              "description": "`shift` key must be pressed to trigger the `key` event.",
               "fieldName": "shift"
             },
             {
               "name": "prevent-default",
+              "description": "Set this attribute to prevent the event default of the keypress event.",
               "fieldName": "preventDefault"
             },
             {
               "name": "stop-propagation",
+              "description": "Set this to true to stop the event propagation of the keypress event.",
               "fieldName": "stopPropagation"
             }
           ],
@@ -1668,7 +1722,8 @@
                 "type": {
                   "text": "TemplateResult | TemplateResult"
                 }
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -1882,7 +1937,13 @@
                 {
                   "name": "json"
                 }
-              ]
+              ],
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              },
+              "privacy": "private"
             }
           ],
           "mixins": [
@@ -1925,9 +1986,14 @@
               "name": "setData",
               "parameters": [
                 {
-                  "name": "data"
+                  "name": "data",
+                  "description": "Serializable data to put",
+                  "type": {
+                    "text": "Object"
+                  }
                 }
-              ]
+              ],
+              "description": "Set data that you want to put to clipboard."
             },
             {
               "kind": "method",
@@ -1937,11 +2003,11 @@
                   "name": "data",
                   "description": "Serializable data",
                   "type": {
-                    "text": "Object"
+                    "text": "Object|null"
                   }
                 }
               ],
-              "description": "Write data to the clipboard"
+              "description": "Write data to the clipboard\n\nIf you trigger without data, the data which sas set with `setData` will be written to the clipboard."
             },
             {
               "kind": "field",
@@ -1957,7 +2023,7 @@
                 "text": "*"
               },
               "description": "Fired when content is written to clipboard",
-              "name": ""
+              "name": "content-put"
             }
           ],
           "attributes": [
@@ -1993,7 +2059,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-demo-snippet`\ntodo Describe your element",
+          "description": "`furo-demo-snippet`\n This is a documentation helper to show a example, the flow and the source of an example.",
           "name": "FuroDemoSnippet",
           "members": [
             {
@@ -2089,7 +2155,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "summary": "todo shortdescription",
+          "summary": "documentation helper",
           "tagName": "furo-demo-snippet",
           "customElement": true
         }
@@ -2107,39 +2173,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/doc/styling.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Styling",
-          "members": [
-            {
-              "kind": "field",
-              "name": "theme",
-              "static": true
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Styling",
-          "declaration": {
-            "name": "Styling",
-            "module": "src/doc/styling.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/lib/Config.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "Config Class for `furo-config`. Not intended for direct usage.",
           "name": "Config",
           "members": [
             {
@@ -2205,8 +2243,8 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
-          "name": "EmpptyStackError",
+          "description": "Error for the `furo-forth-stack` component.",
+          "name": "EmptyStackError",
           "superclass": {
             "name": "Error",
             "module": "src/lib/EmptyStackError.js"
@@ -2216,9 +2254,9 @@
       "exports": [
         {
           "kind": "js",
-          "name": "EmpptyStackError",
+          "name": "EmptyStackError",
           "declaration": {
-            "name": "EmpptyStackError",
+            "name": "EmptyStackError",
             "module": "src/lib/EmptyStackError.js"
           }
         }
@@ -2238,9 +2276,14 @@
               "name": "draw",
               "parameters": [
                 {
-                  "name": "graph"
+                  "name": "graph",
+                  "description": "Dagre graph",
+                  "type": {
+                    "text": "dagre"
+                  }
                 }
-              ]
+              ],
+              "description": "Draw the graph as svg"
             },
             {
               "kind": "method",
