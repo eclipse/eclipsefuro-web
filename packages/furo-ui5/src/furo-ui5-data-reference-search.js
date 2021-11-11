@@ -909,6 +909,14 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   }
 
   /**
+   * Clears the result set
+   */
+  clearResultList() {
+    this._searchResultItems = [];
+    this._FBPTriggerWire('--resultList', this._searchResultItems);
+  }
+
+  /**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -931,7 +939,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           display: none;
           background-color: var(
             --furo-data-reference-search-list-background,
-            var(--surface, #ffffff)
+            var(--ui5-listitem-background-color, #ffffff)
           );
         }
 
