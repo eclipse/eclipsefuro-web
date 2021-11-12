@@ -92,14 +92,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     };
 
     this.addEventListener('input', this._updateFNA);
-
-    // changed is fired when the input operation has finished by pressing Enter or on focusout.
-    this.addEventListener('change', () => {
-      // set 0 for skalar type on blur if value was ""
-      if (!this.isFat() && !this.isWrapper() && this.value === '') {
-        this.value = 0;
-      }
-    });
   }
 
   /**
@@ -341,15 +333,22 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
       this._tmpFAT = val;
-      this.value = val.value || '';
+      if (val.value === null || val.value === undefined) {
+        this.value = '';
+      } else {
+        this.value = val.value;
+      }
+
       // set empty value when label empty was given
       if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
         this.value = null;
       }
       this._updateAttributesFromFat(this._tmpFAT.attributes);
       this._updateLabelsFromFat(this._tmpFAT.labels);
+    } else if (val === null || val === undefined) {
+      this.value = '';
     } else {
-      this.value = val || 0;
+      this.value = val;
     }
   }
 
