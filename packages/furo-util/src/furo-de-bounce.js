@@ -1,5 +1,5 @@
-import { LitElement, css } from 'lit';
-import { FBP } from '@furo/fbp';
+import {LitElement, css} from 'lit';
+import {FBP} from '@furo/fbp';
 
 /**
  * The Debounce technique allow us to “group” multiple sequential calls in a single one.
@@ -37,12 +37,12 @@ class FuroDeBounce extends FBP(LitElement) {
        * Debounce time in milliseconds
        * Default value: 250
        */
-      wait: { type: Number, attribute: 'wait' },
+      wait: {type: Number, attribute: 'wait'},
       /**
        * If true, input-wire is triggered immediatley (leading edge instead of trailing)
        * Default value: false
        */
-      immediate: { type: Boolean, attribute: 'immediate' },
+      immediate: {type: Boolean, attribute: 'immediate'},
     };
   }
 
@@ -113,12 +113,14 @@ class FuroDeBounce extends FBP(LitElement) {
             detail: wire,
             bubbles: true,
             composed: true,
-          }),
+          })
+        );
+        this.dispatchEvent(
           new CustomEvent('debounced', {
             detail: wire,
             bubbles: true,
             composed: true,
-          }),
+          })
         );
       },
       wait,
@@ -130,7 +132,7 @@ class FuroDeBounce extends FBP(LitElement) {
    * Trigger the debounce
    * @param {*} data - Any data, will be dispatched on the `debounced` event.
    */
-  trigger(data){
+  trigger(data) {
     this.handler(data);
   }
 
@@ -142,7 +144,7 @@ class FuroDeBounce extends FBP(LitElement) {
    */
   inputWire(wire) {
     this.handler(wire);
-    console.warn("input-wire is deprecated, use the trigger method instead",this)
+    console.warn("input-wire is deprecated, use the trigger method instead", this)
   }
 
   static get styles() {
