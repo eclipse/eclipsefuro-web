@@ -140,7 +140,7 @@ class FuroDeBounce extends FBP(LitElement) {
    * Debounce function
    * @param wire
    * @private
-   * @deprecated
+   * @deprecated -  Use trigger() instead
    */
   inputWire(wire) {
     this.handler(wire);

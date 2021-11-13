@@ -63,48 +63,48 @@ describe('furo-de-bounce', () => {
   it("should fire once every quarter of a second instead of as quickly as it's triggered", done => {
     element.wait = 250;
 
-    element.addEventListener('out', e => {
+    element.addEventListener('debounced', e => {
       assert.equal(e.detail.result, 15);
       done();
     });
-    element.inputWire({ result: 1 });
-    element.inputWire({ result: 2 });
-    element.inputWire({ result: 3 });
-    element.inputWire({ result: 4 });
-    element.inputWire({ result: 5 });
-    element.inputWire({ result: 6 });
-    element.inputWire({ result: 7 });
-    element.inputWire({ result: 8 });
-    element.inputWire({ result: 9 });
-    element.inputWire({ result: 10 });
-    element.inputWire({ result: 11 });
-    element.inputWire({ result: 12 });
-    element.inputWire({ result: 13 });
-    element.inputWire({ result: 14 });
-    element.inputWire({ result: 15 });
+    element.trigger({ result: 1 });
+    element.trigger({ result: 2 });
+    element.trigger({ result: 3 });
+    element.trigger({ result: 4 });
+    element.trigger({ result: 5 });
+    element.trigger({ result: 6 });
+    element.trigger({ result: 7 });
+    element.trigger({ result: 8 });
+    element.trigger({ result: 9 });
+    element.trigger({ result: 10 });
+    element.trigger({ result: 11 });
+    element.trigger({ result: 12 });
+    element.trigger({ result: 13 });
+    element.trigger({ result: 14 });
+    element.trigger({ result: 15 });
   });
 
   it('should fire on leading edge', done => {
     element.immediate = true;
 
-    element.addEventListener('out', e => {
+    element.addEventListener('debounced', e => {
       assert.equal(e.detail.result, 1);
       done();
     });
-    element.inputWire({ result: 1 });
-    element.inputWire({ result: 2 });
-    element.inputWire({ result: 3 });
-    element.inputWire({ result: 4 });
-    element.inputWire({ result: 5 });
-    element.inputWire({ result: 6 });
-    element.inputWire({ result: 7 });
-    element.inputWire({ result: 8 });
-    element.inputWire({ result: 9 });
-    element.inputWire({ result: 10 });
-    element.inputWire({ result: 11 });
-    element.inputWire({ result: 12 });
-    element.inputWire({ result: 13 });
-    element.inputWire({ result: 14 });
-    element.inputWire({ result: 15 });
+    element.trigger({ result: 1 });
+    element.trigger({ result: 2 });
+    element.trigger({ result: 3 });
+    element.trigger({ result: 4 });
+    element.trigger({ result: 5 });
+    element.trigger({ result: 6 });
+    element.trigger({ result: 7 });
+    element.trigger({ result: 8 });
+    element.trigger({ result: 9 });
+    element.trigger({ result: 10 });
+    element.trigger({ result: 11 });
+    element.trigger({ result: 12 });
+    element.trigger({ result: 13 });
+    element.trigger({ result: 14 });
+    element.trigger({ result: 15 });
   });
 });
