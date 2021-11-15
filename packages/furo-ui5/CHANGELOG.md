@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.46.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.45.0...@furo/ui5@0.46.0) (2021-11-15)
+
+
+### Bug Fixes
+
+* html input value has to be '' if value is null or undefined ([229a1ab](https://github.com/eclipse/eclipsefuro-web/commit/229a1ab78ba4358e4d3e6dc98f011e38791f9962))
+
+
+### Features
+
+* new function to clear an existing result list ([0766a8e](https://github.com/eclipse/eclipsefuro-web/commit/0766a8ec22ae933fac5a6a36ee82d21a6d9a6d2f))
+
+
+
+
+
 # [0.45.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.44.1...@furo/ui5@0.45.0) (2021-11-03)
 
 

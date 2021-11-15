@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.39.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.39.6...@furo/ui5-typerenderer@0.39.7) (2021-11-15)
+
+
+### Bug Fixes
+
+* word-break added ([a2cb5ef](https://github.com/eclipse/eclipsefuro-web/commit/a2cb5ef13487e5cd72b8a6df0cb158636a157391))
+
+
+
+
+
 ## [0.39.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.39.5...@furo/ui5-typerenderer@0.39.6) (2021-11-03)
 
 **Note:** Version bump only for package @furo/ui5-typerenderer
