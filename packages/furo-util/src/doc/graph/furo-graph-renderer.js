@@ -411,7 +411,6 @@ class FuroGraphRenderer extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroGraphRenderer') ||
       css`
         :host {
           display: block;
