@@ -898,7 +898,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   }
 
   /**
-   * Sets the filter.
+   * sets the filter.
    * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side
    * or do btoa(JSON.stringify(FILTER))
    *
@@ -906,6 +906,14 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    */
   setFilter(filter) {
     this._FBPTriggerWire('--filter', filter);
+  }
+
+  /**
+   * clears the result set
+   */
+  clearResultList() {
+    this._searchResultItems = [];
+    this._FBPTriggerWire('--resultList', this._searchResultItems);
   }
 
   /**
@@ -926,12 +934,13 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         .list {
           position: absolute;
           overflow: auto;
-          box-shadow: rgba(0, 0, 0, 0.42) 0 0 0 1px;
+          box-shadow: var(--sapContent_Shadow2);
+          border-radius: var(--_ui5-popup-border-radius);
           z-index: 1;
           display: none;
           background-color: var(
             --furo-data-reference-search-list-background,
-            var(--surface, #ffffff)
+            var(--sapGroup_ContentBackground, #ffffff)
           );
         }
 
@@ -1050,7 +1059,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       >
       </furo-deep-link>
 
-      <!-- todo: ƒ-cancel-request="--searchTerm" -->
       <furo-collection-agent
         ƒ-.service="--detectedService, |--service"
         ƒ-set-filter="--filter"

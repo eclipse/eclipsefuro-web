@@ -147,6 +147,13 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   }
 
   /**
+   * clears the result set list
+   */
+  clearResultList() {
+    this._FBPTriggerWire('--clearResultList', null);
+  }
+
+  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
@@ -174,6 +181,7 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
           ƒ-set-filter="--filter"
+          ƒ-clear-result-list="--clearResultList"
         ></furo-ui5-data-reference-search>
       </furo-ui5-form-field-container>
     `;
