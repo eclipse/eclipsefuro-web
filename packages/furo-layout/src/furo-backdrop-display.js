@@ -17,7 +17,7 @@ import { FBP } from '@furo/fbp'
  *  <furo-backdrop-display></furo-backdrop-display>
  *  ```
  *
- * TODO: document style --furo-backdrop-color
+ * @cssprop {0px} [--furo-backdrop-color=#6d6d6d] - background color of backdrop
  *
  * @summary Display component for furo-backdrop
  * @customElement
@@ -178,7 +178,6 @@ class FuroBackdropDisplay extends FBP(LitElement) {
           transition: opacity 250ms;
           opacity: 0;
           background-color: var(--furo-backdrop-color, #6d6d6d);
-          color: white;
         }
 
         /* center the content exactly in the middle */

@@ -40,39 +40,6 @@ class FuroVerticalScroller extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-
-        /** the background of the bar itself. **/
-        ::-webkit-scrollbar {
-          width: 8px;
-          background-color: var(--surface, white);
-        }
-
-        /** the directional buttons on the scrollbar. **/
-        ::-webkit-scrollbar-button {
-          background-color: var(--on-surface, black);
-        }
-
-        /** the empty space “below” the progress bar. **/
-        ::-webkit-scrollbar-track {
-        }
-
-        /** the top-most layer of the the progress bar not covered by the thumb. **/
-        ::-webkit-scrollbar-track-piece {
-        }
-
-        /** the draggable scrolling element resizes depending on the size of the scrollable element. **/
-        ::-webkit-scrollbar-thumb {
-          background-color: var(--on-surface, black);
-          border-radius: 10px;
-        }
-
-        /** the bottom corner of the scrollable element, where two scrollbar meet. **/
-        ::-webkit-scrollbar-corner {
-        }
-
-        /** the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements. **/
-        ::-webkit-resizer {
-        }
       `
     );
   }
