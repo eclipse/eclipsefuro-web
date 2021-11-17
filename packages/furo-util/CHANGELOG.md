@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.3...@furo/util@2.0.0-rc.4) (2021-11-17)
+
+
+### Bug Fixes
+
+* debounced event ([bb4f3a7](https://github.com/eclipse/eclipsefuro-web/commit/bb4f3a7b221d0acd1e680139cfd5996e60e7a191))
+* remove theme from graph renderer ([d73afee](https://github.com/eclipse/eclipsefuro-web/commit/d73afee38d95a6cbaaf2dc21e31e4c8d8b1c1caa))
+
+
+
+
+
 # [2.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.2...@furo/util@2.0.0-rc.3) (2021-11-11)
 
 **Note:** Version bump only for package @furo/util
