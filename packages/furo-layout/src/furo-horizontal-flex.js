@@ -17,7 +17,7 @@ import { LitElement, html, css } from 'lit';
  * ```
  * @slot {HTMLElement [0..n]} - default slot to add content.
  *
- * @cssprop {N/A} [--furo-horizontal-flex-space=1rem] - default padding (space)
+ * @cssprop {N/A} [--furo-horizontal-flex-space=0.5rem] - default padding (space)
  * @cssprop {N/A} [--furo-horizontal-flex-bigspace=3rem] - big padding (bigspace)
  *
  *  Tags: layout
@@ -66,11 +66,11 @@ class FuroHorizontalFlex extends LitElement {
         }
 
         :host([space]) ::slotted(*:not(:first-child)) {
-          margin-left: var(--furo-horizontal-flex-space, 1rem);
+          margin-left: var(--furo-horizontal-flex-space, 0.5rem);
         }
 
         :host([space]) ::slotted(*:not(:last-child)) {
-          margin-right: var(--furo-horizontal-flex-space, 1rem);
+          margin-right: var(--furo-horizontal-flex-space, 0.5rem);
         }
 
         :host([bigspace]) ::slotted(*:not(:first-child)) {
