@@ -23,6 +23,8 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * ```
  *
+ *
+ *
  * *before you can do any requests, the service and the HATEOAS must be defined*
  *
  * @fires {*} ALL_BUBBLING_EVENTS_FROM_furo-api-fetch -  All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.
@@ -215,9 +217,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
     };
   }
 
-  /**
-   * https://cloud.google.com/apis/design/design_patterns
-   */
+
+  set view(v){
+    this._queryParams.view = v;
+  }
 
   /**
    *
