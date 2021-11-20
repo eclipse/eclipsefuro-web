@@ -423,7 +423,7 @@ export class FieldNode extends EventTreeNode {
         } else {
           // scalar value
           // eslint-disable-next-line no-param-reassign
-          n._value = ScalarTypeHelper.indeterminateDefault();
+          n._value = ScalarTypeHelper.defaultForType(n._spec.type);
         }
       }
     });
