@@ -174,11 +174,11 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
       this._tmpFAT = val;
-      if (val && val.value === null) {
+      if (val && val.value === false && val.labels && val.labels.empty === true) {
         this.checked = true;
         this.indeterminate = true;
       } else {
-        this.checked = !!val;
+        this.checked = !!val.value;
         this.indeterminate = false;
       }
       this._updateAttributesFromFat(this._tmpFAT.attributes);

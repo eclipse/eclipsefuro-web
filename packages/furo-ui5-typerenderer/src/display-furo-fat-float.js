@@ -14,10 +14,12 @@ import { DisplayFloat } from './display-float.js';
  */
 class DisplayFuroFatFloat extends DisplayFloat {
   _formatDisplay() {
-    const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
-    if (displayValue !== 'NaN') {
-      this._displayValue = displayValue;
-      this.requestUpdate();
+    if (this._field.value._value !== null && !(this._field.labels?.empty && this._field.labels.empty._value)) {
+      const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
+      if (displayValue !== 'NaN') {
+        this._displayValue = displayValue;
+        this.requestUpdate();
+      }
     }
   }
 }

@@ -384,7 +384,7 @@ export class FieldNode extends EventTreeNode {
         } else {
           // scalar value
           // eslint-disable-next-line no-param-reassign
-          n._value = Helper.indeterminateDefault();
+          n._value = Helper.defaultForType(n._spec.type);
         }
       }
     });

@@ -23,7 +23,12 @@ class DisplayFuroFatBool extends DisplayBool {
   _getTemplate() {
     let tmpl = '';
     if (this._field) {
-      if (!this._field.value._value || this._field.value._value === 'false') {
+      if (this._field.labels && this._field.labels.empty && this._field.labels.empty._value === true && this._field.value._value === false) {
+        tmpl = html`
+          <ui5-icon name="less"></ui5-icon>
+        `;
+      }
+      else if (!this._field.value._value || this._field.value._value === 'false') {
         tmpl = html`
           <ui5-icon name="border"></ui5-icon>
         `;

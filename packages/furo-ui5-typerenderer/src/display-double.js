@@ -85,10 +85,12 @@ export class DisplayDouble extends LitElement {
   }
 
   _formatDisplay() {
-    const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
-    if (displayValue !== 'NaN') {
-      this._displayValue = displayValue;
-      this.requestUpdate();
+    if (this._field._value !== null) {
+      const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field._value);
+      if (displayValue !== 'NaN') {
+        this._displayValue = displayValue;
+        this.requestUpdate();
+      }
     }
   }
 
