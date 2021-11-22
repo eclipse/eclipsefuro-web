@@ -81,7 +81,6 @@ export class DisplayBool extends LitElement {
    */
   _getTemplate() {
     let tmpl = '';
-
     if (this._field) {
       if (this._field._value === null){
         tmpl = html`
@@ -91,11 +90,6 @@ export class DisplayBool extends LitElement {
       else if (!this._field._value || this._field._value === 'false') {
         tmpl = html`
           <ui5-icon name="border"></ui5-icon>
-        `;
-      } else if (this._field.labels && this._field.labels.empty && this._field._value === false) {
-        // special case for type FAT with annotation empty:true
-        tmpl = html`
-          <ui5-icon name="less"></ui5-icon>
         `;
       } else {
         tmpl = html`
