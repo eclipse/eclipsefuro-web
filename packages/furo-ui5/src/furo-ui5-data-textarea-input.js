@@ -349,6 +349,7 @@ export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default)
     } else {
       this.value = val || '';
     }
+    this._render();
   }
 
   /**
