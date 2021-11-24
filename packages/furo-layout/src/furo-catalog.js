@@ -6,3 +6,4 @@ import './furo-resizer.js';
 import './furo-split-view.js';
 import './furo-vertical-flex.js';
 import './furo-vertical-scroller.js';
+import './furo-form-layouter.js';
