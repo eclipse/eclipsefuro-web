@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.3...@furo/data@2.0.0-rc.4) (2021-11-24)
+
+
+### Bug Fixes
+
+* default value for scalar types ([d3c5f72](https://github.com/eclipse/eclipsefuro-web/commit/d3c5f72013974946abda2fbf892aefa02a5e0791))
+* encode once only ([a0dace2](https://github.com/eclipse/eclipsefuro-web/commit/a0dace27a86bb83253255351eb8503c0f0356e03))
+* set view qp when view is set on collection agent ([33dbef5](https://github.com/eclipse/eclipsefuro-web/commit/33dbef5e2a1e10eac615637dcd845fa260aad2f7))
+
+
+### Features
+
+* DOMFBP ([ff9dee8](https://github.com/eclipse/eclipsefuro-web/commit/ff9dee800248ea55e4bdfee49685e0f3b63e221f))
+* encode UTF-8 safe ([6893381](https://github.com/eclipse/eclipsefuro-web/commit/6893381e4c9e8c937dee3253ca32f0441755d572))
+
+
+
+
+
 # [2.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.2...@furo/data@2.0.0-rc.3) (2021-11-11)
 
 **Note:** Version bump only for package @furo/data

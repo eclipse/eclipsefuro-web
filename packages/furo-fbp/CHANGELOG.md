@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.3...@furo/fbp@6.0.0-rc.4) (2021-11-24)
+
+
+### Features
+
+* DOMFBP ([ff9dee8](https://github.com/eclipse/eclipsefuro-web/commit/ff9dee800248ea55e4bdfee49685e0f3b63e221f))
+* DOMFBP ([b7cf446](https://github.com/eclipse/eclipsefuro-web/commit/b7cf4461afcf9520122e8bf7ab0d0269aa6c265a))
+
+
+
+
+
 # [6.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.2...@furo/fbp@6.0.0-rc.3) (2021-11-11)
 
 **Note:** Version bump only for package @furo/fbp

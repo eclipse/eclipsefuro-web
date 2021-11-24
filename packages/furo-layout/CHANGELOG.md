@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.4...@furo/layout@2.0.0-rc.5) (2021-11-24)
+
+
+### Bug Fixes
+
+* default flex space size ([e7fbea7](https://github.com/eclipse/eclipsefuro-web/commit/e7fbea796f11f81d7de44b172a45f4e786bb0bcc))
+
+
+### Features
+
+* DOMFBP ([ff9dee8](https://github.com/eclipse/eclipsefuro-web/commit/ff9dee800248ea55e4bdfee49685e0f3b63e221f))
+* DOMFBP ([b7cf446](https://github.com/eclipse/eclipsefuro-web/commit/b7cf4461afcf9520122e8bf7ab0d0269aa6c265a))
+
+
+
+
+
 # [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.3...@furo/layout@2.0.0-rc.4) (2021-11-17)
 
 **Note:** Version bump only for package @furo/layout

@@ -1,6 +1,6 @@
 {
   "name": "@furo/fbp",
-  "version": "6.0.0-rc.3",
+  "version": "6.0.0-rc.4",
   "description": "Declarative programming with web-components.",
   "homepage": "https://fbp.furo.pro",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
