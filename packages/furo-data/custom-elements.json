@@ -199,7 +199,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n\n\n```html\n   <furo-collection-agent\n                     service=\"Servicename\"\n                     ƒ-hts-in=\"--hts\"\n                   ></furo-collection-agent>\n\n<!-- produces hts -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
+          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n\n\n```html\n   <furo-collection-agent\n                     service=\"Servicename\"\n                     ƒ-hts-in=\"--hts\"\n                   ></furo-collection-agent>\n\n<!-- produces hts -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
           "name": "FuroCollectionAgent",
           "members": [
             {
@@ -212,6 +212,13 @@
               ],
               "description": "Attaches temporary listeners to fire load-success, load-fail, delete-success,...",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "view",
+              "privacy": "public",
+              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
+              "attribute": "view"
             },
             {
               "kind": "method",
@@ -498,13 +505,6 @@
               "privacy": "public",
               "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
               "attribute": "order-by"
-            },
-            {
-              "kind": "field",
-              "name": "view",
-              "privacy": "public",
-              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
-              "attribute": "view"
             },
             {
               "kind": "field",

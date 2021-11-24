@@ -4,6 +4,340 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/DOMFBP.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "DOMFBP allows you to append FBP to any dom element.\n\n**Usage:**\n\n```js\nimport {DOMFBP} from '@furo/fbp/src/DOMFBP.js';\n\n// append fbp to the body\nnew DOMFBP(document.body);\n```",
+          "name": "DOMFBP",
+          "mixins": [
+            {
+              "name": "FBP",
+              "module": "/src/fbp.js"
+            }
+          ],
+          "superclass": {
+            "module": "src/DOMFBP.js"
+          },
+          "members": [
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "description": "Auto append fbp for lit elements",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_FBPTriggerWire",
+              "parameters": [
+                {
+                  "name": "wire",
+                  "description": "(String) Name of the wire like --buttonClicked"
+                },
+                {
+                  "name": "detailData",
+                  "description": "(*) data to pass"
+                }
+              ],
+              "description": "Triggers a wire",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_FBPAddWireHook",
+              "parameters": [
+                {
+                  "name": "wire",
+                  "description": "(String) Name of the wire"
+                },
+                {
+                  "name": "cb",
+                  "description": "(function) Callback function cb(detailData)"
+                },
+                {
+                  "name": "before",
+                  "description": "(Boolean) append before the components are triggered, default is false",
+                  "optional": true
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_FBPTraceWires",
+              "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_FBPDebug",
+              "parameters": [
+                {
+                  "name": "wire"
+                },
+                {
+                  "name": "openDebugger",
+                  "description": "opens the debugger console, so you can inspect your component."
+                }
+              ],
+              "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "__toCamelCase",
+              "parameters": [
+                {
+                  "name": "str"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_appendFBP",
+              "parameters": [
+                {
+                  "name": "dom",
+                  "description": "dom node"
+                }
+              ],
+              "description": "parses the dom for flowbased programming tags",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "__enqueueTrigger",
+              "parameters": [
+                {
+                  "name": "wire"
+                },
+                {
+                  "name": "detailData"
+                }
+              ],
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "__resolveWireAndPath",
+              "parameters": [
+                {
+                  "name": "w"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "{path, receivingWire}"
+                }
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_pathGet",
+              "parameters": [
+                {
+                  "name": "root",
+                  "description": "Object from which to dereference path from",
+                  "type": {
+                    "text": "Object"
+                  }
+                },
+                {
+                  "name": "path",
+                  "description": "Path to read",
+                  "type": {
+                    "text": "string | !Array<string|number>"
+                  }
+                }
+              ],
+              "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_pathSet",
+              "parameters": [
+                {
+                  "name": "root",
+                  "description": "Object from which to dereference path from",
+                  "type": {
+                    "text": "Object"
+                  }
+                },
+                {
+                  "name": "path",
+                  "description": "Path to set",
+                  "type": {
+                    "text": "string | !Array<string|number>"
+                  }
+                },
+                {
+                  "name": "value",
+                  "description": "Value to set to path",
+                  "type": {
+                    "text": "*"
+                  }
+                }
+              ],
+              "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
+              "return": {
+                "type": {
+                  "text": "string | boolean"
+                }
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_split",
+              "parameters": [
+                {
+                  "name": "path",
+                  "description": "Input path",
+                  "type": {
+                    "text": "string | !Array<string|number>"
+                  }
+                }
+              ],
+              "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
+              "return": {
+                "type": {
+                  "text": "!Array<string>"
+                }
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "__FBPEventlistener",
+              "type": {
+                "text": "*[]"
+              },
+              "description": "used to store the listeners",
+              "privacy": "private",
+              "default": "[]",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "__wirebundle",
+              "type": {
+                "text": "{}"
+              },
+              "privacy": "private",
+              "default": "{}",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "__wireQueue",
+              "type": {
+                "text": "*[]"
+              },
+              "privacy": "private",
+              "default": "[]",
+              "inheritedFrom": {
+                "name": "FBP",
+                "module": "src/fbp.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DOMFBP",
+          "declaration": {
+            "name": "DOMFBP",
+            "module": "src/DOMFBP.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/empty-fbp-node.js",
       "declarations": [
         {
