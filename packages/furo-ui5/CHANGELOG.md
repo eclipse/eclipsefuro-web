@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.46.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.46.0...@furo/ui5@0.46.1) (2021-11-26)
+
+
+### Bug Fixes
+
+* delayed update of textarea ([39b8c8b](https://github.com/eclipse/eclipsefuro-web/commit/39b8c8bc7e320eabd5638845d04fc15f6a2a52ba))
+* furo.fat.Bool empty support ([027a138](https://github.com/eclipse/eclipsefuro-web/commit/027a13836fc3a88c9dc6d576586f57d2fa8cc298))
+* type specific handling in display renderers and input fields (scalar, google wrapper types and FAT) ([e89cadb](https://github.com/eclipse/eclipsefuro-web/commit/e89cadbbb014a9b7d8e0b54390d1e8a27a63a13a))
+
+
+
+
+
 # [0.46.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.45.0...@furo/ui5@0.46.0) (2021-11-15)
 
 

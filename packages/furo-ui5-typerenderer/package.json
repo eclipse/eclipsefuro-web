@@ -1,7 +1,7 @@
 {
   "name": "@furo/ui5-typerenderer",
   "description": "Furo-ui5 type renderers",
-  "version": "0.39.7",
+  "version": "0.40.0",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-ui5-typerenderer",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -31,7 +31,7 @@
   "dependencies": {
     "@furo/fbp": "^5.12.2",
     "@furo/framework": "^1.9.3",
-    "@furo/ui5": "^0.46.0",
+    "@furo/ui5": "^0.46.1",
     "@ui5/webcomponents": "0.33.0",
     "@ui5/webcomponents-base": "0.33.0",
     "@ui5/webcomponents-fiori": "0.33.0",
@@ -42,7 +42,7 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@furo/app": "^1.7.3",
-    "@furo/data": "^1.34.1",
+    "@furo/data": "^1.34.2",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

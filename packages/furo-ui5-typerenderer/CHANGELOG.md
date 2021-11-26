@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.39.7...@furo/ui5-typerenderer@0.40.0) (2021-11-26)
+
+
+### Bug Fixes
+
+* furo.fat.Bool empty support ([027a138](https://github.com/eclipse/eclipsefuro-web/commit/027a13836fc3a88c9dc6d576586f57d2fa8cc298))
+* special case FAT with empty-annotation and falsy value should result in indeterminate state ([2913486](https://github.com/eclipse/eclipsefuro-web/commit/29134867c82303ad067f1e0bdb54792f3dea04fe))
+* type specific handling in display renderers and input fields (scalar, google wrapper types and FAT) ([e89cadb](https://github.com/eclipse/eclipsefuro-web/commit/e89cadbbb014a9b7d8e0b54390d1e8a27a63a13a))
+
+
+### Features
+
+* display-bool supports indeterminate state for type google wrapper type ([5751483](https://github.com/eclipse/eclipsefuro-web/commit/5751483b39daf1dbc9aa8f81aa55456bc74522f7))
+
+
+
+
+
 ## [0.39.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.39.6...@furo/ui5-typerenderer@0.39.7) (2021-11-15)
 
 

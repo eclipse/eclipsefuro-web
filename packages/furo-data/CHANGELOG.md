@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.1...@furo/data@1.34.2) (2021-11-26)
+
+
+### Bug Fixes
+
+* type specific handling in display renderers and input fields (scalar, google wrapper types and FAT) ([e89cadb](https://github.com/eclipse/eclipsefuro-web/commit/e89cadbbb014a9b7d8e0b54390d1e8a27a63a13a))
+
+
+
+
+
 ## [1.34.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.0...@furo/data@1.34.1) (2021-10-12)
 
 **Note:** Version bump only for package @furo/data
