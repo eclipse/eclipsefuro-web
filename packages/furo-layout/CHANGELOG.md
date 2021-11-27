@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.5...@furo/layout@2.0.0-rc.6) (2021-11-27)
+
+
+### Bug Fixes
+
+* demo-snippet fullscreen mode ([84dd6e5](https://github.com/eclipse/eclipsefuro-web/commit/84dd6e51a549793e389ac72e3ac497bcd371bd4e))
+
+
+
+
+
 # [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.4...@furo/layout@2.0.0-rc.5) (2021-11-24)
 
 
