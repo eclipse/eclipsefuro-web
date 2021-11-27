@@ -23,7 +23,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
     this.template = t.content;
     this.markdown = `\`\`\`html\n${t.innerHTML}\n\`\`\``;
 
-    this.icon = 'fullscreen';
+    this.icon = '# ';
     this.addEventListener('source', () => {
       this.source = true;
       this.demo = false;
@@ -109,12 +109,12 @@ class FuroDemoSnippet extends FBP(LitElement) {
       if (!this.fullscreen) {
         this.requestFullscreen();
         this.fullscreen = true;
-        this.icon = 'fullscreen-exit';
+        this.icon = 'exit';
         this.requestUpdate();
       } else {
         document.exitFullscreen();
         this.fullscreen = false;
-        this.icon = 'fullscreen';
+        this.icon = '#';
         this.requestUpdate();
       }
     });
@@ -135,87 +135,6 @@ class FuroDemoSnippet extends FBP(LitElement) {
           box-sizing: border-box;
           overflow: hidden;
 
-
-        /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-        /* https://material.io/design/material-theming/implementing-your-theme.html#color */
-          --primary-light: #4ccd50;
-          --primary: #4caf50;
-          --primary-rgb: 76, 175, 80;
-          --primary-dark: #4b9b4f;
-          --primary-variant: #2587a3;
-          --on-primary: #ffffff;
-
-          --secondary-light: #fdd756;
-          --secondary: #fecf2f;
-          --secondary-rgb: 254, 207, 47;
-          --secondary-dark: #ffc911;
-          --secondary-variant: #faedc1;
-          --on-secondary: #212121;
-
-          --accent-light: #ecf3ca;
-          --accent: #cce35b;
-          --accent-rgb: 204, 227, 91;
-          --accent-dark: #bada18;
-          --on-accent: #212121;
-
-          --background: #eeeeee;
-          --background-rgb: 238, 238, 238;
-          --on-background: #212121;
-          --on-background-rgb: 33, 33, 33;
-
-          --surface-light: #f3f3f3;
-          --surface-light-rgb: 243, 243, 243;
-          --surface: #fefefe;
-          --surface-rgb: 254, 254, 254;
-          --surface-dark: #f0f0f0;
-          --on-surface: #212121;
-          --on-surface-rgb: 33, 33, 33;
-          --separator: #e4e4e4;
-
-        /* States */
-          --state-hover: 0.04;
-          --state-selected: 0.08;
-          --state-selected-hover: 0.12;
-          --state-active: 0.1;
-          --state-focus: 0.12;
-          --state-focused-hover: 0.18;
-          --state-selected-focus: 0.2;
-          --state-selected-focused-hover: 0.24;
-          --state-disabled: 0.38;
-
-        /* Emphasis, used for secondary text,... */
-          --medium-emphasis-surface: 0.6;
-          --medium-emphasis-primary: 0.74;
-
-        /* Input, Forms, Toast*/
-          --error: #ea1c24;
-          --on-error: #ffffff;
-
-          --danger-light: #fc1c21;
-          --danger: #ee1c21;
-          --danger-dark: #de1c21;
-          --on-danger: #f8f8f8;
-
-          --success: #129991;
-          --on-success: #202124;
-
-          --disabled: #c3c4c3;
-          --on-disabled: #585858;
-
-        /* Spacing */
-          --spacing-xxs: 4px;
-          --spacing-xs: 8px;
-          --spacing-s: 16px;
-          --spacing: 24px;
-          --spacing-m: 24px;
-          --spacing-l: 32px;
-          --spacing-xl: 48px;
-          --spacing-xxl: 96px;
-
-          --furo-form-layouter-row-gap: var(--spacing-xs);
-          --furo-form-layouter-column-gap: var(--spacing-xs);
-
-          background-color: var(--surface);
         }
 
         :host([hidden]) {
@@ -223,12 +142,12 @@ class FuroDemoSnippet extends FBP(LitElement) {
         }
 
         :host([fullscreen]) .nav {
-          background-color: var(--surface-light);
+          background-color: #f3f3f3;
           padding: 16px;
         }
 
         :host([fullscreen]) .nav span {
-          border-bottom-color: var(--surface-light);
+          border-bottom-color: #f3f3f3;
         }
 
         :host([fullscreen]) {
@@ -236,19 +155,19 @@ class FuroDemoSnippet extends FBP(LitElement) {
         }
 
         furo-markdown {
-          background-color: var(--surface-light);
+          background-color: #f3f3f3;
           height: 100%;
           overflow: auto;
         }
         furo-show-flow {
-          background-color: var(--surface-light);
+          background-color: #f3f3f3;
         }
         #demo,
         #flow {
           height: 100%;
         }
         #demo {
-          padding: var(--spacing-s);
+          padding: 1rem;
           box-sizing: border-box;
         }
 
@@ -274,13 +193,13 @@ class FuroDemoSnippet extends FBP(LitElement) {
         }
 
         .nav {
-          background-color: var(--surface-light, white);
-          color: var(--on-surfcae);
+          background-color: #f3f3f3;
+          color: #444444;
         }
 
         .nav span {
           display: inline-block;
-          border-bottom: 1px solid var(--surface-light, white);
+          border-bottom: 1px solid #f3f3f3;
           cursor: pointer;
         }
 
@@ -289,12 +208,12 @@ class FuroDemoSnippet extends FBP(LitElement) {
         }
         :host([flow]) .flow {
           font-weight: 800;
-          border-bottom: 1px solid var(--on-primary);
+          border-bottom: 1px solid #444444;
         }
 
         :host([demo]) .demo {
           font-weight: 800;
-          border-bottom: 1px solid var(--on-primary);
+          border-bottom: 1px solid #444444;
         }
 
         :host([no-demo]) .demo {
@@ -303,7 +222,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
         :host([source]) .source {
           font-weight: 800;
-          border-bottom: 1px solid var(--on-primary);
+          border-bottom: 1px solid #444444;
         }
       `
     ];
@@ -321,7 +240,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
           <span class="demo" @-click="-^demo">demo</span> |
           <span class="source" @-click="-^source">source</span> |
           <span class="flow" @-click="-^flow">flow</span> |
-          <furo-icon style="float:right" @-click="--fullscreen" icon="${this.icon}"></furo-icon>
+          <span style="float:right" @-click="--fullscreen">${this.icon}</span>
         </div>
 
         <div flex class="flexbody">
