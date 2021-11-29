@@ -168,7 +168,6 @@ export class FlowRepeat extends FBP(HTMLElement) {
     this.triggerIndex(this.selectedIndex, data);
   }
 
-
   /**
    * Triggers all nodes.
    *
@@ -440,11 +439,11 @@ export class FlowRepeat extends FBP(HTMLElement) {
   triggerLast(data) {
     if (this._insertedItems[this._insertedItems.length - 1]) {
       this._insertedItems[
-      this._insertedItems.length - 1
-        ].virtualElement._FBPTriggerWire('--trigger', data);
+        this._insertedItems.length - 1
+      ].virtualElement._FBPTriggerWire('--trigger', data);
       this._insertedItems[
-      this._insertedItems.length - 1
-        ].virtualElement._FBPTriggerWire('--triggerLast', data);
+        this._insertedItems.length - 1
+      ].virtualElement._FBPTriggerWire('--triggerLast', data);
     }
   }
 

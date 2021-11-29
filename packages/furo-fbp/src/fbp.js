@@ -73,7 +73,6 @@ export const FBP = superClass =>
       this.__wireQueue = [];
     }
 
-
     /**
      * Auto append fbp for lit elements
      * @private
@@ -104,31 +103,7 @@ export const FBP = superClass =>
             } else if (
               typeof receiver.element[receiver.method] === 'function'
             ) {
-              let response;
-              // array spreaden
-              if (
-                Array.isArray(detailData) &&
-                receiver.element[receiver.method].length > 1
-              ) {
-                // eslint-disable-next-line prefer-spread
-                response = receiver.element[receiver.method].apply(
-                  receiver.element,
-                  detailData
-                );
-              } else {
-                let data = detailData;
-                if (receiver.path) {
-                  data = this._pathGet(detailData, receiver.path);
-                }
-                response = receiver.element[receiver.method](data);
-              }
-              // @-ƒ-function auslösen
-              const customEvent = new Event(`ƒ-${receiver.attrName}`, {
-                composed: false,
-                bubbles: false,
-              });
-              customEvent.detail = response;
-              receiver.element.dispatchEvent(customEvent);
+              this._call(detailData, receiver);
             } else if (receiver.property) {
               let data = detailData;
               if (receiver.path) {
@@ -136,10 +111,25 @@ export const FBP = superClass =>
               }
               // eslint-disable-next-line no-param-reassign
               receiver.element[receiver.property] = data;
+            } else if (receiver.element.localName.includes('-')) {
+              // retry call with whenDefined because sometimes the components are just not defined at the time ƒ-method is triggered
+              customElements
+                .whenDefined(receiver.element.localName)
+                .then(() => {
+                  if (typeof receiver.element[receiver.method] === 'function') {
+                    this._call(detailData, receiver);
+                  } else {
+                    // eslint-disable-next-line no-console
+                    console.warn(
+                      `${receiver.method} is not a method of ${receiver.element.nodeName}`,
+                      receiver.element
+                    );
+                  }
+                });
             } else {
               // eslint-disable-next-line no-console
               console.warn(
-                `${receiver.method} is neither a listener nor a function of ${receiver.element.nodeName}`,
+                `${receiver.method} is not a method of ${receiver.element.nodeName}`,
                 receiver.element
               );
             }
@@ -148,6 +138,40 @@ export const FBP = superClass =>
       } else {
         this.__enqueueTrigger(wire, detailData);
       }
+    }
+
+    /**
+     *
+     * @param detailData
+     * @param receiver
+     * @private
+     */
+    _call(detailData, receiver) {
+      let response;
+      // array spreaden
+      if (
+        Array.isArray(detailData) &&
+        receiver.element[receiver.method].length > 1
+      ) {
+        // eslint-disable-next-line prefer-spread
+        response = receiver.element[receiver.method].apply(
+          receiver.element,
+          detailData
+        );
+      } else {
+        let data = detailData;
+        if (receiver.path) {
+          data = this._pathGet(detailData, receiver.path);
+        }
+        response = receiver.element[receiver.method](data);
+      }
+      // @-ƒ-function auslösen
+      const customEvent = new Event(`ƒ-${receiver.attrName}`, {
+        composed: false,
+        bubbles: false,
+      });
+      customEvent.detail = response;
+      receiver.element.dispatchEvent(customEvent);
     }
 
     /**
@@ -290,7 +314,6 @@ export const FBP = superClass =>
         true
       );
     }
-
 
     /**
      *

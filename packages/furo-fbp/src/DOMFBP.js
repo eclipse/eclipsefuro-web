@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import {FBP} from './fbp.js';
+import { FBP } from './fbp.js';
 
 /**
  * DOMFBP allows you to append FBP to any dom element.
@@ -13,7 +13,7 @@ import {FBP} from './fbp.js';
  * new DOMFBP(document.body);
  * ```
  */
-export class DOMFBP extends FBP(class DUMMY{}){
+export class DOMFBP extends FBP(class DUMMY {}) {
   constructor(domNode) {
     super();
     this._appendFBP(domNode);
