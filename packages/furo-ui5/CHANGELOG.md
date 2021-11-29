@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.47.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.46.1...@furo/ui5@0.47.0) (2021-11-29)
+
+
+### Features
+
+* the ui5-select element always selects the first option item. If this happens, the bound FieldNode should be in sync. ([5e6ffc5](https://github.com/eclipse/eclipsefuro-web/commit/5e6ffc5ed9ef08ddfc0879656226b4a203b3c942))
+
+
+
+
+
 ## [0.46.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.46.0...@furo/ui5@0.46.1) (2021-11-26)
 
 
