@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.4...@furo/fbp@6.0.0-rc.5) (2021-11-29)
+
+
+### Features
+
+* fbp queues triggers for components which are not yet defined (imported) ([c038b67](https://github.com/eclipse/eclipsefuro-web/commit/c038b67112393ca4b302b427634f5a4ecff0f89b))
+
+
+
+
+
 # [6.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.3...@furo/fbp@6.0.0-rc.4) (2021-11-24)
 
 
