@@ -17,7 +17,7 @@ import '@ui5/webcomponents/dist/Option.js';
  *
  * @fires {optionNodeList} options-updated - Fired  after the option list was rebuilt.
  * @fires {selectedOption} item-selected - Fired when the item of the dropdown list is selected.
- * @fires {selectedOption} field-value-changed - Fires the field value when it changes.
+ * @fires {selectedOption} value-changed - Fires the field value when it changes.
  *
  * @summary data select field
  * @customElement
@@ -35,19 +35,21 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     this.activeFieldBinding = false;
 
     /**
-     * Defines the field path that is used from the injected RepeaterNode to identify the option items.
+     * Defines the field path that is used from the bound RepeaterNode (bindOptions) to identify the option items.
      * Point-separated path to the field
      * E.g. data.partner.ulid
      * default: id
+     * This attribute is related to the option list
      * @type {string}
      */
     this.idFieldPath = 'id';
 
     /**
-     * Defines the field path that is used from the injected RepeaterNode to display the option items.
+     * Defines the field path that is used from the bound RepeaterNode (bindOptions) to display the option items.
      * Point-separated path to the field
      * E.g. data.partner.display_name
      * default: display_name
+     * This attribute is related to the option list
      * @type {string}
      */
     this.displayFieldPath = 'display_name';
@@ -57,9 +59,20 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
      * Point-separated path to the field
      * Must be set if a data binding is specified.
      * default: id
+     * This attribute is related to the option list. optionList[selected].valueFieldPath ==> bound FieldNode
      * @type {string}
      */
     this.valueFieldPath = 'id';
+
+    /**
+     * Defines the id field path of the bound FieldNode.
+     * Point-separated path to the field
+     * Must be set if a data binding is specified with a complex type.
+     * default: id
+     * This attribute is related to the bound FieldNode.
+     * @type {string}
+     */
+    this.boundFieldIdPath = 'id';
 
     /**
      * Internal RepeaterNode
@@ -101,6 +114,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       'id-field-path': 'id',
       'value-field-path': 'id',
       'display-field-path': 'display_name',
+      'bound-field-id-path': 'id',
     };
 
     // changed is fired when the select operation has finished.
@@ -215,7 +229,17 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       this._updateAttributesFromFat(this._fatValue.attributes);
       this._updateLabelsFromFat(this._fatValue.labels);
     } else {
-      this._tmpValue = val;
+      // checks if incoming param is a complex object
+      if (
+        val !== null &&
+        typeof val === 'object' &&
+        val[this._privilegedAttributes['bound-field-id-path']] !== undefined
+      ) {
+        this._tmpValue = val[this._privilegedAttributes['bound-field-id-path']];
+      } else {
+        // scalar value
+        this._tmpValue = val;
+      }
       this.selectOptionById(this._tmpValue);
     }
   }
@@ -302,6 +326,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
           this.selectedOption.removeAttribute('selected');
         }
         result[0].setAttribute('selected', '');
+      } else if (this.selectedOption) {
+        // no option found
+        // if selectedOption is available set this option as selected
+        this._updateFNA({ detail: { selectedOption: this.selectedOption } });
       }
     }
     return true;
