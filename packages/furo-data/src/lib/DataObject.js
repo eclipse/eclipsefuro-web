@@ -142,7 +142,7 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   get _base64() {
-    return btoa(JSON.stringify(this._value));
+    return window.btoa(unescape(encodeURIComponent(JSON.stringify(this._value))));
   }
 
   /**
