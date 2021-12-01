@@ -731,7 +731,7 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   get _base64() {
-    return window.btoa(unescape(encodeURIComponent(JSON.stringify(this._value))));
+    return window.btoa(decodeURI(encodeURIComponent(JSON.stringify(this._value))));
   }
 
   /**
