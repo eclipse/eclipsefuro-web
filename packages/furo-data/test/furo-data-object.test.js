@@ -230,12 +230,12 @@ describe('furo-data-object', () => {
 
     // after response inject
     const handler = () => {
-      assert.equal(element.data.data.description._value, null);
+      assert.equal(element.data.data.description._value, '');
       assert.equal(element.data.data.furo_data_checkbox_input._meta.label, 'Label from response');
       assert.equal(element.data.data.furo_data_checkbox_input._meta.readonly, true);
       done();
     };
-    element.data.addEventListener('data-injected', handler, { once: true });
+    element.addEventListener('data-injected', handler, { once: true });
 
     element.injectRaw({
       data: { id: 12, display_name: 'party', furo_data_checkbox_input: true },

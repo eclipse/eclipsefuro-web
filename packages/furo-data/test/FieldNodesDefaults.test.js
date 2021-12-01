@@ -38,30 +38,30 @@ describe('FieldNodesDefaults', () => {
       assert.equal(element.data.description._value, null);
       assert.equal(element.data.furo_data_checkbox_input._value, null);
 
-      assert.equal(element.data.furo_data_date_input_google._value.year, null);
-      assert.equal(element.data.furo_data_date_input_google._value.month, null);
+      assert.equal(element.data.furo_data_date_input_google._value.year, 0);
+      assert.equal(element.data.furo_data_date_input_google._value.month, 0);
 
       done();
     };
-    element.data.addEventListener('data-injected', handler, { once: true });
+    element.addEventListener('data-injected', handler, { once: true });
 
     element.injectRaw({});
   });
 
   it('should provide a reset function', done => {
     element.setAttribute('type', 'experiment.Experiment');
-
-    const handler = () => {
+    element.addEventListener('data-injected', () => {
       element.data.description.reset();
       element.data.furo_data_date_input_google.reset();
       assert.equal(element.data.description._value, null);
 
-      assert.equal(element.data.furo_data_date_input_google._value.year, null);
-      assert.equal(element.data.furo_data_date_input_google._value.month, null);
+      assert.equal(element.data.furo_data_date_input_google._value.year, 0, "number");
+      assert.equal(element.data.furo_data_date_input_google._value.month, 0);
 
       done();
-    };
-    element.data.addEventListener('data-injected', handler, { once: true });
+    }, { once: true });
+
+
 
     element.injectRaw({});
   });

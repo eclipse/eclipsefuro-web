@@ -36,7 +36,7 @@ describe('furo-location-updater-qps', () => {
     furoLocation.addEventListener('location-changed', e => {
       assert.equal(e.type, 'location-changed');
       done();
-    });
+    },{once:true});
     element.setQp({ j: 8 });
   });
 
