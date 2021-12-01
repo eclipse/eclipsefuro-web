@@ -11,7 +11,7 @@ import '@svgdotjs/svg.panzoom.js/dist/svg.panzoom.esm.js';
  * @fires {node} show-tooltip-requested -  Fired on mouseover of a attr node
  * @fires {node} show-tooltip-requested -  Fired on mouseover of a attr node
  *
- * @summary todo shortdescription
+ * @summary paints a dagree graph as svg
  * @customElement
  * @appliesMixin FBP
  */

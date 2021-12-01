@@ -6,7 +6,6 @@ import { FBP } from '@furo/fbp';
  * `furo-data-object-form`
  * A simple form for the demo-furo-data-object component
  *
- * @summary todo shortdescription
  * @customElement
  * @demo demo/furo-data-object-form.html
  * @appliesMixin FBP
