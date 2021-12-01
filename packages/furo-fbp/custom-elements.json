@@ -1878,7 +1878,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/testhelper/test-bind.js",
+      "path": "src/flow-bind.js",
       "declarations": [
         {
           "kind": "class",
@@ -2207,7 +2207,7 @@
             "name": "HTMLElement"
           },
           "summary": "Custom element to allow using furo-fbp's template features in a html document.",
-          "tagName": "test-bind",
+          "tagName": "flow-bind",
           "customElement": true
         },
         {
@@ -2534,10 +2534,10 @@
       "exports": [
         {
           "kind": "custom-element-definition",
-          "name": "test-bind",
+          "name": "flow-bind",
           "declaration": {
             "name": "TestBind",
-            "module": "src/testhelper/test-bind.js"
+            "module": "src/flow-bind.js"
           }
         },
         {
@@ -2545,7 +2545,7 @@
           "name": "empty-test-fbp-node",
           "declaration": {
             "name": "EmptyTestFBPNode",
-            "module": "src/testhelper/test-bind.js"
+            "module": "src/flow-bind.js"
           }
         }
       ]

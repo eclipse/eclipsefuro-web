@@ -2,7 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 
 describe('furo-backdrop', () => {
   let backdropDisplay;
@@ -12,7 +12,7 @@ describe('furo-backdrop', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-backdrop-display>
             <furo-backdrop ƒ-show="--clk">
@@ -21,7 +21,7 @@ describe('furo-backdrop', () => {
             <div @-click="--clk">content</div>
           </furo-backdrop-display>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;

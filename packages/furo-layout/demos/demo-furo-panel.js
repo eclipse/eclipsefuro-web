@@ -11,7 +11,6 @@ import '@furo/layout/src/furo-catalog.js';
  * `demo-furo-panel`
  * Simple furo-panel Demo
  *
- * @summary todo shortdescription
  * @customElement
  * @demo demo/demo-furo-panel.html
  * @appliesMixin FBP

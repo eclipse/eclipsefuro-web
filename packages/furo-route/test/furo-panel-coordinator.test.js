@@ -2,7 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 import './helper/panel-produce-data.js';
 import '@furo/data/src/furo-data-object.js';
@@ -25,7 +25,7 @@ describe('furo-panel-coordinator', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-pages>
             <furo-panel-coordinator
@@ -50,7 +50,7 @@ describe('furo-panel-coordinator', () => {
             @-object-ready="--entityObj"
           ></furo-data-object>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;

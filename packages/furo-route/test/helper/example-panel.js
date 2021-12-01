@@ -5,9 +5,7 @@ import '@furo/util/src/furo-pretty-json';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 /**
  * `example-panel`
- * todo Describe your element
  *
- * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
  */
@@ -15,7 +13,6 @@ class ExamplePanel extends BasePanel {
   constructor() {
     super();
     // register the close
-    // todo: do some checks
     this._FBPAddWireHook('--navNode', treeNode => {
       this.treeNode = treeNode;
       treeNode.addEventListener(

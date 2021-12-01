@@ -2,7 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '../src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '../src/flow-bind.js'; // for testing with wires and hooks
 import 'sinon/pkg/sinon.js';
 
 describe('fbp-debugging.test', () => {
@@ -13,14 +13,14 @@ describe('fbp-debugging.test', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <div id="hull">
             <div id="sender" @-click="--data-received">sender</div>
             <div id="receiver" ƒ-click="--data-received">receiver</div>
           </div>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;

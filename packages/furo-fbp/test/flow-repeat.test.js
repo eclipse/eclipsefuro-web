@@ -2,7 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert, expect } from '@esm-bundle/chai';
 
 import '../src/flow-repeat.js';
-import '../src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '../src/flow-bind.js'; // for testing with wires and hooks
 
 describe('flow-repeat', () => {
   let repeat;

@@ -9,9 +9,7 @@ import '@furo/layout/src/furo-catalog.js';
 
 /**
  * `demo-furo-horizontal-flex`
- * todo Describe your element
  *
- * @summary todo shortdescription
  * @customElement
  * @demo demo/demo-furo-horizontal-flex.html
  * @appliesMixin FBP

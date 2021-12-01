@@ -5,9 +5,6 @@ import { BasePanel } from '../../src/lib/BasePanel.js';
 import '@furo/util/src/furo-pretty-json';
 /**
  * `edit-example`
- * todo Describe your element
- *
- * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
  */

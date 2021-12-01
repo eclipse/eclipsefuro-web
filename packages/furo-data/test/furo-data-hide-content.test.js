@@ -3,7 +3,7 @@ import { assert } from '@esm-bundle/chai';
 
 
 
-import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';
 import '../src/furo-data-object.js';
@@ -16,7 +16,7 @@ describe('furo-data-hide-content', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-data-hide-content ƒ-bind-data="--entity(*.furo_data_checkbox_input)">
             <h1>This is the content</h1>
@@ -28,7 +28,7 @@ describe('furo-data-hide-content', () => {
             ƒ-inject-raw="--response(*.data)"
           ></furo-data-object>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;

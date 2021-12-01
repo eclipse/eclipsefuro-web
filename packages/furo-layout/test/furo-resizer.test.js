@@ -2,7 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-resizer', () => {
   let classbasedResizer;
@@ -12,7 +12,7 @@ describe('furo-resizer', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-horizontal-flex>
             <div flex>flex</div>
@@ -30,7 +30,7 @@ describe('furo-resizer', () => {
             }
           </style>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
 
     await testbind.updateComplete;

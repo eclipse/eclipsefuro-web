@@ -2,7 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert , expect} from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-app-flow', () => {
   let element;
@@ -10,11 +10,11 @@ describe('furo-app-flow', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-app-flow></furo-app-flow>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;

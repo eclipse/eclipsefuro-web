@@ -37,12 +37,17 @@ export class NodeEvent {
     this.cancelBroadcast = false;
   }
 
+  /**
+   * do not propagate the events to parent nodes
+   */
   stopPropagation() {
     this.cancelBubble = true;
   }
 
+  /**
+   * Do not broadcast to the children of this node anymore
+   */
   stopBroadcast() {
-    // todo: implement
     this.cancelBroadcast = true;
   }
 }

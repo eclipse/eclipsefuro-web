@@ -3,7 +3,7 @@ import { assert } from '@esm-bundle/chai'
 
 import '../src/furo-catalog.js'
 import './queue-test.js'
-import '../src/testhelper/test-bind.js' // for testing with wires and hooks
+import '../src/flow-bind.js' // for testing with wires and hooks
 
 describe('queuing', () => {
   let element
@@ -11,11 +11,11 @@ describe('queuing', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <queue-test id='queued'></queue-test>
         </template>
-      </test-bind>
+      </flow-bind>
     `)
     await testbind.updateComplete
     host = testbind._host;

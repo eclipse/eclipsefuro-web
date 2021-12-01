@@ -4,9 +4,7 @@ import { FBP } from '@furo/fbp';
 
 /**
  * `produce-data`
- * todo Describe your element
  *
- * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
  */

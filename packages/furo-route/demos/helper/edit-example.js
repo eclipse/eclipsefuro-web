@@ -6,9 +6,6 @@ import { html, css } from 'lit';
 import '@furo/util/src/furo-pretty-json';
 /**
  * `edit-example`
- * todo Describe your element
- *
- * @summary todo shortdescription
  * @customElement
  * @demo demo/edit-example.html
  * @appliesMixin FBP

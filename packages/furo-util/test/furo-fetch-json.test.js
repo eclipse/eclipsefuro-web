@@ -2,7 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-fetch-json', () => {
   let element = {};
@@ -10,7 +10,7 @@ describe('furo-fetch-json', () => {
 
   beforeEach(async () => {
     const fix = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-fetch-json
             src="/mockdata/experiments/1/get.json"
@@ -20,7 +20,7 @@ describe('furo-fetch-json', () => {
             @-parse-error="--error"
           ></furo-fetch-json>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await fix.updateComplete;
     host = fix._host;
