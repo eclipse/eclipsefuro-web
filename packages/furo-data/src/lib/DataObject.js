@@ -151,7 +151,7 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   set _base64(encodedData) {
-    this.injectRaw(JSON.parse(atob(encodedData)));
+    this.injectRaw(JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
   }
 
   /**

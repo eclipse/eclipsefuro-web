@@ -691,7 +691,7 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   set _base64(encodedData) {
-    this.injectRaw(JSON.parse(atob(encodedData)));
+    this._value =  (JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
   }
 
   /**
