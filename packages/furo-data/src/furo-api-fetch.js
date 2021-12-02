@@ -13,6 +13,7 @@
  * @fires {Object} response - Fired when a response is received.
  * Here you will get the parsed response
  * Format depends on request header `content-type`
+ *
  * supported types:
  * - text/plain
  * - application/json

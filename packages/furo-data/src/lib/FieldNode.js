@@ -731,7 +731,7 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   get _base64() {
-    return window.btoa(decodeURI(encodeURIComponent(JSON.stringify(this._value))));
+    return window.btoa(unescape(encodeURIComponent(JSON.stringify(this._value))));
   }
 
   /**
@@ -740,7 +740,7 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   set _base64(encodedData) {
-    this.injectRaw(JSON.parse(atob(encodedData)));
+    this._value =  (JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
   }
 
   /**

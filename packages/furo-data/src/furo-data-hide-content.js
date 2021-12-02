@@ -10,7 +10,7 @@ import { FBP } from '@furo/fbp';
  *
  *```html
  * <furo-data-hide-content ƒ-bind-data="--bind(*.bool)">
- *  <div>some content</div>
+ *   <div>some content</div>
  * </furo-collapsible-box>
  *```
  *

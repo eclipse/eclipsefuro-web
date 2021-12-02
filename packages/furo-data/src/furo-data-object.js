@@ -17,10 +17,15 @@ import { DataObject } from './lib/DataObject.js';
  *
  * ```html
  *  <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
- *  <furo-data-object type="project.Project" ƒ-inject-raw="--response(*.data)" @-object-ready="--dataObject"></furo-data-object>
+ *  <furo-data-object
+ *      type="project.Project"
+ *      ƒ-inject-raw="--response(*.data)" @-object-ready="--dataObject"></furo-data-object>
  *
  *  <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
- *  <furo-entity-agent service="ProjectService" ƒ-save="--saveClicked" ƒ-bind-request-data="--dataObject" @-response="--response" ></furo-entity-agent>
+ *  <furo-entity-agent
+ *      service="ProjectService"
+ *      ƒ-save="--saveClicked"
+ *      ƒ-bind-request-data="--dataObject" @-response="--response" ></furo-entity-agent>
  *```
  * @fires {} data-injected -  Fired when injected data was processed (**bubbles**).
  * @fires {{Object|CollectionNode}} data-changed -  Fired when data in furo-data-object has changed  (**bubbles**). This event fires a lot, consider using a de-bounce with the event.

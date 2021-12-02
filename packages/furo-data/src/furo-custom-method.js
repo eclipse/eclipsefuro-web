@@ -9,15 +9,14 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * ```html
  * <furo-custom-method
- * service="Servicename"
- * method="release"
- * ƒ-hts-in="--hts"
- * ƒ-trigger="--customClick"
- * ></furo-custom-method>
+ *     service="Servicename"
+ *     method="release"
+ *     ƒ-hts-in="--hts"
+ *     ƒ-trigger="--customClick"></furo-custom-method>
  *
- * <!-- produces hts -->
+ * <!-- produces a hateoas link array -->
  * <furo-deep-link
- *    service="Servicename" @-hts-out="--hts"></furo-deep-link>
+ *     service="Servicename" @-hts-out="--hts"></furo-deep-link>
  *
  * ```
  * * *before you can do any requests, the service, method and the HATEOAS must be known*

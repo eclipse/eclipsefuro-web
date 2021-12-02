@@ -9,19 +9,16 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * `furo-collection-agent` is an interface component to handle collection requests.
  *
  *
- *
- *
  * ```html
- *    <furo-collection-agent
- *                      service="Servicename"
- *                      ƒ-hts-in="--hts"
- *                    ></furo-collection-agent>
+ * <furo-collection-agent
+ *     service="Servicename"
+ *     ƒ-hts-in="--hts"></furo-collection-agent>
  *
- * <!-- produces hts -->
+ * <!-- produces a hateoas link array -->
  * <furo-deep-link
- *    service="Servicename" @-hts-out="--hts"></furo-deep-link>
- *
- * ```
+*     service="Servicename" @-hts-out="--hts"></furo-deep-link>
+*
+* ```
  *
  *
  *

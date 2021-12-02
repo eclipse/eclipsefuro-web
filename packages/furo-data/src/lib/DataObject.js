@@ -146,7 +146,7 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   get _base64() {
-    return window.btoa(decodeURI(encodeURIComponent(JSON.stringify(this._value))));
+    return window.btoa(unescape(encodeURIComponent(JSON.stringify(this._value))));
   }
 
   /**
@@ -155,7 +155,7 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   set _base64(encodedData) {
-    this.injectRaw(JSON.parse(atob(encodedData)));
+    this.injectRaw(JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
   }
 
   /**
