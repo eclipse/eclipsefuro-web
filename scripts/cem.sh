@@ -62,13 +62,13 @@ for module in $modules; do
         echo "************************ not class and not component"
       else
 
+        echo $name
         path=$(_jq '.path')
 
         echo '{"path":"'$path'","module":"'$module'", "name":"'$name'"}' | jq . >base.json
         jq --argjson COMPONENTINDEX $COMPONENTINDEX -s '. | .[0].modules[$COMPONENTINDEX].declarations[0]' custom-elements.json >$name.decl.json
         jq --argjson COMPONENTINDEX $COMPONENTINDEX -s '. | .[0].modules[$COMPONENTINDEX]' custom-elements.json >$name.cem.json
         jq -s '. | {"decl": .[3] , "path": .[2].path,"name": .[2].name, "module": .[2].module, "pkg": .[0], "cem": .[1] }' package.json $name.cem.json base.json $name.decl.json >$name.json
-
         simple-generator -d $name.json -t $templatesDir/class.md.tpl >$moduleDir/$module/$name.md
       fi
 
@@ -76,7 +76,7 @@ for module in $modules; do
       echo $component
       mkdir -p $injectsDir/$module/$component
       touch $injectsDir/$module/$component/"_"$component"-head.md"
-      touch $injectsDir/$module/$component/"_"$component"-scripts.md"
+
       # generate the component documentation itself
       echo '{"module":"'$module'", "component":"'$component'"}' | jq . >base.json
       jq --argjson COMPONENTINDEX $COMPONENTINDEX -s '. | .[0].modules[$COMPONENTINDEX].declarations[0]' custom-elements.json >$component.decl.json
@@ -86,13 +86,16 @@ for module in $modules; do
     fi
     COMPONENTINDEX=$((COMPONENTINDEX + 1))
   done
-
+  echo "Overview"
   # create the overview _module-inside.md
-  simple-generator -d custom-elements.json -t $templatesDir/module.components.md.tpl >$moduleDir/$module/_$module-inside.md
-
+  simple-generator -d custom-elements.json -t $templatesDir/module.components.md.tpl > $moduleDir/$module/_$module-inside.md
+echo "Module Index"
   # _module.md
-  echo '{"module":"'$module'", "collection":"'$collection'"}' | jq . >base.json
+
+  echo '{"module":"'$module'", "collection":'$collection'}' | jq . > base.json
+
   jq -s '. | {"collection": .[2].collection, "module": .[2].module, "pkg": .[0], "cem": .[1]}' package.json custom-elements.json base.json >big.json
+
   simple-generator -d big.json -t $templatesDir/_index.md.tpl >$moduleDir/$module/_index.md
 
 done

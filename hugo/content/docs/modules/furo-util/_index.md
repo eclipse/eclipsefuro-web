@@ -1,0 +1,33 @@
+---
+title: "@furo/util"
+bookCollapseSection: true
+bookToc: false
+weight: 100
+---
+
+# @furo/util
+**@furo/util** <small>v2.0.0-rc.7</small>
+package sample
+
+{{% api "_furo-util-head.md" %}}
+
+### Installation
+*npm*:
+```bash
+npm i -S @furo/util`
+```
+
+
+*cdn*:
+```js
+<script type="module"
+        src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.7/dist/furo-util.js">
+</script>
+```
+
+{{% api "_furo-util-description.md" %}}
+
+## What is inside
+{{% api "_furo-util-inside.md" %}}
+
+{{% api "_furo-util-footer.md" %}}

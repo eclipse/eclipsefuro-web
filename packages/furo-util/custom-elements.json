@@ -2083,7 +2083,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "'fullscreen'"
+              "default": "'# '"
             },
             {
               "kind": "field",
@@ -2311,7 +2311,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "summary": "todo shortdescription",
+          "summary": "paints a dagree graph as svg",
           "tagName": "furo-graph-renderer",
           "customElement": true
         }

@@ -1,0 +1,33 @@
+---
+title: "@furo/data"
+bookCollapseSection: true
+bookToc: false
+weight: 100
+---
+
+# @furo/data
+**@furo/data** <small>v2.0.0-rc.5</small>
+Furo data components
+
+{{% api "_furo-data-head.md" %}}
+
+### Installation
+*npm*:
+```bash
+npm i -S @furo/data`
+```
+
+
+*cdn*:
+```js
+<script type="module"
+        src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.5/dist/furo-data.js">
+</script>
+```
+
+{{% api "_furo-data-description.md" %}}
+
+## What is inside
+{{% api "_furo-data-inside.md" %}}
+
+{{% api "_furo-data-footer.md" %}}

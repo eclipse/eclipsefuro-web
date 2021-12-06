@@ -13,11 +13,13 @@
           "members": [
             {
               "kind": "method",
-              "name": "stopPropagation"
+              "name": "stopPropagation",
+              "description": "do not propagate the events to parent nodes"
             },
             {
               "kind": "method",
-              "name": "stopBroadcast"
+              "name": "stopBroadcast",
+              "description": "Do not broadcast to the children of this node anymore"
             },
             {
               "kind": "field",
