@@ -218,7 +218,6 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     const type = this.getDataType();
     if (type === 'furo.StringOptionProperty') {
       this._tmpValue = val.id;
-      this._stringOptionValue = val;
       this.selectOptionById(this._tmpValue);
       return;
     }
@@ -585,9 +584,8 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
         this._tmpValue = newValue === '' ? null : newValue;
         this.setFnaFieldValue(newValue === '' ? null : newValue);
       } else if (this.getDataType() === 'furo.StringOptionProperty') {
-        this._stringOptionValue.id = newValue;
-        this._stringOptionValue.display_name = selectedOption.textContent;
-        this.setFnaFieldValue(this._stringOptionValue);
+        const strOpt = {id: newValue, display_name: selectedOption.textContent}
+        this.setFnaFieldValue(strOpt);
         return;
       } else {
         this._tmpValue = newValue;
