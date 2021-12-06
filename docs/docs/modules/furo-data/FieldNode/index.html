@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FieldNode #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/FieldNode.js&#39;; exports FieldNode js superclass EventTreeNode
+ internal events #   this-field-became-invalid, when a field gets invalid field-became-invalid bubbles, when a field gets invalid this-field-became-valid, when a field gets valid field-became-valid bubbles, when a field gets valid this-field-value-changed, when the value of a field changed field-value-changed bubbles, when the value of a field changed this-metas-changed, when the metas of a field changed metas-changed bubbles, when the meta of a field changed oneof-field-cleared, when a field in a oneof group was cleared oneof-field-changed, when a field in a oneof group was changed this-node-field-added, when a sub field was added to a field node-field-added bubbles, when a sub field was added to a field this-node-field-deleted, when a sub field was added to a field node-field-deleted bubbles, when a sub field was added to a field any-type-removed, fired before a node of type any changes its inner type any-type-created, fired when a node of type any is created or the type was changed  internal broadcasted events #   parent-readonly-meta-set, when readonly was set on a parent field  Attributes and Properties #  defaultvalue #   Set the value of the field to the specified defaults.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="FieldNode" />
+<meta property="og:description" content="FieldNode #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/FieldNode.js&#39;; exports FieldNode js superclass EventTreeNode
+ internal events #   this-field-became-invalid, when a field gets invalid field-became-invalid bubbles, when a field gets invalid this-field-became-valid, when a field gets valid field-became-valid bubbles, when a field gets valid this-field-value-changed, when the value of a field changed field-value-changed bubbles, when the value of a field changed this-metas-changed, when the metas of a field changed metas-changed bubbles, when the meta of a field changed oneof-field-cleared, when a field in a oneof group was cleared oneof-field-changed, when a field in a oneof group was changed this-node-field-added, when a sub field was added to a field node-field-added bubbles, when a sub field was added to a field this-node-field-deleted, when a sub field was added to a field node-field-deleted bubbles, when a sub field was added to a field any-type-removed, fired before a node of type any changes its inner type any-type-created, fired when a node of type any is created or the type was changed  internal broadcasted events #   parent-readonly-meta-set, when readonly was set on a parent field  Attributes and Properties #  defaultvalue #   Set the value of the field to the specified defaults." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://web-components.furo.pro/docs/modules/furo-data/FieldNode/" />
+<meta property="article:modified_time" content="2021-12-06T12:17:08+01:00" />
+<title>FieldNode | フロー Furo Web</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
+<script defer src="/en.search.min.dd77bf837d5fda723d562257ba1468524ba6c667d0c200af1d7ea959c4904a89.js" integrity="sha256-3Xe/g31f2nI9ViJXuhRoUkumxmfQwgCvHX6pWcSQSok="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+  <link href="/main.css" rel="stylesheet"/>
+</head>
+
+<body dir=>
+<fixed-tooltip-display></fixed-tooltip-display>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <div ></div>
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>フロー Furo Web</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-64d0ac0e8a385a6091d238dd382da7cf" class="toggle"  />
+    <label for="section-64d0ac0e8a385a6091d238dd382da7cf" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/guides/" class="">Guides</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/FNA/" class="">Extending a UI lib</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/gettingstarted/" class="">Getting started</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/dealing-w-data/" class="">Dealing with data</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/init/" class="">Init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/route/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/viz/" class="">viz connector</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/styling/" class="">Work with style vars</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ecbb3b63da2a7938af46aa6de0c6c708" class="toggle"  />
+    <label for="section-ecbb3b63da2a7938af46aa6de0c6c708" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/explainers/" class="">Explainers</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/explainers/flow-repeat/" class="">Flow repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/explainers/furo-pages/" class="">furo-pages</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c131070b1e715f28624af5fdfd93165a" class="toggle" checked />
+    <label for="section-c131070b1e715f28624af5fdfd93165a" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/modules/" class="">Packages</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cca842a4d0376120bfbf8e2c08c07ff4" class="toggle" checked />
+    <label for="section-cca842a4d0376120bfbf8e2c08c07ff4" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/modules/furo-data/" class="">@furo/data</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/" class="">furo-api-fetch</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/" class="">furo-collection-agent</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/" class="">furo-custom-method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/" class="">furo-data-flow-repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/" class="">furo-data-hide-content</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-data-object/" class="">furo-data-object</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/" class="">furo-deep-link</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/" class="">furo-entity-agent</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/" class="">furo-entity-field</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/" class="">furo-rel-exists</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/" class="">furo-reverse-deep-link</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/" class="">furo-type-renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/AgentHelper/" class="">AgentHelper</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/DataObject/" class="">DataObject</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/FieldNode/" class=" active">FieldNode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/FieldNodeAdapter/" class="">FieldNodeAdapter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/" class="">RepeaterNode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/ScalarTypeHelper/" class="">ScalarTypeHelper</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/" class="">ValidatorDefaultTypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeDate/" class="">ValidatorGoogleTypeDate</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeMoney/" class="">ValidatorGoogleTypeMoney</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-data/ValidatorNumericTypes/" class="">ValidatorNumericTypes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-021db3e6cecc4cb464638d9452766952" class="toggle"  />
+    <label for="section-021db3e6cecc4cb464638d9452766952" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/modules/furo-fbp/" class="">@furo/fbp</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/" class="">empty-fbp-node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-fbp/flow-bind/" class="">flow-bind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-fbp/flow-repeat/" class="">flow-repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-fbp/DOMFBP/" class="">DOMFBP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-fbp/FBP/" class="">FBP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3e40020dcb75400959dcadfc7e247453" class="toggle"  />
+    <label for="section-3e40020dcb75400959dcadfc7e247453" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/modules/furo-framework/" class="">@furo/framework</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-framework/Env/" class="">Env</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-framework/i18n/" class="">i18n</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-framework/Init/" class="">Init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-framework/NodeEvent/" class="">NodeEvent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-71921f8b00ba9f1d7ea65557f9a4892b" class="toggle"  />
+    <label for="section-71921f8b00ba9f1d7ea65557f9a4892b" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/modules/furo-layout/" class="">@furo/layout</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop/" class="">furo-backdrop</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop-display/" class="">furo-backdrop-display</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-empty-spacer/" class="">furo-empty-spacer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-form-layouter/" class="">furo-form-layouter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-horizontal-flex/" class="">furo-horizontal-flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-resizer/" class="">furo-resizer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-split-view/" class="">furo-split-view</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-flex/" class="">furo-vertical-flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/" class="">furo-vertical-scroller</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d417ac8cb7a1ccb4381e8ddf1c7562a0" class="toggle"  />
+    <label for="section-d417ac8cb7a1ccb4381e8ddf1c7562a0" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/modules/furo-route/" class="">@furo/route</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/furo-app-flow/" class="">furo-app-flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/furo-app-flow-router/" class="">furo-app-flow-router</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/furo-document-title/" class="">furo-document-title</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/furo-location/" class="">furo-location</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/furo-location-updater/" class="">furo-location-updater</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/furo-pages/" class="">furo-pages</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/furo-panel-coordinator/" class="">furo-panel-coordinator</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/BasePanel/" class="">BasePanel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-route/panelRegistry/" class="">panelRegistry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-97a0e3b8ee9f906213df62a54586924e" class="toggle"  />
+    <label for="section-97a0e3b8ee9f906213df62a54586924e" class="flex justify-between">
+      <a href="http://web-components.furo.pro/docs/modules/furo-util/" class="">@furo/util</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-config/" class="">furo-config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-config-loader/" class="">furo-config-loader</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-de-bounce/" class="">furo-de-bounce</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-demo-snippet/" class="">furo-demo-snippet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-fetch-json/" class="">furo-fetch-json</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-forth-stack/" class="">furo-forth-stack</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-get-clipboard/" class="">furo-get-clipboard</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-graph-renderer/" class="">furo-graph-renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-head-tail/" class="">furo-head-tail</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-hp-35/" class="">furo-hp-35</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-interval-pulse/" class="">furo-interval-pulse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-key-filter/" class="">furo-key-filter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-keydown/" class="">furo-keydown</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-markdown/" class="">furo-markdown</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-navigation-pad/" class="">furo-navigation-pad</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-pretty-json/" class="">furo-pretty-json</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-put-clipboard/" class="">furo-put-clipboard</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/furo-show-flow/" class="">furo-show-flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/Config/" class="">Config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/modules/furo-util/EmptyStackError/" class="">EmptyStackError</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://furo.pro" target="_blank" rel="noopener">
+        フロー Furo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>FieldNode</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#internal-events">internal events</a></li>
+    <li><a href="#internal-broadcasted-events">internal broadcasted events</a></li>
+    <li><a href="#attributes-and-properties">Attributes and Properties</a>
+      <ul>
+        <li><a href="#defaultvalue"><strong>defaultvalue</strong></a></li>
+        <li><a href="#_spec"><strong>_spec</strong></a></li>
+        <li><a href="#_pristine"><strong>_pristine</strong></a></li>
+        <li><a href="#_isvalid"><strong>_isValid</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#methods">Methods</a>
+      <ul>
+        <li><a href="#createfield"><strong>createField</strong></a></li>
+        <li><a href="#movenode"><strong>moveNode</strong></a></li>
+        <li><a href="#reinit"><strong>reinit</strong></a></li>
+        <li><a href="#_createvendortype"><strong>_createVendorType</strong></a></li>
+        <li><a href="#_checkconstraints"><strong>_checkConstraints</strong></a></li>
+        <li><a href="#_createanytype"><strong>_createAnyType</strong></a></li>
+        <li><a href="#_updatekeyvaluemap"><strong>_updateKeyValueMap</strong></a></li>
+        <li><a href="#deletenode"><strong>deleteNode</strong></a></li>
+        <li><a href="#_clearinvalidity"><strong>_clearInvalidity</strong></a></li>
+        <li><a href="#tostring"><strong>toString</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="fieldnode">
+  FieldNode
+  <a class="anchor" href="#fieldnode">#</a>
+</h1>
+<p><strong>@furo/furo-data</strong> <small>v2.0.0-rc.5</small>
+<br><code>import '@furo/furo-data/src/src/lib/FieldNode.js';</code><small>
+<br>exports <em>FieldNode</em> js
+<br>superclass <em>EventTreeNode</em></small></p>
+<hr>
+<h2 id="internal-events">
+  internal events
+  <a class="anchor" href="#internal-events">#</a>
+</h2>
+<ul>
+<li><em>this-field-became-invalid</em>, when a field gets invalid</li>
+<li><em>field-became-invalid</em> <strong>bubbles</strong>, when a field gets invalid</li>
+<li><em>this-field-became-valid</em>, when a field gets valid</li>
+<li><em>field-became-valid</em> <strong>bubbles</strong>, when a field gets valid</li>
+<li><em>this-field-value-changed</em>, when the value of a field changed</li>
+<li><em>field-value-changed</em> <strong>bubbles</strong>, when the value of a field changed</li>
+<li><em>this-metas-changed</em>, when the metas of a field changed</li>
+<li><em>metas-changed</em> <strong>bubbles</strong>, when the meta of a field changed</li>
+<li><em>oneof-field-cleared</em>, when a field in a oneof group was cleared</li>
+<li><em>oneof-field-changed</em>, when a field in a oneof group was changed</li>
+<li><em>this-node-field-added</em>, when a sub field was added to a field</li>
+<li><em>node-field-added</em> <strong>bubbles</strong>, when a sub field was added to a field</li>
+<li><em>this-node-field-deleted</em>, when a sub field was added to a field</li>
+<li><em>node-field-deleted</em> <strong>bubbles</strong>, when a sub field was added to a field</li>
+<li><em>any-type-removed</em>, fired before a node of type any changes its inner type</li>
+<li><em>any-type-created</em>, fired when a node of type any is created or the type was changed</li>
+</ul>
+<h2 id="internal-broadcasted-events">
+  internal broadcasted events
+  <a class="anchor" href="#internal-broadcasted-events">#</a>
+</h2>
+<ul>
+<li><em>parent-readonly-meta-set</em>, when readonly was set on a parent field</li>
+</ul>
+<h2 id="attributes-and-properties">
+  Attributes and Properties
+  <a class="anchor" href="#attributes-and-properties">#</a>
+</h2>
+<h3 id="defaultvalue">
+  <strong>defaultvalue</strong>
+  <a class="anchor" href="#defaultvalue">#</a>
+</h3>
+</small>
+<p>Set the value of the field to the specified defaults.
+<br><br></p>
+<h3 id="_spec">
+  <strong>_spec</strong>
+  <a class="anchor" href="#_spec">#</a>
+</h3>
+<p>default: <strong>{ type: vType }</strong></small></p>
+<p>Reference to the current spec definition of the fieldNode
+<br><br></p>
+<h3 id="_pristine">
+  <strong>_pristine</strong>
+  <a class="anchor" href="#_pristine">#</a>
+</h3>
+<p>default: <strong>true</strong></small></p>
+<p>Pristine state of the fieldNode, this is always set to true when new data is injected and is false if the value itself or the value of a child node gets changed.
+<br><br></p>
+<h3 id="_isvalid">
+  <strong>_isValid</strong>
+  <a class="anchor" href="#_isvalid">#</a>
+</h3>
+<p>default: <strong>true</strong></small></p>
+<p>Validity of the fieldNode, this is always set to true when new data is injected and is false if the value itself validates to false or the value of a child node validates to false.
+<br><br></p>
+<h2 id="methods">
+  Methods
+  <a class="anchor" href="#methods">#</a>
+</h2>
+<h3 id="createfield">
+  <strong>createField</strong>
+  <a class="anchor" href="#createfield">#</a>
+</h3>
+<p><small><strong>createField</strong>(<em>options</em> <code>&amp;#34;fieldName&amp;#34;</code> ) ⟹ <code>void</code></small></p>
+<p>create a field in a FieldNode, this is useful when using map&lt;string,something&gt;
+set the value option to init with values</p>
+<ul>
+<li><small>options :&quot;name&quot;,&quot;type&quot;:&quot;string&quot;, &quot;spec&quot;:{..}}  spec is optional</small>
+<br><br></li>
+</ul>
+<h3 id="movenode">
+  <strong>moveNode</strong>
+  <a class="anchor" href="#movenode">#</a>
+</h3>
+<p><small><strong>moveNode</strong>(<em>oldIndex</em> <code>*newIndex*</code> ) ⟹ <code>void</code></small></p>
+<ul>
+<li><small>oldIndex </small></li>
+<li><small>newIndex </small>
+<br><br></li>
+</ul>
+<h3 id="reinit">
+  <strong>reinit</strong>
+  <a class="anchor" href="#reinit">#</a>
+</h3>
+<p><small><strong>reinit</strong>() ⟹ <code>void</code></small></p>
+<p>sets the field to the initial values from the spec
+default values are applied</p>
+<p><br><br></p>
+<h3 id="_createvendortype">
+  <strong>_createVendorType</strong>
+  <a class="anchor" href="#_createvendortype">#</a>
+</h3>
+<p><small><strong>_createVendorType</strong>(<em>type</em> `` ) ⟹ <code>void</code></small></p>
+<ul>
+<li><small>type </small>
+<br><br></li>
+</ul>
+<h3 id="_checkconstraints">
+  <strong>_checkConstraints</strong>
+  <a class="anchor" href="#_checkconstraints">#</a>
+</h3>
+<p><small><strong>_checkConstraints</strong>() ⟹ <code>void</code></small></p>
+<p><br><br></p>
+<h3 id="_createanytype">
+  <strong>_createAnyType</strong>
+  <a class="anchor" href="#_createanytype">#</a>
+</h3>
+<p><small><strong>_createAnyType</strong>(<em>val</em> `` ) ⟹ <code>void</code></small></p>
+<ul>
+<li><small>val </small>
+<br><br></li>
+</ul>
+<h3 id="_updatekeyvaluemap">
+  <strong>_updateKeyValueMap</strong>
+  <a class="anchor" href="#_updatekeyvaluemap">#</a>
+</h3>
+<p><small><strong>_updateKeyValueMap</strong>(<em>val</em> <code>*spec*</code> ) ⟹ <code>void</code></small></p>
+<ul>
+<li><small>val </small></li>
+<li><small>spec </small>
+<br><br></li>
+</ul>
+<h3 id="deletenode">
+  <strong>deleteNode</strong>
+  <a class="anchor" href="#deletenode">#</a>
+</h3>
+<p><small><strong>deleteNode</strong>() ⟹ <code>void</code></small></p>
+<p>deletes the fieldnode</p>
+<p><br><br></p>
+<h3 id="_clearinvalidity">
+  <strong>_clearInvalidity</strong>
+  <a class="anchor" href="#_clearinvalidity">#</a>
+</h3>
+<p><small><strong>_clearInvalidity</strong>() ⟹ <code>void</code></small></p>
+<p><br><br></p>
+<h3 id="tostring">
+  <strong>toString</strong>
+  <a class="anchor" href="#tostring">#</a>
+</h3>
+<p><small><strong>toString</strong>() ⟹ <code>void</code></small></p>
+<p><br><br></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/282c1cbf5e2dc689912dc90253093459f1058552" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>December 6, 2021</span>
+    </a>
+  </div>
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#internal-events">internal events</a></li>
+    <li><a href="#internal-broadcasted-events">internal broadcasted events</a></li>
+    <li><a href="#attributes-and-properties">Attributes and Properties</a>
+      <ul>
+        <li><a href="#defaultvalue"><strong>defaultvalue</strong></a></li>
+        <li><a href="#_spec"><strong>_spec</strong></a></li>
+        <li><a href="#_pristine"><strong>_pristine</strong></a></li>
+        <li><a href="#_isvalid"><strong>_isValid</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#methods">Methods</a>
+      <ul>
+        <li><a href="#createfield"><strong>createField</strong></a></li>
+        <li><a href="#movenode"><strong>moveNode</strong></a></li>
+        <li><a href="#reinit"><strong>reinit</strong></a></li>
+        <li><a href="#_createvendortype"><strong>_createVendorType</strong></a></li>
+        <li><a href="#_checkconstraints"><strong>_checkConstraints</strong></a></li>
+        <li><a href="#_createanytype"><strong>_createAnyType</strong></a></li>
+        <li><a href="#_updatekeyvaluemap"><strong>_updateKeyValueMap</strong></a></li>
+        <li><a href="#deletenode"><strong>deleteNode</strong></a></li>
+        <li><a href="#_clearinvalidity"><strong>_clearInvalidity</strong></a></li>
+        <li><a href="#tostring"><strong>toString</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.11/dist/doc-helper.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.11/dist/furo-fbp.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

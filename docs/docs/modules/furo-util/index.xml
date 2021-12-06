@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>@furo/util on フロー Furo Web</title>
+    <link>http://web-components.furo.pro/docs/modules/furo-util/</link>
+    <description>Recent content in @furo/util on フロー Furo Web</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://web-components.furo.pro/docs/modules/furo-util/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>furo-config</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-config/</guid>
+      <description>furo-config #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-config.js&#39;; exports &amp;lt;furo-config&amp;gt; custom-element-definition superclass LitElement summary config access
+furo-config
+Access config data
+1 2 3 4  &amp;lt;furo-config-loader section=&amp;#34;views&amp;#34; src=&amp;#34;/viewconfig.json&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;furo-config-loader section=&amp;#34;second&amp;#34; src=&amp;#34;/second.json&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;furo-config section=&amp;#34;views&amp;#34; @-config-updated=&amp;#34;--conf&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;furo-config section=&amp;#34;second.section.deep&amp;#34; @-config-updated=&amp;#34;--deepconf&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt;   Attributes and Properties #  section #  section 
+section of the config object that you are interested in
+access deep object with dots like main.sub.sub config #  default: Config</description>
+    </item>
+    
+    <item>
+      <title>furo-config-loader</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-config-loader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-config-loader/</guid>
+      <description>furo-config-loader #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-config-loader.js&#39;; exports &amp;lt;furo-config-loader&amp;gt; custom-element-definition superclass LitElement mixes FBP summary load config files
+furo-config-loader loads a configuration json in to the defined section.
+To access the config values, use furo-config.
+1  &amp;lt;furo-config-loader src=&amp;#34;/custom/view-config.json&amp;#34; section=&amp;#34;views&amp;#34;&amp;gt;&amp;lt;/furo-config-loader&amp;gt;   Attributes and Properties #  src #  src 
+File source section #  section 
+Targeted section to load the config in. Events #  config-loaded #  @-config-loaded → Object</description>
+    </item>
+    
+    <item>
+      <title>furo-de-bounce</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-de-bounce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-de-bounce/</guid>
+      <description>furo-de-bounce #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-de-bounce.js&#39;; exports &amp;lt;furo-de-bounce&amp;gt; custom-element-definition superclass LitElement mixes FBP summary event de bouncer
+The Debounce technique allow us to “group” multiple sequential calls in a single one.
+ Read more about debouncing here
+1 2  &amp;lt;furo-de-bounce ƒ-trigger=&amp;#34;--searchStringEntered&amp;#34; @-debounced=&amp;#34;--debouncedSrch&amp;#34;&amp;gt; &amp;lt;/furo-de-bounce&amp;gt;   Attributes and Properties #  immediate #  immediate 
+If true, input-wire is triggered immediatley (leading edge instead of trailing) Default value: false wait #  wait</description>
+    </item>
+    
+    <item>
+      <title>furo-demo-snippet</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-demo-snippet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-demo-snippet/</guid>
+      <description>furo-demo-snippet #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-demo-snippet.js&#39;; exports &amp;lt;furo-demo-snippet&amp;gt; custom-element-definition superclass LitElement mixes FBP summary documentation helper
+furo-demo-snippet This is a documentation helper to show a example, the flow and the source of an example.
+Attributes and Properties #  template #   
+markdown #  default: \``html\n${t.innerHTML}\n````
+
+icon #  default: &#39;# &#39;
+
+source #  source reflects 
+Description demo #  demo reflects</description>
+    </item>
+    
+    <item>
+      <title>furo-fetch-json</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-fetch-json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-fetch-json/</guid>
+      <description>furo-fetch-json #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-fetch-json.js&#39;; exports &amp;lt;furo-fetch-json&amp;gt; custom-element-definition superclass LitElement mixes FBP summary fetch json data
+furo-fetch-json Fetches and parses json data from a source.
+1  &amp;lt;furo-fetch-json src=&amp;#34;/example.json&amp;#34; ƒ-fetch=&amp;#34;--FBPready&amp;#34; @-data=&amp;#34;--contentReceived&amp;#34;&amp;gt;&amp;lt;/furo-fetch-json&amp;gt;   Attributes and Properties #  src #  src 
+the url you want to fetch Events #  data #  @-data → {Object} json data
+Fired when data received and json parsed parse-error #  @-parse-error → error</description>
+    </item>
+    
+    <item>
+      <title>furo-forth-stack</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-forth-stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-forth-stack/</guid>
+      <description>furo-forth-stack #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-forth-stack.js&#39;; exports FuroForthStack js exports &amp;lt;furo-forth-stack&amp;gt; custom-element-definition superclass LitElement summary forth like stack
+furo-forth-stack is a declarative stack, inspired by the forth stack.
+https://hackaday.com/2017/01/27/forth-the-hackers-language/ http://wiki.laptop.org/go/Forth_stack_operators http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks
+Attributes and Properties #  size #  default: 0
+Current size of the stack _stack #  default: []
+
+Events #  stack-size-changed #  @-stack-size-changed → Number
+Fired when the stack size changes with Integer with the current size of the stack.</description>
+    </item>
+    
+    <item>
+      <title>furo-get-clipboard</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-get-clipboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-get-clipboard/</guid>
+      <description>furo-get-clipboard #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-get-clipboard.js&#39;; exports &amp;lt;furo-get-clipboard&amp;gt; custom-element-definition superclass LitElement mixes FBP summary get clipboard content
+furo-get-clipboard get the clipboard content from the OS.
+1 2 3 4  &amp;lt;furo-get-clipboard ƒ-trigger=&amp;#34;--clipboardContentRequested&amp;#34; @-content=&amp;#34;--contentReceived&amp;#34;&amp;gt; &amp;lt;/furo-get-clipboard&amp;gt;   Attributes and Properties #  json #  json 
+Convert clipboard content to json Events #  content #  @-content → ``
+Fired when clipboard content is received Methods #  trigger #  trigger() ⟹ void</description>
+    </item>
+    
+    <item>
+      <title>furo-graph-renderer</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-graph-renderer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-graph-renderer/</guid>
+      <description>furo-graph-renderer #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-graph-renderer.js&#39;; exports &amp;lt;furo-graph-renderer&amp;gt; custom-element-definition superclass LitElement mixes FBP summary paints a dagree graph as svg
+furo-graph-renderer Paint a SVG from the received graph data
+Attributes and Properties #  Events #  show-tooltip-requested #  @-show-tooltip-requested → node
+Fired on mouseover of a attr node Methods #  draw #  draw(graph dagre ) ⟹ void
+dagre  → ƒ-draw
+Draw the graph as svg</description>
+    </item>
+    
+    <item>
+      <title>furo-head-tail</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-head-tail/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-head-tail/</guid>
+      <description>furo-head-tail #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-head-tail.js&#39;; exports &amp;lt;furo-head-tail&amp;gt; custom-element-definition superclass HTMLElement summary split an array
+furo-head-tail Splits an iterable (i.e. Array) in its head and tail part.
+ &amp;lt;furo-head-tail ƒ-split=&amp;quot;--arrayData&amp;quot; @-head=&amp;quot;--firstElement&amp;quot; @-tail=&amp;quot;--restOfArray&amp;quot;&amp;gt;&amp;lt;/furo-head-tail&amp;gt; Attributes and Properties #  Events #  head #  @-head → {Any}
+Fired when Array was splitted, contains the first element of array. tail #  @-tail → Array | Any
+Fired when Array was splitted.</description>
+    </item>
+    
+    <item>
+      <title>furo-hp-35</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-hp-35/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-hp-35/</guid>
+      <description>furo-hp-35 #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-hp-35.js&#39;; exports &amp;lt;furo-hp-35&amp;gt; custom-element-definition extends /src/furo-forth-stack.js superclass FuroForthStack summary calculator component
+hp-35 is a declarative rpn calculator component.
+see https://hansklav.home.xs4all.nl/rpn/
+http://h10032.www1.hp.com/ctg/Manual/c01579350
+Attributes and Properties #  _PIdivby180 #  _PIdivby180 number default: 0.017453292519943295
+so we dont have to calculate Math.PI / 180 every time used to calculate rad from angle radMode #  radMode boolean default: false
+Set to true to use rad, default is deg x #  x Number</description>
+    </item>
+    
+    <item>
+      <title>furo-interval-pulse</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-interval-pulse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-interval-pulse/</guid>
+      <description>furo-interval-pulse #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-interval-pulse.js&#39;; exports &amp;lt;furo-interval-pulse&amp;gt; custom-element-definition superclass LitElement summary trigger an event in intervals
+furo-interval-pulse
+Pulses a tick event every interval ms duration and every takt a tock event is also fired.
+Attributes and Properties #  interval #  interval number default: 200
+Duration of a tact in ms. takt #  takt number default: 4
+Number of ticks per tact. auto #  auto</description>
+    </item>
+    
+    <item>
+      <title>furo-key-filter</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-key-filter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-key-filter/</guid>
+      <description>furo-key-filter #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-key-filter.js&#39;; exports &amp;lt;furo-key-filter&amp;gt; custom-element-definition superclass LitElement mixes FBP summary keyboard event filter
+furo-key-filter Allows only defined keyboard events to pass through
+1 2 3  &amp;lt;!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. --&amp;gt; &amp;lt;other-component @-keydown=&amp;#34;--keydown(*)&amp;#34;&amp;gt;&amp;lt;/other-component&amp;gt; &amp;lt;furo-key-filter ƒ-filter=&amp;#34;--keydown&amp;#34; @-matched=&amp;#34;--escapePressed&amp;#34; keys=&amp;#34;Escape&amp;#34;&amp;gt;&amp;lt;/furo-key-filter&amp;gt;   Attributes and Properties #  keys #  keys 
+Coma separated list with allowed keys to pass.</description>
+    </item>
+    
+    <item>
+      <title>furo-keydown</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-keydown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-keydown/</guid>
+      <description>furo-keydown #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-keydown.js&#39;; exports &amp;lt;furo-keydown&amp;gt; custom-element-definition superclass LitElement mixes FBP summary keyboard event listener
+furo-keydown attaches a keypress listener to the parent element and gives you handy events to work with.
+When you set alt, ctrl or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.
+ more about keydown
+1 2  &amp;lt;furo-keydown key=&amp;#34;Enter&amp;#34; @-key=&amp;#34;--enterPressed&amp;#34;&amp;gt;&amp;lt;/furo-keydown&amp;gt; &amp;lt;furo-keydown ctrl key=&amp;#34;c&amp;#34; @-key=&amp;#34;--copyRequest&amp;#34;&amp;gt;&amp;lt;/furo-keydown&amp;gt;   Attributes and Properties #  key #  key</description>
+    </item>
+    
+    <item>
+      <title>furo-markdown</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-markdown/</guid>
+      <description>furo-markdown #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-markdown.js&#39;; exports &amp;lt;furo-markdown&amp;gt; custom-element-definition superclass LitElement summary renders markdown data
+furo-markdown Renders given md data with parseMarkdown or loads a md file with mdsrc=&amp;quot;source.md&amp;quot;
+Attributes and Properties #  mdsrc #  mdsrc 
+source of the md markdown #  markdown 
+markdown string markdownRendered #  default: undefined
+
+unsafe #  unsafe 
+allow unsafe md. (writing html, components,&amp;hellip;) Methods #  fetchMd #  fetchMd(src `` ) ⟹ Promise&amp;amp;lt;string | never&amp;amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>furo-navigation-pad</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-navigation-pad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-navigation-pad/</guid>
+      <description>furo-navigation-pad #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-navigation-pad.js&#39;; exports &amp;lt;furo-navigation-pad&amp;gt; custom-element-definition superclass LitElement mixes FBP summary keyboard navigation helper
+furo-navigation-pad listens to different keyboard navigation events like the arrow keys. It will attach the listeners to the parent node and cancel the default and stop the propagation of the events.
+The events are available as standalone events or as combined event in the navigated event.
+1 2 3  &amp;lt;!-- forward all navigation events except the Escape --&amp;gt; &amp;lt;furo-navigation-pad ignored-keys=&amp;#34;Escape&amp;#34; @-navigated=&amp;#34;--navpad&amp;#34;&amp;gt;&amp;lt;/furo-navigation-pad&amp;gt;   Attributes and Properties #  ignoredKeys #  ignored-keys</description>
+    </item>
+    
+    <item>
+      <title>furo-pretty-json</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-pretty-json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-pretty-json/</guid>
+      <description>furo-pretty-json #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-pretty-json.js&#39;; exports &amp;lt;furo-pretty-json&amp;gt; custom-element-definition superclass LitElement mixes FBP summary pretty prints json data
+furo-pretty-json Pretty json with highlighting
+Attributes and Properties #  Methods #  injectData #  injectData(json `` ) ⟹ void
+``  → ƒ-inject-data
+Inject JSON data
+ json    </description>
+    </item>
+    
+    <item>
+      <title>furo-put-clipboard</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-put-clipboard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-put-clipboard/</guid>
+      <description>furo-put-clipboard #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-put-clipboard.js&#39;; exports &amp;lt;furo-put-clipboard&amp;gt; custom-element-definition superclass LitElement summary write content to clipboard
+furo-put-clipboard put content to the clipboard of the OS.
+1 2 3 4  &amp;lt;furo-put-clipboard json ƒ-trigger=&amp;#34;--putDataToClipboard&amp;#34; @-content-putted=&amp;#34;--contentInClipboard&amp;#34;&amp;gt; &amp;lt;/furo-put-clipboard&amp;gt;   Attributes and Properties #  json #  json 
+Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention. Events #  content-put #  @-content-put → *</description>
+    </item>
+    
+    <item>
+      <title>furo-show-flow</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/furo-show-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-show-flow/</guid>
+      <description>furo-show-flow #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-show-flow.js&#39;; exports &amp;lt;furo-show-flow&amp;gt; custom-element-definition superclass LitElement mixes FBP summary **
+furo-show-flow Renders a flow from dom node or html source
+Attributes and Properties #  Methods #  parseHtml #  parseHtml(source string ) ⟹ void
+string  → ƒ-parse-html
+Parse html content
+ source    parseTemplate #  parseTemplate(template `` dom dom ) ⟹ void
+`` dom  → ƒ-parse-template
+Parse a dom node</description>
+    </item>
+    
+    <item>
+      <title>Config</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/Config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/Config/</guid>
+      <description>Config #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/src/lib/Config.js&#39;; exports Config js
+ Config Class for furo-config. Not intended for direct usage.
+Attributes and Properties #  Methods #  append #  append(section *obj* ) ⟹ void
+ section  obj    deepCreate #  deepCreate(parent *section* obj `` ) ⟹ void
+create nodes a long they are objects
+ parent  section  obj    watch #  watch(section *cb* ) ⟹ void</description>
+    </item>
+    
+    <item>
+      <title>EmptyStackError</title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/EmptyStackError/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/EmptyStackError/</guid>
+      <description>EmptyStackError #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/src/lib/EmptyStackError.js&#39;; exports EmptyStackError js extends src/lib/EmptyStackError.js superclass Error
+ Error for the furo-forth-stack component.
+Attributes and Properties #  Methods #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://web-components.furo.pro/docs/modules/furo-util/_furo-util-inside/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/modules/furo-util/_furo-util-inside/</guid>
+      <description>Components #    furo-config-loader load config files  furo-config config access  furo-de-bounce event de bouncer  furo-fetch-json fetch json data  furo-forth-stack forth like stack  furo-get-clipboard get clipboard content  furo-head-tail split an array  furo-hp-35 calculator component  furo-interval-pulse trigger an event in intervals  furo-key-filter keyboard event filter  furo-keydown keyboard event listener  furo-markdown renders markdown data  furo-navigation-pad keyboard navigation helper  furo-pretty-json pretty prints json data  furo-put-clipboard write content to clipboard  furo-demo-snippet documentation helper  furo-graph-renderer paints a dagree graph as svg  furo-show-flow  </description>
+    </item>
+    
+  </channel>
+</rss>
