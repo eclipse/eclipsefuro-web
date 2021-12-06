@@ -18,13 +18,6 @@ npm i -S @furo/fbp`
 ```
 
 
-*cdn*:
-```js
-<script type="module"
-        src="https://cdn.jsdelivr.net/npm/@furo/precompiled@6.0.0-rc.5/dist/furo-fbp.js">
-</script>
-```
-
 {{% api "_furo-fbp-description.md" %}}
 
 ## What is inside

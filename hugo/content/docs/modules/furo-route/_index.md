@@ -18,13 +18,6 @@ npm i -S @furo/route`
 ```
 
 
-*cdn*:
-```js
-<script type="module"
-        src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.5/dist/furo-route.js">
-</script>
-```
-
 {{% api "_furo-route-description.md" %}}
 
 ## What is inside

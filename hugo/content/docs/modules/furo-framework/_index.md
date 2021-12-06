@@ -18,13 +18,6 @@ npm i -S @furo/framework`
 ```
 
 
-*cdn*:
-```js
-<script type="module"
-        src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.3/dist/furo-framework.js">
-</script>
-```
-
 {{% api "_furo-framework-description.md" %}}
 
 ## What is inside

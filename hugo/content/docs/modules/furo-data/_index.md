@@ -18,13 +18,6 @@ npm i -S @furo/data`
 ```
 
 
-*cdn*:
-```js
-<script type="module"
-        src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.5/dist/furo-data.js">
-</script>
-```
-
 {{% api "_furo-data-description.md" %}}
 
 ## What is inside

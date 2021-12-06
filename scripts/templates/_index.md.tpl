@@ -18,13 +18,6 @@ npm i -S {{.pkg.name}}`
 ```
 
 
-*cdn*:
-```js
-<script type="module"
-        src="https://cdn.jsdelivr.net/npm/@furo/precompiled@{{.collection}}/dist/{{.module}}.js">
-</script>
-```
-
 {{"{{"}}% api "_{{.module}}-description.md" %{{"}}"}}
 
 ## What is inside
