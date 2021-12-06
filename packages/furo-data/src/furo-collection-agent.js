@@ -11,8 +11,8 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * ```html
  * <furo-collection-agent
- *     service="Servicename"
- *     ƒ-hts-in="--hts"></furo-collection-agent>
+ *    service="Servicename"
+ *    ƒ-hts-in="--hts"></furo-collection-agent>
  *
  * <!-- produces a hateoas link array -->
  * <furo-deep-link
@@ -24,7 +24,16 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * *before you can do any requests, the service and the HATEOAS must be defined*
  *
- * @fires {*} ALL_BUBBLING_EVENTS_FROM_furo-api-fetch -  All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.
+ * @fires {Request} request-aborted - Fired when a request was canceled.
+ * @fires {Request} request-started - Fired when a request is sent.
+ * @fires {Object} response-raw - Fired when a response is received.
+ * @fires {Object}  response-error - Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] - Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ * @fires {Object} response-error-4xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-5xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-raw - Fired when a error has occoured.
+ * @fires {Object} response - Fired when a response is received.
  * @fires {hts} response-hts-updated -  Fired when the hts was updated by the received response.
  * @fires {} filter-changed -  Fired when filter was updated with `ƒ-set-filter`.
  * @fires {Array|HATEOAS} hts-updated -  Fired when hateoas was updated from response.

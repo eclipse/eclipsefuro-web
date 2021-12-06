@@ -48,14 +48,6 @@ http://h10032.www1.hp.com/ctg/Manual/c01579350
 
 
 
-### **_PIdivby180**
-
-<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">_PIdivby180</span>
-<small>`number` default: **0.017453292519943295**</small>
-
-so we dont have to calculate Math.PI / 180  every time
-used to calculate rad from angle
-<br><br>
 
 ### **radMode**
 
@@ -119,11 +111,6 @@ Current size of the stack
 
 
 
-### **_stack**
-default: **[]**</small>
-
-
-<br><br>
 ## Events
 {{% api "_furo-hp-35-events.md" %}}
 
@@ -508,15 +495,6 @@ rrot **( n1 n2 n3 -- n3 n1 n2 )**
 <br><br>
 
 
-### **_notifyStackChange**
-<small>**_notifyStackChange**() ⟹ `void`</small>
-
-<small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ--notify-stack-change</span>
-
-
-
-<br><br>
 
 
 

@@ -493,7 +493,14 @@
           "members": [
             {
               "kind": "method",
-              "name": "_getHrefFromLocation"
+              "name": "_getHrefFromLocation",
+              "description": "create a valid href string from this._location",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",

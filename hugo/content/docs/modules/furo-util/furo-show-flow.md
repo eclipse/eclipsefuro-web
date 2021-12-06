@@ -56,27 +56,7 @@ Parse a dom node
 - <small>*dom* node</small>
 <br><br>
 
-### **_setWireEdges**
-<small>**_setWireEdges**() ⟹ `void`</small>
 
-<small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ--set-wire-edges</span>
-
-
-
-<br><br>
-
-### **_recursiveParse**
-<small>**_recursiveParse**(*node* `` *parentNode* `` ) ⟹ `void`</small>
-
-<small>`` `` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ--recursive-parse</span>
-
-
-
-- <small>*node* </small>
-- <small>*parentNode* </small>
-<br><br>
 
 
 

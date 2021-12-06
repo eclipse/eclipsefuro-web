@@ -61,6 +61,11 @@ class FuroFormLayouter extends FBP(LitElement) {
     this.breakpointSmall = 405;
   }
 
+  /**
+   *
+   * @param width
+   * @private
+   */
   _checkSize(width) {
     if (width > 0 && width < this.breakpointBig && width > this.breakpointSmall) {
       this.setAttribute('narrow', '');
@@ -82,6 +87,10 @@ class FuroFormLayouter extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @private
+   */
   _fireResize() {
     this.dispatchEvent(
       new CustomEvent('layout-changed', {

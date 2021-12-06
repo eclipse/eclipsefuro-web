@@ -21,6 +21,11 @@ import { EmptyStackError } from './lib/EmptyStackError.js';
 export class FuroForthStack extends LitElement {
   constructor() {
     super();
+    /**
+     * The stack, should not be edited from outside
+     * @type {*[]}
+     * @private
+     */
     this._stack = [];
     /**
      * Current size of the stack
@@ -202,6 +207,10 @@ export class FuroForthStack extends LitElement {
     this._notifyStackChange();
   }
 
+  /**
+   *
+   * @private
+   */
   _notifyStackChange() {
     const stackEvent = new Event('stack-changed', { composed: true, bubbles: true });
     stackEvent.detail = this._stack[this._stack.length - 1];

@@ -199,7 +199,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n    service=\"Servicename\"\n    ƒ-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
+          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n   service=\"Servicename\"\n   ƒ-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
           "name": "FuroCollectionAgent",
           "members": [
             {
@@ -538,10 +538,73 @@
           "events": [
             {
               "type": {
-                "text": "*"
+                "text": "Request"
               },
-              "description": " All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.",
-              "name": "ALL_BUBBLING_EVENTS_FROM_furo-api-fetch"
+              "description": "Fired if the request was successfully cancelled",
+              "name": "request-aborted"
+            },
+            {
+              "type": {
+                "text": "Request"
+              },
+              "description": "Fired when a request is sent.",
+              "name": "request-started"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a response is received.",
+              "name": "response-raw"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.",
+              "name": "response-error"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a specific error event.",
+              "name": "response-error-[status-code]"
+            },
+            {
+              "type": {
+                "text": "Request"
+              },
+              "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest",
+              "name": "fatal-error"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-4xx"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-5xx"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a error has occoured.",
+              "name": "response-error-raw"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a response is received.",
+              "name": "response"
             },
             {
               "type": {
@@ -567,10 +630,6 @@
               },
               "description": " Fired when hateoas was updated",
               "name": "hts-injected"
-            },
-            {
-              "description": "Fired if the request was successfully cancelled",
-              "name": "request-aborted"
             }
           ],
           "attributes": [

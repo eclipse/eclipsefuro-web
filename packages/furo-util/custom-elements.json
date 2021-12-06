@@ -484,14 +484,17 @@
             },
             {
               "kind": "method",
-              "name": "_notifyStackChange"
+              "name": "_notifyStackChange",
+              "privacy": "private"
             },
             {
               "kind": "field",
               "name": "_stack",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "The stack, should not be edited from outside",
+              "privacy": "private",
               "default": "[]"
             }
           ],
@@ -978,8 +981,8 @@
               "type": {
                 "text": "number"
               },
+              "privacy": "private",
               "default": "0.017453292519943295",
-              "privacy": "public",
               "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
               "attribute": "_PIdivby180"
             },
@@ -1136,6 +1139,7 @@
             {
               "kind": "method",
               "name": "_notifyStackChange",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "FuroForthStack",
                 "module": "src/furo-forth-stack.js"
@@ -1145,8 +1149,10 @@
               "kind": "field",
               "name": "_stack",
               "type": {
-                "text": "array"
+                "text": "*[]"
               },
+              "description": "The stack, should not be edited from outside",
+              "privacy": "private",
               "default": "[]",
               "inheritedFrom": {
                 "name": "FuroForthStack",
@@ -2368,7 +2374,8 @@
             },
             {
               "kind": "method",
-              "name": "_setWireEdges"
+              "name": "_setWireEdges",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -2380,7 +2387,8 @@
                 {
                   "name": "parentNode"
                 }
-              ]
+              ],
+              "privacy": "private"
             }
           ],
           "mixins": [

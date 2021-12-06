@@ -19,8 +19,8 @@ weight: 50
 
 ```html
 <furo-collection-agent
-    service="Servicename"
-    ƒ-hts-in="--hts"></furo-collection-agent>
+   service="Servicename"
+   ƒ-hts-in="--hts"></furo-collection-agent>
 
 <!-- produces a hateoas link array -->
 <furo-deep-link
@@ -182,11 +182,65 @@ This attribute should not be needed in future versions, because the rel already 
 ## Events
 {{% api "_furo-collection-agent-events.md" %}}
 
-### **ALL_BUBBLING_EVENTS_FROM_furo-api-fetch**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-ALL_BUBBLING_EVENTS_FROM_furo-api-fetch</span>
-→ <small>`*`</small>
+### **request-aborted**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+→ <small>`Request`</small>
 
- All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.
+Fired if the request was successfully cancelled
+<br><br>
+### **request-started**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+→ <small>`Request`</small>
+
+Fired when a request is sent.
+<br><br>
+### **response-raw**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+→ <small>`Object`</small>
+
+Fired when a response is received.
+<br><br>
+### **response-error**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+<br><br>
+### **response-error-[status-code]**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a specific error event.
+<br><br>
+### **fatal-error**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+→ <small>`Request`</small>
+
+Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+<br><br>
+### **response-error-4xx**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+<br><br>
+### **response-error-5xx**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+<br><br>
+### **response-error-raw**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+→ <small>`Object`</small>
+
+Fired when a error has occoured.
+<br><br>
+### **response**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+→ <small>`Object`</small>
+
+Fired when a response is received.
 <br><br>
 ### **response-hts-updated**
 <span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-hts-updated</span>
@@ -211,12 +265,6 @@ This attribute should not be needed in future versions, because the rel already 
 → <small>`Hateoas links`</small>
 
  Fired when hateoas was updated
-<br><br>
-### **request-aborted**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
-→ <small>``</small>
-
-Fired if the request was successfully cancelled
 <br><br>
 
 ## Methods

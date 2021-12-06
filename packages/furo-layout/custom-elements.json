@@ -286,11 +286,13 @@
                 {
                   "name": "width"
                 }
-              ]
+              ],
+              "privacy": "private"
             },
             {
               "kind": "method",
-              "name": "_fireResize"
+              "name": "_fireResize",
+              "privacy": "private"
             },
             {
               "kind": "method",

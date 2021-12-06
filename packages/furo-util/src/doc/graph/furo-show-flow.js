@@ -47,6 +47,10 @@ class FuroShowFlow extends FBP(LitElement) {
     this._FBPTriggerWire('--graph', this.graph);
   }
 
+  /**
+   *
+   * @private
+   */
   _setWireEdges() {
     // extract the wire parts from all attributes
     const sendingWires = {};
@@ -180,6 +184,12 @@ class FuroShowFlow extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @param node
+   * @param parentNode
+   * @private
+   */
   _recursiveParse(node, parentNode) {
     // todo switch to childNodes ignore TEXT_NODE and store COMMENT_NODE (8) to the next ELEMENT_NODE (1)
     // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType

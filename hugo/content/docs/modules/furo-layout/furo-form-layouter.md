@@ -122,26 +122,7 @@ Set narrower-fix attribute to force
 {{% api "_furo-form-layouter-methods.md" %}}
 
 
-### **_checkSize**
-<small>**_checkSize**(*width* `` ) ⟹ `void`</small>
 
-<small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ--check-size</span>
-
-
-
-- <small>*width* </small>
-<br><br>
-
-### **_fireResize**
-<small>**_fireResize**() ⟹ `void`</small>
-
-<small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ--fire-resize</span>
-
-
-
-<br><br>
 
 
 

@@ -15,6 +15,11 @@ import { FuroForthStack } from './furo-forth-stack.js';
 class FuroHp35 extends FuroForthStack {
   constructor() {
     super();
+    /**
+     *
+     * @type {number}
+     * @private
+     */
     this._PIdivby180 = 0.017453292519943295;
     this.radMode = false;
   }

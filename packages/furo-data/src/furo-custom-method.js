@@ -25,6 +25,17 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * @fires request-aborted - Fired if the request was successfully cancelled.
  *
+ * @fires {Request} request-aborted - Fired when a request was canceled.
+ * @fires {Request} request-started - Fired when a request is sent.
+ * @fires {Object} response-raw - Fired when a response is received.
+ * @fires {Object}  response-error - Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] - Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ * @fires {Object} response-error-4xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-5xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-raw - Fired when a error has occoured.
+ * @fires {Object} response - Fired when a response is received.
+ *
  * @summary interface component to handle custom methods
  * @customElement
  * @demo demo-furo-custom-method Basic usage

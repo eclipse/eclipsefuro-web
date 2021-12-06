@@ -44,11 +44,6 @@ Current size of the stack
 
 
 
-### **_stack**
-default: **[]**</small>
-
-
-<br><br>
 ## Events
 {{% api "_furo-forth-stack-events.md" %}}
 
@@ -216,15 +211,6 @@ rrot **( n1 n2 n3 -- n3 n1 n2 )**
 <br><br>
 
 
-### **_notifyStackChange**
-<small>**_notifyStackChange**() ⟹ `void`</small>
-
-<small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ--notify-stack-change</span>
-
-
-
-<br><br>
 
 
 

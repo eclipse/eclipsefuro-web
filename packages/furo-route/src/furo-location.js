@@ -111,7 +111,11 @@ class FuroLocation extends LitElement {
     window.removeEventListener('popstate', this._locationChangeNotyfier, true);
   }
 
-  // create a valid href string from this._location
+  /**
+   * create a valid href string from this._location
+   * @return {*}
+   * @private
+   */
   _getHrefFromLocation() {
     // path, query hash
     let href = this._location.path;
