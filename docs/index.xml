@@ -1044,6 +1044,16 @@ Usage #  1 2 3 4  viz() // starts the rendering at document.body  viz($0) // sta
     </item>
     
     <item>
+      <title>Working without build</title>
+      <link>http://web-components.furo.pro/docs/guides/precompiled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/guides/precompiled/</guid>
+      <description>Working without build #  cdn:
+1 2 3  &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@VERSION/dist/{{.module}}.js&amp;#34;&amp;gt; &amp;lt;/script&amp;gt;   </description>
+    </item>
+    
+    <item>
       <title></title>
       <link>http://web-components.furo.pro/docs/modules/furo-data/_furo-data-inside/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
