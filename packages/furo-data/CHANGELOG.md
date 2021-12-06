@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.2...@furo/data@1.34.3) (2021-12-06)
+
+
+### Bug Fixes
+
+* base64 encoding ([47a0d3d](https://github.com/eclipse/eclipsefuro-web/commit/47a0d3d57a11887b8ffa4419c96e69c01a29ea3d))
+* use decodeURI instead of unescape ([07ca9a3](https://github.com/eclipse/eclipsefuro-web/commit/07ca9a3924b06fa952b79e8dc297d88d32034bf3))
+
+
+
+
+
 ## [1.34.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.1...@furo/data@1.34.2) (2021-11-26)
 
 
