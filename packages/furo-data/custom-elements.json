@@ -199,7 +199,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n\n\n```html\n   <furo-collection-agent\n                     service=\"Servicename\"\n                     ƒ-hts-in=\"--hts\"\n                   ></furo-collection-agent>\n\n<!-- produces hts -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
+          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n    service=\"Servicename\"\n    ƒ-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
           "name": "FuroCollectionAgent",
           "members": [
             {
@@ -657,7 +657,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-custom-method` is a interface component to handle custom methods.\n\n```html\n<furo-custom-method\nservice=\"Servicename\"\nmethod=\"release\"\nƒ-hts-in=\"--hts\"\nƒ-trigger=\"--customClick\"\n></furo-custom-method>\n\n<!-- produces hts -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n* *before you can do any requests, the service, method and the HATEOAS must be known*",
+          "description": "`furo-custom-method` is a interface component to handle custom methods.\n\n```html\n<furo-custom-method\n    service=\"Servicename\"\n    method=\"release\"\n    ƒ-hts-in=\"--hts\"\n    ƒ-trigger=\"--customClick\"></furo-custom-method>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n* *before you can do any requests, the service, method and the HATEOAS must be known*",
           "name": "FuroCustomMethod",
           "members": [
             {
@@ -1219,7 +1219,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO: should work with FieldNodeAdapter and also support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content ƒ-bind-data=\"--bind(*.bool)\">\n <div>some content</div>\n</furo-collapsible-box>\n```",
+          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO:  support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content ƒ-bind-data=\"--bind(*.bool)\">\n  <div>some content</div>\n</furo-collapsible-box>\n```",
           "name": "FuroDataHideContent",
           "slots": [
             {
@@ -1377,7 +1377,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`furo-data-object` receives its data regularly from a [collection-aget](furo-collection-agent) or a  [entity-aget](furo-entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.data.rawData` with javascript (if needed).\n\n```html\n <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n <furo-data-object type=\"project.Project\" ƒ-inject-raw=\"--response(*.data)\" @-object-ready=\"--dataObject\"></furo-data-object>\n\n <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n <furo-entity-agent service=\"ProjectService\" ƒ-save=\"--saveClicked\" ƒ-bind-request-data=\"--dataObject\" @-response=\"--response\" ></furo-entity-agent>\n```",
+          "description": "`furo-data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`furo-data-object` receives its data regularly from a [collection-aget](furo-collection-agent) or a  [entity-aget](furo-entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.data.rawData` with javascript (if needed).\n\n```html\n <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n <furo-data-object\n     type=\"project.Project\"\n     ƒ-inject-raw=\"--response(*.data)\" @-object-ready=\"--dataObject\"></furo-data-object>\n\n <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n <furo-entity-agent\n     service=\"ProjectService\"\n     ƒ-save=\"--saveClicked\"\n     ƒ-bind-request-data=\"--dataObject\" @-response=\"--response\" ></furo-entity-agent>\n```",
           "name": "FuroDataObject",
           "members": [
             {

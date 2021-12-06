@@ -2,6 +2,7 @@
 set -e
 moduleDir=$(pwd)/hugo/content/docs/modules
 injectsDir=$(pwd)/hugo/content/docs/redactional
+templatesDir=$(pwd)/scripts/templates
 
 cwd=$(pwd)
 # copy @furo node modules to tmp
@@ -23,11 +24,17 @@ fi
 
 for module in $modules; do
   collection=$(cat $packageDir/$module/package.json | jq .version)
-  echo $module
+  mkdir -p $tmpDir/$module/
+
   # copy our manifest to the target
-  cp $cwd/custom-elements-manifest.config.mjs $tmpDir/$module/
-  cd $tmpDir/$module
+
+  cd $packageDir/$module
+
   $cwd/node_modules/.bin/cem analyze --globs "src/**/*.js" --exclude **/furo-catalog.js --litelement
+  cp custom-elements.json $tmpDir/$module
+  cp package.json $tmpDir/$module
+
+  cd $tmpDir/$module
 
   mkdir -p $moduleDir/$module
   mkdir -p $injectsDir/$module
@@ -62,7 +69,7 @@ for module in $modules; do
         jq --argjson COMPONENTINDEX $COMPONENTINDEX -s '. | .[0].modules[$COMPONENTINDEX]' custom-elements.json >$name.cem.json
         jq -s '. | {"decl": .[3] , "path": .[2].path,"name": .[2].name, "module": .[2].module, "pkg": .[0], "cem": .[1] }' package.json $name.cem.json base.json $name.decl.json >$name.json
 
-        simple-generator -d $name.json -t $cwd/templates/class.md.tpl >$moduleDir/$module/$name.md
+        simple-generator -d $name.json -t $templatesDir/class.md.tpl >$moduleDir/$module/$name.md
       fi
 
     else
@@ -75,17 +82,17 @@ for module in $modules; do
       jq --argjson COMPONENTINDEX $COMPONENTINDEX -s '. | .[0].modules[$COMPONENTINDEX].declarations[0]' custom-elements.json >$component.decl.json
       jq --argjson COMPONENTINDEX $COMPONENTINDEX -s '. | .[0].modules[$COMPONENTINDEX]' custom-elements.json >$component.cem.json
       jq -s '. | {"decl": .[3] , "component": .[2].component, "module": .[2].module, "pkg": .[0], "cem": .[1] }' package.json $component.cem.json base.json $component.decl.json >$component.json
-      simple-generator -d $component.json -t $cwd/templates/component.md.tpl >$moduleDir/$module/$component.md
+      simple-generator -d $component.json -t $templatesDir/component.md.tpl >$moduleDir/$module/$component.md
     fi
     COMPONENTINDEX=$((COMPONENTINDEX + 1))
   done
 
   # create the overview _module-inside.md
-  simple-generator -d custom-elements.json -t $cwd/templates/module.components.md.tpl >$moduleDir/$module/_$module-inside.md
+  simple-generator -d custom-elements.json -t $templatesDir/module.components.md.tpl >$moduleDir/$module/_$module-inside.md
 
   # _module.md
   echo '{"module":"'$module'", "collection":"'$collection'"}' | jq . >base.json
   jq -s '. | {"collection": .[2].collection, "module": .[2].module, "pkg": .[0], "cem": .[1]}' package.json custom-elements.json base.json >big.json
-  simple-generator -d big.json -t $cwd/templates/_index.md.tpl >$moduleDir/$module/_index.md
+  simple-generator -d big.json -t $templatesDir/_index.md.tpl >$moduleDir/$module/_index.md
 
 done
