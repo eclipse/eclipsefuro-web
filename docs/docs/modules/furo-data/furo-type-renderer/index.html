@@ -10,12 +10,12 @@
 <meta property="og:description" content="type rendering" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/" />
-<meta property="article:modified_time" content="2021-12-06T12:17:08+01:00" />
+<meta property="article:modified_time" content="2021-12-07T14:41:23+01:00" />
 <title>furo-type-renderer | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.87cbb6c90a0e840229ded7ffab2e6bd6bd1155a9939186eae07beb1d5536359b.js" integrity="sha256-h8u2yQoOhAIp3tf/qy5r1r0RVamTkYbq4HvrHVU2NZs="></script>
+<script defer src="/en.search.min.04724ba5c649e8bd5bc21a297b85f442312e024f6f93d3341541923481b4e326.js" integrity="sha256-BHJLpcZJ6L1bwhope4X0QjEuAk9vk9M0FUGSNIG04yY="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1501,9 +1501,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#writing-your-own-renderer">Writing your own renderer</a></li>
     <li><a href="#attributes-and-properties">Attributes and Properties</a>
       <ul>
-        <li><a href="#tpl"><strong>tpl</strong></a></li>
         <li><a href="#context"><strong>context</strong></a></li>
-        <li><a href="#valuestate"><strong>valueState</strong></a></li>
         <li><a href="#disabled"><strong>disabled</strong></a></li>
       </ul>
     </li>
@@ -1570,8 +1568,15 @@ context-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
   Basic Usage
   <a class="anchor" href="#basic-usage">#</a>
 </h2>
-<pre><code>  &lt;furo-type-renderer ƒ-bind-data=&quot;--dao(*.data.fieldname)&quot;&gt;&lt;/furo-type-renderer&gt;
-</code></pre><h2 id="writing-your-own-renderer">
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000080">furo-type-renderer</span> <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dao(*.data.fieldname)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-type-renderer</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="writing-your-own-renderer">
   Writing your own renderer
   <a class="anchor" href="#writing-your-own-renderer">#</a>
 </h2>
@@ -1581,12 +1586,6 @@ You just have to follow the naming convention for your renderer.</p>
   Attributes and Properties
   <a class="anchor" href="#attributes-and-properties">#</a>
 </h2>
-<h3 id="tpl">
-  <strong>tpl</strong>
-  <a class="anchor" href="#tpl">#</a>
-</h3>
-<p>default: <strong>html``</strong></small></p>
-<p><br><br></p>
 <h3 id="context">
   <strong>context</strong>
   <a class="anchor" href="#context">#</a>
@@ -1595,14 +1594,6 @@ You just have to follow the naming convention for your renderer.</p>
 <small><code>string</code> default: <strong>'display'</strong></small></p>
 <p>Set the context if you need another then display.
 Prebuilt context renderers exist for display, cell, celledit.
-<br><br></p>
-<h3 id="valuestate">
-  <strong>valueState</strong>
-  <a class="anchor" href="#valuestate">#</a>
-</h3>
-<p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">value-state</span> <small><strong>reflects</strong></small>
-</small></p>
-<p>Value State
 <br><br></p>
 <h3 id="disabled">
   <strong>disabled</strong>
@@ -1639,9 +1630,9 @@ Special treatment for google.protobuf.Any</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/282c1cbf5e2dc689912dc90253093459f1058552" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5526e73ed8780b3a14244ac88c49bf349f090f62" title='Last modified by veith | December 7, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 6, 2021</span>
+      <span>December 7, 2021</span>
     </a>
   </div>
 
@@ -1674,9 +1665,7 @@ Special treatment for google.protobuf.Any</p>
     <li><a href="#writing-your-own-renderer">Writing your own renderer</a></li>
     <li><a href="#attributes-and-properties">Attributes and Properties</a>
       <ul>
-        <li><a href="#tpl"><strong>tpl</strong></a></li>
         <li><a href="#context"><strong>context</strong></a></li>
-        <li><a href="#valuestate"><strong>valueState</strong></a></li>
         <li><a href="#disabled"><strong>disabled</strong></a></li>
       </ul>
     </li>

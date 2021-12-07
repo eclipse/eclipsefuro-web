@@ -122,9 +122,10 @@ Fired when the field value or a child value of it was changed.</description>
       
       <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/</guid>
       <description>furo-rel-exists #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-rel-exists.js&#39;; exports &amp;lt;furo-rel-exists&amp;gt; custom-element-definition superclass LitElement summary checks for a specific rel
-furo-rel-exists Checks if a rel exists in a hateaos Link array
-       &amp;lt;furo-rel-exists ƒ-inject=&amp;quot;&amp;ndash;HTS-array&amp;quot;&amp;gt;
- ## Attributes and Properties ### **rel** &amp;lt;span style=&amp;quot;border-width:2px; border-style: solid;border-color: rgb(255, 182, 91);font-family:monospace; padding:2px 4px;&amp;quot;&amp;gt;rel&amp;lt;/span&amp;gt; &amp;lt;/small&amp;gt; Name of the rel &amp;lt;br&amp;gt;&amp;lt;br&amp;gt; ### **type** &amp;lt;span style=&amp;quot;border-width:2px; border-style: solid;border-color: rgb(255, 182, 91);font-family:monospace; padding:2px 4px;&amp;quot;&amp;gt;type&amp;lt;/span&amp;gt; &amp;lt;/small&amp;gt; define the type if you want a specific check on the type also &amp;lt;br&amp;gt;&amp;lt;br&amp;gt; ## Events ### **furo-rel-exists** &amp;lt;span style=&amp;quot;border-width:2px 10px 2px 2px; border-style: solid;border-color: rgb(2, 168, 244);font-family:monospace; padding:2px 4px;&amp;quot;&amp;gt;@-furo-rel-exists&amp;lt;/span&amp;gt; → &amp;lt;small&amp;gt;`Object Hateoas Link`&amp;lt;/small&amp;gt; Fired when rel exists in `linkArray`.</description>
+furo-rel-exists Checks if a hateoas relation exists in a given hateaos Links array.
+1  &amp;lt;furo-rel-exists ƒ-inject=&amp;#34;--HTS-array&amp;#34;&amp;gt;&amp;lt;/furo-rel-exists&amp;gt;   Attributes and Properties #  rel #  rel 
+Name of the rel type #  type 
+define the type if you want a specific check on the type also Events #  furo-rel-exists #  @-furo-rel-exists → Object Hateoas Link</description>
     </item>
     
     <item>

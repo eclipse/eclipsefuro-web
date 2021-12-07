@@ -15,9 +15,7 @@
       <description>furo-config #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-config.js&#39;; exports &amp;lt;furo-config&amp;gt; custom-element-definition superclass LitElement summary config access
 furo-config
 Access config data
-1 2 3 4  &amp;lt;furo-config-loader section=&amp;#34;views&amp;#34; src=&amp;#34;/viewconfig.json&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;furo-config-loader section=&amp;#34;second&amp;#34; src=&amp;#34;/second.json&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;furo-config section=&amp;#34;views&amp;#34; @-config-updated=&amp;#34;--conf&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;furo-config section=&amp;#34;second.section.deep&amp;#34; @-config-updated=&amp;#34;--deepconf&amp;#34;&amp;gt;&amp;lt;/furo-config&amp;gt;   Attributes and Properties #  section #  section 
-section of the config object that you are interested in
-access deep object with dots like main.sub.sub config #  default: Config</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  &amp;lt;!-- set with config-loader --&amp;gt; &amp;lt;furo-config-loader section=&amp;#34;views&amp;#34; src=&amp;#34;/viewconfig.json&amp;#34; &amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;!-- consume a config --&amp;gt; &amp;lt;furo-config section=&amp;#34;views&amp;#34; @-config-updated=&amp;#34;--conf&amp;#34; &amp;gt;&amp;lt;/furo-config&amp;gt; &amp;lt;!-- consume a sub path of a config section --&amp;gt; &amp;lt;furo-config section=&amp;#34;views.subset.deep&amp;#34; @-config-updated=&amp;#34;--deepconf&amp;#34; &amp;gt;&amp;lt;/furo-config&amp;gt;   Attributes and Properties #  section #  section</description>
     </item>
     
     <item>
@@ -29,7 +27,7 @@ access deep object with dots like main.sub.sub config #  default: Config</descri
       <description>furo-config-loader #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-config-loader.js&#39;; exports &amp;lt;furo-config-loader&amp;gt; custom-element-definition superclass LitElement mixes FBP summary load config files
 furo-config-loader loads a configuration json in to the defined section.
 To access the config values, use furo-config.
-1  &amp;lt;furo-config-loader src=&amp;#34;/custom/view-config.json&amp;#34; section=&amp;#34;views&amp;#34;&amp;gt;&amp;lt;/furo-config-loader&amp;gt;   Attributes and Properties #  src #  src 
+1 2 3 4  &amp;lt;furo-config-loader src=&amp;#34;/custom/view-config.json&amp;#34; section=&amp;#34;views&amp;#34; &amp;gt;&amp;lt;/furo-config-loader&amp;gt;   Attributes and Properties #  src #  src 
 File source section #  section 
 Targeted section to load the config in. Events #  config-loaded #  @-config-loaded → Object</description>
     </item>
@@ -43,7 +41,7 @@ Targeted section to load the config in. Events #  config-loaded #  @-config-load
       <description>furo-de-bounce #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-de-bounce.js&#39;; exports &amp;lt;furo-de-bounce&amp;gt; custom-element-definition superclass LitElement mixes FBP summary event de bouncer
 The Debounce technique allow us to “group” multiple sequential calls in a single one.
  Read more about debouncing here
-1 2  &amp;lt;furo-de-bounce ƒ-trigger=&amp;#34;--searchStringEntered&amp;#34; @-debounced=&amp;#34;--debouncedSrch&amp;#34;&amp;gt; &amp;lt;/furo-de-bounce&amp;gt;   Attributes and Properties #  immediate #  immediate 
+1 2 3  &amp;lt;furo-de-bounce ƒ-trigger=&amp;#34;--searchStringEntered&amp;#34; @-debounced=&amp;#34;--debouncedSrch&amp;#34; &amp;gt;&amp;lt;/furo-de-bounce&amp;gt;   Attributes and Properties #  immediate #  immediate 
 If true, input-wire is triggered immediatley (leading edge instead of trailing) Default value: false wait #  wait</description>
     </item>
     
@@ -87,9 +85,7 @@ Fired when data received and json parsed parse-error #  @-parse-error → error<
 furo-forth-stack is a declarative stack, inspired by the forth stack.
 https://hackaday.com/2017/01/27/forth-the-hackers-language/ http://wiki.laptop.org/go/Forth_stack_operators http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks
 Attributes and Properties #  size #  default: 0
-Current size of the stack _stack #  default: []
-
-Events #  stack-size-changed #  @-stack-size-changed → Number
+Current size of the stack Events #  stack-size-changed #  @-stack-size-changed → Number
 Fired when the stack size changes with Integer with the current size of the stack.</description>
     </item>
     
@@ -101,7 +97,7 @@ Fired when the stack size changes with Integer with the current size of the stac
       <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-get-clipboard/</guid>
       <description>furo-get-clipboard #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-get-clipboard.js&#39;; exports &amp;lt;furo-get-clipboard&amp;gt; custom-element-definition superclass LitElement mixes FBP summary get clipboard content
 furo-get-clipboard get the clipboard content from the OS.
-1 2 3 4  &amp;lt;furo-get-clipboard ƒ-trigger=&amp;#34;--clipboardContentRequested&amp;#34; @-content=&amp;#34;--contentReceived&amp;#34;&amp;gt; &amp;lt;/furo-get-clipboard&amp;gt;   Attributes and Properties #  json #  json 
+1 2 3 4 5  &amp;lt;furo-get-clipboard ƒ-trigger=&amp;#34;--clipboardContentRequested&amp;#34; @-content=&amp;#34;--contentReceived&amp;#34; &amp;gt;&amp;lt;/furo-get-clipboard&amp;gt;   Attributes and Properties #  json #  json 
 Convert clipboard content to json Events #  content #  @-content → ``
 Fired when clipboard content is received Methods #  trigger #  trigger() ⟹ void</description>
     </item>
@@ -143,9 +139,11 @@ Fired when Array was splitted.</description>
 hp-35 is a declarative rpn calculator component.
 see https://hansklav.home.xs4all.nl/rpn/
 http://h10032.www1.hp.com/ctg/Manual/c01579350
-Attributes and Properties #  _PIdivby180 #  _PIdivby180 number default: 0.017453292519943295
-so we dont have to calculate Math.PI / 180 every time used to calculate rad from angle radMode #  radMode boolean default: false
-Set to true to use rad, default is deg x #  x Number</description>
+Attributes and Properties #  radMode #  radMode boolean default: false
+Set to true to use rad, default is deg x #  x Number 
+current x y #  y Number 
+current y z #  z 
+current z t #  t</description>
     </item>
     
     <item>
@@ -170,7 +168,7 @@ Number of ticks per tact. auto #  auto</description>
       <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-key-filter/</guid>
       <description>furo-key-filter #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-key-filter.js&#39;; exports &amp;lt;furo-key-filter&amp;gt; custom-element-definition superclass LitElement mixes FBP summary keyboard event filter
 furo-key-filter Allows only defined keyboard events to pass through
-1 2 3  &amp;lt;!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. --&amp;gt; &amp;lt;other-component @-keydown=&amp;#34;--keydown(*)&amp;#34;&amp;gt;&amp;lt;/other-component&amp;gt; &amp;lt;furo-key-filter ƒ-filter=&amp;#34;--keydown&amp;#34; @-matched=&amp;#34;--escapePressed&amp;#34; keys=&amp;#34;Escape&amp;#34;&amp;gt;&amp;lt;/furo-key-filter&amp;gt;   Attributes and Properties #  keys #  keys 
+1 2 3 4 5 6  &amp;lt;!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. --&amp;gt; &amp;lt;other-component @-keydown=&amp;#34;--keydown(*)&amp;#34;&amp;gt;&amp;lt;/other-component&amp;gt; &amp;lt;furo-key-filter ƒ-filter=&amp;#34;--keydown&amp;#34; @-matched=&amp;#34;--escapePressed&amp;#34; keys=&amp;#34;Escape&amp;#34; &amp;gt;&amp;lt;/furo-key-filter&amp;gt;   Attributes and Properties #  keys #  keys 
 Coma separated list with allowed keys to pass.</description>
     </item>
     
@@ -184,7 +182,7 @@ Coma separated list with allowed keys to pass.</description>
 furo-keydown attaches a keypress listener to the parent element and gives you handy events to work with.
 When you set alt, ctrl or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.
  more about keydown
-1 2  &amp;lt;furo-keydown key=&amp;#34;Enter&amp;#34; @-key=&amp;#34;--enterPressed&amp;#34;&amp;gt;&amp;lt;/furo-keydown&amp;gt; &amp;lt;furo-keydown ctrl key=&amp;#34;c&amp;#34; @-key=&amp;#34;--copyRequest&amp;#34;&amp;gt;&amp;lt;/furo-keydown&amp;gt;   Attributes and Properties #  key #  key</description>
+1 2  &amp;lt;furo-keydown key=&amp;#34;Enter&amp;#34; @-key=&amp;#34;--enterPressed&amp;#34;&amp;gt;&amp;lt;/furo-keydown&amp;gt; &amp;lt;furo-keydown ctrl key=&amp;#34;c&amp;#34; @-key=&amp;#34;--copyRequested&amp;#34;&amp;gt;&amp;lt;/furo-keydown&amp;gt;   Attributes and Properties #  key #  key</description>
     </item>
     
     <item>
@@ -212,7 +210,7 @@ allow unsafe md. (writing html, components,&amp;hellip;) Methods #  fetchMd #  f
       <description>furo-navigation-pad #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-navigation-pad.js&#39;; exports &amp;lt;furo-navigation-pad&amp;gt; custom-element-definition superclass LitElement mixes FBP summary keyboard navigation helper
 furo-navigation-pad listens to different keyboard navigation events like the arrow keys. It will attach the listeners to the parent node and cancel the default and stop the propagation of the events.
 The events are available as standalone events or as combined event in the navigated event.
-1 2 3  &amp;lt;!-- forward all navigation events except the Escape --&amp;gt; &amp;lt;furo-navigation-pad ignored-keys=&amp;#34;Escape&amp;#34; @-navigated=&amp;#34;--navpad&amp;#34;&amp;gt;&amp;lt;/furo-navigation-pad&amp;gt;   Attributes and Properties #  ignoredKeys #  ignored-keys</description>
+1 2 3 4 5  &amp;lt;!</description>
     </item>
     
     <item>
@@ -223,10 +221,10 @@ The events are available as standalone events or as combined event in the naviga
       <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-pretty-json/</guid>
       <description>furo-pretty-json #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-pretty-json.js&#39;; exports &amp;lt;furo-pretty-json&amp;gt; custom-element-definition superclass LitElement mixes FBP summary pretty prints json data
 furo-pretty-json Pretty json with highlighting
-Attributes and Properties #  Methods #  injectData #  injectData(json `` ) ⟹ void
-``  → ƒ-inject-data
+1 2  &amp;lt;furo-pretty-json ƒ-inject-json=&amp;#34;--data&amp;#34;&amp;gt;&amp;lt;/furo-pretty-json&amp;gt;   Attributes and Properties #  Methods #  injectData #  injectData(json JSON ) ⟹ void
+JSON  → ƒ-inject-data
 Inject JSON data
- json    </description>
+ json Json literal   </description>
     </item>
     
     <item>
@@ -237,7 +235,7 @@ Inject JSON data
       <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-put-clipboard/</guid>
       <description>furo-put-clipboard #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-put-clipboard.js&#39;; exports &amp;lt;furo-put-clipboard&amp;gt; custom-element-definition superclass LitElement summary write content to clipboard
 furo-put-clipboard put content to the clipboard of the OS.
-1 2 3 4  &amp;lt;furo-put-clipboard json ƒ-trigger=&amp;#34;--putDataToClipboard&amp;#34; @-content-putted=&amp;#34;--contentInClipboard&amp;#34;&amp;gt; &amp;lt;/furo-put-clipboard&amp;gt;   Attributes and Properties #  json #  json 
+1 2 3 4 5 6  &amp;lt;furo-put-clipboard json ƒ-trigger=&amp;#34;--data&amp;#34; @-content-put=&amp;#34;--contentInClipboard&amp;#34; &amp;gt;&amp;lt;/furo-put-clipboard&amp;gt;   Attributes and Properties #  json #  json 
 Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention. Events #  content-put #  @-content-put → *</description>
     </item>
     
@@ -247,14 +245,13 @@ Stringify JSON content. Set this to true to auto stringify your JSON object with
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://web-components.furo.pro/docs/modules/furo-util/furo-show-flow/</guid>
-      <description>furo-show-flow #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-show-flow.js&#39;; exports &amp;lt;furo-show-flow&amp;gt; custom-element-definition superclass LitElement mixes FBP summary **
+      <description>furo-show-flow #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-show-flow.js&#39;; exports &amp;lt;furo-show-flow&amp;gt; custom-element-definition superclass LitElement mixes FBP summary internal helper component
 furo-show-flow Renders a flow from dom node or html source
 Attributes and Properties #  Methods #  parseHtml #  parseHtml(source string ) ⟹ void
 string  → ƒ-parse-html
 Parse html content
  source    parseTemplate #  parseTemplate(template `` dom dom ) ⟹ void
-`` dom  → ƒ-parse-template
-Parse a dom node</description>
+`` dom  → ƒ-parse-template</description>
     </item>
     
     <item>
@@ -288,7 +285,7 @@ Attributes and Properties #  Methods #  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://web-components.furo.pro/docs/modules/furo-util/_furo-util-inside/</guid>
-      <description>Components #    furo-config-loader load config files  furo-config config access  furo-de-bounce event de bouncer  furo-fetch-json fetch json data  furo-forth-stack forth like stack  furo-get-clipboard get clipboard content  furo-head-tail split an array  furo-hp-35 calculator component  furo-interval-pulse trigger an event in intervals  furo-key-filter keyboard event filter  furo-keydown keyboard event listener  furo-markdown renders markdown data  furo-navigation-pad keyboard navigation helper  furo-pretty-json pretty prints json data  furo-put-clipboard write content to clipboard  furo-demo-snippet documentation helper  furo-graph-renderer paints a dagree graph as svg  furo-show-flow  </description>
+      <description>Components #    furo-config-loader load config files  furo-config config access  furo-de-bounce event de bouncer  furo-fetch-json fetch json data  furo-forth-stack forth like stack  furo-get-clipboard get clipboard content  furo-head-tail split an array  furo-hp-35 calculator component  furo-interval-pulse trigger an event in intervals  furo-key-filter keyboard event filter  furo-keydown keyboard event listener  furo-markdown renders markdown data  furo-navigation-pad keyboard navigation helper  furo-pretty-json pretty prints json data  furo-put-clipboard write content to clipboard  furo-demo-snippet documentation helper  furo-graph-renderer paints a dagree graph as svg  furo-show-flow internal helper component  </description>
     </item>
     
   </channel>

@@ -5,31 +5,17 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="furo-show-flow #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-show-flow.js&#39;; exports &lt;furo-show-flow&gt; custom-element-definition superclass LitElement mixes FBP summary **
-furo-show-flow Renders a flow from dom node or html source
-Attributes and Properties #  Methods #  parseHtml #  parseHtml(source string ) ⟹ void
-string  → ƒ-parse-html
-Parse html content
- source    parseTemplate #  parseTemplate(template `` dom dom ) ⟹ void
-`` dom  → ƒ-parse-template
-Parse a dom node">
+<meta name="description" content="internal helper component">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="furo-show-flow" />
-<meta property="og:description" content="furo-show-flow #  @furo/furo-util v2.0.0-rc.7 import &#39;@furo/furo-util/src/furo-show-flow.js&#39;; exports &lt;furo-show-flow&gt; custom-element-definition superclass LitElement mixes FBP summary **
-furo-show-flow Renders a flow from dom node or html source
-Attributes and Properties #  Methods #  parseHtml #  parseHtml(source string ) ⟹ void
-string  → ƒ-parse-html
-Parse html content
- source    parseTemplate #  parseTemplate(template `` dom dom ) ⟹ void
-`` dom  → ƒ-parse-template
-Parse a dom node" />
+<meta property="og:description" content="internal helper component" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://web-components.furo.pro/docs/modules/furo-util/furo-show-flow/" />
-<meta property="article:modified_time" content="2021-12-06T12:17:08+01:00" />
+<meta property="article:modified_time" content="2021-12-07T14:41:23+01:00" />
 <title>furo-show-flow | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.87cbb6c90a0e840229ded7ffab2e6bd6bd1155a9939186eae07beb1d5536359b.js" integrity="sha256-h8u2yQoOhAIp3tf/qy5r1r0RVamTkYbq4HvrHVU2NZs="></script>
+<script defer src="/en.search.min.04724ba5c649e8bd5bc21a297b85f442312e024f6f93d3341541923481b4e326.js" integrity="sha256-BHJLpcZJ6L1bwhope4X0QjEuAk9vk9M0FUGSNIG04yY="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1515,8 +1501,6 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#parsehtml"><strong>parseHtml</strong></a></li>
         <li><a href="#parsetemplate"><strong>parseTemplate</strong></a></li>
-        <li><a href="#_setwireedges"><strong>_setWireEdges</strong></a></li>
-        <li><a href="#_recursiveparse"><strong>_recursiveParse</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -1539,7 +1523,7 @@ https://github.com/alex-shpak/hugo-book
 <br>exports <code>&lt;furo-show-flow&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
 <br> mixes <em>FBP</em></small>
-<br><small>summary **</small></p>
+<br><small>summary <em>internal helper component</em></small></p>
 <p><code>furo-show-flow</code>
 Renders a flow from dom node or html source</p>
 <h2 id="attributes-and-properties">
@@ -1575,26 +1559,6 @@ Renders a flow from dom node or html source</p>
 <li><small><em>dom</em> node</small>
 <br><br></li>
 </ul>
-<h3 id="_setwireedges">
-  <strong>_setWireEdges</strong>
-  <a class="anchor" href="#_setwireedges">#</a>
-</h3>
-<p><small><strong>_setWireEdges</strong>() ⟹ <code>void</code></small></p>
-<p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ&ndash;set-wire-edges</span></p>
-<p><br><br></p>
-<h3 id="_recursiveparse">
-  <strong>_recursiveParse</strong>
-  <a class="anchor" href="#_recursiveparse">#</a>
-</h3>
-<p><small><strong>_recursiveParse</strong>(<em>node</em> <code>*parentNode*</code> ) ⟹ <code>void</code></small></p>
-<p><small><code> </code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ&ndash;recursive-parse</span></p>
-<ul>
-<li><small><em>node</em> </small></li>
-<li><small><em>parentNode</em> </small>
-<br><br></li>
-</ul>
 </article>
  
       
@@ -1605,9 +1569,9 @@ Renders a flow from dom node or html source</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/282c1cbf5e2dc689912dc90253093459f1058552" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5526e73ed8780b3a14244ac88c49bf349f090f62" title='Last modified by veith | December 7, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 6, 2021</span>
+      <span>December 7, 2021</span>
     </a>
   </div>
 
@@ -1640,8 +1604,6 @@ Renders a flow from dom node or html source</p>
       <ul>
         <li><a href="#parsehtml"><strong>parseHtml</strong></a></li>
         <li><a href="#parsetemplate"><strong>parseTemplate</strong></a></li>
-        <li><a href="#_setwireedges"><strong>_setWireEdges</strong></a></li>
-        <li><a href="#_recursiveparse"><strong>_recursiveParse</strong></a></li>
       </ul>
     </li>
   </ul>

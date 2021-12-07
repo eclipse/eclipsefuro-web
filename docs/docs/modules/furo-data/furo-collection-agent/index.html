@@ -10,12 +10,12 @@
 <meta property="og:description" content="interface component to handle collection requests" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/" />
-<meta property="article:modified_time" content="2021-12-06T12:17:08+01:00" />
+<meta property="article:modified_time" content="2021-12-07T14:41:23+01:00" />
 <title>furo-collection-agent | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.87cbb6c90a0e840229ded7ffab2e6bd6bd1155a9939186eae07beb1d5536359b.js" integrity="sha256-h8u2yQoOhAIp3tf/qy5r1r0RVamTkYbq4HvrHVU2NZs="></script>
+<script defer src="/en.search.min.04724ba5c649e8bd5bc21a297b85f442312e024f6f93d3341541923481b4e326.js" integrity="sha256-BHJLpcZJ6L1bwhope4X0QjEuAk9vk9M0FUGSNIG04yY="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1512,12 +1512,20 @@ https://github.com/alex-shpak/hugo-book
     </li>
     <li><a href="#events">Events</a>
       <ul>
-        <li><a href="#all_bubbling_events_from_furo-api-fetch"><strong>ALL_BUBBLING_EVENTS_FROM_furo-api-fetch</strong></a></li>
+        <li><a href="#request-aborted"><strong>request-aborted</strong></a></li>
+        <li><a href="#request-started"><strong>request-started</strong></a></li>
+        <li><a href="#response-raw"><strong>response-raw</strong></a></li>
+        <li><a href="#response-error"><strong>response-error</strong></a></li>
+        <li><a href="#response-error-status-code"><strong>response-error-[status-code]</strong></a></li>
+        <li><a href="#fatal-error"><strong>fatal-error</strong></a></li>
+        <li><a href="#response-error-4xx"><strong>response-error-4xx</strong></a></li>
+        <li><a href="#response-error-5xx"><strong>response-error-5xx</strong></a></li>
+        <li><a href="#response-error-raw"><strong>response-error-raw</strong></a></li>
+        <li><a href="#response"><strong>response</strong></a></li>
         <li><a href="#response-hts-updated"><strong>response-hts-updated</strong></a></li>
         <li><a href="#filter-changed"><strong>filter-changed</strong></a></li>
         <li><a href="#hts-updated"><strong>hts-updated</strong></a></li>
         <li><a href="#hts-injected"><strong>hts-injected</strong></a></li>
-        <li><a href="#request-aborted"><strong>request-aborted</strong></a></li>
       </ul>
     </li>
     <li><a href="#methods">Methods</a>
@@ -1578,8 +1586,8 @@ https://github.com/alex-shpak/hugo-book
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-collection-agent</span>
-    <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Servicename&#34;</span>
-    <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-collection-agent</span>&gt;
+   <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Servicename&#34;</span>
+   <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-collection-agent</span>&gt;
 
 <span style="color:#998;font-style:italic">&lt;!-- produces a hateoas link array --&gt;</span>
 &lt;<span style="color:#000080">furo-deep-link</span>
@@ -1693,13 +1701,85 @@ used for partial representation / partial responses.</p>
   Events
   <a class="anchor" href="#events">#</a>
 </h2>
-<h3 id="all_bubbling_events_from_furo-api-fetch">
-  <strong>ALL_BUBBLING_EVENTS_FROM_furo-api-fetch</strong>
-  <a class="anchor" href="#all_bubbling_events_from_furo-api-fetch">#</a>
+<h3 id="request-aborted">
+  <strong>request-aborted</strong>
+  <a class="anchor" href="#request-aborted">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-ALL_BUBBLING_EVENTS_FROM_furo-api-fetch</span>
-→ <small><code>*</code></small></p>
-<p>All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+→ <small><code>Request</code></small></p>
+<p>Fired if the request was successfully cancelled
+<br><br></p>
+<h3 id="request-started">
+  <strong>request-started</strong>
+  <a class="anchor" href="#request-started">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+→ <small><code>Request</code></small></p>
+<p>Fired when a request is sent.
+<br><br></p>
+<h3 id="response-raw">
+  <strong>response-raw</strong>
+  <a class="anchor" href="#response-raw">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+→ <small><code>Object</code></small></p>
+<p>Fired when a response is received.
+<br><br></p>
+<h3 id="response-error">
+  <strong>response-error</strong>
+  <a class="anchor" href="#response-error">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+→ <small><code>Object</code></small></p>
+<p>Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+<br><br></p>
+<h3 id="response-error-status-code">
+  <strong>response-error-[status-code]</strong>
+  <a class="anchor" href="#response-error-status-code">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+→ <small><code>Object</code></small></p>
+<p>Fired when an error has occoured. This is a specific error event.
+<br><br></p>
+<h3 id="fatal-error">
+  <strong>fatal-error</strong>
+  <a class="anchor" href="#fatal-error">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+→ <small><code>Request</code></small></p>
+<p>Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+<br><br></p>
+<h3 id="response-error-4xx">
+  <strong>response-error-4xx</strong>
+  <a class="anchor" href="#response-error-4xx">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+→ <small><code>Object</code></small></p>
+<p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+<br><br></p>
+<h3 id="response-error-5xx">
+  <strong>response-error-5xx</strong>
+  <a class="anchor" href="#response-error-5xx">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+→ <small><code>Object</code></small></p>
+<p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+<br><br></p>
+<h3 id="response-error-raw">
+  <strong>response-error-raw</strong>
+  <a class="anchor" href="#response-error-raw">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+→ <small><code>Object</code></small></p>
+<p>Fired when a error has occoured.
+<br><br></p>
+<h3 id="response">
+  <strong>response</strong>
+  <a class="anchor" href="#response">#</a>
+</h3>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+→ <small><code>Object</code></small></p>
+<p>Fired when a response is received.
 <br><br></p>
 <h3 id="response-hts-updated">
   <strong>response-hts-updated</strong>
@@ -1733,14 +1813,6 @@ used for partial representation / partial responses.</p>
 → <small><code>Hateoas links</code></small></p>
 <p>Fired when hateoas was updated
 <br><br></p>
-<h3 id="request-aborted">
-  <strong>request-aborted</strong>
-  <a class="anchor" href="#request-aborted">#</a>
-</h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
-→ <small>``</small></p>
-<p>Fired if the request was successfully cancelled
-<br><br></p>
 <h2 id="methods">
   Methods
   <a class="anchor" href="#methods">#</a>
@@ -1749,22 +1821,22 @@ used for partial representation / partial responses.</p>
   <strong>setFields</strong>
   <a class="anchor" href="#setfields">#</a>
 </h3>
-<p><small><strong>setFields</strong>(<em>fields</em> `` ) ⟹ <code>void</code></small></p>
-<p><small>`` </small> →
+<p><small><strong>setFields</strong>(<em>fields</em> <code>String</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>String</code> </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-fields</span></p>
 <p>Comma separated list of fields (like a fieldmask)
 used for partial representation / partial responses.</p>
 <p>If your services supports this feature, you will receive a subset of the fields.</p>
 <ul>
-<li><small><em>fields</em> </small>
+<li><small><em>fields</em> Comma separated list of fields</small>
 <br><br></li>
 </ul>
 <h3 id="setorderby">
   <strong>setOrderBy</strong>
   <a class="anchor" href="#setorderby">#</a>
 </h3>
-<p><small><strong>setOrderBy</strong>(<em>order</em> `` ) ⟹ <code>void</code></small></p>
-<p><small>`` </small> →
+<p><small><strong>setOrderBy</strong>(<em>order</em> <code>String</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>String</code> </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-order-by</span></p>
 <p>Sorting order</p>
 <p>order-by=&ldquo;foo,-bar&rdquo;  means foo asc and bar desc</p>
@@ -1772,7 +1844,7 @@ used for partial representation / partial responses.</p>
 <p>To avoid sql injection errors we do not send any sql like syntax!</p>
 <p>Only useable if your service has implemented this feature.</p>
 <ul>
-<li><small><em>order</em> </small>
+<li><small><em>order</em> Comma separated list of sort orders</small>
 <br><br></li>
 </ul>
 <h3 id="clearfilter">
@@ -1788,27 +1860,27 @@ used for partial representation / partial responses.</p>
   <strong>setFilter</strong>
   <a class="anchor" href="#setfilter">#</a>
 </h3>
-<p><small><strong>setFilter</strong>(<em>filterstring</em> `` ) ⟹ <code>void</code></small></p>
-<p><small>`` </small> →
+<p><small><strong>setFilter</strong>(<em>filterstring</em> <code>String</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>String</code> </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-filter</span></p>
 <p>Set the filter.</p>
 <p>Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.</p>
 <p>Only useable if your service has implemented this feature.</p>
 <ul>
-<li><small><em>filterstring</em> </small>
+<li><small><em>filterstring</em> String for your filter.</small>
 <br><br></li>
 </ul>
 <h3 id="setpagesize">
   <strong>setPageSize</strong>
   <a class="anchor" href="#setpagesize">#</a>
 </h3>
-<p><small><strong>setPageSize</strong>(<em>size</em> `` ) ⟹ <code>void</code></small></p>
-<p><small>`` </small> →
+<p><small><strong>setPageSize</strong>(<em>size</em> <code>Number</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>Number</code> </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-page-size</span></p>
 <p>Sets pagination size in the List request.</p>
 <p>Only useful if your service supports pagination.</p>
 <ul>
-<li><small><em>size</em> </small>
+<li><small><em>size</em> requested size of a page.</small>
 <br><br></li>
 </ul>
 <h3 id="updateqp">
@@ -1971,9 +2043,9 @@ The AgentHelper fires a qp-set event after the query params are replaced.</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/282c1cbf5e2dc689912dc90253093459f1058552" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5526e73ed8780b3a14244ac88c49bf349f090f62" title='Last modified by veith | December 7, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 6, 2021</span>
+      <span>December 7, 2021</span>
     </a>
   </div>
 
@@ -2017,12 +2089,20 @@ The AgentHelper fires a qp-set event after the query params are replaced.</p>
     </li>
     <li><a href="#events">Events</a>
       <ul>
-        <li><a href="#all_bubbling_events_from_furo-api-fetch"><strong>ALL_BUBBLING_EVENTS_FROM_furo-api-fetch</strong></a></li>
+        <li><a href="#request-aborted"><strong>request-aborted</strong></a></li>
+        <li><a href="#request-started"><strong>request-started</strong></a></li>
+        <li><a href="#response-raw"><strong>response-raw</strong></a></li>
+        <li><a href="#response-error"><strong>response-error</strong></a></li>
+        <li><a href="#response-error-status-code"><strong>response-error-[status-code]</strong></a></li>
+        <li><a href="#fatal-error"><strong>fatal-error</strong></a></li>
+        <li><a href="#response-error-4xx"><strong>response-error-4xx</strong></a></li>
+        <li><a href="#response-error-5xx"><strong>response-error-5xx</strong></a></li>
+        <li><a href="#response-error-raw"><strong>response-error-raw</strong></a></li>
+        <li><a href="#response"><strong>response</strong></a></li>
         <li><a href="#response-hts-updated"><strong>response-hts-updated</strong></a></li>
         <li><a href="#filter-changed"><strong>filter-changed</strong></a></li>
         <li><a href="#hts-updated"><strong>hts-updated</strong></a></li>
         <li><a href="#hts-injected"><strong>hts-injected</strong></a></li>
-        <li><a href="#request-aborted"><strong>request-aborted</strong></a></li>
       </ul>
     </li>
     <li><a href="#methods">Methods</a>

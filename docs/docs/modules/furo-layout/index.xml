@@ -16,7 +16,7 @@
 furo-backdrop
 Displays content with a backdrop.
 The element you place in to furo-backdrop will be displayed centered.
-1 2 3 4 5 6 7  &amp;lt;furo-backdrop @-opened=&amp;#34;--BackdropFocus&amp;#34; @-closed=&amp;#34;--backdropClosed&amp;#34; ƒ-show=&amp;#34;--expandIconClicked&amp;#34; ƒ-close=&amp;#34;--closeRequested, --recordSelected&amp;#34; &amp;gt; &amp;lt;any-component @-item-selected=&amp;#34;--recordSelected&amp;#34; style=&amp;#34;width: 90vw; height: 90vh&amp;#34;&amp;gt;&amp;lt;/any-component&amp;gt; &amp;lt;/furo-backdrop&amp;gt;   You can wire and use the elements in furo-backrop as if they were local elements.</description>
+1 2 3 4 5 6  &amp;lt;furo-backdrop @-opened=&amp;#34;--BackdropFocus&amp;#34; @-closed=&amp;#34;--backdropClosed&amp;#34; ƒ-show=&amp;#34;--expandIconClicked&amp;#34; ƒ-close=&amp;#34;--closeRequested, --recordSelected&amp;#34;&amp;gt; &amp;lt;any-component @-item-selected=&amp;#34;--recordSelected&amp;#34; style=&amp;#34;width: 90vw; height: 90vh&amp;#34;&amp;gt;&amp;lt;/any-component&amp;gt; &amp;lt;/furo-backdrop&amp;gt;   You can wire and use the elements in furo-backrop as if they were local elements.</description>
     </item>
     
     <item>
