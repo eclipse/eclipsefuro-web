@@ -19,10 +19,23 @@ weight: 50
 
 
 ```html
-  <furo-config-loader section="views" src="/viewconfig.json"></furo-config>
-  <furo-config-loader section="second" src="/second.json"></furo-config>
-  <furo-config section="views" @-config-updated="--conf"></furo-config>
-  <furo-config section="second.section.deep" @-config-updated="--deepconf"></furo-config>
+<!-- set -->
+<furo-config-loader
+    section="views"
+    src="/viewconfig.json"
+    ></furo-config>
+<furo-config-loader
+    section="second"
+    src="/second.json"
+    ></furo-config>
+
+<!-- consume -->
+<furo-config
+    section="views" @-config-updated="--conf"
+    ></furo-config>
+<furo-config
+    section="second.section.deep" @-config-updated="--deepconf"
+    ></furo-config>
 ```
 
 {{% api "_furo-config-description.md" %}}

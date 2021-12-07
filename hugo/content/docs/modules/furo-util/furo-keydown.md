@@ -22,7 +22,7 @@ When you set `alt`, `ctrl` or any of the other arguments, the key event will be 
 
 ```html
 <furo-keydown key="Enter" @-key="--enterPressed"></furo-keydown>
-<furo-keydown ctrl key="c" @-key="--copyRequest"></furo-keydown>
+<furo-keydown ctrl key="c" @-key="--copyRequested"></furo-keydown>
 ```
 
 {{% api "_furo-keydown-description.md" %}}

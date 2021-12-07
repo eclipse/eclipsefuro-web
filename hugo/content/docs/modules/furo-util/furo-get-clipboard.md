@@ -19,8 +19,9 @@ weight: 50
 
 ```html
 
-<furo-get-clipboard ƒ-trigger="--clipboardContentRequested" @-content="--contentReceived">
-</furo-get-clipboard>
+<furo-get-clipboard
+    ƒ-trigger="--clipboardContentRequested" @-content="--contentReceived"
+    ></furo-get-clipboard>
 
 ```
 

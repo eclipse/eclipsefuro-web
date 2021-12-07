@@ -24,9 +24,9 @@ Tipp: place it below or inside the component which applies the style vars. Othew
 do not know these vars.
 
 ```html
- <!-- place the display in your main-stage -->
- <furo-backdrop-display></furo-backdrop-display>
- ```
+<!-- place the display in your main-stage -->
+<furo-backdrop-display></furo-backdrop-display>
+```
 
 {{% api "_furo-backdrop-display-description.md" %}}
 

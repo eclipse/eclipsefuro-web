@@ -25,16 +25,16 @@ weight: 50
 ```html
 <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
 <furo-entity-agent
-service="ProjectService"
-ƒ-hts-in="--hts" @-response="--response"
-></furo-entity-agent>
+  service="ProjectService"
+  ƒ-hts-in="--hts" @-response="--response"
+  ></furo-entity-agent>
 
 
 <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
 <furo-data-object
-type="project.ProjectEntity"
-ƒ-inject-raw="--response"
-></furo-data-object>
+  type="project.ProjectEntity"
+  ƒ-inject-raw="--response"
+  ></furo-data-object>
 ```
 
 {{% api "_furo-entity-agent-description.md" %}}
@@ -180,9 +180,63 @@ https://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html
 <br><br>
 ### **request-aborted**
 <span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
-→ <small>``</small>
+→ <small>`Request`</small>
 
- Fired if the request was successfully cancelled.
+Fired when a request was canceled.
+<br><br>
+### **request-started**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+→ <small>`Request`</small>
+
+Fired when a request is sent.
+<br><br>
+### **response-raw**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+→ <small>`Object`</small>
+
+Fired when a response is received.
+<br><br>
+### **response-error**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+<br><br>
+### **response-error-[status-code]**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a specific error event.
+<br><br>
+### **fatal-error**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+→ <small>`Request`</small>
+
+Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+<br><br>
+### **response-error-4xx**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+<br><br>
+### **response-error-5xx**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+→ <small>`Object`</small>
+
+Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+<br><br>
+### **response-error-raw**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+→ <small>`Object`</small>
+
+Fired when a error has occoured.
+<br><br>
+### **response**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+→ <small>`Object`</small>
+
+Fired when a response is received.
 <br><br>
 
 ## Methods

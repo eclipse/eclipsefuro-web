@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-config-loader` loads a configuration json in to the defined section.\n\nTo access the config values, use `furo-config`.\n\n```html\n  <furo-config-loader src=\"/custom/view-config.json\" section=\"views\"></furo-config-loader>\n```",
+          "description": "`furo-config-loader` loads a configuration json in to the defined section.\n\nTo access the config values, use `furo-config`.\n\n```html\n<furo-config-loader\n    src=\"/custom/view-config.json\"\n    section=\"views\"\n    ></furo-config-loader>\n```",
           "name": "FuroConfigLoader",
           "members": [
             {
@@ -85,7 +85,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-config`\n\n Access config data\n\n\n```html\n  <furo-config-loader section=\"views\" src=\"/viewconfig.json\"></furo-config>\n  <furo-config-loader section=\"second\" src=\"/second.json\"></furo-config>\n  <furo-config section=\"views\" @-config-updated=\"--conf\"></furo-config>\n  <furo-config section=\"second.section.deep\" @-config-updated=\"--deepconf\"></furo-config>\n```",
+          "description": "`furo-config`\n\n Access config data\n\n\n```html\n<!-- set -->\n<furo-config-loader\n    section=\"views\"\n    src=\"/viewconfig.json\"\n    ></furo-config>\n<furo-config-loader\n    section=\"second\"\n    src=\"/second.json\"\n    ></furo-config>\n\n<!-- consume -->\n<furo-config\n    section=\"views\" @-config-updated=\"--conf\"\n    ></furo-config>\n<furo-config\n    section=\"second.section.deep\" @-config-updated=\"--deepconf\"\n    ></furo-config>\n```",
           "name": "FuroConfig",
           "members": [
             {
@@ -144,7 +144,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The Debounce technique allow us to “group” multiple sequential calls in a single one.\n\n[Read more about debouncing here](https://css-tricks.com/debouncing-throttling-explained-examples/)\n\n\n\n```html\n<furo-de-bounce ƒ-trigger=\"--searchStringEntered\" @-debounced=\"--debouncedSrch\">\n</furo-de-bounce>\n```",
+          "description": "The Debounce technique allow us to “group” multiple sequential calls in a single one.\n\n[Read more about debouncing here](https://css-tricks.com/debouncing-throttling-explained-examples/)\n\n\n\n```html\n<furo-de-bounce\n    ƒ-trigger=\"--searchStringEntered\" @-debounced=\"--debouncedSrch\"\n    ></furo-de-bounce>\n```",
           "name": "FuroDeBounce",
           "members": [
             {
@@ -569,7 +569,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-get-clipboard`\n get the clipboard content from the OS.\n\n```html\n\n<furo-get-clipboard ƒ-trigger=\"--clipboardContentRequested\" @-content=\"--contentReceived\">\n</furo-get-clipboard>\n\n```",
+          "description": "`furo-get-clipboard`\n get the clipboard content from the OS.\n\n```html\n\n<furo-get-clipboard\n    ƒ-trigger=\"--clipboardContentRequested\" @-content=\"--contentReceived\"\n    ></furo-get-clipboard>\n\n```",
           "name": "FuroGetClipboard",
           "members": [
             {
@@ -1395,7 +1395,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```html\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\" keys=\"Escape\"></furo-key-filter>\n```",
+          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```html\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter\n    ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\"\n    keys=\"Escape\"\n    ></furo-key-filter>\n```",
           "name": "FuroKeyFilter",
           "members": [
             {
@@ -1524,7 +1524,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-keydown` attaches a keypress listener to the parent element and gives you handy events to work with.\n\nWhen you set `alt`, `ctrl` or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)\n\n```html\n<furo-keydown key=\"Enter\" @-key=\"--enterPressed\"></furo-keydown>\n<furo-keydown ctrl key=\"c\" @-key=\"--copyRequest\"></furo-keydown>\n```",
+          "description": "`furo-keydown` attaches a keypress listener to the parent element and gives you handy events to work with.\n\nWhen you set `alt`, `ctrl` or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)\n\n```html\n<furo-keydown key=\"Enter\" @-key=\"--enterPressed\"></furo-keydown>\n<furo-keydown ctrl key=\"c\" @-key=\"--copyRequested\"></furo-keydown>\n```",
           "name": "FuroKeydown",
           "members": [
             {
@@ -1787,7 +1787,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad ignored-keys=\"Escape\" @-navigated=\"--navpad\"></furo-navigation-pad>\n\n ```",
+          "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad\n     ignored-keys=\"Escape\" @-navigated=\"--navpad\"\n     ></furo-navigation-pad>\n\n ```",
           "name": "FuroNavigationPad",
           "members": [
             {
@@ -1922,7 +1922,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-pretty-json`\nPretty json with highlighting",
+          "description": "`furo-pretty-json`\nPretty json with highlighting\n\n```html\n<furo-pretty-json\n  ƒ-inject-json=\"--data\"></furo-pretty-json>\n```",
           "name": "FuroPrettyJson",
           "members": [
             {
@@ -1930,7 +1930,11 @@
               "name": "injectData",
               "parameters": [
                 {
-                  "name": "json"
+                  "name": "json",
+                  "description": "Json literal",
+                  "type": {
+                    "text": "JSON"
+                  }
                 }
               ],
               "description": "Inject JSON data"
@@ -1984,7 +1988,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-put-clipboard`\n put content to the clipboard of the OS.\n\n```html\n\n<furo-put-clipboard json ƒ-trigger=\"--putDataToClipboard\" @-content-putted=\"--contentInClipboard\">\n</furo-put-clipboard>\n\n```",
+          "description": "`furo-put-clipboard`\n put content to the clipboard of the OS.\n\n```html\n\n<furo-put-clipboard\n    json\n    ƒ-trigger=\"--data\" @-content-put=\"--contentInClipboard\"\n    ></furo-put-clipboard>\n\n```",
           "name": "FuroPutClipboard",
           "members": [
             {
@@ -2401,6 +2405,7 @@
             "name": "LitElement",
             "package": "lit"
           },
+          "summary": "internal helper component",
           "tagName": "furo-show-flow",
           "customElement": true
         }

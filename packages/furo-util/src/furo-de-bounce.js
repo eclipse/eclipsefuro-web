@@ -9,8 +9,9 @@ import {FBP} from '@furo/fbp';
  *
  *
  * ```html
- * <furo-de-bounce ƒ-trigger="--searchStringEntered" @-debounced="--debouncedSrch">
- * </furo-de-bounce>
+ * <furo-de-bounce
+ *     ƒ-trigger="--searchStringEntered" @-debounced="--debouncedSrch"
+ *     ></furo-de-bounce>
  * ```
  *
  * @fires {*} debounced - Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge.

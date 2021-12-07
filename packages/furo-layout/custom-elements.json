@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-backdrop-display`\n\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n <!-- place the display in your main-stage -->\n <furo-backdrop-display></furo-backdrop-display>\n ```",
+          "description": "`furo-backdrop-display`\n\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n<!-- place the display in your main-stage -->\n<furo-backdrop-display></furo-backdrop-display>\n```",
           "name": "FuroBackdropDisplay",
           "cssProperties": [
             {
@@ -109,7 +109,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n  <furo-backdrop @-opened=\"--BackdropFocus\" @-closed=\"--backdropClosed\"\n    ƒ-show=\"--expandIconClicked\"\n    ƒ-close=\"--closeRequested, --recordSelected\"\n    >\n     <any-component @-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n  </furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
+          "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n<furo-backdrop @-opened=\"--BackdropFocus\" @-closed=\"--backdropClosed\"\n  ƒ-show=\"--expandIconClicked\"\n  ƒ-close=\"--closeRequested, --recordSelected\">\n     <any-component @-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n</furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
           "name": "FuroBackdrop",
           "members": [
             {

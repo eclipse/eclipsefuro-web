@@ -16,16 +16,16 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * ```html
  * <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
  * <furo-entity-agent
- * service="ProjectService"
- * ƒ-hts-in="--hts" @-response="--response"
- * ></furo-entity-agent>
+ *   service="ProjectService"
+ *   ƒ-hts-in="--hts" @-response="--response"
+ *   ></furo-entity-agent>
  *
  *
  * <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
  * <furo-data-object
- * type="project.ProjectEntity"
- * ƒ-inject-raw="--response"
- * ></furo-data-object>
+ *   type="project.ProjectEntity"
+ *   ƒ-inject-raw="--response"
+ *   ></furo-data-object>
  * ```
  *
  *

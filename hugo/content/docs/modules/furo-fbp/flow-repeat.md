@@ -22,9 +22,9 @@ Custom element to repeat Arrays. The repeated items are injected *before* the `f
 
 ```html
 <flow-repeat ƒ-inject-items="--dataArray">
- <template>
-  <repeated-item index="${this.index}" ƒ-inject="--init">
-</template>
+  <template>
+    <repeated-item index="${this.index}" ƒ-inject="--init">
+  </template>
 </flow-repeat>
 ```
 > **Note**: if you want to bind a repeater node, use `furo-data-flow-repeat`.

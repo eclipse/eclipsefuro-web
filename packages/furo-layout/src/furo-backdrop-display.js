@@ -13,9 +13,9 @@ import { FBP } from '@furo/fbp'
  * do not know these vars.
  *
  * ```html
- *  <!-- place the display in your main-stage -->
- *  <furo-backdrop-display></furo-backdrop-display>
- *  ```
+ * <!-- place the display in your main-stage -->
+ * <furo-backdrop-display></furo-backdrop-display>
+ * ```
  *
  * @cssprop {0px} [--furo-backdrop-color=#6d6d6d] - background color of backdrop
  *

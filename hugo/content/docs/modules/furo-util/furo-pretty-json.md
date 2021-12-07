@@ -17,6 +17,11 @@ weight: 50
 `furo-pretty-json`
 Pretty json with highlighting
 
+```html
+<furo-pretty-json
+  ƒ-inject-json="--data"></furo-pretty-json>
+```
+
 {{% api "_furo-pretty-json-description.md" %}}
 
 
@@ -32,14 +37,14 @@ Pretty json with highlighting
 
 
 ### **injectData**
-<small>**injectData**(*json* `` ) ⟹ `void`</small>
+<small>**injectData**(*json* `JSON` ) ⟹ `void`</small>
 
-<small>`` </small> →
+<small>`JSON` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-data</span>
 
 Inject JSON data
 
-- <small>*json* </small>
+- <small>*json* Json literal</small>
 <br><br>
 
 

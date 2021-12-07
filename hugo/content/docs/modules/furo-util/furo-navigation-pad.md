@@ -21,7 +21,9 @@ weight: 50
 
  ```html
  <!-- forward all navigation events except the Escape  -->
- <furo-navigation-pad ignored-keys="Escape" @-navigated="--navpad"></furo-navigation-pad>
+ <furo-navigation-pad
+     ignored-keys="Escape" @-navigated="--navpad"
+     ></furo-navigation-pad>
 
  ```
 

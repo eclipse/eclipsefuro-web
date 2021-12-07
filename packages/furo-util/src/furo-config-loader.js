@@ -9,7 +9,10 @@ import { Config } from './lib/Config.js';
  * To access the config values, use `furo-config`.
  *
  * ```html
- *   <furo-config-loader src="/custom/view-config.json" section="views"></furo-config-loader>
+ * <furo-config-loader
+ *     src="/custom/view-config.json"
+ *     section="views"
+ *     ></furo-config-loader>
  * ```
  *
  * @fires {Object} config-loaded - Fired when the config is loaded with the loaded config as detail.

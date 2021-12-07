@@ -21,8 +21,9 @@ The Debounce technique allow us to “group” multiple sequential calls in a si
 
 
 ```html
-<furo-de-bounce ƒ-trigger="--searchStringEntered" @-debounced="--debouncedSrch">
-</furo-de-bounce>
+<furo-de-bounce
+    ƒ-trigger="--searchStringEntered" @-debounced="--debouncedSrch"
+    ></furo-de-bounce>
 ```
 
 {{% api "_furo-de-bounce-description.md" %}}

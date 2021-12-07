@@ -274,9 +274,9 @@ Fired when a response is received.
 
 
 ### **setFields**
-<small>**setFields**(*fields* `` ) ⟹ `void`</small>
+<small>**setFields**(*fields* `String` ) ⟹ `void`</small>
 
-<small>`` </small> →
+<small>`String` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-fields</span>
 
 
@@ -285,13 +285,13 @@ used for partial representation / partial responses.
 
 If your services supports this feature, you will receive a subset of the fields.
 
-- <small>*fields* </small>
+- <small>*fields* Comma separated list of fields</small>
 <br><br>
 
 ### **setOrderBy**
-<small>**setOrderBy**(*order* `` ) ⟹ `void`</small>
+<small>**setOrderBy**(*order* `String` ) ⟹ `void`</small>
 
-<small>`` </small> →
+<small>`String` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-order-by</span>
 
 Sorting order
@@ -304,7 +304,7 @@ To avoid sql injection errors we do not send any sql like syntax!
 
 Only useable if your service has implemented this feature.
 
-- <small>*order* </small>
+- <small>*order* Comma separated list of sort orders</small>
 <br><br>
 
 ### **clearFilter**
@@ -318,9 +318,9 @@ clear the setted filter
 <br><br>
 
 ### **setFilter**
-<small>**setFilter**(*filterstring* `` ) ⟹ `void`</small>
+<small>**setFilter**(*filterstring* `String` ) ⟹ `void`</small>
 
-<small>`` </small> →
+<small>`String` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-filter</span>
 
 Set the filter.
@@ -329,21 +329,21 @@ Hint: use the FieldNode._base64 property to send complex objects as a filter and
 
 Only useable if your service has implemented this feature.
 
-- <small>*filterstring* </small>
+- <small>*filterstring* String for your filter.</small>
 <br><br>
 
 
 ### **setPageSize**
-<small>**setPageSize**(*size* `` ) ⟹ `void`</small>
+<small>**setPageSize**(*size* `Number` ) ⟹ `void`</small>
 
-<small>`` </small> →
+<small>`Number` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-page-size</span>
 
 Sets pagination size in the List request.
 
 Only useful if your service supports pagination.
 
-- <small>*size* </small>
+- <small>*size* requested size of a page.</small>
 <br><br>
 
 

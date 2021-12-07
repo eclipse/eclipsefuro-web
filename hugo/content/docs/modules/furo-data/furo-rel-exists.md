@@ -14,9 +14,9 @@ weight: 50
 {{% api "_furo-rel-exists-head.md" %}}
 
 `furo-rel-exists`
-Checks if a rel exists in a hateaos Link array
+Checks if a hateoas relation exists in a given hateaos Links array.
 
- * ```html
+```html
 <furo-rel-exists ƒ-inject="--HTS-array"></furo-rel-exists>
 ```
 
@@ -65,9 +65,9 @@ define the type if you want a specific check on the type also
 
 
 ### **inject**
-<small>**inject**(*linkArray* `` ** `` ) ⟹ `boolean`</small>
+<small>**inject**(*linkArray* `[furo.Link]` ) ⟹ `boolean`</small>
 
-<small>`` `` </small> →
+<small>`[furo.Link]` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject</span>
 
 Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
@@ -77,8 +77,7 @@ TODO: implement bind data too
 TODO: emit a event with bool which is triggered on any change of the hts array or binded data
 Todo: Better and consistent names for the events
 
-- <small>*linkArray* </small>
-- <small>** furo.Link Array of furo links</small>
+- <small>*linkArray* Array of furo links</small>
 <br><br>
 
 

@@ -41,7 +41,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  *
  *
  * ## Basic Usage
- * ```
+ * ```html
  *   <furo-type-renderer ƒ-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
  * ```
  *
@@ -59,7 +59,6 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
     super();
-    this.tpl = html``;
     this.context = 'display';
   }
 
@@ -77,10 +76,6 @@ class FuroTypeRenderer extends FBP(LitElement) {
    */
   static get properties() {
     return {
-      /**
-       * Value State
-       */
-      valueState: { type: String, reflect: true, attribute: 'value-state' },
       /**
        * A Boolean attribute which, if present, means this field is displayed in disabled state.
        */

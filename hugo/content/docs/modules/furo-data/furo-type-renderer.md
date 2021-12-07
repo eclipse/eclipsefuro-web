@@ -53,7 +53,7 @@ context-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
 
 
 ## Basic Usage
-```
+```html
   <furo-type-renderer ƒ-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
 ```
 
@@ -74,12 +74,6 @@ You just have to follow the naming convention for your renderer.
 
 
 
-### **tpl**
-default: **html``**</small>
-
-
-<br><br>
-
 ### **context**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">context</span>
@@ -87,14 +81,6 @@ default: **html``**</small>
 
 Set the context if you need another then display.
 Prebuilt context renderers exist for display, cell, celledit.
-<br><br>
-
-### **valueState**
-
-<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">value-state</span> <small>**reflects**</small>
-</small>
-
-Value State
 <br><br>
 
 ### **disabled**
@@ -120,8 +106,6 @@ Special treatment for google.protobuf.Any
 
 - <small>*fieldNode* </small>
 <br><br>
-
-
 
 
 

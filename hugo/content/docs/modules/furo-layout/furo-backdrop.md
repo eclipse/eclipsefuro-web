@@ -22,12 +22,11 @@ The element you place in to furo-backdrop will be displayed centered.
 
 
 ```html
-  <furo-backdrop @-opened="--BackdropFocus" @-closed="--backdropClosed"
-    ƒ-show="--expandIconClicked"
-    ƒ-close="--closeRequested, --recordSelected"
-    >
+<furo-backdrop @-opened="--BackdropFocus" @-closed="--backdropClosed"
+  ƒ-show="--expandIconClicked"
+  ƒ-close="--closeRequested, --recordSelected">
      <any-component @-item-selected="--recordSelected" style="width: 90vw; height: 90vh"></any-component>
-  </furo-backdrop>
+</furo-backdrop>
 
 ```
 

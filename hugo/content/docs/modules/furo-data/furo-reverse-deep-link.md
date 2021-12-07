@@ -17,11 +17,11 @@ Converts hateoas to queryParams, which is useful for routing with app-flow
 
 
 ```html
- <furo-reverse-deep-link
-     service="TaskService"
-     rel="self" @-converted="--queryParams"
-     ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
- ></furo-reverse-deep-link>
+<furo-reverse-deep-link
+   service="TaskService"
+   rel="self" @-converted="--queryParams"
+   ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
+></furo-reverse-deep-link>
 ```
 
 {{% api "_furo-reverse-deep-link-description.md" %}}

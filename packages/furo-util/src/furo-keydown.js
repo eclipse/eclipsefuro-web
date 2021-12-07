@@ -10,7 +10,7 @@ import { FBP } from '@furo/fbp';
  *
  * ```html
  * <furo-keydown key="Enter" @-key="--enterPressed"></furo-keydown>
- * <furo-keydown ctrl key="c" @-key="--copyRequest"></furo-keydown>
+ * <furo-keydown ctrl key="c" @-key="--copyRequested"></furo-keydown>
  * ```
  * @fires {KeyboardEvent} key - Fired when key was catched on target
  *

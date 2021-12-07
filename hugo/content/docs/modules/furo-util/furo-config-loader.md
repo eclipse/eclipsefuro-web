@@ -19,7 +19,10 @@ weight: 50
 To access the config values, use `furo-config`.
 
 ```html
-  <furo-config-loader src="/custom/view-config.json" section="views"></furo-config-loader>
+<furo-config-loader
+    src="/custom/view-config.json"
+    section="views"
+    ></furo-config-loader>
 ```
 
 {{% api "_furo-config-loader-description.md" %}}

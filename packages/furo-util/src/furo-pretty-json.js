@@ -6,7 +6,11 @@ import { FBP } from '@furo/fbp';
  * `furo-pretty-json`
  * Pretty json with highlighting
  *
- * @demo demo-furo-pretty-json Simple data display
+ * ```html
+ * <furo-pretty-json
+ *   ƒ-inject-json="--data"></furo-pretty-json>
+ * ```
+ *
  * @summary pretty prints json data
  * @customElement
  */
@@ -55,7 +59,7 @@ class FuroPrettyJson extends FBP(LitElement) {
 
   /**
    * Inject JSON data
-   * @param json
+   * @param {JSON} json - Json literal
    */
   injectData(json) {
     if (json) {

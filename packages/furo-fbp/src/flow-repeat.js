@@ -9,9 +9,9 @@ import './empty-fbp-node.js';
  *
  * ```html
  * <flow-repeat ƒ-inject-items="--dataArray">
- *  <template>
- *   <repeated-item index="${this.index}" ƒ-inject="--init">
- * </template>
+ *   <template>
+ *     <repeated-item index="${this.index}" ƒ-inject="--init">
+ *   </template>
  * </flow-repeat>
  * ```
  * > **Note**: if you want to bind a repeater node, use `furo-data-flow-repeat`.

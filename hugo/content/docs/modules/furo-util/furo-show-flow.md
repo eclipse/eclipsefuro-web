@@ -1,6 +1,6 @@
 ---
 title: furo-show-flow
-description: 
+description: internal helper component
 weight: 50
 ---
 
@@ -10,7 +10,7 @@ weight: 50
 <br>exports `<furo-show-flow>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>
-<br><small>summary **</small>
+<br><small>summary *internal helper component*</small>
 
 {{% api "_furo-show-flow-head.md" %}}
 

@@ -234,6 +234,8 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * used for partial representation / partial responses.
    *
    * If your services supports this feature, you will receive a subset of the fields.
+   *
+   * @param fields {String} - Comma separated list of fields
    */
   setFields(fields) {
     this.fields = fields;
@@ -250,6 +252,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    *
    * Only useable if your service has implemented this feature.
    *
+   * @param order {String} - Comma separated list of sort orders
    */
   setOrderBy(order) {
     this.orderBy = order;
@@ -268,13 +271,24 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.
    *
    * Only useable if your service has implemented this feature.
+   *
+   * @param filterstring {String} - String for your filter.
    */
   setFilter(filterstring) {
     this.filter = filterstring;
   }
 
-  set filter(f) {
-    this._filter = f;
+  /**
+   * Set the filter.
+   *
+   * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.
+   *
+   * Only useable if your service has implemented this feature.
+   *
+   * @param filterstring {String} - String for your filter.
+   */
+  set filter(filterstring) {
+    this._filter = filterstring;
     const customEvent = new Event('filter-changed', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
@@ -284,6 +298,8 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * Sets pagination size in the List request.
    *
    * Only useful if your service supports pagination.
+   *
+   * @param size {Number} - requested size of a page.
    */
   setPageSize(size) {
     this.pageSize = size;
@@ -291,7 +307,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
   /**
    * Setze den Service
-   * @param service
+   * @param service {String} -
    */
   set service(service) {
     if (!this._servicedefinitions[service]) {

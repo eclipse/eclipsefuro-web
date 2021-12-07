@@ -225,7 +225,11 @@
               "name": "setFields",
               "parameters": [
                 {
-                  "name": "fields"
+                  "name": "fields",
+                  "description": "Comma separated list of fields",
+                  "type": {
+                    "text": "String"
+                  }
                 }
               ],
               "description": "\nComma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields."
@@ -235,7 +239,11 @@
               "name": "setOrderBy",
               "parameters": [
                 {
-                  "name": "order"
+                  "name": "order",
+                  "description": "Comma separated list of sort orders",
+                  "type": {
+                    "text": "String"
+                  }
                 }
               ],
               "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature."
@@ -250,7 +258,11 @@
               "name": "setFilter",
               "parameters": [
                 {
-                  "name": "filterstring"
+                  "name": "filterstring",
+                  "description": "String for your filter.",
+                  "type": {
+                    "text": "String"
+                  }
                 }
               ],
               "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature."
@@ -258,8 +270,17 @@
             {
               "kind": "field",
               "name": "filter",
-              "privacy": "public",
               "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
+              "parameters": [
+                {
+                  "description": "String for your filter.",
+                  "name": "filterstring",
+                  "type": {
+                    "text": "String"
+                  }
+                }
+              ],
+              "privacy": "public",
               "attribute": "filter"
             },
             {
@@ -267,7 +288,11 @@
               "name": "setPageSize",
               "parameters": [
                 {
-                  "name": "size"
+                  "name": "size",
+                  "description": "requested size of a page.",
+                  "type": {
+                    "text": "Number"
+                  }
                 }
               ],
               "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination."
@@ -278,7 +303,11 @@
               "description": "The service name from the specs.",
               "parameters": [
                 {
-                  "name": "service"
+                  "description": "-",
+                  "name": "service",
+                  "type": {
+                    "text": "String"
+                  }
                 }
               ],
               "privacy": "public",
@@ -883,8 +912,74 @@
               "name": "hts-updated"
             },
             {
-              "description": "Fired if the request was successfully cancelled.",
-              "name": "request-aborted"
+              "description": "Fired when a request was canceled.",
+              "name": "request-aborted",
+              "type": {
+                "text": "Request"
+              }
+            },
+            {
+              "type": {
+                "text": "Request"
+              },
+              "description": "Fired when a request is sent.",
+              "name": "request-started"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a response is received.",
+              "name": "response-raw"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.",
+              "name": "response-error"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a specific error event.",
+              "name": "response-error-[status-code]"
+            },
+            {
+              "type": {
+                "text": "Request"
+              },
+              "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest",
+              "name": "fatal-error"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-4xx"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-5xx"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a error has occoured.",
+              "name": "response-error-raw"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a response is received.",
+              "name": "response"
             }
           ],
           "attributes": [
@@ -1748,7 +1843,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-entity-agent` is an interface component to handle entity requests.\n\n> **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of\n> the values are sent.\n\n> **Hint** PUT will send all fields which are not marked as **readonly**.\n> If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`\n\n```html\n<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n<furo-entity-agent\nservice=\"ProjectService\"\nƒ-hts-in=\"--hts\" @-response=\"--response\"\n></furo-entity-agent>\n\n\n<!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n<furo-data-object\ntype=\"project.ProjectEntity\"\nƒ-inject-raw=\"--response\"\n></furo-data-object>\n```",
+          "description": "`furo-entity-agent` is an interface component to handle entity requests.\n\n> **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of\n> the values are sent.\n\n> **Hint** PUT will send all fields which are not marked as **readonly**.\n> If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`\n\n```html\n<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n<furo-entity-agent\n  service=\"ProjectService\"\n  ƒ-hts-in=\"--hts\" @-response=\"--response\"\n  ></furo-entity-agent>\n\n\n<!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n<furo-data-object\n  type=\"project.ProjectEntity\"\n  ƒ-inject-raw=\"--response\"\n  ></furo-data-object>\n```",
           "name": "FuroEntityAgent",
           "members": [
             {
@@ -2097,8 +2192,74 @@
               "name": "hts-injected"
             },
             {
-              "description": " Fired if the request was successfully cancelled.",
-              "name": "request-aborted"
+              "description": "Fired when a request was canceled.",
+              "name": "request-aborted",
+              "type": {
+                "text": "Request"
+              }
+            },
+            {
+              "type": {
+                "text": "Request"
+              },
+              "description": "Fired when a request is sent.",
+              "name": "request-started"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a response is received.",
+              "name": "response-raw"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.",
+              "name": "response-error"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a specific error event.",
+              "name": "response-error-[status-code]"
+            },
+            {
+              "type": {
+                "text": "Request"
+              },
+              "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest",
+              "name": "fatal-error"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-4xx"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+              "name": "response-error-5xx"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a error has occoured.",
+              "name": "response-error-raw"
+            },
+            {
+              "type": {
+                "text": "Object"
+              },
+              "description": "Fired when a response is received.",
+              "name": "response"
             }
           ],
           "attributes": [
@@ -2223,7 +2384,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-rel-exists`\nChecks if a rel exists in a hateaos Link array\n\n * ```html\n<furo-rel-exists ƒ-inject=\"--HTS-array\"></furo-rel-exists>\n```",
+          "description": "`furo-rel-exists`\nChecks if a hateoas relation exists in a given hateaos Links array.\n\n```html\n<furo-rel-exists ƒ-inject=\"--HTS-array\"></furo-rel-exists>\n```",
           "name": "FuroRelExists",
           "members": [
             {
@@ -2231,12 +2392,11 @@
               "name": "inject",
               "parameters": [
                 {
-                  "name": "linkArray"
-                },
-                {
-                  "description": "furo.Link Array of furo links",
-                  "name": "",
-                  "optional": true
+                  "name": "linkArray",
+                  "description": "Array of furo links",
+                  "type": {
+                    "text": "[furo.Link]"
+                  }
                 }
               ],
               "description": "Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.\n\ninject returns true for existing links and false for non existing links.\nTODO: implement bind data too\nTODO: emit a event with bool which is triggered on any change of the hts array or binded data\nTodo: Better and consistent names for the events",
@@ -2315,7 +2475,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```html\n <furo-reverse-deep-link\n     service=\"TaskService\"\n     rel=\"self\" @-converted=\"--queryParams\"\n     ƒ-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n ></furo-reverse-deep-link>\n```",
+          "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```html\n<furo-reverse-deep-link\n   service=\"TaskService\"\n   rel=\"self\" @-converted=\"--queryParams\"\n   ƒ-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n></furo-reverse-deep-link>\n```",
           "name": "FuroReverseDeepLink",
           "members": [
             {
@@ -2426,7 +2586,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
+          "description": "The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```html\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
           "name": "FuroTypeRenderer",
           "members": [
             {
@@ -2469,11 +2629,6 @@
             },
             {
               "kind": "field",
-              "name": "tpl",
-              "default": "html``"
-            },
-            {
-              "kind": "field",
               "name": "context",
               "type": {
                 "text": "string"
@@ -2485,14 +2640,6 @@
             },
             {
               "kind": "field",
-              "name": "valueState",
-              "privacy": "public",
-              "description": "Value State",
-              "attribute": "value-state",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "disabled",
               "privacy": "public",
               "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
@@ -2500,11 +2647,6 @@
             }
           ],
           "attributes": [
-            {
-              "name": "value-state",
-              "description": "Value State",
-              "fieldName": "valueState"
-            },
             {
               "name": "disabled",
               "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",

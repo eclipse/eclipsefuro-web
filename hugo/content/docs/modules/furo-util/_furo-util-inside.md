@@ -23,4 +23,4 @@ bookHidden: true
 - [furo-put-clipboard](furo-put-clipboard.md) write content to clipboard
 - [furo-demo-snippet](furo-demo-snippet.md) documentation helper
 - [furo-graph-renderer](furo-graph-renderer.md) paints a dagree graph as svg
-- [furo-show-flow](furo-show-flow.md) 
+- [furo-show-flow](furo-show-flow.md) internal helper component

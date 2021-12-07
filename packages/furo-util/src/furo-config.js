@@ -8,10 +8,22 @@ import { Config } from './lib/Config.js';
  *
  *
  * ```html
- *   <furo-config-loader section="views" src="/viewconfig.json"></furo-config>
- *   <furo-config-loader section="second" src="/second.json"></furo-config>
- *   <furo-config section="views" @-config-updated="--conf"></furo-config>
- *   <furo-config section="second.section.deep" @-config-updated="--deepconf"></furo-config>
+ * <!-- set with config-loader -->
+ * <furo-config-loader
+ *     section="views"
+ *     src="/viewconfig.json"
+ *     ></furo-config>
+ *
+ *
+ * <!-- consume a config -->
+ * <furo-config
+ *     section="views" @-config-updated="--conf"
+ *     ></furo-config>
+ *
+ * <!-- consume a sub path of a config section -->
+ * <furo-config
+ *     section="views.subset.deep" @-config-updated="--deepconf"
+ *     ></furo-config>
  * ```
  *
  * @fires {config.section} config-updated - Fired when section changed

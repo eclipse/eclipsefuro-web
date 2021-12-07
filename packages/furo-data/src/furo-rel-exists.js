@@ -2,9 +2,9 @@ import { LitElement, css } from 'lit';
 
 /**
  * `furo-rel-exists`
- * Checks if a rel exists in a hateaos Link array
+ * Checks if a hateoas relation exists in a given hateaos Links array.
  *
- *  * ```html
+ *```html
  * <furo-rel-exists ƒ-inject="--HTS-array"></furo-rel-exists>
  * ```
  *
@@ -25,7 +25,7 @@ class FuroRelExists extends LitElement {
    * Todo: Better and consistent names for the events
    *
    *
-   * @param []furo.Link Array of furo links
+   * @param {[furo.Link]} linkArray - Array of furo links
    * @return {boolean}
    */
   inject(linkArray) {

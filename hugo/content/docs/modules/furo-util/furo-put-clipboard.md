@@ -18,8 +18,10 @@ weight: 50
 
 ```html
 
-<furo-put-clipboard json ƒ-trigger="--putDataToClipboard" @-content-putted="--contentInClipboard">
-</furo-put-clipboard>
+<furo-put-clipboard
+    json
+    ƒ-trigger="--data" @-content-put="--contentInClipboard"
+    ></furo-put-clipboard>
 
 ```
 

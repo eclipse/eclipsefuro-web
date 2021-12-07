@@ -7,6 +7,7 @@ import './furo-graph-renderer.js';
  * `furo-show-flow`
  * Renders a flow from dom node or html source
  *
+ * @summary internal helper component
  * @customElement
  * @appliesMixin FBP
  */
