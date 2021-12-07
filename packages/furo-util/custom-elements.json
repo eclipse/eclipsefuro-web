@@ -85,7 +85,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-config`\n\n Access config data\n\n\n```html\n<!-- set -->\n<furo-config-loader\n    section=\"views\"\n    src=\"/viewconfig.json\"\n    ></furo-config>\n<furo-config-loader\n    section=\"second\"\n    src=\"/second.json\"\n    ></furo-config>\n\n<!-- consume -->\n<furo-config\n    section=\"views\" @-config-updated=\"--conf\"\n    ></furo-config>\n<furo-config\n    section=\"second.section.deep\" @-config-updated=\"--deepconf\"\n    ></furo-config>\n```",
+          "description": "`furo-config`\n\n Access config data\n\n\n```html\n<!-- set with config-loader -->\n<furo-config-loader\n    section=\"views\"\n    src=\"/viewconfig.json\"\n    ></furo-config>\n\n\n<!-- consume a config -->\n<furo-config\n    section=\"views\" @-config-updated=\"--conf\"\n    ></furo-config>\n\n<!-- consume a sub path of a config section -->\n<furo-config\n    section=\"views.subset.deep\" @-config-updated=\"--deepconf\"\n    ></furo-config>\n```",
           "name": "FuroConfig",
           "members": [
             {
