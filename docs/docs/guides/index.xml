@@ -47,6 +47,15 @@ element deep-link receives the query param {tsk: &amp;ldquo;5&amp;rdquo;} from t
     </item>
     
     <item>
+      <title>Flow repeat</title>
+      <link>http://web-components.furo.pro/docs/guides/flow-repeat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/guides/flow-repeat/</guid>
+      <description>How to use flow-repeat #  </description>
+    </item>
+    
+    <item>
       <title>Forms</title>
       <link>http://web-components.furo.pro/docs/guides/form-helpers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -55,6 +64,15 @@ element deep-link receives the query param {tsk: &amp;ldquo;5&amp;rdquo;} from t
       <description>Form Helpers #  How to structure forms #  furo-form-layouter provides a simple grid based layout to easily structure forms.
 The required variant is set using an attribute on furo-form-layouter. Supported values: two, four
 Usage #  Default Markup without attribute #  1 2 3 4 5  &amp;lt;furo-form-layouter&amp;gt; &amp;lt;furo-date-input hint=&amp;#34;Only possible in current year&amp;#34; max=&amp;#34;2019-12-31&amp;#34; min=&amp;#34;2019-01-01&amp;#34; label=&amp;#34;valid from&amp;#34;&amp;gt;&amp;lt;/furo-date-input&amp;gt; &amp;lt;furo-select-input label=&amp;#34;Brand&amp;#34; value=&amp;#34;Haro&amp;#34; list=&amp;#34;WeThePeople, Haro, United, Demolition&amp;#34;&amp;gt;&amp;lt;/furo-select-input&amp;gt; &amp;lt;p&amp;gt;Put your additional information here.</description>
+    </item>
+    
+    <item>
+      <title>furo-pages</title>
+      <link>http://web-components.furo.pro/docs/guides/furo-pages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://web-components.furo.pro/docs/guides/furo-pages/</guid>
+      <description>How to use furo-pages #  </description>
     </item>
     
     <item>
@@ -86,16 +104,6 @@ Building blocks #  You need the following building blocks:
       <guid>http://web-components.furo.pro/docs/guides/viz/</guid>
       <description>Connect to viz.furo.pro to visualize your running application.
 Usage #  1 2 3 4  viz() // starts the rendering at document.body  viz($0) // starts the rendering at the selected element (chrome)   </description>
-    </item>
-    
-    <item>
-      <title>Work with style vars</title>
-      <link>http://web-components.furo.pro/docs/guides/styling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/styling/</guid>
-      <description>Styling #  We differ theming and styling. Themes are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not &amp;lsquo;standard&amp;rsquo;. Styling is used to set style vars like &amp;ndash;primary. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you full control over the css.
- The color system supports 12 categories of color that can be applied to components, text, icons, and surfaces.</description>
     </item>
     
     <item>

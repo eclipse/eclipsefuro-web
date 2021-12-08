@@ -16,7 +16,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.04724ba5c649e8bd5bc21a297b85f442312e024f6f93d3341541923481b4e326.js" integrity="sha256-BHJLpcZJ6L1bwhope4X0QjEuAk9vk9M0FUGSNIG04yY="></script>
+<script defer src="/en.search.min.c0326b4b0197bc7b6c90a6f1c65fffac7c3e651d999f51ecf91b3484c1f67f06.js" integrity="sha256-wDJrSwGXvHtskKbxxl//rHw&#43;ZR2Zn1Hs&#43;Rs0hMH2fwY="></script>
 <link rel="alternate" type="application/rss+xml" href="http://web-components.furo.pro/index.xml" title="フロー Furo Web" />
 <!--
 Made with Book Theme
@@ -144,6 +144,32 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="http://web-components.furo.pro/docs/guides/flow-repeat/" class="">Flow repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://web-components.furo.pro/docs/guides/furo-pages/" class="">furo-pages</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="http://web-components.furo.pro/docs/guides/init/" class="">Init</a>
   
 
@@ -183,68 +209,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="http://web-components.furo.pro/docs/guides/styling/" class="">Work with style vars</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="http://web-components.furo.pro/docs/guides/precompiled/" class="">Working without build</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-ecbb3b63da2a7938af46aa6de0c6c708" class="toggle"  />
-    <label for="section-ecbb3b63da2a7938af46aa6de0c6c708" class="flex justify-between">
-      <a href="http://web-components.furo.pro/docs/explainers/" class="">Explainers</a>
-      <span>▾</span>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="http://web-components.furo.pro/docs/explainers/flow-repeat/" class="">Flow repeat</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="http://web-components.furo.pro/docs/explainers/furo-pages/" class="">furo-pages</a>
   
 
         </li>
@@ -1565,32 +1530,38 @@ aria-label="Issue eclipse/eclipsefuro-web on GitHub"
 Issue
 </a>
 </p>
-<h2 id="todo-stichworte">
-  TODO: (Stichworte)
-  <a class="anchor" href="#todo-stichworte">#</a>
-</h2>
-<ul>
-<li>
-<p>type system</p>
-</li>
-<li>
-<p>minimal ui (layout )</p>
-</li>
-<li>
-<p>design system friendly</p>
-</li>
-<li></li>
-</ul>
 <div class="book-columns flex flex-wrap">
   
   <div class="flex-even markdown-inner">
-    <h2 id="transparent-data-handling">Transparent data handling</h2>
-<p>The components from furo web, build the bridge from the ui implementations to the data sources by respecting the furo specs.
+    <h2 id="framework-agnostic">Framework agnostic</h2>
+<p>The furo web components are regular web components. Some are based on lit and some are native components.
+They work anywhere you use HTML, with any framework or none at all. As a result of following the
+best practices for building web components, our components are <a href="https://fbp.furo.pro">FBP friendly</a>.</p>
+<h2 id="design-system-friendly">Design system friendly</h2>
+<p>Take a look at our integrateion of the <a href="https://ui5.furo.pro">SAP UI5</a> components.</p>
+<p>A set of input elements which will work with the furo data structure out of the box,
+are available for a wide set of types. They are extending the excellent <a href="https://sap.github.io/ui5-webcomponents/">UI5 Web Components</a>, with data binding.</p>
+
   </div>
   
   <div class="flex-even markdown-inner">
-    <h2 id="use-the-same-data-models-as-on-the-backend-servers">Use the same data models as on the backend servers</h2>
-<p>The specified data models
+    <h2 id="transparent-data-handlingdocsmodulesfuro-data"><a href="/docs/modules/furo-data/">Transparent data handling</a></h2>
+<p>The components from furo web, build the bridge from the ui implementation to the data sources by respecting the <a href="https://fidl.furo.pro">furo specs</a>.</p>
+<p>The transparent data agents are responsible for the communication with the APIs and are the adapters for the UI interaction.</p>
+<script src="/mermaid.min.js"></script>
+  <script>mermaid.initialize({
+  "flowchart": {
+    "useMaxWidth":true
+  },
+  "theme": "default"
+}
+)</script>
+<p class="mermaid">
+graph TD
+UI[UI elements]-- HTML ---agent[Data Agents]
+agent-- REST ---API
+</p>
+
   </div>
   
 </div>
@@ -1598,17 +1569,14 @@ Issue
 <div class="book-columns flex flex-wrap">
   
   <div class="flex-even markdown-inner">
-    <h2 id="framework-agnostic">Framework agnostic</h2>
-<p>The furo web components are regular web components. Some are based on lit and some are native components.
-They work anywhere you use HTML, with any framework or none at all. As a result of following the
-best practices for building web components, our components are <a href="https://fbp.furo.pro">FBP friendly</a>.
+    <h2 id="flow-based-programminghttpsfbpfuropro"><a href="https://fbp.furo.pro">Flow Based Programming</a></h2>
+<p>Furo-FBP is like programmable HTML, no deep javascript knowledge is needed to write an application.
+<img src="/viz.png" alt="viz">
+<em>The flowbased programming paradigm results in less complex and more flexible code.</em>
   </div>
   
   <div class="flex-even markdown-inner">
-    <h2 id="api-first">API first</h2>
-<p>The data components are optimized for the furo specs (FIDL). So consuming your APIs is completely transparent.
-It does not matter if you deliver your API as jsons from the file system, as mock data from jsblade, a grpc implementation
-with a transcoder like grpc-gateway, or any other implementation of the specs.
+    
   </div>
   
 </div>
@@ -1623,9 +1591,9 @@ with a transcoder like grpc-gateway, or any other implementation of the specs.
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/6ccadb35f9b35bcc2cadc2c623b4447c45c8d67e" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/9a7ae844c03210be8c74824333dc9d207ca1e97f" title='Last modified by veith | December 8, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 6, 2021</span>
+      <span>December 8, 2021</span>
     </a>
   </div>
 

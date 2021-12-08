@@ -973,10 +973,10 @@ element deep-link receives the query param {tsk: &amp;ldquo;5&amp;rdquo;} from t
     
     <item>
       <title>Flow repeat</title>
-      <link>http://web-components.furo.pro/docs/explainers/flow-repeat/</link>
+      <link>http://web-components.furo.pro/docs/guides/flow-repeat/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/explainers/flow-repeat/</guid>
+      <guid>http://web-components.furo.pro/docs/guides/flow-repeat/</guid>
       <description>How to use flow-repeat #  </description>
     </item>
     
@@ -993,10 +993,10 @@ Usage #  Default Markup without attribute #  1 2 3 4 5  &amp;lt;furo-form-layout
     
     <item>
       <title>furo-pages</title>
-      <link>http://web-components.furo.pro/docs/explainers/furo-pages/</link>
+      <link>http://web-components.furo.pro/docs/guides/furo-pages/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/explainers/furo-pages/</guid>
+      <guid>http://web-components.furo.pro/docs/guides/furo-pages/</guid>
       <description>How to use furo-pages #  </description>
     </item>
     
@@ -1029,16 +1029,6 @@ Building blocks #  You need the following building blocks:
       <guid>http://web-components.furo.pro/docs/guides/viz/</guid>
       <description>Connect to viz.furo.pro to visualize your running application.
 Usage #  1 2 3 4  viz() // starts the rendering at document.body  viz($0) // starts the rendering at the selected element (chrome)   </description>
-    </item>
-    
-    <item>
-      <title>Work with style vars</title>
-      <link>http://web-components.furo.pro/docs/guides/styling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/styling/</guid>
-      <description>Styling #  We differ theming and styling. Themes are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not &amp;lsquo;standard&amp;rsquo;. Styling is used to set style vars like &amp;ndash;primary. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you full control over the css.
- The color system supports 12 categories of color that can be applied to components, text, icons, and surfaces.</description>
     </item>
     
     <item>
