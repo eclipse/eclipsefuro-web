@@ -16,30 +16,12 @@
     </item>
     
     <item>
-      <title>Overview</title>
-      <link>http://web-components.furo.pro/docs/overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/overview/</guid>
-      <description>Overview #  </description>
-    </item>
-    
-    <item>
-      <title>Getting started</title>
-      <link>http://web-components.furo.pro/docs/guides/gettingstarted/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/gettingstarted/</guid>
-      <description>Getting Started #   define your specs init &amp;hellip;  </description>
-    </item>
-    
-    <item>
       <title>Deep links</title>
       <link>http://web-components.furo.pro/docs/guides/deeplink/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://web-components.furo.pro/docs/guides/deeplink/</guid>
-      <description></description>
+      <description>Deep linking #  </description>
     </item>
     
     <item>
@@ -981,33 +963,12 @@ element deep-link receives the query param {tsk: &amp;ldquo;5&amp;rdquo;} from t
     </item>
     
     <item>
-      <title>Forms</title>
-      <link>http://web-components.furo.pro/docs/guides/form-helpers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/form-helpers/</guid>
-      <description>Form Helpers #  How to structure forms #  furo-form-layouter provides a simple grid based layout to easily structure forms.
-The required variant is set using an attribute on furo-form-layouter. Supported values: two, four
-Usage #  Default Markup without attribute #  1 2 3 4 5  &amp;lt;furo-form-layouter&amp;gt; &amp;lt;furo-date-input hint=&amp;#34;Only possible in current year&amp;#34; max=&amp;#34;2019-12-31&amp;#34; min=&amp;#34;2019-01-01&amp;#34; label=&amp;#34;valid from&amp;#34;&amp;gt;&amp;lt;/furo-date-input&amp;gt; &amp;lt;furo-select-input label=&amp;#34;Brand&amp;#34; value=&amp;#34;Haro&amp;#34; list=&amp;#34;WeThePeople, Haro, United, Demolition&amp;#34;&amp;gt;&amp;lt;/furo-select-input&amp;gt; &amp;lt;p&amp;gt;Put your additional information here.</description>
-    </item>
-    
-    <item>
       <title>furo-pages</title>
       <link>http://web-components.furo.pro/docs/guides/furo-pages/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://web-components.furo.pro/docs/guides/furo-pages/</guid>
       <description>How to use furo-pages #  </description>
-    </item>
-    
-    <item>
-      <title>Init</title>
-      <link>http://web-components.furo.pro/docs/guides/init/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/init/</guid>
-      <description>Initializing process #  To be able to use the components from furo-data you have to set up the environment.
-Environment #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  // -- initialize application env, api and i18n  import {Init, i18n, Env, Iconset} from &amp;#34;@furo/framework/src/furo.js&amp;#34; // The services and types must be registered in the Env: import {Services, Types} from &amp;#34;furo-spec.</description>
     </item>
     
     <item>
@@ -1019,26 +980,6 @@ Environment #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  // -- initialize application
       <description>Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
 Building blocks #  You need the following building blocks:
    component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep link (perma link) #  Why perma links?</description>
-    </item>
-    
-    <item>
-      <title>viz connector</title>
-      <link>http://web-components.furo.pro/docs/guides/viz/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/viz/</guid>
-      <description>Connect to viz.furo.pro to visualize your running application.
-Usage #  1 2 3 4  viz() // starts the rendering at document.body  viz($0) // starts the rendering at the selected element (chrome)   </description>
-    </item>
-    
-    <item>
-      <title>Working without build</title>
-      <link>http://web-components.furo.pro/docs/guides/precompiled/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/precompiled/</guid>
-      <description>Working without build #  cdn:
-1 2 3  &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@VERSION/dist/{{.module}}.js&amp;#34;&amp;gt; &amp;lt;/script&amp;gt;   </description>
     </item>
     
     <item>
