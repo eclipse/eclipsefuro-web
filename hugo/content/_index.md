@@ -31,6 +31,7 @@ Take a look at our integrateion of the [SAP UI5](https://ui5.furo.pro) component
 A set of input elements which will work with the furo data structure out of the box, 
 are available for a wide set of types. They are extending the excellent [UI5 Web Components](https://sap.github.io/ui5-webcomponents/), with data binding.
 
+Read more here, if you want to [extend your own design system](/docs/guides/FNA/) with *furo data binding*. 
 
 <--->
 
