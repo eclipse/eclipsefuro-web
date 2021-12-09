@@ -6,7 +6,7 @@ bookCollapseSection: true
 ---
 
 # Getting started
-Please visit [this guide](https://furo.pro/docs/guides/ebook-tutorial/) for a detailed getting started guide and examples. 
+If you need a detailed getting started guide and examples,   visit [this guide](https://furo.pro/docs/guides/ebook-tutorial/). 
 
 
 ## Initializing process

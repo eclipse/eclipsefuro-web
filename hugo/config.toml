@@ -1,4 +1,4 @@
-baseURL = "http://web-components.furo.pro/"
+baseURL = "https://web-components.furo.pro/"
 languageCode = "en-us"
 title = "フロー Furo Web"
 theme = ["book"]

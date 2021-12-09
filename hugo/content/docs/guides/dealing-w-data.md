@@ -1,5 +1,5 @@
 ---
-weight: 200
+weight: 6
 title: "Dealing with data"
 
 ---

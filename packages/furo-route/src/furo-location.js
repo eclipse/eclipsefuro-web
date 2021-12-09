@@ -5,11 +5,16 @@ import { LitElement, css } from 'lit';
  * for page navigation in furo-pages or for deep link resolution.
  *
  * ```html
+ * <furo-location
+ *   @-location-changed="--pathChanged"></furo-location>
  *
- *  <furo-location @-location-changed="--locationChanged"></furo-location>
- *
- *       <furo-pages ƒ-inject-location="--locationChanged">...
- *
+ * <furo-pages
+ *   ƒ-inject-location="--pathChanged"
+ *   default="list">
+ *     <view-list name="list"></view-list>
+ *     <view-create name="create"></view-create>
+ *     <view-detail name="detail"></view-detail>
+ * </furo-pages>
  * ```
  *
  * @fires {Location object} location-path-changed -  Fired when Path portion of the location changed

@@ -1,7 +1,7 @@
 ---
 weight: 7
 title: "Routing"
- 
+bookCollapseSection: true 
 ---
 
 # Routing
@@ -25,16 +25,18 @@ todo-app
 ```
 
 
-### Building blocks
+## Building blocks
 You need the following building blocks to implement the example:
 
-| component                 | description                       |
-|:--------------------------|:----------------------------------|
-| @furo/route/src/furo-location | observes location and path
-| @furo/route/src/furo-pages    | can activate views based on the current location
+| component                                                                | description                       |
+|:-------------------------------------------------------------------------|:----------------------------------|
+| [@furo/route/src/furo-location](/docs/modules/furo-route/furo-location/) | observes location and path
+| [@furo/route/src/furo-pages](/docs/modules/furo-route/furo-pages/)       | can activate views based on the current location
 
 
-### Implementation
+
+## Implementation
+[Furo FBP](fbp.furo.pro) syntax is used in this example.
 
 ```html
 <furo-location
@@ -49,14 +51,14 @@ You need the following building blocks to implement the example:
 </furo-pages>
 ```
 
-#### Summary
+## Summary
 Let's have a deeper look on the example from above.
 
 - `furo-location` will emit a `location-changed` event, as soon something in the url of the page changes.
 - The emitted location object will be passed to the `inject-location` method of the `furo-pages` component, which will then activate
   the component which have name attribute set to "detail".
 
-#### flowbased auto wires triggered from `furo-pages`
+### flowbased auto wires triggered from `furo-pages`
 `furo-pages` provides a set of auto wires, which are automatically triggered in the child elements if
 they support FBP. Each wire will forward a `locationObject`
 
@@ -66,7 +68,7 @@ they support FBP. Each wire will forward a `locationObject`
 -  `--pageHashChanged` : Is triggered when the page hash changes.
 -  `--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.
 
-#### locationObject
+### locationObject
 ```json
 {
     "host": "localhost:8480",
@@ -79,26 +81,4 @@ they support FBP. Each wire will forward a `locationObject`
     "hashstring": "",
     "querystring": "tsk=999"
 }
-```
-*Location Object*
-
-
-
-
-
-### 
-
-
-
-
-
-```
-todo-app
-├── View List
-├── View Create
-└── View Details
-    ├── Tab Details A
-    ├── Tab Details B
-    └── Tab Details C
-
 ```
