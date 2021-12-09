@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://web-components.furo.pro/docs/guides/FNA/</loc>
-    <lastmod>2021-12-08T14:04:42+01:00</lastmod>
+    <loc>https://web-components.furo.pro/docs/guides/dealing-w-data/</loc>
+    <lastmod>2021-12-09T11:15:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://web-components.furo.pro/docs/guides/route/</loc>
+    <lastmod>2021-12-09T11:15:28+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://web-components.furo.pro/docs/guides/</loc>
+    <lastmod>2021-12-08T14:04:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://web-components.furo.pro/docs/guides/FNA/</loc>
     <lastmod>2021-12-08T14:04:42+01:00</lastmod>
   </url>
   
@@ -393,13 +403,7 @@
   </url>
   
   <url>
-    <loc>https://web-components.furo.pro/docs/guides/dealing-w-data/</loc>
-    <lastmod>2021-12-09T11:15:28+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://web-components.furo.pro/docs/guides/route/</loc>
-    <lastmod>2021-12-09T11:15:28+01:00</lastmod>
+    <loc>https://web-components.furo.pro/docs/guides/app-flow/</loc>
   </url>
   
   <url>

@@ -5,13 +5,15 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="vertical scroll">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="furo-vertical-scroller" />
-<meta property="og:description" content="vertical scroll" />
+<meta name="description" content="App flow #  For this kind of routing you need the following building blocks:
+   component description     @furo/route/src/furo-app-flow-router app flow manager   @furo/route/src/furo-app-flow emits app flow events   @furo/config/src/furo-config-loader can load config files   flowConfig.json flow config definition file    1 2 3 4 5 6 7 8 9  &lt;!-- main-app --&gt; &lt;furo-config-loader src=&#34;custom/flowConfig.json&#34; section=&#34;flow&#34; @-config-loaded=&#34;--flowConfigLoaded&#34;&gt;&lt;/furo-config-loader&gt; &lt;furo-app-flow-router ƒ-.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="App flow #  For this kind of routing you need the following building blocks:
+   component description     @furo/route/src/furo-app-flow-router app flow manager   @furo/route/src/furo-app-flow emits app flow events   @furo/config/src/furo-config-loader can load config files   flowConfig.json flow config definition file    1 2 3 4 5 6 7 8 9  &lt;!-- main-app --&gt; &lt;furo-config-loader src=&#34;custom/flowConfig.json&#34; section=&#34;flow&#34; @-config-loaded=&#34;--flowConfigLoaded&#34;&gt;&lt;/furo-config-loader&gt; &lt;furo-app-flow-router ƒ-." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/" />
-<meta property="article:modified_time" content="2021-12-06T12:17:08+01:00" />
-<title>furo-vertical-scroller | フロー Furo Web</title>
+<meta property="og:url" content="https://web-components.furo.pro/docs/guides/app-flow/" />
+
+<title>App Flow | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
@@ -71,7 +73,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-64d0ac0e8a385a6091d238dd382da7cf" class="toggle"  />
+    <input type="checkbox" id="section-64d0ac0e8a385a6091d238dd382da7cf" class="toggle" checked />
     <label for="section-64d0ac0e8a385a6091d238dd382da7cf" class="flex justify-between">
       <a href="https://web-components.furo.pro/docs/guides/" class="">Guides</a>
       <span>▾</span>
@@ -127,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://web-components.furo.pro/docs/guides/app-flow/" class="">App Flow</a>
+    <a href="https://web-components.furo.pro/docs/guides/app-flow/" class=" active">App Flow</a>
   
 
         </li>
@@ -145,7 +147,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c131070b1e715f28624af5fdfd93165a" class="toggle" checked />
+    <input type="checkbox" id="section-c131070b1e715f28624af5fdfd93165a" class="toggle"  />
     <label for="section-c131070b1e715f28624af5fdfd93165a" class="flex justify-between">
       <a href="https://web-components.furo.pro/docs/modules/" class="">Packages</a>
       <span>▾</span>
@@ -631,7 +633,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-71921f8b00ba9f1d7ea65557f9a4892b" class="toggle" checked />
+    <input type="checkbox" id="section-71921f8b00ba9f1d7ea65557f9a4892b" class="toggle"  />
     <label for="section-71921f8b00ba9f1d7ea65557f9a4892b" class="flex justify-between">
       <a href="https://web-components.furo.pro/docs/modules/furo-layout/" class="">@furo/layout</a>
       <span>▾</span>
@@ -752,7 +754,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/" class=" active">furo-vertical-scroller</a>
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/" class="">furo-vertical-scroller</a>
   
 
         </li>
@@ -1366,7 +1368,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>furo-vertical-scroller</strong>
+  <strong>App Flow</strong>
 
   <label for="toc-control">
     
@@ -1381,14 +1383,11 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#attributes-and-properties">Attributes and Properties</a></li>
-    <li><a href="#methods">Methods</a></li>
-    <li><a href="#slots">Slots</a>
+    <li>
       <ul>
-        <li><a href="#default"><strong>default</strong></a></li>
+        <li><a href="#app-flow">App flow</a></li>
       </ul>
     </li>
-    <li><a href="#styling">Styling</a></li>
   </ul>
 </nav>
 
@@ -1400,72 +1399,114 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="furo-vertical-scroller">
-  furo-vertical-scroller
-  <a class="anchor" href="#furo-vertical-scroller">#</a>
-</h1>
-<p><strong>@furo/furo-layout</strong> <small>v2.0.0-rc.7</small>
-<br><code>import '@furo/furo-layout/src/furo-vertical-scroller.js';</code><small>
-<br>exports <code>&lt;furo-vertical-scroller&gt;</code> custom-element-definition
-<br>superclass <em>LitElement</em>
-<br> mixes <em>FBP</em></small>
-<br><small>summary <em>vertical scroll</em></small></p>
-<p><code>furo-vertical-scroller</code></p>
+  <article class="markdown"><h3 id="app-flow">
+  App flow
+  <a class="anchor" href="#app-flow">#</a>
+</h3>
+<p>For this kind of routing you need the following building blocks:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">component</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">@furo/route/src/furo-app-flow-router</td>
+<td style="text-align:left">app flow manager</td>
+</tr>
+<tr>
+<td style="text-align:left">@furo/route/src/furo-app-flow</td>
+<td style="text-align:left">emits app flow events</td>
+</tr>
+<tr>
+<td style="text-align:left">@furo/config/src/furo-config-loader</td>
+<td style="text-align:left">can load config files</td>
+</tr>
+<tr>
+<td style="text-align:left">flowConfig.json</td>
+<td style="text-align:left">flow config definition file</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-vertical-scroller</span>&gt;
-  &lt;<span style="color:#000080">your-content</span>&gt;&lt;/<span style="color:#000080">your-content</span>&gt;
-&lt;/<span style="color:#000080">furo-vertical-scroller</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- main-app --&gt;</span>
+&lt;<span style="color:#000080">furo-config-loader</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;custom/flowConfig.json&#34;</span> <span style="color:#008080">section</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;flow&#34;</span>  
+                    <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-config-loaded</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowConfigLoaded&#34;</span>&gt;&lt;/<span style="color:#000080">furo-config-loader</span>&gt; 
+&lt;<span style="color:#000080">furo-app-flow-router</span> <span style="color:#008080">ƒ-</span><span style="color:#a61717;background-color:#e3d2d2">.</span><span style="color:#008080">config</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowConfigLoaded&#34;</span> 
+                      <span style="color:#008080">ƒ-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowEvent&#34;</span>&gt;&lt;/<span style="color:#000080">furo-app-flow-router</span>&gt;
+
+<span style="color:#998;font-style:italic">&lt;!-- somewhere inside e.g. view, page --&gt;</span>
+&lt;<span style="color:#000080">furo-app-flow</span> <span style="color:#008080">ƒ-emit</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--actionWire&#34;</span> <span style="color:#008080">event</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;actionSaved&#34;</span>&gt;&lt;/<span style="color:#000080">furo-app-flow</span>&gt;
+
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="attributes-and-properties">
-  Attributes and Properties
-  <a class="anchor" href="#attributes-and-properties">#</a>
-</h2>
-<h2 id="methods">
-  Methods
-  <a class="anchor" href="#methods">#</a>
-</h2>
-<h2 id="slots">
-  Slots
-  <a class="anchor" href="#slots">#</a>
-</h2>
-<h3 id="default">
-  <strong>default</strong>
-  <a class="anchor" href="#default">#</a>
-</h3>
-<p>Type: <code>HTMLElement [0..n]</code></p>
-<p>default slot to add content.
-<br><br></p>
-<h2 id="styling">
-  Styling
-  <a class="anchor" href="#styling">#</a>
-</h2>
-<p>The following custom properties  available for styling:</p>
-<table>
-<thead>
-<tr>
-<th>Custom property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--surface</code></td>
-<td>Background color scrollbar <hr> <small>default: <code>white</code></small> <small>fallback: <code>N/A</code></small></td>
-</tr>
-<tr>
-<td><code>--on-surface</code></td>
-<td>Background color of the draggable scrolling element <hr> <small>default: <code>black</code></small> <small>fallback: <code>N/A</code></small></td>
-</tr>
-</tbody>
-</table>
-</article>
+</div><hr>
+<h4 id="flowconfig-configuration">
+  flowConfig configuration
+  <a class="anchor" href="#flowconfig-configuration">#</a>
+</h4>
+<pre><code>/**
+ *Configuration Array
+ *
+ * | current   | flow-event-name      | target      | [mapping]          | noHistory          |
+ * |:----------|:---------------------|:------------|:-------------------|:-------------------|
+ * | view-main | form-complete        | detail-view | element =&gt; aufgabe | flag               |
+ * | *         | menu-settings-click  | settings    |                    |                    |
+ *
+ *
+ *
+ *  [['view-main', 'button-tap', 'detail-view',  'task =&gt; id]]
+ *  if current is set to view-main and the app-flow-event with name 'button-tap' 
+ *  is triggered, current is set to detail-view and data.task from app-flow is mapped to data.id.
+ *
+ *  Special configurations:
+ *
+ *  if target is set to HISTORY-BACK the app-flow-event will 
+ *  allways set the current to the lastCurrent
+ *
+ *  [['view-detail', 'button-tap', 'HISTORY-BACK',  'task =&gt; id]] will route you back to view-main
+ *
+ *  You can set a wildcard for &quot;current&quot;. If you check the example: menu-settings-click can be triggered
+ *  from any current. If there is a &quot;current&quot; with menu-settings-click configured and you are 
+ *  there, the wildcard is not used.
+ *
+ *  Set noHistory if there &quot;current&quot; view should not be listed under _lastCurrents. 
+ *  This is used to exclude pages from the back navigation.
+ */
+</code></pre><hr>
+<h4 id="example-file">
+  Example file
+  <a class="anchor" href="#example-file">#</a>
+</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+    [<span style="color:#d14">&#34;*&#34;</span>, <span style="color:#d14">&#34;unauthorized&#34;</span>, <span style="color:#d14">&#34;auth&#34;</span>],
+    [<span style="color:#d14">&#34;overview&#34;</span>, <span style="color:#d14">&#34;actionSaved&#34;</span>, <span style="color:#d14">&#34;detailview&#34;</span>]
+]
+</code></pre></td></tr></table>
+</div>
+</div></article>
  
       
 
@@ -1474,12 +1515,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/282c1cbf5e2dc689912dc90253093459f1058552" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
-      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 6, 2021</span>
-    </a>
-  </div>
 
 
 
@@ -1505,14 +1540,11 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#attributes-and-properties">Attributes and Properties</a></li>
-    <li><a href="#methods">Methods</a></li>
-    <li><a href="#slots">Slots</a>
+    <li>
       <ul>
-        <li><a href="#default"><strong>default</strong></a></li>
+        <li><a href="#app-flow">App flow</a></li>
       </ul>
     </li>
-    <li><a href="#styling">Styling</a></li>
   </ul>
 </nav>
 

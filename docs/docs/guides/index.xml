@@ -7,18 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://web-components.furo.pro/docs/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Extending a UI lib</title>
-      <link>https://web-components.furo.pro/docs/guides/FNA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://web-components.furo.pro/docs/guides/FNA/</guid>
-      <description>How to make your own UI components bindable #  There are several ways to make your component bindable.
-Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
-This can be quite complex, but will give you the greatest flexibility.
-Take a look at the furo-ui5-button, which is a very small example to handle the binding by yourself.</description>
-    </item>
-    
-    <item>
       <title>Dealing with data</title>
       <link>https://web-components.furo.pro/docs/guides/dealing-w-data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -33,9 +21,31 @@ Take a look at the furo-ui5-button, which is a very small example to handle the 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/guides/route/</guid>
-      <description>Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
-Building blocks #  You need the following building blocks:
-   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.</description>
+      <description>Routing #  For applications which just have one view, routing is not needed. As soon you need multiple views, routing is needed.
+Even in a small todo app you will quickly have more than one view (list, create, details,&amp;hellip;). Having the possibility to display only one of them at a time, is a nice feature.
+ Routing is just the procedure to display a view based on some conditions. The most known condition for routing, is the path URL of your app.</description>
+    </item>
+    
+    <item>
+      <title>Extending a UI lib</title>
+      <link>https://web-components.furo.pro/docs/guides/FNA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/FNA/</guid>
+      <description>How to make your own UI components bindable #  There are several ways to make your component bindable.
+Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
+This can be quite complex, but will give you the greatest flexibility.
+Take a look at the furo-ui5-button, which is a very small example to handle the binding by yourself.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://web-components.furo.pro/docs/guides/app-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/app-flow/</guid>
+      <description>App flow #  For this kind of routing you need the following building blocks:
+   component description     @furo/route/src/furo-app-flow-router app flow manager   @furo/route/src/furo-app-flow emits app flow events   @furo/config/src/furo-config-loader can load config files   flowConfig.json flow config definition file    1 2 3 4 5 6 7 8 9  &amp;lt;!-- main-app --&amp;gt; &amp;lt;furo-config-loader src=&amp;#34;custom/flowConfig.json&amp;#34; section=&amp;#34;flow&amp;#34; @-config-loaded=&amp;#34;--flowConfigLoaded&amp;#34;&amp;gt;&amp;lt;/furo-config-loader&amp;gt; &amp;lt;furo-app-flow-router ƒ-.</description>
     </item>
     
   </channel>

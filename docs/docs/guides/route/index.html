@@ -5,13 +5,13 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
-Building blocks #  You need the following building blocks:
-   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.">
+<meta name="description" content="Routing #  For applications which just have one view, routing is not needed. As soon you need multiple views, routing is needed.
+Even in a small todo app you will quickly have more than one view (list, create, details,&hellip;). Having the possibility to display only one of them at a time, is a nice feature.
+ Routing is just the procedure to display a view based on some conditions. The most known condition for routing, is the path URL of your app.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Routing" />
-<meta property="og:description" content="Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
-Building blocks #  You need the following building blocks:
-   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type." />
+<meta property="og:description" content="Routing #  For applications which just have one view, routing is not needed. As soon you need multiple views, routing is needed.
+Even in a small todo app you will quickly have more than one view (list, create, details,&hellip;). Having the possibility to display only one of them at a time, is a nice feature.
+ Routing is just the procedure to display a view based on some conditions. The most known condition for routing, is the path URL of your app." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/guides/route/" />
 <meta property="article:modified_time" content="2021-12-09T11:15:28+01:00" />
@@ -19,7 +19,7 @@ Building blocks #  You need the following building blocks:
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.6d14d2ba3bb3c1b4b1fbe223c08ac612b302cc49fbb0c5f678b765aaa36287a3.js" integrity="sha256-bRTSujuzwbSx&#43;&#43;IjwIrGErMCzEn7sMX2eLdlqqNih6M="></script>
+<script defer src="/en.search.min.2a79f7885f79fff00c68cb327a4152ff710382f79947950cbf3cf450edccad86.js" integrity="sha256-Knn3iF95//AMaMsyekFS/3EDgveZR5UMvzz0UO3MrYY="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -92,19 +92,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://web-components.furo.pro/docs/guides/FNA/" class="">Extending a UI lib</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="https://web-components.furo.pro/docs/guides/dealing-w-data/" class="">Dealing with data</a>
   
 
@@ -119,6 +106,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/guides/route/" class=" active">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/FNA/" class="">Extending a UI lib</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/app-flow/" class="">App Flow</a>
   
 
         </li>
@@ -1372,16 +1385,11 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#trivial-example">Trivial example</a>
       <ul>
         <li><a href="#building-blocks">Building blocks</a></li>
-      </ul>
-    </li>
-    <li><a href="#deep-linking">Deep Linking</a>
-      <ul>
-        <li><a href="#deep-link-perma-link">Deep link (perma link)</a></li>
-        <li><a href="#app-flow">App flow</a></li>
-        <li><a href="#subrouting">Subrouting</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#heading"></a></li>
       </ul>
     </li>
   </ul>
@@ -1395,20 +1403,33 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="routing-">
-  Routing ??
-  <a class="anchor" href="#routing-">#</a>
+  <article class="markdown"><h1 id="routing">
+  Routing
+  <a class="anchor" href="#routing">#</a>
 </h1>
-<h1 id="route">
-  Route
-  <a class="anchor" href="#route">#</a>
-</h1>
-<p><code>FURO</code> supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.</p>
-<h3 id="building-blocks">
+<p>For applications which just have one view, routing is not needed. As soon you need multiple views, routing is needed.</p>
+<p>Even in a small <em>todo app</em> you will quickly have more than one view  (list, create, details,&hellip;). Having the possibility
+to display only one of them at a time, is a nice feature.</p>
+<blockquote>
+<p>Routing is just the procedure to display a view based on some conditions.
+The most known condition for routing, is the path URL of your app.
+<em>Another well known condition could also be a tab bar, this variant is mostly used
+to display different sub parts of a view/page.</em></p>
+</blockquote>
+<h2 id="trivial-example">
+  Trivial example
+  <a class="anchor" href="#trivial-example">#</a>
+</h2>
+<p>Lets assume the following structure for a simple application:</p>
+<pre><code>todo-app
+├── View List         //app.com/                     &lt;view-list&gt;
+├── View Create       //app.com/create               &lt;view-create&gt;
+└── View Details      //app.com/detail?tsk=999       &lt;view-detail&gt;     
+</code></pre><h3 id="building-blocks">
   Building blocks
   <a class="anchor" href="#building-blocks">#</a>
 </h3>
-<p>You need the following building blocks:</p>
+<p>You need the following building blocks to implement the example:</p>
 <table>
 <thead>
 <tr>
@@ -1422,61 +1443,15 @@ https://github.com/alex-shpak/hugo-book
 <td style="text-align:left">observes location and path</td>
 </tr>
 <tr>
-<td style="text-align:left">@furo/data/src/furo-deep-link</td>
-<td style="text-align:left">builds static HATEOAS information based on query params</td>
-</tr>
-<tr>
 <td style="text-align:left">@furo/route/src/furo-pages</td>
 <td style="text-align:left">can activate views based on the current location</td>
 </tr>
 </tbody>
 </table>
-<h2 id="deep-linking">
-  Deep Linking
-  <a class="anchor" href="#deep-linking">#</a>
-</h2>
-<p><code>Deep-link</code> builds static HATEOAS information based on query params and service-type.</p>
-<p><code>deep-link</code> generally works with <code>furo-lcation</code> and <code>furo-page</code> together.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span> <span style="color:#a61717;background-color:#e3d2d2">..</span>&gt;&lt;/<span style="color:#000080">..</span>&gt;
-&lt;<span style="color:#000080">furo-page</span> <span style="color:#a61717;background-color:#e3d2d2">..</span>&gt;&lt;/<span style="color:#000080">..</span>&gt;
-&lt;<span style="color:#000080">furo-deep-link</span> <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageQueryChanged(*.query)&#34;</span> 
-           <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span> 
-           <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>assume we visit a link xxx.xx/display_task?tsk=5</p>
-<p>element <code>deep-link</code> receives the query param {tsk: &ldquo;5&rdquo;} from the wire &ndash;pageQueryChanged(*.query), which is sent by <code>furo-page</code>.</p>
-<p>after matching the service type the hts Link will be generated and a event hts-out with HATEOAS information will be sent out.
-This HATEOAS information can be used by <code>furo-entity-agent</code> or <code>furo-collection-agent</code> later.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- e.g. generated hts out link --&gt;</span>
-{rel: &#34;delete&#34;, href: &#34;/api/v1/tasks/5&#34;, method: &#34;DELETE&#34;, type: task.Task}
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="deep-link-perma-link">
-  Deep link (perma link)
-  <a class="anchor" href="#deep-link-perma-link">#</a>
+<h3 id="implementation">
+  Implementation
+  <a class="anchor" href="#implementation">#</a>
 </h3>
-<p>Why perma links?</p>
-<ul>
-<li>Fully stateless views</li>
-<li>Less complexity</li>
-<li>No refresh handling</li>
-</ul>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1491,130 +1466,20 @@ This HATEOAS information can be used by <code>furo-entity-agent</code> or <code>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-deep-link</span> <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageQueryChanged(*.query)&#34;</span> 
-           <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task&#34;</span> 
-           <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span>
+  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span>&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
 
-<span style="color:#998;font-style:italic">&lt;!-- e.g. --&gt;</span>
-&lt;<span style="color:#000080">furo-entity-agent</span> <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task&#34;</span> 
-              <span style="color:#008080">ƒ-bind-request-object</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span>
-              <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>
-              <span style="color:#008080">ƒ-load</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--actionWIRE&#34;</span>
-              <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--responseWIRE&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
+&lt;<span style="color:#000080">furo-pages</span> 
+  <span style="color:#008080">ƒ-inject-location</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span> 
+  <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;list&#34;</span>&gt;
+    &lt;<span style="color:#000080">view-list</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;list&#34;</span>&gt;&lt;/<span style="color:#000080">view-list</span>&gt;
+    &lt;<span style="color:#000080">view-create</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;create&#34;</span>&gt;&lt;/<span style="color:#000080">view-create</span>&gt;
+    &lt;<span style="color:#000080">view-detail</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;detail&#34;</span>&gt;&lt;/<span style="color:#000080">view-detail</span>&gt;
+&lt;/<span style="color:#000080">furo-pages</span>&gt;
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>Note:</strong> Each page MUST be accessible with a perma link.</p>
-<h3 id="app-flow">
-  App flow
-  <a class="anchor" href="#app-flow">#</a>
-</h3>
-<p>For this kind of routing you need the following building blocks:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">component</th>
-<th style="text-align:left">description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">@furo/route/src/furo-app-flow-router</td>
-<td style="text-align:left">app flow manager</td>
-</tr>
-<tr>
-<td style="text-align:left">@furo/route/src/furo-app-flow</td>
-<td style="text-align:left">emits app flow events</td>
-</tr>
-<tr>
-<td style="text-align:left">@furo/config/src/furo-config-loader</td>
-<td style="text-align:left">can load config files</td>
-</tr>
-<tr>
-<td style="text-align:left">flowConfig.json</td>
-<td style="text-align:left">flow config definition file</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- main-app --&gt;</span>
-&lt;<span style="color:#000080">furo-config-loader</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;custom/flowConfig.json&#34;</span> <span style="color:#008080">section</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;flow&#34;</span>  
-                    <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-config-loaded</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowConfigLoaded&#34;</span>&gt;&lt;/<span style="color:#000080">furo-config-loader</span>&gt; 
-&lt;<span style="color:#000080">furo-app-flow-router</span> <span style="color:#008080">ƒ-</span><span style="color:#a61717;background-color:#e3d2d2">.</span><span style="color:#008080">config</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowConfigLoaded&#34;</span> 
-                      <span style="color:#008080">ƒ-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowEvent&#34;</span>&gt;&lt;/<span style="color:#000080">furo-app-flow-router</span>&gt;
-
-<span style="color:#998;font-style:italic">&lt;!-- somewhere inside e.g. view, page --&gt;</span>
-&lt;<span style="color:#000080">furo-app-flow</span> <span style="color:#008080">ƒ-emit</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--actionWire&#34;</span> <span style="color:#008080">event</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;actionSaved&#34;</span>&gt;&lt;/<span style="color:#000080">furo-app-flow</span>&gt;
-
-</code></pre></td></tr></table>
-</div>
-</div><hr>
-<h4 id="flowconfig-configuration">
-  flowConfig configuration
-  <a class="anchor" href="#flowconfig-configuration">#</a>
-</h4>
-<pre><code>/**
- *Configuration Array
- *
- * | current   | flow-event-name      | target      | [mapping]          | noHistory          |
- * |:----------|:---------------------|:------------|:-------------------|:-------------------|
- * | view-main | form-complete        | detail-view | element =&gt; aufgabe | flag               |
- * | *         | menu-settings-click  | settings    |                    |                    |
- *
- *
- *
- *  [['view-main', 'button-tap', 'detail-view',  'task =&gt; id]]
- *  if current is set to view-main and the app-flow-event with name 'button-tap' 
- *  is triggered, current is set to detail-view and data.task from app-flow is mapped to data.id.
- *
- *  Special configurations:
- *
- *  if target is set to HISTORY-BACK the app-flow-event will 
- *  allways set the current to the lastCurrent
- *
- *  [['view-detail', 'button-tap', 'HISTORY-BACK',  'task =&gt; id]] will route you back to view-main
- *
- *  You can set a wildcard for &quot;current&quot;. If you check the example: menu-settings-click can be triggered
- *  from any current. If there is a &quot;current&quot; with menu-settings-click configured and you are 
- *  there, the wildcard is not used.
- *
- *  Set noHistory if there &quot;current&quot; view should not be listed under _lastCurrents. 
- *  This is used to exclude pages from the back navigation.
- */
-</code></pre><hr>
-<h4 id="example-file">
-  Example file
-  <a class="anchor" href="#example-file">#</a>
-</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    [<span style="color:#d14">&#34;*&#34;</span>, <span style="color:#d14">&#34;unauthorized&#34;</span>, <span style="color:#d14">&#34;auth&#34;</span>],
-    [<span style="color:#d14">&#34;overview&#34;</span>, <span style="color:#d14">&#34;actionSaved&#34;</span>, <span style="color:#d14">&#34;detailview&#34;</span>]
-]
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="subrouting">
-  Subrouting
-  <a class="anchor" href="#subrouting">#</a>
-</h3>
+</div><p>Let&rsquo;s take a deeper look on this example.</p>
+<p><code>furo-location</code> will emit a location-changed event, as soon something in the url of the page changes.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1628,46 +1493,34 @@ This HATEOAS information can be used by <code>furo-entity-agent</code> or <code>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-horizontal-flex</span>&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;/routing/one&#34;</span> <span style="color:#008080">title</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Go to page one&#34;</span>&gt;
-        &lt;<span style="color:#000080">li</span>&gt;&lt;<span style="color:#000080">span</span>&gt;Page 1&lt;/<span style="color:#000080">span</span>&gt;&lt;/<span style="color:#000080">li</span>&gt;
-    &lt;/<span style="color:#000080">a</span>&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;/routing/two&#34;</span> <span style="color:#008080">title</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Go to page two&#34;</span>&gt;
-        &lt;<span style="color:#000080">li</span>&gt;&lt;<span style="color:#000080">span</span>&gt;Page 2&lt;/<span style="color:#000080">span</span>&gt;&lt;/<span style="color:#000080">li</span>&gt;
-    &lt;/<span style="color:#000080">a</span>&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;/routing/three&#34;</span> <span style="color:#008080">title</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Go to page three&#34;</span>&gt;
-        &lt;<span style="color:#000080">li</span>&gt;&lt;<span style="color:#000080">span</span>&gt;Page 3&lt;/<span style="color:#000080">span</span>&gt;&lt;/<span style="color:#000080">li</span>&gt;
-    &lt;/<span style="color:#000080">a</span>&gt;
-&lt;/<span style="color:#000080">furo-horizontal-flex</span>&gt;
-
-<span style="color:#998;font-style:italic">&lt;!-- location with url regex --&gt;</span>
-&lt;<span style="color:#000080">furo-location</span> <span style="color:#008080">url-space-regex</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;^/routing&#34;</span> 
-               <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span>&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
-            
-<span style="color:#998;font-style:italic">&lt;!-- Put your views here --&gt;</span>
-&lt;<span style="color:#000080">furo-pages</span> <span style="color:#008080">ƒ-inject-location</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span> <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;one&#34;</span>&gt;
-    &lt;<span style="color:#000080">view-one</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;one&#34;</span>&gt;&lt;/<span style="color:#000080">view-one</span>&gt;
-    &lt;<span style="color:#000080">view-two</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;two&#34;</span>&gt;&lt;/<span style="color:#000080">view-two</span>&gt;
-    &lt;<span style="color:#000080">view-three</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;three&#34;</span>&gt;&lt;/<span style="color:#000080">view-three</span>&gt;
-&lt;/<span style="color:#000080">furo-pages</span>&gt;
-
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#000080">&#34;host&#34;</span>: <span style="color:#d14">&#34;localhost:8480&#34;</span>,
+    <span style="color:#000080">&#34;query&#34;</span>: {},
+    <span style="color:#000080">&#34;hash&#34;</span>: {},
+    <span style="color:#000080">&#34;path&#34;</span>: <span style="color:#d14">&#34;/&#34;</span>,
+    <span style="color:#000080">&#34;pathSegments&#34;</span>: [
+        <span style="color:#d14">&#34;&#34;</span>
+    ],
+    <span style="color:#000080">&#34;hashstring&#34;</span>: <span style="color:#d14">&#34;&#34;</span>,
+    <span style="color:#000080">&#34;querystring&#34;</span>: <span style="color:#d14">&#34;&#34;</span>
+}
 </code></pre></td></tr></table>
 </div>
-</div></article>
+</div><h3 id="heading">
+  
+  <a class="anchor" href="#heading">#</a>
+</h3>
+<pre><code>todo-app
+├── View List
+├── View Create
+└── Details
+    ├── View Details Main Info
+    ├── View Details B
+    └── View Details C
+
+</code></pre></article>
  
       
 
@@ -1707,16 +1560,11 @@ This HATEOAS information can be used by <code>furo-entity-agent</code> or <code>
       
   <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#trivial-example">Trivial example</a>
       <ul>
         <li><a href="#building-blocks">Building blocks</a></li>
-      </ul>
-    </li>
-    <li><a href="#deep-linking">Deep Linking</a>
-      <ul>
-        <li><a href="#deep-link-perma-link">Deep link (perma link)</a></li>
-        <li><a href="#app-flow">App flow</a></li>
-        <li><a href="#subrouting">Subrouting</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#heading"></a></li>
       </ul>
     </li>
   </ul>
