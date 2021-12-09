@@ -7,19 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
 Building blocks #  You need the following building blocks:
-   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep link (perma link) #  Why perma links?">
+   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Routing" />
 <meta property="og:description" content="Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
 Building blocks #  You need the following building blocks:
-   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep link (perma link) #  Why perma links?" />
+   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://web-components.furo.pro/docs/guides/route/" />
-<meta property="article:modified_time" content="2021-12-06T10:40:34+01:00" />
+<meta property="article:modified_time" content="2021-12-09T11:15:28+01:00" />
 <title>Routing | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.7f68be1cce0de28ea27c88f4d7ef9565a7fccffd544f89b507abc4cb9406ed60.js" integrity="sha256-f2i&#43;HM4N4o6ifIj01&#43;&#43;VZaf8z/1UT4m1B6vEy5QG7WA="></script>
+<script defer src="/en.search.min.6d14d2ba3bb3c1b4b1fbe223c08ac612b302cc49fbb0c5f678b765aaa36287a3.js" integrity="sha256-bRTSujuzwbSx&#43;&#43;IjwIrGErMCzEn7sMX2eLdlqqNih6M="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -105,46 +105,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="http://web-components.furo.pro/docs/guides/deeplink/" class="">Deep links</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="http://web-components.furo.pro/docs/guides/dealing-w-data/" class="">Dealing with data</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="http://web-components.furo.pro/docs/guides/flow-repeat/" class="">Flow repeat</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="http://web-components.furo.pro/docs/guides/furo-pages/" class="">furo-pages</a>
   
 
         </li>
@@ -1414,6 +1375,10 @@ https://github.com/alex-shpak/hugo-book
     <li>
       <ul>
         <li><a href="#building-blocks">Building blocks</a></li>
+      </ul>
+    </li>
+    <li><a href="#deep-linking">Deep Linking</a>
+      <ul>
         <li><a href="#deep-link-perma-link">Deep link (perma link)</a></li>
         <li><a href="#app-flow">App flow</a></li>
         <li><a href="#subrouting">Subrouting</a></li>
@@ -1466,7 +1431,43 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
-<h3 id="deep-link-perma-link">
+<h2 id="deep-linking">
+  Deep Linking
+  <a class="anchor" href="#deep-linking">#</a>
+</h2>
+<p><code>Deep-link</code> builds static HATEOAS information based on query params and service-type.</p>
+<p><code>deep-link</code> generally works with <code>furo-lcation</code> and <code>furo-page</code> together.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span> <span style="color:#a61717;background-color:#e3d2d2">..</span>&gt;&lt;/<span style="color:#000080">..</span>&gt;
+&lt;<span style="color:#000080">furo-page</span> <span style="color:#a61717;background-color:#e3d2d2">..</span>&gt;&lt;/<span style="color:#000080">..</span>&gt;
+&lt;<span style="color:#000080">furo-deep-link</span> <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageQueryChanged(*.query)&#34;</span> 
+           <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span> 
+           <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>assume we visit a link xxx.xx/display_task?tsk=5</p>
+<p>element <code>deep-link</code> receives the query param {tsk: &ldquo;5&rdquo;} from the wire &ndash;pageQueryChanged(*.query), which is sent by <code>furo-page</code>.</p>
+<p>after matching the service type the hts Link will be generated and a event hts-out with HATEOAS information will be sent out.
+This HATEOAS information can be used by <code>furo-entity-agent</code> or <code>furo-collection-agent</code> later.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- e.g. generated hts out link --&gt;</span>
+{rel: &#34;delete&#34;, href: &#34;/api/v1/tasks/5&#34;, method: &#34;DELETE&#34;, type: task.Task}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="deep-link-perma-link">
   Deep link (perma link)
   <a class="anchor" href="#deep-link-perma-link">#</a>
 </h3>
@@ -1676,9 +1677,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/6ccadb35f9b35bcc2cadc2c623b4447c45c8d67e" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/63203a01d6a24295308ed8a63a2d3e64c0d16cab" title='Last modified by veith | December 9, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 6, 2021</span>
+      <span>December 9, 2021</span>
     </a>
   </div>
 
@@ -1709,6 +1710,10 @@ https://github.com/alex-shpak/hugo-book
     <li>
       <ul>
         <li><a href="#building-blocks">Building blocks</a></li>
+      </ul>
+    </li>
+    <li><a href="#deep-linking">Deep Linking</a>
+      <ul>
         <li><a href="#deep-link-perma-link">Deep link (perma link)</a></li>
         <li><a href="#app-flow">App flow</a></li>
         <li><a href="#subrouting">Subrouting</a></li>

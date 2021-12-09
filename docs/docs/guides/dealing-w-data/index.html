@@ -5,25 +5,17 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dealing with data #  //todo explain HTS, FieldNode, DataObject??
-Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.
-deep-link generally works with furo-lcation and furo-page together.
-1 2 3 4 5  &lt;furo-location ..&gt;&lt;/..&gt; &lt;furo-page ..&gt;&lt;/..&gt; &lt;furo-deep-link ƒ-qp-in=&#34;--pageQueryChanged(*.query)&#34; service=&#34;TaskService&#34; @-hts-out=&#34;--hts&#34;&gt;&lt;/furo-deep-link&gt;   assume we visit a link xxx.xx/display_task?tsk=5
-element deep-link receives the query param {tsk: &ldquo;5&rdquo;} from the wire &ndash;pageQueryChanged(*.query), which is sent by furo-page.">
+<meta name="description" content="Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Dealing with data" />
-<meta property="og:description" content="Dealing with data #  //todo explain HTS, FieldNode, DataObject??
-Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.
-deep-link generally works with furo-lcation and furo-page together.
-1 2 3 4 5  &lt;furo-location ..&gt;&lt;/..&gt; &lt;furo-page ..&gt;&lt;/..&gt; &lt;furo-deep-link ƒ-qp-in=&#34;--pageQueryChanged(*.query)&#34; service=&#34;TaskService&#34; @-hts-out=&#34;--hts&#34;&gt;&lt;/furo-deep-link&gt;   assume we visit a link xxx.xx/display_task?tsk=5
-element deep-link receives the query param {tsk: &ldquo;5&rdquo;} from the wire &ndash;pageQueryChanged(*.query), which is sent by furo-page." />
+<meta property="og:description" content="Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://web-components.furo.pro/docs/guides/dealing-w-data/" />
-<meta property="article:modified_time" content="2021-12-06T10:40:34+01:00" />
+<meta property="article:modified_time" content="2021-12-09T11:15:28+01:00" />
 <title>Dealing with data | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.7f68be1cce0de28ea27c88f4d7ef9565a7fccffd544f89b507abc4cb9406ed60.js" integrity="sha256-f2i&#43;HM4N4o6ifIj01&#43;&#43;VZaf8z/1UT4m1B6vEy5QG7WA="></script>
+<script defer src="/en.search.min.6d14d2ba3bb3c1b4b1fbe223c08ac612b302cc49fbb0c5f678b765aaa36287a3.js" integrity="sha256-bRTSujuzwbSx&#43;&#43;IjwIrGErMCzEn7sMX2eLdlqqNih6M="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -109,46 +101,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="http://web-components.furo.pro/docs/guides/deeplink/" class="">Deep links</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="http://web-components.furo.pro/docs/guides/dealing-w-data/" class=" active">Dealing with data</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="http://web-components.furo.pro/docs/guides/flow-repeat/" class="">Flow repeat</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="http://web-components.furo.pro/docs/guides/furo-pages/" class="">furo-pages</a>
   
 
         </li>
@@ -1415,15 +1368,10 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#deep-linking">Deep Linking</a></li>
-    <li><a href="#entity-object">Entity Object</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#data-object">Data Object</a></li>
     <li><a href="#entity-agent">Entity Agent</a></li>
-    <li><a href="#custom-method">Custom Method</a>
-      <ul>
-        <li></li>
-        <li><a href="#hts-example">HTS example</a></li>
-      </ul>
-    </li>
+    <li><a href="#hateoas">Hateoas</a></li>
   </ul>
 </nav>
 
@@ -1439,13 +1387,52 @@ https://github.com/alex-shpak/hugo-book
   Dealing with data
   <a class="anchor" href="#dealing-with-data">#</a>
 </h1>
-<p>//todo explain HTS, FieldNode, DataObject??</p>
-<h2 id="deep-linking">
-  Deep Linking
-  <a class="anchor" href="#deep-linking">#</a>
+<h2 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
 </h2>
-<p><code>Deep-link</code> builds static HATEOAS information based on query params and service-type.</p>
-<p><code>deep-link</code> generally works with <code>furo-lcation</code> and <code>furo-page</code> together.</p>
+
+
+<script src="/mermaid.min.js"></script>
+
+  <script>mermaid.initialize({
+  "flowchart": {
+    "useMaxWidth":true
+  },
+  "theme": "default"
+}
+)</script>
+
+
+
+
+<p class="mermaid">
+flowchart LR
+I1(Input Component) -. data binding --- DO(Data Object);
+I2(Custom Component) -. data binding --- DO(Data Object);
+DO -- set data --> A(Entity Agent);
+A -- updates --> DO;
+A <-- fetch / update --> API[(Rest API)];
+SB(Save Button) -- triggers --> A
+LB(Load Button) -- triggers --> A
+</p>
+
+<h2 id="data-object">
+  Data Object
+  <a class="anchor" href="#data-object">#</a>
+</h2>
+<p>The <code>furo-data-object</code> translates raw <code>JSON</code> to objects which are usable for the
+UI components and vice versa.</p>
+
+
+<p class="mermaid">
+flowchart LR
+I1(Input Component) -. data binding --- DO(Data Object);
+I2(Custom Component) -. data binding --- DO(Data Object);
+DO -- produces --> JSON
+JSON -- consumes --> DO
+</p>
+
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -1453,132 +1440,39 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span> <span style="color:#a61717;background-color:#e3d2d2">..</span>&gt;&lt;/<span style="color:#000080">..</span>&gt;
-&lt;<span style="color:#000080">furo-page</span> <span style="color:#a61717;background-color:#e3d2d2">..</span>&gt;&lt;/<span style="color:#000080">..</span>&gt;
-&lt;<span style="color:#000080">furo-deep-link</span> <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageQueryChanged(*.query)&#34;</span> 
-           <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span> 
-           <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>assume we visit a link xxx.xx/display_task?tsk=5</p>
-<p>element <code>deep-link</code> receives the query param {tsk: &ldquo;5&rdquo;} from the wire &ndash;pageQueryChanged(*.query), which is sent by <code>furo-page</code>.</p>
-<p>after matching the service type the hts Link will be generated and a event hts-out with HATEOAS information will be sent out.
-This HATEOAS information can be used by <code>furo-entity-agent</code> or <code>furo-collection-agent</code> later.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- e.g. generated hts out link --&gt;</span>
-{rel: &#34;delete&#34;, href: &#34;/api/v1/tasks/5&#34;, method: &#34;DELETE&#34;, type: task.Task}
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="entity-object">
-  Entity Object
-  <a class="anchor" href="#entity-object">#</a>
-</h2>
-<p>furo-entity-object receives the data from the furo-entity-agent and assigns those data to the internal entity-nodes.</p>
-<ul>
-<li>ƒ-inject-raw receives the data from then furo-entity-agent</li>
-<li>@-object-ready can be used to bind other components to the furo-entity-agent e.g. input-fields</li>
-</ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- bind a field of entity-node from furo-entity-object to a input field --&gt;</span>
-&lt;<span style="color:#000080">furo-text-input</span>  <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data(*.fields.display_name)&#34;</span> <span style="color:#008080">label</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;display name&#34;</span>&gt;&lt;/<span style="color:#000080">furo-text-input</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-ui5-text-input</span>  
+  <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO(*.fields.display_name)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-ui5-text-input</span>&gt;
 
-&lt;<span style="color:#000080">furo-entity-agent</span> <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-              <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span> 
-              <span style="color:#008080">ƒ-load</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--load&#34;</span>
-              <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--entityResponded&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
 
-<span style="color:#998;font-style:italic">&lt;!-- inject the via furo-entity-agent received data to the entity-node of furo-entity-object. after injecting send the entity-node 
-</span><span style="color:#998;font-style:italic">object via --data wire  --&gt;</span>
-&lt;<span style="color:#000080">furo-entity-object</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span> <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--entityResponded&#34;</span>
-               <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-object</span>&gt;
+&lt;<span style="color:#000080">furo-data-object</span>
+  <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span>
+  <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>
+  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>&gt;&lt;/<span style="color:#000080">furo-data-object</span>&gt;
+
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="entity-agent">
   Entity Agent
   <a class="anchor" href="#entity-agent">#</a>
 </h2>
-<p>An entity agent is an interface component to trigger entity requests. E.g. create, load, save and delete.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-vertical-flex</span>&gt;
-    &lt;<span style="color:#000080">furo-text-input</span>  <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data(*.fields.display_name)&#34;</span> <span style="color:#008080">label</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;firstname&#34;</span>&gt;&lt;/<span style="color:#000080">furo-text-input</span>&gt;
-    &lt;<span style="color:#000080">furo-horizontal-flex</span>&gt;
-        &lt;<span style="color:#000080">furo-button</span> <span style="color:#008080">label</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;create task&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-click</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--create&#34;</span>&gt;&lt;/<span style="color:#000080">furo-button</span>&gt;
-        &lt;<span style="color:#000080">furo-empty-spacer</span>&gt;&lt;/<span style="color:#000080">furo-empty-spacer</span>&gt;
-    &lt;/<span style="color:#000080">furo-horizontal-flex</span>&gt;        
-&lt;/<span style="color:#000080">furo-vertical-flex</span>&gt;
+<p>The main task of the <code>furo-entity-agent</code> is to communicating with REST API&rsquo;s.</p>
+<p>It exposes a simple API for <strong>saving</strong>, <strong>loading</strong>, <strong>creating</strong> and <strong>deleting</strong> stuff on the server side.</p>
 
-&lt;<span style="color:#000080">furo-deep-link</span> <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageQueryChanged(*.query)&#34;</span>
-       <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-       <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
-       
-&lt;<span style="color:#000080">furo-entity-agent</span> <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-              <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span> 
-              <span style="color:#008080">ƒ-create</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--create&#34;</span>
-              <span style="color:#008080">ƒ-bind-request-object</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span>
-              <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--entityResponded&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
-                                      
-&lt;<span style="color:#000080">furo-entity-object</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span> <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--entityResponded&#34;</span>
-               <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span>&gt;
-&lt;/<span style="color:#000080">furo-entity-object</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="custom-method">
-  Custom Method
-  <a class="anchor" href="#custom-method">#</a>
-</h2>
-<p>furo-entity-agent has only four default methods: create, load, save and delete. But you can define custom methods to
-solve some special problems. for example to complete a task. For this goal you should first define a custom service &lsquo;complete&rsquo; in
-the restlet specification.</p>
-<h5 id="define-custom-method-complete-in-restlets">
-  define custom method &lsquo;complete&rsquo; in restlets
-  <a class="anchor" href="#define-custom-method-complete-in-restlets">#</a>
-</h5>
+
+<p class="mermaid">
+flowchart LR
+DO(Data Object) -- object --> A(Entity Agent);
+A -- json --> DO;
+A -- json --> API[(Rest API)];
+API -- json --> A
+</p>
+
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1593,30 +1487,61 @@ the restlet specification.</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#d14">&#34;Complete&#34;</span><span style="color:#a61717;background-color:#e3d2d2">:</span> {
-  <span style="color:#000080">&#34;description&#34;</span>: <span style="color:#d14">&#34;complete the task&#34;</span>,
-  <span style="color:#000080">&#34;data&#34;</span>: {
-    <span style="color:#000080">&#34;request&#34;</span>: <span style="color:#000;font-weight:bold">null</span>,
-    <span style="color:#000080">&#34;response&#34;</span>: <span style="color:#d14">&#34;task.TaskEntity&#34;</span>
-  },
-  <span style="color:#000080">&#34;query&#34;</span>: {},
-  <span style="color:#000080">&#34;deeplink&#34;</span>: {
-    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;complete&#34;</span>,
-    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;POST&#34;</span>,
-    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks/{tsk}:complete&#34;</span>
-  },
-  <span style="color:#a61717;background-color:#e3d2d2">...</span>
- 
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-data-object</span>
+  <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span>
+  <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>
+  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>&gt;
+&lt;/<span style="color:#000080">furo-data-object</span>&gt;
+
+&lt;<span style="color:#000080">furo-entity-agent</span> 
+  <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
+  <span style="color:#008080">ƒ-create</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--createClicked&#34;</span>
+  <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>
+  <span style="color:#008080">ƒ-bind-request-object</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>
+  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="how-to-use">
-  how to use
-  <a class="anchor" href="#how-to-use">#</a>
-</h5>
+</div><h2 id="hateoas">
+  Hateoas
+  <a class="anchor" href="#hateoas">#</a>
+</h2>
+<p><code>furo-deep-link</code> builds static HATEOAS information based on query params and service-type.</p>
+<p>The HATEOAS data is used by the <code>furo-entity-agent</code> to resolve the locations it has to send the requests to.</p>
+
+
+<p class="mermaid">
+flowchart LR
+DL(Deep Link) -- HATEOAS --> A(Entity Agent);
+QP[Query Params] -- json --> DL
+</p>
+
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-deep-link</span>
+  <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageURLChanged(*.query)&#34;</span>
+  <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
+  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
+
+&lt;<span style="color:#000080">furo-location</span> 
+  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;--pageURLChanged&#39;</span> 
+&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>Assume we visit a link like <code>my.app.com/display_task?tsk=5</code></p>
+<p><code>furo-deep-link</code> receives the query params  <code>{&quot;tsk&quot;: &quot;5&quot;}</code> from <code>furo-location</code>.</p>
+<p>It will then produce the <strong>HATEOAS</strong> links according to the specified service.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1642,85 +1567,31 @@ the restlet specification.</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span> <span style="color:#008080">url-space-regex</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;^/dealing-data&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span>&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
-<span style="color:#998;font-style:italic">&lt;!-- Put your views here --&gt;</span>
-
-&lt;<span style="color:#000080">furo-vertical-flex</span>&gt;
-     &lt;<span style="color:#000080">furo-text-input</span>  <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data(*.fields.display_name)&#34;</span> <span style="color:#008080">label</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;display name&#34;</span>&gt;&lt;/<span style="color:#000080">furo-text-input</span>&gt;
-     &lt;<span style="color:#000080">furo-number-input</span>  <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data(*.fields.id)&#34;</span> <span style="color:#008080">label</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;id&#34;</span>&gt;&lt;/<span style="color:#000080">furo-number-input</span>&gt;
-
-    &lt;<span style="color:#000080">furo-horizontal-flex</span>&gt;
-        &lt;<span style="color:#000080">furo-button</span> <span style="color:#008080">label</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;complete task&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-click</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--complete&#34;</span>&gt;&lt;/<span style="color:#000080">furo-button</span>&gt;
-        &lt;<span style="color:#000080">furo-empty-spacer</span>&gt;&lt;/<span style="color:#000080">furo-empty-spacer</span>&gt;
-    &lt;/<span style="color:#000080">furo-horizontal-flex</span>&gt;        
-&lt;/<span style="color:#000080">furo-vertical-flex</span>&gt;        
-&lt;<span style="color:#000080">furo-deep-link</span> <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged(*.query)&#34;</span>
-       <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-       <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
-       
-&lt;<span style="color:#000080">furo-custom-method</span> <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>  
-           <span style="color:#008080">method</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;complete&#34;</span> 
-           <span style="color:#008080">ƒ-bind-request-object</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span> 
-           <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span> 
-           <span style="color:#008080">ƒ-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--complete&#34;</span> 
-           <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--htsReady&#34;</span> &gt;&lt;/<span style="color:#000080">furo-custom-method</span>&gt;
-                                  
-&lt;<span style="color:#000080">furo-entity-agent</span> <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-              <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span> 
-              <span style="color:#008080">ƒ-load</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--htsReady&#34;</span>
-              <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskCompleteResponded&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
-              
-&lt;<span style="color:#000080">furo-entity-object</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span> <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskCompleteResponded&#34;</span>
-       <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="hts-example">
-  HTS example
-  <a class="anchor" href="#hts-example">#</a>
-</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-   {
-       <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;list&#34;</span>,
-       <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/mockdata/tasks/list.json&#34;</span>,
-       <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;GET&#34;</span>,
-       <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
-     },
-   {
-       <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;create&#34;</span>,
-       <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;api.otherhost.com/mockdata/tasks&#34;</span>,
-       <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;PUT&#34;</span>,
-       <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
-     }
-   ]
-
+  {
+    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;self&#34;</span>,
+    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks/5&#34;</span>,
+    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;GET&#34;</span>,
+    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
+    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
+  },
+  {
+    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;delete&#34;</span>,
+    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks/5&#34;</span>,
+    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;DELETE&#34;</span>,
+    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
+    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
+  },
+  {
+    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;create&#34;</span>,
+    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks&#34;</span>,
+    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;POST&#34;</span>,
+    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
+    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
+  }
+]
 </code></pre></td></tr></table>
 </div>
 </div></article>
@@ -1733,9 +1604,9 @@ the restlet specification.</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/6ccadb35f9b35bcc2cadc2c623b4447c45c8d67e" title='Last modified by veith | December 6, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/63203a01d6a24295308ed8a63a2d3e64c0d16cab" title='Last modified by veith | December 9, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 6, 2021</span>
+      <span>December 9, 2021</span>
     </a>
   </div>
 
@@ -1763,15 +1634,10 @@ the restlet specification.</p>
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#deep-linking">Deep Linking</a></li>
-    <li><a href="#entity-object">Entity Object</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#data-object">Data Object</a></li>
     <li><a href="#entity-agent">Entity Agent</a></li>
-    <li><a href="#custom-method">Custom Method</a>
-      <ul>
-        <li></li>
-        <li><a href="#hts-example">HTS example</a></li>
-      </ul>
-    </li>
+    <li><a href="#hateoas">Hateoas</a></li>
   </ul>
 </nav>
 

@@ -19,15 +19,6 @@ Take a look at the furo-ui5-button, which is a very small example to handle the 
     </item>
     
     <item>
-      <title>Deep links</title>
-      <link>http://web-components.furo.pro/docs/guides/deeplink/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/deeplink/</guid>
-      <description>Deep linking #  </description>
-    </item>
-    
-    <item>
       <title>empty-fbp-node</title>
       <link>http://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -949,29 +940,7 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://web-components.furo.pro/docs/guides/dealing-w-data/</guid>
-      <description>Dealing with data #  //todo explain HTS, FieldNode, DataObject??
-Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.
-deep-link generally works with furo-lcation and furo-page together.
-1 2 3 4 5  &amp;lt;furo-location ..&amp;gt;&amp;lt;/..&amp;gt; &amp;lt;furo-page ..&amp;gt;&amp;lt;/..&amp;gt; &amp;lt;furo-deep-link ƒ-qp-in=&amp;#34;--pageQueryChanged(*.query)&amp;#34; service=&amp;#34;TaskService&amp;#34; @-hts-out=&amp;#34;--hts&amp;#34;&amp;gt;&amp;lt;/furo-deep-link&amp;gt;   assume we visit a link xxx.xx/display_task?tsk=5
-element deep-link receives the query param {tsk: &amp;ldquo;5&amp;rdquo;} from the wire &amp;ndash;pageQueryChanged(*.query), which is sent by furo-page.</description>
-    </item>
-    
-    <item>
-      <title>Flow repeat</title>
-      <link>http://web-components.furo.pro/docs/guides/flow-repeat/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/flow-repeat/</guid>
-      <description>How to use flow-repeat #  </description>
-    </item>
-    
-    <item>
-      <title>furo-pages</title>
-      <link>http://web-components.furo.pro/docs/guides/furo-pages/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://web-components.furo.pro/docs/guides/furo-pages/</guid>
-      <description>How to use furo-pages #  </description>
+      <description>Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.</description>
     </item>
     
     <item>
@@ -982,7 +951,7 @@ element deep-link receives the query param {tsk: &amp;ldquo;5&amp;rdquo;} from t
       <guid>http://web-components.furo.pro/docs/guides/route/</guid>
       <description>Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
 Building blocks #  You need the following building blocks:
-   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep link (perma link) #  Why perma links?</description>
+   component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.</description>
     </item>
     
     <item>

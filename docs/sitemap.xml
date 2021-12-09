@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>http://web-components.furo.pro/docs/guides/deeplink/</loc>
-    <lastmod>2021-12-08T14:04:42+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/</loc>
     <lastmod>2021-12-06T12:17:08+01:00</lastmod>
   </url>
@@ -399,22 +394,12 @@
   
   <url>
     <loc>http://web-components.furo.pro/docs/guides/dealing-w-data/</loc>
-    <lastmod>2021-12-06T10:40:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://web-components.furo.pro/docs/guides/flow-repeat/</loc>
-    <lastmod>2021-12-08T10:20:01+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://web-components.furo.pro/docs/guides/furo-pages/</loc>
-    <lastmod>2021-12-08T10:20:01+01:00</lastmod>
+    <lastmod>2021-12-09T11:15:28+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://web-components.furo.pro/docs/guides/route/</loc>
-    <lastmod>2021-12-06T10:40:34+01:00</lastmod>
+    <lastmod>2021-12-09T11:15:28+01:00</lastmod>
   </url>
   
   <url>
@@ -788,7 +773,7 @@
   
   <url>
     <loc>http://web-components.furo.pro/docs/</loc>
-    <lastmod>2021-12-08T14:04:42+01:00</lastmod>
+    <lastmod>2021-12-09T11:15:28+01:00</lastmod>
   </url>
   
   <url>
