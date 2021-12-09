@@ -21,6 +21,32 @@ You need the following building blocks:
 | @furo/data/src/furo-deep-link      | builds static HATEOAS information based on query params
 | @furo/route/src/furo-pages    | can activate views based on the current location
 
+
+## Deep Linking
+`Deep-link` builds static HATEOAS information based on query params and service-type.
+
+
+`deep-link` generally works with `furo-lcation` and `furo-page` together.
+
+```html
+<furo-location ..></..>
+<furo-page ..></..>
+<furo-deep-link ƒ-qp-in="--pageQueryChanged(*.query)" 
+           service="TaskService" 
+           @-hts-out="--hts"></furo-deep-link>
+```           
+
+assume we visit a link xxx.xx/display_task?tsk=5
+
+element `deep-link` receives the query param {tsk: "5"} from the wire --pageQueryChanged(*.query), which is sent by `furo-page`.
+
+after matching the service type the hts Link will be generated and a event hts-out with HATEOAS information will be sent out.
+This HATEOAS information can be used by `furo-entity-agent` or `furo-collection-agent` later.
+```html
+<!-- e.g. generated hts out link -->
+{rel: "delete", href: "/api/v1/tasks/5", method: "DELETE", type: task.Task}
+```
+
 ### Deep link (perma link)
 Why perma links?
 * Fully stateless views
