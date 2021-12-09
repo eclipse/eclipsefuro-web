@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Packages on フロー Furo Web</title>
-    <link>http://web-components.furo.pro/docs/modules/</link>
+    <link>https://web-components.furo.pro/docs/modules/</link>
     <description>Recent content in Packages on フロー Furo Web</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://web-components.furo.pro/docs/modules/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://web-components.furo.pro/docs/modules/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

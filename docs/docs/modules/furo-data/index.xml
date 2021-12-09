@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>@furo/data on フロー Furo Web</title>
-    <link>http://web-components.furo.pro/docs/modules/furo-data/</link>
+    <link>https://web-components.furo.pro/docs/modules/furo-data/</link>
     <description>Recent content in @furo/data on フロー Furo Web</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://web-components.furo.pro/docs/modules/furo-data/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://web-components.furo.pro/docs/modules/furo-data/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>furo-api-fetch</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/</guid>
       <description>furo-api-fetch #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-api-fetch.js&#39;; exports &amp;lt;furo-api-fetch&amp;gt; custom-element-definition superclass HTMLElement summary fetch data from network
 Use furo-api-fetch to fetch data from the network.
 1  &amp;lt;furo-api-fetch ƒ-invoke-request=&amp;#34;--Request&amp;#34;&amp;gt;&amp;lt;/furo-api-fetch&amp;gt;   Attributes and Properties #  lastRequest #  default: {}
@@ -21,10 +21,10 @@ Note that lastResponse is set when ongoing request finishes, so if loading is tr
     
     <item>
       <title>furo-collection-agent</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/</guid>
       <description>furo-collection-agent #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-collection-agent.js&#39;; exports &amp;lt;furo-collection-agent&amp;gt; custom-element-definition superclass LitElement mixes FBP summary interface component to handle collection requests
 furo-collection-agent is an interface component to handle collection requests.
 1 2 3 4 5 6 7 8  &amp;lt;furo-collection-agent service=&amp;#34;Servicename&amp;#34; ƒ-hts-in=&amp;#34;--hts&amp;#34;&amp;gt;&amp;lt;/furo-collection-agent&amp;gt; &amp;lt;!-- produces a hateoas link array --&amp;gt; &amp;lt;furo-deep-link service=&amp;#34;Servicename&amp;#34; @-hts-out=&amp;#34;--hts&amp;#34;&amp;gt;&amp;lt;/furo-deep-link&amp;gt;   before you can do any requests, the service and the HATEOAS must be defined
@@ -33,10 +33,10 @@ Attributes and Properties #  view #  view</description>
     
     <item>
       <title>furo-custom-method</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/</guid>
       <description>furo-custom-method #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-custom-method.js&#39;; exports &amp;lt;furo-custom-method&amp;gt; custom-element-definition superclass LitElement mixes FBP summary interface component to handle custom methods
 furo-custom-method is a interface component to handle custom methods.
 1 2 3 4 5 6 7 8 9 10  &amp;lt;furo-custom-method service=&amp;#34;Servicename&amp;#34; method=&amp;#34;release&amp;#34; ƒ-hts-in=&amp;#34;--hts&amp;#34; ƒ-trigger=&amp;#34;--customClick&amp;#34;&amp;gt;&amp;lt;/furo-custom-method&amp;gt; &amp;lt;!-- produces a hateoas link array --&amp;gt; &amp;lt;furo-deep-link service=&amp;#34;Servicename&amp;#34; @-hts-out=&amp;#34;--hts&amp;#34;&amp;gt;&amp;lt;/furo-deep-link&amp;gt;    before you can do any requests, the service, method and the HATEOAS must be known  Attributes and Properties #  service #  service</description>
@@ -44,10 +44,10 @@ furo-custom-method is a interface component to handle custom methods.
     
     <item>
       <title>furo-data-flow-repeat</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/</guid>
       <description>furo-data-flow-repeat #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-data-flow-repeat.js&#39;; exports FuroDataFlowRepeat js exports &amp;lt;furo-data-flow-repeat&amp;gt; custom-element-definition superclass FlowRepeat mixes FieldNodeAdapter summary automatic display of repeated fields
 furo-data-flow-repeat Is a bindable repeater.
 1 2 3 4 5 6  &amp;lt;furo-data-flow-repeat ƒ-bind-data=&amp;#34;--data(*.repeaterfield)&amp;#34;&amp;gt; &amp;lt;template&amp;gt; &amp;lt;furo-ui5-data-text-input-labeled ƒ-bind-data=&amp;#34;--init&amp;#34;&amp;gt;&amp;lt;/furo-ui5-data-text-input-labeled&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/furo-data-flow-repeat&amp;gt;   The wire --init is fired from furo-data-flow-repeat
@@ -56,10 +56,10 @@ If you want to delete a repeated item, implement something which triggers the de
     
     <item>
       <title>furo-data-hide-content</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/</guid>
       <description>furo-data-hide-content #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-data-hide-content.js&#39;; exports &amp;lt;furo-data-hide-content&amp;gt; custom-element-definition superclass LitElement mixes FBP summary hide content with a boolean fieldnode
 furo-data-hide-content hides content in dependency to a boolean field value.
 It is also possible to call the hide() and show() methods to show and hide the content and update the value. TODO: support furo.fat.Bool and google.protobuf.BoolValue
@@ -68,10 +68,10 @@ It is also possible to call the hide() and show() methods to show and hide the c
     
     <item>
       <title>furo-data-object</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-data-object/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-data-object/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-data-object/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-data-object/</guid>
       <description>furo-data-object #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-data-object.js&#39;; exports FuroDataObject js exports &amp;lt;furo-data-object&amp;gt; custom-element-definition superclass LitElement summary Typed data object
 furo-data-object gives you a object which is built based on the type spec. The types must be available in the {Env}, learn more about setting up the environment in the guide.
 The data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.</description>
@@ -79,10 +79,10 @@ The data will mostly be used in a [data-ui]/(../../data-input/doc) component or 
     
     <item>
       <title>furo-deep-link</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/</guid>
       <description>furo-deep-link #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-deep-link.js&#39;; exports &amp;lt;furo-deep-link&amp;gt; custom-element-definition superclass LitElement summary Resolve deep links HATEOAS based on query params
 furo-deep-link Resolve deep links HATEOAS based on the query params and the selected service.
 1 2 3 4  &amp;lt;furo-deep-link service=&amp;#34;TaskService&amp;#34; ƒ-qp-in=&amp;#34;--pageQueryChanged(*.query)&amp;#34; @-hts-out=&amp;#34;--serviceHTS&amp;#34;&amp;gt; &amp;lt;/furo-deep-link&amp;gt;   Deeplink inside of a furo-page
@@ -92,10 +92,10 @@ The services must be registered in the Env:
     
     <item>
       <title>furo-entity-agent</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/</guid>
       <description>furo-entity-agent #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-entity-agent.js&#39;; exports &amp;lt;furo-entity-agent&amp;gt; custom-element-definition superclass LitElement mixes FBP summary interface component to handle entity requests
 furo-entity-agent is an interface component to handle entity requests.
  Note When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of the values are sent.
@@ -104,10 +104,10 @@ furo-entity-agent is an interface component to handle entity requests.
     
     <item>
       <title>furo-entity-field</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/</guid>
       <description>furo-entity-field #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-entity-field.js&#39;; exports &amp;lt;furo-entity-field&amp;gt; custom-element-definition superclass LitElement summary interact with single field of a data object
 Use this component to interact with fields from an furo-data-object.
 You can update the field value or listen to changes of a field.
@@ -117,10 +117,10 @@ Fired when the field value or a child value of it was changed.</description>
     
     <item>
       <title>furo-rel-exists</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/</guid>
       <description>furo-rel-exists #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-rel-exists.js&#39;; exports &amp;lt;furo-rel-exists&amp;gt; custom-element-definition superclass LitElement summary checks for a specific rel
 furo-rel-exists Checks if a hateoas relation exists in a given hateaos Links array.
 1  &amp;lt;furo-rel-exists ƒ-inject=&amp;#34;--HTS-array&amp;#34;&amp;gt;&amp;lt;/furo-rel-exists&amp;gt;   Attributes and Properties #  rel #  rel 
@@ -130,10 +130,10 @@ define the type if you want a specific check on the type also Events #  furo-rel
     
     <item>
       <title>furo-reverse-deep-link</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/</guid>
       <description>furo-reverse-deep-link #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-reverse-deep-link.js&#39;; exports &amp;lt;furo-reverse-deep-link&amp;gt; custom-element-definition superclass LitElement summary create query param object from HATEOAS
 Converts hateoas to queryParams, which is useful for routing with app-flow
 1 2 3 4 5  &amp;lt;furo-reverse-deep-link service=&amp;#34;TaskService&amp;#34; rel=&amp;#34;self&amp;#34; @-converted=&amp;#34;--queryParams&amp;#34; ƒ-convert=&amp;#34;--rawEntityOrCollection, --linksArray, --linkObject&amp;#34; &amp;gt;&amp;lt;/furo-reverse-deep-link&amp;gt;   Attributes and Properties #  service #  service string default: &#39;&#39;
@@ -143,10 +143,10 @@ Optional rel to convert.</description>
     
     <item>
       <title>furo-type-renderer</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/</guid>
       <description>furo-type-renderer #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/furo-type-renderer.js&#39;; exports &amp;lt;furo-type-renderer&amp;gt; custom-element-definition superclass LitElement mixes FBP summary type rendering
 The furo-type-renderer is used to display type specific data. It uses display as default context and will warn you on the console if the requested context-[type-name] does not exist or was not imported.
 There is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.
@@ -155,10 +155,10 @@ The standard ui5 set can be integrated with the import</description>
     
     <item>
       <title>AgentHelper</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/AgentHelper/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/AgentHelper/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/AgentHelper/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/AgentHelper/</guid>
       <description>AgentHelper #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/AgentHelper.js&#39;; exports AgentHelper js
  This is a helper class for the agents #  Update query params a qp like {&amp;ldquo;active&amp;rdquo;:true} will just update the qp active
 If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
@@ -167,10 +167,10 @@ Attributes and Properties #  Methods #  updateQp #  updateQp(caller *qp* ) ⟹ v
     
     <item>
       <title>DataObject</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/DataObject/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/DataObject/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/DataObject/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/DataObject/</guid>
       <description>DataObject #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/DataObject.js&#39;; exports DataObject js superclass EventTreeNode
  EntityNode is usually the root node of an eventTree
 Attributes and Properties #  rawEntity #   
@@ -187,20 +187,20 @@ Methods #  validateAllFields #  validateAllFields() ⟹ void</description>
     
     <item>
       <title>FieldNode</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/FieldNode/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/FieldNode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/FieldNode/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/FieldNode/</guid>
       <description>FieldNode #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/FieldNode.js&#39;; exports FieldNode js superclass EventTreeNode
  internal events #   this-field-became-invalid, when a field gets invalid field-became-invalid bubbles, when a field gets invalid this-field-became-valid, when a field gets valid field-became-valid bubbles, when a field gets valid this-field-value-changed, when the value of a field changed field-value-changed bubbles, when the value of a field changed this-metas-changed, when the metas of a field changed metas-changed bubbles, when the meta of a field changed oneof-field-cleared, when a field in a oneof group was cleared oneof-field-changed, when a field in a oneof group was changed this-node-field-added, when a sub field was added to a field node-field-added bubbles, when a sub field was added to a field this-node-field-deleted, when a sub field was added to a field node-field-deleted bubbles, when a sub field was added to a field any-type-removed, fired before a node of type any changes its inner type any-type-created, fired when a node of type any is created or the type was changed  internal broadcasted events #   parent-readonly-meta-set, when readonly was set on a parent field  Attributes and Properties #  defaultvalue #   Set the value of the field to the specified defaults.</description>
     </item>
     
     <item>
       <title>FieldNodeAdapter</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/FieldNodeAdapter/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/FieldNodeAdapter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/FieldNodeAdapter/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/FieldNodeAdapter/</guid>
       <description>FieldNodeAdapter #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/FieldNodeAdapter.js&#39;; exports FieldNodeAdapter js
 Binding methods for fieldNodes
 Use this class to make your component bindable without handling with the internals of FieldNode.
@@ -212,10 +212,10 @@ Binds a fieldNode. Make sure the type of your field is accepted by the implement
     
     <item>
       <title>RepeaterNode</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/</guid>
       <description>RepeaterNode #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/RepeaterNode.js&#39;; exports RepeaterNode js superclass EventTreeNode
  Attributes and Properties #  _value #  default: tmp
 
@@ -234,10 +234,10 @@ Set this to true to clear the list on new data instead updating the current list
     
     <item>
       <title>ScalarTypeHelper</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/ScalarTypeHelper/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/ScalarTypeHelper/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/ScalarTypeHelper/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/ScalarTypeHelper/</guid>
       <description>ScalarTypeHelper #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/ScalarTypeHelper.js&#39;; exports ScalarTypeHelper js
  Attributes and Properties #  Methods #  defaultForType #  defaultForType(type `` ) ⟹ void
  type    indeterminateDefault #  indeterminateDefault() ⟹ void
@@ -249,10 +249,10 @@ checks if a type is numeric (usefull when you want to compare min or max constra
     
     <item>
       <title>ValidatorDefaultTypes</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/</guid>
       <description>ValidatorDefaultTypes #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/ValidatorDefaultTypes.js&#39;; exports ValidatorDefaultTypes js
  A class to validate constraints on type string&amp;lt;/code
 Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
@@ -261,10 +261,10 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
     
     <item>
       <title>ValidatorGoogleTypeDate</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeDate/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeDate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeDate/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeDate/</guid>
       <description>ValidatorGoogleTypeDate #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/ValidatorGoogleTypeDate.js&#39;; exports ValidatorGoogleTypeDate js
  A class to validate constraints on type google.type.Date&amp;lt;/code
 Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
@@ -276,10 +276,10 @@ checks if type date is empty
     
     <item>
       <title>ValidatorGoogleTypeMoney</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeMoney/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeMoney/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeMoney/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeMoney/</guid>
       <description>ValidatorGoogleTypeMoney #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/ValidatorGoogleTypeMoney.js&#39;; exports ValidatorGoogleTypeMoney js
  A class to validate constraints on type google.type.Money&amp;lt;/code
 Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
@@ -291,10 +291,10 @@ checks if type money is empty
     
     <item>
       <title>ValidatorNumericTypes</title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/ValidatorNumericTypes/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/ValidatorNumericTypes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/ValidatorNumericTypes/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/ValidatorNumericTypes/</guid>
       <description>ValidatorNumericTypes #  @furo/furo-data v2.0.0-rc.5 import &#39;@furo/furo-data/src/src/lib/ValidatorNumericTypes.js&#39;; exports ValidatorNumericTypes js
  A class to validate constraints on numeric types
 Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
@@ -303,10 +303,10 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
     
     <item>
       <title></title>
-      <link>http://web-components.furo.pro/docs/modules/furo-data/_furo-data-inside/</link>
+      <link>https://web-components.furo.pro/docs/modules/furo-data/_furo-data-inside/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/modules/furo-data/_furo-data-inside/</guid>
+      <guid>https://web-components.furo.pro/docs/modules/furo-data/_furo-data-inside/</guid>
       <description>Components #    furo-api-fetch fetch data from network  furo-collection-agent interface component to handle collection requests  furo-custom-method interface component to handle custom methods  furo-data-flow-repeat automatic display of repeated fields  furo-data-hide-content hide content with a boolean fieldnode  furo-data-object Typed data object  furo-deep-link Resolve deep links HATEOAS based on query params  furo-entity-agent interface component to handle entity requests  furo-entity-field interact with single field of a data object  furo-rel-exists checks for a specific rel  furo-reverse-deep-link create query param object from HATEOAS  furo-type-renderer type rendering  </description>
     </item>
     

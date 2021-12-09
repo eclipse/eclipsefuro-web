@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guides on フロー Furo Web</title>
-    <link>http://web-components.furo.pro/docs/guides/</link>
+    <link>https://web-components.furo.pro/docs/guides/</link>
     <description>Recent content in Guides on フロー Furo Web</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://web-components.furo.pro/docs/guides/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://web-components.furo.pro/docs/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Extending a UI lib</title>
-      <link>http://web-components.furo.pro/docs/guides/FNA/</link>
+      <link>https://web-components.furo.pro/docs/guides/FNA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/guides/FNA/</guid>
+      <guid>https://web-components.furo.pro/docs/guides/FNA/</guid>
       <description>How to make your own UI components bindable #  There are several ways to make your component bindable.
 Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
 This can be quite complex, but will give you the greatest flexibility.
@@ -20,19 +20,19 @@ Take a look at the furo-ui5-button, which is a very small example to handle the 
     
     <item>
       <title>Dealing with data</title>
-      <link>http://web-components.furo.pro/docs/guides/dealing-w-data/</link>
+      <link>https://web-components.furo.pro/docs/guides/dealing-w-data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/guides/dealing-w-data/</guid>
+      <guid>https://web-components.furo.pro/docs/guides/dealing-w-data/</guid>
       <description>Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.</description>
     </item>
     
     <item>
       <title>Routing</title>
-      <link>http://web-components.furo.pro/docs/guides/route/</link>
+      <link>https://web-components.furo.pro/docs/guides/route/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://web-components.furo.pro/docs/guides/route/</guid>
+      <guid>https://web-components.furo.pro/docs/guides/route/</guid>
       <description>Routing ?? #  Route #  FURO supports different kinds of routing. We distinguish between deeplink (permalink), sub routing and flow events.
 Building blocks #  You need the following building blocks:
    component description     @furo/route/src/furo-location observes location and path   @furo/data/src/furo-deep-link builds static HATEOAS information based on query params   @furo/route/src/furo-pages can activate views based on the current location    Deep Linking #  Deep-link builds static HATEOAS information based on query params and service-type.</description>
