@@ -511,7 +511,7 @@ export const FBP = superClass =>
                   // send raw event
                   customEvent.detail = e;
                 } else {
-                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
+                  customEvent.detail = self._pathGet(e, prop.substr(2));
                 }
               } else {
                 customEvent.detail = self._pathGet(self, prop);
