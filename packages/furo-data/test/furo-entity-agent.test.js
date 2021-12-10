@@ -606,7 +606,7 @@ describe('furo-entity-agent', () => {
     dataObject.setAttribute('type', 'task.TaskEntity');
     entityAgent.addEventListener('save-success', () => {
       done();
-    });
+    },{once:true});
     entityAgent.htsIn([
       {
         href: '/mockdata/tasks/1/get.json',
