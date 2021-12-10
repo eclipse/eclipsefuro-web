@@ -24,7 +24,7 @@ describe('hooks', () => {
             ƒ-dummy="--clk"
             ƒ-dummy-camel="--clk"
             ƒ-subprop="--subProperty(*.b)"
-            @-firesub="^^subbubble(*.ccc), ^subnonbubble(*.eee), -^subhost(*.ccc.xx)"
+            @-firesub="^^subbubble(*.detail.ccc), ^subnonbubble(*.detail.eee), -^subhost(*.detail.ccc.xx)"
           >
             dummy
           </div>
