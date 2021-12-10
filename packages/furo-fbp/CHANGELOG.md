@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.5...@furo/fbp@6.0.0-rc.6) (2021-12-10)
+
+
+### Bug Fixes
+
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+
+
+
+
+
 # [6.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.4...@furo/fbp@6.0.0-rc.5) (2021-11-29)
 
 

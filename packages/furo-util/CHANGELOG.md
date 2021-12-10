@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.7...@furo/util@2.0.0-rc.8) (2021-12-10)
+
+
+### Bug Fixes
+
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+
+
+
+
+
 # [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.6...@furo/util@2.0.0-rc.7) (2021-11-29)
 
 **Note:** Version bump only for package @furo/util

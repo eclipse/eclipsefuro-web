@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.5...@furo/data@2.0.0-rc.6) (2021-12-10)
+
+
+### Bug Fixes
+
+* base64 encoding ([cc34f14](https://github.com/eclipse/eclipsefuro-web/commit/cc34f1423dee97af1f3366c0a044ce3e060b8c7c))
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+* use decodeURI instead of unescape ([f806d5c](https://github.com/eclipse/eclipsefuro-web/commit/f806d5c0567a734ae3519df04c45419315dc7926))
+* use decodeURI instead of unescape ([69f13d4](https://github.com/eclipse/eclipsefuro-web/commit/69f13d46ab32a403fe515dc6e6fd67ed25fff18a))
+
+
+
+
+
 # [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.4...@furo/data@2.0.0-rc.5) (2021-11-29)
 
 **Note:** Version bump only for package @furo/data
