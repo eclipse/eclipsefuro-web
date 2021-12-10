@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.8...@furo/util@2.0.0-rc.9) (2021-12-10)
+
+
+### Bug Fixes
+
+* dispatch event with data ([f8314fa](https://github.com/eclipse/eclipsefuro-web/commit/f8314fa0080d4dd9d78773dc0cb7747f68e8f72d))
+
+
+
+
+
 # [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.7...@furo/util@2.0.0-rc.8) (2021-12-10)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.6...@furo/data@2.0.0-rc.7) (2021-12-10)
+
+
+### Bug Fixes
+
+* agent test ([9a132d1](https://github.com/eclipse/eclipsefuro-web/commit/9a132d137803cf9f24789456bf5737ad973a38d1))
+
+
+
+
+
 # [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.5...@furo/data@2.0.0-rc.6) (2021-12-10)
 
 

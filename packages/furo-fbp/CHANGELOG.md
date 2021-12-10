@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.6...@furo/fbp@6.0.0-rc.7) (2021-12-10)
+
+
+### Bug Fixes
+
+* dispatch event with data ([c9a568e](https://github.com/eclipse/eclipsefuro-web/commit/c9a568eadde40f0a1233b06a169dd06c958284ea))
+* dispatch event with data ([55912e4](https://github.com/eclipse/eclipsefuro-web/commit/55912e48c60e3f7a6a6ac8c6cc46c7e2c5327cff))
+* dispatch event with data ([f8314fa](https://github.com/eclipse/eclipsefuro-web/commit/f8314fa0080d4dd9d78773dc0cb7747f68e8f72d))
+
+
+
+
+
 # [6.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.5...@furo/fbp@6.0.0-rc.6) (2021-12-10)
 
 
