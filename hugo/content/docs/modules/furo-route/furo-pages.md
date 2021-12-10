@@ -46,11 +46,11 @@ The components used in a furo-page must implement a **hidden** attribute css to 
 furo-pages provides auto wires, which are automatically triggered in the child elements if
 they support FBP. Each wire will forward a `locationObject`
 
--  `--pageActivated` : Is triggerd when the element is activated.
--  `--pageDeActivated` : Is triggerd when another page is activated. Empty wire.
--  `--pageQueryChanged` : Is triggerd when the page query changes.
--  `--pageHashChanged` : Is triggerd when the page hash changes.
--  `--pageReActivated` : Is triggerd when the locatioin contains the same page which already was acitvated.
+-  `--pageActivated` : Is triggered when the element is activated.
+-  `--pageDeActivated` : Is triggered when another page is activated. Empty wire.
+-  `--pageQueryChanged` : Is triggered when the page query changes.
+-  `--pageHashChanged` : Is triggered when the page hash changes.
+-  `--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.
 
 {{% api "_furo-pages-description.md" %}}
 

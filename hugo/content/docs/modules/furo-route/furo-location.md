@@ -14,14 +14,35 @@ weight: 50
 {{% api "_furo-location-head.md" %}}
 
 `furo-location` watches for URL changes and notifies you. The location object which is fired from furo-location can be used
-for page navigation in furo-pages or for deep link resolution.
+ for page navigation in furo-pages or for deep link resolution.
+
 
 ```html
+<furo-location @-location-changed="--pathChanged"></furo-location>
 
- <furo-location @-location-changed="--locationChanged"></furo-location>
+<furo-pages
+  ƒ-inject-location="--pathChanged"
+  default="list">
+    <view-list name="list"></view-list>
+    <view-create name="create"></view-create>
+    <view-detail name="detail"></view-detail>
+</furo-pages>
+```
 
-      <furo-pages ƒ-inject-location="--locationChanged">...
 
+### locationObject
+```json
+{
+    "host": "localhost:8480",
+    "query": {"tsk": 999},
+    "hash": {},
+    "path": "/detail",
+    "pathSegments": [
+        "detail"
+    ],
+    "hashstring": "",
+    "querystring": "tsk=999"
+}
 ```
 
 {{% api "_furo-location-description.md" %}}

@@ -22,5 +22,6 @@ bookHidden: true
 - [furo-pretty-json](furo-pretty-json.md) pretty prints json data
 - [furo-put-clipboard](furo-put-clipboard.md) write content to clipboard
 - [furo-demo-snippet](furo-demo-snippet.md) documentation helper
+- [light-bulb](light-bulb.md) a light bulb for the documentation
 - [furo-graph-renderer](furo-graph-renderer.md) paints a dagree graph as svg
 - [furo-show-flow](furo-show-flow.md) internal helper component
