@@ -566,6 +566,7 @@ export const FBP = superClass =>
                 bubbles: true,
               });
               // send details with *.sub or *
+
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
                   // send raw event
