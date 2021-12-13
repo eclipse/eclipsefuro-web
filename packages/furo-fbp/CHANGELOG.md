@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@5.12.2...@furo/fbp@5.12.3) (2021-12-13)
+
+
+### Bug Fixes
+
+* method calls to receiver only whenDefined promise is resolved ([7989c95](https://github.com/eclipse/eclipsefuro-web/commit/7989c95f4ec6e90a362acf233cb070599a41174d))
+
+
+
+
+
 ## [5.12.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@5.12.1...@furo/fbp@5.12.2) (2021-10-12)
 
 **Note:** Version bump only for package @furo/fbp

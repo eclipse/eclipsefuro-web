@@ -1,7 +1,7 @@
 {
   "name": "@furo/layout",
   "description": "Layout components for furo",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-layout",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -28,8 +28,8 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.12.2",
-    "@furo/framework": "^1.9.3",
+    "@furo/fbp": "^5.12.3",
+    "@furo/framework": "^1.9.4",
     "lit": "^2.0.0"
   },
   "devDependencies": {
