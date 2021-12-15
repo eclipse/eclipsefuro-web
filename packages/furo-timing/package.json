@@ -1,6 +1,6 @@
 {
   "name": "@furo/timing",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "description": "Furo timing components",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-timing",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
@@ -35,11 +35,11 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.34.4",
-    "@furo/data-input": "^1.15.6",
+    "@furo/data": "^1.34.5",
+    "@furo/data-input": "^1.15.7",
     "@furo/input": "^1.10.4",
     "@furo/layout": "^1.9.4",
-    "@furo/util": "^1.8.7",
+    "@furo/util": "^1.8.8",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

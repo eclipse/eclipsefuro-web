@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/form@1.9.6...@furo/form@1.9.7) (2021-12-15)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [1.9.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/form@1.9.5...@furo/form@1.9.6) (2021-12-13)
 
 **Note:** Version bump only for package @furo/form
