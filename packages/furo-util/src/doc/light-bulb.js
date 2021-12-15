@@ -89,9 +89,7 @@ class LightBulb extends FBP(LitElement) {
     return html`
       <style>
         :host {
-
           fill:${this.color}
-
         }
 
       </style>

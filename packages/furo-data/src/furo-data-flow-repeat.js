@@ -53,6 +53,21 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
   }
 
   /**
+   * Bind a repeater node.
+   *
+   * If `identity-path` is not set, the list will be cleared every time it receives new data.
+   *
+   * @param fieldNode
+   * @return {boolean}
+   */
+  bindData(fieldNode) {
+    if (!this.getAttribute('identity-path')){
+      fieldNode.clearListOnNewData = true;
+    }
+    return super.bindData(fieldNode);
+  }
+
+  /**
    * @private
    */
   onFnaRepeatedFieldChanged() {
