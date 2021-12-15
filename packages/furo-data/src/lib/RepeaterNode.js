@@ -15,7 +15,7 @@ export class RepeaterNode extends EventTreeNode {
      * Set this to true to clear the list on new data instead updating the current list.
      * @type {boolean}
      */
-    this.clearListOnNewData = false;
+    this.clearListOnNewData = true;
 
     if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
