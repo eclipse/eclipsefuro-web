@@ -40,3 +40,20 @@ context      type-name
   </display-google-type-timeofday>
 ```
 
+## DOM Sample
+```html
+<!-- use the furo-type-renderer in the html markup -->
+<furo-type-renderer content="" 
+                    ƒ-bind-data="--data" 
+                    context="display" 
+                    value-state="Positive" 
+                    data-size="size-s"></furo-type-renderer>
+
+<!-- it creates the type specific component in the DOM. 
+     Context and all attributes are applied-->
+<display-country-factsheet content="" 
+                           context="display" 
+                           value-state="Positive" 
+                           data-size="size-s"></display-country-factsheet>
+
+```
