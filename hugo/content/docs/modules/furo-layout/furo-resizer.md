@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-resizer
-**@furo/furo-layout** <small>v2.0.0-rc.7</small>
+**@furo/furo-layout** <small>v2.0.0-rc.9</small>
 <br>`import '@furo/furo-layout/src/furo-resizer.js';`<small>
 <br>exports `<furo-resizer>` custom-element-definition
 <br>superclass *LitElement*

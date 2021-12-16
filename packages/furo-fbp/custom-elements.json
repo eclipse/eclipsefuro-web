@@ -163,7 +163,7 @@
             {
               "kind": "method",
               "name": "_FBPReady",
-              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the `|--FBPready` wire. This does *not* respect a lit updateComplete",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
@@ -516,7 +516,7 @@
             {
               "kind": "method",
               "name": "_FBPReady",
-              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the `|--FBPready` wire. This does *not* respect a lit updateComplete",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
@@ -826,7 +826,7 @@
             {
               "kind": "method",
               "name": "_FBPReady",
-              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the `|--FBPready` wire. This does *not* respect a lit updateComplete",
               "privacy": "private"
             },
             {
@@ -1152,7 +1152,7 @@
             {
               "kind": "method",
               "name": "_FBPReady",
-              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the `|--FBPready` wire. This does *not* respect a lit updateComplete",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",
@@ -1725,7 +1725,7 @@
             {
               "kind": "method",
               "name": "_FBPReady",
-              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+              "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the `|--FBPready` wire. This does *not* respect a lit updateComplete",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "FBP",

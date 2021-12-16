@@ -6,7 +6,7 @@ weight: 100
 
 # panelRegistry
 
-**@furo/furo-route** <small>v2.0.0-rc.5</small>
+**@furo/furo-route** <small>v2.0.0-rc.7</small>
 <br>`import '@furo/furo-route/src/src/lib/panelRegistry.js';`<small>
 <br>exports *panelRegistry* js</small>
 

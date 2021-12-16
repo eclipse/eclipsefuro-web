@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-object
-**@furo/furo-data** <small>v2.0.0-rc.5</small>
+**@furo/furo-data** <small>v2.0.0-rc.7</small>
 <br>`import '@furo/furo-data/src/furo-data-object.js';`<small>
 <br>exports *FuroDataObject* js
 <br>exports `<furo-data-object>` custom-element-definition

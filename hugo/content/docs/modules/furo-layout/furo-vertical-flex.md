@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-vertical-flex
-**@furo/furo-layout** <small>v2.0.0-rc.7</small>
+**@furo/furo-layout** <small>v2.0.0-rc.9</small>
 <br>`import '@furo/furo-layout/src/furo-vertical-flex.js';`<small>
 <br>exports `<furo-vertical-flex>` custom-element-definition
 <br>superclass *LitElement*</small>

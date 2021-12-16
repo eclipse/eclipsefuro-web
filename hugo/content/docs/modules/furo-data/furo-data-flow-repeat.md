@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-flow-repeat
-**@furo/furo-data** <small>v2.0.0-rc.5</small>
+**@furo/furo-data** <small>v2.0.0-rc.7</small>
 <br>`import '@furo/furo-data/src/furo-data-flow-repeat.js';`<small>
 <br>exports *FuroDataFlowRepeat* js
 <br>exports `<furo-data-flow-repeat>` custom-element-definition
@@ -19,7 +19,7 @@ weight: 50
 
 
  ```html
- <furo-data-flow-repeat ƒ-bind-data="--data(*.repeaterfield)">
+ <furo-data-flow-repeat identity-path="id" ƒ-bind-data="--data(*.repeaterfield)">
    <template>
      <furo-ui5-data-text-input-labeled
          ƒ-bind-data="--init"></furo-ui5-data-text-input-labeled>
@@ -58,6 +58,7 @@ weight: 50
 
 
 
+
 ### **selectAddedItem**
 default: **false**</small>
 
@@ -65,6 +66,13 @@ Enable this to select the created item. This will trigger a wire `--itemSelected
 `ƒ-focus="--itemSelected"`.
 <br><br>
 
+### **identityPath**
+default: **false**</small>
+
+By setting this param, the repeater has not to rebuild the list on new data. It only updates the parts that have changed.
+
+The path is a field, relative to the root of the repeated item.
+<br><br>
 
 
 
@@ -88,6 +96,19 @@ Enable this to select the created item. This will trigger a wire `--itemSelected
 {{% api "_furo-data-flow-repeat-methods.md" %}}
 
 
+### **bindData**
+<small>**bindData**(*fieldNode* `RepeaterNode` ) ⟹ `boolean`</small>
+
+<small>`RepeaterNode` </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span>
+
+Bind a repeater node.
+
+If `identity-path` is not set, the list will be cleared every time it receives new data.
+
+- <small>*fieldNode* Must be a repeater node.</small>
+<br><br>
+
 
 ### **add**
 <small>**add**(*data* `Object` ) ⟹ `void`</small>
@@ -97,6 +118,8 @@ Enable this to select the created item. This will trigger a wire `--itemSelected
 
 Adds a repeated item of the same type.
 
+If  no object is set, a initial FieldNode of the same type is added to the repeats.
+
 - <small>*data* Object that match the type of the repeated node.</small>
 <br><br>
 
@@ -104,16 +127,6 @@ Adds a repeated item of the same type.
 
 
 
-### **bindData**
-<small>**bindData**(*fieldNode* `FieldNode|RepeaterNode` ) ⟹ `void`</small>
-
-<small>`FieldNode|RepeaterNode` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span>
-
-Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.
-
-- <small>*fieldNode* FieldNode or RepeaterNode</small>
-<br><br>
 
 
 

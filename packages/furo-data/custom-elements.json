@@ -1026,9 +1026,33 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat ƒ-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         ƒ-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n *The wire `--init` is fired from furo-data-flow-repeat*\n\n If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
+          "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat identity-path=\"id\" ƒ-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         ƒ-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n *The wire `--init` is fired from furo-data-flow-repeat*\n\n If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
           "name": "FuroDataFlowRepeat",
           "members": [
+            {
+              "kind": "method",
+              "name": "bindData",
+              "parameters": [
+                {
+                  "name": "fieldNode",
+                  "description": "Must be a repeater node.",
+                  "type": {
+                    "text": "RepeaterNode"
+                  }
+                }
+              ],
+              "description": "Bind a repeater node.\n\nIf `identity-path` is not set, the list will be cleared every time it receives new data.",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "inheritedFrom": {
+                "name": "FieldNodeAdapter",
+                "module": "src/lib/FieldNodeAdapter.js"
+              }
+            },
             {
               "kind": "method",
               "name": "onFnaRepeatedFieldChanged",
@@ -1051,7 +1075,7 @@
                   }
                 }
               ],
-              "description": "Adds a repeated item of the same type."
+              "description": "Adds a repeated item of the same type.\n\nIf  no object is set, a initial FieldNode of the same type is added to the repeats."
             },
             {
               "kind": "field",
@@ -1060,6 +1084,15 @@
                 "text": "boolean"
               },
               "description": "Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to\n`ƒ-focus=\"--itemSelected\"`.",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "identityPath",
+              "type": {
+                "text": "String"
+              },
+              "description": "By setting this param, the repeater has not to rebuild the list on new data. It only updates the parts that have changed.\n\nThe path is a field, relative to the root of the repeated item.",
               "default": "false"
             },
             {
@@ -1102,25 +1135,6 @@
                 }
               },
               "privacy": "private",
-              "inheritedFrom": {
-                "name": "FieldNodeAdapter",
-                "module": "src/lib/FieldNodeAdapter.js"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "bindData",
-              "parameters": [
-                {
-                  "name": "fieldNode",
-                  "description": "FieldNode or RepeaterNode",
-                  "type": {
-                    "text": "FieldNode|RepeaterNode"
-                  }
-                }
-              ],
-              "description": "Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.",
-              "privacy": "public",
               "inheritedFrom": {
                 "name": "FieldNodeAdapter",
                 "module": "src/lib/FieldNodeAdapter.js"

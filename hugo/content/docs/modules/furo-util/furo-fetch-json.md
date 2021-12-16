@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-fetch-json
-**@furo/furo-util** <small>v2.0.0-rc.7</small>
+**@furo/furo-util** <small>v2.0.0-rc.9</small>
 <br>`import '@furo/furo-util/src/furo-fetch-json.js';`<small>
 <br>exports `<furo-fetch-json>` custom-element-definition
 <br>superclass *LitElement*
@@ -18,7 +18,7 @@ weight: 50
  Fetches and parses json data from a source.
 
  ```html
- <furo-fetch-json src="/example.json" ƒ-fetch="--FBPready" @-data="--contentReceived"></furo-fetch-json>
+ <furo-fetch-json src="/example.json" ƒ-fetch="|--FBPready" @-data="--contentReceived"></furo-fetch-json>
  ```
 
 {{% api "_furo-fetch-json-description.md" %}}

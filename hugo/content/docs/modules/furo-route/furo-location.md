@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-location
-**@furo/furo-route** <small>v2.0.0-rc.5</small>
+**@furo/furo-route** <small>v2.0.0-rc.7</small>
 <br>`import '@furo/furo-route/src/furo-location.js';`<small>
 <br>exports `<furo-location>` custom-element-definition
 <br>superclass *LitElement*</small>
