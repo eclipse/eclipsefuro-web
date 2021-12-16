@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.9...@furo/util@2.0.0-rc.10) (2021-12-16)
+
+
+### Bug Fixes
+
+* |--FBPready ([d478fd2](https://github.com/eclipse/eclipsefuro-web/commit/d478fd2c159d68266f1a8a60a05a0416de90e964))
+* furo-data-flow-repeat clears list if no identity-path was given. ([4ce4e04](https://github.com/eclipse/eclipsefuro-web/commit/4ce4e04c087754d39fe09a44df6b033495fd6515))
+* furo-data-flow-repeat clears list if no identity-path was given. ([65d35fd](https://github.com/eclipse/eclipsefuro-web/commit/65d35fdd7517937d88a628585f7501292780e789))
+
+
+
+
+
 # [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.8...@furo/util@2.0.0-rc.9) (2021-12-10)
 
 

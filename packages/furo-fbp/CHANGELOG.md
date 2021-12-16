@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.7...@furo/fbp@6.0.0-rc.8) (2021-12-16)
+
+
+### Bug Fixes
+
+* |--FBPready ([d478fd2](https://github.com/eclipse/eclipsefuro-web/commit/d478fd2c159d68266f1a8a60a05a0416de90e964))
+* furo-data-flow-repeat clears list if no identity-path was given. ([4ce4e04](https://github.com/eclipse/eclipsefuro-web/commit/4ce4e04c087754d39fe09a44df6b033495fd6515))
+
+
+
+
+
 # [6.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.6...@furo/fbp@6.0.0-rc.7) (2021-12-10)
 
 

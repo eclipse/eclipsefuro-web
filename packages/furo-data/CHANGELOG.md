@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.7...@furo/data@2.0.0-rc.8) (2021-12-16)
+
+
+### Bug Fixes
+
+* furo-data-flow-repeat clears list if no identity-path was given. ([4ce4e04](https://github.com/eclipse/eclipsefuro-web/commit/4ce4e04c087754d39fe09a44df6b033495fd6515))
+* furo-data-flow-repeat clears list if no identity-path was given. ([65d35fd](https://github.com/eclipse/eclipsefuro-web/commit/65d35fdd7517937d88a628585f7501292780e789))
+* wrong break criteria during for-in loop. ([480a264](https://github.com/eclipse/eclipsefuro-web/commit/480a264a21e4c8cf0ff848c9e164950818cef560))
+
+
+
+
+
 # [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.6...@furo/data@2.0.0-rc.7) (2021-12-10)
 
 
