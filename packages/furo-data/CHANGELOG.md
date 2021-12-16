@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.5...@furo/data@1.34.6) (2021-12-16)
+
+
+### Bug Fixes
+
+* FieldNode: wrong break criteria during for-in loop in meta ([8d81ec7](https://github.com/eclipse/eclipsefuro-web/commit/8d81ec743f8734faa0e69f83b7a1c5051b0bf7f4))
+
+
+
+
+
 ## [1.34.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.4...@furo/data@1.34.5) (2021-12-15)
 
 

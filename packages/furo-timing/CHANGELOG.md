@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/timing@1.7.8...@furo/timing@1.7.9) (2021-12-16)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
 ## [1.7.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/timing@1.7.7...@furo/timing@1.7.8) (2021-12-15)
 
 **Note:** Version bump only for package @furo/timing
