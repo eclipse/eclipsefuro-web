@@ -16,6 +16,16 @@
     </item>
     
     <item>
+      <title>Application Flow</title>
+      <link>https://web-components.furo.pro/docs/guides/app-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/app-flow/</guid>
+      <description>Application flow / Event driven routing #  For this kind of routing you need the following building blocks:
+   component description     @furo/route/src/furo-app-flow-router app flow manager   @furo/route/src/furo-app-flow emits app flow events   @furo/config/src/furo-config-loader can load config files   flowConfig.json flow config definition file    1 2 3 4 5 6 7 8 9  &amp;lt;!-- main-app --&amp;gt; &amp;lt;furo-config-loader src=&amp;#34;custom/flowConfig.</description>
+    </item>
+    
+    <item>
       <title>Extending a UI lib</title>
       <link>https://web-components.furo.pro/docs/guides/FNA/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -24,17 +34,19 @@
       <description>How to make your own UI components bindable #  There are several ways to make your component bindable.
 Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
 This can be quite complex, but will give you the greatest flexibility.
-Take a look at the furo-ui5-button, which is a very small example to handle the binding by yourself.</description>
+Take a look at the furo-ui5-bool-icon, which is a very small example to handle the binding by yourself.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://web-components.furo.pro/docs/guides/app-flow/</link>
+      <title>Type Renderer</title>
+      <link>https://web-components.furo.pro/docs/guides/type-renderer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://web-components.furo.pro/docs/guides/app-flow/</guid>
-      <description>App flow #  For this kind of routing you need the following building blocks:
-   component description     @furo/route/src/furo-app-flow-router app flow manager   @furo/route/src/furo-app-flow emits app flow events   @furo/config/src/furo-config-loader can load config files   flowConfig.json flow config definition file    1 2 3 4 5 6 7 8 9  &amp;lt;!-- main-app --&amp;gt; &amp;lt;furo-config-loader src=&amp;#34;custom/flowConfig.json&amp;#34; section=&amp;#34;flow&amp;#34; @-config-loaded=&amp;#34;--flowConfigLoaded&amp;#34;&amp;gt;&amp;lt;/furo-config-loader&amp;gt; &amp;lt;furo-app-flow-router ƒ-.</description>
+      <guid>https://web-components.furo.pro/docs/guides/type-renderer/</guid>
+      <description>Dynamic type-dependent rendering #  The furo-type-renderer is used to display type specific data. It uses display as default context and will warn you on the console if the requested context-[type-name] does not exist or was not imported.
+There is a standard set of type-renderers for rendering the most common types.
+The standard ui5 set can be integrated with the import
+ import &amp;lsquo;@furo/ui5/src/standard-type-renderers/display-registry.js&amp;rsquo;.  If you want to implement an individual display of a type, you need your own context-[type-name] component and import it.</description>
     </item>
     
   </channel>

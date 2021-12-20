@@ -14,12 +14,12 @@ Even in a small todo app you will quickly have more than one view (list, create,
  Routing is just the procedure to display a view based on some conditions." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/guides/routing/subrouting/" />
-
+<meta property="article:modified_time" content="2021-12-09T14:42:13+01:00" />
 <title>Sub routing | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.1cd13dcc8787df60666e07e7ab0727079a3a9ed6214baa149e9783da32239915.js" integrity="sha256-HNE9zIeH32BmbgfnqwcnB5o6ntYhS6oUnpeD2jIjmRU="></script>
+<script defer src="/en.search.min.5c9bc95acf84b51ca617f0b0c0a82917271084008fe34b8863175975ddda945b.js" integrity="sha256-XJvJWs&#43;EtRymF/CwwKgpFycQhACP40uIYxdZdd3alFs="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -140,6 +140,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://web-components.furo.pro/docs/guides/app-flow/" class="">Application Flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://web-components.furo.pro/docs/guides/FNA/" class="">Extending a UI lib</a>
   
 
@@ -153,7 +166,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://web-components.furo.pro/docs/guides/app-flow/" class="">App Flow</a>
+    <a href="https://web-components.furo.pro/docs/guides/type-renderer/" class="">Type Renderer</a>
   
 
         </li>
@@ -310,6 +323,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/" class="">furo-entity-field</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-hateoas-state/" class="">furo-hateoas-state</a>
   
 
         </li>
@@ -1186,6 +1212,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/light-bulb/" class="">light-bulb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://web-components.furo.pro/docs/modules/furo-util/Config/" class="">Config</a>
   
 
@@ -1213,6 +1252,10 @@ https://github.com/alex-shpak/hugo-book
   </ul>
 
         </li>
+      
+    
+      
+    
       
     
       
@@ -1407,10 +1450,11 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#example">Example</a>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#building-blocks">Building blocks</a></li>
+    <li><a href="#implementation">Implementation</a>
       <ul>
-        <li><a href="#building-blocks">Building blocks</a></li>
-        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#summary">Summary</a></li>
       </ul>
     </li>
   </ul>
@@ -1449,10 +1493,10 @@ to display different sub parts of a view/page.</em></p>
     ├── Tab what         //app.com/detail/what?tsk=999 
     ├── Tab when         //app.com/detail/when?tsk=999 
     └── Tab who          //app.com/detail/who?tsk=999 
-</code></pre><h3 id="building-blocks">
+</code></pre><h2 id="building-blocks">
   Building blocks
   <a class="anchor" href="#building-blocks">#</a>
-</h3>
+</h2>
 <p>You need the following building blocks to implement the example:</p>
 <table>
 <thead>
@@ -1474,10 +1518,10 @@ to display different sub parts of a view/page.</em></p>
 </tr>
 </tbody>
 </table>
-<h3 id="implementation">
+<h2 id="implementation">
   Implementation
   <a class="anchor" href="#implementation">#</a>
-</h3>
+</h2>
 <p><em>app-shell</em></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1519,12 +1563,10 @@ to display different sub parts of a view/page.</em></p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span>
-  <span style="color:#008080">url-space-regex</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;^/detail&#34;</span>
-  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span>&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
-&lt;<span style="color:#000080">h1</span>&gt;Title&lt;/<span style="color:#000080">h1</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">h1</span>&gt;Title&lt;/<span style="color:#000080">h1</span>&gt;
 &lt;<span style="color:#000080">furo-pages</span> 
   <span style="color:#008080">ƒ-inject-location</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span> 
   <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;when&#34;</span>&gt;
@@ -1532,12 +1574,16 @@ to display different sub parts of a view/page.</em></p>
     &lt;<span style="color:#000080">panel-detail-when</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;when&#34;</span>&gt;&lt;/<span style="color:#000080">panel-detail-when</span>&gt;
     &lt;<span style="color:#000080">panel-detail-who</span>  <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;who&#34;</span>&gt;&lt;/<span style="color:#000080">panel-detail-who</span>&gt;
 &lt;/<span style="color:#000080">furo-pages</span>&gt;
+
+&lt;<span style="color:#000080">furo-location</span>
+  <span style="color:#008080">url-space-regex</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;^/detail&#34;</span>
+  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span>&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="summary">
+</div><h3 id="summary">
   Summary
   <a class="anchor" href="#summary">#</a>
-</h4>
+</h3>
 <p>The <code>furo-location</code> component in <code>view-detail</code> will only listen to URLs that begins with &ldquo;/details&rdquo; because
 the attribute <code>url-space-regex=&quot;^/detail&quot;</code> is set.</p>
 </article>
@@ -1549,6 +1595,12 @@ the attribute <code>url-space-regex=&quot;^/detail&quot;</code> is set.</p>
   <div class="flex flex-wrap justify-between">
 
 
+
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/64790663db396dd015487058398106502063c52b" title='Last modified by veith | December 9, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>December 9, 2021</span>
+    </a>
+  </div>
 
 
 
@@ -1574,10 +1626,11 @@ the attribute <code>url-space-regex=&quot;^/detail&quot;</code> is set.</p>
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#example">Example</a>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#building-blocks">Building blocks</a></li>
+    <li><a href="#implementation">Implementation</a>
       <ul>
-        <li><a href="#building-blocks">Building blocks</a></li>
-        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#summary">Summary</a></li>
       </ul>
     </li>
   </ul>
