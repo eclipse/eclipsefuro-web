@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-de-bounce
-**@furo/furo-util** <small>v2.0.0-rc.9</small>
+**@furo/furo-util** <small>v2.0.0-rc.10</small>
 <br>`import '@furo/furo-util/src/furo-de-bounce.js';`<small>
 <br>exports `<furo-de-bounce>` custom-element-definition
 <br>superclass *LitElement*

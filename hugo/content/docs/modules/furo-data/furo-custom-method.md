@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-custom-method
-**@furo/furo-data** <small>v2.0.0-rc.7</small>
+**@furo/furo-data** <small>v2.0.0-rc.8</small>
 <br>`import '@furo/furo-data/src/furo-custom-method.js';`<small>
 <br>exports `<furo-custom-method>` custom-element-definition
 <br>superclass *LitElement*

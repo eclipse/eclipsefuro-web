@@ -6,6 +6,7 @@ import './furo-data-object.js';
 import './furo-deep-link.js';
 import './furo-entity-agent.js';
 import './furo-entity-field.js';
+import './furo-hateoas-state.js';
 import './furo-rel-exists.js';
 import './furo-reverse-deep-link.js';
 import './furo-type-renderer.js';

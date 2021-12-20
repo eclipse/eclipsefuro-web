@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-hp-35
-**@furo/furo-util** <small>v2.0.0-rc.9</small>
+**@furo/furo-util** <small>v2.0.0-rc.10</small>
 <br>`import '@furo/furo-util/src/furo-hp-35.js';`<small>
 <br>exports `<furo-hp-35>` custom-element-definition
 <br>extends */src/furo-forth-stack.js*

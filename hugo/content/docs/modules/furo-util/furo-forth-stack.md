@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-forth-stack
-**@furo/furo-util** <small>v2.0.0-rc.9</small>
+**@furo/furo-util** <small>v2.0.0-rc.10</small>
 <br>`import '@furo/furo-util/src/furo-forth-stack.js';`<small>
 <br>exports *FuroForthStack* js
 <br>exports `<furo-forth-stack>` custom-element-definition

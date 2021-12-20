@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    body {
+      background: #fafafa;
+    }
+
+    furo-demo-snippet {
+      height: 90vh;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+<div id='demo'></div>
+
+<script type='module'>
+  import { html, render } from 'lit'
+  import './initEnv.js'
+
+
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  import '@furo/route/src/furo-location.js'
+  import '@furo/data/src/furo-deep-link.js'
+  import '@furo/data/src/furo-collection-agent.js'
+  import '@furo/data/src/furo-data-object.js'
+  import '@furo/data/src/furo-hateoas-state.js'
+  import '@furo/util/src/doc/furo-demo-snippet.js'
+  import '@furo/layout/src/furo-form-layouter.js'
+
+
+  render(
+    html`
+
+      <furo-demo-snippet>
+        <template>
+
+          <div>
+            <button rel='list'>list</button>
+            <button hide-no-rel rel='list'>hide no rel</button>
+            <button rel='add'>add</button>
+            <furo-hateoas-state ƒ-bind-hts='--collection(*.links)'></furo-hateoas-state>
+          </div>
+
+
+          <button @-click='--listClicked'>list</button>
+
+          <furo-data-object type='person.PersonCollection' @-object-ready='--collection'
+                            ƒ-inject-raw='--response'></furo-data-object>
+          <furo-location @-location-changed='--locationChanged'></furo-location>
+          <furo-deep-link service='PersonService' @-hts-out='--hts'
+                          ƒ-qp-in='--locationChanged(*.query)'></furo-deep-link>
+
+          <furo-collection-agent service='PersonService' ƒ-hts-in='--hts' ƒ-search='--searchRequest'
+                                 ƒ-list='--listClicked' @-response='--response'>
+          </furo-collection-agent>
+
+
+        </template>
+      </furo-demo-snippet>
+
+
+    `,
+    document.querySelector('#demo'),
+  )
+</script>
+</body>
+</html>

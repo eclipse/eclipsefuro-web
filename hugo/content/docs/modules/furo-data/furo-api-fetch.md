@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-api-fetch
-**@furo/furo-data** <small>v2.0.0-rc.7</small>
+**@furo/furo-data** <small>v2.0.0-rc.8</small>
 <br>`import '@furo/furo-data/src/furo-api-fetch.js';`<small>
 <br>exports `<furo-api-fetch>` custom-element-definition
 <br>superclass *HTMLElement*</small>

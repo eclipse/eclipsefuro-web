@@ -6,7 +6,7 @@ weight: 100
 ---
 
 # @furo/layout
-**@furo/layout** <small>v2.0.0-rc.9</small>
+**@furo/layout** <small>v2.0.0-rc.10</small>
 Layout components for furo
 
 {{% api "_furo-layout-head.md" %}}

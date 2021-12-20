@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-flow-repeat
-**@furo/furo-data** <small>v2.0.0-rc.7</small>
+**@furo/furo-data** <small>v2.0.0-rc.8</small>
 <br>`import '@furo/furo-data/src/furo-data-flow-repeat.js';`<small>
 <br>exports *FuroDataFlowRepeat* js
 <br>exports `<furo-data-flow-repeat>` custom-element-definition
