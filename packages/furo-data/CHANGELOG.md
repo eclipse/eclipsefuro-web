@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.8...@furo/data@2.0.0-rc.9) (2021-12-20)
+
+
+### Features
+
+* furo-hateoas-state ([23ba808](https://github.com/eclipse/eclipsefuro-web/commit/23ba808fac5306ad1ff5d26eaac6f9c23312ce8c))
+* furo-hateoas-state changed to data-rel ([99ee5f6](https://github.com/eclipse/eclipsefuro-web/commit/99ee5f6ca994942d4eb813c67a07a1d60ffac576))
+
+
+
+
+
 # [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.7...@furo/data@2.0.0-rc.8) (2021-12-16)
 
 

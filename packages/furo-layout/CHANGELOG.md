@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.10...@furo/layout@2.0.0-rc.11) (2021-12-20)
+
+
+### Features
+
+* furo-hateoas-state ([23ba808](https://github.com/eclipse/eclipsefuro-web/commit/23ba808fac5306ad1ff5d26eaac6f9c23312ce8c))
+
+
+
+
+
 # [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.9...@furo/layout@2.0.0-rc.10) (2021-12-16)
 
 **Note:** Version bump only for package @furo/layout
