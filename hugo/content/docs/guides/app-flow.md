@@ -1,5 +1,9 @@
+---
+weight: 10
+title: "Application Flow"
+---
 
-### App flow
+# Application flow / Event driven routing
 
 For this kind of routing you need the following building blocks:
 

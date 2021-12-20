@@ -15,12 +15,12 @@ or the [`RepeaterNode`](/docs/modules/furo-data/RepeaterNode/), depending on wha
 
 This can be quite complex, but will give you the greatest flexibility.
 
-Take a look at the [furo-ui5-button](https://github.com/theNorstroem/furo-ui5/blob/main/src/furo-ui5-button.js), which
+Take a look at the [furo-ui5-bool-icon](https://github.com/theNorstroem/furo-ui5/blob/main/src/furo-ui5-bool-icon.js), which
 is a very small example to handle the binding by yourself.
 
 ## Variant 2: Use the FieldNodeAdapter
 
-The simplest and most comfortable way to make your component bindable is by extending the `FieldNodeAdapter`. It will
+The easiest and most convenient way to make your component bindable is to extend the component with the `FieldNodeAdapter`. It will
 give you some callback methods to overwrite and does the heavy lifting for you.
 
 Take a look at the [furo-ui5-text-input](https://github.com/theNorstroem/furo-ui5/blob/main/src/furo-ui5-text-input.js)
