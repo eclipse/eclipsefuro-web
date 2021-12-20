@@ -38,14 +38,16 @@
         <template>
 
           <div>
-            <button rel='list'>list</button>
-            <button hide-no-rel rel='list'>hide no rel</button>
-            <button rel='add'>add</button>
-            <furo-hateoas-state ƒ-bind-hts='--collection(*.links)'></furo-hateoas-state>
+            <button data-rel='list'>list</button>
+            <button hide-no-rel data-rel='list'>hide no rel</button>
+            <button data-rel='add'>add</button>
+            <furo-hateoas-state ƒ-bind-hts='--collection(*.links)' ƒ-enable='--enableClicked' ƒ-disable='--disableClicked'></furo-hateoas-state>
           </div>
 
 
           <button @-click='--listClicked'>list</button>
+          <button @-click='--enableClicked'>enable</button>
+          <button @-click='--disableClicked'>disable</button>
 
           <furo-data-object type='person.PersonCollection' @-object-ready='--collection'
                             ƒ-inject-raw='--response'></furo-data-object>

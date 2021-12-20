@@ -11,17 +11,19 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js'
  *
  * Elements inside a shadow root are not selected.
  *
+ * Set the attribute **data-rel="list"** on any element you want to control with `furo-hateoas-state`.
+ *
  * Set the attribute **hide-no-rel** if you want to hide the node instead of being disabled.
  *
  * ```html
  * <div>
- *   <button rel='list'>list</button>
- *   <button hide-no-rel rel='list'>hide no rel</button>
- *   <button rel='add'>add</button>
+ *   <button data-rel='list'>list</button>
+ *   <button hide-no-rel data-rel='list'>hide no rel</button>
+ *   <button data-rel='add'>add</button>
  *   <furo-hateoas-state ƒ-bind-hts='--collection(*.links)'></furo-hateoas-state>
  * </div>
  * ```
- * *all elements with a rel attribute inside the div are controlled*
+ * *all elements with a data-rel="something" attribute inside the div are controlled*
  *
  * @summary disables or hide nodes based on hts
  * @customElement
@@ -38,20 +40,20 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
   }
 
   /**
-   * Enable or show all nodes
+   * Enable or show all nodes.
    */
   enable(){
-    this.parentNode.querySelectorAll('*[rel]').forEach((node) => {
+    this.parentNode.querySelectorAll('*[data-rel]').forEach((node) => {
       const atr = (node.attributes['hide-no-rel'] !== undefined) ? 'hidden' : 'disabled'
       node.removeAttribute(atr)
     })
   }
 
   /**
-   * Disable or hide all nodes
+   * Disable or hide all nodes.
    */
   disable(){
-    this.parentNode.querySelectorAll('*[rel]').forEach((node) => {
+    this.parentNode.querySelectorAll('*[data-rel]').forEach((node) => {
       const atr = (node.attributes['hide-no-rel'] !== undefined) ? 'hidden' : 'disabled'
       node.setAttribute(atr,"")
     })
@@ -80,8 +82,7 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
   }
 
   /**
-   *
-   * @param value {[json]} Array with raw `furo.Link` like
+   * Inject a link array directly.
    *
    * ```json
    * [
@@ -94,6 +95,8 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
    *   }
    * ]
    * ```
+   *
+   * @param value {[json]} Array with raw `furo.Link` like
    */
   injectHts(value) {
     const rels = new Set
@@ -102,11 +105,11 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
       rels.add(l.rel)
     })
 
-    this.parentNode.querySelectorAll('*[rel]').forEach((node) => {
+    this.parentNode.querySelectorAll('*[data-rel]').forEach((node) => {
 
       const atr = (node.attributes['hide-no-rel'] !== undefined) ? 'hidden' : 'disabled'
 
-      if (rels.has(node.attributes.rel.value)) {
+      if (rels.has(node.dataset.rel)) {
         // rel is available
         node.removeAttribute(atr)
       } else {

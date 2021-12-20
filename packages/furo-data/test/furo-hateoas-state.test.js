@@ -14,9 +14,9 @@ describe('furo-deep-link', () => {
       <flow-bind>
         <template>
           <div>
-            <button rel='list'>list</button>
-            <button hide-no-rel rel='list'>hide no rel</button>
-            <button rel='add'>add</button>
+            <button data-rel='list'>list</button>
+            <button hide-no-rel data-rel='list'>hide no rel</button>
+            <button data-rel='add'>add</button>
             <furo-hateoas-state ƒ-bind-hts='--collection(*.links)'></furo-hateoas-state>
           </div>
           <furo-data-object type='person.PersonCollection' @-object-ready='--collection'
