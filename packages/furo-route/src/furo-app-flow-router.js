@@ -226,7 +226,9 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           this._blank = false;
           window.open(prefix + selection.target + search);
         } else {
-          window.history.replaceState({}, '', prefix + selection.target + search);
+          // keep the current history state, the state is set with ƒ-set-waypoint from furo-document-title.
+          window.history.replaceState(window.history.state, '', prefix + selection.target + search);
+
         }
 
         /**
