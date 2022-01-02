@@ -1,6 +1,7 @@
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import { FieldNode } from './FieldNode.js';
 import { RepeaterNode } from './RepeaterNode.js';
+import {DataObject} from "./DataObject.js";
 
 /**
  * Use this class to make your component bindable without handling with the internals of FieldNode.
@@ -87,7 +88,7 @@ export const FieldNodeAdapter = superClass =>
      */
     bindData(fieldNode) {
       // check if we have a FieldNode or RepeaterNode
-      if (!(fieldNode instanceof FieldNode || fieldNode instanceof RepeaterNode)) {
+      if (!(fieldNode instanceof FieldNode || fieldNode instanceof RepeaterNode || fieldNode instanceof DataObject)) {
         // eslint-disable-next-line no-console
         console.warn('Invalid binding ', fieldNode, 'is not a FieldNode', this, this.parentNode);
         return false;
@@ -328,6 +329,10 @@ export const FieldNodeAdapter = superClass =>
        */
       this.__fieldMetasChangedHandler = () => {
         const fnMeta = this.__fieldNode._meta;
+        if(fnMeta === undefined){
+          // DataObject has no metas
+          return
+        }
 
         if (this.__meta.placeholder !== fnMeta.placeholder) {
           this.__meta.placeholder = fnMeta.placeholder;

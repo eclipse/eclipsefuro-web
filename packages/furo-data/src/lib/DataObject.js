@@ -141,6 +141,15 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
+   * This setter aliases to injectRaw. Added for compatibility reasons for the FieldNodeAdapter
+   * @param rawEntity
+   */
+  set _value(val) {
+    return this.injectRaw(val);
+  }
+
+
+  /**
    * returns the value of the data object as a base64 encoded string
    * @return {string}
    * @private
