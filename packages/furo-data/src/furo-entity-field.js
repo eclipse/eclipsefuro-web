@@ -31,8 +31,13 @@ class FuroEntityField extends LitElement {
    * @param v
    */
   set value(v) {
-    this._value = v;
-    this.field._value = v;
+    if (!this.field) {
+      this._queue = v;
+    } else {
+      this._value = v;
+      this.field._value = v;
+    }
+
   }
 
   get value() {
@@ -60,6 +65,12 @@ class FuroEntityField extends LitElement {
       customEvent.detail = e.detail.value;
       this.dispatchEvent(customEvent);
     });
+
+    if (this._queue !== undefined) {
+      this._value = this._queue;
+      this.field._value = this._queue;
+      this._queue = undefined;
+    }
     return this.field;
   }
 
