@@ -166,6 +166,7 @@ export class AgentHelper {
       link => link.rel === rel && link.service === caller._requestedService,
     );
     if (!htsFound) {
+
       // eslint-disable-next-line no-console
       console.warn(
         `No HATEOAS for rel ${rel} in service ${caller._requestedService} found.`,

@@ -150,6 +150,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @param service
    */
   set service(service) {
+    this._requestedService = service
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.error(
@@ -315,6 +316,9 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
+    if(this._ApiEnvironment.services[link.service] === undefined){
+      console.warn("unknown service" , link.service)
+    }
     // generate accept field for header
     const ACCEPT = AgentHelper.generateHeaderAccept(
       this,
