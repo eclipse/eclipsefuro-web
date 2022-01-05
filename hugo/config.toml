@@ -62,6 +62,10 @@ enableGitInfo = true
 name = "フロー Furo"
 url = "https://furo.pro"
 weight = 10
+[[menu.after]]
+name = "SAP UI5 Integration"
+url = "https://ui5.furo.pro"
+weight = 10
 
 
 
