@@ -310,6 +310,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @param service {String} -
    */
   set service(service) {
+    this._requestedService = service
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.warn(

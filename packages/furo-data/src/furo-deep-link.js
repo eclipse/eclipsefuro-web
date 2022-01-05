@@ -75,7 +75,7 @@ class FuroDeepLink extends LitElement {
         rel: service.services[serviceName].deeplink.rel,
         href: service.services[serviceName].deeplink.href,
         method: service.services[serviceName].deeplink.method,
-        service: service.name,
+        service: this._requestedService,
       };
 
       candidate.type = service.services[serviceName].request;
@@ -143,6 +143,7 @@ class FuroDeepLink extends LitElement {
    * @param service
    */
   set service(service) {
+    this._requestedService = service
     if (this._servicedefinitions[service]) {
       this._service = this._servicedefinitions[service];
       if (this._service.lifecycle && this._service.lifecycle.deprecated) {

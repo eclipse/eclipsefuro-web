@@ -1,6 +1,6 @@
 /**
  * ## This is a helper class for the agents
- * 
+ *
  * Update query params
  * a qp like {"active":true} will just update the qp *active*
  *
@@ -163,12 +163,12 @@ export class AgentHelper {
     }
     // check rel and type
     const htsFound = caller._hts.find(
-      link => link.rel === rel && link.service === caller._service.name,
+      link => link.rel === rel && link.service === caller._requestedService,
     );
     if (!htsFound) {
       // eslint-disable-next-line no-console
       console.warn(
-        `No HATEOAS for rel ${rel} in service ${caller._service.name} found.`,
+        `No HATEOAS for rel ${rel} in service ${caller._requestedService} found.`,
         caller._hts,
         caller,
       );
