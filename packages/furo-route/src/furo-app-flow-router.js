@@ -159,7 +159,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     /**
      * this will only work in blank opened pages
      */
-    if (selection.target === 'WINDOW-CLOSE') {
+    if (selection && selection.target === 'WINDOW-CLOSE') {
       window.close();
     }
 
@@ -206,14 +206,14 @@ class FuroAppFlowRouter extends FBP(LitElement) {
         }
 
         if (selection.target.startsWith('EXTERNAL_LINK:')) {
-          // eslint-disable-next-line babel/no-unused-expressions
+          // eslint-disable-next-line no-unused-expressions
           sa.length
             ? window.open(sa.join(''))
             : (window.location.href = selection.target.substr(14).trim());
           return true;
         }
         if (selection.target.startsWith('EXTERNAL_LINK_BLANK:')) {
-          // eslint-disable-next-line babel/no-unused-expressions
+          // eslint-disable-next-line no-unused-expressions
           sa.length ? window.open(sa.join('')) : window.open(selection.target.substr(20).trim());
           return true;
         }
@@ -247,6 +247,9 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
       return true;
     }
+
+    // eslint-disable-next-line no-console
+    console.log('Flow event not found', flowEvent);
 
     const customEvent = new Event('event-not-found', { composed: true, bubbles: true });
     customEvent.detail = flowEvent;
