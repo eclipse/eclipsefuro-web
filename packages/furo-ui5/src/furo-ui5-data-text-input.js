@@ -363,7 +363,7 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
       this.value = val.value === null ? '' : val.value;
       // set empty value when label empty was given
       if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
-        this.value = null;
+        this.value = '';
       }
       this._updateAttributesFromFat(this._tmpFAT.attributes);
       this._updateLabelsFromFat(this._tmpFAT.labels);
