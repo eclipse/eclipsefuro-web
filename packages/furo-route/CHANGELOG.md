@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.10...@furo/route@1.12.11) (2022-01-25)
+
+
+### Bug Fixes
+
+* check if triggered event is not configured ([8ad9f4d](https://github.com/eclipse/eclipsefuro-web/commit/8ad9f4dfd0aab7b80969f21279fc586be4b97c1c))
+
+
+
+
+
 ## [1.12.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.9...@furo/route@1.12.10) (2021-12-16)
 
 **Note:** Version bump only for package @furo/route

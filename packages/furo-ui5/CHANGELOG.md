@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.47.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.47.4...@furo/ui5@0.47.5) (2022-01-25)
+
+
+### Bug Fixes
+
+* input fields with no value but label empty:true set should show empty string in the display ([b4dd2a8](https://github.com/eclipse/eclipsefuro-web/commit/b4dd2a86bc0badc36fd5fb90294bc83a57f64a5f))
+
+
+
+
+
 ## [0.47.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.47.3...@furo/ui5@0.47.4) (2021-12-16)
 
 **Note:** Version bump only for package @furo/ui5

@@ -4,7 +4,7 @@
   "keywords": [
     "routing"
   ],
-  "version": "1.12.10",
+  "version": "1.12.11",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-route",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {

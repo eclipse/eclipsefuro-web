@@ -1,7 +1,7 @@
 {
   "name": "@furo/doc-helper",
   "description": "Helper components for the furo documentation system",
-  "version": "1.10.10",
+  "version": "1.10.11",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-doc-helper",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -38,7 +38,7 @@
     "@furo/layout": "^1.9.4",
     "@furo/navigation": "^1.10.9",
     "@furo/notification": "^1.8.4",
-    "@furo/route": "^1.12.10",
+    "@furo/route": "^1.12.11",
     "@furo/specs": "^1.24.0",
     "@furo/util": "^1.8.9",
     "@svgdotjs/svg.js": "^3.0.13",
