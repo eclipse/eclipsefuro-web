@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-app-flow-router
-**@furo/furo-route** <small>v2.0.0-rc.8</small>
-<br>`import '@furo/furo-route/src/furo-app-flow-router.js';`<small>
+**@furo/route** <small>v2.0.0-rc.10</small>
+<br>`import '@furo/route/src/furo-app-flow-router.js';`<small>
 <br>exports `<furo-app-flow-router>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

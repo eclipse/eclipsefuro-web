@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-entity-field
-**@furo/furo-data** <small>v2.0.0-rc.8</small>
-<br>`import '@furo/furo-data/src/furo-entity-field.js';`<small>
+**@furo/data** <small>v2.0.0-rc.10</small>
+<br>`import '@furo/data/src/furo-entity-field.js';`<small>
 <br>exports `<furo-entity-field>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *interact with single field of a data object*</small>

@@ -3273,12 +3273,17 @@
             {
               "kind": "field",
               "name": "_value",
-              "description": "Returns a json representation of your Data Object",
+              "description": "This setter aliases to injectRaw. Added for compatibility reasons for the FieldNodeAdapter",
               "return": {
                 "type": {
                   "text": "*"
                 }
-              }
+              },
+              "parameters": [
+                {
+                  "name": "rawEntity"
+                }
+              ]
             },
             {
               "kind": "field",

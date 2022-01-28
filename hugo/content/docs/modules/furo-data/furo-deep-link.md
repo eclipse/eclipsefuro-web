@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-deep-link
-**@furo/furo-data** <small>v2.0.0-rc.8</small>
-<br>`import '@furo/furo-data/src/furo-deep-link.js';`<small>
+**@furo/data** <small>v2.0.0-rc.10</small>
+<br>`import '@furo/data/src/furo-deep-link.js';`<small>
 <br>exports `<furo-deep-link>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *Resolve deep links HATEOAS based on  query params*</small>

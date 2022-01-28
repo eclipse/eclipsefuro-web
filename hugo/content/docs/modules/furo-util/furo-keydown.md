@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-keydown
-**@furo/furo-util** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-util/src/furo-keydown.js';`<small>
+**@furo/util** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/util/src/furo-keydown.js';`<small>
 <br>exports `<furo-keydown>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

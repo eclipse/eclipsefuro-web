@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-data-object
-**@furo/furo-data** <small>v2.0.0-rc.8</small>
-<br>`import '@furo/furo-data/src/furo-data-object.js';`<small>
+**@furo/data** <small>v2.0.0-rc.10</small>
+<br>`import '@furo/data/src/furo-data-object.js';`<small>
 <br>exports *FuroDataObject* js
 <br>exports `<furo-data-object>` custom-element-definition
 <br>superclass *LitElement*</small>

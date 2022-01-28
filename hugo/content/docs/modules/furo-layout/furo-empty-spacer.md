@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-empty-spacer
-**@furo/furo-layout** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-layout/src/furo-empty-spacer.js';`<small>
+**@furo/layout** <small>v2.0.0-rc.11</small>
+<br>`import '@furo/layout/src/furo-empty-spacer.js';`<small>
 <br>exports `<furo-empty-spacer>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *fill the space in a furo-xxxx-flex*</small>

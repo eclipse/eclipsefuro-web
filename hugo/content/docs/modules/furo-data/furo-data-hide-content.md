@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-data-hide-content
-**@furo/furo-data** <small>v2.0.0-rc.8</small>
-<br>`import '@furo/furo-data/src/furo-data-hide-content.js';`<small>
+**@furo/data** <small>v2.0.0-rc.10</small>
+<br>`import '@furo/data/src/furo-data-hide-content.js';`<small>
 <br>exports `<furo-data-hide-content>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

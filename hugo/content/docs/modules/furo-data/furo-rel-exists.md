@@ -5,8 +5,8 @@ weight: 50
 ---
 
 # furo-rel-exists
-**@furo/furo-data** <small>v2.0.0-rc.8</small>
-<br>`import '@furo/furo-data/src/furo-rel-exists.js';`<small>
+**@furo/data** <small>v2.0.0-rc.10</small>
+<br>`import '@furo/data/src/furo-rel-exists.js';`<small>
 <br>exports `<furo-rel-exists>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *checks for a specific rel*</small>
