@@ -33,7 +33,7 @@
     "@svgdotjs/svg.panzoom.js": "^2.1.0",
     "dagre": "^0.8.4",
     "lit": "^2.0.2",
-    "markdown-it": "^9.0.1",
+    "markdown-it": "^12.3.2",
     "prismjs": "^1.17.1"
   },
   "publishConfig": {

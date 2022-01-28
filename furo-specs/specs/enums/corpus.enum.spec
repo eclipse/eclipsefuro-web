@@ -11,6 +11,5 @@
     "UNKNOWN": 0,
     "STARTED": 1,
     "RUNNING": 1,
-    "COMPLETE": 2
   }
 }
