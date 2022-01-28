@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.9...@furo/route@2.0.0-rc.10) (2022-01-28)
+
+
+### Bug Fixes
+
+* check if triggered event is not configured ([c11d39d](https://github.com/eclipse/eclipsefuro-web/commit/c11d39d7a1d8b8ce153689ec9d105645c1baabc5))
+* do not overwrite history state with empty state on new route ([69dd309](https://github.com/eclipse/eclipsefuro-web/commit/69dd3092d1f2ae6d61c161aca0e398552d64d369))
+
+
+
+
+
 # [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.8...@furo/route@2.0.0-rc.9) (2021-12-20)
 
 

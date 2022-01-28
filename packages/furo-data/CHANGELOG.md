@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.9...@furo/data@2.0.0-rc.10) (2022-01-28)
+
+
+### Bug Fixes
+
+* DataObject compatibility for the FieldNodeAdapter ([939dd2e](https://github.com/eclipse/eclipsefuro-web/commit/939dd2ef05d8e9b93c6046cdfd4147501ec759b5))
+* timing issues, when data is set before the binding happens ([39a802c](https://github.com/eclipse/eclipsefuro-web/commit/39a802cc45b39cafd1f1544f866759f5d3ea2f5b))
+
+
+### Features
+
+* data agents can work with full qualified service definitions ([749002f](https://github.com/eclipse/eclipsefuro-web/commit/749002fe1554a03765ab12f015c8dbb3b18d20fd))
+* data agents can work with full qualified service definitions ([9c256f2](https://github.com/eclipse/eclipsefuro-web/commit/9c256f22eb914b647c17ce86412b7a1fa45a7665))
+
+
+
+
+
 # [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.8...@furo/data@2.0.0-rc.9) (2021-12-20)
 
 
