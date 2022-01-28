@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/Env/</guid>
-      <description>Env #  @furo/furo-framework v2.0.0-rc.4 import &#39;@furo/furo-framework/src/src/environment.js&#39;; exports Env js
+      <description>Env #  @furo/furo-framework v2.0.0-rc.5 import &#39;@furo/furo-framework/src/src/environment.js&#39;; exports Env js
  This class stores your environment data,
  like the api services and types, which is used by the data components the current locale, which is used by the i18n package the acceptLanguage, which is used by the data components  Attributes and Properties #  Methods #  </description>
     </item>
@@ -23,7 +23,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/i18n/</guid>
-      <description>i18n #  @furo/furo-framework v2.0.0-rc.4 import &#39;@furo/furo-framework/src/src/i18n.js&#39;; exports i18n js
+      <description>i18n #  @furo/furo-framework v2.0.0-rc.5 import &#39;@furo/furo-framework/src/src/i18n.js&#39;; exports i18n js
  The built in i18n is a trivial translation mechanism which translates keys (words) a method for pluralized keys (words with numbers) is available but not implemented.
 You can override the builtin methods in your init file, as long you keep i18n.t and i18n.n
 Usage #  After you have registered a translation file, you can use i18n in your components.</description>
@@ -35,7 +35,7 @@ Usage #  After you have registered a translation file, you can use i18n in your 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/Init/</guid>
-      <description>Init #  @furo/furo-framework v2.0.0-rc.4 import &#39;@furo/furo-framework/src/src/system.js&#39;; exports Init js exports Sys js
+      <description>Init #  @furo/furo-framework v2.0.0-rc.5 import &#39;@furo/furo-framework/src/src/system.js&#39;; exports Init js exports Sys js
  The init class is used to init your Env, the API services and the API types.
 Use the init package in the init phase of your application
 example init #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  // -- initialize application env, theme, api import {Init,Iconset} from &amp;#34;@furo/framework/src/furo.</description>
@@ -47,7 +47,7 @@ example init #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 2
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/NodeEvent/</guid>
-      <description>NodeEvent #  @furo/furo-framework v2.0.0-rc.4 import &#39;@furo/furo-framework/src/src/EventTreeNode.js&#39;; exports NodeEvent js exports EventTreeNode js
+      <description>NodeEvent #  @furo/furo-framework v2.0.0-rc.5 import &#39;@furo/furo-framework/src/src/EventTreeNode.js&#39;; exports NodeEvent js exports EventTreeNode js
  Custom event type for the AST
 Attributes and Properties #  type #  default: type
 Event type / name path #  default: []
