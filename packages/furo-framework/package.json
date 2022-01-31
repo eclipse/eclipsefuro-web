@@ -1,6 +1,6 @@
 {
   "name": "@furo/framework",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "description": "Furo framework libs",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-framework",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/fbp": "^5.12.3",
+    "@furo/fbp": "^5.12.4",
     "@furo/specs": "^1.24.0",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",

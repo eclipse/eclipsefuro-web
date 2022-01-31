@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/config@1.6.6...@furo/config@1.6.7) (2022-01-31)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
 ## [1.6.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/config@1.6.5...@furo/config@1.6.6) (2021-12-13)
 
 **Note:** Version bump only for package @furo/config

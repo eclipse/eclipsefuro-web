@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/logic@1.7.4...@furo/logic@1.7.5) (2022-01-31)
+
+**Note:** Version bump only for package @furo/logic
+
+
+
+
+
 ## [1.7.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/logic@1.7.3...@furo/logic@1.7.4) (2021-12-13)
 
 **Note:** Version bump only for package @furo/logic

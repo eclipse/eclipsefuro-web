@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.48.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.47.5...@furo/ui5@0.48.0) (2022-01-31)
+
+
+### Bug Fixes
+
+* custom value state message handling and default messages from SAP ([9a37bb8](https://github.com/eclipse/eclipsefuro-web/commit/9a37bb8f3cbc78179cfa91f1c6c98885ed32dd26))
+
+
+### Features
+
+* no-data-text ([f97df27](https://github.com/eclipse/eclipsefuro-web/commit/f97df27292c90a6bbda0dcfd0429a70534612b52))
+
+
+
+
+
 ## [0.47.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.47.4...@furo/ui5@0.47.5) (2022-01-25)
 
 

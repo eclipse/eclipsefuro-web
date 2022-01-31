@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/navigation@1.10.9...@furo/navigation@1.10.10) (2022-01-31)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 ## [1.10.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/navigation@1.10.8...@furo/navigation@1.10.9) (2021-12-16)
 
 **Note:** Version bump only for package @furo/navigation
