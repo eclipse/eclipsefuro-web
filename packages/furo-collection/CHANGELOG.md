@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.19](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.18...@furo/collection@1.5.19) (2022-01-25)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.5.18](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.17...@furo/collection@1.5.18) (2021-12-16)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.5.17](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.16...@furo/collection@1.5.17) (2021-12-15)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.5.16](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.15...@furo/collection@1.5.16) (2021-12-13)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.5.15](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.14...@furo/collection@1.5.15) (2021-12-06)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [1.5.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/collection@1.5.13...@furo/collection@1.5.14) (2021-11-26)
 
 **Note:** Version bump only for package @furo/collection

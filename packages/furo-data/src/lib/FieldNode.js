@@ -529,17 +529,15 @@ export class FieldNode extends EventTreeNode {
         } else if (this[field]) {
           this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
         }
+      } else {
+        const target = f[0];
+        const subMetaAndConstraints = { fields: {} };
+        subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
+        // eslint-disable-next-line no-param-reassign
+        level += 1;
 
-        // exit here, it does not go deeper
-        return;
+        this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
       }
-      const target = f[0];
-      const subMetaAndConstraints = { fields: {} };
-      subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
-      // eslint-disable-next-line no-param-reassign
-      level += 1;
-
-      this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
     }
   }
 

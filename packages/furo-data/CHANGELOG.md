@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.5...@furo/data@1.34.6) (2021-12-16)
+
+
+### Bug Fixes
+
+* FieldNode: wrong break criteria during for-in loop in meta ([8d81ec7](https://github.com/eclipse/eclipsefuro-web/commit/8d81ec743f8734faa0e69f83b7a1c5051b0bf7f4))
+
+
+
+
+
+## [1.34.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.4...@furo/data@1.34.5) (2021-12-15)
+
+
+### Bug Fixes
+
+* default value of clearListOnNewData set to TRUE ([6516645](https://github.com/eclipse/eclipsefuro-web/commit/65166458fdd4aeaaf32c8433284993afff04f2e6))
+
+
+
+
+
+## [1.34.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.3...@furo/data@1.34.4) (2021-12-13)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.34.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.2...@furo/data@1.34.3) (2021-12-06)
+
+
+### Bug Fixes
+
+* base64 encoding ([47a0d3d](https://github.com/eclipse/eclipsefuro-web/commit/47a0d3d57a11887b8ffa4419c96e69c01a29ea3d))
+* use decodeURI instead of unescape ([07ca9a3](https://github.com/eclipse/eclipsefuro-web/commit/07ca9a3924b06fa952b79e8dc297d88d32034bf3))
+
+
+
+
+
 ## [1.34.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.1...@furo/data@1.34.2) (2021-11-26)
 
 

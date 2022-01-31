@@ -1,29 +1,44 @@
 /**
  * furo-fbp base class
  *
- * [read the guide](/guide/md/fbp-wires/)
+ * [read the guide](https://fbp.furo.pro/)
  *
- * ## Tracing all wires in a component
+ *
+ * ### **_FBPTriggerWire**
+ * <small>**_FBPTriggerWire**(*wire* `` *detailData* `` ) ⟹ `void`</small>
+ *
+ * Triggers a wire
+ *
+ * - <small>wire (String) Name of the wire like --buttonClicked</small>
+ * - <small>detailData (*) data to pass</small>
+ *
+ *
+ * ### **_FBPAddWireHook**
+ * <small>**_FBPAddWireHook**(*wire* `` *cb* `` *before* `` ) ⟹ `number`</small>
+ *
+ *
+ *
+ * - <small>wire (String) Name of the wire</small>
+ * - <small>cb (function) Callback function cb(detailData)</small>
+ * - <small>before (Boolean) append before the components are triggered, default is false</small>
+ *
+ *
+ * ### **_FBPTraceWires**
+ * <small>**_FBPTraceWires**() ⟹ `void`</small>
  *
  * Log all triggered wires for this component. This function may help you at debugging.
- * **Attention** This works only with wires with at least 1 receiver.
- *
  * Select your element in the dev console and call `$0._FBPTraceWires()`
  *
- * To trace your element immediately after fbp is ready, use this snippet
  *
- * ```
- * _FBPReady(){
- *   super._FBPReady();
- *   this._FBPTraceWires()
- *}
- * ```
- * ## Debuging a wire
+ *
+ * ### **_FBPDebug**
+ * <small>**_FBPDebug**(*wire* `` *openDebugger* `` ) ⟹ `void`</small>
  *
  * Get information for the triggered wire. This function may help you at debugging.
- *
  * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
  *
+ * - <small>wire </small>
+ * - <small>openDebugger opens the debugger console, so you can inspect your component.</small>
  *
  *
  *
@@ -38,12 +53,30 @@ export const FBP = superClass =>
   class extends superClass {
     constructor() {
       super();
+      /**
+       * used to store the listeners
+       * @type {*[]}
+       * @private
+       */
       this.__FBPEventlistener = [];
+      /**
+       *
+       * @type {{}}
+       * @private
+       */
       this.__wirebundle = {};
+      /**
+       *
+       * @type {*[]}
+       * @private
+       */
       this.__wireQueue = [];
     }
 
-    // Auto append fbp for lit elements
+    /**
+     * Auto append fbp for lit elements
+     * @private
+     */
     firstUpdated() {
       // ensure to append only once
       if (!this.__fbpAppended) {
@@ -58,7 +91,7 @@ export const FBP = superClass =>
      * Triggers a wire
      * @param wire (String) Name of the wire like --buttonClicked
      * @param detailData (*) data to pass
-     * @public
+     * @private
      */
     _FBPTriggerWire(wire, detailData) {
       if (this.__fbp_ready) {
@@ -67,26 +100,10 @@ export const FBP = superClass =>
             // check for hooks
             if (typeof receiver === 'function') {
               receiver(detailData);
-            } else if (typeof receiver.element[receiver.method] === 'function') {
-              let response;
-              // array spreaden
-              if (Array.isArray(detailData) && receiver.element[receiver.method].length > 1) {
-                // eslint-disable-next-line prefer-spread
-                response = receiver.element[receiver.method].apply(receiver.element, detailData);
-              } else {
-                let data = detailData;
-                if (receiver.path) {
-                  data = this._pathGet(detailData, receiver.path);
-                }
-                response = receiver.element[receiver.method](data);
-              }
-              // @-ƒ-function auslösen
-              const customEvent = new Event(`ƒ-${receiver.attrName}`, {
-                composed: false,
-                bubbles: false,
-              });
-              customEvent.detail = response;
-              receiver.element.dispatchEvent(customEvent);
+            } else if (
+              typeof receiver.element[receiver.method] === 'function'
+            ) {
+              this._call(detailData, receiver);
             } else if (receiver.property) {
               let data = detailData;
               if (receiver.path) {
@@ -94,11 +111,26 @@ export const FBP = superClass =>
               }
               // eslint-disable-next-line no-param-reassign
               receiver.element[receiver.property] = data;
+            } else if (receiver.element.localName.includes('-')) {
+              // retry call with whenDefined because sometimes the components are just not defined at the time ƒ-method is triggered
+              customElements
+                .whenDefined(receiver.element.localName)
+                .then(() => {
+                  if (typeof receiver.element[receiver.method] === 'function') {
+                    this._call(detailData, receiver);
+                  } else {
+                    // eslint-disable-next-line no-console
+                    console.warn(
+                      `${receiver.method} is not a method of ${receiver.element.nodeName}`,
+                      receiver.element
+                    );
+                  }
+                });
             } else {
               // eslint-disable-next-line no-console
               console.warn(
-                `${receiver.method} is neither a listener nor a function of ${receiver.element.nodeName}`,
-                receiver.element,
+                `${receiver.method} is not a method of ${receiver.element.nodeName}`,
+                receiver.element
               );
             }
           });
@@ -110,11 +142,45 @@ export const FBP = superClass =>
 
     /**
      *
+     * @param detailData
+     * @param receiver
+     * @private
+     */
+    _call(detailData, receiver) {
+      let response;
+      // array spreaden
+      if (
+        Array.isArray(detailData) &&
+        receiver.element[receiver.method].length > 1
+      ) {
+        // eslint-disable-next-line prefer-spread
+        response = receiver.element[receiver.method].apply(
+          receiver.element,
+          detailData
+        );
+      } else {
+        let data = detailData;
+        if (receiver.path) {
+          data = this._pathGet(detailData, receiver.path);
+        }
+        response = receiver.element[receiver.method](data);
+      }
+      // @-ƒ-function auslösen
+      const customEvent = new Event(`ƒ-${receiver.attrName}`, {
+        composed: false,
+        bubbles: false,
+      });
+      customEvent.detail = response;
+      receiver.element.dispatchEvent(customEvent);
+    }
+
+    /**
+     *
      * @param wire (String) Name of the wire
      * @param cb (function) Callback function cb(detailData)
      * @param [before] (Boolean) append before the components are triggered, default is false
      * @returns {number} Index of hook
-     * @public
+     * @private
      */
     _FBPAddWireHook(wire, cb, before) {
       // eslint-disable-next-line no-param-reassign
@@ -136,7 +202,7 @@ export const FBP = superClass =>
      * Select your element in the dev console and call `$0._FBPTraceWires()`
      *
      *
-     * @public
+     * @private
      */
     _FBPTraceWires() {
       const self = this;
@@ -185,7 +251,7 @@ export const FBP = superClass =>
               console.groupEnd();
             }
           },
-          true,
+          true
         );
       }
     }
@@ -196,7 +262,7 @@ export const FBP = superClass =>
      *
      * @param wire
      * @param openDebugger opens the debugger console, so you can inspect your component.
-     * @public
+     * @private
      */
     _FBPDebug(wire, openDebugger) {
       const self = this;
@@ -245,10 +311,16 @@ export const FBP = superClass =>
             }
           }
         },
-        true,
+        true
       );
     }
 
+    /**
+     *
+     * @param str
+     * @return {*}
+     * @private
+     */
     // eslint-disable-next-line class-methods-use-this
     __toCamelCase(str) {
       return str.replace(/-([a-z])/g, g => g[1].toUpperCase());
@@ -276,7 +348,7 @@ export const FBP = superClass =>
         }
 
         for (let i = 0; i < element.attributes.length; i += 1) {
-          // collect data receiver
+          // collect data property receiver
           if (element.attributes[i].name.startsWith('ƒ-.')) {
             // split multiple wires
             element.attributes[i].value.split(',').forEach(w => {
@@ -287,7 +359,9 @@ export const FBP = superClass =>
               }
               wirebundle[r.receivingWire].push({
                 element,
-                property: this.__toCamelCase(element.attributes[i].name.substr(3)),
+                property: this.__toCamelCase(
+                  element.attributes[i].name.substr(3)
+                ),
                 path: r.path,
               });
             });
@@ -306,7 +380,9 @@ export const FBP = superClass =>
               }
               wirebundle[r.receivingWire].push({
                 element,
-                method: this.__toCamelCase(element.attributes[i].name.substr(2)),
+                method: this.__toCamelCase(
+                  element.attributes[i].name.substr(2)
+                ),
                 attrName: element.attributes[i].name.substr(2),
                 path: r.path,
               });
@@ -363,6 +439,7 @@ export const FBP = superClass =>
        * @param eventname
        * @param type
        * @param wire
+       * @private
        */
       function registerEvent(eventname, type, wire, element) {
         // find properties in wire
@@ -404,7 +481,10 @@ export const FBP = superClass =>
                   detailData = e;
                 } else {
                   // send event subprop with *.notDetail.xxx
-                  detailData = self._pathGet(e, match[1].substr(2, match[1].length));
+                  detailData = self._pathGet(
+                    e,
+                    match[1].substr(2, match[1].length)
+                  );
                 }
               } else {
                 // send host property
@@ -421,7 +501,10 @@ export const FBP = superClass =>
             if (match !== null && match.length > 1) {
               const prop = match[1];
               const theEvent = match[0];
-              const customEvent = new Event(theEvent, { composed: false, bubbles: true });
+              const customEvent = new Event(theEvent, {
+                composed: false,
+                bubbles: true,
+              });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
@@ -435,7 +518,10 @@ export const FBP = superClass =>
               }
               e.currentTarget.dispatchEvent(customEvent);
             } else {
-              const customEvent = new Event(wire, { composed: false, bubbles: true });
+              const customEvent = new Event(wire, {
+                composed: false,
+                bubbles: true,
+              });
               customEvent.detail = e.detail;
               e.currentTarget.dispatchEvent(customEvent);
             }
@@ -445,7 +531,10 @@ export const FBP = superClass =>
             if (match !== null && match.length > 1) {
               const prop = match[1];
               const theEvent = match[0];
-              const customEvent = new Event(theEvent, { composed: false, bubbles: true });
+              const customEvent = new Event(theEvent, {
+                composed: false,
+                bubbles: true,
+              });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
@@ -459,7 +548,10 @@ export const FBP = superClass =>
               }
               self.dispatchEvent(customEvent);
             } else {
-              const customEvent = new Event(wire, { composed: false, bubbles: true });
+              const customEvent = new Event(wire, {
+                composed: false,
+                bubbles: true,
+              });
               customEvent.detail = e.detail;
               self.dispatchEvent(customEvent);
             }
@@ -469,7 +561,10 @@ export const FBP = superClass =>
             if (match !== null && match.length > 1) {
               const prop = match[1];
               const theEvent = match[0];
-              const customEvent = new Event(theEvent, { composed: true, bubbles: true });
+              const customEvent = new Event(theEvent, {
+                composed: true,
+                bubbles: true,
+              });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
@@ -483,7 +578,10 @@ export const FBP = superClass =>
               }
               e.currentTarget.dispatchEvent(customEvent);
             } else {
-              const customEvent = new Event(wire, { composed: true, bubbles: true });
+              const customEvent = new Event(wire, {
+                composed: true,
+                bubbles: true,
+              });
               customEvent.detail = e.detail;
               e.currentTarget.dispatchEvent(customEvent);
             }
@@ -519,16 +617,29 @@ export const FBP = superClass =>
      * Livecycle method
      * This method is called, when the wires are ready.
      * And triggers the --FBPready wire. This does *not* respect a lit updateComplete
+     * @private
      */
     _FBPReady() {
       this.__fbp_ready = true;
       this._FBPTriggerWire('--FBPready');
     }
 
+    /**
+     *
+     * @param wire
+     * @param detailData
+     * @private
+     */
     __enqueueTrigger(wire, detailData) {
       this.__wireQueue.push({ w: wire, d: detailData });
     }
 
+    /**
+     *
+     * @param w
+     * @return {{path, receivingWire}}
+     * @private
+     */
     // eslint-disable-next-line class-methods-use-this
     __resolveWireAndPath(w) {
       // finde --wire(*.xx.yy)  => group1 = --wire  group2 = xx.yy
@@ -547,8 +658,8 @@ export const FBP = superClass =>
      *
      * @param {Object} root Object from which to dereference path from
      * @param {string | !Array<string|number>} path Path to read
-     * @return {*} Value at path, or `undefined` if the path could not be
-     *  fully dereferenced.
+     * @return {*} Value at path, or `undefined` if the path could not be fully dereferenced.
+     * @private
      */
     _pathGet(root, path) {
       let prop = root;
@@ -573,6 +684,7 @@ export const FBP = superClass =>
      * @param {string | !Array<string|number>} path Path to set
      * @param {*} value Value to set to path
      * @return {string | boolean} The normalized version of the input path, return false if no prop
+     * @private
      */
     _pathSet(root, path, value) {
       let prop = root;
@@ -611,6 +723,7 @@ export const FBP = superClass =>
      * @param {string | !Array<string|number>} path Input path
      * @return {!Array<string>} Array of path parts
      * @suppress {checkTypes}
+     * @private
      */
     // eslint-disable-next-line class-methods-use-this
     _split(path) {

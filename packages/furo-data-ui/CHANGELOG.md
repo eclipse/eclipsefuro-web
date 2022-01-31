@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-ui@1.13.8...@furo/data-ui@1.13.9) (2021-12-16)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.13.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-ui@1.13.7...@furo/data-ui@1.13.8) (2021-12-15)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.13.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-ui@1.13.6...@furo/data-ui@1.13.7) (2021-12-13)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.13.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-ui@1.13.5...@furo/data-ui@1.13.6) (2021-12-06)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
 ## [1.13.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-ui@1.13.4...@furo/data-ui@1.13.5) (2021-11-26)
 
 **Note:** Version bump only for package @furo/data-ui

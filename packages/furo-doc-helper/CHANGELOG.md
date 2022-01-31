@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.10...@furo/doc-helper@1.10.11) (2022-01-25)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.10.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.9...@furo/doc-helper@1.10.10) (2021-12-16)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.10.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.8...@furo/doc-helper@1.10.9) (2021-12-15)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.10.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.7...@furo/doc-helper@1.10.8) (2021-12-13)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.10.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.6...@furo/doc-helper@1.10.7) (2021-12-06)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [1.10.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.5...@furo/doc-helper@1.10.6) (2021-11-26)
 
 **Note:** Version bump only for package @furo/doc-helper
