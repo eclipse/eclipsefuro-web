@@ -47,7 +47,6 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    this._searcher = this.shadowRoot.getElementById('input');
   }
 
   static get properties() {
@@ -127,6 +126,13 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
         type: String,
         attribute: 'extended-searcher',
       },
+      /**
+       * hint text when result not found by search
+       */
+      noDataText: {
+        type: String,
+        attribute: 'no-data-text',
+      },
     };
   }
 
@@ -151,6 +157,13 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
    */
   clearResultList() {
     this._FBPTriggerWire('--clearResultList', null);
+  }
+
+  set noDataText(v) {
+    this.updateComplete.then(() => {
+      this._searcher = this.shadowRoot.getElementById('Input');
+      this._searcher.setAttribute('no-data-text', v);
+    });
   }
 
   /**
