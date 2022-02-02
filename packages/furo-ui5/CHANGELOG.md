@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.0...@furo/ui5@0.48.1) (2022-02-02)
+
+
+### Bug Fixes
+
+* reset value state on clearResultList ([a531a19](https://github.com/eclipse/eclipsefuro-web/commit/a531a190ab1de7d3ca4fd4511a62c6a3956012a9))
+
+
+
+
+
 # [0.48.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.47.5...@furo/ui5@0.48.0) (2022-01-31)
 
 
