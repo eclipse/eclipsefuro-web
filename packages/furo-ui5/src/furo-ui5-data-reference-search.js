@@ -912,6 +912,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    * clears the result set
    */
   clearResultList() {
+    this._resetValueStateMessage();
     this._searchResultItems = [];
     this._FBPTriggerWire('--resultList', this._searchResultItems);
   }
