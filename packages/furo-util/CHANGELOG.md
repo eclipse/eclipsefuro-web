@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.13](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.12...@furo/util@2.0.0-rc.13) (2022-02-05)
+
+
+### Bug Fixes
+
+* "prismjs": "^1.26.0", ([70bf5b4](https://github.com/eclipse/eclipsefuro-web/commit/70bf5b4b0fcabdce5c4caefc903aec7821aebd06))
+
+
+
+
+
 # [2.0.0-rc.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.11...@furo/util@2.0.0-rc.12) (2022-01-28)
 
 **Note:** Version bump only for package @furo/util
