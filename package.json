@@ -3,11 +3,11 @@
   "description": "Collection of furo base components",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.5.3",
+    "@esm-bundle/chai": "^4.3.4-fix.0",
     "@open-wc/eslint-config": "^4.3.0",
     "@open-wc/testing": "next",
     "@web/dev-server": "^0.1.25",
     "@web/test-runner": "^0.13.20",
-    "@esm-bundle/chai": "^4.3.4-fix.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^4.3.8",
