@@ -112,10 +112,13 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
       if (rels.has(node.dataset.rel)) {
         // rel is available
         node.removeAttribute(atr)
+        node.removeAttribute('disabled')
       } else {
         // rel is not available
         node.setAttribute(atr, '')
+        node.setAttribute('disabled', '')
       }
+
 
     })
   }
