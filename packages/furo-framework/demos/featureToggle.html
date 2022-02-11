@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    body {
+      background: #a3fff7;
+    }
+
+    *[hidden] {
+      opacity: 0.2;
+      display: inline-block;
+
+    }
+
+    *[disabled] {
+      background-color: #7f7f7f;
+    }
+
+    span{
+      background-color: white;
+    }
+  </style>
+
+</head>
+<body>
+<div id='demo'></div>
+
+<script type='module'>
+  import { html, render } from 'lit'
+
+
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  import { FuroFeatureToggle } from '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js'
+
+  FuroFeatureToggle.setKeyState('feature', true)
+
+
+
+  render(
+    html`
+
+      <button data-furo-toggle-disable='feature' id='setTrue'>set true</button>
+      <button data-furo-toggle-enable='feature' id='setFalse'>set false</button>
+      <hr>
+
+      remove: <span data-furo-toggle-remove='feature'>data-furo-toggle-remove='feature'</span> <br>
+      append: <span data-furo-toggle-append='feature'>data-furo-toggle-append='feature'</span> <br>
+
+      disable: <span data-furo-toggle-disable='feature'>data-furo-toggle-disable='feature'</span> <br>
+      disable: <span data-furo-toggle-enable='feature'>data-furo-toggle-enable='feature'</span> <br>
+
+      hide: <span data-furo-toggle-hide='feature'>data-furo-toggle-hide='feature'</span> <br>
+      show:  <span data-furo-toggle-show='feature'>data-furo-toggle-show='feature'</span> <br>
+
+    `,
+    document.querySelector('#demo'),
+  )
+
+  FuroFeatureToggle.parseDom(document.querySelector('#demo'))
+
+  setTrue.addEventListener("click",()=>{
+    FuroFeatureToggle.setKeyState('feature', true)
+  })
+
+  setFalse.addEventListener("click",()=>{
+    FuroFeatureToggle.setKeyState('feature', false)
+  })
+
+</script>
+</body>
+</html>
