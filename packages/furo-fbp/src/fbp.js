@@ -337,6 +337,43 @@ export const FBP = superClass =>
       // get all elements which live in the host
       const nl = dom.querySelectorAll('*');
       const l = nl.length - 1;
+
+      const _collectReceivers = function(element, i, attr) {
+        // collect receiver
+        element.attributes[i].value.split(',').forEach(w => {
+          const r = this.__resolveWireAndPath(w)
+          // create empty if not exist
+          if (!wirebundle[r.receivingWire]) {
+            wirebundle[r.receivingWire] = []
+          }
+          wirebundle[r.receivingWire].push({
+            element,
+            method: this.__toCamelCase(
+              attr,
+            ),
+            attrName: attr,
+            path: r.path,
+          })
+        })
+      }
+      const _collectPropertySetters = function(element, i, property) {
+        // split multiple wires
+        element.attributes[i].value.split(',').forEach(w => {
+          const r = this.__resolveWireAndPath(w)
+          // create empty if not exist
+          if (!wirebundle[r.receivingWire]) {
+            wirebundle[r.receivingWire] = []
+          }
+          wirebundle[r.receivingWire].push({
+            element,
+            property: this.__toCamelCase(
+              property,
+            ),
+            path: r.path,
+          })
+        })
+      }
+
       // eslint-disable-next-line no-plusplus
       for (let x = l; x >= 0; --x) {
         const element = nl[x];
@@ -350,50 +387,39 @@ export const FBP = superClass =>
         for (let i = 0; i < element.attributes.length; i += 1) {
           // collect data property receiver
           if (element.attributes[i].name.startsWith('ƒ-.')) {
-            // split multiple wires
-            element.attributes[i].value.split(',').forEach(w => {
-              const r = this.__resolveWireAndPath(w);
-              // create empty if not exist
-              if (!wirebundle[r.receivingWire]) {
-                wirebundle[r.receivingWire] = [];
-              }
-              wirebundle[r.receivingWire].push({
-                element,
-                property: this.__toCamelCase(
-                  element.attributes[i].name.substr(3)
-                ),
-                path: r.path,
-              });
-            });
+            const property = element.attributes[i].name.substring(3)
+            _collectPropertySetters.call(this, element, i, property)
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('ƒ-')) {
-            // collect receiver
-            element.attributes[i].value.split(',').forEach(w => {
-              const r = this.__resolveWireAndPath(w);
-              // create empty if not exist
-              if (!wirebundle[r.receivingWire]) {
-                wirebundle[r.receivingWire] = [];
-              }
-              wirebundle[r.receivingWire].push({
-                element,
-                method: this.__toCamelCase(
-                  element.attributes[i].name.substr(2)
-                ),
-                attrName: element.attributes[i].name.substr(2),
-                path: r.path,
-              });
-            });
+            const attr = element.attributes[i].name.substring(2)
+            _collectReceivers.call(this, element, i, attr)
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          // collect data property setter receiver
+          if (element.attributes[i].name.startsWith('set-')) {
+            const property = element.attributes[i].name.substring(4)
+            _collectPropertySetters.call(this, element, i, property)
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          // collect receiving tags
+          if (element.attributes[i].name.startsWith('fn-')) {
+            const attr = element.attributes[i].name.substring(3)
+            _collectReceivers.call(this, element, i, attr)
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect sending tags
           if (element.attributes[i].name.startsWith('@-')) {
-            const eventname = element.attributes[i].name.substr(2);
+            const eventname = element.attributes[i].name.substring(2);
             let wire;
 
             const fwires = element.attributes[i].value;
@@ -483,7 +509,7 @@ export const FBP = superClass =>
                   // send event subprop with *.notDetail.xxx
                   detailData = self._pathGet(
                     e,
-                    match[1].substr(2, match[1].length)
+                    match[1].substring(2, match[1].length)
                   );
                 }
               } else {
@@ -511,7 +537,7 @@ export const FBP = superClass =>
                   // send raw event
                   customEvent.detail = e;
                 } else {
-                  customEvent.detail = self._pathGet(e, prop.substr(2));
+                  customEvent.detail = self._pathGet(e, prop.substring(2));
                 }
               } else {
                 customEvent.detail = self._pathGet(self, prop);
@@ -541,7 +567,7 @@ export const FBP = superClass =>
                   // send raw event
                   customEvent.detail = e;
                 } else {
-                  customEvent.detail = self._pathGet(e, prop.substr(2));
+                  customEvent.detail = self._pathGet(e, prop.substring(2));
                 }
               } else {
                 customEvent.detail = self._pathGet(self, prop);
@@ -572,7 +598,7 @@ export const FBP = superClass =>
                   // send raw event
                   customEvent.detail = e;
                 } else {
-                  customEvent.detail = self._pathGet(e, prop.substr(2));
+                  customEvent.detail = self._pathGet(e, prop.substring(2));
                 }
               } else {
                 customEvent.detail = self._pathGet(self, prop);
