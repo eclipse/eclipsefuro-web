@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.5...@furo/framework@2.0.0-rc.6) (2022-02-11)
+
+
+### Features
+
+* featureToggle ([5da5da6](https://github.com/eclipse/eclipsefuro-web/commit/5da5da6ecb575fb1e240eea4b817478aff6b6cc8))
+
+
+
+
+
 # [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.4...@furo/framework@2.0.0-rc.5) (2021-12-20)
 
 
