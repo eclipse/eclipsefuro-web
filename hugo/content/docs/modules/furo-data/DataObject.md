@@ -6,8 +6,8 @@ weight: 100
 
 # DataObject
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/DataObject.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/DataObject.js';`<small>
 <br>exports *DataObject* js
 <br>superclass *EventTreeNode*</small>
 
@@ -105,7 +105,7 @@ useful for deltas
 
 injects a raw model e.g. body data of a collection or entity
 
-- <small>rawEntity </small>
+- <small>*rawEntity* </small>
 <br><br>
 
 ### **reset**
@@ -120,7 +120,7 @@ Resete zum letzten injected state zurück
 
 
 
-- <small>type </small>
+- <small>*type* </small>
 <br><br>
 
 
@@ -138,8 +138,8 @@ Returns a json representation of your Data Object
 
 
 
-- <small>node </small>
-- <small>data </small>
+- <small>*node* </small>
+- <small>*data* </small>
 <br><br>
 
 
@@ -148,7 +148,7 @@ Returns a json representation of your Data Object
 
 
 
-- <small>error </small>
+- <small>*error* </small>
 <br><br>
 
 

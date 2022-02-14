@@ -6,8 +6,8 @@ weight: 100
 
 # RepeaterNode
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/RepeaterNode.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/RepeaterNode.js';`<small>
 <br>exports *RepeaterNode* js
 <br>superclass *EventTreeNode*</small>
 
@@ -113,8 +113,8 @@ default: **true**</small>
 
 
 
-- <small>oldIndex </small>
-- <small>newIndex </small>
+- <small>*oldIndex* </small>
+- <small>*newIndex* </small>
 <br><br>
 
 ### **reinit**
@@ -159,7 +159,7 @@ we can return false here, because a repeater node is not created automatically
 
 
 
-- <small>metaAndConstraints </small>
+- <small>*metaAndConstraints* </small>
 <br><br>
 
 
@@ -171,7 +171,7 @@ we can return false here, because a repeater node is not created automatically
 
 Deletes a repeated item by index
 
-- <small>index </small>
+- <small>*index* </small>
 <br><br>
 
 ### **_addSilent**
@@ -186,7 +186,7 @@ Deletes a repeated item by index
 
 
 
-- <small>error </small>
+- <small>*error* </small>
 <br><br>
 
 ### **add**
@@ -194,7 +194,7 @@ Deletes a repeated item by index
 
 
 
-- <small>data </small>
+- <small>*data* </small>
 <br><br>
 
 

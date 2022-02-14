@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-demo-snippet
-**@furo/util** <small>v2.0.0-rc.12</small>
+**@furo/util** <small>v2.0.0-rc.14</small>
 <br>`import '@furo/util/src/doc/furo-demo-snippet.js';`<small>
 <br>exports `<furo-demo-snippet>` custom-element-definition
 <br>superclass *LitElement*

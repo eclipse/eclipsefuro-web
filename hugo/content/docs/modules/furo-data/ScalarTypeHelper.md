@@ -6,8 +6,8 @@ weight: 100
 
 # ScalarTypeHelper
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/ScalarTypeHelper.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/ScalarTypeHelper.js';`<small>
 <br>exports *ScalarTypeHelper* js</small>
 
 
@@ -35,7 +35,7 @@ weight: 100
 
 
 
-- <small>type </small>
+- <small>*type* </small>
 <br><br>
 
 ### **indeterminateDefault**
@@ -50,7 +50,7 @@ weight: 100
 
 checks if a type is numeric (usefull when you want to compare min or max constraints)
 
-- <small>type </small>
+- <small>*type* </small>
 <br><br>
 
 ### **isScalarType**
@@ -58,5 +58,5 @@ checks if a type is numeric (usefull when you want to compare min or max constra
 
 checks if a type is scalar
 
-- <small>type </small>
+- <small>*type* </small>
 <br><br>
