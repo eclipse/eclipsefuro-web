@@ -7,7 +7,7 @@ weight: 100
 # {{.decl.name}}
 
 **@furo/{{.module}}** <small>v{{.pkg.version}}</small>
-<br>`import '@furo/{{.module}}/src/{{.path}}';`<small>{{range $ex := .cem.exports}}
+<br>`import '{{.pkg.name}}/{{.path}}';`<small>{{range $ex := .cem.exports}}
 <br>exports {{if eq $ex.kind "custom-element-definition"}}`{{"<" | noescape}}{{$ex.name}}>`{{else}}*{{$ex.name}}*{{end}} {{$ex.kind}}{{end}}{{if .decl.superclass.module}}
 <br>extends *{{.decl.superclass.module}}*{{end}}{{if .decl.superclass.name}}
 <br>superclass *{{.decl.superclass.name}}*{{end}}
@@ -45,6 +45,6 @@ weight: 100
 
 {{if $method.description}}{{$method.description | noescape}}{{end}}
 {{range $p := $method.parameters}}
-- <small>{{$p.name}} {{$p.description}}</small>{{end}}
+- <small>*{{$p.name}}* {{$p.description}}</small>{{end}}
 <br><br>
 {{- end}}{{- end}}

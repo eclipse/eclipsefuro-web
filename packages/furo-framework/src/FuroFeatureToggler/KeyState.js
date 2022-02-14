@@ -4,19 +4,49 @@
  */
 export class KeyState {
   constructor(initialState) {
-    // create with false state
+
+    /**
+     * create with false state
+     * @private
+     */
     this._state = initialState;
-    // we store a ref to the removers here
+    // we store a ref to the removers, appender,... here
+    /**
+     * @private
+     */
     this._appenders = [];
+    /**
+     * @private
+     */
     this._removers = [];
+    /**
+     * @private
+     */
     this._showers = [];
+    /**
+     * @private
+     */
     this._hiders = [];
+    /**
+     * @private
+     */
     this._disablers = [];
+    /**
+     * @private
+     */
     this._enablers = [];
+    /**
+     * @private
+     */
     this._callbacks = [];
   }
 
-  // _appenders
+
+  /**
+   * register appender
+   * @private
+   * @param original {domnode} original dom node
+   */
   registerAppender(original) {
     const replacement = document.createComment('FFT-appender');
     this._appenders.push({ original, replacement });
@@ -26,7 +56,12 @@ export class KeyState {
     }
   }
 
-  // remover
+
+  /**
+   * register remover
+   * @private
+   * @param original {domnode} original dom node
+   */
   registerRemover(original) {
     const replacement = document.createComment('FFT-remover');
     this._removers.push({ original, replacement });
@@ -36,7 +71,12 @@ export class KeyState {
     }
   }
 
-  // shower
+
+  /**
+   * shower
+   * @private
+   * @param element {domnode} original dom node
+   */
   registerShower(element) {
     this._showers.push(element);
     // apply the initial state
@@ -47,7 +87,10 @@ export class KeyState {
     }
   }
 
-  // hider
+  /**
+   * @private
+   * @param element {domnode} original dom node
+   */
   registerHider(element) {
     this._hiders.push(element);
     // apply the initial state
@@ -58,7 +101,11 @@ export class KeyState {
     }
   }
 
-  // Enabler
+
+  /**
+   * @private
+   * @param element {domnode} original dom node
+   */
   registerEnabler(element) {
     this._enablers.push(element);
     // apply the initial state
@@ -69,7 +116,10 @@ export class KeyState {
     }
   }
 
-  // Disabler
+  /**
+   * @private
+   * @param element {domnode} original dom node
+   */
   registerDisabler(element) {
     this._disablers.push(element);
     // apply the initial state
@@ -83,6 +133,7 @@ export class KeyState {
   /**
    * register a callback on a key
    * @param cb {function(boolean)}
+   * @private
    */
   registerCallback(cb) {
     this._callbacks.push(cb);
@@ -90,6 +141,10 @@ export class KeyState {
   }
 
   // setter
+  /**
+   * @private
+   * @param newstate
+   */
   set state(newstate) {
     // apply states on changed state only
     if (newstate !== this._state) {
@@ -151,6 +206,10 @@ export class KeyState {
   }
 
   // direct getter
+  /**
+   * @private
+   * @return {*}
+   */
   get state() {
     return this._state;
   }
