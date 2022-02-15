@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://web-components.furo.pro/docs/guides/featuretoggle/</loc>
+    <lastmod>2022-02-15T09:06:30+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/</loc>
     <lastmod>2022-02-14T10:39:42+01:00</lastmod>
   </url>
@@ -145,6 +150,11 @@
   <url>
     <loc>https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/</loc>
     <lastmod>2022-02-14T10:39:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://web-components.furo.pro/docs/modules/furo-util/furo-feature-toggle/</loc>
+    <lastmod>2022-02-15T09:06:30+01:00</lastmod>
   </url>
   
   <url>
@@ -374,7 +384,7 @@
   
   <url>
     <loc>https://web-components.furo.pro/docs/modules/furo-framework/FuroFeatureToggle/</loc>
-    <lastmod>2022-02-14T10:39:14+01:00</lastmod>
+    <lastmod>2022-02-15T09:06:30+01:00</lastmod>
   </url>
   
   <url>
@@ -464,7 +474,7 @@
   
   <url>
     <loc>https://web-components.furo.pro/docs/modules/furo-util/_furo-util-inside/</loc>
-    <lastmod>2021-12-10T13:05:40+01:00</lastmod>
+    <lastmod>2022-02-15T09:06:30+01:00</lastmod>
   </url>
   
   <url>
@@ -728,6 +738,11 @@
   </url>
   
   <url>
+    <loc>https://web-components.furo.pro/docs/redactional/furo-util/furo-feature-toggle/_furo-feature-toggle-head/</loc>
+    <lastmod>2022-02-15T09:06:30+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://web-components.furo.pro/docs/redactional/furo-util/furo-fetch-json/_furo-fetch-json-head/</loc>
     <lastmod>2021-12-06T12:17:08+01:00</lastmod>
   </url>
@@ -818,7 +833,7 @@
   
   <url>
     <loc>https://web-components.furo.pro/docs/</loc>
-    <lastmod>2022-02-14T10:39:42+01:00</lastmod>
+    <lastmod>2022-02-15T09:06:30+01:00</lastmod>
   </url>
   
   <url>

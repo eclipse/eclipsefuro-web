@@ -14,12 +14,12 @@ Available toggles #  Following toggles are given, use the one which is appropria
 Available toggles #  Following toggles are given, use the one which is appropriate to your problem. Sometimes you want to hide some parts if a key is true and sometimes you have to do the opposite." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-framework/FuroFeatureToggle/" />
-<meta property="article:modified_time" content="2022-02-14T10:39:14+01:00" />
+<meta property="article:modified_time" content="2022-02-15T09:06:30+01:00" />
 <title>FuroFeatureToggle | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.173657ee62914ce63fcacd226bbe6151ed24fa605dff7bfcb1d040aba65f8f79.js" integrity="sha256-FzZX7mKRTOY/ys0ia75hUe0k&#43;mBd/3v8sdBAq6Zfj3k="></script>
+<script defer src="/en.search.min.40ddd2a0082543d506304ff356d6a269799500b96632cf0ebc2aff231b876822.js" integrity="sha256-QN3SoAglQ9UGME/zVtaiaXmVALlmMs8OvCr/IxuHaCI="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -167,6 +167,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/guides/type-renderer/" class="">Type Renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/featuretoggle/" class="">Feature Toggles</a>
   
 
         </li>
@@ -1056,6 +1069,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-feature-toggle/" class="">furo-feature-toggle</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-fetch-json/" class="">furo-fetch-json</a>
   
 
@@ -1278,6 +1304,8 @@ https://github.com/alex-shpak/hugo-book
   </ul>
 
         </li>
+      
+    
       
     
       
@@ -1703,12 +1731,12 @@ Sometimes you want to hide some parts if a key is true and sometimes you have to
   <strong>registerCallback</strong>
   <a class="anchor" href="#registercallback">#</a>
 </h3>
-<p><small><strong>registerCallback</strong>(<em>key</em> <code>String</code> <em>cb</em> <code>function(boolean)</code> ) ⟹ <code>void</code></small></p>
+<p><small><strong>registerCallback</strong>(<em>key</em> <code>String</code> <em>cb</em> <code>function(Boolean, KeyState)</code> ) ⟹ <code>void</code></small></p>
 <p>Register a custom callback on a key.</p>
 <p>The callback will be immediately executed when you register it and every time the key state changes.</p>
 <ul>
 <li><small><em>key</em> The key of a feature.</small></li>
-<li><small><em>cb</em> callback method</small>
+<li><small><em>cb</em> The callback method signature is a boolean for the current state and the KeyState object.</small>
 <br><br></li>
 </ul>
 </article>
@@ -1721,9 +1749,9 @@ Sometimes you want to hide some parts if a key is true and sometimes you have to
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/179a70c08629e76dfd71a21e5ac03fbf2bed1234" title='Last modified by veith | February 14, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/1f2e7f582abc300b42eaca784979576539b362a5" title='Last modified by veith | February 15, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>February 14, 2022</span>
+      <span>February 15, 2022</span>
     </a>
   </div>
 

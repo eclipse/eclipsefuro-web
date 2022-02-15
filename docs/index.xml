@@ -61,6 +61,16 @@ The standard ui5 set can be integrated with the import
     </item>
     
     <item>
+      <title>Feature Toggles</title>
+      <link>https://web-components.furo.pro/docs/guides/featuretoggle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/featuretoggle/</guid>
+      <description>Feature Toggles #  Use FuroFeatureToggle to implement toggles for the following scenarios: 1
+ release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects.</description>
+    </item>
+    
+    <item>
       <title>empty-fbp-node</title>
       <link>https://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -340,6 +350,17 @@ Use this component to interact with fields from an furo-data-object.
 You can update the field value or listen to changes of a field.
 1  &amp;lt;furo-entity-field ƒ-bind-data=&amp;#34;--dataObject(*.field)&amp;#34;&amp;gt;&amp;lt;/furo-entity-field&amp;gt;   Attributes and Properties #  value #   Setter Events #  value-changed #  @-value-changed → *
 Fired when the field value or a child value of it was changed.</description>
+    </item>
+    
+    <item>
+      <title>furo-feature-toggle</title>
+      <link>https://web-components.furo.pro/docs/modules/furo-util/furo-feature-toggle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/modules/furo-util/furo-feature-toggle/</guid>
+      <description>furo-feature-toggle #  @furo/util v2.0.0-rc.14 import &#39;@furo/util/src/furo-feature-toggle.js&#39;; exports &amp;lt;furo-feature-toggle&amp;gt; custom-element-definition superclass LitElement mixes FBP summary flow based handler for feature toggles
+furo-feature-toggle Is a handler for feature toggles, you can react to key changes with FBP. This component is quite simple, but gives you a lot of possibilities. Read more about feature toggles in the guide
+1 2 3 4 5 6 7 8 9 10  &amp;lt;!-- setting a key --&amp;gt; &amp;lt;furo-feature-toggle key=&amp;#34;feature.</description>
     </item>
     
     <item>
@@ -1077,7 +1098,7 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-util/_furo-util-inside/</guid>
-      <description>Components #    furo-config-loader load config files  furo-config config access  furo-de-bounce event de bouncer  furo-fetch-json fetch json data  furo-forth-stack forth like stack  furo-get-clipboard get clipboard content  furo-head-tail split an array  furo-hp-35 calculator component  furo-interval-pulse trigger an event in intervals  furo-key-filter keyboard event filter  furo-keydown keyboard event listener  furo-markdown renders markdown data  furo-navigation-pad keyboard navigation helper  furo-pretty-json pretty prints json data  furo-put-clipboard write content to clipboard  furo-demo-snippet documentation helper  light-bulb a light bulb for the documentation  furo-graph-renderer paints a dagree graph as svg  furo-show-flow internal helper component  </description>
+      <description>Components #    furo-config-loader load config files  furo-config config access  furo-de-bounce event de bouncer  furo-feature-toggle flow based handler for feature toggles  furo-fetch-json fetch json data  furo-forth-stack forth like stack  furo-get-clipboard get clipboard content  furo-head-tail split an array  furo-hp-35 calculator component  furo-interval-pulse trigger an event in intervals  furo-key-filter keyboard event filter  furo-keydown keyboard event listener  furo-markdown renders markdown data  furo-navigation-pad keyboard navigation helper  furo-pretty-json pretty prints json data  furo-put-clipboard write content to clipboard  furo-demo-snippet documentation helper  light-bulb a light bulb for the documentation  furo-graph-renderer paints a dagree graph as svg  furo-show-flow internal helper component  </description>
     </item>
     
     <item>
@@ -1545,6 +1566,15 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/redactional/furo-util/furo-demo-snippet/_furo-demo-snippet-head/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://web-components.furo.pro/docs/redactional/furo-util/furo-feature-toggle/_furo-feature-toggle-head/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/redactional/furo-util/furo-feature-toggle/_furo-feature-toggle-head/</guid>
       <description></description>
     </item>
     
