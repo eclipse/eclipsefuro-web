@@ -49,5 +49,15 @@ The standard ui5 set can be integrated with the import
  import &amp;lsquo;@furo/ui5/src/standard-type-renderers/display-registry.js&amp;rsquo;.  If you want to implement an individual display of a type, you need your own context-[type-name] component and import it.</description>
     </item>
     
+    <item>
+      <title>Feature Toggles</title>
+      <link>https://web-components.furo.pro/docs/guides/featuretoggle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/featuretoggle/</guid>
+      <description>Feature Toggles #  Use FuroFeatureToggle to implement toggles for the following scenarios: 1
+ release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects.</description>
+    </item>
+    
   </channel>
 </rss>

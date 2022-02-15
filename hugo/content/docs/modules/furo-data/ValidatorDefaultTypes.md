@@ -6,8 +6,8 @@ weight: 100
 
 # ValidatorDefaultTypes
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/ValidatorDefaultTypes.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/ValidatorDefaultTypes.js';`<small>
 <br>exports *ValidatorDefaultTypes* js</small>
 
 
@@ -32,5 +32,5 @@ A class to validate constraints on type <code>string</code
 
 
 
-- <small>field </small>
+- <small>*field* </small>
 <br><br>

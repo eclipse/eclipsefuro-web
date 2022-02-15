@@ -140,10 +140,10 @@ class FuroLocation extends LitElement {
   _getHrefFromLocation() {
     // path, query hash
     let href = this._location.path;
-    if (this._location.query.length > 0) {
+    if (this._location && this._location.query.length > 0) {
       href += `?${this._location.query}`;
     }
-    if (this._location.hash.length > 0) {
+    if (this._location && this._location.hash.length > 0) {
       href += `#${this._location.hash}`;
     }
     return href;

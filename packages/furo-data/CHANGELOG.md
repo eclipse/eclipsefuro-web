@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.11...@furo/data@2.0.0-rc.12) (2022-02-11)
+
+
+### Bug Fixes
+
+* hateoas state should also enable a button which has set hide-no-rel, because a programmatic disable can never be restored ([a3a305c](https://github.com/eclipse/eclipsefuro-web/commit/a3a305c67a4804bd4cc4fee0a6e1d06eae4528ac))
+
+
+
+
+
 # [2.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.10...@furo/data@2.0.0-rc.11) (2022-01-31)
 
 **Note:** Version bump only for package @furo/data

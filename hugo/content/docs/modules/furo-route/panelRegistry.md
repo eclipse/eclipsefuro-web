@@ -6,8 +6,8 @@ weight: 100
 
 # panelRegistry
 
-**@furo/furo-route** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-route/src/src/lib/panelRegistry.js';`<small>
+**@furo/furo-route** <small>v2.0.0-rc.11</small>
+<br>`import '@furo/route/src/lib/panelRegistry.js';`<small>
 <br>exports *panelRegistry* js</small>
 
 
@@ -45,8 +45,8 @@ panelRegistry.registerType("auth.AuthEntity", {
 
 
 
-- <small>type </small>
-- <small>panel </small>
+- <small>*type* </small>
+- <small>*panel* </small>
 <br><br>
 
 ### **getPanelName**
@@ -54,6 +54,6 @@ panelRegistry.registerType("auth.AuthEntity", {
 
 
 
-- <small>type </small>
-- <small>suffix </small>
+- <small>*type* </small>
+- <small>*suffix* </small>
 <br><br>

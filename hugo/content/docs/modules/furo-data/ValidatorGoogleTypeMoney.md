@@ -6,8 +6,8 @@ weight: 100
 
 # ValidatorGoogleTypeMoney
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/ValidatorGoogleTypeMoney.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/ValidatorGoogleTypeMoney.js';`<small>
 <br>exports *ValidatorGoogleTypeMoney* js</small>
 
 
@@ -33,7 +33,7 @@ A class to validate constraints on type <code>google.type.Money</code
 
 checks field constraints
 
-- <small>field </small>
+- <small>*field* </small>
 <br><br>
 
 ### **isEmpty**
@@ -41,5 +41,5 @@ checks field constraints
 
 checks if type money is empty
 
-- <small>field </small>
+- <small>*field* </small>
 <br><br>

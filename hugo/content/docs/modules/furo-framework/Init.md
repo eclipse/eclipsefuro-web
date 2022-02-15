@@ -6,8 +6,8 @@ weight: 100
 
 # Init
 
-**@furo/furo-framework** <small>v2.0.0-rc.5</small>
-<br>`import '@furo/furo-framework/src/src/system.js';`<small>
+**@furo/furo-framework** <small>v2.0.0-rc.6</small>
+<br>`import '@furo/framework/src/system.js';`<small>
 <br>exports *Init* js
 <br>exports *Sys* js</small>
 
@@ -80,8 +80,8 @@ Iconset.registerIconset("image", ImageIcons);
 
 
 
-- <small>section </small>
-- <small>data </small>
+- <small>*section* </small>
+- <small>*data* </small>
 <br><br>
 
 ### **registerApiServices**
@@ -89,7 +89,7 @@ Iconset.registerIconset("image", ImageIcons);
 
 
 
-- <small>services </small>
+- <small>*services* </small>
 <br><br>
 
 ### **registerApiTypes**
@@ -97,7 +97,7 @@ Iconset.registerIconset("image", ImageIcons);
 
 
 
-- <small>types </small>
+- <small>*types* </small>
 <br><br>
 
 ### **addApiTypeSpec**
@@ -107,8 +107,8 @@ Add a single type spec to the registry
 
 Attention: If the name already exist, the old entry is overwritten.
 
-- <small>typename </small>
-- <small>spec </small>
+- <small>*typename* </small>
+- <small>*spec* </small>
 <br><br>
 
 ### **addApiServiceSpec**
@@ -118,8 +118,8 @@ Add a single service spec to the registry
 
 Attention: If the name already exist, the old entry is overwritten.
 
-- <small>servicename </small>
-- <small>spec </small>
+- <small>*servicename* </small>
+- <small>*spec* </small>
 <br><br>
 
 ### **applyCustomApiPrefixToServicesAndTypes**
@@ -127,7 +127,7 @@ Attention: If the name already exist, the old entry is overwritten.
 
 Apply the prefix to all service deeplinks and to all furo.Reference types with defaults
 
-- <small>prefix </small>
+- <small>*prefix* </small>
 <br><br>
 
 ### **translateStaticTypeMessages**

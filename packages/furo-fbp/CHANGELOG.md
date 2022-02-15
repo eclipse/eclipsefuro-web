@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.8...@furo/fbp@6.0.0-rc.9) (2022-02-11)
+
+
+### Features
+
+* furo fbp with fn-xxx="--openClicked" und set-inner-text="--textData" ([e02f841](https://github.com/eclipse/eclipsefuro-web/commit/e02f84183fe5c76b1ce5da8368a9c229a68b1e91))
+
+
+
+
+
 # [6.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.7...@furo/fbp@6.0.0-rc.8) (2021-12-16)
 
 

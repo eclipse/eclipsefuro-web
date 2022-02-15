@@ -6,8 +6,8 @@ weight: 100
 
 # AgentHelper
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/AgentHelper.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/AgentHelper.js';`<small>
 <br>exports *AgentHelper* js</small>
 
 
@@ -43,8 +43,8 @@ If the current value of the qp is not the same like the injected value, a qp-cha
 
 
 
-- <small>caller </small>
-- <small>qp </small>
+- <small>*caller* </small>
+- <small>*qp* </small>
 <br><br>
 
 ### **setQp**
@@ -54,8 +54,8 @@ Set query params
 All existing query params are replaced by the transferred parameters
 If the transferred object is empty or undefined, all the values will be removed!
 
-- <small>caller </small>
-- <small>qp </small>
+- <small>*caller* </small>
+- <small>*qp* </small>
 <br><br>
 
 ### **getParams**
@@ -63,8 +63,8 @@ If the transferred object is empty or undefined, all the values will be removed!
 
 get existing params from href and append query params
 
-- <small>caller </small>
-- <small>link </small>
+- <small>*caller* </small>
+- <small>*link* </small>
 <br><br>
 
 ### **rebuildQPFromParams**
@@ -72,7 +72,7 @@ get existing params from href and append query params
 
 rebuild qp from params
 
-- <small>params </small>
+- <small>*params* </small>
 <br><br>
 
 ### **generateHeaderAccept**
@@ -80,9 +80,9 @@ rebuild qp from params
 
 generate accept field for header
 
-- <small>caller </small>
-- <small>services </small>
-- <small>rel </small>
+- <small>*caller* </small>
+- <small>*services* </small>
+- <small>*rel* </small>
 <br><br>
 
 ### **generateReq**
@@ -90,7 +90,7 @@ generate accept field for header
 
 generate request url from original link and qp
 
-- <small>link </small>
-- <small>qp </small>
+- <small>*link* </small>
+- <small>*qp* </small>
 <br><br>
 

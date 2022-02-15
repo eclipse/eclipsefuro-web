@@ -6,8 +6,8 @@ weight: 100
 
 # Config
 
-**@furo/furo-util** <small>v2.0.0-rc.12</small>
-<br>`import '@furo/furo-util/src/src/lib/Config.js';`<small>
+**@furo/furo-util** <small>v2.0.0-rc.14</small>
+<br>`import '@furo/util/src/lib/Config.js';`<small>
 <br>exports *Config* js</small>
 
 
@@ -34,8 +34,8 @@ Config Class for `furo-config`. Not intended for direct usage.
 
 
 
-- <small>section </small>
-- <small>obj </small>
+- <small>*section* </small>
+- <small>*obj* </small>
 <br><br>
 
 ### **deepCreate**
@@ -43,9 +43,9 @@ Config Class for `furo-config`. Not intended for direct usage.
 
 create nodes a long they are objects
 
-- <small>parent </small>
-- <small>section </small>
-- <small>obj </small>
+- <small>*parent* </small>
+- <small>*section* </small>
+- <small>*obj* </small>
 <br><br>
 
 ### **watch**
@@ -53,6 +53,6 @@ create nodes a long they are objects
 
 
 
-- <small>section </small>
-- <small>cb </small>
+- <small>*section* </small>
+- <small>*cb* </small>
 <br><br>

@@ -6,8 +6,8 @@ weight: 100
 
 # ValidatorNumericTypes
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/ValidatorNumericTypes.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/ValidatorNumericTypes.js';`<small>
 <br>exports *ValidatorNumericTypes* js</small>
 
 
@@ -32,5 +32,5 @@ A class to validate constraints on numeric types
 
 
 
-- <small>field </small>
+- <small>*field* </small>
 <br><br>

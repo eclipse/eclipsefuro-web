@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.10...@furo/route@2.0.0-rc.11) (2022-02-11)
+
+
+### Bug Fixes
+
+* fix failed tests ([a1238f3](https://github.com/eclipse/eclipsefuro-web/commit/a1238f3f2d77ee1722eff335ea138ca0f95d0b3d))
+
+
+
+
+
 # [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.9...@furo/route@2.0.0-rc.10) (2022-01-28)
 
 

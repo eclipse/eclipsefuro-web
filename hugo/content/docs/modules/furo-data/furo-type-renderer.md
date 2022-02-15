@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-type-renderer
-**@furo/data** <small>v2.0.0-rc.10</small>
+**@furo/data** <small>v2.0.0-rc.12</small>
 <br>`import '@furo/data/src/furo-type-renderer.js';`<small>
 <br>exports `<furo-type-renderer>` custom-element-definition
 <br>superclass *LitElement*

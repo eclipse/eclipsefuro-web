@@ -6,8 +6,8 @@ weight: 100
 
 # ValidatorGoogleTypeDate
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/ValidatorGoogleTypeDate.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/ValidatorGoogleTypeDate.js';`<small>
 <br>exports *ValidatorGoogleTypeDate* js</small>
 
 
@@ -35,7 +35,7 @@ A class to validate constraints on type <code>google.type.Date</code
 
 checks constraints
 
-- <small>field </small>
+- <small>*field* </small>
 <br><br>
 
 ### **isEmpty**
@@ -43,7 +43,7 @@ checks constraints
 
 checks if type date is empty
 
-- <small>field </small>
+- <small>*field* </small>
 <br><br>
 
 

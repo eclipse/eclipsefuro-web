@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-document-title
-**@furo/route** <small>v2.0.0-rc.10</small>
+**@furo/route** <small>v2.0.0-rc.11</small>
 <br>`import '@furo/route/src/furo-document-title.js';`<small>
 <br>exports `<furo-document-title>` custom-element-definition
 <br>superclass *LitElement*

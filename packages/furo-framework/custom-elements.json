@@ -477,6 +477,348 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/FuroFeatureToggler/FuroFeatureToggle.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use the FuroFeatureToggle to control features from a central registry.\nFuroFeatureToggle only needs a key and a boolean value.\nThese key can be set at any time.\nA requested key which was not set, is interpreted as false.\n\n## Available toggles\nFollowing toggles are given, use the one which is appropriate to your problem.\nSometimes you want to hide some parts if a key is true and sometimes you have to do the opposite.\n\n- `data-furo-toggle-append` Appends the element on true state of the key, removes the element on false state\n- `data-furo-toggle-remove` Removes the element on true state of the key, appends the element on false state\n\n- `data-furo-toggle-hide` Adds a hidden attribute to the element on true state of the key, removes the attribute on false state\n- `data-furo-toggle-show` Removes a hidden attribute from the element on true state of the key, adds the attribute on false state\n\n- `data-furo-toggle-disable` Adds a disabled attribute to the element on true state of the key, removes the attribute on false state\n- `data-furo-toggle-enable` Removes a disabled attribute from the element on true state of the key, adds the attribute on false state\n\n\n## Example usage:\n### js\n```js\n// import FuroFeatureToggle\nimport { FuroFeatureToggle } from '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js';\n\n// enabling for a part of your component\nFuroFeatureToggle.parseDom(this.shadowRoot)\n\n// enabling for a part of your component\n FuroFeatureToggle.parseDom(this.shadowRoot.querySelector('#partial'))\n\n\n// setting a key\n FuroFeatureToggle.setKeyState('feature.key', true);\n\n```\n### html\n\n```html\n remove:\n <span data-furo-toggle-remove='feature.key'>\n   span is removed if key state is true, otherwise appended</span>\n\n append:\n <span data-furo-toggle-append='feature.key'>\n   span is appended when key state true, otherwise removed</span>\n\n enable:\n <button data-furo-toggle-disable='feature.key'>\n   button is enabled when state is true, otherwise disabled</button>\n\n disable:\n <button data-furo-toggle-enable='feature.key'>\n   button is disabled when state is true, otherwise enabled</button>\n\n hide:\n <div data-furo-toggle-hide='feature.key'>\n   Div will get a hidden attribute when the key state is true, otherwise hidden\n </div>\n\n show:\n <div data-furo-toggle-show='feature.key'>\n  The hidden attribute will be removed when the key state is true, otherwise the hidden attribute will be set.\n </div>\n\n```",
+          "name": "FuroFeatureToggle",
+          "members": [
+            {
+              "kind": "method",
+              "name": "parseDom",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "root",
+                  "description": "The dom root you want to be managed.",
+                  "type": {
+                    "text": "DOM"
+                  }
+                }
+              ],
+              "description": "Parses the DOM for feature toggles and applies them."
+            },
+            {
+              "kind": "method",
+              "name": "setKeyState",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "key",
+                  "description": "The key of a feature.",
+                  "type": {
+                    "text": "String"
+                  }
+                },
+                {
+                  "name": "state",
+                  "description": "The state to set.",
+                  "type": {
+                    "text": "Boolean"
+                  }
+                }
+              ],
+              "description": "Use this method to register a key with an initial state or to update a state."
+            },
+            {
+              "kind": "method",
+              "name": "registerKeyMap",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "keymap",
+                  "description": "String,Boolean} Object with keys and their initial state",
+                  "type": {
+                    "text": "map"
+                  }
+                }
+              ],
+              "description": "Use this method to bulk register feature toggles."
+            },
+            {
+              "kind": "method",
+              "name": "getKeyState",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "key",
+                  "description": "The key of a feature.",
+                  "type": {
+                    "text": "String"
+                  }
+                }
+              ],
+              "description": "Reads the current state of a key",
+              "return": {
+                "type": {
+                  "text": "Boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "registerCallback",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "key",
+                  "description": "The key of a feature.",
+                  "type": {
+                    "text": "String"
+                  }
+                },
+                {
+                  "name": "cb",
+                  "description": "The callback method signature is a boolean for the current state and the KeyState object.",
+                  "type": {
+                    "text": "function(Boolean, KeyState)"
+                  }
+                }
+              ],
+              "description": "Register a custom callback on a key.\n\nThe callback will be immediately executed when you register it and every time the key state changes."
+            },
+            {
+              "kind": "method",
+              "name": "_mustKey",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "key",
+                  "description": "The key of a feature.",
+                  "type": {
+                    "text": "String"
+                  }
+                }
+              ],
+              "description": "Ensure that a key is created",
+              "privacy": "private"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FuroFeatureToggle",
+          "declaration": {
+            "name": "FuroFeatureToggle",
+            "module": "src/FuroFeatureToggler/FuroFeatureToggle.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/FuroFeatureToggler/KeyState.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Handler of a single key, this class is used by FuroFeatureToggle",
+          "name": "KeyState",
+          "members": [
+            {
+              "kind": "method",
+              "name": "registerAppender",
+              "parameters": [
+                {
+                  "name": "original",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "description": "register appender",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerRemover",
+              "parameters": [
+                {
+                  "name": "original",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "description": "register remover",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerShower",
+              "parameters": [
+                {
+                  "name": "element",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "description": "shower",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerHider",
+              "parameters": [
+                {
+                  "name": "element",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerEnabler",
+              "parameters": [
+                {
+                  "name": "element",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerDisabler",
+              "parameters": [
+                {
+                  "name": "element",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerCallback",
+              "parameters": [
+                {
+                  "name": "cb",
+                  "type": {
+                    "text": "function(boolean)"
+                  }
+                }
+              ],
+              "description": "register a callback on a key",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "state",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newstate"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "_state",
+              "description": "create with false state",
+              "privacy": "private",
+              "default": "initialState"
+            },
+            {
+              "kind": "field",
+              "name": "_appenders",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_removers",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_showers",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_hiders",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_disablers",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_enablers",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_callbacks",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KeyState",
+          "declaration": {
+            "name": "KeyState",
+            "module": "src/FuroFeatureToggler/KeyState.js"
+          }
+        }
+      ]
     }
   ]
 }

@@ -6,8 +6,8 @@ weight: 100
 
 # FieldNodeAdapter
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/FieldNodeAdapter.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/FieldNodeAdapter.js';`<small>
 <br>exports *FieldNodeAdapter* js</small>
 
 
@@ -56,7 +56,7 @@ Read more in the GUIDE section please.
 
 Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.
 
-- <small>fieldNode FieldNode or RepeaterNode</small>
+- <small>*fieldNode* FieldNode or RepeaterNode</small>
 <br><br>
 
 

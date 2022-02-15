@@ -6,8 +6,8 @@ weight: 100
 
 # BasePanel
 
-**@furo/furo-route** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-route/src/src/lib/BasePanel.js';`<small>
+**@furo/furo-route** <small>v2.0.0-rc.11</small>
+<br>`import '@furo/route/src/lib/BasePanel.js';`<small>
 <br>exports *BasePanel* js
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

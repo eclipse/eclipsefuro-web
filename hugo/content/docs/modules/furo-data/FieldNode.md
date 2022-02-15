@@ -6,8 +6,8 @@ weight: 100
 
 # FieldNode
 
-**@furo/furo-data** <small>v2.0.0-rc.10</small>
-<br>`import '@furo/furo-data/src/src/lib/FieldNode.js';`<small>
+**@furo/furo-data** <small>v2.0.0-rc.12</small>
+<br>`import '@furo/data/src/lib/FieldNode.js';`<small>
 <br>exports *FieldNode* js
 <br>superclass *EventTreeNode*</small>
 
@@ -104,7 +104,7 @@ Validity of the fieldNode, this is always set to true when new data is injected 
 create a field in a FieldNode, this is useful when using map<string,something>
   set the value option to init with values
 
-- <small>options :&#34;name&#34;,&#34;type&#34;:&#34;string&#34;, &#34;spec&#34;:{..}}  spec is optional</small>
+- <small>*options* :&#34;name&#34;,&#34;type&#34;:&#34;string&#34;, &#34;spec&#34;:{..}}  spec is optional</small>
 <br><br>
 
 
@@ -113,8 +113,8 @@ create a field in a FieldNode, this is useful when using map<string,something>
 
 
 
-- <small>oldIndex </small>
-- <small>newIndex </small>
+- <small>*oldIndex* </small>
+- <small>*newIndex* </small>
 <br><br>
 
 ### **reinit**
@@ -131,7 +131,7 @@ default values are applied
 
 
 
-- <small>type </small>
+- <small>*type* </small>
 <br><br>
 
 
@@ -149,7 +149,7 @@ default values are applied
 
 
 
-- <small>val </small>
+- <small>*val* </small>
 <br><br>
 
 ### **_updateKeyValueMap**
@@ -157,8 +157,8 @@ default values are applied
 
 
 
-- <small>val </small>
-- <small>spec </small>
+- <small>*val* </small>
+- <small>*spec* </small>
 <br><br>
 
 ### **deleteNode**
