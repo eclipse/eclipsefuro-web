@@ -200,7 +200,7 @@ export class KeyState {
 
       // execute callbacks
       this._callbacks.forEach(cb => {
-        cb(this._state);
+        cb(this._state, this);
       });
     }
   }

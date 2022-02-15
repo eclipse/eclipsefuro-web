@@ -573,9 +573,9 @@
                 },
                 {
                   "name": "cb",
-                  "description": "callback method",
+                  "description": "The callback method signature is a boolean for the current state and the KeyState object.",
                   "type": {
-                    "text": "function(boolean)"
+                    "text": "function(Boolean, KeyState)"
                   }
                 }
               ],

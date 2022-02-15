@@ -131,13 +131,13 @@ Reads the current state of a key
 <br><br>
 
 ### **registerCallback**
-<small>**registerCallback**(*key* `String` *cb* `function(boolean)` ) ⟹ `void`</small>
+<small>**registerCallback**(*key* `String` *cb* `function(Boolean, KeyState)` ) ⟹ `void`</small>
 
 Register a custom callback on a key.
 
 The callback will be immediately executed when you register it and every time the key state changes.
 
 - <small>*key* The key of a feature.</small>
-- <small>*cb* callback method</small>
+- <small>*cb* The callback method signature is a boolean for the current state and the KeyState object.</small>
 <br><br>
 

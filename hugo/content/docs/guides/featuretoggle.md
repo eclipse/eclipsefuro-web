@@ -17,7 +17,23 @@ Do not use toggles feature for:
 - Enabling or hiding buttons, based on a HATEOAS response. Use [furo-hateoas-state](/docs/modules/furo-data/furo-hateoas-state/) for that. 
 
 
-## Supported toggles for HTML
+## Initialization
+If you want to init your keys, register them with `registerKeyMap`.
+This method can be called at any time, because a uninitialized key defaults to the false state.
+
+
+```js
+import { FuroFeatureToggle } from '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js';
+  
+FuroFeatureToggle.registerKeyMap({
+  "feature.a":true,
+  "feature.b":true,
+  "feature.c":false,
+});
+```
+*init.js*
+
+## Supported toggles for Web Components or HTML
 The lib supports the following cases, for direct usage in your html:
 
 ### data-furo-toggle-append
@@ -43,18 +59,13 @@ Is the counter component for hide. It removes a hidden attribute from the elemen
 Will add a `disabled=""`  attribute to the element on true state of the key and removes the attribute on a false state.
 
 ### data-furo-toggle-enable
-Is the counter component for disable. It removes a disabled attribute from the element on true state of the key and adds the `hidden` attribute on a false state
+Is the counter component for disable. It removes a disabled attribute from the element on true state of the key and adds the `disabled` attribute on a false state
 
-## Use the toggle in JS
-To use the toggles in js, you have the following options:
 
-### setKeyState
-This method is used, for changing and initializing a key.
 
-### registerCallback
-Register a callback on a
-
-### getKeyState
+## Helpers and Utils
+At the moment, there is only the `furo-feature-toggle` component available. 
+Feel free to file an issue with a feature request, if you miss something.
 
 
 [^1]: [Wikipedia (de)](https://de.wikipedia.org/wiki/Feature_Toggle), [Wikipedia (en)](https://en.wikipedia.org/wiki/Feature_toggle)

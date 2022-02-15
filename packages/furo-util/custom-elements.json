@@ -304,6 +304,94 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/furo-feature-toggle.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-feature-toggle`\n Is a handler for feature toggles, you can react to key changes with FBP.\n This component is quite simple, but gives you a lot of possibilities.\n Read more about feature toggles in the [guide](/docs/guides/featuretoggle/)\n\n ```html\n <!-- setting a key -->\n<furo-feature-toggle\n    key=\"feature.easter.egg\" fn-set-true=\"--activateClicked\" fn-set-false=\"--disableClicked\">\n    </furo-feature-toggle>\n\n <!-- observing key changes -->\n <furo-feature-toggle\n    key=\"feature.xxxx.yyy\"  @-key-activated=\"--fxyActivated\" @-key-changed=\"--fxyChanged\">\n    </furo-feature-toggle>\n\n ```",
+          "name": "FuroFeatureToggle",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_FBPReady",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setFalse",
+              "description": "Sets a feature key state to false."
+            },
+            {
+              "kind": "method",
+              "name": "setTrue",
+              "description": "Sets a feature key state to true."
+            },
+            {
+              "kind": "field",
+              "name": "key",
+              "privacy": "public",
+              "description": "Name of a feature toggle.",
+              "attribute": "key"
+            }
+          ],
+          "events": [
+            {
+              "name": "key-true",
+              "type": {
+                "text": "true"
+              },
+              "description": "Fired when the key is set to true or is true on init."
+            },
+            {
+              "name": "key-false",
+              "type": {
+                "text": "false"
+              },
+              "description": "Fired when the key is set to false or is false on init."
+            },
+            {
+              "name": "key-changed",
+              "type": {
+                "text": "Boolean"
+              },
+              "description": "Fired on init and when the key changes its state."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "key",
+              "description": "Name of a feature toggle.",
+              "fieldName": "key"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "flow based handler for feature toggles",
+          "tagName": "furo-feature-toggle",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-feature-toggle",
+          "declaration": {
+            "name": "FuroFeatureToggle",
+            "module": "src/furo-feature-toggle.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/furo-fetch-json.js",
       "declarations": [
         {

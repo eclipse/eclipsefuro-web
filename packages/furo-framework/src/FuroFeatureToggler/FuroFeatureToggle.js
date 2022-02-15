@@ -151,7 +151,7 @@ export class FuroFeatureToggle {
    * @param keymap {map String,Boolean} Object with keys and their initial state
    */
   static registerKeyMap(keymap){
-    keymap.keys().forEach((key)=>{
+    Object.keys(keymap).forEach((key)=>{
       FuroFeatureToggle.setKeyState(key,keymap[key]);
     })
   }
@@ -172,7 +172,7 @@ export class FuroFeatureToggle {
    * The callback will be immediately executed when you register it and every time the key state changes.
    *
    * @param key {String} The key of a feature.
-   * @param cb {function(boolean)} callback method
+   * @param cb {function(Boolean, KeyState)} The callback method signature is a boolean for the current state and the KeyState object.
    */
   static registerCallback(key, cb) {
     FuroFeatureToggle._mustKey(key);

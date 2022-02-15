@@ -9,6 +9,7 @@ bookHidden: true
 - [furo-config-loader](furo-config-loader.md) load config files
 - [furo-config](furo-config.md) config access
 - [furo-de-bounce](furo-de-bounce.md) event de bouncer
+- [furo-feature-toggle](furo-feature-toggle.md) flow based handler for feature toggles
 - [furo-fetch-json](furo-fetch-json.md) fetch json data
 - [furo-forth-stack](furo-forth-stack.md) forth like stack
 - [furo-get-clipboard](furo-get-clipboard.md) get clipboard content
