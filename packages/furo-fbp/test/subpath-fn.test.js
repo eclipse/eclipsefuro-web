@@ -17,8 +17,8 @@ describe('subpath', () => {
           <div id="hull">
             <div
               id="sender"
-              on-new-data="--fromSender(*.detail.a.b.c), --onReceiver"
-              on-sendarray="--sendArray(*.detail.a.b.1.x.0)"
+              at-new-data="--fromSender(*.detail.a.b.c), --onReceiver"
+              at-sendarray="--sendArray(*.detail.a.b.1.x.0)"
             >
               sender
             </div>

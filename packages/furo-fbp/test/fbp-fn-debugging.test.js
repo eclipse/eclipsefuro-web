@@ -16,7 +16,7 @@ describe('fbp-fn-debugging.test', () => {
       <flow-bind>
         <template>
           <div id="hull">
-            <div id="sender" on-click="--data-received">sender</div>
+            <div id="sender" at-click="--data-received">sender</div>
             <div id="receiver" fn-click="--data-received">receiver</div>
           </div>
         </template>

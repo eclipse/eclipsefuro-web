@@ -18,7 +18,7 @@ describe('flow-bind', () => {
         <template>
           <flow-bind>
             <template>
-              <button on-click="--clk"></button>
+              <button at-click="--clk"></button>
               <div fn-done="--clk">x</div>
             </template>
           </flow-bind>

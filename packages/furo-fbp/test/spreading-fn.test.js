@@ -15,7 +15,7 @@ describe('spreading', () => {
       <flow-bind>
         <template>
           <div id="hull">
-            <div id="sender" on-new-data="--data-received">sender</div>
+            <div id="sender" at-new-data="--data-received">sender</div>
             <div id="receiver" fn-spread="--data-received">receiver</div>
           </div>
         </template>

@@ -464,7 +464,7 @@ export const FBP = superClass =>
           }
 
           // collect sending tags
-          if (element.attributes[i].name.startsWith('on-')) {
+          if (element.attributes[i].name.startsWith('at-')) {
             const eventname = element.attributes[i].name.substring(3);
             const fwires = element.attributes[i].value;
             fwires.split(',').forEach(fwire => {

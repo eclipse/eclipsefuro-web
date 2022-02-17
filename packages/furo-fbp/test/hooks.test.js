@@ -34,7 +34,7 @@ describe('hooks', () => {
           <div
             id="bubble"
             ƒ-hit="--bubble"
-            @-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-on-host-with-data, -^fire-on-host-with-data(id),:STOP,:PREVENTDEFAULT"
+            @-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-at-host-with-data, -^fire-at-host-with-data(id),:STOP,:PREVENTDEFAULT"
             ƒ-sefl="oo"
           >
             dummy

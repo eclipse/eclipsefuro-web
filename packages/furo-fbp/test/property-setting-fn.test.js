@@ -17,8 +17,8 @@ describe('property-setting-fn', () => {
           <div id="hull">
             <div
               id="sender"
-              on-new-data="--data-received, --sub, --rawEvent(*), --rawSub(*.other.yyyyy.0), ((some.yyyyy))"
-              on-method-test="--method"
+              at-new-data="--data-received, --sub, --rawEvent(*), --rawSub(*.other.yyyyy.0), ((some.yyyyy))"
+              at-method-test="--method"
             >
               sender
             </div>

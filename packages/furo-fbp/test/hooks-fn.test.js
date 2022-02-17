@@ -17,24 +17,24 @@ describe('hooks-fn', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <button id="btn" on-click="--clk"></button>
-          <div id="dd" fn-done="--clk" on-dummy="--clk">x</div>
+          <button id="btn" at-click="--clk"></button>
+          <div id="dd" fn-done="--clk" at-dummy="--clk">x</div>
           <div
             id="xx"
             fn-dummy="--clk"
             fn-dummy-camel="--clk"
             fn-subprop="--subProperty(*.b)"
-            on-firesub="^^subbubble(*.detail.ccc), ^subnonbubble(*.detail.eee), -^subhost(*.detail.ccc.xx)"
+            at-firesub="^^subbubble(*.detail.ccc), ^subnonbubble(*.detail.eee), -^subhost(*.detail.ccc.xx)"
           >
             dummy
           </div>
 
-          <button id="bubblebtn" on-click="--bubble"></button>
+          <button id="bubblebtn" at-click="--bubble"></button>
 
           <div
             id="bubble"
             fn-hit="--bubble"
-            on-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-on-host-with-data, -^fire-on-host-with-data(id),:STOP,:PREVENTDEFAULT"
+            at-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-at-host-with-data, -^fire-at-host-with-data(id),:STOP,:PREVENTDEFAULT"
             fn-sefl="oo"
           >
             dummy

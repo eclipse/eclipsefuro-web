@@ -17,7 +17,7 @@ describe('responder', () => {
             ƒ-double='--number'
             @-ƒ-double='--response'
             fn-double='--numberFN'
-            on-fnret-double='--responseFN'
+            at-fnret-double='--responseFN'
           ></responder-test>
         </template>
       </flow-bind>
