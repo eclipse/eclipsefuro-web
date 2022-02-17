@@ -4,7 +4,7 @@ import { assert } from '@esm-bundle/chai';
 import '../src/furo-catalog.js';
 import '../src/flow-bind.js'; // for testing with wires and hooks
 
-describe('hooks', () => {
+describe('hooks-fn', () => {
   let host;
   let btn;
   let dd;
@@ -17,25 +17,25 @@ describe('hooks', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <button id="btn" @-click="--clk"></button>
-          <div id="dd" ƒ-done="--clk" @-dummy="--clk">x</div>
+          <button id="btn" at-click="--clk"></button>
+          <div id="dd" fn-done="--clk" at-dummy="--clk">x</div>
           <div
             id="xx"
-            ƒ-dummy="--clk"
-            ƒ-dummy-camel="--clk"
-            ƒ-subprop="--subProperty(*.b)"
-            @-firesub="^^subbubble(*.detail.ccc), ^subnonbubble(*.detail.eee), -^subhost(*.detail.ccc.xx)"
+            fn-dummy="--clk"
+            fn-dummy-camel="--clk"
+            fn-subprop="--subProperty(*.b)"
+            at-firesub="^^subbubble(*.detail.ccc), ^subnonbubble(*.detail.eee), -^subhost(*.detail.ccc.xx)"
           >
             dummy
           </div>
 
-          <button id="bubblebtn" @-click="--bubble"></button>
+          <button id="bubblebtn" at-click="--bubble"></button>
 
           <div
             id="bubble"
-            ƒ-hit="--bubble"
-            @-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-at-host-with-data, -^fire-at-host-with-data(id),:STOP,:PREVENTDEFAULT"
-            ƒ-sefl="oo"
+            fn-hit="--bubble"
+            at-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-at-host-with-data, -^fire-at-host-with-data(id),:STOP,:PREVENTDEFAULT"
+            fn-sefl="oo"
           >
             dummy
           </div>
