@@ -13,8 +13,12 @@ describe('responder', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <responder-test id='calc' ƒ-double='--number' @-ƒ-double='--response' fn-double='--numberFN'
-                          on-fnret-double='--responseFN'></responder-test>
+          <responder-test
+            ƒ-double='--number'
+            @-ƒ-double='--response'
+            fn-double='--numberFN'
+            on-fnret-double='--responseFN'
+          ></responder-test>
         </template>
       </flow-bind>
     `)
@@ -28,11 +32,6 @@ describe('responder', () => {
 
   it('responder should be executed', done => {
 
-    element.addEventListener('fnret-double', (d) => {
-        console.log(d)
-      },
-    )
-
     host._FBPAddWireHook('--response', n => {
       assert.equal(n, 8)
       done()
@@ -44,13 +43,18 @@ describe('responder', () => {
 
 
   it('responder should be executed', done => {
-
     host._FBPAddWireHook('--responseFN', n => {
       assert.equal(n, 16)
       done()
     })
-
     host._FBPTriggerWire('--numberFN', 8)
+  })
 
+  it('Mixed', done => {
+    host._FBPAddWireHook('--responseFN', n => {
+      assert.equal(n, 16)
+      done()
+    })
+    host._FBPTriggerWire('--number', 8)
   })
 })

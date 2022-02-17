@@ -23,6 +23,10 @@ class ResponderTest extends FBP(LitElement) {
     return n*2;
   }
 
+  tripple(n){
+    return n*3;
+  }
+
 
   render() {
     // language=HTML
