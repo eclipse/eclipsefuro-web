@@ -147,6 +147,7 @@ export const FBP = superClass =>
      * @private
      */
     _call(detailData, receiver) {
+
       let response;
       // array spreaden
       if (
@@ -158,6 +159,7 @@ export const FBP = superClass =>
           receiver.element,
           detailData
         );
+
       } else {
         let data = detailData;
         if (receiver.path) {
@@ -165,6 +167,17 @@ export const FBP = superClass =>
         }
         response = receiver.element[receiver.method](data);
       }
+
+
+
+      // fnret-function auslösen
+      const fnret = new Event(`fnret-${receiver.attrName}`, {
+        composed: false,
+        bubbles: false,
+      });
+      fnret.detail = response;
+      receiver.element.dispatchEvent(fnret);
+
       // @-ƒ-function auslösen
       const customEvent = new Event(`ƒ-${receiver.attrName}`, {
         composed: false,
@@ -172,6 +185,8 @@ export const FBP = superClass =>
       });
       customEvent.detail = response;
       receiver.element.dispatchEvent(customEvent);
+
+
     }
 
     /**
@@ -374,7 +389,39 @@ export const FBP = superClass =>
         })
       }
 
-      // eslint-disable-next-line no-plusplus
+      const _extractEventWires = function(fwire) {
+        let wire;
+
+        const trimmedWire = fwire.trim()
+
+        let type = 'call'
+        if (trimmedWire.startsWith('((')) {
+          wire = trimmedWire.substring(2, trimmedWire.length - 2)
+          type = 'setValue'
+        } else if (trimmedWire.startsWith('-^')) {
+          wire = trimmedWire.substring(2)
+          type = 'fireOnHost'
+        } else if (trimmedWire.startsWith('^')) {
+          wire = trimmedWire.substring(1)
+          type = 'fire'
+          if (trimmedWire.startsWith('^^')) {
+            wire = trimmedWire.substring(2)
+            type = 'fireBubble'
+          }
+        } else if (trimmedWire === ':STOP') {
+          type = 'stop'
+          wire = 'stop'
+        } else if (trimmedWire === ':PREVENTDEFAULT') {
+          type = 'preventdefault'
+          wire = 'preventdefault'
+        } else {
+          wire = trimmedWire
+          type = 'call'
+        }
+        return { type, wire }
+      }
+
+// eslint-disable-next-line no-plusplus
       for (let x = l; x >= 0; --x) {
         const element = nl[x];
 
@@ -392,19 +439,18 @@ export const FBP = superClass =>
             // eslint-disable-next-line no-continue
             continue;
           }
+          // collect data property setter receiver
+          if (element.attributes[i].name.startsWith('set-')) {
+            const property = element.attributes[i].name.substring(4)
+            _collectPropertySetters.call(this, element, i, property)
+            // eslint-disable-next-line no-continue
+            continue;
+          }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('ƒ-')) {
             const attr = element.attributes[i].name.substring(2)
             _collectReceivers.call(this, element, i, attr)
-            // eslint-disable-next-line no-continue
-            continue;
-          }
-
-          // collect data property setter receiver
-          if (element.attributes[i].name.startsWith('set-')) {
-            const property = element.attributes[i].name.substring(4)
-            _collectPropertySetters.call(this, element, i, property)
             // eslint-disable-next-line no-continue
             continue;
           }
@@ -418,41 +464,25 @@ export const FBP = superClass =>
           }
 
           // collect sending tags
-          if (element.attributes[i].name.startsWith('@-')) {
-            const eventname = element.attributes[i].name.substring(2);
-            let wire;
-
+          if (element.attributes[i].name.startsWith('on-')) {
+            const eventname = element.attributes[i].name.substring(3);
             const fwires = element.attributes[i].value;
             fwires.split(',').forEach(fwire => {
-              const trimmedWire = fwire.trim();
-
-              let type = 'call';
-              if (trimmedWire.startsWith('((')) {
-                wire = trimmedWire.substring(2, trimmedWire.length - 2);
-                type = 'setValue';
-              } else if (trimmedWire.startsWith('-^')) {
-                wire = trimmedWire.substring(2);
-                type = 'fireOnHost';
-              } else if (trimmedWire.startsWith('^')) {
-                wire = trimmedWire.substring(1);
-                type = 'fire';
-                if (trimmedWire.startsWith('^^')) {
-                  wire = trimmedWire.substring(2);
-                  type = 'fireBubble';
-                }
-              } else if (trimmedWire === ':STOP') {
-                type = 'stop';
-                wire = 'stop';
-              } else if (trimmedWire === ':PREVENTDEFAULT') {
-                type = 'preventdefault';
-                wire = 'preventdefault';
-              } else {
-                wire = trimmedWire;
-                type = 'call';
-              }
-
+              const __ret = _extractEventWires(fwire)
               // eslint-disable-next-line no-use-before-define
-              registerEvent(eventname, type, wire, element);
+              registerEvent(eventname, __ret.type, __ret.wire, element);
+            });
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+          // collect sending tags
+          if (element.attributes[i].name.startsWith('@-')) {
+            const eventname = element.attributes[i].name.substring(2);
+            const fwires = element.attributes[i].value;
+            fwires.split(',').forEach(fwire => {
+              const __ret = _extractEventWires(fwire)
+              // eslint-disable-next-line no-use-before-define
+              registerEvent(eventname, __ret.type, __ret.wire, element);
             });
             // eslint-disable-next-line no-continue
             continue;
@@ -469,15 +499,8 @@ export const FBP = superClass =>
        */
       function registerEvent(eventname, type, wire, element) {
         // find properties in wire
-        // eslint-disable-next-line no-param-reassign
-        element.__atf = {};
         // eslint-disable-next-line no-useless-escape
         const match = wire.match(/([a-z0-9\-_*\.]+)/gi);
-        // store @-ƒ-attributes existence
-        for (let i = 0; i < element.attributes.length; i += 1) {
-          // eslint-disable-next-line no-param-reassign
-          element.__atf[element.attributes[i].name] = true;
-        }
 
         const handler = {
           // prevent default and stop propagation
