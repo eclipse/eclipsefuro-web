@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.13...@furo/layout@2.0.0-rc.14) (2022-02-18)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
 # [2.0.0-rc.13](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.12...@furo/layout@2.0.0-rc.13) (2022-02-15)
 
 **Note:** Version bump only for package @furo/layout
