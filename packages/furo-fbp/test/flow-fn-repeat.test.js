@@ -30,7 +30,6 @@ describe('flow-fn-repeat', () => {
               <b>neu</b>
               <rep-item
                 fn-raw="--inject"
-
                 @-click="--xx"
               ></rep-item>
               <rep-item fn-index="--inject(*.index)" fn-yy="--xx"></rep-item>

@@ -242,7 +242,7 @@ class FuroShowFlow extends FBP(LitElement) {
             this.graph.setParent(`${nodeID}-center`, nodeID);
 
             // collect the event wires
-            if (attr.name.startsWith('@-')) {
+            if (attr.name.startsWith('@-') || attr.name.startsWith('at-')) {
               this._collectedWires.events.push(attr);
               // eslint-disable-next-line no-param-reassign
               attr._type = 'event';
@@ -252,8 +252,20 @@ class FuroShowFlow extends FBP(LitElement) {
               // einen edge setzen um ƒ und alle anderen immer links zu haben
               this.graph.setEdge(attrNodeID, `${nodeID}-center`, { type: 'center', weight: 15 });
             }
+
             // collect the method wires
             if (attr.name.startsWith('ƒ-')) {
+              this._collectedWires.methods.push(attr);
+              // eslint-disable-next-line no-param-reassign
+              attr._type = 'method';
+            }
+            // collect the method wires
+            if (attr.name.startsWith('fn-')) {
+              this._collectedWires.methods.push(attr);
+              // eslint-disable-next-line no-param-reassign
+              attr._type = 'method';
+            }// collect the method wires
+            if (attr.name.startsWith('set-')) {
               this._collectedWires.methods.push(attr);
               // eslint-disable-next-line no-param-reassign
               attr._type = 'method';
