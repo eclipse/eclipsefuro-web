@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.15](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.14...@furo/data@2.0.0-rc.15) (2022-02-18)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 # [2.0.0-rc.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.13...@furo/data@2.0.0-rc.14) (2022-02-18)
 
 **Note:** Version bump only for package @furo/data

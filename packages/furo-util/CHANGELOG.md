@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.17](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.16...@furo/util@2.0.0-rc.17) (2022-02-18)
+
+
+### Bug Fixes
+
+* show-flow ([e5e738e](https://github.com/eclipse/eclipsefuro-web/commit/e5e738ebc39303a71c5f3db086ac20a83444c414))
+
+
+
+
+
 # [2.0.0-rc.16](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.15...@furo/util@2.0.0-rc.16) (2022-02-18)
 
 **Note:** Version bump only for package @furo/util

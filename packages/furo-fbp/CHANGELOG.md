@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-rc.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.11...@furo/fbp@6.0.0-rc.12) (2022-02-18)
+
+
+### Bug Fixes
+
+* show-flow ([e5e738e](https://github.com/eclipse/eclipsefuro-web/commit/e5e738ebc39303a71c5f3db086ac20a83444c414))
+
+
+
+
+
 # [6.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.10...@furo/fbp@6.0.0-rc.11) (2022-02-18)
 
 **Note:** Version bump only for package @furo/fbp
