@@ -261,6 +261,10 @@ class FuroLocation extends LitElement {
         return;
       }
 
+      if (target.tagName === 'A' && target.target === "_blank") {
+        return;
+      }
+
       // only handle regular clicks
       if (e.metaKey || e.altKey || e.ctrlKey) {
         return;
