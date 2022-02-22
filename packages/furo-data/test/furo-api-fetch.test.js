@@ -1,9 +1,9 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/testhelper/initEnv.js';
+import './initEnv.js';
 
 describe('furo-api-fetch', () => {
   let element;
@@ -11,11 +11,11 @@ describe('furo-api-fetch', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-api-fetch></furo-api-fetch>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
@@ -168,7 +168,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/pdf');
 
-    const request = new Request('/base/packages/furo-data/test/sample.pdf', {
+    const request = new Request('/packages/furo-data/test/sample.pdf', {
       method: 'GET',
       headers,
     });
@@ -179,7 +179,7 @@ describe('furo-api-fetch', () => {
   });
 
   it('should parse response with default handler (json)', done => {
-    const request = new Request('/base/packages/furo-data/test/wellformed-json.json', {
+    const request = new Request('/packages/furo-data/test/wellformed-json.json', {
       method: 'GET',
     });
     element.addEventListener('response', () => {
@@ -192,7 +192,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const request = new Request('/base/packages/furo-data/test/malformed-json.json', {
+    const request = new Request('/packages/furo-data/test/malformed-json.json', {
       method: 'GET',
       headers,
     });
@@ -207,7 +207,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const request = new Request('/base/packages/furo-data/test/wellformed-json.json', {
+    const request = new Request('/packages/furo-data/test/wellformed-json.json', {
       method: 'GET',
       headers,
     });

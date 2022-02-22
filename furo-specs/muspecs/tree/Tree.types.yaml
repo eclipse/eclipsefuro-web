@@ -1,0 +1,8 @@
+- type: 'tree.Tree #Navigation tree type with recursive navigation nodes'
+  fields:
+    id: 'string:1 #Id of the tree'
+    display_name: '- string:2 #String representation of the tree'
+    secondary_text: 'string:3 #Secondary text of the node'
+    description: 'string:4 #description of the tree'
+    root: 'tree.Navigationnode:10 #Rootnode of the tree'
+  target: tree.proto

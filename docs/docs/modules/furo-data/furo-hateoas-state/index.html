@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="disables or hide nodes based on hts">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="furo-hateoas-state" />
+<meta property="og:description" content="disables or hide nodes based on hts" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-hateoas-state/" />
+<meta property="article:modified_time" content="2022-02-14T10:39:42+01:00" />
+<title>furo-hateoas-state | フロー Furo Web</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
+<script defer src="/en.search.min.40ddd2a0082543d506304ff356d6a269799500b96632cf0ebc2aff231b876822.js" integrity="sha256-QN3SoAglQ9UGME/zVtaiaXmVALlmMs8OvCr/IxuHaCI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+  <link href="/main.css" rel="stylesheet"/>
+</head>
+
+<body dir=>
+<fixed-tooltip-display></fixed-tooltip-display>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <div ></div>
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>フロー Furo Web</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-64d0ac0e8a385a6091d238dd382da7cf" class="toggle"  />
+    <label for="section-64d0ac0e8a385a6091d238dd382da7cf" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/guides/" class="">Guides</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/dealing-w-data/" class="">Dealing with data</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-48dba13e1258b1e2cf129032b0d1fc3e" class="toggle"  />
+    <label for="section-48dba13e1258b1e2cf129032b0d1fc3e" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/guides/routing/" class="">Routing</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/routing/subrouting/" class="">Sub routing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/app-flow/" class="">Application Flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/FNA/" class="">Extending a UI lib</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/type-renderer/" class="">Type Renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/featuretoggle/" class="">Feature Toggles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c131070b1e715f28624af5fdfd93165a" class="toggle" checked />
+    <label for="section-c131070b1e715f28624af5fdfd93165a" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/" class="">Packages</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cca842a4d0376120bfbf8e2c08c07ff4" class="toggle" checked />
+    <label for="section-cca842a4d0376120bfbf8e2c08c07ff4" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-data/" class="">@furo/data</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/" class="">furo-api-fetch</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/" class="">furo-collection-agent</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/" class="">furo-custom-method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/" class="">furo-data-flow-repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/" class="">furo-data-hide-content</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-data-object/" class="">furo-data-object</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/" class="">furo-deep-link</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/" class="">furo-entity-agent</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/" class="">furo-entity-field</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-hateoas-state/" class=" active">furo-hateoas-state</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/" class="">furo-rel-exists</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/" class="">furo-reverse-deep-link</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/" class="">furo-type-renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/AgentHelper/" class="">AgentHelper</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/DataObject/" class="">DataObject</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/FieldNode/" class="">FieldNode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/FieldNodeAdapter/" class="">FieldNodeAdapter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/" class="">RepeaterNode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ScalarTypeHelper/" class="">ScalarTypeHelper</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/" class="">ValidatorDefaultTypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeDate/" class="">ValidatorGoogleTypeDate</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeMoney/" class="">ValidatorGoogleTypeMoney</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorNumericTypes/" class="">ValidatorNumericTypes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-021db3e6cecc4cb464638d9452766952" class="toggle"  />
+    <label for="section-021db3e6cecc4cb464638d9452766952" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-fbp/" class="">@furo/fbp</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/" class="">empty-fbp-node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/flow-bind/" class="">flow-bind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/flow-repeat/" class="">flow-repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/DOMFBP/" class="">DOMFBP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/FBP/" class="">FBP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3e40020dcb75400959dcadfc7e247453" class="toggle"  />
+    <label for="section-3e40020dcb75400959dcadfc7e247453" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-framework/" class="">@furo/framework</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/Env/" class="">Env</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/FuroFeatureToggle/" class="">FuroFeatureToggle</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/i18n/" class="">i18n</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/Init/" class="">Init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/KeyState/" class="">KeyState</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/NodeEvent/" class="">NodeEvent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-71921f8b00ba9f1d7ea65557f9a4892b" class="toggle"  />
+    <label for="section-71921f8b00ba9f1d7ea65557f9a4892b" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-layout/" class="">@furo/layout</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop/" class="">furo-backdrop</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop-display/" class="">furo-backdrop-display</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-empty-spacer/" class="">furo-empty-spacer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-form-layouter/" class="">furo-form-layouter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-horizontal-flex/" class="">furo-horizontal-flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-resizer/" class="">furo-resizer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-split-view/" class="">furo-split-view</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-flex/" class="">furo-vertical-flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/" class="">furo-vertical-scroller</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d417ac8cb7a1ccb4381e8ddf1c7562a0" class="toggle"  />
+    <label for="section-d417ac8cb7a1ccb4381e8ddf1c7562a0" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-route/" class="">@furo/route</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow/" class="">furo-app-flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow-router/" class="">furo-app-flow-router</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-document-title/" class="">furo-document-title</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-location/" class="">furo-location</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-location-updater/" class="">furo-location-updater</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-pages/" class="">furo-pages</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-panel-coordinator/" class="">furo-panel-coordinator</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/BasePanel/" class="">BasePanel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/panelRegistry/" class="">panelRegistry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-97a0e3b8ee9f906213df62a54586924e" class="toggle"  />
+    <label for="section-97a0e3b8ee9f906213df62a54586924e" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-util/" class="">@furo/util</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-config/" class="">furo-config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-config-loader/" class="">furo-config-loader</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-de-bounce/" class="">furo-de-bounce</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-demo-snippet/" class="">furo-demo-snippet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-feature-toggle/" class="">furo-feature-toggle</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-fetch-json/" class="">furo-fetch-json</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-forth-stack/" class="">furo-forth-stack</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-get-clipboard/" class="">furo-get-clipboard</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-graph-renderer/" class="">furo-graph-renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-head-tail/" class="">furo-head-tail</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-hp-35/" class="">furo-hp-35</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-interval-pulse/" class="">furo-interval-pulse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-key-filter/" class="">furo-key-filter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-keydown/" class="">furo-keydown</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-markdown/" class="">furo-markdown</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-navigation-pad/" class="">furo-navigation-pad</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-pretty-json/" class="">furo-pretty-json</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-put-clipboard/" class="">furo-put-clipboard</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-show-flow/" class="">furo-show-flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/light-bulb/" class="">light-bulb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/Config/" class="">Config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/EmptyStackError/" class="">EmptyStackError</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://ui5.furo.pro" target="_blank" rel="noopener">
+        SAP UI5 Integration
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://furo.pro" target="_blank" rel="noopener">
+        フロー Furo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>furo-hateoas-state</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#attributes-and-properties">Attributes and Properties</a></li>
+    <li><a href="#methods">Methods</a>
+      <ul>
+        <li><a href="#enable"><strong>enable</strong></a></li>
+        <li><a href="#disable"><strong>disable</strong></a></li>
+        <li><a href="#binddata"><strong>bindData</strong></a></li>
+        <li><a href="#bindhts"><strong>bindHts</strong></a></li>
+        <li><a href="#injecthts"><strong>injectHts</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="furo-hateoas-state">
+  furo-hateoas-state
+  <a class="anchor" href="#furo-hateoas-state">#</a>
+</h1>
+<p><strong>@furo/data</strong> <small>v2.0.0-rc.12</small>
+<br><code>import '@furo/data/src/furo-hateoas-state.js';</code><small>
+<br>exports <code>&lt;furo-hateoas-state&gt;</code> custom-element-definition
+<br>superclass <em>LitElement</em>
+<br> mixes <em>FieldNodeAdapter</em></small>
+<br><small>summary <em>disables or hide nodes based on hts</em></small></p>
+<p><code>furo-hateoas-state</code> is an invisible component with a binding of type furo.Link or injection of a link array.</p>
+<p>It disables / enables or hides / shows components according to the injected HATEOAS links. <code>furo-hateoas-state</code> only
+sets or remove the attributes <strong>hidden</strong> and <strong>disabled</strong> on the nodes.</p>
+<p>All nodes inside the same parent are taken in to control.</p>
+<p>Elements inside a shadow root are not selected.</p>
+<p>Set the attribute <strong>data-rel=&ldquo;list&rdquo;</strong> on any element you want to control with <code>furo-hateoas-state</code>.</p>
+<p>Set the attribute <strong>hide-no-rel</strong> if you want to hide the node instead of being disabled.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">div</span>&gt;
+  &lt;<span style="color:#000080">button</span> <span style="color:#008080">data-rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;list&#39;</span>&gt;list&lt;/<span style="color:#000080">button</span>&gt;
+  &lt;<span style="color:#000080">button</span> <span style="color:#008080">hide-no-rel</span> <span style="color:#008080">data-rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;list&#39;</span>&gt;hide no rel&lt;/<span style="color:#000080">button</span>&gt;
+  &lt;<span style="color:#000080">button</span> <span style="color:#008080">data-rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;add&#39;</span>&gt;add&lt;/<span style="color:#000080">button</span>&gt;
+  &lt;<span style="color:#000080">furo-hateoas-state</span> <span style="color:#008080">ƒ-bind-hts</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;--collection(*.links)&#39;</span>&gt;&lt;/<span style="color:#000080">furo-hateoas-state</span>&gt;
+&lt;/<span style="color:#000080">div</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><em>all elements with a data-rel=&ldquo;something&rdquo; attribute inside the div are controlled</em></p>
+<h2 id="attributes-and-properties">
+  Attributes and Properties
+  <a class="anchor" href="#attributes-and-properties">#</a>
+</h2>
+<h2 id="methods">
+  Methods
+  <a class="anchor" href="#methods">#</a>
+</h2>
+<h3 id="enable">
+  <strong>enable</strong>
+  <a class="anchor" href="#enable">#</a>
+</h3>
+<p><small><strong>enable</strong>() ⟹ <code>void</code></small></p>
+<p><small><code>*</code></small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-enable</span></p>
+<p>Enable or show all nodes.</p>
+<p><br><br></p>
+<h3 id="disable">
+  <strong>disable</strong>
+  <a class="anchor" href="#disable">#</a>
+</h3>
+<p><small><strong>disable</strong>() ⟹ <code>void</code></small></p>
+<p><small><code>*</code></small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-disable</span></p>
+<p>Disable or hide all nodes.</p>
+<p><br><br></p>
+<h3 id="binddata">
+  <strong>bindData</strong>
+  <a class="anchor" href="#binddata">#</a>
+</h3>
+<p><small><strong>bindData</strong>(<em>fieldNode</em> `` ) ⟹ <code>boolean</code></small></p>
+<p><small>`` </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span></p>
+<p>Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.</p>
+<ul>
+<li><small><em>fieldNode</em> </small>
+<br><br></li>
+</ul>
+<h3 id="bindhts">
+  <strong>bindHts</strong>
+  <a class="anchor" href="#bindhts">#</a>
+</h3>
+<p><small><strong>bindHts</strong>(<em>Links</em> `` ) ⟹ <code>void</code></small></p>
+<p><small>`` </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-hts</span></p>
+<p>Bind a <code>RepeaterNode</code> of type <code>furo.Link</code>.</p>
+<ul>
+<li><small><em>Links</em> </small>
+<br><br></li>
+</ul>
+<h3 id="injecthts">
+  <strong>injectHts</strong>
+  <a class="anchor" href="#injecthts">#</a>
+</h3>
+<p><small><strong>injectHts</strong>(<em>value</em> <code>[json]</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>[json]</code> </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-hts</span></p>
+<p>Inject a link array directly.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/mockdata/persons/list&#34;</span>,
+    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;GET&#34;</span>,
+    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;list&#34;</span>,
+    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;person.PersonCollection&#34;</span>,
+    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;PersonService&#34;</span>
+  }
+]
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><small><em>value</em> Array with raw <code>furo.Link</code> like</small>
+<br><br></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/3b3bf79e40c81c6648ddf6140162afca9c05a8dc" title='Last modified by veith | February 14, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>February 14, 2022</span>
+    </a>
+  </div>
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#attributes-and-properties">Attributes and Properties</a></li>
+    <li><a href="#methods">Methods</a>
+      <ul>
+        <li><a href="#enable"><strong>enable</strong></a></li>
+        <li><a href="#disable"><strong>disable</strong></a></li>
+        <li><a href="#binddata"><strong>bindData</strong></a></li>
+        <li><a href="#bindhts"><strong>bindHts</strong></a></li>
+        <li><a href="#injecthts"><strong>injectHts</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.11/dist/doc-helper.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.11/dist/furo-fbp.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

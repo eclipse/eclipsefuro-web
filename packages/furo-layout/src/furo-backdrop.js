@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -11,12 +11,11 @@ import { FBP } from '@furo/fbp';
  *
  *
  * ```html
- *   <furo-backdrop @-opened="--BackdropFocus" @-closed="--backdropClosed"
- *     ƒ-show="--expandIconClicked"
- *     ƒ-close="--closeRequested, --recordSelected"
- *     >
+ * <furo-backdrop @-opened="--BackdropFocus" @-closed="--backdropClosed"
+ *   ƒ-show="--expandIconClicked"
+ *   ƒ-close="--closeRequested, --recordSelected">
  *      <any-component @-item-selected="--recordSelected" style="width: 90vw; height: 90vh"></any-component>
- *   </furo-backdrop>
+ * </furo-backdrop>
  *
  * ```
  *
@@ -38,6 +37,11 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroBackdrop extends FBP(LitElement) {
+
+  /**
+   *
+   * @private
+   */
   _FBPReady() {
     // move the content to the backdrop display
     const customEvent = new Event('register-backdrop', { composed: true, bubbles: true });
@@ -75,7 +79,7 @@ class FuroBackdrop extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroBackdrop') ||
+
       css`
         :host {
           display: none;

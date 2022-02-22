@@ -1,13 +1,10 @@
-import { Theme } from '@furo/framework/src/theme';
+
 import { html, css } from 'lit';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 
 import '@furo/util/src/furo-pretty-json';
 /**
  * `edit-example`
- * todo Describe your element
- *
- * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
  */
@@ -41,7 +38,7 @@ class EditExample extends BasePanel {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('EditExample') ||
+
       css`
         :host {
           display: block;

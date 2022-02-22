@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How to make your own UI components bindable #  There are several ways to make your component bindable.
+Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
+This can be quite complex, but will give you the greatest flexibility.
+Take a look at the furo-ui5-bool-icon, which is a very small example to handle the binding by yourself.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Extending a UI lib" />
+<meta property="og:description" content="How to make your own UI components bindable #  There are several ways to make your component bindable.
+Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
+This can be quite complex, but will give you the greatest flexibility.
+Take a look at the furo-ui5-bool-icon, which is a very small example to handle the binding by yourself." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://web-components.furo.pro/docs/guides/FNA/" />
+<meta property="article:modified_time" content="2021-12-16T09:26:40+01:00" />
+<title>Extending a UI lib | フロー Furo Web</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
+<script defer src="/en.search.min.40ddd2a0082543d506304ff356d6a269799500b96632cf0ebc2aff231b876822.js" integrity="sha256-QN3SoAglQ9UGME/zVtaiaXmVALlmMs8OvCr/IxuHaCI="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+
+  <link href="/main.css" rel="stylesheet"/>
+</head>
+
+<body dir=>
+<fixed-tooltip-display></fixed-tooltip-display>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <div ></div>
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>フロー Furo Web</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-64d0ac0e8a385a6091d238dd382da7cf" class="toggle" checked />
+    <label for="section-64d0ac0e8a385a6091d238dd382da7cf" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/guides/" class="">Guides</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/dealing-w-data/" class="">Dealing with data</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-48dba13e1258b1e2cf129032b0d1fc3e" class="toggle"  />
+    <label for="section-48dba13e1258b1e2cf129032b0d1fc3e" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/guides/routing/" class="">Routing</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/routing/subrouting/" class="">Sub routing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/app-flow/" class="">Application Flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/FNA/" class=" active">Extending a UI lib</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/type-renderer/" class="">Type Renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/guides/featuretoggle/" class="">Feature Toggles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c131070b1e715f28624af5fdfd93165a" class="toggle"  />
+    <label for="section-c131070b1e715f28624af5fdfd93165a" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/" class="">Packages</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cca842a4d0376120bfbf8e2c08c07ff4" class="toggle"  />
+    <label for="section-cca842a4d0376120bfbf8e2c08c07ff4" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-data/" class="">@furo/data</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/" class="">furo-api-fetch</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/" class="">furo-collection-agent</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/" class="">furo-custom-method</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/" class="">furo-data-flow-repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/" class="">furo-data-hide-content</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-data-object/" class="">furo-data-object</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/" class="">furo-deep-link</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/" class="">furo-entity-agent</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/" class="">furo-entity-field</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-hateoas-state/" class="">furo-hateoas-state</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/" class="">furo-rel-exists</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/" class="">furo-reverse-deep-link</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/" class="">furo-type-renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/AgentHelper/" class="">AgentHelper</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/DataObject/" class="">DataObject</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/FieldNode/" class="">FieldNode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/FieldNodeAdapter/" class="">FieldNodeAdapter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/" class="">RepeaterNode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ScalarTypeHelper/" class="">ScalarTypeHelper</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/" class="">ValidatorDefaultTypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeDate/" class="">ValidatorGoogleTypeDate</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleTypeMoney/" class="">ValidatorGoogleTypeMoney</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorNumericTypes/" class="">ValidatorNumericTypes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-021db3e6cecc4cb464638d9452766952" class="toggle"  />
+    <label for="section-021db3e6cecc4cb464638d9452766952" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-fbp/" class="">@furo/fbp</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/" class="">empty-fbp-node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/flow-bind/" class="">flow-bind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/flow-repeat/" class="">flow-repeat</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/DOMFBP/" class="">DOMFBP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/FBP/" class="">FBP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3e40020dcb75400959dcadfc7e247453" class="toggle"  />
+    <label for="section-3e40020dcb75400959dcadfc7e247453" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-framework/" class="">@furo/framework</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/Env/" class="">Env</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/FuroFeatureToggle/" class="">FuroFeatureToggle</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/i18n/" class="">i18n</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/Init/" class="">Init</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/KeyState/" class="">KeyState</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-framework/NodeEvent/" class="">NodeEvent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-71921f8b00ba9f1d7ea65557f9a4892b" class="toggle"  />
+    <label for="section-71921f8b00ba9f1d7ea65557f9a4892b" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-layout/" class="">@furo/layout</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop/" class="">furo-backdrop</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop-display/" class="">furo-backdrop-display</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-empty-spacer/" class="">furo-empty-spacer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-form-layouter/" class="">furo-form-layouter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-horizontal-flex/" class="">furo-horizontal-flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-resizer/" class="">furo-resizer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-split-view/" class="">furo-split-view</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-flex/" class="">furo-vertical-flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/" class="">furo-vertical-scroller</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d417ac8cb7a1ccb4381e8ddf1c7562a0" class="toggle"  />
+    <label for="section-d417ac8cb7a1ccb4381e8ddf1c7562a0" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-route/" class="">@furo/route</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow/" class="">furo-app-flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow-router/" class="">furo-app-flow-router</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-document-title/" class="">furo-document-title</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-location/" class="">furo-location</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-location-updater/" class="">furo-location-updater</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-pages/" class="">furo-pages</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/furo-panel-coordinator/" class="">furo-panel-coordinator</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/BasePanel/" class="">BasePanel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-route/panelRegistry/" class="">panelRegistry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-97a0e3b8ee9f906213df62a54586924e" class="toggle"  />
+    <label for="section-97a0e3b8ee9f906213df62a54586924e" class="flex justify-between">
+      <a href="https://web-components.furo.pro/docs/modules/furo-util/" class="">@furo/util</a>
+      <span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-config/" class="">furo-config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-config-loader/" class="">furo-config-loader</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-de-bounce/" class="">furo-de-bounce</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-demo-snippet/" class="">furo-demo-snippet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-feature-toggle/" class="">furo-feature-toggle</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-fetch-json/" class="">furo-fetch-json</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-forth-stack/" class="">furo-forth-stack</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-get-clipboard/" class="">furo-get-clipboard</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-graph-renderer/" class="">furo-graph-renderer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-head-tail/" class="">furo-head-tail</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-hp-35/" class="">furo-hp-35</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-interval-pulse/" class="">furo-interval-pulse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-key-filter/" class="">furo-key-filter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-keydown/" class="">furo-keydown</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-markdown/" class="">furo-markdown</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-navigation-pad/" class="">furo-navigation-pad</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-pretty-json/" class="">furo-pretty-json</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-put-clipboard/" class="">furo-put-clipboard</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/furo-show-flow/" class="">furo-show-flow</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/light-bulb/" class="">light-bulb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/Config/" class="">Config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-util/EmptyStackError/" class="">EmptyStackError</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://ui5.furo.pro" target="_blank" rel="noopener">
+        SAP UI5 Integration
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://furo.pro" target="_blank" rel="noopener">
+        フロー Furo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Extending a UI lib</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#variant-1-diy">Variant 1 DIY</a></li>
+    <li><a href="#variant-2-use-the-fieldnodeadapter">Variant 2: Use the FieldNodeAdapter</a></li>
+    <li><a href="#minimal-example">Minimal example</a></li>
+    <li><a href="#methods-attrs-and-callbacks">Methods, Attrs and Callbacks</a>
+      <ul>
+        <li><a href="#var-__fieldnode">var <code>__fieldNode</code></a></li>
+        <li><a href="#method-getdatatype">Method <code>getDataType()</code></a></li>
+        <li><a href="#method-isfat">Method <code>isFat()</code></a></li>
+        <li><a href="#method-iswrapper">Method <code>isWrapper()</code></a></li>
+        <li><a href="#method-binddatafieldnode">Method <code>bindData(fieldNode)</code></a></li>
+        <li><a href="#method-setfnafieldvaluevalue">Method <code>setFnaFieldValue(value)</code></a></li>
+        <li><a href="#callback-onfnafieldvaluechangedvalue">callback <code>onFnaFieldValueChanged(value)</code></a></li>
+        <li><a href="#callback-onfnaconstraintschangedconstraints">callback <code>onFnaConstraintsChanged(constraints)</code></a></li>
+        <li><a href="#callback-onfnaoptionschangedoptions">callback <code>onFnaOptionsChanged(options)</code></a></li>
+        <li><a href="#onfnareadonlychangedreadonly">onFnaReadonlyChanged(readonly)</a></li>
+        <li><a href="#callback-onfnahintchangedhint">callback <code>onFnaHintChanged(hint)</code></a></li>
+        <li><a href="#callback-onfnalabelchangedlabel">callback <code>onFnaLabelChanged(label)</code></a></li>
+        <li><a href="#onfnaplaceholderchangedplaceholder">onFnaPlaceholderChanged(placeholder)</a></li>
+        <li><a href="#callback-onfnafieldnodebecameinvalidvalidity">callback <code>onFnaFieldNodeBecameInvalid(validity)</code></a></li>
+        <li><a href="#callback-onfnafieldnodebecamevalid">callback <code>onFnaFieldNodeBecameValid()</code></a></li>
+        <li><a href="#callback-onfnafieldnewdatainjected">callback <code>onFnaFieldNewDataInjected()</code></a></li>
+        <li><a href="#callback-onfnarepeatedfieldchanged">callback <code>onFnaRepeatedFieldChanged()</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="how-to-make-your-own-ui-components-bindable">
+  How to make your own UI components bindable
+  <a class="anchor" href="#how-to-make-your-own-ui-components-bindable">#</a>
+</h1>
+<p>There are several ways to make your component <em>bindable</em>.</p>
+<h2 id="variant-1-diy">
+  Variant 1 DIY
+  <a class="anchor" href="#variant-1-diy">#</a>
+</h2>
+<p>You can create a <code>bind-data</code> method by yourself and apply the listeners and watchers on
+the 
+  <a href="/docs/modules/furo-data/FieldNode/"><code>FieldNode</code></a>
+or the 
+  <a href="/docs/modules/furo-data/RepeaterNode/"><code>RepeaterNode</code></a>, depending on what your component will consume.</p>
+<p>This can be quite complex, but will give you the greatest flexibility.</p>
+<p>Take a look at the 
+  <a href="https://github.com/theNorstroem/furo-ui5/blob/main/src/furo-ui5-bool-icon.js">furo-ui5-bool-icon</a>, which
+is a very small example to handle the binding by yourself.</p>
+<h2 id="variant-2-use-the-fieldnodeadapter">
+  Variant 2: Use the FieldNodeAdapter
+  <a class="anchor" href="#variant-2-use-the-fieldnodeadapter">#</a>
+</h2>
+<p>The easiest and most convenient way to make your component bindable is to extend the component with the <code>FieldNodeAdapter</code>. It will
+give you some callback methods to overwrite and does the heavy lifting for you.</p>
+<p>Take a look at the 
+  <a href="https://github.com/theNorstroem/furo-ui5/blob/main/src/furo-ui5-text-input.js">furo-ui5-text-input</a>
+, which is a full-fledged example which uses nearly everything from the <strong>FNA</strong>.</p>
+<h2 id="minimal-example">
+  Minimal example
+  <a class="anchor" href="#minimal-example">#</a>
+</h2>
+<p>The smallest variant to achieve a usable binding will need the method <code>_setFnaFieldValue</code> and the
+callback <code>onFnaFieldValueChanged</code>.</p>
+<p><strong><code>onFnaFieldValueChanged({JSON})</code></strong>
+Will give you the value as JSON literal, you do not need to handle the  <code>FieldNode</code> attributes.</p>
+<p><strong><code>setFnaFieldValue({JSON})</code></strong>
+Let you update the <code>FieldNode</code> by simply passing in a JSON literal.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000;font-weight:bold">import</span> { FieldNodeAdapter } from <span style="color:#d14">&#39;@furo/data/src/lib/FieldNodeAdapter.js&#39;</span>;
+
+<span style="color:#000;font-weight:bold">export</span> <span style="color:#000;font-weight:bold">class</span> SampleInput <span style="color:#000;font-weight:bold">extends</span> FBP(FieldNodeAdapter(LitElement)) {
+
+  constructor() {
+    <span style="color:#000;font-weight:bold">super</span>()
+    <span style="color:#000;font-weight:bold">this</span>.addEventListener(<span style="color:#d14">&#34;change&#34;</span>, (e) =&gt; {
+      <span style="color:#998;font-style:italic">// update the FieldNode
+</span><span style="color:#998;font-style:italic"></span>      <span style="color:#000;font-weight:bold">this</span>.setFnaFieldValue(e.data);
+    })
+  }
+
+  <span style="color:#998;font-style:italic">// receive updates from FieldNode
+</span><span style="color:#998;font-style:italic"></span>  onFnaFieldValueChanged(val) {
+    <span style="color:#000;font-weight:bold">this</span>.value <span style="color:#000;font-weight:bold">=</span> val
+  }
+
+
+}
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="methods-attrs-and-callbacks">
+  Methods, Attrs and Callbacks
+  <a class="anchor" href="#methods-attrs-and-callbacks">#</a>
+</h2>
+<p>There are some more attributes, methods and callbacks that you receive from the <code>FieldNodeAdapter</code>.</p>
+<h3 id="var-__fieldnode">
+  var <code>__fieldNode</code>
+  <a class="anchor" href="#var-__fieldnode">#</a>
+</h3>
+<p>This is a reference for the adapter and contains the <code>FieldNode</code>.</p>
+<h3 id="method-getdatatype">
+  Method <code>getDataType()</code>
+  <a class="anchor" href="#method-getdatatype">#</a>
+</h3>
+<p>Returns the type name of the bounded fieldNode</p>
+<p><em>@return</em> string Typename</p>
+<h3 id="method-isfat">
+  Method <code>isFat()</code>
+  <a class="anchor" href="#method-isfat">#</a>
+</h3>
+<p>Check if bounded type is a fat type</p>
+<p><em>@return</em> boolean</p>
+<h3 id="method-iswrapper">
+  Method <code>isWrapper()</code>
+  <a class="anchor" href="#method-iswrapper">#</a>
+</h3>
+<p>Check if bounded type is a wrapper type</p>
+<p><em>@return</em> boolean</p>
+<h3 id="method-binddatafieldnode">
+  Method <code>bindData(fieldNode)</code>
+  <a class="anchor" href="#method-binddatafieldnode">#</a>
+</h3>
+<p>Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.</p>
+<p><em>@param</em> fieldNode {FieldNode|RepeaterNode} - FieldNode or RepeaterNode</p>
+<h3 id="method-setfnafieldvaluevalue">
+  Method <code>setFnaFieldValue(value)</code>
+  <a class="anchor" href="#method-setfnafieldvaluevalue">#</a>
+</h3>
+<p>Sets the value on the fieldNode. When you set the value, the changes you made will not trigger
+the <code>onFnaFieldValueChanged</code> of the current component (no loop backs).</p>
+<p><em>@param</em> value {JSON} - the raw json value for the fieldNode.</p>
+<h3 id="callback-onfnafieldvaluechangedvalue">
+  callback <code>onFnaFieldValueChanged(value)</code>
+  <a class="anchor" href="#callback-onfnafieldvaluechangedvalue">#</a>
+</h3>
+<p>Notifies a field value change event. This event is debounced with 1ms, if you have bound a complex type, only one change
+event will be triggered (this is what you want). If you need all change events or more control for your component, use
+the listener on the fieldNode itself.</p>
+<p><em>@param</em> value - the raw json value for the fieldNode.</p>
+<h3 id="callback-onfnaconstraintschangedconstraints">
+  callback <code>onFnaConstraintsChanged(constraints)</code>
+  <a class="anchor" href="#callback-onfnaconstraintschangedconstraints">#</a>
+</h3>
+<p>Notifies changes on the constraints.</p>
+<p>returns an object like:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+  <span style="color:#000080">&#34;min&#34;</span>: {
+    <span style="color:#a61717;background-color:#e3d2d2">is:</span> <span style="color:#a61717;background-color:#e3d2d2">33,</span>
+    <span style="color:#a61717;background-color:#e3d2d2">message:</span> <span style="color:#000080">&#34;must be bigger&#34;</span>
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#998;font-style:italic">// example callback
+</span><span style="color:#998;font-style:italic"></span>onFnaConstraintsChanged(constraints)
+{
+  <span style="color:#000;font-weight:bold">if</span> (constraints.min <span style="color:#000;font-weight:bold">!==</span> <span style="color:#000;font-weight:bold">undefined</span>) {
+    <span style="color:#000;font-weight:bold">this</span>._constraintsFromFNA.min <span style="color:#000;font-weight:bold">=</span> constraints.min;
+    <span style="color:#000;font-weight:bold">if</span> (<span style="color:#000;font-weight:bold">this</span>._privilegedAttributes.min <span style="color:#000;font-weight:bold">===</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">this</span>._attributesFromFAT.min <span style="color:#000;font-weight:bold">===</span> <span style="color:#000;font-weight:bold">undefined</span>) {
+      <span style="color:#000;font-weight:bold">this</span>.min <span style="color:#000;font-weight:bold">=</span> constraints.min.is;
+    }
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="callback-onfnaoptionschangedoptions">
+  callback <code>onFnaOptionsChanged(options)</code>
+  <a class="anchor" href="#callback-onfnaoptionschangedoptions">#</a>
+</h3>
+<p>Notifies when the options for the field is changed or set.</p>
+<p><em>@param</em> options Object - options object</p>
+<h3 id="onfnareadonlychangedreadonly">
+  onFnaReadonlyChanged(readonly)
+  <a class="anchor" href="#onfnareadonlychangedreadonly">#</a>
+</h3>
+<p>Notifies when the readonly flag for the field is changed or set.</p>
+<p><em>@param</em> readonly bool - readonly state</p>
+<h3 id="callback-onfnahintchangedhint">
+  callback <code>onFnaHintChanged(hint)</code>
+  <a class="anchor" href="#callback-onfnahintchangedhint">#</a>
+</h3>
+<p>Notifies when the hint for the field is changed or set.</p>
+<p><em>@param</em> hint - text for the hint</p>
+<h3 id="callback-onfnalabelchangedlabel">
+  callback <code>onFnaLabelChanged(label)</code>
+  <a class="anchor" href="#callback-onfnalabelchangedlabel">#</a>
+</h3>
+<p>Notifies when the label for the field is changed or set.</p>
+<p><em>@param</em> label string - text for the label</p>
+<h3 id="onfnaplaceholderchangedplaceholder">
+  onFnaPlaceholderChanged(placeholder)
+  <a class="anchor" href="#onfnaplaceholderchangedplaceholder">#</a>
+</h3>
+<p>Notifies when the placeholder for the field is changed or set.</p>
+<p><em>@param</em> placeholder string - text for the placeholder</p>
+<h3 id="callback-onfnafieldnodebecameinvalidvalidity">
+  callback <code>onFnaFieldNodeBecameInvalid(validity)</code>
+  <a class="anchor" href="#callback-onfnafieldnodebecameinvalidvalidity">#</a>
+</h3>
+<p>Notifies that a field gets invalid.</p>
+<p><em>@param</em> validity - Object like {constraint: &ldquo;min&rdquo;, description: &ldquo;too small&rdquo;, field: &ldquo;&quot;}</p>
+<h3 id="callback-onfnafieldnodebecamevalid">
+  callback <code>onFnaFieldNodeBecameValid()</code>
+  <a class="anchor" href="#callback-onfnafieldnodebecamevalid">#</a>
+</h3>
+<p>Notifies that a field gets valid.</p>
+<h3 id="callback-onfnafieldnewdatainjected">
+  callback <code>onFnaFieldNewDataInjected()</code>
+  <a class="anchor" href="#callback-onfnafieldnewdatainjected">#</a>
+</h3>
+<p>Notifies that new data was injected.</p>
+<h3 id="callback-onfnarepeatedfieldchanged">
+  callback <code>onFnaRepeatedFieldChanged()</code>
+  <a class="anchor" href="#callback-onfnarepeatedfieldchanged">#</a>
+</h3>
+<p>Notifies when a repeater node changes. This means, a element was added or removed to
+the repeater node.</p>
+<p>This will not notify you about values inside the repeater node.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2d6e2d4fb4843c595b66a7bef2179d8588f2c17c" title='Last modified by maltenorstroem | December 16, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>December 16, 2021</span>
+    </a>
+  </div>
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#variant-1-diy">Variant 1 DIY</a></li>
+    <li><a href="#variant-2-use-the-fieldnodeadapter">Variant 2: Use the FieldNodeAdapter</a></li>
+    <li><a href="#minimal-example">Minimal example</a></li>
+    <li><a href="#methods-attrs-and-callbacks">Methods, Attrs and Callbacks</a>
+      <ul>
+        <li><a href="#var-__fieldnode">var <code>__fieldNode</code></a></li>
+        <li><a href="#method-getdatatype">Method <code>getDataType()</code></a></li>
+        <li><a href="#method-isfat">Method <code>isFat()</code></a></li>
+        <li><a href="#method-iswrapper">Method <code>isWrapper()</code></a></li>
+        <li><a href="#method-binddatafieldnode">Method <code>bindData(fieldNode)</code></a></li>
+        <li><a href="#method-setfnafieldvaluevalue">Method <code>setFnaFieldValue(value)</code></a></li>
+        <li><a href="#callback-onfnafieldvaluechangedvalue">callback <code>onFnaFieldValueChanged(value)</code></a></li>
+        <li><a href="#callback-onfnaconstraintschangedconstraints">callback <code>onFnaConstraintsChanged(constraints)</code></a></li>
+        <li><a href="#callback-onfnaoptionschangedoptions">callback <code>onFnaOptionsChanged(options)</code></a></li>
+        <li><a href="#onfnareadonlychangedreadonly">onFnaReadonlyChanged(readonly)</a></li>
+        <li><a href="#callback-onfnahintchangedhint">callback <code>onFnaHintChanged(hint)</code></a></li>
+        <li><a href="#callback-onfnalabelchangedlabel">callback <code>onFnaLabelChanged(label)</code></a></li>
+        <li><a href="#onfnaplaceholderchangedplaceholder">onFnaPlaceholderChanged(placeholder)</a></li>
+        <li><a href="#callback-onfnafieldnodebecameinvalidvalidity">callback <code>onFnaFieldNodeBecameInvalid(validity)</code></a></li>
+        <li><a href="#callback-onfnafieldnodebecamevalid">callback <code>onFnaFieldNodeBecameValid()</code></a></li>
+        <li><a href="#callback-onfnafieldnewdatainjected">callback <code>onFnaFieldNewDataInjected()</code></a></li>
+        <li><a href="#callback-onfnarepeatedfieldchanged">callback <code>onFnaRepeatedFieldChanged()</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.11/dist/doc-helper.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0-rc.11/dist/furo-fbp.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

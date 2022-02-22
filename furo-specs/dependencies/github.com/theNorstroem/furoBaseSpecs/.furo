@@ -1,0 +1,33 @@
+module: github.com/theNorstroem/FuroBaseSpecs
+specDir: "./specs"
+specFormat: "yaml" #set to yaml or json
+dependencies: [] #no dependencies :-)
+dependenciesDir: installedSpecs
+muSpec:
+  types:
+    - "./muspec/**/*types.yaml"
+    - "./muspec/*types.yaml"
+  services:
+    - "./muspec/**/*services.yaml"
+    - "./muspec/*services.yaml"
+  goPackageBase: "github.com/theNorstroem/FuroBaseSpecs/dist/pb/" #this is used to prefix the go package option
+  dir: "muspec"
+commands:
+  publishNpm: "scripts/test.sh"
+  buildPb: "scripts/buildPb.sh"
+flows:
+  default:
+    - genMessageProtos #we only have messages
+    - buildPb
+    - genEsModule
+build:
+  proto:
+    targetDir: "dist/proto" #Hint: add this to your proto include path
+  esModule:
+    targetFile: "./dist/es6/env.js"
+dist:
+  files: # enter a list of files and directories which should be installed by other projects
+    - dist/proto
+    - specs
+    - README.md
+    - .furo

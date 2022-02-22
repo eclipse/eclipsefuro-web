@@ -147,6 +147,7 @@ export const FBP = superClass =>
      * @private
      */
     _call(detailData, receiver) {
+
       let response;
       // array spreaden
       if (
@@ -158,6 +159,7 @@ export const FBP = superClass =>
           receiver.element,
           detailData
         );
+
       } else {
         let data = detailData;
         if (receiver.path) {
@@ -165,6 +167,17 @@ export const FBP = superClass =>
         }
         response = receiver.element[receiver.method](data);
       }
+
+
+
+      // fnret-function auslösen
+      const fnret = new Event(`fnret-${receiver.attrName}`, {
+        composed: false,
+        bubbles: false,
+      });
+      fnret.detail = response;
+      receiver.element.dispatchEvent(fnret);
+
       // @-ƒ-function auslösen
       const customEvent = new Event(`ƒ-${receiver.attrName}`, {
         composed: false,
@@ -172,6 +185,8 @@ export const FBP = superClass =>
       });
       customEvent.detail = response;
       receiver.element.dispatchEvent(customEvent);
+
+
     }
 
     /**
@@ -337,7 +352,76 @@ export const FBP = superClass =>
       // get all elements which live in the host
       const nl = dom.querySelectorAll('*');
       const l = nl.length - 1;
-      // eslint-disable-next-line no-plusplus
+
+      const _collectReceivers = function(element, i, attr) {
+        // collect receiver
+        element.attributes[i].value.split(',').forEach(w => {
+          const r = this.__resolveWireAndPath(w)
+          // create empty if not exist
+          if (!wirebundle[r.receivingWire]) {
+            wirebundle[r.receivingWire] = []
+          }
+          wirebundle[r.receivingWire].push({
+            element,
+            method: this.__toCamelCase(
+              attr,
+            ),
+            attrName: attr,
+            path: r.path,
+          })
+        })
+      }
+      const _collectPropertySetters = function(element, i, property) {
+        // split multiple wires
+        element.attributes[i].value.split(',').forEach(w => {
+          const r = this.__resolveWireAndPath(w)
+          // create empty if not exist
+          if (!wirebundle[r.receivingWire]) {
+            wirebundle[r.receivingWire] = []
+          }
+          wirebundle[r.receivingWire].push({
+            element,
+            property: this.__toCamelCase(
+              property,
+            ),
+            path: r.path,
+          })
+        })
+      }
+
+      const _extractEventWires = function(fwire) {
+        let wire;
+
+        const trimmedWire = fwire.trim()
+
+        let type = 'call'
+        if (trimmedWire.startsWith('((')) {
+          wire = trimmedWire.substring(2, trimmedWire.length - 2)
+          type = 'setValue'
+        } else if (trimmedWire.startsWith('-^')) {
+          wire = trimmedWire.substring(2)
+          type = 'fireOnHost'
+        } else if (trimmedWire.startsWith('^')) {
+          wire = trimmedWire.substring(1)
+          type = 'fire'
+          if (trimmedWire.startsWith('^^')) {
+            wire = trimmedWire.substring(2)
+            type = 'fireBubble'
+          }
+        } else if (trimmedWire === ':STOP') {
+          type = 'stop'
+          wire = 'stop'
+        } else if (trimmedWire === ':PREVENTDEFAULT') {
+          type = 'preventdefault'
+          wire = 'preventdefault'
+        } else {
+          wire = trimmedWire
+          type = 'call'
+        }
+        return { type, wire }
+      }
+
+// eslint-disable-next-line no-plusplus
       for (let x = l; x >= 0; --x) {
         const element = nl[x];
 
@@ -350,83 +434,55 @@ export const FBP = superClass =>
         for (let i = 0; i < element.attributes.length; i += 1) {
           // collect data property receiver
           if (element.attributes[i].name.startsWith('ƒ-.')) {
-            // split multiple wires
-            element.attributes[i].value.split(',').forEach(w => {
-              const r = this.__resolveWireAndPath(w);
-              // create empty if not exist
-              if (!wirebundle[r.receivingWire]) {
-                wirebundle[r.receivingWire] = [];
-              }
-              wirebundle[r.receivingWire].push({
-                element,
-                property: this.__toCamelCase(
-                  element.attributes[i].name.substr(3)
-                ),
-                path: r.path,
-              });
-            });
+            const property = element.attributes[i].name.substring(3)
+            _collectPropertySetters.call(this, element, i, property)
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+          // collect data property setter receiver
+          if (element.attributes[i].name.startsWith('set-')) {
+            const property = element.attributes[i].name.substring(4)
+            _collectPropertySetters.call(this, element, i, property)
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('ƒ-')) {
-            // collect receiver
-            element.attributes[i].value.split(',').forEach(w => {
-              const r = this.__resolveWireAndPath(w);
-              // create empty if not exist
-              if (!wirebundle[r.receivingWire]) {
-                wirebundle[r.receivingWire] = [];
-              }
-              wirebundle[r.receivingWire].push({
-                element,
-                method: this.__toCamelCase(
-                  element.attributes[i].name.substr(2)
-                ),
-                attrName: element.attributes[i].name.substr(2),
-                path: r.path,
-              });
-            });
+            const attr = element.attributes[i].name.substring(2)
+            _collectReceivers.call(this, element, i, attr)
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          // collect receiving tags
+          if (element.attributes[i].name.startsWith('fn-')) {
+            const attr = element.attributes[i].name.substring(3)
+            _collectReceivers.call(this, element, i, attr)
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect sending tags
-          if (element.attributes[i].name.startsWith('@-')) {
-            const eventname = element.attributes[i].name.substr(2);
-            let wire;
-
+          if (element.attributes[i].name.startsWith('at-')) {
+            const eventname = element.attributes[i].name.substring(3);
             const fwires = element.attributes[i].value;
             fwires.split(',').forEach(fwire => {
-              const trimmedWire = fwire.trim();
-
-              let type = 'call';
-              if (trimmedWire.startsWith('((')) {
-                wire = trimmedWire.substring(2, trimmedWire.length - 2);
-                type = 'setValue';
-              } else if (trimmedWire.startsWith('-^')) {
-                wire = trimmedWire.substring(2);
-                type = 'fireOnHost';
-              } else if (trimmedWire.startsWith('^')) {
-                wire = trimmedWire.substring(1);
-                type = 'fire';
-                if (trimmedWire.startsWith('^^')) {
-                  wire = trimmedWire.substring(2);
-                  type = 'fireBubble';
-                }
-              } else if (trimmedWire === ':STOP') {
-                type = 'stop';
-                wire = 'stop';
-              } else if (trimmedWire === ':PREVENTDEFAULT') {
-                type = 'preventdefault';
-                wire = 'preventdefault';
-              } else {
-                wire = trimmedWire;
-                type = 'call';
-              }
-
+              const __ret = _extractEventWires(fwire)
               // eslint-disable-next-line no-use-before-define
-              registerEvent(eventname, type, wire, element);
+              registerEvent(eventname, __ret.type, __ret.wire, element);
+            });
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+          // collect sending tags
+          if (element.attributes[i].name.startsWith('@-')) {
+            const eventname = element.attributes[i].name.substring(2);
+            const fwires = element.attributes[i].value;
+            fwires.split(',').forEach(fwire => {
+              const __ret = _extractEventWires(fwire)
+              // eslint-disable-next-line no-use-before-define
+              registerEvent(eventname, __ret.type, __ret.wire, element);
             });
             // eslint-disable-next-line no-continue
             continue;
@@ -443,15 +499,8 @@ export const FBP = superClass =>
        */
       function registerEvent(eventname, type, wire, element) {
         // find properties in wire
-        // eslint-disable-next-line no-param-reassign
-        element.__atf = {};
         // eslint-disable-next-line no-useless-escape
         const match = wire.match(/([a-z0-9\-_*\.]+)/gi);
-        // store @-ƒ-attributes existence
-        for (let i = 0; i < element.attributes.length; i += 1) {
-          // eslint-disable-next-line no-param-reassign
-          element.__atf[element.attributes[i].name] = true;
-        }
 
         const handler = {
           // prevent default and stop propagation
@@ -483,7 +532,7 @@ export const FBP = superClass =>
                   // send event subprop with *.notDetail.xxx
                   detailData = self._pathGet(
                     e,
-                    match[1].substr(2, match[1].length)
+                    match[1].substring(2, match[1].length)
                   );
                 }
               } else {
@@ -511,7 +560,7 @@ export const FBP = superClass =>
                   // send raw event
                   customEvent.detail = e;
                 } else {
-                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
+                  customEvent.detail = self._pathGet(e, prop.substring(2));
                 }
               } else {
                 customEvent.detail = self._pathGet(self, prop);
@@ -541,7 +590,7 @@ export const FBP = superClass =>
                   // send raw event
                   customEvent.detail = e;
                 } else {
-                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
+                  customEvent.detail = self._pathGet(e, prop.substring(2));
                 }
               } else {
                 customEvent.detail = self._pathGet(self, prop);
@@ -566,12 +615,13 @@ export const FBP = superClass =>
                 bubbles: true,
               });
               // send details with *.sub or *
+
               if (prop.startsWith('*')) {
                 if (prop.length === 1) {
                   // send raw event
                   customEvent.detail = e;
                 } else {
-                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
+                  customEvent.detail = self._pathGet(e, prop.substring(2));
                 }
               } else {
                 customEvent.detail = self._pathGet(self, prop);
@@ -616,12 +666,12 @@ export const FBP = superClass =>
     /**
      * Livecycle method
      * This method is called, when the wires are ready.
-     * And triggers the --FBPready wire. This does *not* respect a lit updateComplete
+     * And triggers the `|--FBPready` wire. This does *not* respect a lit updateComplete
      * @private
      */
     _FBPReady() {
       this.__fbp_ready = true;
-      this._FBPTriggerWire('--FBPready');
+      this._FBPTriggerWire('|--FBPready');
     }
 
     /**

@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Init, Env, i18n, Sys } from '@furo/framework/src/furo.js';
+import {Services, Types} from "../../../furo-specs/dist/env.js"
 
-import { Services, Types } from '@furo/specs/build/data_environment.js';
 import { Translations } from './translations.js';
 
 Env.api = {

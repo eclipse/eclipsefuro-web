@@ -1,12 +1,16 @@
 import { LitElement, html, css } from 'lit';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework/src/theme';
+//TODO: Add bind-data method
 
 /**
  * `furo-pretty-json`
  * Pretty json with highlighting
  *
- * @demo demo-furo-pretty-json Simple data display
+ * ```html
+ * <furo-pretty-json
+ *   ƒ-inject-json="--data"></furo-pretty-json>
+ * ```
+ *
  * @summary pretty prints json data
  * @customElement
  */
@@ -18,7 +22,7 @@ class FuroPrettyJson extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroPrettyJson') ||
+
       css`
         :host {
           display: block;
@@ -55,7 +59,7 @@ class FuroPrettyJson extends FBP(LitElement) {
 
   /**
    * Inject JSON data
-   * @param json
+   * @param {JSON} json - Json literal
    */
   injectData(json) {
     if (json) {
@@ -68,6 +72,12 @@ class FuroPrettyJson extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @param json
+   * @return {string}
+   * @private
+   */
   static _syntaxHighlight(json) {
     if (typeof json !== 'string') {
       // eslint-disable-next-line no-param-reassign

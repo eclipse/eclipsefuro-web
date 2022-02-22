@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert, expect } from '@esm-bundle/chai';
 
 import '../src/flow-repeat.js';
-import '../src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '../src/flow-bind.js'; // for testing with wires and hooks
 
 describe('flow-repeat', () => {
   let repeat;
@@ -28,7 +28,11 @@ describe('flow-repeat', () => {
             <li>other node</li>
             <li>
               <b>neu</b>
-              <rep-item ƒ-raw="--inject" ƒ.-innerHTML="--itemSelected" @-click="--xx"></rep-item>
+              <rep-item
+                ƒ-raw="--inject"
+                ƒ.-innerHTML="--itemSelected"
+                @-click="--xx"
+              ></rep-item>
               <rep-item ƒ-index="--inject(*.index)" ƒ-yy="--xx"></rep-item>
               <flow-repeat ƒ-inject-items="--inject(*.item.arr)">
                 <template>
@@ -66,12 +70,20 @@ describe('flow-repeat', () => {
 
   it('select with index should trigger wires for select/deselect', done => {
     repeat.addEventListener('items-in-dom', () => {
-      repeat._insertedItems[1].virtualElement._FBPAddWireHook('--itemSelected', () => {
-        expect(repeat._insertedItems[1].virtualElement.nodeName).to.equal('EMPTY-FBP-NODE');
-      });
-      repeat._insertedItems[1].virtualElement._FBPAddWireHook('--itemDeSelected', () => {
-        done();
-      });
+      repeat._insertedItems[1].virtualElement._FBPAddWireHook(
+        '--itemSelected',
+        () => {
+          expect(repeat._insertedItems[1].virtualElement.nodeName).to.equal(
+            'EMPTY-FBP-NODE'
+          );
+        }
+      );
+      repeat._insertedItems[1].virtualElement._FBPAddWireHook(
+        '--itemDeSelected',
+        () => {
+          done();
+        }
+      );
 
       repeat.select(1);
       expect(repeat.selectedIndex).to.equal(1);
@@ -111,19 +123,31 @@ describe('flow-repeat', () => {
 
   it('should trigger selected element/all elements with data', done => {
     repeat.addEventListener('items-in-dom', () => {
-      repeat._insertedItems[0].virtualElement._FBPAddWireHook('--trigger', w => {
-        expect(w).to.equal('First');
-      });
-      repeat._insertedItems[5].virtualElement._FBPAddWireHook('--trigger', w => {
-        expect(w).to.equal('Last');
-        done();
-      });
-      repeat._insertedItems[1].virtualElement._FBPAddWireHook('--trigger', w => {
-        expect(w).to.equal('Payload');
-      });
-      repeat._insertedItems[1].virtualElement._FBPAddWireHook('--triggerIndex', w => {
-        expect(w).to.equal('Payload');
-      });
+      repeat._insertedItems[0].virtualElement._FBPAddWireHook(
+        '--trigger',
+        w => {
+          expect(w).to.equal('First');
+        }
+      );
+      repeat._insertedItems[5].virtualElement._FBPAddWireHook(
+        '--trigger',
+        w => {
+          expect(w).to.equal('Last');
+          done();
+        }
+      );
+      repeat._insertedItems[1].virtualElement._FBPAddWireHook(
+        '--trigger',
+        w => {
+          expect(w).to.equal('Payload');
+        }
+      );
+      repeat._insertedItems[1].virtualElement._FBPAddWireHook(
+        '--triggerIndex',
+        w => {
+          expect(w).to.equal('Payload');
+        }
+      );
 
       repeat.select(1);
       repeat.triggerSelected('Payload');
@@ -135,18 +159,27 @@ describe('flow-repeat', () => {
 
   it('should trigger all elements with data', done => {
     repeat.addEventListener('items-in-dom', () => {
-      repeat._insertedItems[0].virtualElement._FBPAddWireHook('--trigger', w => {
-        expect(w).to.equal('Payload');
-      });
+      repeat._insertedItems[0].virtualElement._FBPAddWireHook(
+        '--trigger',
+        w => {
+          expect(w).to.equal('Payload');
+        }
+      );
 
-      repeat._insertedItems[1].virtualElement._FBPAddWireHook('--trigger', w => {
-        expect(w).to.equal('Payload');
-      });
+      repeat._insertedItems[1].virtualElement._FBPAddWireHook(
+        '--trigger',
+        w => {
+          expect(w).to.equal('Payload');
+        }
+      );
 
-      repeat._insertedItems[5].virtualElement._FBPAddWireHook('--trigger', w => {
-        expect(w).to.equal('Payload');
-        done();
-      });
+      repeat._insertedItems[5].virtualElement._FBPAddWireHook(
+        '--trigger',
+        w => {
+          expect(w).to.equal('Payload');
+          done();
+        }
+      );
 
       repeat.select(1);
       repeat.triggerAll('Payload');

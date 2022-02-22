@@ -5,12 +5,36 @@ import { Env } from '@furo/framework';
 import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
- * `furo-custom-method`
- * interface component to handle custom methods.
+ * `furo-custom-method` is a interface component to handle custom methods.
+ *
+ * ```html
+ * <furo-custom-method
+ *     service="Servicename"
+ *     method="release"
+ *     ƒ-hts-in="--hts"
+ *     ƒ-trigger="--customClick"></furo-custom-method>
+ *
+ * <!-- produces a hateoas link array -->
+ * <furo-deep-link
+ *     service="Servicename" @-hts-out="--hts"></furo-deep-link>
+ *
+ * ```
+ * * *before you can do any requests, the service, method and the HATEOAS must be known*
  *
  * @fires {HTS} hts-updated -  Fired when hts was updated by `ƒ-hts-in`.
  *
  * @fires request-aborted - Fired if the request was successfully cancelled.
+ *
+ * @fires {Request} request-aborted - Fired when a request was canceled.
+ * @fires {Request} request-started - Fired when a request is sent.
+ * @fires {Object} response-raw - Fired when a response is received.
+ * @fires {Object}  response-error - Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] - Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ * @fires {Object} response-error-4xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-5xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-raw - Fired when a error has occoured.
+ * @fires {Object} response - Fired when a response is received.
  *
  * @summary interface component to handle custom methods
  * @customElement
@@ -63,11 +87,11 @@ class FuroCustomMethod extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Name des Services
+       * Name of the service.
        */
       service: { type: String, attribute: true },
       /**
-       * Name der Methode
+       * Name of the custom method / rel.
        */
       method: { type: String, attribute: true },
     };
@@ -78,6 +102,7 @@ class FuroCustomMethod extends FBP(LitElement) {
    * @param service
    */
   set service(service) {
+    this._requestedService = service
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.error(
@@ -103,12 +128,17 @@ class FuroCustomMethod extends FBP(LitElement) {
    * a qp like {"active":true} will just update the qp *active*
    *
    * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
-   * @param {Object} key value pairs
+   * @param {Object} key - value pairs
    */
   updateQp(qp) {
     AgentHelper.updateQp(this, qp);
   }
 
+  /**
+   * Binds a furo-data-object type.
+   *
+   * @param dataObject
+   */
   bindRequestData(dataObject) {
     this._requestDataObject = dataObject;
   }
@@ -276,11 +306,11 @@ class FuroCustomMethod extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--requestFinished"
-        @-response-error="--requestFinished"
-        @-fatal-error="--requestFinished"
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abortDemanded"
+              @-response="--requestFinished"
+              @-response-error="--requestFinished"
+              @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

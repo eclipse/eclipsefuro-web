@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.12.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.11...@furo/route@1.12.12) (2022-01-31)
+# [2.0.0-rc.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.13...@furo/route@2.0.0-rc.14) (2022-02-18)
 
 **Note:** Version bump only for package @furo/route
 
@@ -11,50 +11,57 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.12.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.10...@furo/route@1.12.11) (2022-01-25)
+# [2.0.0-rc.13](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.12...@furo/route@2.0.0-rc.13) (2022-02-18)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-rc.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.11...@furo/route@2.0.0-rc.12) (2022-02-15)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.10...@furo/route@2.0.0-rc.11) (2022-02-11)
 
 
 ### Bug Fixes
 
-* check if triggered event is not configured ([8ad9f4d](https://github.com/eclipse/eclipsefuro-web/commit/8ad9f4dfd0aab7b80969f21279fc586be4b97c1c))
+* fix failed tests ([a1238f3](https://github.com/eclipse/eclipsefuro-web/commit/a1238f3f2d77ee1722eff335ea138ca0f95d0b3d))
 
 
 
 
 
-## [1.12.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.9...@furo/route@1.12.10) (2021-12-16)
-
-**Note:** Version bump only for package @furo/route
+# [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.9...@furo/route@2.0.0-rc.10) (2022-01-28)
 
 
+### Bug Fixes
 
-
-
-## [1.12.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.8...@furo/route@1.12.9) (2021-12-15)
-
-**Note:** Version bump only for package @furo/route
+* check if triggered event is not configured ([c11d39d](https://github.com/eclipse/eclipsefuro-web/commit/c11d39d7a1d8b8ce153689ec9d105645c1baabc5))
+* do not overwrite history state with empty state on new route ([69dd309](https://github.com/eclipse/eclipsefuro-web/commit/69dd3092d1f2ae6d61c161aca0e398552d64d369))
 
 
 
 
 
-## [1.12.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.7...@furo/route@1.12.8) (2021-12-13)
-
-**Note:** Version bump only for package @furo/route
+# [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.8...@furo/route@2.0.0-rc.9) (2021-12-20)
 
 
+### Features
 
-
-
-## [1.12.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.6...@furo/route@1.12.7) (2021-12-06)
-
-**Note:** Version bump only for package @furo/route
+* furo-hateoas-state ([23ba808](https://github.com/eclipse/eclipsefuro-web/commit/23ba808fac5306ad1ff5d26eaac6f9c23312ce8c))
 
 
 
 
 
-## [1.12.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.5...@furo/route@1.12.6) (2021-11-26)
+# [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.7...@furo/route@2.0.0-rc.8) (2021-12-16)
 
 **Note:** Version bump only for package @furo/route
 
@@ -62,9 +69,95 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.12.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.4...@furo/route@1.12.5) (2021-11-03)
+# [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.6...@furo/route@2.0.0-rc.7) (2021-12-10)
 
 **Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.5...@furo/route@2.0.0-rc.6) (2021-12-10)
+
+
+### Bug Fixes
+
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+
+
+
+
+
+# [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.4...@furo/route@2.0.0-rc.5) (2021-11-29)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.3...@furo/route@2.0.0-rc.4) (2021-11-24)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.2...@furo/route@2.0.0-rc.3) (2021-11-11)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-rc.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.1...@furo/route@2.0.0-rc.2) (2021-11-08)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-rc.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-rc.0...@furo/route@2.0.0-rc.1) (2021-11-04)
+
+
+### Features
+
+* unused files deleted, todos added ([86d6985](https://github.com/eclipse/eclipsefuro-web/commit/86d6985094632fa4cf1c288ce491d72c5e59cc67))
+
+
+
+
+
+# [2.0.0-rc.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-alpha.1...@furo/route@2.0.0-rc.0) (2021-11-02)
+
+
+### Bug Fixes
+
+* Test are using the integrated specs now, all tests green again. ([ae1232b](https://github.com/eclipse/eclipsefuro-web/commit/ae1232baa9da825c3b7731e1559d6538b5213ea4))
+
+
+
+
+
+# [2.0.0-alpha.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.0-alpha.0...@furo/route@2.0.0-alpha.1) (2021-10-29)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [2.0.0-alpha.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@1.12.4...@furo/route@2.0.0-alpha.0) (2021-10-29)
+
+
+### Features
+
+* initial open wc env ([a5c1880](https://github.com/eclipse/eclipsefuro-web/commit/a5c18800a4cfe755ac12b53fdabba3d6f8e1f276))
+* make package scripts similar ([baee77e](https://github.com/eclipse/eclipsefuro-web/commit/baee77e972661de51a7c2a403dfcc82f59c19f32))
+* Testing for all packages ([4052d27](https://github.com/eclipse/eclipsefuro-web/commit/4052d276aac0691bd4102b0083f50d4e29fea5cf))
 
 
 

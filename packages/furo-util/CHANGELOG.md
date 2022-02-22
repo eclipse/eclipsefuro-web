@@ -3,7 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.8.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@1.8.9...@furo/util@1.8.10) (2022-01-31)
+# [2.0.0-rc.17](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.16...@furo/util@2.0.0-rc.17) (2022-02-18)
+
+
+### Bug Fixes
+
+* show-flow ([e5e738e](https://github.com/eclipse/eclipsefuro-web/commit/e5e738ebc39303a71c5f3db086ac20a83444c414))
+
+
+
+
+
+# [2.0.0-rc.16](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.15...@furo/util@2.0.0-rc.16) (2022-02-18)
 
 **Note:** Version bump only for package @furo/util
 
@@ -11,7 +22,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.8.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@1.8.8...@furo/util@1.8.9) (2021-12-16)
+# [2.0.0-rc.15](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.14...@furo/util@2.0.0-rc.15) (2022-02-15)
 
 **Note:** Version bump only for package @furo/util
 
@@ -19,7 +30,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.8.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@1.8.7...@furo/util@1.8.8) (2021-12-15)
+# [2.0.0-rc.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.13...@furo/util@2.0.0-rc.14) (2022-02-11)
 
 **Note:** Version bump only for package @furo/util
 
@@ -27,7 +38,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.8.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@1.8.6...@furo/util@1.8.7) (2021-12-13)
+# [2.0.0-rc.13](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.12...@furo/util@2.0.0-rc.13) (2022-02-05)
+
+
+### Bug Fixes
+
+* "prismjs": "^1.26.0", ([70bf5b4](https://github.com/eclipse/eclipsefuro-web/commit/70bf5b4b0fcabdce5c4caefc903aec7821aebd06))
+
+
+
+
+
+# [2.0.0-rc.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.11...@furo/util@2.0.0-rc.12) (2022-01-28)
 
 **Note:** Version bump only for package @furo/util
 
@@ -35,7 +57,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.8.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@1.8.5...@furo/util@1.8.6) (2021-12-06)
+# [2.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.10...@furo/util@2.0.0-rc.11) (2021-12-20)
 
 **Note:** Version bump only for package @furo/util
 
@@ -43,9 +65,137 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.8.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@1.8.4...@furo/util@1.8.5) (2021-11-26)
+# [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.9...@furo/util@2.0.0-rc.10) (2021-12-16)
+
+
+### Bug Fixes
+
+* |--FBPready ([d478fd2](https://github.com/eclipse/eclipsefuro-web/commit/d478fd2c159d68266f1a8a60a05a0416de90e964))
+* furo-data-flow-repeat clears list if no identity-path was given. ([4ce4e04](https://github.com/eclipse/eclipsefuro-web/commit/4ce4e04c087754d39fe09a44df6b033495fd6515))
+* furo-data-flow-repeat clears list if no identity-path was given. ([65d35fd](https://github.com/eclipse/eclipsefuro-web/commit/65d35fdd7517937d88a628585f7501292780e789))
+
+
+
+
+
+# [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.8...@furo/util@2.0.0-rc.9) (2021-12-10)
+
+
+### Bug Fixes
+
+* dispatch event with data ([f8314fa](https://github.com/eclipse/eclipsefuro-web/commit/f8314fa0080d4dd9d78773dc0cb7747f68e8f72d))
+
+
+
+
+
+# [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.7...@furo/util@2.0.0-rc.8) (2021-12-10)
+
+
+### Bug Fixes
+
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+
+
+
+
+
+# [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.6...@furo/util@2.0.0-rc.7) (2021-11-29)
 
 **Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.5...@furo/util@2.0.0-rc.6) (2021-11-27)
+
+
+### Bug Fixes
+
+* demo-snippet fullscreen mode ([84dd6e5](https://github.com/eclipse/eclipsefuro-web/commit/84dd6e51a549793e389ac72e3ac497bcd371bd4e))
+
+
+
+
+
+# [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.4...@furo/util@2.0.0-rc.5) (2021-11-24)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.3...@furo/util@2.0.0-rc.4) (2021-11-17)
+
+
+### Bug Fixes
+
+* debounced event ([bb4f3a7](https://github.com/eclipse/eclipsefuro-web/commit/bb4f3a7b221d0acd1e680139cfd5996e60e7a191))
+* remove theme from graph renderer ([d73afee](https://github.com/eclipse/eclipsefuro-web/commit/d73afee38d95a6cbaaf2dc21e31e4c8d8b1c1caa))
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.2...@furo/util@2.0.0-rc.3) (2021-11-11)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [2.0.0-rc.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.1...@furo/util@2.0.0-rc.2) (2021-11-08)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [2.0.0-rc.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-rc.0...@furo/util@2.0.0-rc.1) (2021-11-04)
+
+
+### Features
+
+* unused files deleted, todos added ([86d6985](https://github.com/eclipse/eclipsefuro-web/commit/86d6985094632fa4cf1c288ce491d72c5e59cc67))
+
+
+
+
+
+# [2.0.0-rc.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-alpha.1...@furo/util@2.0.0-rc.0) (2021-11-02)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [2.0.0-alpha.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.0-alpha.0...@furo/util@2.0.0-alpha.1) (2021-10-29)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [2.0.0-alpha.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@1.8.4...@furo/util@2.0.0-alpha.0) (2021-10-29)
+
+
+### Bug Fixes
+
+* move config to util ([4b7faf4](https://github.com/eclipse/eclipsefuro-web/commit/4b7faf4812ec23331c73a204ebbaef8b3ede886e))
+
+
+### Features
+
+* cem config for furo-util ([aa413ba](https://github.com/eclipse/eclipsefuro-web/commit/aa413baea21ff03e79a075778028603afe48582e))
+* initial open wc env ([a5c1880](https://github.com/eclipse/eclipsefuro-web/commit/a5c18800a4cfe755ac12b53fdabba3d6f8e1f276))
+* make package scripts similar ([baee77e](https://github.com/eclipse/eclipsefuro-web/commit/baee77e972661de51a7c2a403dfcc82f59c19f32))
+* Testing for all packages ([4052d27](https://github.com/eclipse/eclipsefuro-web/commit/4052d276aac0691bd4102b0083f50d4e29fea5cf))
 
 
 

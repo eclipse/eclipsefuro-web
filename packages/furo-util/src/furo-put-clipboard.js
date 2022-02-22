@@ -6,17 +6,24 @@ import { LitElement, css } from 'lit';
  *
  *```html
  *
- * <furo-put-clipboard json ƒ-trigger="--putDataToClipboard" @-content-putted="--contentInClipboard">
- * </furo-put-clipboard>
+ * <furo-put-clipboard
+ *     json
+ *     ƒ-trigger="--data" @-content-put="--contentInClipboard"
+ *     ></furo-put-clipboard>
  *
  *```
  *
- * @fires {*}  - Fired when content is written to clipboard
+ * @fires {*} content-put - Fired when content is written to clipboard
  *
  * @summary write content to clipboard
  * @customElement
  */
 class FuroPutClipboard extends LitElement {
+  /**
+   * Set data that you want to put to clipboard.
+   *
+   * @param  {Object} data - Serializable data to put
+   */
   setData(data) {
     this.data = data;
   }
@@ -24,7 +31,9 @@ class FuroPutClipboard extends LitElement {
   /**
    * Write data to the clipboard
    *
-   * @param {Object} data Serializable data
+   * If you trigger without data, the data which sas set with `setData` will be written to the clipboard.
+   *
+   * @param {Object|null} data Serializable data
    */
   trigger(data) {
     let ndata = data;
@@ -39,7 +48,7 @@ class FuroPutClipboard extends LitElement {
     }
 
     navigator.clipboard.writeText(d).then(() => {
-      const customEvent = new Event('content-putted', { composed: true, bubbles: true });
+      const customEvent = new Event('content-put', { composed: true, bubbles: true });
       customEvent.detail = d;
       this.dispatchEvent(customEvent);
     });

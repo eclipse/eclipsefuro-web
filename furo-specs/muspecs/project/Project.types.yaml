@@ -1,0 +1,11 @@
+- type: 'project.Project #Project description'
+  fields:
+    id: '- string:1 #Identity of a project'
+    display_name: '- string:2 #Localized String representation of a project'
+    start: 'google.type.Date:3 #Start date of the project'
+    end: 'google.type.Date:4 #Prospective end date of the project'
+    description: 'string:5 #Short project description'
+    members: '[] person.Person:6 #List of project members'
+    cost_limit: '* google.type.Money:7 #Project cost limit'
+    update_mask: 'google.protobuf.FieldMask:8 #Contains a field_mask which fields of the targeted resource are going to be updated'
+  target: project.proto

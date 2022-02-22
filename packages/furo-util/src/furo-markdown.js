@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import 'markdown-it/dist/markdown-it.js';
 
 import 'prismjs/prism.js';
@@ -16,8 +16,6 @@ Prism.manual = true;
  *
  * @summary renders markdown data
  * @customElement
- * @demo demo-furo-markdown safe mode (default)
- * @demo demo-furo-markdown-unsafe unsafe enabled
  * @appliesMixin FBP
  */
 class FuroMarkdown extends LitElement {
@@ -84,6 +82,7 @@ class FuroMarkdown extends LitElement {
    * parse markdown string to html content
    * @param markdown
    * @return {TemplateResult | TemplateResult}
+   * @private
    */
   _parseMarkdown(markdown) {
     const md = window.markdownit({
@@ -111,7 +110,7 @@ class FuroMarkdown extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroMarkdown') ||
+
       css`
         :host {
           display: block;

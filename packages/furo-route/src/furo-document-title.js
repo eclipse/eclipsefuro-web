@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -129,6 +129,7 @@ class FuroDocumentTitle extends FBP(LitElement) {
 
   /**
    * Renders the title and set it as document title
+   * @private
    */
   async _setDocumentTitle() {
     document.title = this.prefix + this.title + this.suffix;
@@ -184,7 +185,7 @@ class FuroDocumentTitle extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroDocumentTitle') ||
+
       css`
         :host {
           display: none;

@@ -206,14 +206,14 @@ class FuroAppFlowRouter extends FBP(LitElement) {
         }
 
         if (selection.target.startsWith('EXTERNAL_LINK:')) {
-          // eslint-disable-next-line babel/no-unused-expressions
+          // eslint-disable-next-line no-unused-expressions
           sa.length
             ? window.open(sa.join(''))
             : (window.location.href = selection.target.substr(14).trim());
           return true;
         }
         if (selection.target.startsWith('EXTERNAL_LINK_BLANK:')) {
-          // eslint-disable-next-line babel/no-unused-expressions
+          // eslint-disable-next-line no-unused-expressions
           sa.length ? window.open(sa.join('')) : window.open(selection.target.substr(20).trim());
           return true;
         }
@@ -226,7 +226,9 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           this._blank = false;
           window.open(prefix + selection.target + search);
         } else {
-          window.history.replaceState({}, '', prefix + selection.target + search);
+          // keep the current history state, the state is set with ƒ-set-waypoint from furo-document-title.
+          window.history.replaceState(window.history.state, '', prefix + selection.target + search);
+
         }
 
         /**
@@ -247,7 +249,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     }
 
     // eslint-disable-next-line no-console
-    console.warn('Flow event not found', flowEvent);
+    console.log('Flow event not found', flowEvent);
 
     const customEvent = new Event('event-not-found', { composed: true, bubbles: true });
     customEvent.detail = flowEvent;

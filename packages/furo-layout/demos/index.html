@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+      margin: 0;
+    }
+
+    furo-vertical-scroller{
+      height: 100vh;
+    }
+
+  </style>
+</head>
+<body>
+<div id="demo"></div>
+
+<script type="module">
+  import { html, render } from 'lit';
+  import '@furo/util/src/doc/furo-demo-snippet.js';
+
+
+
+
+  render(
+    html`
+      <furo-demo-snippet><template>
+        <div @-click="--c" ƒ-remove="--c" >a</div>
+      </template></furo-demo-snippet>
+
+      `,
+    document.querySelector('#demo')
+  );
+</script>
+</body>
+</html>

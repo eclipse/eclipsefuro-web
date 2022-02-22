@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-location-updater-hash', () => {
   let element;
@@ -11,12 +11,12 @@ describe('furo-location-updater-hash', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-location-updater></furo-location-updater>
           <furo-location></furo-location>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
@@ -36,7 +36,7 @@ describe('furo-location-updater-hash', () => {
     furoLocation.addEventListener('location-changed', e => {
       assert.equal(e.type, 'location-changed');
       done();
-    });
+    },{once:true});
 
     element.setHash({ a: 3 });
   });

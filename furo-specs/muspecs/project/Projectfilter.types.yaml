@@ -1,0 +1,8 @@
+- type: 'projectfilter.Projectfilter #Options for possible filter values'
+  fields:
+    description: 'string:1 #Filter preset for field description from resource projects'
+    start: 'google.type.Date:2 #Start date of the project'
+    end: 'google.type.Date:3 #Prospective end date of the project'
+    members: 'furo.Reference:4 #List of possible project members'
+    cost_limit: 'google.type.Money:5 #Project cost limit'
+  target: projectfilter.proto

@@ -254,7 +254,8 @@
             {
               "kind": "method",
               "name": "_setDocumentTitle",
-              "description": "Renders the title and set it as document title"
+              "description": "Renders the title and set it as document title",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -396,7 +397,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-location-updater`\nupdates parts of the url location with pushState\n\nYou can set query params and hashes. Use this component for proper deep linking.\nThe furo-location component will fire the location events as usual.\n\n```html\n <furo-location-updater ƒ-set-qp=\"--QueryParamKeyValuePairs\" ƒ-set-hash=\"--HashKeyValuePairs\"></furo-location-updater>\n```",
+          "description": "`furo-location-updater`\nupdates parts of the url location with pushState\n\nYou can set query params and hashes. Use this component for proper deep linking.\nThe furo-location component will fire the location events as usual.\n\n```html\n\n <furo-location-updater\n    ƒ-set-qp=\"--QueryParamKeyValuePairs\"\n    ƒ-set-hash=\"--HashKeyValuePairs\"></furo-location-updater>\n\n```",
           "name": "FuroLocationUpdater",
           "members": [
             {
@@ -487,12 +488,19 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-location`\n Somethin like iron-location",
+          "description": "`furo-location` watches for URL changes and notifies you. The location object which is fired from furo-location can be used\n for page navigation in furo-pages or for deep link resolution.\n\n\n```html\n<furo-location @-location-changed=\"--pathChanged\"></furo-location>\n\n<furo-pages\n  ƒ-inject-location=\"--pathChanged\"\n  default=\"list\">\n    <view-list name=\"list\"></view-list>\n    <view-create name=\"create\"></view-create>\n    <view-detail name=\"detail\"></view-detail>\n</furo-pages>\n```\n\n\n### locationObject\n```json\n{\n    \"host\": \"localhost:8480\",\n    \"query\": {\"tsk\": 999},\n    \"hash\": {},\n    \"path\": \"/detail\",\n    \"pathSegments\": [\n        \"detail\"\n    ],\n    \"hashstring\": \"\",\n    \"querystring\": \"tsk=999\"\n}\n```",
           "name": "FuroLocation",
           "members": [
             {
               "kind": "method",
-              "name": "_getHrefFromLocation"
+              "name": "_getHrefFromLocation",
+              "description": "create a valid href string from this._location",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -523,18 +531,11 @@
             },
             {
               "kind": "field",
-              "name": "display",
-              "type": {
-                "text": "string"
-              },
-              "default": "'none'"
-            },
-            {
-              "kind": "field",
               "name": "_location",
               "type": {
-                "text": "object"
+                "text": "{host}"
               },
+              "privacy": "private",
               "default": "{\n      host: window.location.host,\n    }"
             },
             {
@@ -580,6 +581,13 @@
             },
             {
               "type": {
+                "text": "Location object"
+              },
+              "description": " Fired when the path matches the url-space-regex and neither a search query or hash was given, useful to detect if someone enters the current url",
+              "name": "url-space-entered"
+            },
+            {
+              "type": {
                 "text": "void"
               },
               "description": " Fired when before the state will be updated",
@@ -622,14 +630,14 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-pages` is used to select one of its children to show.\n\nUse this to build tabs, views, subviews,...",
+          "description": "\nUse `furo-pages` to build tabs, views, subviews,...\n\n\n## preconditions\nThe components used in a furo-page must implement a **hidden** attribute css to set itself to display none.\n\n```css\n:host([hidden]){\n   display:none\n }\n```\n\n## usage\n\n```html\n\n<furo-pages ƒ-inject-location=\"--locationChanged\" default=\"home\">\n   <page-home name=\"home\"></page-home>\n   <other-page name=\"more\"></other-page>\n   <view-404 name=\"404\"></view-404>\n</furo-pages>\n\n<furo-location @-location-changed=\"--locationChanged\"></furo-location>\n```\n*If the url is `/` or `/home`, page-home is displayed.*\n*If the url is `/more`,  other-page is displayed.*\n*If the url does not match any of the names and a 404 is available, the 404 is displayed.*\n\n## flowbased auto wires\nfuro-pages provides auto wires, which are automatically triggered in the child elements if\nthey support FBP. Each wire will forward a `locationObject`\n\n-  `--pageActivated` : Is triggered when the element is activated.\n-  `--pageDeActivated` : Is triggered when another page is activated. Empty wire.\n-  `--pageQueryChanged` : Is triggered when the page query changes.\n-  `--pageHashChanged` : Is triggered when the page hash changes.\n-  `--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.",
           "name": "FuroPages",
           "slots": [
             {
               "type": {
                 "text": "HTMLElement [0..n]"
               },
-              "description": "default slot to add pages. ### preconditions: You have to implement a `:host([hidden]){display:none}` in your views css. ### flowbased auto wires furo-pages provides auto wires, which are automatically triggered in the child elements if they have flowbased enabled. | wire               | timing           | |:-------------------|:-----------------| | --pageDeActivated  | Every time the element changes to hidden   | | --pageActivated    | Triggered when the element is activated. Comes with a location object. | --pageQueryChanged  | Triggered when the page query changes. Comes with a location object. | --pageHashChanged  | Triggered when the page hash changes. Comes with a location object. ## Attributes **default** set the default page to show **attr-for-selected** *(default: selected)* If you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.",
+              "description": "default slot to add pages.",
               "name": ""
             }
           ],
@@ -649,16 +657,6 @@
               "description": "Activate a page by name"
             },
             {
-              "kind": "field",
-              "name": "location",
-              "description": "Deprecated: use ƒ-inject-location.",
-              "parameters": [
-                {
-                  "name": "location"
-                }
-              ]
-            },
-            {
               "kind": "method",
               "name": "injectLocation",
               "parameters": [
@@ -670,15 +668,22 @@
             },
             {
               "kind": "field",
-              "name": "_fallback"
+              "name": "_fallback",
+              "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "_default"
+              "name": "_default",
+              "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "_attrForSelected"
+              "name": "_attrForSelected",
+              "description": "**attr-for-selected** If you do not want to have *selected* as attribute to mark the selected state, change this value.",
+              "type": {
+                "text": "string|string"
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -686,6 +691,7 @@
               "type": {
                 "text": "array"
               },
+              "privacy": "private",
               "default": "[]"
             },
             {
@@ -694,6 +700,7 @@
               "type": {
                 "text": "array"
               },
+              "privacy": "private",
               "default": "[]"
             },
             {
@@ -702,7 +709,16 @@
               "type": {
                 "text": "string"
               },
+              "privacy": "private",
               "default": "''"
+            },
+            {
+              "type": {
+                "text": "String"
+              },
+              "description": "Set the default page to show.",
+              "name": "default",
+              "kind": "field"
             }
           ],
           "superclass": {
@@ -742,7 +758,8 @@
             },
             {
               "kind": "method",
-              "name": "_notifiyOpenPanels"
+              "name": "_notifiyOpenPanels",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -762,7 +779,7 @@
             {
               "kind": "method",
               "name": "closeAll",
-              "description": "closes all open panels"
+              "description": "This will trigger a `close-request` event all panels. Which should close themself then."
             },
             {
               "kind": "method",
@@ -789,6 +806,8 @@
               "type": {
                 "text": "array"
               },
+              "description": "array of navigation nodes",
+              "privacy": "private",
               "default": "[]"
             },
             {
@@ -797,11 +816,14 @@
               "type": {
                 "text": "array"
               },
+              "description": "array of panel names",
+              "privacy": "private",
               "default": "[]"
             },
             {
               "kind": "field",
-              "name": "_furoPage"
+              "name": "_furoPage",
+              "privacy": "private"
             }
           ],
           "events": [
@@ -841,79 +863,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/furo-qp-changer.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "# Deprecated, use furo-location-updater instead.\nfuro-location-updater has the same API, but can also handle hash values\n`qp-changer`\nupdates the query params in the url",
-          "name": "FuroQpChanger",
-          "members": [
-            {
-              "kind": "method",
-              "name": "setQp",
-              "parameters": [
-                {
-                  "name": "newQP"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "clear",
-              "privacy": "public",
-              "description": "Comma separated list of qp to clear if they are not explizitly set with `setQp`",
-              "attribute": "clear"
-            }
-          ],
-          "events": [
-            {
-              "type": {
-                "text": "Number"
-              },
-              "description": " Fired when before the state will be updated (Number is window.performance.now())",
-              "name": "__beforeReplaceState"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "clear",
-              "description": "Comma separated list of qp to clear if they are not explizitly set with `setQp`",
-              "fieldName": "clear"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "FBP",
-              "package": "@furo/fbp"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "summary": "deep linking helper",
-          "tagName": "furo-qp-changer",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "furo-qp-changer",
-          "declaration": {
-            "name": "FuroQpChanger",
-            "module": "src/furo-qp-changer.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/lib/BasePanel.js",
       "declarations": [
         {
           "kind": "class",
-          "description": "BasePanel to extend",
+          "description": "Extend BasePanel to build a panel which is controllable by furo-panel-coordinator.",
           "name": "BasePanel",
           "members": [
             {

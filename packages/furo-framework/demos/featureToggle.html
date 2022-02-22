@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    body {
+      background: #a3fff7;
+    }
+
+    *[hidden] {
+      opacity: 0.2;
+      display: inline-block;
+
+    }
+
+    *[disabled] {
+      background-color: #7f7f7f;
+    }
+
+    span{
+      background-color: white;
+    }
+  </style>
+
+</head>
+<body>
+<div id='demo'></div>
+
+<script type='module'>
+  import { html, render } from 'lit'
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  import {DOMFBP} from '@furo/fbp/src/DOMFBP.js';
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  import { FuroFeatureToggle } from '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js'
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  import  "@furo/util/src/furo-feature-toggle.js";
+
+  FuroFeatureToggle.setKeyState('feature', true)
+  FuroFeatureToggle.registerKeyMap({"feature.b":true})
+
+
+
+  render(
+    html`
+
+      <button data-furo-toggle-disable='feature' @-click='--setTrueClicked'>set true</button>
+      <button data-furo-toggle-enable='feature' @-click='--setFalseClicked'>set false</button>
+
+      <furo-feature-toggle key='feature' fn-set-true='--setTrueClicked' fn-set-false='--setFalseClicked'></furo-feature-toggle>
+      <hr>
+
+      remove: <span data-furo-toggle-remove='feature'>data-furo-toggle-remove='feature'</span> <br>
+      append: <span data-furo-toggle-append='feature'>data-furo-toggle-append='feature'</span> <br>
+
+      disable: <span data-furo-toggle-disable='feature'>data-furo-toggle-disable='feature'</span> <br>
+      disable: <span data-furo-toggle-enable='feature'>data-furo-toggle-enable='feature'</span> <br>
+
+      hide: <span data-furo-toggle-hide='feature'>data-furo-toggle-hide='feature'</span> <br>
+      show:  <span data-furo-toggle-show='feature'>data-furo-toggle-show='feature'</span> <br>
+
+      <furo-feature-toggle key='feature' @-key-changed='--keyChanged'></furo-feature-toggle>
+
+      <div fn-xx='--keyChanged'></div>
+
+    `,
+    document.querySelector('#demo'),
+  )
+
+  // eslint-disable-next-line no-new
+  new DOMFBP(document.querySelector('#demo'))
+  FuroFeatureToggle.parseDom(document.querySelector('#demo'))
+
+
+
+</script>
+</body>
+</html>

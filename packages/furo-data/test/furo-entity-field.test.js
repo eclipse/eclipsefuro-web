@@ -1,10 +1,10 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/testhelper/initEnv.js';
+import './initEnv.js';
 
 describe('furo-entity-field', () => {
   let host;
@@ -16,7 +16,7 @@ describe('furo-entity-field', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-entity-field
             ƒ-bind-data="--entity(*.data.furo_data_text_input)"
@@ -37,7 +37,7 @@ describe('furo-entity-field', () => {
           >
           </furo-entity-agent>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;

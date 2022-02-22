@@ -1,0 +1,6 @@
+- type: 'task.TaskCollection #TaskCollection with repeated TaskEntity'
+  fields:
+    meta: 'furo.Meta:2 #Meta for the response'
+    links: '[] furo.Link:3 #Hateoas links'
+    entities: '[] task.TaskEntity:4 #Contains a task.TaskEntity repeated'
+  target: task.proto

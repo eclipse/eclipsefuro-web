@@ -1,0 +1,10 @@
+- type: 'experiment.Constraints #Test the Constraints'
+  fields:
+    id: '- * string:1 #Identity of a experiment'
+    display_name: '- * string:2 #Localized String representation of a experiment'
+    number: 'int32:3 #Short experiment description'
+    text: '* string:4 #Localized String representation of a experiment'
+    date: '* google.type.Date:5 #Well Known Type Date'
+    money: '* google.type.Money:6 #Well Known Type Money'
+    float: 'float:7 #Float values'
+  target: experiment.proto

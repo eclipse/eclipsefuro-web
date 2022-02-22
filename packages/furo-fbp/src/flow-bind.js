@@ -7,7 +7,7 @@ import './empty-fbp-node.js';
  *  Custom element to allow using furo-fbp's template features in a html document.
  *  It comes very handy, when you want write tests or make some demos.
  *
- *```
+ *```html
  *<test-fixture id="basic">
  *   <template>
  *    <flow-bind id="elem">
@@ -30,11 +30,19 @@ class FlowBind extends FBP(HTMLElement) {
     this.attachShadow({ mode: 'open' });
     // eslint-disable-next-line wc/no-constructor-attributes
     const t = this.querySelector('template');
+    /**
+     * @private
+     */
     this.template = t.content;
     const elem = document.createElement('empty-fbp-node');
     elem.attachShadow({ mode: 'open' });
     elem.shadowRoot.appendChild(this.template.cloneNode(true));
     elem._appendFBP(elem.shadowRoot);
+    /**
+     *
+     * @type {HTMLElement}
+     * @private
+     */
     this._host = elem;
     this.parentNode.appendChild(elem.shadowRoot);
   }

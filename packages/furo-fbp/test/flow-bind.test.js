@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '../src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '../src/flow-bind.js'; // for testing with wires and hooks
 
 describe('flow-bind', () => {
   let element;
@@ -14,7 +14,7 @@ describe('flow-bind', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <flow-bind>
             <template>
@@ -23,7 +23,7 @@ describe('flow-bind', () => {
             </template>
           </flow-bind>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;

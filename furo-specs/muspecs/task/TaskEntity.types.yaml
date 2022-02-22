@@ -1,0 +1,7 @@
+- type: 'task.TaskEntity #TaskEntity with Task'
+  fields:
+    data: 'task.Task:1 #contains a task.Task'
+    links: '[] furo.Link:2 #Hateoas links'
+    meta: 'furo.Meta:3 #Meta for the response'
+    notifications: 'notification.Notification:4 #notification for the data'
+  target: task.proto

@@ -1,9 +1,9 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/testhelper/initEnv.js';
+import './initEnv.js';
 
 describe('furo-data-object', () => {
   let element;
@@ -11,11 +11,11 @@ describe('furo-data-object', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-data-object></furo-data-object>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
@@ -230,12 +230,12 @@ describe('furo-data-object', () => {
 
     // after response inject
     const handler = () => {
-      assert.equal(element.data.data.description._value, null);
+      assert.equal(element.data.data.description._value, '');
       assert.equal(element.data.data.furo_data_checkbox_input._meta.label, 'Label from response');
       assert.equal(element.data.data.furo_data_checkbox_input._meta.readonly, true);
       done();
     };
-    element.data.addEventListener('data-injected', handler, { once: true });
+    element.addEventListener('data-injected', handler, { once: true });
 
     element.injectRaw({
       data: { id: 12, display_name: 'party', furo_data_checkbox_input: true },

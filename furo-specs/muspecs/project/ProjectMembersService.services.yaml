@@ -1,0 +1,7 @@
+- name: ProjectMembersService
+  description: The members of a project
+  package: projectmemberservice
+  target: service.proto
+  methods:
+    - md: 'Unsubscribe: POST /api/projects/{prj}/members/{prs}:unsubscribe person.PersonEntity , person.PersonCollection #Custom method to unsubscribe a member, complete PersonEntity is expected'
+    - md: 'List: GET /api/members google.protobuf.Empty , person.PersonCollection #Get a collection with PersonEntities'

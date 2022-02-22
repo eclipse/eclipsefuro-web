@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
-import { axeReport } from 'pwa-helpers/axe-report.js';
+import { assert } from '@esm-bundle/chai';
+
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-fetch-json', () => {
   let element = {};
@@ -10,17 +10,17 @@ describe('furo-fetch-json', () => {
 
   beforeEach(async () => {
     const fix = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-fetch-json
-            src="/base/mockdata/experiments/1/get.json"
+            src="/mockdata/experiments/1/get.json"
             ƒ-fetch-src="--fetchSrc"
             ƒ-fetch="--fetch"
             @-data="--contentReceived"
             @-parse-error="--error"
           ></furo-fetch-json>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await fix.updateComplete;
     host = fix._host;
@@ -29,8 +29,6 @@ describe('furo-fetch-json', () => {
     await element.updateComplete;
   });
 
-  // a11y tests
-  it('a11y', () => axeReport(element));
 
   it('should emit an error', done => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-fetch-json');
@@ -42,7 +40,7 @@ describe('furo-fetch-json', () => {
       assert.equal(err.name, 'SyntaxError');
       done();
     });
-    host._FBPTriggerWire('--fetchSrc', '/base/mockdata/____404');
+    host._FBPTriggerWire('--fetchSrc', '/mockdata/____404');
   });
 
   it('should fetch a source with fetch-src', done => {
@@ -55,7 +53,7 @@ describe('furo-fetch-json', () => {
       assert.equal(e.data.id, 2);
       done();
     });
-    host._FBPTriggerWire('--fetchSrc', '/base/mockdata/projects/2/get.json');
+    host._FBPTriggerWire('--fetchSrc', '/mockdata/projects/2/get.json');
   });
 
   it('should be a furo-fetch-json', done => {

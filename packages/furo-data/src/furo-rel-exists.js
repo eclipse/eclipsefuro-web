@@ -2,7 +2,12 @@ import { LitElement, css } from 'lit';
 
 /**
  * `furo-rel-exists`
- * Checks if a rel exists in a hateaos Link array
+ * Checks if a hateoas relation exists in a given hateaos Links array.
+ *
+ *```html
+ * <furo-rel-exists ƒ-inject="--HTS-array"></furo-rel-exists>
+ * ```
+ *
  *
  * @fires {Object Hateoas Link} furo-rel-exists -  Fired when rel exists in `linkArray`.
  * @fires {void} rel-dont-exist -  Fired when rel does not exists in `linkArray`.
@@ -15,8 +20,12 @@ class FuroRelExists extends LitElement {
    * Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
    *
    * inject returns true for existing links and false for non existing links.
+   * TODO: implement bind data too
+   * TODO: emit a event with bool which is triggered on any change of the hts array or binded data
+   * Todo: Better and consistent names for the events
    *
-   * @param linkArray
+   *
+   * @param {[furo.Link]} linkArray - Array of furo links
    * @return {boolean}
    */
   inject(linkArray) {

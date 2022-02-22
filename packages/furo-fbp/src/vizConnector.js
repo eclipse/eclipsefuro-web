@@ -48,7 +48,7 @@ window.viz = root => {
             type: 'render-request',
             data: e.shadowRoot.innerHTML || e.innerHTML,
           },
-          'https://viz.furo.pro/',
+          'https://viz.furo.pro/'
         );
         // eslint-disable-next-line no-console
         console.dir({
@@ -69,7 +69,7 @@ window.viz = root => {
           type: 'render-request',
           data,
         },
-        'https://viz.furo.pro/',
+        'https://viz.furo.pro/'
       );
     }
   };

@@ -6,6 +6,7 @@ dist
 .idea
 .DS_Store
 test
+demos
 .editorconfig
 .gitignore
 .npmignore

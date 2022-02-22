@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme.js';
+
 import { FBP } from '@furo/fbp';
 
 /**
@@ -9,7 +9,6 @@ import { FBP } from '@furo/fbp';
  *  Double-click on the handler to reset the width.
  *  You need a counter part which flexes.
  *
- * @slot {HTMLElement [0..n]} - default slot to add content.
  *
  *```html
  *   <furo-horizontal-flex>
@@ -21,6 +20,8 @@ import { FBP } from '@furo/fbp';
  *   </furo-horizontal-flex>
  *```
  *
+ *
+ * @slot {HTMLElement [0..n]} - default slot to add content.
  * @summary resizable box
  * @demo demo-furo-resizer  Basic usage
  * @customElement
@@ -188,7 +189,7 @@ class FuroResizer extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroResizer') ||
+
       css`
         :host {
           display: block;

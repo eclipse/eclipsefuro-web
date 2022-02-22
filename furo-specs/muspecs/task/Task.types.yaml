@@ -1,0 +1,9 @@
+- type: 'task.Task #Task data description'
+  fields:
+    id: '- string:1 #Identity of a task'
+    display_name: '- string:2 #Localized String representation of a task'
+    description: '* string:3 #Short task description'
+    estimated_time: 'int32:4 #Estimated time in days'
+    owner: 'furo.Reference:5 #Owner of a task'
+    subtasks: '[] task.Task:6 #List of subtasks'
+  target: task.proto

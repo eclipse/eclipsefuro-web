@@ -5,9 +5,30 @@ import { Env } from '@furo/framework';
 import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
- * `furo-entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.
+ * `furo-entity-agent` is an interface component to handle entity requests.
  *
- * If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
+ * > **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of
+ * > the values are sent.
+ *
+ * > **Hint** PUT will send all fields which are not marked as **readonly**.
+ * > If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
+ *
+ * ```html
+ * <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
+ * <furo-entity-agent
+ *   service="ProjectService"
+ *   ƒ-hts-in="--hts" @-response="--response"
+ *   ></furo-entity-agent>
+ *
+ *
+ * <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
+ * <furo-data-object
+ *   type="project.ProjectEntity"
+ *   ƒ-inject-raw="--response"
+ *   ></furo-data-object>
+ * ```
+ *
+ *
  *
  * @fires {hts} response-hts-updated -  Fired when hts was updated from the response.
  * @fires {response} load-success -  Fired when `load()` was successful.
@@ -24,6 +45,17 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @fires {Hateoas links} hts-injected -  Fired when hateoas is updated.
  * @fires {} request-aborted -  Fired if the request was successfully cancelled.
  *
+ * @fires {Request} request-aborted - Fired when a request was canceled.
+ * @fires {Request} request-started - Fired when a request is sent.
+ * @fires {Object} response-raw - Fired when a response is received.
+ * @fires {Object}  response-error - Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] - Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ * @fires {Object} response-error-4xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-5xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-raw - Fired when a error has occoured.
+ * @fires {Object} response - Fired when a response is received.
+ *
  * @summary interface component to handle entity requests
  * @customElement
  * @demo demo-furo-entity-agent Basic usage
@@ -32,6 +64,11 @@ import { AgentHelper } from './lib/AgentHelper.js';
 class FuroEntityAgent extends FBP(LitElement) {
   constructor() {
     super();
+    /**
+     * Reference to the services
+     * @type {{}}
+     * @private
+     */
     this._servicedefinitions = Env.api.services;
     /**
      *
@@ -113,6 +150,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @param service
    */
   set service(service) {
+    this._requestedService = service
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.error(
@@ -278,6 +316,9 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
+    if(this._ApiEnvironment.services[link.service] === undefined){
+      console.warn("unknown service" , link.service)
+    }
     // generate accept field for header
     const ACCEPT = AgentHelper.generateHeaderAccept(
       this,
@@ -596,12 +637,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed, --requestFinished"
-        @-parse-error="^^req-failed, --requestFinished"
-        @-fatal-error="--requestFinished"
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abortDemanded"
+              @-response="--responseParsed, --requestFinished, ^^req-success"
+              @-response-error="^^req-failed, --requestFinished"
+              @-parse-error="^^req-failed, --requestFinished"
+              @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

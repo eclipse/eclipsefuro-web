@@ -1,0 +1,10 @@
+- name: ProjectService
+  description: service specs for the project api
+  package: projectservice
+  target: service.proto
+  methods:
+    - md: 'List: GET /mockdata/projects/list.json google.protobuf.Empty , project.ProjectCollection #The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.'
+    - md: 'Create: GET /mockdata/projects/create.json project.Project , project.ProjectEntity #Creates a new Project'
+    - md: 'Get: GET /mockdata/projects/{prj}/get.json google.protobuf.Empty , project.ProjectEntity #The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project'
+    - md: 'Update: GET /mockdata/projects/{prj}/update.json project.Project , project.ProjectEntity #Updates a Project, partial updates are supported'
+    - md: 'Delete: GET /mockdata/projects/{prj}/delete.json google.protobuf.Empty , google.protobuf.Empty #Delete a Project'

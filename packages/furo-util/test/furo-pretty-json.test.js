@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
-import { axeReport } from 'pwa-helpers/axe-report.js';
+import { assert } from '@esm-bundle/chai';
+
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-pretty-json', () => {
   let element;
@@ -10,11 +10,11 @@ describe('furo-pretty-json', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-pretty-json></furo-pretty-json>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
@@ -30,7 +30,7 @@ describe('furo-pretty-json', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should accept json', done => {
     element.injectData({ a: 1, b: true, c: 12 });

@@ -17,10 +17,22 @@ import { panelRegistry } from './lib/panelRegistry.js';
 class FuroPanelCoordinator extends FBP(LitElement) {
   constructor() {
     super();
-    // array of navigation nodes
+
+    /**
+     * array of navigation nodes
+     * @private
+     */
     this._openPanels = [];
-    // array of panel names
+
+    /**
+     * array of panel names
+     * @private
+     */
     this._loadedPanels = [];
+    /**
+     *
+     * @private
+     */
     this._furoPage = this.parentNode;
   }
 
@@ -32,6 +44,10 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     super._FBPReady();
   }
 
+  /**
+   *
+   * @private
+   */
   _notifiyOpenPanels() {
     const customEvent = new Event('panels-changed', { composed: true, bubbles: true });
     customEvent.detail = this._openPanels;
@@ -95,7 +111,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 
   /**
-   * closes all open panels
+   * This will trigger a `close-request` event all panels. Which should close themself then.
    */
   closeAll() {
     this._openPanels.forEach(panel => {

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.34.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.6...@furo/data@1.34.7) (2022-01-31)
+# [2.0.0-rc.15](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.14...@furo/data@2.0.0-rc.15) (2022-02-18)
 
 **Note:** Version bump only for package @furo/data
 
@@ -11,29 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.34.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.5...@furo/data@1.34.6) (2021-12-16)
-
-
-### Bug Fixes
-
-* FieldNode: wrong break criteria during for-in loop in meta ([8d81ec7](https://github.com/eclipse/eclipsefuro-web/commit/8d81ec743f8734faa0e69f83b7a1c5051b0bf7f4))
-
-
-
-
-
-## [1.34.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.4...@furo/data@1.34.5) (2021-12-15)
-
-
-### Bug Fixes
-
-* default value of clearListOnNewData set to TRUE ([6516645](https://github.com/eclipse/eclipsefuro-web/commit/65166458fdd4aeaaf32c8433284993afff04f2e6))
-
-
-
-
-
-## [1.34.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.3...@furo/data@1.34.4) (2021-12-13)
+# [2.0.0-rc.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.13...@furo/data@2.0.0-rc.14) (2022-02-18)
 
 **Note:** Version bump only for package @furo/data
 
@@ -41,24 +19,184 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.34.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.2...@furo/data@1.34.3) (2021-12-06)
+# [2.0.0-rc.13](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.12...@furo/data@2.0.0-rc.13) (2022-02-15)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [2.0.0-rc.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.11...@furo/data@2.0.0-rc.12) (2022-02-11)
 
 
 ### Bug Fixes
 
-* base64 encoding ([47a0d3d](https://github.com/eclipse/eclipsefuro-web/commit/47a0d3d57a11887b8ffa4419c96e69c01a29ea3d))
-* use decodeURI instead of unescape ([07ca9a3](https://github.com/eclipse/eclipsefuro-web/commit/07ca9a3924b06fa952b79e8dc297d88d32034bf3))
+* hateoas state should also enable a button which has set hide-no-rel, because a programmatic disable can never be restored ([a3a305c](https://github.com/eclipse/eclipsefuro-web/commit/a3a305c67a4804bd4cc4fee0a6e1d06eae4528ac))
 
 
 
 
 
-## [1.34.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.1...@furo/data@1.34.2) (2021-11-26)
+# [2.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.10...@furo/data@2.0.0-rc.11) (2022-01-31)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.9...@furo/data@2.0.0-rc.10) (2022-01-28)
 
 
 ### Bug Fixes
 
-* type specific handling in display renderers and input fields (scalar, google wrapper types and FAT) ([e89cadb](https://github.com/eclipse/eclipsefuro-web/commit/e89cadbbb014a9b7d8e0b54390d1e8a27a63a13a))
+* DataObject compatibility for the FieldNodeAdapter ([939dd2e](https://github.com/eclipse/eclipsefuro-web/commit/939dd2ef05d8e9b93c6046cdfd4147501ec759b5))
+* timing issues, when data is set before the binding happens ([39a802c](https://github.com/eclipse/eclipsefuro-web/commit/39a802cc45b39cafd1f1544f866759f5d3ea2f5b))
+
+
+### Features
+
+* data agents can work with full qualified service definitions ([749002f](https://github.com/eclipse/eclipsefuro-web/commit/749002fe1554a03765ab12f015c8dbb3b18d20fd))
+* data agents can work with full qualified service definitions ([9c256f2](https://github.com/eclipse/eclipsefuro-web/commit/9c256f22eb914b647c17ce86412b7a1fa45a7665))
+
+
+
+
+
+# [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.8...@furo/data@2.0.0-rc.9) (2021-12-20)
+
+
+### Features
+
+* furo-hateoas-state ([23ba808](https://github.com/eclipse/eclipsefuro-web/commit/23ba808fac5306ad1ff5d26eaac6f9c23312ce8c))
+* furo-hateoas-state changed to data-rel ([99ee5f6](https://github.com/eclipse/eclipsefuro-web/commit/99ee5f6ca994942d4eb813c67a07a1d60ffac576))
+
+
+
+
+
+# [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.7...@furo/data@2.0.0-rc.8) (2021-12-16)
+
+
+### Bug Fixes
+
+* furo-data-flow-repeat clears list if no identity-path was given. ([4ce4e04](https://github.com/eclipse/eclipsefuro-web/commit/4ce4e04c087754d39fe09a44df6b033495fd6515))
+* furo-data-flow-repeat clears list if no identity-path was given. ([65d35fd](https://github.com/eclipse/eclipsefuro-web/commit/65d35fdd7517937d88a628585f7501292780e789))
+* wrong break criteria during for-in loop. ([480a264](https://github.com/eclipse/eclipsefuro-web/commit/480a264a21e4c8cf0ff848c9e164950818cef560))
+
+
+
+
+
+# [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.6...@furo/data@2.0.0-rc.7) (2021-12-10)
+
+
+### Bug Fixes
+
+* agent test ([9a132d1](https://github.com/eclipse/eclipsefuro-web/commit/9a132d137803cf9f24789456bf5737ad973a38d1))
+
+
+
+
+
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.5...@furo/data@2.0.0-rc.6) (2021-12-10)
+
+
+### Bug Fixes
+
+* base64 encoding ([cc34f14](https://github.com/eclipse/eclipsefuro-web/commit/cc34f1423dee97af1f3366c0a044ce3e060b8c7c))
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+* use decodeURI instead of unescape ([f806d5c](https://github.com/eclipse/eclipsefuro-web/commit/f806d5c0567a734ae3519df04c45419315dc7926))
+* use decodeURI instead of unescape ([69f13d4](https://github.com/eclipse/eclipsefuro-web/commit/69f13d46ab32a403fe515dc6e6fd67ed25fff18a))
+
+
+
+
+
+# [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.4...@furo/data@2.0.0-rc.5) (2021-11-29)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.3...@furo/data@2.0.0-rc.4) (2021-11-24)
+
+
+### Bug Fixes
+
+* default value for scalar types ([d3c5f72](https://github.com/eclipse/eclipsefuro-web/commit/d3c5f72013974946abda2fbf892aefa02a5e0791))
+* encode once only ([a0dace2](https://github.com/eclipse/eclipsefuro-web/commit/a0dace27a86bb83253255351eb8503c0f0356e03))
+* set view qp when view is set on collection agent ([33dbef5](https://github.com/eclipse/eclipsefuro-web/commit/33dbef5e2a1e10eac615637dcd845fa260aad2f7))
+
+
+### Features
+
+* DOMFBP ([ff9dee8](https://github.com/eclipse/eclipsefuro-web/commit/ff9dee800248ea55e4bdfee49685e0f3b63e221f))
+* encode UTF-8 safe ([6893381](https://github.com/eclipse/eclipsefuro-web/commit/6893381e4c9e8c937dee3253ca32f0441755d572))
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.2...@furo/data@2.0.0-rc.3) (2021-11-11)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [2.0.0-rc.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.1...@furo/data@2.0.0-rc.2) (2021-11-08)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [2.0.0-rc.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-rc.0...@furo/data@2.0.0-rc.1) (2021-11-04)
+
+
+### Features
+
+* unused files deleted, todos added ([9ab59b8](https://github.com/eclipse/eclipsefuro-web/commit/9ab59b806da22f32b61c8790a63f728dcf5845d0))
+
+
+
+
+
+# [2.0.0-rc.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-alpha.1...@furo/data@2.0.0-rc.0) (2021-11-02)
+
+
+### Bug Fixes
+
+* Test are using the integrated specs now, all tests green again. ([ae1232b](https://github.com/eclipse/eclipsefuro-web/commit/ae1232baa9da825c3b7731e1559d6538b5213ea4))
+
+
+
+
+
+# [2.0.0-alpha.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.0-alpha.0...@furo/data@2.0.0-alpha.1) (2021-10-29)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [2.0.0-alpha.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.1...@furo/data@2.0.0-alpha.0) (2021-10-29)
+
+
+### Features
+
+* data environment (specs) ([25c7bd7](https://github.com/eclipse/eclipsefuro-web/commit/25c7bd76d4dfe78f0d8876bfff09a936b83ae4b6))
+* initial open wc env ([a5c1880](https://github.com/eclipse/eclipsefuro-web/commit/a5c18800a4cfe755ac12b53fdabba3d6f8e1f276))
+* make package scripts similar ([baee77e](https://github.com/eclipse/eclipsefuro-web/commit/baee77e972661de51a7c2a403dfcc82f59c19f32))
+* testing ([8eff5d8](https://github.com/eclipse/eclipsefuro-web/commit/8eff5d8b42e6ca941e08173c473f492749157aa4))
+* Testing for all packages ([4052d27](https://github.com/eclipse/eclipsefuro-web/commit/4052d276aac0691bd4102b0083f50d4e29fea5cf))
 
 
 

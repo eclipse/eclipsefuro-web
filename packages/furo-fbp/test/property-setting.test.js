@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '../src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '../src/flow-bind.js'; // for testing with wires and hooks
 
 describe('property-setting', () => {
   let element;
@@ -12,7 +12,7 @@ describe('property-setting', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <div id="hull">
             <div
@@ -34,7 +34,7 @@ describe('property-setting', () => {
             </div>
           </div>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
@@ -53,7 +53,10 @@ describe('property-setting', () => {
   });
 
   it('should set the property prop of receiver to e.detail', done => {
-    const customEvent = new Event('new-data', { composed: true, bubbles: true });
+    const customEvent = new Event('new-data', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = { a: 1, b: 4 };
     sender.dispatchEvent(customEvent);
 
@@ -62,7 +65,10 @@ describe('property-setting', () => {
   });
 
   it('should set the property subprop of receiver to e.detail.b', done => {
-    const customEvent = new Event('new-data', { composed: true, bubbles: true });
+    const customEvent = new Event('new-data', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = { a: 1, b: 4 };
     sender.dispatchEvent(customEvent);
     assert.equal(receiver.subprop, 4);
@@ -70,7 +76,10 @@ describe('property-setting', () => {
   });
 
   it('should set the property raw of receiver from raw event', done => {
-    const customEvent = new Event('new-data', { composed: true, bubbles: true });
+    const customEvent = new Event('new-data', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = { a: 1, b: 4 };
     customEvent.other = { xxxxx: 1, yyyyy: 4 };
     sender.dispatchEvent(customEvent);
@@ -84,7 +93,10 @@ describe('property-setting', () => {
       done();
     };
 
-    const customEvent = new Event('method-test', { composed: true, bubbles: true });
+    const customEvent = new Event('method-test', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = { sub: '----' };
     sender.dispatchEvent(customEvent);
   });

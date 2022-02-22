@@ -1,0 +1,6 @@
+- type: 'project.ProjectEntity #ProjectEntity with Project'
+  fields:
+    data: 'project.Project:1 #contains a project.Project'
+    links: '[] furo.Link:2 #Hateoas links'
+    meta: 'furo.Meta:3 #Meta for the response'
+  target: project.proto

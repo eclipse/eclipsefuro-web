@@ -1,12 +1,13 @@
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import { i18n } from '../src/i18n.js';
 import { Env } from '../src/environment.js';
 import { Translations } from './translations.js';
 
 describe('i18n', () => {
+
   it('should return bare key if no resource bundle is registered', done => {
-    assert.equal(i18n.t('key'), 'key**');
+    assert.equal(i18n.t('key'), 'key');
     done();
   });
 

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 /**
  * `furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.
@@ -56,7 +56,7 @@ class FuroEmptySpacer extends LitElement {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroEmptySpacer') ||
+
       css`
         :host {
           display: block;

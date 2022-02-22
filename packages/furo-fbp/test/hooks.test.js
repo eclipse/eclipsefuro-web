@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
+import { assert } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
-import '../src/testhelper/test-bind.js'; // for testing with wires and hooks
+import '../src/flow-bind.js'; // for testing with wires and hooks
 
 describe('hooks', () => {
   let host;
@@ -15,7 +15,7 @@ describe('hooks', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <button id="btn" @-click="--clk"></button>
           <div id="dd" ƒ-done="--clk" @-dummy="--clk">x</div>
@@ -24,7 +24,7 @@ describe('hooks', () => {
             ƒ-dummy="--clk"
             ƒ-dummy-camel="--clk"
             ƒ-subprop="--subProperty(*.b)"
-            @-firesub="^^subbubble(*.ccc), ^subnonbubble(*.eee), -^subhost(*.ccc.xx)"
+            @-firesub="^^subbubble(*.detail.ccc), ^subnonbubble(*.detail.eee), -^subhost(*.detail.ccc.xx)"
           >
             dummy
           </div>
@@ -34,7 +34,7 @@ describe('hooks', () => {
           <div
             id="bubble"
             ƒ-hit="--bubble"
-            @-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-on-host-with-data, -^fire-on-host-with-data(id),:STOP,:PREVENTDEFAULT"
+            @-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-at-host-with-data, -^fire-at-host-with-data(id),:STOP,:PREVENTDEFAULT"
             ƒ-sefl="oo"
           >
             dummy
@@ -42,7 +42,7 @@ describe('hooks', () => {
 
           <script></script>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
@@ -102,8 +102,11 @@ describe('hooks', () => {
     host.subproperty = { a: 3, b: 4 };
 
     // eslint-disable-next-line func-names
-    bubble.hit = function() {
-      const customEvent = new Event('hitted', { composed: true, bubbles: true });
+    bubble.hit = function () {
+      const customEvent = new Event('hitted', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = 3333;
       this.dispatchEvent(customEvent);
     };
@@ -120,8 +123,11 @@ describe('hooks', () => {
     });
 
     // eslint-disable-next-line func-names
-    bubble.hit = function() {
-      const customEvent = new Event('hitted', { composed: true, bubbles: true });
+    bubble.hit = function () {
+      const customEvent = new Event('hitted', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = 3333;
       this.dispatchEvent(customEvent);
     };
@@ -138,7 +144,7 @@ describe('hooks', () => {
         assert.equal(d, 33);
         done();
       },
-      true,
+      true
     );
     assert.equal(r, 1);
     host._FBPTriggerWire('--nonexist', 33);
@@ -153,7 +159,7 @@ describe('hooks', () => {
         assert.equal(d, 0);
         done();
       },
-      true,
+      true
     );
 
     assert.equal(dd.innerText, 'x');

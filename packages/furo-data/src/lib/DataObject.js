@@ -1,7 +1,7 @@
 import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import { FieldNode } from './FieldNode.js';
 import { RepeaterNode } from './RepeaterNode.js';
-import { Helper } from './Helper.js';
+import { ScalarTypeHelper } from './ScalarTypeHelper.js';
 
 /**
  * EntityNode is usually the root node of an eventTree
@@ -10,6 +10,10 @@ export class DataObject extends EventTreeNode {
   constructor(parentNode, type, specs) {
     super(parentNode);
 
+    /**
+     * reference to the specs
+     * @private
+     */
     this.__specdefinitions = specs;
     this._spec = this.__specdefinitions[type];
     this._type = type;
@@ -137,6 +141,15 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
+   * This setter aliases to injectRaw. Added for compatibility reasons for the FieldNodeAdapter
+   * @param rawEntity
+   */
+  set _value(val) {
+    return this.injectRaw(val);
+  }
+
+
+  /**
    * returns the value of the data object as a base64 encoded string
    * @return {string}
    * @private
@@ -244,7 +257,7 @@ export class DataObject extends EventTreeNode {
           }
         } else {
           // eslint-disable-next-line no-param-reassign
-          n._value = Helper.indeterminateDefault();
+          n._value = ScalarTypeHelper.indeterminateDefault();
         }
       }
     });
@@ -254,6 +267,11 @@ export class DataObject extends EventTreeNode {
     }
   }
 
+  /**
+   * Update meta and constraint fields
+   * @param metaAndConstraints
+   * @private
+   */
   __updateMetaAndConstraints(metaAndConstraints) {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on フロー Furo Web</title>
+    <link>https://web-components.furo.pro/docs/guides/</link>
+    <description>Recent content in Guides on フロー Furo Web</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://web-components.furo.pro/docs/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dealing with data</title>
+      <link>https://web-components.furo.pro/docs/guides/dealing-w-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/dealing-w-data/</guid>
+      <description>Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.</description>
+    </item>
+    
+    <item>
+      <title>Application Flow</title>
+      <link>https://web-components.furo.pro/docs/guides/app-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/app-flow/</guid>
+      <description>Application flow / Event driven routing #  For this kind of routing you need the following building blocks:
+   component description     @furo/route/src/furo-app-flow-router app flow manager   @furo/route/src/furo-app-flow emits app flow events   @furo/config/src/furo-config-loader can load config files   flowConfig.json flow config definition file    1 2 3 4 5 6 7 8 9  &amp;lt;!-- main-app --&amp;gt; &amp;lt;furo-config-loader src=&amp;#34;custom/flowConfig.</description>
+    </item>
+    
+    <item>
+      <title>Extending a UI lib</title>
+      <link>https://web-components.furo.pro/docs/guides/FNA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/FNA/</guid>
+      <description>How to make your own UI components bindable #  There are several ways to make your component bindable.
+Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
+This can be quite complex, but will give you the greatest flexibility.
+Take a look at the furo-ui5-bool-icon, which is a very small example to handle the binding by yourself.</description>
+    </item>
+    
+    <item>
+      <title>Type Renderer</title>
+      <link>https://web-components.furo.pro/docs/guides/type-renderer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/type-renderer/</guid>
+      <description>Dynamic type-dependent rendering #  The furo-type-renderer is used to display type specific data. It uses display as default context and will warn you on the console if the requested context-[type-name] does not exist or was not imported.
+There is a standard set of type-renderers for rendering the most common types.
+The standard ui5 set can be integrated with the import
+ import &amp;lsquo;@furo/ui5/src/standard-type-renderers/display-registry.js&amp;rsquo;.  If you want to implement an individual display of a type, you need your own context-[type-name] component and import it.</description>
+    </item>
+    
+    <item>
+      <title>Feature Toggles</title>
+      <link>https://web-components.furo.pro/docs/guides/featuretoggle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web-components.furo.pro/docs/guides/featuretoggle/</guid>
+      <description>Feature Toggles #  Use FuroFeatureToggle to implement toggles for the following scenarios: 1
+ release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects.</description>
+    </item>
+    
+  </channel>
+</rss>

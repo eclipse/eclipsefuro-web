@@ -6,14 +6,16 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  *
  *
  *  ```html
- *  <furo-data-flow-repeat ƒ-bind-data="--data(*.repeaterfield)">
+ *  <furo-data-flow-repeat identity-path="id" ƒ-bind-data="--data(*.repeaterfield)">
  *    <template>
  *      <furo-ui5-data-text-input-labeled
  *          ƒ-bind-data="--init"></furo-ui5-data-text-input-labeled>
  *    </template>
  *  </furo-data-flow-repeat>
  *  ```
- *  To delete a item, implement something which triggers the `deleteNode` method on the fieldNode itself.
+ *  *The wire `--init` is fired from furo-data-flow-repeat*
+ *
+ *  If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.
  *
  *  ## Available wires in the template:
  *
@@ -33,7 +35,6 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  * **index** contains the current index of the item. Use this to fire a event with an index like `@-click="^^item-clicked(index)"`
  * **item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click="^^item-selected(item)"`
  *
- *
  * @summary automatic display of repeated fields
  * @customElement
  * @demo demo-furo-data-flow-repeat
@@ -48,6 +49,30 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
      * @type {boolean}
      */
     this.selectAddedItem = false;
+    /**
+     * By setting this param, the repeater has not to rebuild the list on new data. It only updates the parts that have changed.
+     *
+     * The path is a field, relative to the root of the repeated item.
+     *
+     * @type {String}
+     */
+    this.identityPath = false;
+  }
+
+  /**
+   * Bind a repeater node.
+   *
+   * If `identity-path` is not set, the list will be cleared every time it receives new data.
+   *
+   * @param fieldNode {RepeaterNode} Must be a repeater node.
+   * @return {boolean}
+   */
+  bindData(fieldNode) {
+    if (!this.getAttribute('identity-path')){
+      // eslint-disable-next-line no-param-reassign
+      fieldNode.clearListOnNewData = true;
+    }
+    return super.bindData(fieldNode);
   }
 
   /**
@@ -59,7 +84,10 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
 
   /**
    * Adds a repeated item of the same type.
-   * @param data
+   *
+   * If  no object is set, a initial FieldNode of the same type is added to the repeats.
+   *
+   * @param data {Object} Object that match the type of the repeated node.
    */
   add(data) {
     if (!this.readonly && this.__fieldNode) {

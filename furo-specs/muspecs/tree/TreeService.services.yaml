@@ -1,0 +1,10 @@
+- name: TreeService
+  description: service specs for the tree api
+  package: treeservice
+  target: service.proto
+  methods:
+    - md: 'List: GET /mockdata/trees google.protobuf.Empty , tree.TreeCollection #The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.'
+    - md: 'Create: POST /mockdata/trees tree.Tree , tree.TreeEntity #Creates a new Tree'
+    - md: 'Get: GET /mockdata/trees/{tre}/get.json google.protobuf.Empty , tree.TreeEntity #The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree'
+    - md: 'Update: PATCH /mockdata/trees/{tre} tree.Tree , tree.TreeEntity #Updates a Tree, partial updates are supported'
+    - md: 'Delete: DELETE /mockdata/trees/{tre} google.protobuf.Empty , google.protobuf.Empty #Delete a Tree'

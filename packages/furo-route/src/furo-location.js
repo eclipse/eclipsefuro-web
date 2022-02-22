@@ -1,8 +1,37 @@
 import { LitElement, css } from 'lit';
 
 /**
- * `furo-location`
- *  Somethin like iron-location
+ * `furo-location` watches for URL changes and notifies you. The location object which is fired from furo-location can be used
+ *  for page navigation in furo-pages or for deep link resolution.
+ *
+ *
+ * ```html
+ * <furo-location @-location-changed="--pathChanged"></furo-location>
+ *
+ * <furo-pages
+ *   ƒ-inject-location="--pathChanged"
+ *   default="list">
+ *     <view-list name="list"></view-list>
+ *     <view-create name="create"></view-create>
+ *     <view-detail name="detail"></view-detail>
+ * </furo-pages>
+ * ```
+ *
+ *
+ * ### locationObject
+ * ```json
+ * {
+ *     "host": "localhost:8480",
+ *     "query": {"tsk": 999},
+ *     "hash": {},
+ *     "path": "/detail",
+ *     "pathSegments": [
+ *         "detail"
+ *     ],
+ *     "hashstring": "",
+ *     "querystring": "tsk=999"
+ * }
+ * ```
  *
  * @fires {Location object} location-path-changed -  Fired when Path portion of the location changed
  * @fires {Location object} location-hash-changed -  Fired when Hash portion of the location changed
@@ -17,8 +46,12 @@ import { LitElement, css } from 'lit';
 class FuroLocation extends LitElement {
   constructor() {
     super();
-    // eslint-disable-next-line wc/no-constructor-attributes
-    this.style.display = 'none';
+
+    /**
+     *
+     * @type {{host}}
+     * @private
+     */
     this._location = {
       host: window.location.host,
     };
@@ -99,14 +132,18 @@ class FuroLocation extends LitElement {
     window.removeEventListener('popstate', this._locationChangeNotyfier, true);
   }
 
-  // create a valid href string from this._location
+  /**
+   * create a valid href string from this._location
+   * @return {*}
+   * @private
+   */
   _getHrefFromLocation() {
     // path, query hash
     let href = this._location.path;
-    if (this._location.query.length > 0) {
+    if (this._location && this._location.query.length > 0) {
       href += `?${this._location.query}`;
     }
-    if (this._location.hash.length > 0) {
+    if (this._location && this._location.hash.length > 0) {
       href += `#${this._location.hash}`;
     }
     return href;
@@ -221,6 +258,10 @@ class FuroLocation extends LitElement {
 
       // only handle clicks on <a href="..
       if (target.tagName !== 'A') {
+        return;
+      }
+
+      if (target.tagName === 'A' && target.target === "_blank") {
         return;
       }
 

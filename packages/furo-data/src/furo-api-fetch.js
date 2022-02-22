@@ -1,31 +1,30 @@
 /**
- * `furo-api-fetch`
+ * Use `furo-api-fetch` to fetch data from the network.
  *
- * furo-api-fetch can be used for network requests via FETCH API
  *
  * ```html
- * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
+ * <furo-api-fetch ƒ-invoke-request="--Request"></furo-api-fetch>
  * ```
+ *
  * @fires {Request} request-aborted - Fired when a request was canceled.
  * @fires {Request} request-started - Fired when a request is sent.
  * @fires {Object} response-raw - Fired when a response is received.
- *
+ * @fires {Object}  response-error - Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] - Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ * @fires {Object} response-error-4xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-5xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-raw - Fired when a error has occoured.
  * @fires {Object} response - Fired when a response is received.
  * Here you will get the parsed response
  * Format depends on request header `content-type`
+ *
  * supported types:
  * - text/plain
  * - application/json
  * - image/jpeg (Blob)
  * - application/octet-stream (ArrayBuffer)
  * - application/pdf (Blob)
- *
- * @fires {Object}  response-error Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
- * @fires {Object} response-error-[status-code] Fired when an error has occoured. This is a specific error event.
- * @fires {Request} fatal-error - * Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
- *  * @fires response-error-[status-code.firstChar]xx -    * Fired when an error has occoured.
- * This is a group error event. E.g. response-error-5xx, response-error-4xx
- *
  *
  * @summary fetch data from network
  * @customElement
@@ -75,6 +74,11 @@ class FuroApiFetch extends HTMLElement {
     controller.abort();
   }
 
+  /**
+   *
+   * @param request
+   * @private
+   */
   _executeRequest(request) {
     /**
      * dispatches fatal-error
@@ -215,6 +219,9 @@ class FuroApiFetch extends HTMLElement {
               composed: true,
             }),
           );
+          /**
+           * @event response-error-[status-code]
+           */
           this.dispatchEvent(
             new CustomEvent(`response-error-${response.status}`, {
               detail: r,

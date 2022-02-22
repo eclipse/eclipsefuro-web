@@ -2,11 +2,16 @@ import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp';
 
 /**
- * `furo-key-press`
- *  Listen to keypress events on parent element
+ * `furo-keydown` attaches a keypress listener to the parent element and gives you handy events to work with.
+ *
+ * When you set `alt`, `ctrl` or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.
  *
  *  [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
  *
+ * ```html
+ * <furo-keydown key="Enter" @-key="--enterPressed"></furo-keydown>
+ * <furo-keydown ctrl key="c" @-key="--copyRequested"></furo-keydown>
+ * ```
  * @fires {KeyboardEvent} key - Fired when key was catched on target
  *
  * @summary keyboard event listener
@@ -28,11 +33,29 @@ class FuroKeydown extends FBP(LitElement) {
        * Set this attribute to listen to the keydown event global (window).
        */
       global: { type: Boolean },
+      /**
+       * `alt` key must be pressed to trigger the `key` event.
+       */
       alt: { type: Boolean },
+      /**
+       * `ctrl` key must be pressed to trigger the `key` event.
+       */
       ctrl: { type: Boolean },
+      /**
+       * `meta` key must be pressed to trigger the `key` event.
+       */
       meta: { type: Boolean },
+      /**
+       * `shift` key must be pressed to trigger the `key` event.
+       */
       shift: { type: Boolean },
+      /**
+       * Set this attribute to prevent the event default of the keypress event.
+       */
       preventDefault: { type: Boolean, attribute: 'prevent-default' },
+      /**
+       * Set this to true to stop the event propagation of the keypress event.
+       */
       stopPropagation: { type: Boolean, attribute: 'stop-propagation' },
     };
   }

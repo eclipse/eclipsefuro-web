@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.9.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@1.9.4...@furo/framework@1.9.5) (2022-01-31)
+# [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.6...@furo/framework@2.0.0-rc.7) (2022-02-15)
 
 **Note:** Version bump only for package @furo/framework
 
@@ -11,9 +11,93 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.9.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@1.9.3...@furo/framework@1.9.4) (2021-12-13)
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.5...@furo/framework@2.0.0-rc.6) (2022-02-11)
+
+
+### Features
+
+* featureToggle ([5da5da6](https://github.com/eclipse/eclipsefuro-web/commit/5da5da6ecb575fb1e240eea4b817478aff6b6cc8))
+
+
+
+
+
+# [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.4...@furo/framework@2.0.0-rc.5) (2021-12-20)
+
+
+### Features
+
+* furo-hateoas-state ([23ba808](https://github.com/eclipse/eclipsefuro-web/commit/23ba808fac5306ad1ff5d26eaac6f9c23312ce8c))
+
+
+
+
+
+# [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.3...@furo/framework@2.0.0-rc.4) (2021-12-10)
+
+
+### Bug Fixes
+
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.2...@furo/framework@2.0.0-rc.3) (2021-11-11)
 
 **Note:** Version bump only for package @furo/framework
+
+
+
+
+
+# [2.0.0-rc.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.1...@furo/framework@2.0.0-rc.2) (2021-11-08)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+# [2.0.0-rc.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.0...@furo/framework@2.0.0-rc.1) (2021-11-04)
+
+
+### Features
+
+* unused files deleted, todos added ([86d6985](https://github.com/eclipse/eclipsefuro-web/commit/86d6985094632fa4cf1c288ce491d72c5e59cc67))
+
+
+
+
+
+# [2.0.0-rc.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-alpha.1...@furo/framework@2.0.0-rc.0) (2021-11-02)
+
+
+### Bug Fixes
+
+* Test are using the integrated specs now, all tests green again. ([ae1232b](https://github.com/eclipse/eclipsefuro-web/commit/ae1232baa9da825c3b7731e1559d6538b5213ea4))
+
+
+
+
+
+# [2.0.0-alpha.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-alpha.0...@furo/framework@2.0.0-alpha.1) (2021-10-29)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+# [2.0.0-alpha.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@1.9.3...@furo/framework@2.0.0-alpha.0) (2021-10-29)
+
+
+### Features
+
+* initial open wc env ([a5c1880](https://github.com/eclipse/eclipsefuro-web/commit/a5c18800a4cfe755ac12b53fdabba3d6f8e1f276))
+* make package scripts similar ([baee77e](https://github.com/eclipse/eclipsefuro-web/commit/baee77e972661de51a7c2a403dfcc82f59c19f32))
+* Testing for all packages ([4052d27](https://github.com/eclipse/eclipsefuro-web/commit/4052d276aac0691bd4102b0083f50d4e29fea5cf))
 
 
 

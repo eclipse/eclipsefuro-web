@@ -1,0 +1,12 @@
+- name: ExperimentService
+  description: service specs for the experiment api
+  package: experimentservice
+  target: service.proto
+  methods:
+    - md: 'List: GET /mockdata/experiments google.protobuf.Empty , experiment.ExperimentCollection #The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.'
+    - md: 'Create: POST /mockdata/experiments experiment.Experiment , experiment.ExperimentEntity #Creates a new Experiment'
+    - md: 'Get: GET /mockdata/experiments/{exp}/get.json google.protobuf.Empty , experiment.ExperimentEntity #The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment'
+    - md: 'Update: PATCH /mockdata/experiments/{exp} experiment.Experiment , experiment.ExperimentEntity #Updates a Experiment, partial updates are supported'
+    - md: 'Delete: DELETE /mockdata/experiments/{exp} google.protobuf.Empty , google.protobuf.Empty #Delete a Experiment'
+    - md: 'Release: POST /mockdata/experiments/1:release experiment.ExperimentEntity , google.protobuf.Empty #Releases experiment'
+    - md: 'CreateTemplate: POST /mockdata/experiments:createtemplate google.protobuf.Empty , experiment.Experiment #create an experiment template'

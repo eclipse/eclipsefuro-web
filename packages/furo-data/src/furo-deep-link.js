@@ -5,38 +5,29 @@ import { Env } from '@furo/framework';
  * `furo-deep-link`
  * Resolve deep links HATEOAS based on the query params and the selected service.
  *
- * *Deeplink inside of a furo-page*
  * ```html
- * <furo-deep-link service="TaskService" ƒ-qp-in="--pageQueryChanged(*.query)" @-hts-out="--serviceHTS"></furo-deep-link>
+ * <furo-deep-link
+ *  service="TaskService"
+ *  ƒ-qp-in="--pageQueryChanged(*.query)" @-hts-out="--serviceHTS">
+ *  </furo-deep-link>
  * ```
+ * *Deeplink inside of a furo-page*
  *
- * Services must be registered in the Env:
+ *
+ * The services must be registered in the Env:
  *
  * ```html
- * import {Services,Types} from "./apiConfig.js"
+ * import {Services,Types} from "./furo-spec.js"
  * Init.registerApiServices(Services);
  * Init.registerApiTypes(Types);
  * ```
+ *
+ *
  * Usually this is done in your src/configs/init.js
+ *
+ *
  * @fires {[]HTSLinks} hts-out Fired when hateoas is available
  *
- * ```json
- * [
- *    {
- *        "rel": "list",
- *        "href": "/api/mockdata/tasks/list.json",
- *        "method": "GET",
- *        "service": "TaskService"
- *      },
- *    {
- *        "rel": "create",
- *        "href": "api.otherhost.com/mockdata/tasks",
- *        "method": "PUT",
- *        "service": "TaskService"
- *      }
- *    ]
- *
- * ```
  *
  * @summary Resolve deep links HATEOAS based on  query params
  * @customElement
@@ -84,7 +75,7 @@ class FuroDeepLink extends LitElement {
         rel: service.services[serviceName].deeplink.rel,
         href: service.services[serviceName].deeplink.href,
         method: service.services[serviceName].deeplink.method,
-        service: service.name,
+        service: this._requestedService,
       };
 
       candidate.type = service.services[serviceName].request;
@@ -152,6 +143,7 @@ class FuroDeepLink extends LitElement {
    * @param service
    */
   set service(service) {
+    this._requestedService = service
     if (this._servicedefinitions[service]) {
       this._service = this._servicedefinitions[service];
       if (this._service.lifecycle && this._service.lifecycle.deprecated) {

@@ -1,6 +1,6 @@
-import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
+import { LitElement, html, css } from 'lit'
+
+import { FBP } from '@furo/fbp'
 
 /**
  * `furo-backdrop-display`
@@ -13,9 +13,11 @@ import { FBP } from '@furo/fbp';
  * do not know these vars.
  *
  * ```html
- *  <!-- place the display in your main-stage -->
- *  <furo-backdrop-display></furo-backdrop-display>
- *  ```
+ * <!-- place the display in your main-stage -->
+ * <furo-backdrop-display></furo-backdrop-display>
+ * ```
+ *
+ * @cssprop {0px} [--furo-backdrop-color=#6d6d6d] - background color of backdrop
  *
  * @summary Display component for furo-backdrop
  * @customElement
@@ -24,12 +26,12 @@ import { FBP } from '@furo/fbp';
  */
 class FuroBackdropDisplay extends FBP(LitElement) {
   constructor() {
-    super();
+    super()
     /**
      * timeout duration
      * @type {number}
      */
-    this.toDuration = 100;
+    this.toDuration = 100
   }
 
   /**
@@ -61,7 +63,7 @@ class FuroBackdropDisplay extends FBP(LitElement) {
         type: Number,
         attribute: 'to-duration',
       },
-    };
+    }
   }
 
   /**
@@ -69,51 +71,51 @@ class FuroBackdropDisplay extends FBP(LitElement) {
    * @private
    */
   _FBPReady() {
-    super._FBPReady();
+    super._FBPReady()
     // this._FBPTraceWires()
 
     // listen on clicks on backdrop to close it
     this.shadowRoot.getElementById('backdrop').addEventListener('click', () => {
-      this.close();
-    });
+      this.close()
+    })
 
     /**
      * items which should be shown in the backdrop must be registered
      * Otherwise we trigger a lot of connected and disconnected callbacks
      */
     this.parentNode.addEventListener('register-backdrop', e => {
-      this.contentSource = e.detail.handle;
+      this.contentSource = e.detail.handle
       this.contentSource.displayHandle = this.shadowRoot
         .getElementById('ctnt')
-        .appendChild(this.contentSource.children[0]);
-    });
+        .appendChild(this.contentSource.children[0])
+    })
 
     /**
      * Listen to close requests
      */
     this.parentNode.addEventListener('close-backdrop-requested', e => {
-      this.contentSource = e.detail.handle;
-      this.close();
-    });
+      this.contentSource = e.detail.handle
+      this.close()
+    })
 
     /**
      * Listen to show requests
      */
     this.parentNode.addEventListener('show-backdrop-requested', e => {
-      this.contentSource = e.detail.handle;
+      this.contentSource = e.detail.handle
       // set registered item to _active
-      this.contentSource.displayHandle.classList.toggle('_active');
+      this.contentSource.displayHandle.classList.toggle('_active')
 
       // start backdrop animation with a timeout of 1
-      this.start = true;
+      this.start = true
       setTimeout(() => {
-        this.show = true;
+        this.show = true
         setTimeout(() => {
           // notify via furo-backdrop that it is opened
-          this.contentSource.dispatchEvent(new Event('opened', { composed: true, bubbles: true }));
-        }, this.toDuration);
-      }, 1);
-    });
+          this.contentSource.dispatchEvent(new Event('opened', { composed: true, bubbles: true }))
+        }, this.toDuration)
+      }, 1)
+    })
   }
 
   /**
@@ -125,16 +127,16 @@ class FuroBackdropDisplay extends FBP(LitElement) {
    */
   close() {
     // start animation => look at the css
-    this.show = false;
+    this.show = false
     setTimeout(() => {
       // end animation
-      this.start = false;
+      this.start = false
       // deactivate the backdrop visibility
-      this.contentSource.displayHandle.classList.toggle('_active');
+      this.contentSource.displayHandle.classList.toggle('_active')
 
       // notify furo-backdrop that it is closed now
-      this.contentSource.dispatchEvent(new Event('closed', { composed: true, bubbles: true }));
-    }, this.toDuration);
+      this.contentSource.dispatchEvent(new Event('closed', { composed: true, bubbles: true }))
+    }, this.toDuration)
   }
 
   /**
@@ -145,7 +147,7 @@ class FuroBackdropDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroBackdropDisplay') ||
+
       css`
         :host {
           position: absolute;
@@ -175,8 +177,7 @@ class FuroBackdropDisplay extends FBP(LitElement) {
           height: 100%;
           transition: opacity 250ms;
           opacity: 0;
-          background-color: #6d6d6d;
-          color: white;
+          background-color: var(--furo-backdrop-color, #6d6d6d);
         }
 
         /* center the content exactly in the middle */
@@ -209,7 +210,7 @@ class FuroBackdropDisplay extends FBP(LitElement) {
           display: block;
         }
       `
-    );
+    )
   }
 
   /**
@@ -220,10 +221,10 @@ class FuroBackdropDisplay extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <div id="backdrop"></div>
-      <div id="ctnt" class="ctnt"></div>
-    `;
+      <div id='backdrop'></div>
+      <div id='ctnt' class='ctnt'></div>
+    `
   }
 }
 
-window.customElements.define('furo-backdrop-display', FuroBackdropDisplay);
+window.customElements.define('furo-backdrop-display', FuroBackdropDisplay)

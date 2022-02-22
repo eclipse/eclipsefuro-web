@@ -3,7 +3,7 @@ import { LitElement } from 'lit';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
 /**
- * BasePanel to extend
+ * Extend BasePanel to build a panel which is controllable by furo-panel-coordinator.
  *
  * @customElement
  * @appliesMixin FBP

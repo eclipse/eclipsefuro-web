@@ -1,0 +1,8 @@
+- type: 'experiment.Default #Test the default value'
+  fields:
+    id: '- string:1 #Identity of a experiment'
+    display_name: '- string:2 #Localized String representation of a experiment'
+    description: 'string:3 #Short experiment description'
+    repstring: '[] string:4 #repeated string'
+    furo_data_checkbox_input: 'bool:5 #field for furo_data_checkbox_input for testing'
+  target: experiment.proto

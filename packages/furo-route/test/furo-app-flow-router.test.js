@@ -1,8 +1,7 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
-import { axeReport } from 'pwa-helpers/axe-report.js';
+import { assert } from '@esm-bundle/chai';
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-app-flow-router', () => {
   const config = [
@@ -23,12 +22,12 @@ describe('furo-app-flow-router', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-app-flow-router url-space-regex="^/app" ƒ-trigger="--f"></furo-app-flow-router>
           <furo-app-flow @-app-flow="--f"></furo-app-flow>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
 
     await testbind.updateComplete;
@@ -49,8 +48,7 @@ describe('furo-app-flow-router', () => {
     done();
   });
 
-  // axeReport a11y tests
-  it('a11y', () => axeReport(router));
+
 
   it('should map defined mappings path', () => {
     flow.event = 'unauthorized';

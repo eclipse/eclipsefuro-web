@@ -6,11 +6,11 @@ import { Env } from '@furo/framework';
  *
  *
  *```html
- *  <furo-reverse-deep-link
- *      service="TaskService"
- *      rel="self" @-converted="--queryParams"
- *      ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
- *  ></furo-reverse-deep-link>
+ *<furo-reverse-deep-link
+ *    service="TaskService"
+ *    rel="self" @-converted="--queryParams"
+ *    ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
+ *></furo-reverse-deep-link>
  *```
  *
  * @fires {QueryParams} converted -  Fired when input was converted.

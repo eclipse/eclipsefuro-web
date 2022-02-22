@@ -5,10 +5,13 @@ import { FBP } from '@furo/fbp';
  * `furo-key-filter`
  * Allows only defined keyboard events to pass through
  *
- * ```
+ * ```html
  * <!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->
  * <other-component @-keydown="--keydown(*)"></other-component>
- * <furo-key-filter ƒ-filter="--keydown" @-matched="--escapePressed" keys="Escape"></furo-key-filter>
+ * <furo-key-filter
+ *     ƒ-filter="--keydown" @-matched="--escapePressed"
+ *     keys="Escape"
+ *     ></furo-key-filter>
  * ```
  *
  *

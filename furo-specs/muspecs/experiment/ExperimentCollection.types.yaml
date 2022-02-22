@@ -1,0 +1,6 @@
+- type: 'experiment.ExperimentCollection #ExperimentCollection with repeated ExperimentEntity'
+  fields:
+    meta: 'furo.Meta:2 #Meta for the response'
+    links: '[] furo.Link:3 #Hateoas links'
+    entities: '[] experiment.ExperimentEntity:4 #Contains a experiment.ExperimentEntity repeated'
+  target: experiment.proto

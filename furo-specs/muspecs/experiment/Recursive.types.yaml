@@ -1,0 +1,6 @@
+- type: 'experiment.Recursive #recursive type for testing'
+  fields:
+    id: 'string:1 #Identity'
+    display_name: 'string:2 #Localized String representation'
+    recursion: 'experiment.Recursive:3 #The recursion'
+  target: experiment.proto

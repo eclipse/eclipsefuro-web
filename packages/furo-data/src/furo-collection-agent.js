@@ -6,21 +6,34 @@ import { Env } from '@furo/framework';
 import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
- * `furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.
+ * `furo-collection-agent` is an interface component to handle collection requests.
  *
  *
- *
- *
- * How to use:
  * ```html
- *    <furo-collection-agent
- *                      service="Servicename"
- *                      ƒ-hts-in="--hts"
- *                      list-on-hts-in
- *                    ></furo-collection-agent>
- * ```
+ * <furo-collection-agent
+ *    service="Servicename"
+ *    ƒ-hts-in="--hts"></furo-collection-agent>
  *
- * @fires {*} ALL_BUBBLING_EVENTS_FROM_furo-api-fetch -  All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.
+ * <!-- produces a hateoas link array -->
+ * <furo-deep-link
+*     service="Servicename" @-hts-out="--hts"></furo-deep-link>
+*
+* ```
+ *
+ *
+ *
+ * *before you can do any requests, the service and the HATEOAS must be defined*
+ *
+ * @fires {Request} request-aborted - Fired when a request was canceled.
+ * @fires {Request} request-started - Fired when a request is sent.
+ * @fires {Object} response-raw - Fired when a response is received.
+ * @fires {Object}  response-error - Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
+ * @fires {Object} response-error-[status-code] - Fired when an error has occoured. This is a specific error event.
+ * @fires {Request} fatal-error - Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
+ * @fires {Object} response-error-4xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-5xx - Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
+ * @fires {Object} response-error-raw - Fired when a error has occoured.
+ * @fires {Object} response - Fired when a response is received.
  * @fires {hts} response-hts-updated -  Fired when the hts was updated by the received response.
  * @fires {} filter-changed -  Fired when filter was updated with `ƒ-set-filter`.
  * @fires {Array|HATEOAS} hts-updated -  Fired when hateoas was updated from response.
@@ -210,9 +223,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
     };
   }
 
-  /**
-   * https://cloud.google.com/apis/design/design_patterns
-   */
+
+  set view(v){
+    this._queryParams.view = v;
+  }
 
   /**
    *
@@ -220,6 +234,8 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * used for partial representation / partial responses.
    *
    * If your services supports this feature, you will receive a subset of the fields.
+   *
+   * @param fields {String} - Comma separated list of fields
    */
   setFields(fields) {
     this.fields = fields;
@@ -236,6 +252,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    *
    * Only useable if your service has implemented this feature.
    *
+   * @param order {String} - Comma separated list of sort orders
    */
   setOrderBy(order) {
     this.orderBy = order;
@@ -254,13 +271,24 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.
    *
    * Only useable if your service has implemented this feature.
+   *
+   * @param filterstring {String} - String for your filter.
    */
   setFilter(filterstring) {
     this.filter = filterstring;
   }
 
-  set filter(f) {
-    this._filter = f;
+  /**
+   * Set the filter.
+   *
+   * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.
+   *
+   * Only useable if your service has implemented this feature.
+   *
+   * @param filterstring {String} - String for your filter.
+   */
+  set filter(filterstring) {
+    this._filter = filterstring;
     const customEvent = new Event('filter-changed', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
@@ -270,6 +298,8 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * Sets pagination size in the List request.
    *
    * Only useful if your service supports pagination.
+   *
+   * @param size {Number} - requested size of a page.
    */
   setPageSize(size) {
     this.pageSize = size;
@@ -277,9 +307,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
   /**
    * Setze den Service
-   * @param service
+   * @param service {String} -
    */
   set service(service) {
+    this._requestedService = service
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.warn(
@@ -594,13 +625,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed, --requestFinished"
-        @-request-aborted="^^req-aborted"
-        @-parse-error="^^req-failed, --requestFinished"
-        @-fatal-error="--requestFinished"
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abortDemanded"
+              @-response="--responseParsed, --requestFinished, ^^req-success"
+              @-response-error="^^req-failed, --requestFinished"
+              @-request-aborted="^^req-aborted"
+              @-parse-error="^^req-failed, --requestFinished"
+              @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

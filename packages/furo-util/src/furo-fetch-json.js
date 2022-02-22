@@ -1,12 +1,14 @@
 import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp';
+//TODO: replace fetch-json in config loader with furo-api-fetch.js
+//TODO: delete this file
 
 /**
  * `furo-fetch-json`
  *  Fetches and parses json data from a source.
  *
  *  ```html
- *  <furo-fetch-json src="/example.json" ƒ-fetch="--FBPready" @-data="--contentReceived"></furo-fetch-json>
+ *  <furo-fetch-json src="/example.json" ƒ-fetch="|--FBPready" @-data="--contentReceived"></furo-fetch-json>
  *  ```
  *
  * @fires {{Object} json data} data -  Fired when data received and json parsed
@@ -35,7 +37,7 @@ class FuroFetchJson extends FBP(LitElement) {
    *
    * Use fetch-src if you want to pass the source url
    *
-   * @return {Promise<any>}
+   * @return {Promise}
    */
   // eslint-disable-next-line consistent-return
   fetch() {
@@ -61,7 +63,7 @@ class FuroFetchJson extends FBP(LitElement) {
    * fetch json data from source
    * @param String source
    *
-   * @return {Promise<any>}
+   * @return {Promise}
    */
   fetchSrc(source) {
     this.src = source;

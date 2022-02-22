@@ -1,12 +1,10 @@
 import { LitElement, html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 import { FBP } from '@furo/fbp';
 
 /**
  * `produce-data`
- * todo Describe your element
  *
- * @summary todo shortdescription
  * @customElement
  * @demo demo/produce-data.html
  * @appliesMixin FBP
@@ -62,7 +60,7 @@ class ProduceData extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('ProduceData') ||
+
       css`
         :host {
           display: block;

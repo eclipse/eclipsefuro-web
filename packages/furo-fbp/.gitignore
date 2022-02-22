@@ -1,7 +1,24 @@
-.furo
-.idea
-coverage
-build
-node_modules/
-_specbuild
-__tmp
+## editors
+/.idea
+/.vscode
+
+## system files
+.DS_Store
+
+## npm
+/node_modules/
+/npm-debug.log
+
+## testing
+/coverage/
+
+## temp folders
+/.tmp/
+
+# build
+/_site/
+/dist/
+/out-tsc/
+
+storybook-static
+custom-elements.json

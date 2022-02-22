@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.9.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@1.9.4...@furo/layout@1.9.5) (2022-01-31)
+# [2.0.0-rc.15](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.14...@furo/layout@2.0.0-rc.15) (2022-02-18)
 
 **Note:** Version bump only for package @furo/layout
 
@@ -11,9 +11,164 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.9.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@1.9.3...@furo/layout@1.9.4) (2021-12-13)
+# [2.0.0-rc.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.13...@furo/layout@2.0.0-rc.14) (2022-02-18)
 
 **Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.13](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.12...@furo/layout@2.0.0-rc.13) (2022-02-15)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.12](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.11...@furo/layout@2.0.0-rc.12) (2022-02-11)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.10...@furo/layout@2.0.0-rc.11) (2021-12-20)
+
+
+### Features
+
+* furo-hateoas-state ([23ba808](https://github.com/eclipse/eclipsefuro-web/commit/23ba808fac5306ad1ff5d26eaac6f9c23312ce8c))
+
+
+
+
+
+# [2.0.0-rc.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.9...@furo/layout@2.0.0-rc.10) (2021-12-16)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.8...@furo/layout@2.0.0-rc.9) (2021-12-10)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.7...@furo/layout@2.0.0-rc.8) (2021-12-10)
+
+
+### Bug Fixes
+
+* replace test-bind with flow-bind ([16db737](https://github.com/eclipse/eclipsefuro-web/commit/16db737c196ab75b952006bb7fb78817b756dee3))
+
+
+
+
+
+# [2.0.0-rc.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.6...@furo/layout@2.0.0-rc.7) (2021-11-29)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.5...@furo/layout@2.0.0-rc.6) (2021-11-27)
+
+
+### Bug Fixes
+
+* demo-snippet fullscreen mode ([84dd6e5](https://github.com/eclipse/eclipsefuro-web/commit/84dd6e51a549793e389ac72e3ac497bcd371bd4e))
+
+
+
+
+
+# [2.0.0-rc.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.4...@furo/layout@2.0.0-rc.5) (2021-11-24)
+
+
+### Bug Fixes
+
+* default flex space size ([e7fbea7](https://github.com/eclipse/eclipsefuro-web/commit/e7fbea796f11f81d7de44b172a45f4e786bb0bcc))
+
+
+### Features
+
+* DOMFBP ([ff9dee8](https://github.com/eclipse/eclipsefuro-web/commit/ff9dee800248ea55e4bdfee49685e0f3b63e221f))
+* DOMFBP ([b7cf446](https://github.com/eclipse/eclipsefuro-web/commit/b7cf4461afcf9520122e8bf7ab0d0269aa6c265a))
+
+
+
+
+
+# [2.0.0-rc.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.3...@furo/layout@2.0.0-rc.4) (2021-11-17)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.2...@furo/layout@2.0.0-rc.3) (2021-11-11)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.1...@furo/layout@2.0.0-rc.2) (2021-11-08)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-rc.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-rc.0...@furo/layout@2.0.0-rc.1) (2021-11-04)
+
+
+### Features
+
+* unused files deleted, todos added ([86d6985](https://github.com/eclipse/eclipsefuro-web/commit/86d6985094632fa4cf1c288ce491d72c5e59cc67))
+* unused files deleted, todos added ([9ab59b8](https://github.com/eclipse/eclipsefuro-web/commit/9ab59b806da22f32b61c8790a63f728dcf5845d0))
+
+
+
+
+
+# [2.0.0-rc.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-alpha.1...@furo/layout@2.0.0-rc.0) (2021-11-02)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-alpha.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.0-alpha.0...@furo/layout@2.0.0-alpha.1) (2021-10-29)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [2.0.0-alpha.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@1.9.3...@furo/layout@2.0.0-alpha.0) (2021-10-29)
+
+
+### Features
+
+* initial open wc env ([a5c1880](https://github.com/eclipse/eclipsefuro-web/commit/a5c18800a4cfe755ac12b53fdabba3d6f8e1f276))
+* make package scripts similar ([baee77e](https://github.com/eclipse/eclipsefuro-web/commit/baee77e972661de51a7c2a403dfcc82f59c19f32))
+* Testing for all packages ([4052d27](https://github.com/eclipse/eclipsefuro-web/commit/4052d276aac0691bd4102b0083f50d4e29fea5cf))
 
 
 

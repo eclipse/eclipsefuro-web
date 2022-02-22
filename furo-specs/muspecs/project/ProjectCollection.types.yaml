@@ -1,0 +1,6 @@
+- type: 'project.ProjectCollection #ProjectCollection with repeated ProjectEntity'
+  fields:
+    meta: 'furo.Meta:2 #Meta for the response'
+    links: '[] furo.Link:3 #Hateoas links'
+    entities: '[] project.ProjectEntity:4 #Contains a project.ProjectEntity repeated'
+  target: project.proto

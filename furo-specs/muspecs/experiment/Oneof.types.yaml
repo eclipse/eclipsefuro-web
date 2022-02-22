@@ -1,0 +1,13 @@
+- type: 'experiment.Oneof #oneof experiment spec for testing'
+  fields:
+    id: '- string:1 #Identity of a experiment'
+    enumexample: 'int32:29 #skalar in a group of complex'
+    display_name: '- string:2 #Localized String representation of a experiment'
+    description: 'string:3 #Short experiment description'
+    furo_data_checkbox_input: 'bool:4 #field for furo_data_checkbox_input for testing'
+    furo_data_text_input: '* string:5 #field for furo_data_text_input for testing'
+    furo_data_file_input: '* [] string:22 #field for testing file type'
+    update_mask: 'google.protobuf.FieldMask:23 #Contains a field_mask which fields of the targeted resource are going to be updated'
+    other_mask: 'google.protobuf.FieldMask:24 #for oneof test purposes only'
+    value: 'bool:25 #skalar in a group of complex'
+  target: experiment.proto

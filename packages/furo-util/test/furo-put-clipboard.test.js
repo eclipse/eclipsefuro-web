@@ -1,8 +1,8 @@
 import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
-import { axeReport } from 'pwa-helpers/axe-report.js';
+import { assert } from '@esm-bundle/chai';
+
 import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
 
 describe('furo-put-clipboard', () => {
   let element;
@@ -10,11 +10,11 @@ describe('furo-put-clipboard', () => {
 
   beforeEach(async () => {
     const testbind = await fixture(html`
-      <test-bind>
+      <flow-bind>
         <template>
           <furo-put-clipboard></furo-put-clipboard>
         </template>
-      </test-bind>
+      </flow-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
@@ -34,10 +34,10 @@ describe('furo-put-clipboard', () => {
   });
 
   // axeReport a11y tests
-  it('a11y', () => axeReport(element));
+
 
   it('should write setted data to clipboard', done => {
-    element.addEventListener('content-putted', d => {
+    element.addEventListener('content-put', d => {
       assert.equal(d.detail, 'Data');
       done();
     });
@@ -47,7 +47,7 @@ describe('furo-put-clipboard', () => {
   });
 
   it('should write to clipboard', done => {
-    element.addEventListener('content-putted', d => {
+    element.addEventListener('content-put', d => {
       assert.equal(d.detail, 'SUCCESS');
       done();
     });

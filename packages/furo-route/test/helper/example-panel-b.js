@@ -1,13 +1,11 @@
 import { html, css } from 'lit';
-import { Theme } from '@furo/framework/src/theme';
+
 
 import '@furo/util/src/furo-pretty-json';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 /**
  * `example-panel-b`
- * todo Describe your element
  *
- * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
  */
@@ -15,7 +13,6 @@ class ExamplePanelB extends BasePanel {
   constructor() {
     super();
     // register the close
-    // todo: do some checks
     this._FBPAddWireHook('--navNode', treeNode => {
       this.treeNode = treeNode;
       treeNode.addEventListener('close-requested', () => {
@@ -58,7 +55,7 @@ class ExamplePanelB extends BasePanel {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('ExamplePanelB') ||
+
       css`
         :host {
           display: block;
