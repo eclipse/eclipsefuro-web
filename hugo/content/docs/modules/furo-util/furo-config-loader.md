@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-config-loader
-**@furo/util** <small>v2.0.0-rc.14</small>
+**@furo/util** <small>v2.0.0-rc.17</small>
 <br>`import '@furo/util/src/furo-config-loader.js';`<small>
 <br>exports `<furo-config-loader>` custom-element-definition
 <br>superclass *LitElement*

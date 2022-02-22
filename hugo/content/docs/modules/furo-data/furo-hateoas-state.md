@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-hateoas-state
-**@furo/data** <small>v2.0.0-rc.12</small>
+**@furo/data** <small>v2.0.0-rc.15</small>
 <br>`import '@furo/data/src/furo-hateoas-state.js';`<small>
 <br>exports `<furo-hateoas-state>` custom-element-definition
 <br>superclass *LitElement*

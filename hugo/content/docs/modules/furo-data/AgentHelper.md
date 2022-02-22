@@ -6,7 +6,7 @@ weight: 100
 
 # AgentHelper
 
-**@furo/furo-data** <small>v2.0.0-rc.12</small>
+**@furo/furo-data** <small>v2.0.0-rc.15</small>
 <br>`import '@furo/data/src/lib/AgentHelper.js';`<small>
 <br>exports *AgentHelper* js</small>
 
