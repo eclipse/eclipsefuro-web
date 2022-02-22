@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-fbp/empty-fbp-node/</guid>
-      <description>empty-fbp-node #  @furo/fbp v6.0.0-rc.9 import &#39;@furo/fbp/src/empty-fbp-node.js&#39;; exports &amp;lt;empty-fbp-node&amp;gt; custom-element-definition superclass HTMLElement mixes FBP summary **
+      <description>empty-fbp-node #  @furo/fbp v6.0.0-rc.12 import &#39;@furo/fbp/src/empty-fbp-node.js&#39;; exports &amp;lt;empty-fbp-node&amp;gt; custom-element-definition superclass HTMLElement mixes FBP summary **
 Attributes and Properties #  Methods #  </description>
     </item>
     
@@ -22,7 +22,7 @@ Attributes and Properties #  Methods #  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-fbp/flow-bind/</guid>
-      <description>flow-bind #  @furo/fbp v6.0.0-rc.9 import &#39;@furo/fbp/src/flow-bind.js&#39;; exports &amp;lt;flow-bind&amp;gt; custom-element-definition superclass HTMLElement mixes FBP summary Custom element to allow using furo-fbp&#39;s template features in a html document.
+      <description>flow-bind #  @furo/fbp v6.0.0-rc.12 import &#39;@furo/fbp/src/flow-bind.js&#39;; exports &amp;lt;flow-bind&amp;gt; custom-element-definition superclass HTMLElement mixes FBP summary Custom element to allow using furo-fbp&#39;s template features in a html document.
 flow-bind
 Custom element to allow using furo-fbp&amp;rsquo;s template features in a html document. It comes very handy, when you want write tests or make some demos.
 1 2 3 4 5 6 7 8 9 10  &amp;lt;test-fixture id=&amp;#34;basic&amp;#34;&amp;gt; &amp;lt;template&amp;gt; &amp;lt;flow-bind id=&amp;#34;elem&amp;#34;&amp;gt; &amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;sender&amp;#34; @-click=&amp;#34;--data-received&amp;#34;&amp;gt;sender&amp;lt;/div&amp;gt; &amp;lt;div id=&amp;#34;receiver&amp;#34; ƒ-render=&amp;#34;--data-received&amp;#34;&amp;gt;receiver&amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/flow-bind&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/test-fixture&amp;gt;   Attributes and Properties #  Methods #  </description>
@@ -34,7 +34,7 @@ Custom element to allow using furo-fbp&amp;rsquo;s template features in a html d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-fbp/flow-repeat/</guid>
-      <description>flow-repeat #  @furo/fbp v6.0.0-rc.9 import &#39;@furo/fbp/src/flow-repeat.js&#39;; exports FlowRepeat js exports &amp;lt;flow-repeat&amp;gt; custom-element-definition superclass HTMLElement mixes FBP summary Custom element to allow using FBPs template features in repeated template
+      <description>flow-repeat #  @furo/fbp v6.0.0-rc.12 import &#39;@furo/fbp/src/flow-repeat.js&#39;; exports FlowRepeat js exports &amp;lt;flow-repeat&amp;gt; custom-element-definition superclass HTMLElement mixes FBP summary Custom element to allow using FBPs template features in repeated template
 flow-repeat
 Custom element to repeat Arrays. The repeated items are injected before the flow-repeat element. If you need the repeated items inside of an other dom node, use setInsertRef
 1 2 3 4 5  &amp;lt;flow-repeat ƒ-inject-items=&amp;#34;--dataArray&amp;#34;&amp;gt; &amp;lt;template&amp;gt; &amp;lt;repeated-item index=&amp;#34;${this.index}&amp;#34; ƒ-inject=&amp;#34;--init&amp;#34;&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/flow-repeat&amp;gt;    Note: if you want to bind a repeater node, use furo-data-flow-repeat.</description>
@@ -46,7 +46,7 @@ Custom element to repeat Arrays. The repeated items are injected before the flow
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-fbp/DOMFBP/</guid>
-      <description>DOMFBP #  @furo/furo-fbp v6.0.0-rc.9 import &#39;@furo/fbp/src/DOMFBP.js&#39;; exports DOMFBP js extends src/DOMFBP.js mixes FBP
+      <description>DOMFBP #  @furo/furo-fbp v6.0.0-rc.12 import &#39;@furo/fbp/src/DOMFBP.js&#39;; exports DOMFBP js extends src/DOMFBP.js mixes FBP
  DOMFBP allows you to append FBP to any dom element.
 Usage:
 1 2 3 4  import {DOMFBP} from &amp;#39;@furo/fbp/src/DOMFBP.js&amp;#39;; // append fbp to the body new DOMFBP(document.body);   Attributes and Properties #  Methods #  </description>
@@ -58,7 +58,7 @@ Usage:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-fbp/FBP/</guid>
-      <description>FBP #  @furo/furo-fbp v6.0.0-rc.9 import &#39;@furo/fbp/src/fbp.js&#39;; exports FBP js
+      <description>FBP #  @furo/furo-fbp v6.0.0-rc.12 import &#39;@furo/fbp/src/fbp.js&#39;; exports FBP js
 Please read the guide for a better understanding
 furo-fbp base class
  read the guide
