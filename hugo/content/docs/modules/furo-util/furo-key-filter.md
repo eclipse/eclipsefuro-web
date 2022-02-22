@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-key-filter
-**@furo/util** <small>v2.0.0-rc.17</small>
+**@furo/util** <small>v2.0.1</small>
 <br>`import '@furo/util/src/furo-key-filter.js';`<small>
 <br>exports `<furo-key-filter>` custom-element-definition
 <br>superclass *LitElement*

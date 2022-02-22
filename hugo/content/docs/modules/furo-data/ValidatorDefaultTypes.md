@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorDefaultTypes
 
-**@furo/furo-data** <small>v2.0.0-rc.15</small>
+**@furo/furo-data** <small>v2.0.1</small>
 <br>`import '@furo/data/src/lib/ValidatorDefaultTypes.js';`<small>
 <br>exports *ValidatorDefaultTypes* js</small>
 

@@ -6,7 +6,7 @@ weight: 100
 ---
 
 # @furo/route
-**@furo/route** <small>v2.0.0-rc.14</small>
+**@furo/route** <small>v2.0.1</small>
 Routing components
 
 {{% api "_furo-route-head.md" %}}

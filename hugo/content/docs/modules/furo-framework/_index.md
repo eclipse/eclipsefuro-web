@@ -6,7 +6,7 @@ weight: 100
 ---
 
 # @furo/framework
-**@furo/framework** <small>v2.0.0-rc.7</small>
+**@furo/framework** <small>v2.0.1</small>
 Furo framework libs
 
 {{% api "_furo-framework-head.md" %}}
