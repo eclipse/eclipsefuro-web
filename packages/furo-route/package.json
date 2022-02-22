@@ -26,8 +26,8 @@
 		"test:watch": "../../node_modules/.bin/web-test-runner  --watch"
 	},
 	"dependencies": {
-		"@furo/fbp": "^6.0.0-rc.12",
-		"@furo/framework": "^2.0.0-rc.7",
+		"@furo/fbp": "^6.0.0",
+		"@furo/framework": "^2.0.0",
 		"lit": "^2.0.2"
 	},
 	"publishConfig": {
