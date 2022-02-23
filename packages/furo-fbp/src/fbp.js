@@ -147,7 +147,6 @@ export const FBP = superClass =>
      * @private
      */
     _call(detailData, receiver) {
-
       let response;
       // array spreaden
       if (
@@ -159,7 +158,6 @@ export const FBP = superClass =>
           receiver.element,
           detailData
         );
-
       } else {
         let data = detailData;
         if (receiver.path) {
@@ -167,8 +165,6 @@ export const FBP = superClass =>
         }
         response = receiver.element[receiver.method](data);
       }
-
-
 
       // fnret-function auslösen
       const fnret = new Event(`fnret-${receiver.attrName}`, {
@@ -185,8 +181,6 @@ export const FBP = superClass =>
       });
       customEvent.detail = response;
       receiver.element.dispatchEvent(customEvent);
-
-
     }
 
     /**
@@ -353,75 +347,74 @@ export const FBP = superClass =>
       const nl = dom.querySelectorAll('*');
       const l = nl.length - 1;
 
-      const _collectReceivers = function(element, i, attr) {
+      // eslint-disable-next-line func-names
+      const _collectReceivers = function (element, i, attr) {
         // collect receiver
         element.attributes[i].value.split(',').forEach(w => {
-          const r = this.__resolveWireAndPath(w)
+          const r = this.__resolveWireAndPath(w);
           // create empty if not exist
           if (!wirebundle[r.receivingWire]) {
-            wirebundle[r.receivingWire] = []
+            wirebundle[r.receivingWire] = [];
           }
           wirebundle[r.receivingWire].push({
             element,
-            method: this.__toCamelCase(
-              attr,
-            ),
+            method: this.__toCamelCase(attr),
             attrName: attr,
             path: r.path,
-          })
-        })
-      }
-      const _collectPropertySetters = function(element, i, property) {
+          });
+        });
+      };
+      // eslint-disable-next-line func-names
+      const _collectPropertySetters = function (element, i, property) {
         // split multiple wires
         element.attributes[i].value.split(',').forEach(w => {
-          const r = this.__resolveWireAndPath(w)
+          const r = this.__resolveWireAndPath(w);
           // create empty if not exist
           if (!wirebundle[r.receivingWire]) {
-            wirebundle[r.receivingWire] = []
+            wirebundle[r.receivingWire] = [];
           }
           wirebundle[r.receivingWire].push({
             element,
-            property: this.__toCamelCase(
-              property,
-            ),
+            property: this.__toCamelCase(property),
             path: r.path,
-          })
-        })
-      }
+          });
+        });
+      };
 
-      const _extractEventWires = function(fwire) {
+      // eslint-disable-next-line func-names
+      const _extractEventWires = function (fwire) {
         let wire;
 
-        const trimmedWire = fwire.trim()
+        const trimmedWire = fwire.trim();
 
-        let type = 'call'
+        let type = 'call';
         if (trimmedWire.startsWith('((')) {
-          wire = trimmedWire.substring(2, trimmedWire.length - 2)
-          type = 'setValue'
+          wire = trimmedWire.substring(2, trimmedWire.length - 2);
+          type = 'setValue';
         } else if (trimmedWire.startsWith('-^')) {
-          wire = trimmedWire.substring(2)
-          type = 'fireOnHost'
+          wire = trimmedWire.substring(2);
+          type = 'fireOnHost';
         } else if (trimmedWire.startsWith('^')) {
-          wire = trimmedWire.substring(1)
-          type = 'fire'
+          wire = trimmedWire.substring(1);
+          type = 'fire';
           if (trimmedWire.startsWith('^^')) {
-            wire = trimmedWire.substring(2)
-            type = 'fireBubble'
+            wire = trimmedWire.substring(2);
+            type = 'fireBubble';
           }
         } else if (trimmedWire === ':STOP') {
-          type = 'stop'
-          wire = 'stop'
+          type = 'stop';
+          wire = 'stop';
         } else if (trimmedWire === ':PREVENTDEFAULT') {
-          type = 'preventdefault'
-          wire = 'preventdefault'
+          type = 'preventdefault';
+          wire = 'preventdefault';
         } else {
-          wire = trimmedWire
-          type = 'call'
+          wire = trimmedWire;
+          type = 'call';
         }
-        return { type, wire }
-      }
+        return { type, wire };
+      };
 
-// eslint-disable-next-line no-plusplus
+      // eslint-disable-next-line no-plusplus
       for (let x = l; x >= 0; --x) {
         const element = nl[x];
 
@@ -434,31 +427,31 @@ export const FBP = superClass =>
         for (let i = 0; i < element.attributes.length; i += 1) {
           // collect data property receiver
           if (element.attributes[i].name.startsWith('ƒ-.')) {
-            const property = element.attributes[i].name.substring(3)
-            _collectPropertySetters.call(this, element, i, property)
+            const property = element.attributes[i].name.substring(3);
+            _collectPropertySetters.call(this, element, i, property);
             // eslint-disable-next-line no-continue
             continue;
           }
           // collect data property setter receiver
           if (element.attributes[i].name.startsWith('set-')) {
-            const property = element.attributes[i].name.substring(4)
-            _collectPropertySetters.call(this, element, i, property)
+            const property = element.attributes[i].name.substring(4);
+            _collectPropertySetters.call(this, element, i, property);
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('ƒ-')) {
-            const attr = element.attributes[i].name.substring(2)
-            _collectReceivers.call(this, element, i, attr)
+            const attr = element.attributes[i].name.substring(2);
+            _collectReceivers.call(this, element, i, attr);
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('fn-')) {
-            const attr = element.attributes[i].name.substring(3)
-            _collectReceivers.call(this, element, i, attr)
+            const attr = element.attributes[i].name.substring(3);
+            _collectReceivers.call(this, element, i, attr);
             // eslint-disable-next-line no-continue
             continue;
           }
@@ -468,7 +461,7 @@ export const FBP = superClass =>
             const eventname = element.attributes[i].name.substring(3);
             const fwires = element.attributes[i].value;
             fwires.split(',').forEach(fwire => {
-              const __ret = _extractEventWires(fwire)
+              const __ret = _extractEventWires(fwire);
               // eslint-disable-next-line no-use-before-define
               registerEvent(eventname, __ret.type, __ret.wire, element);
             });
@@ -480,7 +473,7 @@ export const FBP = superClass =>
             const eventname = element.attributes[i].name.substring(2);
             const fwires = element.attributes[i].value;
             fwires.split(',').forEach(fwire => {
-              const __ret = _extractEventWires(fwire)
+              const __ret = _extractEventWires(fwire);
               // eslint-disable-next-line no-use-before-define
               registerEvent(eventname, __ret.type, __ret.wire, element);
             });

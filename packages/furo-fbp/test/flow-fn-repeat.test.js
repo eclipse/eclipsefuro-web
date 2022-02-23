@@ -28,10 +28,7 @@ describe('flow-fn-repeat', () => {
             <li>other node</li>
             <li>
               <b>neu</b>
-              <rep-item
-                fn-raw="--inject"
-                @-click="--xx"
-              ></rep-item>
+              <rep-item fn-raw="--inject" @-click="--xx"></rep-item>
               <rep-item fn-index="--inject(*.index)" fn-yy="--xx"></rep-item>
               <flow-repeat fn-inject-items="--inject(*.item.arr)">
                 <template>

@@ -10,23 +10,19 @@ import { FBP } from '../src/fbp.js';
 class ResponderTest extends FBP(LitElement) {
   constructor() {
     super();
-
-
-
   }
 
   firstUpdated(d) {
     super.firstUpdated(d);
   }
 
-  double(n){
-    return n*2;
+  double(n) {
+    return n * 2;
   }
 
-  tripple(n){
-    return n*3;
+  tripple(n) {
+    return n * 3;
   }
-
 
   render() {
     // language=HTML
@@ -37,7 +33,7 @@ class ResponderTest extends FBP(LitElement) {
           display: block;
         }
       </style>
-       Hej, welcome
+      Hej, welcome
     `;
   }
 }

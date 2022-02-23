@@ -1,8 +1,6 @@
 /**
  * Connect to viz.furo.pro to visualize your running application.
  *
- *
- *
  * ### Usage
  * ```js
  *
@@ -12,21 +10,33 @@
  *
  * ```
  *
- * Set `window.vizurl` to change the viz instance. Default goes to  'https://viz.furo.pro/'
+ * Set `window._viz.url` to change the viz instance. Default goes to  'https://viz.furo.pro/'
  *
  * @param root DomNode The root node to start the rendering.
  */
 
-window.vizurl = 'https://viz.furo.pro/'
+import { VizBreakpoint } from './vizBreakpoint.js';
+
+window._viz = {
+  url: 'https://viz.furo.pro/',
+  breakpoint: VizBreakpoint.breakpoint,
+};
+
 window.viz = root => {
   if (root === undefined) {
     // eslint-disable-next-line no-param-reassign
     root = window.document.body;
   }
 
-  const visualizer = window.open(window.vizurl);
+  const visualizer = window.open(window._viz.url);
+  window._viz.visualizer = visualizer;
   // build the list of all components
   const flat = {};
+  window._viz.flat = flat;
+
+  if (root.tagName) {
+    flat[root.tagName] = root;
+  }
 
   const flater = nodes => {
     const l = nodes.length;
@@ -52,13 +62,21 @@ window.viz = root => {
           {
             type: 'render-request',
             data: e.shadowRoot.innerHTML || e.innerHTML,
-            component: e.tagName
+            component: e.tagName,
           },
-          window.vizurl
+          window._viz.url
         );
         // eslint-disable-next-line no-console
-        console.dir('render request for ', e.tagName);
+        console.log('render request for ', e.tagName);
       }
+    }
+
+    if (m.data.type === 'add-breakpoint') {
+      window._viz.breakpoint(m.data.component, m.data.wire);
+    }
+
+    if (m.data.type === 'remove-breakpoint') {
+      window._viz.flat[m.data.component].__wirebundle[m.data.wire].shift();
     }
 
     if (m.data.type === 'analyzer-ready') {
@@ -71,9 +89,9 @@ window.viz = root => {
         {
           type: 'render-request',
           data,
-          component: root.tagName
+          component: root.tagName,
         },
-        window.vizurl
+        window._viz.url
       );
     }
   };
