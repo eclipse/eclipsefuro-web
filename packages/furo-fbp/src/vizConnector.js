@@ -1,6 +1,8 @@
 /**
  * Connect to viz.furo.pro to visualize your running application.
  *
+ *
+ *
  * ### Usage
  * ```js
  *
@@ -10,16 +12,19 @@
  *
  * ```
  *
+ * Set `window.vizurl` to change the viz instance. Default goes to  'https://viz.furo.pro/'
  *
  * @param root DomNode The root node to start the rendering.
  */
+
+window.vizurl = 'https://viz.furo.pro/'
 window.viz = root => {
   if (root === undefined) {
     // eslint-disable-next-line no-param-reassign
     root = window.document.body;
   }
 
-  const visualizer = window.open('https://viz.furo.pro/');
+  const visualizer = window.open(window.vizurl);
   // build the list of all components
   const flat = {};
 
@@ -47,14 +52,12 @@ window.viz = root => {
           {
             type: 'render-request',
             data: e.shadowRoot.innerHTML || e.innerHTML,
+            component: e.tagName
           },
-          'https://viz.furo.pro/'
+          window.vizurl
         );
         // eslint-disable-next-line no-console
-        console.dir({
-          type: 'render-request',
-          data: e.shadowRoot.innerHTML || e.innerHTML,
-        });
+        console.dir('render request for ', e.tagName);
       }
     }
 
@@ -68,8 +71,9 @@ window.viz = root => {
         {
           type: 'render-request',
           data,
+          component: root.tagName
         },
-        'https://viz.furo.pro/'
+        window.vizurl
       );
     }
   };
