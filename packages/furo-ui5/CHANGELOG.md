@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.1...@furo/ui5@0.48.2) (2022-02-24)
+
+
+### Bug Fixes
+
+* furo notification group collapsible behaviour ([0869745](https://github.com/eclipse/eclipsefuro-web/commit/0869745c57787a266ebae59f931ce7a263075392))
+
+
+
+
+
 ## [0.48.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.0...@furo/ui5@0.48.1) (2022-02-02)
 
 
