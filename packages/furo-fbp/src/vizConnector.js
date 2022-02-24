@@ -19,29 +19,46 @@ import { VizBreakpoint } from './vizBreakpoint.js';
 
 window._viz = {
   url: 'https://viz.furo.pro/',
-  breakpoint: VizBreakpoint.breakpoint,
-};
+  flat: {},
+  breakpoint: VizBreakpoint.breakpoint
+    }
+
+
+window.onmessage = m => {
+  if (m.data.type === "PARENT_REFRESHED") { // STEP 3
+    window._viz.visualizer = m.source;
+    window._viz.url = m.data.url;
+    // rebuild flat node list and register events
+      messages();
+  }
+}
+
+window.addEventListener("beforeunload", () => {
+  if (window._viz.visualizer) { // STEP 1
+    window._viz.visualizer.postMessage(
+      "PARENT_REFRESHING",
+      window._viz.url
+    );
+    console.log("PARENT_REFRESHING")
+  }
+});
+
+
 
 window.viz = root => {
-  if (root === undefined) {
-    // eslint-disable-next-line no-param-reassign
-    root = window.document.body;
-  }
-
   const visualizer = window.open(window._viz.url);
   window._viz.visualizer = visualizer;
-  // build the list of all components
-  const flat = {};
-  window._viz.flat = flat;
+  // build flat node list and register events
+  // eslint-disable-next-line no-use-before-define
+  messages(root)
+};
 
-  if (root.tagName) {
-    flat[root.tagName] = root;
-  }
 
+function scan(root) {
   const flater = nodes => {
     const l = nodes.length;
     for (let i = 0; i < l; i += 1) {
-      flat[nodes[i].nodeName] = nodes[i];
+      window._viz.flat[nodes[i].nodeName] = nodes[i];
       if (nodes[i].nodeName.includes('-') && nodes[i].shadowRoot) {
         flater(nodes[i].shadowRoot.querySelectorAll('*'));
       }
@@ -54,15 +71,37 @@ window.viz = root => {
     flater(root.querySelectorAll('*'));
   }
 
+}
+
+function messages(root) {
+
+  if (root === undefined) {
+    // eslint-disable-next-line no-param-reassign
+    root = window.document.body;
+  }
+
+
+  if (root.tagName) {
+    window._viz.flat[root.tagName] = root;
+  }
+
+  // build the list of all components
+  scan(root);
+
   window.onmessage = m => {
-    if (m.data.type === 'component-request') {
-      const e = flat[m.data.component];
-      if (e !== undefined) {
-        visualizer.postMessage(
+    if (m.data.type === 'COMPONENT_REQUEST') {
+      const e = window._viz.flat[m.data.component];
+
+      if (e === undefined) {
+        // this is needed if elements are lazy loaded
+        scan(root);
+        // todo: send notification about rescan?
+      } else {
+        window._viz.visualizer.postMessage(
           {
-            type: 'render-request',
+            type: 'RENDER_REQUEST',
             data: e.shadowRoot.innerHTML || e.innerHTML,
-            component: e.tagName,
+            component: e.tagName
           },
           window._viz.url
         );
@@ -71,28 +110,29 @@ window.viz = root => {
       }
     }
 
-    if (m.data.type === 'add-breakpoint') {
-      window._viz.breakpoint(m.data.component, m.data.wire);
+
+    if (m.data.type === 'ADD_BREAKPOINT') {
+      const index = window._viz.breakpoint(m.data.component, m.data.wire);
     }
 
-    if (m.data.type === 'remove-breakpoint') {
+    if (m.data.type === 'REMOVE_BREAKPOINT') {
       window._viz.flat[m.data.component].__wirebundle[m.data.wire].shift();
     }
 
-    if (m.data.type === 'analyzer-ready') {
+    if (m.data.type === 'ANALYZER_READY') {
       let data = root.innerHTML;
       if (root.shadowRoot && root.shadowRoot.innerHTML) {
         data = root.shadowRoot.innerHTML;
       }
 
-      visualizer.postMessage(
+      window._viz.visualizer.postMessage(
         {
-          type: 'render-request',
+          type: 'RENDER_REQUEST',
           data,
-          component: root.tagName,
+          component: root.tagName
         },
         window._viz.url
       );
     }
   };
-};
+}
