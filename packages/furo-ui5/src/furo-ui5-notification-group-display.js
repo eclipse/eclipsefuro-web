@@ -162,7 +162,7 @@ export class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
       notificationGroup.setAttribute('heading', key);
       notificationGroup.showClose = this.showClose;
       notificationGroup.showCounter = this.showCounter;
-      notificationGroup.collapsed = this.collapsed || true;
+      notificationGroup.collapsed = this.collapsed;
       notificationGroup.target = this.target;
       // save the initial message for the later usage
       notificationGroup.message = groups[key];
