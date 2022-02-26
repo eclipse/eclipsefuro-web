@@ -13,6 +13,7 @@ export class VizBreakpoint {
         wire; // eslint-disable-line
         wiredata; // eslint-disable-line
         const node = window._viz.flat[tagname.toUpperCase()]; // eslint-disable-line
+        const targets = node.__wirebundle[wire];// eslint-disable-line
         debugger; // eslint-disable-line
       },
       true

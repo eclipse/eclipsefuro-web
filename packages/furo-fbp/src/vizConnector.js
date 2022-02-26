@@ -30,6 +30,21 @@ window.onmessage = m => {
     window._viz.url = m.data.url;
     // rebuild flat node list and register events
       messages();
+    // add breakpoints
+    setTimeout(()=>{
+      scan(window.document.body);
+      console.log(m.data)
+      console.log(window._viz.flat)
+
+
+      Object.keys(m.data.breakpoints).forEach(component => {
+        m.data.breakpoints[component].wires.forEach(wire=>{
+          window._viz.breakpoint(component, wire);
+        })
+      })
+
+    },331)
+
   }
 }
 
@@ -116,7 +131,9 @@ function messages(root) {
     }
 
     if (m.data.type === 'REMOVE_BREAKPOINT') {
+      if(window._viz.flat[m.data.component] && window._viz.flat[m.data.component].__wirebundle[m.data.wire]){
       window._viz.flat[m.data.component].__wirebundle[m.data.wire].shift();
+    }
     }
 
     if (m.data.type === 'ANALYZER_READY') {
