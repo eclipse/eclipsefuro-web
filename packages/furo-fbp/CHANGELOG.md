@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.1...@furo/fbp@6.1.0) (2022-02-26)
+
+
+### Features
+
+* configurable viz location, send component names for better orientation. ([d8232b6](https://github.com/eclipse/eclipsefuro-web/commit/d8232b64b19c78cb82d9f849d67c34f8d3b10237))
+* re apply breakpoints after reload ([d05a18c](https://github.com/eclipse/eclipsefuro-web/commit/d05a18cbe5a2f2bad85a53b13d97f040a923b6b3))
+* survive client reload ([c903acb](https://github.com/eclipse/eclipsefuro-web/commit/c903acbe7930e5f1a5fa0401c1120c3509df77fd))
+* viz breakpoints ([858c905](https://github.com/eclipse/eclipsefuro-web/commit/858c90505c4411d535f1469335059709b7e68428))
+
+
+
+
+
 ## [6.0.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.0-rc.12...@furo/fbp@6.0.1) (2022-02-22)
 
 **Note:** Version bump only for package @furo/fbp
