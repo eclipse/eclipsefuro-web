@@ -15,38 +15,49 @@
  * @param root DomNode The root node to start the rendering.
  */
 
-import { VizBreakpoint } from './vizBreakpoint.js';
+import {FbpBreakpoints} from "./FbpBreakpoints.js";
+
 
 window._viz = {
-  url: 'https://viz.furo.pro/',
-  flat: {},
-  breakpoint: VizBreakpoint.breakpoint
-    }
+  url: 'https://viz.furo.pro/'
+}
 
+// TODO: use localstorage
+FbpBreakpoints.SetBreakpoints([{
+  path: "body > app-shell::shadow > main-stage::shadow > furo-pages > view-echo",
+  wire: "--responseEcho",
+  kind: "CONDITIONAL",
+  condition: "data.data.message==='Ping Pong'",
+  enabled: true
+}, {
+  path: "body > app-shell::shadow > main-stage::shadow > furo-pages > view-echo",
+  wire: "--responseEcho",
+  kind: "CONDITIONAL",
+  condition: "this.getAttribute('name')==='echo-service'",
+  enabled: true
+}, {
+  path: "body > app-shell::shadow > main-stage::shadow > furo-pages > view-echo",
+  wire: "|--FBPready",
+  kind: "TRACE",
+  enabled: true
+}, {
+  path: "body > app-shell::shadow > main-stage::shadow > furo-pages > view-echo",
+  wire: "|--FBPready",
+  kind: "BREAKPOINT",
+  enabled: true
+}])
 
 window.onmessage = m => {
   if (m.data.type === "PARENT_REFRESHED") { // STEP 3
     window._viz.visualizer = m.source;
     window._viz.url = m.data.url;
-    // rebuild flat node list and register events
-      messages();
-    // add breakpoints
-    setTimeout(()=>{
-      scan(window.document.body);
-      console.log(m.data)
-      console.log(window._viz.flat)
-
-
-      Object.keys(m.data.breakpoints).forEach(component => {
-        m.data.breakpoints[component].wires.forEach(wire=>{
-          window._viz.breakpoint(component, wire);
-        })
-      })
-
-    },331)
-
+    // eslint-disable-next-line no-use-before-define
+    messages()
+    // eslint-disable-next-line no-console
+    console.log("VIZ Reconnected")
   }
 }
+
 
 window.addEventListener("beforeunload", () => {
   if (window._viz.visualizer) { // STEP 1
@@ -54,10 +65,10 @@ window.addEventListener("beforeunload", () => {
       "PARENT_REFRESHING",
       window._viz.url
     );
+    // eslint-disable-next-line no-console
     console.log("PARENT_REFRESHING")
   }
 });
-
 
 
 window.viz = root => {
@@ -69,25 +80,6 @@ window.viz = root => {
 };
 
 
-function scan(root) {
-  const flater = nodes => {
-    const l = nodes.length;
-    for (let i = 0; i < l; i += 1) {
-      window._viz.flat[nodes[i].nodeName] = nodes[i];
-      if (nodes[i].nodeName.includes('-') && nodes[i].shadowRoot) {
-        flater(nodes[i].shadowRoot.querySelectorAll('*'));
-      }
-    }
-  };
-
-  if (root.shadowRoot) {
-    flater(root.shadowRoot.querySelectorAll('*'));
-  } else {
-    flater(root.querySelectorAll('*'));
-  }
-
-}
-
 function messages(root) {
 
   if (root === undefined) {
@@ -96,44 +88,68 @@ function messages(root) {
   }
 
 
-  if (root.tagName) {
-    window._viz.flat[root.tagName] = root;
-  }
-
-  // build the list of all components
-  scan(root);
-
   window.onmessage = m => {
     if (m.data.type === 'COMPONENT_REQUEST') {
-      const e = window._viz.flat[m.data.component];
+      const node = FbpBreakpoints.GetElementByPath(m.data.path)
 
-      if (e === undefined) {
-        // this is needed if elements are lazy loaded
-        scan(root);
-        // todo: send notification about rescan?
-      } else {
-        window._viz.visualizer.postMessage(
-          {
-            type: 'RENDER_REQUEST',
-            data: e.shadowRoot.innerHTML || e.innerHTML,
-            component: e.tagName
-          },
-          window._viz.url
-        );
-        // eslint-disable-next-line no-console
-        console.log('render request for ', e.tagName);
+
+      window._viz.visualizer.postMessage(
+        {
+          type: 'RENDER_REQUEST',
+          data: node.shadowRoot.innerHTML || node.innerHTML,
+          component: node.tagName,
+          path: FbpBreakpoints.getDomPath(node)
+        },
+        window._viz.url
+      );
+      // eslint-disable-next-line no-console
+      console.log('render request for ', node.tagName);
+
+
+    }
+    if (m.data.type === 'PARENT_COMPONENT_REQUEST') {
+      const stack = m.data.path.split(" > ");
+      // todo rewind until next shadow host
+      while(!stack[stack.length - 1].endsWith("::shadow") && stack.length > 1){
+        stack.pop()
       }
+
+
+      // remove shadow from last element
+      stack[stack.length - 1] = stack[stack.length - 1].replace("::shadow", "")
+      const path = stack.join(" > ")
+
+      const node = FbpBreakpoints.GetElementByPath(path)
+      let data = "";
+      if (node.shadowRoot) {
+        data = node.shadowRoot.innerHTML
+      } else {
+        data = node.innerHTML
+      }
+      window._viz.visualizer.postMessage(
+        {
+          type: 'RENDER_REQUEST',
+          data,
+          component: node.tagName,
+          path: FbpBreakpoints.getDomPath(node)
+        },
+        window._viz.url
+      );
+      // eslint-disable-next-line no-console
+      console.log('render request for ', FbpBreakpoints.GetElementByPath(path));
+
+
     }
 
 
     if (m.data.type === 'ADD_BREAKPOINT') {
-      const index = window._viz.breakpoint(m.data.component, m.data.wire);
+       window._viz.breakpoint(m.data.component, m.data.wire);
     }
 
     if (m.data.type === 'REMOVE_BREAKPOINT') {
-      if(window._viz.flat[m.data.component] && window._viz.flat[m.data.component].__wirebundle[m.data.wire]){
-      window._viz.flat[m.data.component].__wirebundle[m.data.wire].shift();
-    }
+      if (window._viz.flat[m.data.component] && window._viz.flat[m.data.component].__wirebundle[m.data.wire]) {
+        window._viz.flat[m.data.component].__wirebundle[m.data.wire].shift();
+      }
     }
 
     if (m.data.type === 'ANALYZER_READY') {
@@ -146,7 +162,8 @@ function messages(root) {
         {
           type: 'RENDER_REQUEST',
           data,
-          component: root.tagName
+          component: root.tagName,
+          path: FbpBreakpoints.getDomPath(root)
         },
         window._viz.url
       );

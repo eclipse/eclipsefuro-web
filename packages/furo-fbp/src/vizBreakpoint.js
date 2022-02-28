@@ -4,6 +4,7 @@
  * This is a breakpoint, added by viz.
  *
  */
+
 export class VizBreakpoint {
   static breakpoint(tagname, wire) {
     return window._viz.flat[tagname.toUpperCase()]._FBPAddWireHook(
@@ -19,4 +20,5 @@ export class VizBreakpoint {
       true
     );
   }
+  
 }
