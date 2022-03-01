@@ -27,17 +27,15 @@
  * ```
  * @type {*[]}
  */
-let Breakpoints = []
+let Breakpoints = [];
 
 export class FbpBreakpoints {
-
-  static SetBreakpoints(breakpoints){
+  static SetBreakpoints(breakpoints) {
     Breakpoints = breakpoints;
   }
 
-
   static Breakpoints() {
-    return Breakpoints
+    return Breakpoints;
   }
 
   /**
@@ -46,23 +44,21 @@ export class FbpBreakpoints {
    * @return {*}
    * @constructor
    */
-  static GetElementByPath(path){
-    const stack = path.split(" > ")
+  static GetElementByPath(path) {
+    const stack = path.split(' > ');
 
     let node = document; // start on document
 
-
-    stack.forEach((n)=>{
-      const t = n.split('::')
-      if(t[1]==='shadow'){
+    stack.forEach(n => {
+      const t = n.split('::');
+      if (t[1] === 'shadow') {
         node = node.querySelector(t[0]).shadowRoot;
-      }else{
-        node =  node.querySelector(t[0])
+      } else {
+        node = node.querySelector(t[0]);
       }
-    })
-    return node
+    });
+    return node;
   }
-
 
   /**
    * returns the querySelectorable path of the component.
@@ -76,7 +72,7 @@ export class FbpBreakpoints {
    * @return {string}
    * @private
    */
-   static getDomPath(el) {
+  static getDomPath(el) {
     const stack = [];
     let isShadow = false;
     while (el.parentNode != null) {
@@ -99,17 +95,18 @@ export class FbpBreakpoints {
       let nodeName = el.nodeName.toLowerCase();
 
       if (isShadow) {
-        nodeName += "::shadow";
+        nodeName += '::shadow';
         isShadow = false;
       }
       if (sibCount > 1) {
-        stack.unshift(`${nodeName  }:nth-of-type(${  sibIndex + 1  })`);
+        stack.unshift(`${nodeName}:nth-of-type(${sibIndex + 1})`);
       } else {
         stack.unshift(nodeName);
       }
       // eslint-disable-next-line no-param-reassign
       el = el.parentNode;
-      if (el.nodeType === 11) { // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
+      if (el.nodeType === 11) {
+        // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
         isShadow = true;
         // eslint-disable-next-line no-param-reassign
         el = el.host;
@@ -118,5 +115,4 @@ export class FbpBreakpoints {
     stack.splice(0, 1); // remove the html  element
     return stack.join(' > ');
   }
-
 }
