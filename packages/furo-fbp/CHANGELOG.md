@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.1.0...@furo/fbp@6.2.0) (2022-03-01)
+
+
+### Features
+
+* new viz communication structure ([53dd2c3](https://github.com/eclipse/eclipsefuro-web/commit/53dd2c367fad375ab848d63d92acc492e5733ce8))
+* viz debug sync with conditional/disabled/trace ([fea56ba](https://github.com/eclipse/eclipsefuro-web/commit/fea56baa2a009c781b669e0b61009baad84d6749))
+
+
+
+
+
 # [6.1.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.0.1...@furo/fbp@6.1.0) (2022-02-26)
 
 
