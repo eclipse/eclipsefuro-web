@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.2.0...@furo/fbp@6.3.0) (2022-03-02)
+
+
+### Features
+
+* viz reconnect with looper ([af8976d](https://github.com/eclipse/eclipsefuro-web/commit/af8976d73c8b36154b3ba881e754476804fd38f6))
+
+
+
+
+
 # [6.2.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.1.0...@furo/fbp@6.2.0) (2022-03-01)
 
 
