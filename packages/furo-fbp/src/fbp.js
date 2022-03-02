@@ -46,6 +46,9 @@
  * @polymer
  * @mixinFunction FBP
  */
+
+import { FbpBreakpoints } from './FbpBreakpoints.js';
+
 export const FBP = superClass =>
   /**
    * @polymerMixinClass
@@ -95,6 +98,119 @@ export const FBP = superClass =>
      */
     _FBPTriggerWire(wire, detailData) {
       if (this.__fbp_ready) {
+        /**
+         * Check breakpoints, this slows down every wire (if you have set breakpoints).
+         * While debuging, this is absolute OK.
+         */
+        FbpBreakpoints.Breakpoints().forEach(breakpoint => {
+          // start with cheapest
+
+          if (
+            breakpoint.enabled &&
+            breakpoint.wire === wire &&
+            breakpoint.path.endsWith(this.tagName.toLowerCase())
+          ) {
+            if (this.__domPath === undefined) {
+              this.__domPath = FbpBreakpoints.getDomPath(this);
+            }
+
+            if (this.__domPath === breakpoint.path) {
+              // eslint-disable-next-line default-case
+              switch (breakpoint.kind) {
+                case 'BREAKPOINT':
+                  // eslint-disable-next-line no-unused-vars,no-case-declarations
+                  const tagName = this.tagName.toLowerCase();
+                  // eslint-disable-next-line no-unused-expressions
+                  wire;
+                  // eslint-disable-next-line no-unused-expressions
+                  detailData;
+                  // eslint-disable-next-line no-case-declarations,no-unused-vars
+                  const domnode = FbpBreakpoints.GetElementByPath(
+                    breakpoint.path
+                  );
+                  // eslint-disable-next-line no-case-declarations,no-unused-vars
+                  const targets = this.__wirebundle[wire];
+
+                  // eslint-disable-next-line no-debugger
+                  debugger;
+                  break;
+                case 'CONDITIONAL':
+                  // eslint-disable-next-line no-case-declarations,no-new-func
+                  const c = new Function(
+                    'data',
+                    `return (${breakpoint.condition})`
+                  );
+                  if (c.call(this, detailData)) {
+                    // eslint-disable-next-line no-case-declarations,no-unused-vars
+                    const { condition } = breakpoint;
+                    // eslint-disable-next-line no-case-declarations,no-unused-vars,no-shadow
+                    const tagName = this.tagName.toLowerCase();
+                    // eslint-disable-next-line no-case-declarations,no-unused-vars,no-unused-expressions
+                    wire;
+                    // eslint-disable-next-line no-case-declarations,no-unused-vars,no-unused-expressions
+                    detailData;
+                    // eslint-disable-next-line no-unused-vars,no-shadow
+                    const domnode = FbpBreakpoints.GetElementByPath(
+                      breakpoint.path
+                    );
+                    // eslint-disable-next-line no-unused-vars,no-shadow
+                    const targets = this.__wirebundle[wire];
+
+                    // eslint-disable-next-line no-debugger
+                    debugger;
+                  }
+
+                  break;
+                case 'TRACE':
+                  // eslint-disable-next-line no-case-declarations
+                  const ua = navigator.userAgent.toLowerCase();
+                  // eslint-disable-next-line no-case-declarations
+                  let agent = true;
+                  if (ua.indexOf('safari') !== -1) {
+                    if (ua.indexOf('chrome') > -1) {
+                      agent = true; // Chrome
+                    } else {
+                      agent = false; // Safari
+                    }
+                  }
+
+                  if (agent) {
+                    // eslint-disable-next-line no-console
+                    console.group('Trace', `${this.nodeName}: ${wire}`);
+
+                    // eslint-disable-next-line no-console
+                    console.log(
+                      FbpBreakpoints.GetElementByPath(breakpoint.path)
+                    );
+                    // eslint-disable-next-line no-console
+                    console.group('Target Elements');
+                    // eslint-disable-next-line no-console
+                    console.table(this.__wirebundle[wire]);
+                    // eslint-disable-next-line no-console
+                    console.groupEnd();
+
+                    // eslint-disable-next-line no-console
+                    console.groupCollapsed('Data');
+                    // eslint-disable-next-line no-console
+                    console.log(detailData);
+                    // eslint-disable-next-line no-console
+                    console.groupEnd();
+
+                    // eslint-disable-next-line no-console
+                    console.groupCollapsed('Call Stack');
+                    // eslint-disable-next-line no-console
+                    console.log(new Error().stack);
+                    // eslint-disable-next-line no-console
+                    console.groupEnd();
+                    // eslint-disable-next-line no-console
+                    console.groupEnd();
+                  }
+                  break;
+              }
+            }
+          }
+        });
+
         if (this.__wirebundle[wire]) {
           this.__wirebundle[wire].forEach(receiver => {
             // check for hooks
@@ -147,7 +263,6 @@ export const FBP = superClass =>
      * @private
      */
     _call(detailData, receiver) {
-
       let response;
       // array spreaden
       if (
@@ -159,7 +274,6 @@ export const FBP = superClass =>
           receiver.element,
           detailData
         );
-
       } else {
         let data = detailData;
         if (receiver.path) {
@@ -167,8 +281,6 @@ export const FBP = superClass =>
         }
         response = receiver.element[receiver.method](data);
       }
-
-
 
       // fnret-function auslösen
       const fnret = new Event(`fnret-${receiver.attrName}`, {
@@ -185,8 +297,6 @@ export const FBP = superClass =>
       });
       customEvent.detail = response;
       receiver.element.dispatchEvent(customEvent);
-
-
     }
 
     /**
@@ -353,75 +463,74 @@ export const FBP = superClass =>
       const nl = dom.querySelectorAll('*');
       const l = nl.length - 1;
 
-      const _collectReceivers = function(element, i, attr) {
+      // eslint-disable-next-line func-names
+      const _collectReceivers = function (element, i, attr) {
         // collect receiver
         element.attributes[i].value.split(',').forEach(w => {
-          const r = this.__resolveWireAndPath(w)
+          const r = this.__resolveWireAndPath(w);
           // create empty if not exist
           if (!wirebundle[r.receivingWire]) {
-            wirebundle[r.receivingWire] = []
+            wirebundle[r.receivingWire] = [];
           }
           wirebundle[r.receivingWire].push({
             element,
-            method: this.__toCamelCase(
-              attr,
-            ),
+            method: this.__toCamelCase(attr),
             attrName: attr,
             path: r.path,
-          })
-        })
-      }
-      const _collectPropertySetters = function(element, i, property) {
+          });
+        });
+      };
+      // eslint-disable-next-line func-names
+      const _collectPropertySetters = function (element, i, property) {
         // split multiple wires
         element.attributes[i].value.split(',').forEach(w => {
-          const r = this.__resolveWireAndPath(w)
+          const r = this.__resolveWireAndPath(w);
           // create empty if not exist
           if (!wirebundle[r.receivingWire]) {
-            wirebundle[r.receivingWire] = []
+            wirebundle[r.receivingWire] = [];
           }
           wirebundle[r.receivingWire].push({
             element,
-            property: this.__toCamelCase(
-              property,
-            ),
+            property: this.__toCamelCase(property),
             path: r.path,
-          })
-        })
-      }
+          });
+        });
+      };
 
-      const _extractEventWires = function(fwire) {
+      // eslint-disable-next-line func-names
+      const _extractEventWires = function (fwire) {
         let wire;
 
-        const trimmedWire = fwire.trim()
+        const trimmedWire = fwire.trim();
 
-        let type = 'call'
+        let type = 'call';
         if (trimmedWire.startsWith('((')) {
-          wire = trimmedWire.substring(2, trimmedWire.length - 2)
-          type = 'setValue'
+          wire = trimmedWire.substring(2, trimmedWire.length - 2);
+          type = 'setValue';
         } else if (trimmedWire.startsWith('-^')) {
-          wire = trimmedWire.substring(2)
-          type = 'fireOnHost'
+          wire = trimmedWire.substring(2);
+          type = 'fireOnHost';
         } else if (trimmedWire.startsWith('^')) {
-          wire = trimmedWire.substring(1)
-          type = 'fire'
+          wire = trimmedWire.substring(1);
+          type = 'fire';
           if (trimmedWire.startsWith('^^')) {
-            wire = trimmedWire.substring(2)
-            type = 'fireBubble'
+            wire = trimmedWire.substring(2);
+            type = 'fireBubble';
           }
         } else if (trimmedWire === ':STOP') {
-          type = 'stop'
-          wire = 'stop'
+          type = 'stop';
+          wire = 'stop';
         } else if (trimmedWire === ':PREVENTDEFAULT') {
-          type = 'preventdefault'
-          wire = 'preventdefault'
+          type = 'preventdefault';
+          wire = 'preventdefault';
         } else {
-          wire = trimmedWire
-          type = 'call'
+          wire = trimmedWire;
+          type = 'call';
         }
-        return { type, wire }
-      }
+        return { type, wire };
+      };
 
-// eslint-disable-next-line no-plusplus
+      // eslint-disable-next-line no-plusplus
       for (let x = l; x >= 0; --x) {
         const element = nl[x];
 
@@ -434,31 +543,31 @@ export const FBP = superClass =>
         for (let i = 0; i < element.attributes.length; i += 1) {
           // collect data property receiver
           if (element.attributes[i].name.startsWith('ƒ-.')) {
-            const property = element.attributes[i].name.substring(3)
-            _collectPropertySetters.call(this, element, i, property)
+            const property = element.attributes[i].name.substring(3);
+            _collectPropertySetters.call(this, element, i, property);
             // eslint-disable-next-line no-continue
             continue;
           }
           // collect data property setter receiver
           if (element.attributes[i].name.startsWith('set-')) {
-            const property = element.attributes[i].name.substring(4)
-            _collectPropertySetters.call(this, element, i, property)
+            const property = element.attributes[i].name.substring(4);
+            _collectPropertySetters.call(this, element, i, property);
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('ƒ-')) {
-            const attr = element.attributes[i].name.substring(2)
-            _collectReceivers.call(this, element, i, attr)
+            const attr = element.attributes[i].name.substring(2);
+            _collectReceivers.call(this, element, i, attr);
             // eslint-disable-next-line no-continue
             continue;
           }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('fn-')) {
-            const attr = element.attributes[i].name.substring(3)
-            _collectReceivers.call(this, element, i, attr)
+            const attr = element.attributes[i].name.substring(3);
+            _collectReceivers.call(this, element, i, attr);
             // eslint-disable-next-line no-continue
             continue;
           }
@@ -468,7 +577,7 @@ export const FBP = superClass =>
             const eventname = element.attributes[i].name.substring(3);
             const fwires = element.attributes[i].value;
             fwires.split(',').forEach(fwire => {
-              const __ret = _extractEventWires(fwire)
+              const __ret = _extractEventWires(fwire);
               // eslint-disable-next-line no-use-before-define
               registerEvent(eventname, __ret.type, __ret.wire, element);
             });
@@ -480,7 +589,7 @@ export const FBP = superClass =>
             const eventname = element.attributes[i].name.substring(2);
             const fwires = element.attributes[i].value;
             fwires.split(',').forEach(fwire => {
-              const __ret = _extractEventWires(fwire)
+              const __ret = _extractEventWires(fwire);
               // eslint-disable-next-line no-use-before-define
               registerEvent(eventname, __ret.type, __ret.wire, element);
             });
