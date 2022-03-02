@@ -29,9 +29,10 @@ window.onmessage = m => {
     // STEP 3
     window._viz.visualizer = m.source;
     window._viz.url = m.data.url;
+    // notify viz
+    window._viz.visualizer.postMessage('PARENT_RECONNECTED', window._viz.url);
     // eslint-disable-next-line no-use-before-define
     messages();
-    window._viz.visualizer.postMessage('PARENT_RECONNECTED', window._viz.url);
     // eslint-disable-next-line no-console
     console.log('VIZ Reconnected');
   }
