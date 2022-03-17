@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.1...@furo/framework@2.1.0) (2022-03-17)
+
+
+### Features
+
+* FuroFeatureToggle can accept new data-furo-toggle-custom attribute ([174ae56](https://github.com/eclipse/eclipsefuro-web/commit/174ae5661a7cfff6390f173792b82dbda13b004d))
+
+
+
+
+
 ## [2.0.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.0.0-rc.7...@furo/framework@2.0.1) (2022-02-22)
 
 **Note:** Version bump only for package @furo/framework
