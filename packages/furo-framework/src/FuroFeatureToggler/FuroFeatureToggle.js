@@ -25,6 +25,8 @@ const keystore = {};
  * - `data-furo-toggle-disable` Adds a disabled attribute to the element on true state of the key, removes the attribute on false state
  * - `data-furo-toggle-enable` Removes a disabled attribute from the element on true state of the key, adds the attribute on false state
  *
+ * - `data-furo-toggle-custom-add` Adds the custom attribute to the element on true state of the key, removes the attribute on false state
+ * - `data-furo-toggle-custom-remove` Removes the custom attribute from the element on true state of the key, adds the attribute on false state
  *
  * ## Example usage:
  * ### js
@@ -70,6 +72,16 @@ const keystore = {};
  *  show:
  *  <div data-furo-toggle-show='feature.key'>
  *   The hidden attribute will be removed when the key state is true, otherwise the hidden attribute will be set.
+ *  </div>
+ *
+ *  custom add:
+ *  <div data-furo-toggle-custom-add='feature.key, ATTRIBUTE, VALUE'>
+ *   Div will get a custom attribute when the key state is true, otherwise the custom attribute will be removed.
+ *  </div>
+ *
+ *  custom remove:
+ *  <div data-furo-toggle-custom-remove='feature.key, ATTRIBUTE, VALUE'>
+ *   The custom attribute will be removed when the key state is true, otherwise the custom attribute will be set.
  *  </div>
  *
  * ```
@@ -133,6 +145,36 @@ export class FuroFeatureToggle {
         keystore[key].registerEnabler(e);
       }
     );
+
+    // register all custom add toggle attributes
+    Array.from(root.querySelectorAll('*[data-furo-toggle-custom-add]')).forEach(
+      e => {
+        const values = e.dataset.furoToggleCustomAdd.split(',');
+        const key = values[0];
+        let data = '';
+        if (values.length > 1) {
+          // add custom data to key
+          data = values.slice(1).join(",").replaceAll(' ', '')
+        }
+        FuroFeatureToggle._mustKey(key, data);
+        keystore[key].registerCustomAdder(e);
+      }
+    );
+
+    // register all custom add toggle attributes
+    Array.from(root.querySelectorAll('*[data-furo-toggle-custom-remove]')).forEach(
+      e => {
+        const values = e.dataset.furoToggleCustomRemove.split(',');
+        const key = values[0];
+        let data = '';
+        if (values.length > 1) {
+          // add custom data to key
+          data = values.slice(1).join(",").replaceAll(' ', '')
+        }
+        FuroFeatureToggle._mustKey(key, data);
+        keystore[key].registerCustomRemover(e);
+      }
+    );
   }
 
   /**
@@ -184,10 +226,13 @@ export class FuroFeatureToggle {
    * @param key {String} The key of a feature.
    * @private
    */
-  static _mustKey(key) {
+  static _mustKey(key, data = undefined) {
     if (keystore[key] === undefined) {
       // create with a falsy initial state
       keystore[key] = new KeyState(false);
+    }
+    if (data !== undefined) {
+      keystore[key]._data = data;
     }
   }
 }
