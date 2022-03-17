@@ -11,6 +11,14 @@ export class KeyState {
      */
     this._state = initialState;
     // we store a ref to the removers, appender,... here
+
+    /**
+     * Additional data
+     * Used for custom-add and custom-remove
+     * @type {{}}
+     * @private
+     */
+    this._data = '';
     /**
      * @private
      */
@@ -35,6 +43,14 @@ export class KeyState {
      * @private
      */
     this._enablers = [];
+    /**
+     * @private
+     */
+    this._customAdders = [];
+    /**
+     * @private
+     */
+    this._customRemovers = [];
     /**
      * @private
      */
@@ -131,6 +147,42 @@ export class KeyState {
   }
 
   /**
+   * @private
+   * @param element {domnode} original dom node
+   */
+  registerCustomAdder(element) {
+    this._customAdders.push(element);
+    // apply the initial state
+    let values = '';
+    if (this._data.length) {
+      values = this._data.split(',')
+    }
+    if (this._state === true) {
+      element.setAttribute(values[0], values[1]);
+    } else {
+      element.removeAttribute(values[0]);
+    }
+  }
+
+  /**
+   * @private
+   * @param element {domnode} original dom node
+   */
+  registerCustomRemover(element) {
+    this._customRemovers.push(element);
+    // apply the initial state
+    let values = '';
+    if (this._data.length) {
+      values = this._data.split(',')
+    }
+    if (this._state !== true) {
+      element.setAttribute(values[0], values[1]);
+    } else {
+      element.removeAttribute(values[0]);
+    }
+  }
+
+  /**
    * register a callback on a key
    * @param cb {function(boolean)}
    * @private
@@ -195,6 +247,30 @@ export class KeyState {
           element.setAttribute('disabled', '');
         } else {
           element.removeAttribute('disabled');
+        }
+      });
+
+      this._customAdders.forEach(element => {
+        let values = '';
+        if (this._data.length) {
+          values = this._data.split(',')
+        }
+        if (this._state === true) {
+          element.setAttribute(values[0], values[1]);
+        } else {
+          element.removeAttribute(values[0]);
+        }
+      });
+
+      this._customRemovers.forEach(element => {
+        let values = '';
+        if (this._data.length) {
+          values = this._data.split(',')
+        }
+        if (this._state !== true) {
+          element.setAttribute(values[0], values[1]);
+        } else {
+          element.removeAttribute(values[0]);
         }
       });
 
