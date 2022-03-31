@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.2...@furo/ui5@0.48.3) (2022-03-31)
+
+
+### Bug Fixes
+
+* issue-32, leaving searcher behaviours ([8634186](https://github.com/eclipse/eclipsefuro-web/commit/8634186d2536b47fb4946ec79ac46a278d07e45a))
+
+
+
+
+
 ## [0.48.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.1...@furo/ui5@0.48.2) (2022-02-24)
 
 
