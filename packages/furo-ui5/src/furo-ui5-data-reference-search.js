@@ -17,7 +17,7 @@ import './furo-ui5-dialog.js';
  * The furo-ui5-data-reference-search
  *  search a reference
  *
- *  Bounded data must fullfill the  furo.reference signature. The service, deeplink,... is taken from the spec of your field.
+ *  Bounded data must fulfill the furo.reference signature. The service, deeplink,... is taken from the spec of your field.
  *  Do not forget to specify.
  *
  *  *default usage*
@@ -60,7 +60,7 @@ import './furo-ui5-dialog.js';
  * If your type has a *reference* type signature ('id','display_name', 'link'), the service, and initial deep link is extracted from
  * the link part of your type.
  *
- * If you bind a skalar field, the value which is set in 'valueFieldPath' will be set.
+ * If you bind a scalar field, the value which is set in 'valueFieldPath' will be set.
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
@@ -95,7 +95,7 @@ import './furo-ui5-dialog.js';
  *
  * ```
  * ### API of a extended searcher
- * ### Searcher Mehtods
+ * ### Searcher Methods
  * The only method you have to implement is **htsIn**. The reference-search will pass its own hts to the extended
  * searcher. A call on qpIn on the searcher will also pass the resulting hts to the extended searcher.
  *
@@ -265,7 +265,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
        */
       extendedValueFieldPath: { type: String, attribute: 'extended-value-field-path' },
       /**
-       * Path to response value item of the exteded search which is used for the display.
+       * Path to response value item of the extended search which is used for the display.
        * By default this goes to *data.display_name*.
        * Only needed when your extended searcher does not have the id, display_name signature in the response.
        */
@@ -557,6 +557,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
       if (!this._lockBlur) {
         this._closeList();
+        // When the field is left, the value from the model should be displayed. The entered search term is removed.
+        const INPUT_FIELD = this.shadowRoot.querySelector('#input');
+        INPUT_FIELD.value = this.value.display_name;
       }
     });
 
@@ -585,7 +588,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     });
 
     /**
-     * Update the fieldnode when an item from the list was selected
+     * Update the field node when an item from the list was selected
      */
     this._FBPAddWireHook('--itemSelected', item => {
       this.value.id = this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], item);
