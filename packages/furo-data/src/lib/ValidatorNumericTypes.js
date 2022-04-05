@@ -13,7 +13,29 @@ export class ValidatorNumericTypes {
    */
   static validateConstraints(field) {
     return new Promise((resolve, reject) => {
-      // validate only if they are constraints
+      // Integer type testing
+      switch (field._spec.type) {
+        case 'int32':
+        case 'sint32':
+        case 'uint32':
+        case 'fixed32':
+        case 'sfixed32':
+        case 'int64':
+        case 'sint64':
+        case 'uint64':
+        case 'fixed64':
+        case 'sfixed64':
+          if (!Number.isInteger(field._value)) {
+            const NODE = {};
+            NODE.message = '';
+            NODE.name = '';
+            NODE.node = field;
+            reject(NODE);
+          }
+          break;
+        default:
+      }
+      // validate only if there are constraints
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const constraintName in field._constraints) {
         const constraint = field._constraints[constraintName];
