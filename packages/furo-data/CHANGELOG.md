@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.7...@furo/data@1.34.8) (2022-04-07)
+
+
+### Bug Fixes
+
+* issue-70, testing Integer types ([43695dc](https://github.com/eclipse/eclipsefuro-web/commit/43695dcb258bc0b356cbbca61b169dbf5b8fc56b))
+
+
+
+
+
 ## [1.34.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.6...@furo/data@1.34.7) (2022-01-31)
 
 **Note:** Version bump only for package @furo/data
