@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.4...@furo/ui5@0.48.5) (2022-04-11)
+
+
+### Bug Fixes
+
+* issue-74, numbers in quotes changed to number ([55c1f30](https://github.com/eclipse/eclipsefuro-web/commit/55c1f30bcdc11655986cf0782345fcd42765fc4f))
+
+
+
+
+
 ## [0.48.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.3...@furo/ui5@0.48.4) (2022-04-07)
 
 **Note:** Version bump only for package @furo/ui5
