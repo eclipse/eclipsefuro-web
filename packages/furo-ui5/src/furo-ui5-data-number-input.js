@@ -181,7 +181,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
         }
         this._tmpFAT.labels.empty = true;
       } else {
-        this._tmpFAT.value = value;
+        this._tmpFAT.value = parseFloat(value);
         // remove empty state
         if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
           delete this._tmpFAT.labels.empty;
@@ -195,9 +195,9 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       }
       this.setFnaFieldValue(this._tmpFAT);
     } else if (this.isWrapper()) {
-      this.setFnaFieldValue(value === '' ? null : value);
+      this.setFnaFieldValue(value === '' ? null : parseFloat(value));
     } else {
-      this.setFnaFieldValue(value === '' ? 0 : value);
+      this.setFnaFieldValue(value === '' ? 0 : parseFloat(value));
     }
 
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
