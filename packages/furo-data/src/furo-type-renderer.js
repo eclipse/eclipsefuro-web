@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 /**

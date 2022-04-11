@@ -333,6 +333,19 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   /**
+   * Returns all validation messages
+   * @returns {undefined|*}
+   * @private
+   */
+  get _validityMessage() {
+    if (!this._isValid) {
+      return this._validityMessage;
+    }
+    return undefined;
+  }
+
+
+  /**
    * delegates the trigger to all repeats
    * @param event
    * @private

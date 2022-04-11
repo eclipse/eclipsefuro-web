@@ -1,11 +1,11 @@
-import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
+import {EventTreeNode, NodeEvent} from '@furo/framework/src/EventTreeNode.js';
 // eslint-disable-next-line import/no-cycle
-import { RepeaterNode } from './RepeaterNode.js';
-import { ScalarTypeHelper } from './ScalarTypeHelper.js';
-import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
-import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
-import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
-import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
+import {RepeaterNode} from './RepeaterNode.js';
+import {ScalarTypeHelper} from './ScalarTypeHelper.js';
+import {ValidatorNumericTypes} from './ValidatorNumericTypes.js';
+import {ValidatorDefaultTypes} from './ValidatorDefaultTypes.js';
+import {ValidatorGoogleTypeDate} from './ValidatorGoogleTypeDate.js';
+import {ValidatorGoogleTypeMoney} from './ValidatorGoogleTypeMoney.js';
 
 /**
  *
@@ -248,8 +248,8 @@ export class FieldNode extends EventTreeNode {
    * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
    */
   createField(options) {
-    const { fieldName } = options;
-    let spec = { type: options.type };
+    const {fieldName} = options;
+    let spec = {type: options.type};
 
     if (options.spec) {
       spec = options.spec;
@@ -476,7 +476,7 @@ export class FieldNode extends EventTreeNode {
     const failure = error => {
       const field = error.node;
       field._isValid = false;
-      field._validity = { constraint: error.name, description: error.message };
+      field._validity = {constraint: error.name, description: error.message};
       field.dispatchNodeEvent(new NodeEvent('field-became-invalid', field));
     };
 
@@ -577,7 +577,7 @@ export class FieldNode extends EventTreeNode {
 
       } else {
         const target = f[0];
-        const subMetaAndConstraints = { fields: {} };
+        const subMetaAndConstraints = {fields: {}};
         subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
         // eslint-disable-next-line no-param-reassign
         level += 1;
@@ -624,14 +624,14 @@ export class FieldNode extends EventTreeNode {
       // any can only be a complex type
       this._createVendorType(val['@type'].replace(/.*\//, '')); // create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
       this.__anyCreated = true;
-      this.createField({ fieldName: '@type', type: 'string', value: val['@type'] });
+      this.createField({fieldName: '@type', type: 'string', value: val['@type']});
       this.dispatchNodeEvent(new NodeEvent('any-type-created', val['@type'], false));
     }
   }
 
   _updateKeyValueMap(val, spec) {
     const vType = spec.match(/,\s*(.*)>/)[1];
-    const fieldSpec = { type: vType };
+    const fieldSpec = {type: vType};
 
     this._fieldIsMap = true;
     // create if not exist
@@ -739,7 +739,7 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   set _base64(encodedData) {
-    this._value =  (JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
+    this._value = (JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
   }
 
   /**
@@ -824,6 +824,39 @@ export class FieldNode extends EventTreeNode {
        * transmitted.
        */
       return this._value;
+    }
+    return undefined;
+  }
+
+  /**
+   * Returns all validation messages
+   * @private
+   */
+  get _validityMessage() {
+    if (this.__childNodes.length > 0) {
+      this._validity = {};
+      // only return validityMessage object
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const index in this.__childNodes) {
+        const field = this.__childNodes[index];
+
+        if (field._validityMessage !== undefined) {
+          this._validity[field._name] = field._validityMessage;
+        }
+      }
+    }
+    if (!this.__childNodes.length) {
+      if (!this._isValid) {
+        const validityTransfer = this._validity;
+        validityTransfer.field_description = this._spec;
+        return validityTransfer;
+      }
+      return undefined
+    }
+    if (Object.keys(this._validity).length) {
+      const validityTransfer = this._validity;
+      validityTransfer.field_description = this._spec;
+      return validityTransfer;
     }
     return undefined;
   }
