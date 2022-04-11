@@ -182,6 +182,23 @@ export class DataObject extends EventTreeNode {
     return data;
   }
 
+  /**
+   * Returns a json representation of all field validity messages
+   * @returns {{}}
+   */
+  getValidityMessage() {
+    const msg = {};
+    // returns only validity object
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const index in this.__childNodes) {
+      const field = this.__childNodes[index];
+      if (field._validityMessage !== undefined){
+        msg[field._name] = field._validityMessage;
+      }
+    }
+    return msg;
+  }
+
   _updateFieldValuesAndMetaFromRawEntity(node, data) {
     let furoMetaDetected = false;
     // eslint-disable-next-line guard-for-in,no-restricted-syntax

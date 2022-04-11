@@ -1,8 +1,8 @@
 import { Init } from '@furo/framework/src/furo.js';
 
-import { Services, Types } from '/furo-specs/dist/env.js';
+import { Services, Types } from '../../../furo-specs/dist/env.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
-
 
 Init.registerApiServices(Services);
 Init.registerApiTypes(Types);

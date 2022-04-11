@@ -317,6 +317,7 @@ class FuroEntityAgent extends FBP(LitElement) {
     const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
     if(this._ApiEnvironment.services[link.service] === undefined){
+      // eslint-disable-next-line no-console
       console.warn("unknown service" , link.service)
     }
     // generate accept field for header
