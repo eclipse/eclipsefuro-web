@@ -97,11 +97,19 @@ class FuroEntityAgent extends FBP(LitElement) {
       this._pendingRequests.pop();
     });
 
+    /**
+     * This field contains the hts links
+     * @type {string}
+     * @private
+     */
+    this._linkField = 'links';
+
     // HTS aus response anwenden
     this._FBPAddWireHook('--responseParsed', r => {
-      if (this._updateInternalHTS(r.links)) {
+
+      if (this._updateInternalHTS(r[this._linkField])) {
         const customEvent = new Event('response-hts-updated', { composed: true, bubbles: true });
-        customEvent.detail = r.links;
+        customEvent.detail = r[this._linkField];
         this.dispatchEvent(customEvent);
       }
     });
@@ -418,11 +426,30 @@ class FuroEntityAgent extends FBP(LitElement) {
     return result;
   }
 
+
+  /**
+   * find the first field of type furo.Link and use this for hts-out
+   * @param fields
+   * @private
+   */
+  _evaluateLinksField(fields){
+    Object.keys(fields).forEach(field=>{
+      if (fields[field].type === "furo.Link"){
+        this._linkField = field;
+        // eslint-disable-next-line
+        return
+      }
+    })
+  }
+
   /**
    * loads the entity if hts is available
    */
   load() {
     const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'self', 'Get');
+    const responseType = this._service.services["Get"].data.response;
+    this._evaluateLinksField(Env.api.specs[responseType].fields);
+
     if (!hts) {
       const customEvent = new Event('missing-hts-self', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);

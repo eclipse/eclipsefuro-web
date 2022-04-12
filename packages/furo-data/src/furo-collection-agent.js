@@ -81,11 +81,18 @@ class FuroCollectionAgent extends FBP(LitElement) {
       this._pendingRequests.pop();
     });
 
+    /**
+     * This field contains the hts links
+     * @type {string}
+     * @private
+     */
+    this._linkField = 'links';
+
     // HTS aus response anwenden
     this._FBPAddWireHook('--responseParsed', r => {
-      if (this._updateInternalHTS(r.links)) {
+      if (this._updateInternalHTS(r[this._linkField])) {
         const customEvent = new Event('response-hts-updated', { composed: true, bubbles: true });
-        customEvent.detail = r.links;
+        customEvent.detail = r[this._linkField];
         this.dispatchEvent(customEvent);
       }
     });
@@ -460,6 +467,22 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
+   * find the first field of type furo.Link and use this for hts-out
+   * @param fields
+   * @private
+   */
+  _evaluateLinksField(fields){
+    Object.keys(fields).forEach(field=>{
+      if (fields[field].type === "furo.Link"){
+        this._linkField = field;
+        // eslint-disable-next-line
+        return
+      }
+    })
+
+  }
+
+  /**
    * If HATEOAS is present, the wire --triggerLoad is fired with the
    * corresponding request object as payload.
    * @param rel
@@ -467,6 +490,9 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @private
    */
   _followRelService(rel, serviceName) {
+    const responseType = this._service.services[serviceName].data.response;
+    this._evaluateLinksField(Env.api.specs[responseType].fields);
+
     const hts = AgentHelper.checkServiceAndHateoasLinkError(this, rel, serviceName);
     if (!hts) {
       const customEvent = new Event(`missing-hts-${rel}`, { composed: true, bubbles: false });
