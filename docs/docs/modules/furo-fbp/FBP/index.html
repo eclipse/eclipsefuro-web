@@ -5,17 +5,21 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Please read the guide for a better understanding">
+<meta name="description" content="FBP #  @furo/furo-fbp v6.3.0 import &#39;@furo/fbp/src/fbp.js&#39;; exports FBP js
+ Attributes and Properties #  Methods #  ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="FBP" />
-<meta property="og:description" content="Please read the guide for a better understanding" />
+<meta property="og:description" content="FBP #  @furo/furo-fbp v6.3.0 import &#39;@furo/fbp/src/fbp.js&#39;; exports FBP js
+ Attributes and Properties #  Methods #  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-fbp/FBP/" />
-<meta property="article:modified_time" content="2022-02-22T12:40:31+01:00" />
+<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-fbp/FBP/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2022-04-14T11:34:34+02:00" />
+
 <title>FBP | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.5d2f1c0ad21c3d9a35624e17b39af21e798a0579617269de2bf75fb35f13cc49.js" integrity="sha256-XS8cCtIcPZo1Yk4Xs5ryHnmKBXlhcmneK/dfs18TzEk="></script>
+<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
+<script defer src="/en.search.min.2c6b49fd2ec0d90a079fa90125168d89826038793ee11293c0f44e424e688e6e.js" integrity="sha256-LGtJ/S7A2QoHn6kBJRaNiYJgOHk&#43;4RKTwPROQk5ojm4="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -601,6 +605,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/modules/furo-fbp/FBP/" class=" active">FBP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/FbpBreakpoints/" class="">FbpBreakpoints</a>
   
 
         </li>
@@ -1477,7 +1494,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1506,14 +1523,6 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#_fbptriggerwire"><strong>_FBPTriggerWire</strong></a></li>
-        <li><a href="#_fbpaddwirehook"><strong>_FBPAddWireHook</strong></a></li>
-        <li><a href="#_fbptracewires"><strong>_FBPTraceWires</strong></a></li>
-        <li><a href="#_fbpdebug"><strong>_FBPDebug</strong></a></li>
-      </ul>
-    </li>
     <li><a href="#attributes-and-properties">Attributes and Properties</a></li>
     <li><a href="#methods">Methods</a></li>
   </ul>
@@ -1531,51 +1540,10 @@ https://github.com/alex-shpak/hugo-book
   FBP
   <a class="anchor" href="#fbp">#</a>
 </h1>
-<p><strong>@furo/furo-fbp</strong> <small>v6.0.1</small>
+<p><strong>@furo/furo-fbp</strong> <small>v6.3.0</small>
 <br><code>import '@furo/fbp/src/fbp.js';</code><small>
 <br>exports <em>FBP</em> js</small></p>
-<p><strong>Please read the guide for a better understanding</strong></p>
-<p>furo-fbp base class</p>
-<p>
-  <a href="https://fbp.furo.pro/">read the guide</a></p>
-<h3 id="_fbptriggerwire">
-  <strong>_FBPTriggerWire</strong>
-  <a class="anchor" href="#_fbptriggerwire">#</a>
-</h3>
-<p><small><strong>_FBPTriggerWire</strong>(<em>wire</em> <code>*detailData*</code> ) ⟹ <code>void</code></small></p>
-<p>Triggers a wire</p>
-<ul>
-<li><small>wire (String) Name of the wire like &ndash;buttonClicked</small></li>
-<li><small>detailData (*) data to pass</small></li>
-</ul>
-<h3 id="_fbpaddwirehook">
-  <strong>_FBPAddWireHook</strong>
-  <a class="anchor" href="#_fbpaddwirehook">#</a>
-</h3>
-<p><small><strong>_FBPAddWireHook</strong>(<em>wire</em> <code>*cb*</code> <em>before</em> `` ) ⟹ <code>number</code></small></p>
-<ul>
-<li><small>wire (String) Name of the wire</small></li>
-<li><small>cb (function) Callback function cb(detailData)</small></li>
-<li><small>before (Boolean) append before the components are triggered, default is false</small></li>
-</ul>
-<h3 id="_fbptracewires">
-  <strong>_FBPTraceWires</strong>
-  <a class="anchor" href="#_fbptracewires">#</a>
-</h3>
-<p><small><strong>_FBPTraceWires</strong>() ⟹ <code>void</code></small></p>
-<p>Log all triggered wires for this component. This function may help you at debugging.
-Select your element in the dev console and call <code>$0._FBPTraceWires()</code></p>
-<h3 id="_fbpdebug">
-  <strong>_FBPDebug</strong>
-  <a class="anchor" href="#_fbpdebug">#</a>
-</h3>
-<p><small><strong>_FBPDebug</strong>(<em>wire</em> <code>*openDebugger*</code> ) ⟹ <code>void</code></small></p>
-<p>Get information for the triggered wire. This function may help you at debugging.
-Select your element in the dev console and call <code>$0._FBPDebug('--dataReceived')</code></p>
-<ul>
-<li><small>wire </small></li>
-<li><small>openDebugger opens the debugger console, so you can inspect your component.</small></li>
-</ul>
+<hr>
 <h2 id="attributes-and-properties">
   Attributes and Properties
   <a class="anchor" href="#attributes-and-properties">#</a>
@@ -1594,9 +1562,9 @@ Select your element in the dev console and call <code>$0._FBPDebug('--dataReceiv
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/e3a9bebff7790d001bf913dcbd08db5e69807527" title='Last modified by veith | February 22, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/d1bfd73297970a5ddb9907154bf4b9aae84de71d" title='Last modified by maltenorstroem | April 14, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>February 22, 2022</span>
+      <span>April 14, 2022</span>
     </a>
   </div>
 
@@ -1624,14 +1592,6 @@ Select your element in the dev console and call <code>$0._FBPDebug('--dataReceiv
       
   <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#_fbptriggerwire"><strong>_FBPTriggerWire</strong></a></li>
-        <li><a href="#_fbpaddwirehook"><strong>_FBPAddWireHook</strong></a></li>
-        <li><a href="#_fbptracewires"><strong>_FBPTraceWires</strong></a></li>
-        <li><a href="#_fbpdebug"><strong>_FBPDebug</strong></a></li>
-      </ul>
-    </li>
     <li><a href="#attributes-and-properties">Attributes and Properties</a></li>
     <li><a href="#methods">Methods</a></li>
   </ul>

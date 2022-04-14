@@ -16,8 +16,8 @@ Even in a small todo app you will quickly have more than one view (list, create,
 <title>Routing | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.5d2f1c0ad21c3d9a35624e17b39af21e798a0579617269de2bf75fb35f13cc49.js" integrity="sha256-XS8cCtIcPZo1Yk4Xs5ryHnmKBXlhcmneK/dfs18TzEk="></script>
+<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
+<script defer src="/en.search.min.2c6b49fd2ec0d90a079fa90125168d89826038793ee11293c0f44e424e688e6e.js" integrity="sha256-LGtJ/S7A2QoHn6kBJRaNiYJgOHk&#43;4RKTwPROQk5ojm4="></script>
 <link rel="alternate" type="application/rss+xml" href="https://web-components.furo.pro/docs/guides/routing/index.xml" title="フロー Furo Web" />
 <!--
 Made with Book Theme
@@ -604,6 +604,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/modules/furo-fbp/FBP/" class="">FBP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-fbp/FbpBreakpoints/" class="">FbpBreakpoints</a>
   
 
         </li>
@@ -1480,7 +1493,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1547,7 +1560,7 @@ to display different sub parts of a view/page.</em></p>
   <a class="anchor" href="#trivial-example">#</a>
 </h2>
 <p>Lets assume the following structure for a simple application:</p>
-<pre><code>todo-app
+<pre tabindex="0"><code>todo-app
 ├── View List         //app.com/                     &lt;view-list&gt;
 ├── View Create       //app.com/create               &lt;view-create&gt;
 └── View Details      //app.com/detail?tsk=999       &lt;view-detail&gt;     
@@ -1584,7 +1597,7 @@ to display different sub parts of a view/page.</em></p>
   <a href="fbp.furo.pro">Furo FBP</a> syntax is used in this example.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -1596,7 +1609,7 @@ to display different sub parts of a view/page.</em></p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-location</span>
   <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pathChanged&#34;</span>&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
 
 &lt;<span style="color:#000080">furo-pages</span> 
@@ -1637,7 +1650,7 @@ they support FBP. Each wire will forward a <code>locationObject</code></p>
 </h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -1650,7 +1663,7 @@ they support FBP. Each wire will forward a <code>locationObject</code></p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#000080">&#34;host&#34;</span>: <span style="color:#d14">&#34;localhost:8480&#34;</span>,
     <span style="color:#000080">&#34;query&#34;</span>: {<span style="color:#000080">&#34;tsk&#34;</span>: <span style="color:#099">999</span>},
     <span style="color:#000080">&#34;hash&#34;</span>: {},
