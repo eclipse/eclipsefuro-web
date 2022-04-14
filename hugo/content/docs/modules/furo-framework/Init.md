@@ -6,7 +6,7 @@ weight: 100
 
 # Init
 
-**@furo/furo-framework** <small>v2.0.1</small>
+**@furo/furo-framework** <small>v2.1.0</small>
 <br>`import '@furo/framework/src/system.js';`<small>
 <br>exports *Init* js
 <br>exports *Sys* js</small>

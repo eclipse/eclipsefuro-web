@@ -372,6 +372,17 @@
             },
             {
               "kind": "method",
+              "name": "_evaluateLinksField",
+              "parameters": [
+                {
+                  "name": "fields"
+                }
+              ],
+              "description": "find the first field of type furo.Link and use this for hts-out",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "_followRelService",
               "parameters": [
                 {
@@ -494,6 +505,16 @@
               },
               "privacy": "private",
               "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_linkField",
+              "type": {
+                "text": "string"
+              },
+              "description": "This field contains the hts links",
+              "privacy": "private",
+              "default": "'links'"
             },
             {
               "kind": "field",
@@ -1990,6 +2011,17 @@
             },
             {
               "kind": "method",
+              "name": "_evaluateLinksField",
+              "parameters": [
+                {
+                  "name": "fields"
+                }
+              ],
+              "description": "find the first field of type furo.Link and use this for hts-out",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "load",
               "description": "loads the entity if hts is available"
             },
@@ -2078,6 +2110,16 @@
               },
               "privacy": "private",
               "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_linkField",
+              "type": {
+                "text": "string"
+              },
+              "description": "This field contains the hts links",
+              "privacy": "private",
+              "default": "'links'"
             },
             {
               "kind": "field",
@@ -3313,6 +3355,16 @@
             },
             {
               "kind": "method",
+              "name": "getValidityMessage",
+              "description": "Returns a json representation of all field validity messages",
+              "return": {
+                "type": {
+                  "text": "{}"
+                }
+              }
+            },
+            {
+              "kind": "method",
               "name": "_updateFieldValuesAndMetaFromRawEntity",
               "parameters": [
                 {
@@ -3612,6 +3664,12 @@
               "privacy": "private"
             },
             {
+              "kind": "field",
+              "name": "_validityMessage",
+              "description": "Returns all validation messages",
+              "privacy": "private"
+            },
+            {
               "kind": "method",
               "name": "_clearInvalidity"
             },
@@ -3643,7 +3701,7 @@
               "kind": "field",
               "name": "_spec",
               "description": "Reference to the current spec definition of the fieldNode",
-              "default": "{ type: vType }",
+              "default": "{type: vType}",
               "type": {
                 "text": "object"
               }
@@ -4029,6 +4087,17 @@
               "kind": "field",
               "name": "_requiredValue",
               "description": "Returns required fields with all children which are modified or\nnot readonly",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_validityMessage",
+              "description": "Returns all validation messages",
+              "return": {
+                "type": {
+                  "text": "undefined|*"
+                }
+              },
               "privacy": "private"
             },
             {

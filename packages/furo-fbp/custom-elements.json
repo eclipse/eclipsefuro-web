@@ -355,6 +355,77 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/FbpBreakpoints.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FbpBreakpoints",
+          "members": [
+            {
+              "kind": "method",
+              "name": "SetBreakpoints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "breakpoints"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "Breakpoints",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "GetElementByPath",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "path"
+                }
+              ],
+              "description": "This will get the DOM Node for a path produced by FBP._getDomPath",
+              "return": {
+                "type": {
+                  "text": "*"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getDomPath",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "el"
+                }
+              ],
+              "description": "returns the querySelectorable path of the component.\n\nNote: html and body are not included.\n\nsource inspired from https://stackoverflow.com/a/31281201/2946421\n\nEven there is no ::shadow selector in  DOM v1, this works fine for us",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              },
+              "privacy": "private"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FbpBreakpoints",
+          "declaration": {
+            "name": "FbpBreakpoints",
+            "module": "src/FbpBreakpoints.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/empty-fbp-node.js",
       "declarations": [
         {
@@ -712,7 +783,7 @@
       "declarations": [
         {
           "kind": "mixin",
-          "description": "furo-fbp base class\n\n[read the guide](https://fbp.furo.pro/)\n\n\n### **_FBPTriggerWire**\n<small>**_FBPTriggerWire**(*wire* `` *detailData* `` ) ⟹ `void`</small>\n\nTriggers a wire\n\n- <small>wire (String) Name of the wire like --buttonClicked</small>\n- <small>detailData (*) data to pass</small>\n\n\n### **_FBPAddWireHook**\n<small>**_FBPAddWireHook**(*wire* `` *cb* `` *before* `` ) ⟹ `number`</small>\n\n\n\n- <small>wire (String) Name of the wire</small>\n- <small>cb (function) Callback function cb(detailData)</small>\n- <small>before (Boolean) append before the components are triggered, default is false</small>\n\n\n### **_FBPTraceWires**\n<small>**_FBPTraceWires**() ⟹ `void`</small>\n\nLog all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`\n\n\n\n### **_FBPDebug**\n<small>**_FBPDebug**(*wire* `` *openDebugger* `` ) ⟹ `void`</small>\n\nGet information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`\n\n- <small>wire </small>\n- <small>openDebugger opens the debugger console, so you can inspect your component.</small>",
+          "description": "",
           "name": "FBP",
           "members": [
             {
@@ -971,8 +1042,7 @@
             {
               "name": "superClass"
             }
-          ],
-          "summary": "Please read the guide for a better understanding"
+          ]
         }
       ],
       "exports": [

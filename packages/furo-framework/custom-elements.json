@@ -484,7 +484,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Use the FuroFeatureToggle to control features from a central registry.\nFuroFeatureToggle only needs a key and a boolean value.\nThese key can be set at any time.\nA requested key which was not set, is interpreted as false.\n\n## Available toggles\nFollowing toggles are given, use the one which is appropriate to your problem.\nSometimes you want to hide some parts if a key is true and sometimes you have to do the opposite.\n\n- `data-furo-toggle-append` Appends the element on true state of the key, removes the element on false state\n- `data-furo-toggle-remove` Removes the element on true state of the key, appends the element on false state\n\n- `data-furo-toggle-hide` Adds a hidden attribute to the element on true state of the key, removes the attribute on false state\n- `data-furo-toggle-show` Removes a hidden attribute from the element on true state of the key, adds the attribute on false state\n\n- `data-furo-toggle-disable` Adds a disabled attribute to the element on true state of the key, removes the attribute on false state\n- `data-furo-toggle-enable` Removes a disabled attribute from the element on true state of the key, adds the attribute on false state\n\n\n## Example usage:\n### js\n```js\n// import FuroFeatureToggle\nimport { FuroFeatureToggle } from '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js';\n\n// enabling for a part of your component\nFuroFeatureToggle.parseDom(this.shadowRoot)\n\n// enabling for a part of your component\n FuroFeatureToggle.parseDom(this.shadowRoot.querySelector('#partial'))\n\n\n// setting a key\n FuroFeatureToggle.setKeyState('feature.key', true);\n\n```\n### html\n\n```html\n remove:\n <span data-furo-toggle-remove='feature.key'>\n   span is removed if key state is true, otherwise appended</span>\n\n append:\n <span data-furo-toggle-append='feature.key'>\n   span is appended when key state true, otherwise removed</span>\n\n enable:\n <button data-furo-toggle-disable='feature.key'>\n   button is enabled when state is true, otherwise disabled</button>\n\n disable:\n <button data-furo-toggle-enable='feature.key'>\n   button is disabled when state is true, otherwise enabled</button>\n\n hide:\n <div data-furo-toggle-hide='feature.key'>\n   Div will get a hidden attribute when the key state is true, otherwise hidden\n </div>\n\n show:\n <div data-furo-toggle-show='feature.key'>\n  The hidden attribute will be removed when the key state is true, otherwise the hidden attribute will be set.\n </div>\n\n```",
+          "description": "Use the FuroFeatureToggle to control features from a central registry.\nFuroFeatureToggle only needs a key and a boolean value.\nThese key can be set at any time.\nA requested key which was not set, is interpreted as false.\n\n## Available toggles\nFollowing toggles are given, use the one which is appropriate to your problem.\nSometimes you want to hide some parts if a key is true and sometimes you have to do the opposite.\n\n- `data-furo-toggle-append` Appends the element on true state of the key, removes the element on false state\n- `data-furo-toggle-remove` Removes the element on true state of the key, appends the element on false state\n\n- `data-furo-toggle-hide` Adds a hidden attribute to the element on true state of the key, removes the attribute on false state\n- `data-furo-toggle-show` Removes a hidden attribute from the element on true state of the key, adds the attribute on false state\n\n- `data-furo-toggle-disable` Adds a disabled attribute to the element on true state of the key, removes the attribute on false state\n- `data-furo-toggle-enable` Removes a disabled attribute from the element on true state of the key, adds the attribute on false state\n\n- `data-furo-toggle-custom-add` Adds the custom attribute to the element on true state of the key, removes the attribute on false state\n- `data-furo-toggle-custom-remove` Removes the custom attribute from the element on true state of the key, adds the attribute on false state\n\n## Example usage:\n### js\n```js\n// import FuroFeatureToggle\nimport { FuroFeatureToggle } from '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js';\n\n// enabling for a part of your component\nFuroFeatureToggle.parseDom(this.shadowRoot)\n\n// enabling for a part of your component\n FuroFeatureToggle.parseDom(this.shadowRoot.querySelector('#partial'))\n\n\n// setting a key\n FuroFeatureToggle.setKeyState('feature.key', true);\n\n```\n### html\n\n```html\n remove:\n <span data-furo-toggle-remove='feature.key'>\n   span is removed if key state is true, otherwise appended</span>\n\n append:\n <span data-furo-toggle-append='feature.key'>\n   span is appended when key state true, otherwise removed</span>\n\n enable:\n <button data-furo-toggle-disable='feature.key'>\n   button is enabled when state is true, otherwise disabled</button>\n\n disable:\n <button data-furo-toggle-enable='feature.key'>\n   button is disabled when state is true, otherwise enabled</button>\n\n hide:\n <div data-furo-toggle-hide='feature.key'>\n   Div will get a hidden attribute when the key state is true, otherwise hidden\n </div>\n\n show:\n <div data-furo-toggle-show='feature.key'>\n  The hidden attribute will be removed when the key state is true, otherwise the hidden attribute will be set.\n </div>\n\n custom add:\n <div data-furo-toggle-custom-add='feature.key, ATTRIBUTE, VALUE'>\n  Div will get a custom attribute when the key state is true, otherwise the custom attribute will be removed.\n </div>\n\n custom remove:\n <div data-furo-toggle-custom-remove='feature.key, ATTRIBUTE, VALUE'>\n  The custom attribute will be removed when the key state is true, otherwise the custom attribute will be set.\n </div>\n\n```",
           "name": "FuroFeatureToggle",
           "members": [
             {
@@ -592,6 +592,10 @@
                   "type": {
                     "text": "String"
                   }
+                },
+                {
+                  "name": "data",
+                  "default": "undefined"
                 }
               ],
               "description": "Ensure that a key is created",
@@ -709,6 +713,34 @@
             },
             {
               "kind": "method",
+              "name": "registerCustomAdder",
+              "parameters": [
+                {
+                  "name": "element",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerCustomRemover",
+              "parameters": [
+                {
+                  "name": "element",
+                  "description": "original dom node",
+                  "type": {
+                    "text": "domnode"
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "registerCallback",
               "parameters": [
                 {
@@ -742,6 +774,16 @@
               "description": "create with false state",
               "privacy": "private",
               "default": "initialState"
+            },
+            {
+              "kind": "field",
+              "name": "_data",
+              "type": {
+                "text": "{}"
+              },
+              "description": "Additional data\nUsed for custom-add and custom-remove",
+              "privacy": "private",
+              "default": "''"
             },
             {
               "kind": "field",
@@ -791,6 +833,24 @@
             {
               "kind": "field",
               "name": "_enablers",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_customAdders",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_customRemovers",
               "type": {
                 "text": "array"
               },

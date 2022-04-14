@@ -6,7 +6,7 @@ weight: 100
 
 # DataObject
 
-**@furo/furo-data** <small>v2.0.1</small>
+**@furo/furo-data** <small>v2.0.5</small>
 <br>`import '@furo/data/src/lib/DataObject.js';`<small>
 <br>exports *DataObject* js
 <br>superclass *EventTreeNode*</small>
@@ -38,6 +38,7 @@ EntityNode is usually the root node of an eventTree
 
 This setter aliases to injectRaw. Added for compatibility reasons for the FieldNodeAdapter
 <br><br>
+
 
 
 
@@ -130,6 +131,13 @@ Resete zum letzten injected state zurück
 <small>**getJson**() ⟹ `*`</small>
 
 Returns a json representation of your Data Object
+
+<br><br>
+
+### **getValidityMessage**
+<small>**getValidityMessage**() ⟹ `{}`</small>
+
+Returns a json representation of all field validity messages
 
 <br><br>
 

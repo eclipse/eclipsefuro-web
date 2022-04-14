@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-entity-agent
-**@furo/data** <small>v2.0.1</small>
+**@furo/data** <small>v2.0.5</small>
 <br>`import '@furo/data/src/furo-entity-agent.js';`<small>
 <br>exports `<furo-entity-agent>` custom-element-definition
 <br>superclass *LitElement*
@@ -52,6 +52,8 @@ weight: 50
 
 Name des Services
 <br><br>
+
+
 
 
 
@@ -285,6 +287,7 @@ clear the query params that you have setted before
 
 
 
+
 ### **load**
 <small>**load**() ⟹ `void`</small>
 
@@ -357,6 +360,7 @@ creating the entity if hts rel="create" is available
 Aborts a pending request
 
 <br><br>
+
 
 
 
