@@ -66,7 +66,7 @@ class FuroReverseDeepLink extends LitElement {
       [linkObject] = data.links.filter(
         e =>
           e.rel.toLowerCase() === this.rel.toLowerCase() &&
-          e.service.toLowerCase() === this.service.toLowerCase(),
+          e.service.toLowerCase() === this.service.toLowerCase()
       );
     }
 
@@ -75,7 +75,7 @@ class FuroReverseDeepLink extends LitElement {
       [linkObject] = data.filter(
         e =>
           e.rel.toLowerCase() === this.rel.toLowerCase() &&
-          e.service.toLowerCase() === this.service.toLowerCase(),
+          e.service.toLowerCase() === this.service.toLowerCase()
       );
     }
 
@@ -83,7 +83,10 @@ class FuroReverseDeepLink extends LitElement {
       qp = this._convert(linkObject);
     }
 
-    const customEvent = new Event('converted', { composed: true, bubbles: true });
+    const customEvent = new Event('converted', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = qp;
     this.dispatchEvent(customEvent);
     return qp;
@@ -107,7 +110,8 @@ class FuroReverseDeepLink extends LitElement {
       linkObject.rel = 'Get';
     }
 
-    linkObject.rel = linkObject.rel.charAt(0).toUpperCase() + linkObject.rel.slice(1);
+    linkObject.rel =
+      linkObject.rel.charAt(0).toUpperCase() + linkObject.rel.slice(1);
     let pattern = '';
 
     if (this._serviceDef[linkObject.rel]) {

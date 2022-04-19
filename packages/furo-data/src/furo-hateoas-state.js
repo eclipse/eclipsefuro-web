@@ -1,5 +1,5 @@
-import { LitElement, css } from 'lit'
-import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js'
+import { LitElement, css } from 'lit';
+import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
 
 /**
  * `furo-hateoas-state` is an invisible component with a binding of type furo.Link or injection of a link array.
@@ -30,33 +30,34 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js'
  * @appliesMixin FBP
  */
 class FuroHateoasState extends FieldNodeAdapter(LitElement) {
-
   /**
    * @private
    * @param value
    */
   onFnaFieldValueChanged(value) {
-    this.injectHts(value)
+    this.injectHts(value);
   }
 
   /**
    * Enable or show all nodes.
    */
-  enable(){
-    this.parentNode.querySelectorAll('*[data-rel]').forEach((node) => {
-      const atr = (node.attributes['hide-no-rel'] !== undefined) ? 'hidden' : 'disabled'
-      node.removeAttribute(atr)
-    })
+  enable() {
+    this.parentNode.querySelectorAll('*[data-rel]').forEach(node => {
+      const atr =
+        node.attributes['hide-no-rel'] !== undefined ? 'hidden' : 'disabled';
+      node.removeAttribute(atr);
+    });
   }
 
   /**
    * Disable or hide all nodes.
    */
-  disable(){
-    this.parentNode.querySelectorAll('*[data-rel]').forEach((node) => {
-      const atr = (node.attributes['hide-no-rel'] !== undefined) ? 'hidden' : 'disabled'
-      node.setAttribute(atr,"")
-    })
+  disable() {
+    this.parentNode.querySelectorAll('*[data-rel]').forEach(node => {
+      const atr =
+        node.attributes['hide-no-rel'] !== undefined ? 'hidden' : 'disabled';
+      node.setAttribute(atr, '');
+    });
   }
 
   /**
@@ -68,9 +69,13 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
   bindData(fieldNode) {
     if (fieldNode._spec.type !== 'furo.Link') {
       // eslint-disable-next-line no-console
-      console.warn('invalid type ', fieldNode._spec.type, ', must be furo.Link')
+      console.warn(
+        'invalid type ',
+        fieldNode._spec.type,
+        ', must be furo.Link'
+      );
     }
-    return super.bindData(fieldNode)
+    return super.bindData(fieldNode);
   }
 
   /**
@@ -79,7 +84,7 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
    * @param Links
    */
   bindHts(Links) {
-    this.bindData(Links)
+    this.bindData(Links);
   }
 
   /**
@@ -100,28 +105,26 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
    * @param value {[json]} Array with raw `furo.Link` like
    */
   injectHts(value) {
-    const rels = new Set
+    const rels = new Set();
 
-    value.forEach((l) => {
-      rels.add(l.rel)
-    })
+    value.forEach(l => {
+      rels.add(l.rel);
+    });
 
-    this.parentNode.querySelectorAll('*[data-rel]').forEach((node) => {
-
-      const atr = (node.attributes['hide-no-rel'] !== undefined) ? 'hidden' : 'disabled'
+    this.parentNode.querySelectorAll('*[data-rel]').forEach(node => {
+      const atr =
+        node.attributes['hide-no-rel'] !== undefined ? 'hidden' : 'disabled';
 
       if (rels.has(node.dataset.rel)) {
         // rel is available
-        node.removeAttribute(atr)
-        node.removeAttribute('disabled')
+        node.removeAttribute(atr);
+        node.removeAttribute('disabled');
       } else {
         // rel is not available
-        node.setAttribute(atr, '')
-        node.setAttribute('disabled', '')
+        node.setAttribute(atr, '');
+        node.setAttribute('disabled', '');
       }
-
-
-    })
+    });
   }
 
   /**
@@ -135,10 +138,8 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
       :host {
         display: none;
       }
-    `
+    `;
   }
-
-
 }
 
-window.customElements.define('furo-hateoas-state', FuroHateoasState)
+window.customElements.define('furo-hateoas-state', FuroHateoasState);

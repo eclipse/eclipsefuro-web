@@ -138,7 +138,10 @@ class FuroDataHideContent extends FBP(LitElement) {
    * @private
    */
   _notify(eventname) {
-    const customEvent = new Event(eventname, { composed: true, bubbles: false });
+    const customEvent = new Event(eventname, {
+      composed: true,
+      bubbles: false,
+    });
     customEvent.detail = this.hidden;
     this.dispatchEvent(customEvent);
   }
@@ -168,9 +171,7 @@ class FuroDataHideContent extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 }
 

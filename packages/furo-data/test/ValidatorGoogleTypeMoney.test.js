@@ -42,7 +42,7 @@ describe('ValidatorGoogleTypeMoney', () => {
         assert.equal(error.message, 'money is required**', 'required');
         assert.equal(error.name, 'required', 'required');
         done();
-      },
+      }
     );
   });
 
@@ -58,7 +58,7 @@ describe('ValidatorGoogleTypeMoney', () => {
           assert.equal(error.message, 'min amount 1200.50**', 'min');
           assert.equal(error.name, 'min', 'min');
           done();
-        },
+        }
       );
     }, 20);
   });
@@ -75,7 +75,7 @@ describe('ValidatorGoogleTypeMoney', () => {
           assert.equal(error.message, 'max amount 100000.00**', 'max');
           assert.equal(error.name, 'max', 'max');
           done();
-        },
+        }
       );
     }, 20);
   });
@@ -92,7 +92,7 @@ describe('ValidatorGoogleTypeMoney', () => {
           assert.equal(error.message, 'only in steps of 1000**', 'step');
           assert.equal(error.name, 'step', 'step');
           done();
-        },
+        }
       );
     }, 20);
   });

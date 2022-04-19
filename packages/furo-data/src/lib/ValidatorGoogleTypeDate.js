@@ -59,7 +59,9 @@ export class ValidatorGoogleTypeDate {
               const msToDayDividend = 8.64e7;
               // step check is (value - min)%is == 0
               const modulo = Number.parseInt(constraint.is, 10);
-              const minDate = ValidatorGoogleTypeDate.createDateFromConstraint(field._constraints);
+              const minDate = ValidatorGoogleTypeDate.createDateFromConstraint(
+                field._constraints
+              );
 
               if (((date - minDate) / msToDayDividend) % modulo !== 0) {
                 const NODE = {};
@@ -74,7 +76,10 @@ export class ValidatorGoogleTypeDate {
            * the pattern constraint
            */
           case 'pattern':
-            if (field._value == null || !field._value.match(new RegExp(constraint.is))) {
+            if (
+              field._value == null ||
+              !field._value.match(new RegExp(constraint.is))
+            ) {
               const NODE = {};
               NODE.message = constraint.message;
               NODE.name = constraintName;
@@ -108,7 +113,11 @@ export class ValidatorGoogleTypeDate {
    * @return boolean
    */
   static isEmpty(field) {
-    return field.year._value === null || field.month._value === null || field.day._value === null;
+    return (
+      field.year._value === null ||
+      field.month._value === null ||
+      field.day._value === null
+    );
   }
 
   /**
@@ -126,8 +135,8 @@ export class ValidatorGoogleTypeDate {
         0,
         0,
         0,
-        0,
-      ),
+        0
+      )
     );
   }
 

@@ -42,7 +42,7 @@ describe('ValidatorGoogleTypeDate', () => {
         assert.equal(error.message, 'min 01.01.2020**', 'required');
         assert.equal(error.name, 'min', 'required');
         done();
-      },
+      }
     );
   });
 
@@ -58,7 +58,7 @@ describe('ValidatorGoogleTypeDate', () => {
           assert.equal(error.message, 'max 31.12.9999**', 'max');
           assert.equal(error.name, 'max', 'max');
           done();
-        },
+        }
       );
     }, 20);
   });

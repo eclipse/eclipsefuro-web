@@ -37,13 +37,19 @@ class FuroRelExists extends LitElement {
     });
 
     if (links.length > 0) {
-      const customEvent = new Event('furo-rel-exists', { composed: true, bubbles: true });
+      const customEvent = new Event('furo-rel-exists', {
+        composed: true,
+        bubbles: true,
+      });
       [customEvent.detail] = links;
       this.dispatchEvent(customEvent);
       return true;
     }
 
-    const customEvent = new Event('rel-dont-exist', { composed: true, bubbles: true });
+    const customEvent = new Event('rel-dont-exist', {
+      composed: true,
+      bubbles: true,
+    });
     this.dispatchEvent(customEvent);
 
     return false;

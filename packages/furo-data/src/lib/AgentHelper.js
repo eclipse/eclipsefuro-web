@@ -29,7 +29,10 @@ export class AgentHelper {
     }
 
     if (qpChanged) {
-      const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
+      const customEvent = new Event('qp-changed', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = caller._queryParams;
       caller.dispatchEvent(customEvent);
     }
@@ -48,7 +51,10 @@ export class AgentHelper {
       // eslint-disable-next-line no-param-reassign
       caller._queryParams = qp || {};
 
-      const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
+      const customEvent = new Event('qp-changed', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = caller._queryParams;
       caller.dispatchEvent(customEvent);
     }
@@ -151,7 +157,11 @@ export class AgentHelper {
     // check Service Get
     if (!caller._service.services[serviceName]) {
       // eslint-disable-next-line no-console
-      console.warn(`Service ${serviceName} is not specified`, caller._service, caller);
+      console.warn(
+        `Service ${serviceName} is not specified`,
+        caller._service,
+        caller
+      );
       return undefined;
     }
 
@@ -163,17 +173,19 @@ export class AgentHelper {
     }
     // check rel and type
     const htsFound = caller._hts.find(
-      link => link.rel === rel && link.service === caller._requestedService,
+      link => link.rel === rel && link.service === caller._requestedService
     );
     if (!htsFound) {
-
       // eslint-disable-next-line no-console
       console.warn(
         `No HATEOAS for rel ${rel} in service ${caller._requestedService} found.`,
         caller._hts,
-        caller,
+        caller
       );
-      const customEvent = new Event(`${rel}-rejected`, { composed: true, bubbles: true });
+      const customEvent = new Event(`${rel}-rejected`, {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = caller._hts;
       caller.dispatchEvent(customEvent);
       return undefined;

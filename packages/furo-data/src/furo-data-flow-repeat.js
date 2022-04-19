@@ -68,7 +68,7 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
    * @return {boolean}
    */
   bindData(fieldNode) {
-    if (!this.getAttribute('identity-path')){
+    if (!this.getAttribute('identity-path')) {
       // eslint-disable-next-line no-param-reassign
       fieldNode.clearListOnNewData = true;
     }

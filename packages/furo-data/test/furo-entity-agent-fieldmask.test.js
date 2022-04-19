@@ -14,7 +14,9 @@ describe('furo-entity-agent fieldmask', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <furo-entity-agent ƒ-bind-request-data="--doReady(*.data)"></furo-entity-agent>
+          <furo-entity-agent
+            ƒ-bind-request-data="--doReady(*.data)"
+          ></furo-entity-agent>
           <furo-data-object @-object-ready="--doReady"></furo-data-object>
         </template>
       </flow-bind>
@@ -102,7 +104,7 @@ describe('furo-entity-agent fieldmask', () => {
     const result = entityAgent._getFieldMask(obj);
     assert.equal(
       JSON.stringify(result),
-      '["data.id","data.cost_limit.currency_code","data.cost_limit.display_name","data.cost_limit.nanos","data.cost_limit.units","data.description","data.display_name","data.end.day","data.end.display_name","data.end.month","data.end.year","data.members","data.start.day","data.start.display_name","data.start.month","data.start.year"]',
+      '["data.id","data.cost_limit.currency_code","data.cost_limit.display_name","data.cost_limit.nanos","data.cost_limit.units","data.description","data.display_name","data.end.day","data.end.display_name","data.end.month","data.end.year","data.members","data.start.day","data.start.display_name","data.start.month","data.start.year"]'
     );
   });
 });

@@ -36,7 +36,7 @@ describe('ValidatorNumbericTypes', () => {
         // must be valid
         done();
       },
-      () => {},
+      () => {}
     );
   });
 
@@ -57,7 +57,7 @@ describe('ValidatorNumbericTypes', () => {
         assert.equal(error.name, 'min', 'min');
         assert.equal(error.message, 'Minimal number 6**');
         done();
-      },
+      }
     );
   });
 
@@ -77,7 +77,7 @@ describe('ValidatorNumbericTypes', () => {
       error => {
         assert.equal(error.name, 'max', 'max');
         done();
-      },
+      }
     );
   });
 
@@ -91,7 +91,7 @@ describe('ValidatorNumbericTypes', () => {
       error => {
         assert.equal(error.name, 'max', 'max');
         done();
-      },
+      }
     );
   });
 });

@@ -1,7 +1,7 @@
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import { FieldNode } from './FieldNode.js';
 import { RepeaterNode } from './RepeaterNode.js';
-import {DataObject} from "./DataObject.js";
+import { DataObject } from './DataObject.js';
 
 /**
  * Use this class to make your component bindable without handling with the internals of FieldNode.
@@ -53,15 +53,23 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     isFat() {
-      if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
+      if (
+        this.__fieldNode._spec &&
+        this.__fieldNode._spec.type === 'google.protobuf.Any'
+      ) {
         // check in @type field, return false if it not known at the moment
         return (
           this.__fieldNode['@type'] &&
           this.__fieldNode['@type']._value !== null &&
-          this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('furo.fat')
+          this.__fieldNode['@type']._value
+            .replace(/.*\//, '')
+            .startsWith('furo.fat')
         );
       }
-      return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('furo.fat');
+      return (
+        this.__fieldNode._spec &&
+        this.__fieldNode._spec.type.startsWith('furo.fat')
+      );
     }
 
     /**
@@ -70,15 +78,23 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     isWrapper() {
-      if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
+      if (
+        this.__fieldNode._spec &&
+        this.__fieldNode._spec.type === 'google.protobuf.Any'
+      ) {
         // check in @type field, return false if it not known at the moment
         return (
           this.__fieldNode['@type'] &&
           this.__fieldNode['@type']._value !== null &&
-          this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('google.protobuf')
+          this.__fieldNode['@type']._value
+            .replace(/.*\//, '')
+            .startsWith('google.protobuf')
         );
       }
-      return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('google.protobuf');
+      return (
+        this.__fieldNode._spec &&
+        this.__fieldNode._spec.type.startsWith('google.protobuf')
+      );
     }
 
     /**
@@ -88,9 +104,21 @@ export const FieldNodeAdapter = superClass =>
      */
     bindData(fieldNode) {
       // check if we have a FieldNode or RepeaterNode
-      if (!(fieldNode instanceof FieldNode || fieldNode instanceof RepeaterNode || fieldNode instanceof DataObject)) {
+      if (
+        !(
+          fieldNode instanceof FieldNode ||
+          fieldNode instanceof RepeaterNode ||
+          fieldNode instanceof DataObject
+        )
+      ) {
         // eslint-disable-next-line no-console
-        console.warn('Invalid binding ', fieldNode, 'is not a FieldNode', this, this.parentNode);
+        console.warn(
+          'Invalid binding ',
+          fieldNode,
+          'is not a FieldNode',
+          this,
+          this.parentNode
+        );
         return false;
       }
 
@@ -111,12 +139,30 @@ export const FieldNodeAdapter = superClass =>
       }
 
       // add the main event listeners
-      fieldNode.addEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
-      fieldNode.addEventListener('new-data-injected', this.__fieldNewDataInjectedHandler);
-      fieldNode.addEventListener('this-repeated-field-changed', this.__repeatedFieldChangedHandler);
-      fieldNode.addEventListener('field-value-changed', this.__fieldValueChangedHandler);
-      fieldNode.addEventListener('field-became-valid', this.__fieldBecamesValidHandler);
-      fieldNode.addEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
+      fieldNode.addEventListener(
+        'this-metas-changed',
+        this.__fieldMetasChangedHandler
+      );
+      fieldNode.addEventListener(
+        'new-data-injected',
+        this.__fieldNewDataInjectedHandler
+      );
+      fieldNode.addEventListener(
+        'this-repeated-field-changed',
+        this.__repeatedFieldChangedHandler
+      );
+      fieldNode.addEventListener(
+        'field-value-changed',
+        this.__fieldValueChangedHandler
+      );
+      fieldNode.addEventListener(
+        'field-became-valid',
+        this.__fieldBecamesValidHandler
+      );
+      fieldNode.addEventListener(
+        'field-became-invalid',
+        this.__fieldBecamesInvalidHandler
+      );
 
       // this is for easier debugging with the inspector
       this.__fieldNode = fieldNode;
@@ -151,7 +197,9 @@ export const FieldNodeAdapter = superClass =>
 
       // broadcast validation request because we do an injection on FAT
       if (this.__fieldNode._spec) {
-        this.__fieldNode.broadcastEvent(new NodeEvent('validation-requested', this));
+        this.__fieldNode.broadcastEvent(
+          new NodeEvent('validation-requested', this)
+        );
       }
     }
 
@@ -301,13 +349,13 @@ export const FieldNodeAdapter = superClass =>
             if (this.__fieldNode['@type'] !== undefined) {
               this.___timeout = setTimeout(
                 () => this.onFnaFieldValueChanged(this.__fieldNode._value),
-                1,
+                1
               );
             }
           } else {
             this.___timeout = setTimeout(
               () => this.onFnaFieldValueChanged(this.__fieldNode._value),
-              1,
+              1
             );
           }
         }
@@ -329,9 +377,9 @@ export const FieldNodeAdapter = superClass =>
        */
       this.__fieldMetasChangedHandler = () => {
         const fnMeta = this.__fieldNode._meta;
-        if(fnMeta === undefined){
+        if (fnMeta === undefined) {
           // DataObject has no metas
-          return
+          return;
         }
 
         if (this.__meta.placeholder !== fnMeta.placeholder) {
@@ -414,17 +462,26 @@ export const FieldNodeAdapter = superClass =>
      */
     __detachEventListeners() {
       // check is needed, because on no binding there is no fieldNode to detach from
-      if (this.__fieldNode instanceof FieldNode || this.__fieldNode instanceof RepeaterNode) {
+      if (
+        this.__fieldNode instanceof FieldNode ||
+        this.__fieldNode instanceof RepeaterNode
+      ) {
         this.__fieldNode.removeEventListener(
           'field-value-changed',
-          this.__fieldValueChangedHandler,
+          this.__fieldValueChangedHandler
         );
-        this.__fieldNode.removeEventListener('field-became-valid', this.__fieldBecamesValidHandler);
+        this.__fieldNode.removeEventListener(
+          'field-became-valid',
+          this.__fieldBecamesValidHandler
+        );
         this.__fieldNode.removeEventListener(
           'field-became-invalid',
-          this.__fieldBecamesInvalidHandler,
+          this.__fieldBecamesInvalidHandler
         );
-        this.__fieldNode.removeEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
+        this.__fieldNode.removeEventListener(
+          'this-metas-changed',
+          this.__fieldMetasChangedHandler
+        );
       }
     }
   };

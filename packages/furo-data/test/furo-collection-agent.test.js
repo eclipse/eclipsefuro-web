@@ -139,7 +139,7 @@ describe('furo-collection-agent', () => {
         typeof element._queryParams === 'object' &&
           !Array.isArray(element._queryParams) &&
           element._queryParams !== null,
-        true,
+        true
       );
       done();
     });
@@ -195,7 +195,10 @@ describe('furo-collection-agent', () => {
      */
     element._FBPAddWireHook('--triggerLoad', req => {
       assert.equal(req.url.indexOf('order_by=id,-display_name') > 0, true);
-      assert.equal(req.url.indexOf('filter=[[%22id%22,%22eq%22,%221%22]]') > 0, true);
+      assert.equal(
+        req.url.indexOf('filter=[[%22id%22,%22eq%22,%221%22]]') > 0,
+        true
+      );
       assert.equal(req.url.indexOf('fields=display_name') > 0, true);
       assert.equal(req.url.indexOf('page_size=15') > 0, true);
       done();
@@ -231,9 +234,9 @@ describe('furo-collection-agent', () => {
     element._FBPAddWireHook('--triggerLoad', req => {
       assert.equal(
         req.url.indexOf(
-          'filter=[[%22id%22,%22eq%22,%221%22],[%22display_name%22,%22con%22,%22done%22]]',
+          'filter=[[%22id%22,%22eq%22,%221%22],[%22display_name%22,%22con%22,%22done%22]]'
         ) > 0,
-        true,
+        true
       );
       done();
     });
@@ -263,9 +266,9 @@ describe('furo-collection-agent', () => {
     element._FBPAddWireHook('--triggerLoad', req => {
       assert.equal(
         req.url.indexOf(
-          'filter=[[%22id%22,%22eq%22,%221%22],[%22display_name%22,%22con%22,%22done%22]]',
+          'filter=[[%22id%22,%22eq%22,%221%22],[%22display_name%22,%22con%22,%22done%22]]'
         ) > 0,
-        false,
+        false
       );
       done();
     });
@@ -639,7 +642,7 @@ describe('furo-collection-agent', () => {
       });
       assert.equal(
         request.headers.get('Accept'),
-        'application/task.TaskCollection+json, application/json;q=0.9',
+        'application/task.TaskCollection+json, application/json;q=0.9'
       );
       done();
     });

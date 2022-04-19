@@ -102,14 +102,14 @@ class FuroCustomMethod extends FBP(LitElement) {
    * @param service
    */
   set service(service) {
-    this._requestedService = service
+    this._requestedService = service;
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.error(
         `service ${service} does not exist`,
         this,
         'Available Services:',
-        this._servicedefinitions,
+        this._servicedefinitions
       );
       return;
     }
@@ -118,7 +118,7 @@ class FuroCustomMethod extends FBP(LitElement) {
     if (this._service.lifecycle && this._service.lifecycle.deprecated) {
       // eslint-disable-next-line no-console
       console.warn(
-        `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`,
+        `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`
       );
     }
   }
@@ -179,13 +179,14 @@ class FuroCustomMethod extends FBP(LitElement) {
       headers.append('Content-Type', 'application/json; charset=utf-8');
     }
 
-    const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
+    const REL_NAME =
+      link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
     // generate accept field for header
     const ACCEPT = AgentHelper.generateHeaderAccept(
       this,
       this._ApiEnvironment.services[link.service].services,
-      REL_NAME,
+      REL_NAME
     );
 
     if (ACCEPT) {
@@ -230,15 +231,25 @@ class FuroCustomMethod extends FBP(LitElement) {
 
     if (s.indexOf(serviceName.toLowerCase()) === -1) {
       // eslint-disable-next-line no-console
-      console.warn(`Service ${serviceName} is not specified`, this._service, this);
+      console.warn(
+        `Service ${serviceName} is not specified`,
+        this._service,
+        this
+      );
       return true;
     }
 
     // check Hateoas
     if (!this._hts[rel]) {
       // eslint-disable-next-line no-console
-      console.warn(`No HATEOAS for rel ${rel} in service ${this._service.name} found.`, this);
-      const customEvent = new Event(`missing-hts-${rel}`, { composed: true, bubbles: false });
+      console.warn(
+        `No HATEOAS for rel ${rel} in service ${this._service.name} found.`,
+        this
+      );
+      const customEvent = new Event(`missing-hts-${rel}`, {
+        composed: true,
+        bubbles: false,
+      });
       this.dispatchEvent(customEvent);
       return true;
     }
@@ -260,7 +271,10 @@ class FuroCustomMethod extends FBP(LitElement) {
     if (this._checkServiceAndHateoasLinkError(this.method, this.method)) {
       return;
     }
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(this._hts[this.method]));
+    this._FBPTriggerWire(
+      '--triggerLoad',
+      this._makeRequest(this._hts[this.method])
+    );
   }
 
   /**
@@ -271,7 +285,10 @@ class FuroCustomMethod extends FBP(LitElement) {
       return;
     }
 
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(this._hts[this.method], body));
+    this._FBPTriggerWire(
+      '--triggerLoad',
+      this._makeRequest(this._hts[this.method], body)
+    );
   }
 
   htsIn(hts) {
@@ -281,7 +298,10 @@ class FuroCustomMethod extends FBP(LitElement) {
         this._hts[link.rel] = link;
       });
 
-      const customEvent = new Event('hts-updated', { composed: true, bubbles: true });
+      const customEvent = new Event('hts-updated', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
     }
@@ -306,11 +326,11 @@ class FuroCustomMethod extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abortDemanded"
-              @-response="--requestFinished"
-              @-response-error="--requestFinished"
-              @-fatal-error="--requestFinished"
+        ƒ-invoke-request="--triggerLoad"
+        ƒ-abort-request="--abortDemanded"
+        @-response="--requestFinished"
+        @-response-error="--requestFinished"
+        @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

@@ -15,7 +15,9 @@ describe('furo-custom-method', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <furo-custom-method ƒ-bind-request-data="--doReady(*.data)"></furo-custom-method>
+          <furo-custom-method
+            ƒ-bind-request-data="--doReady(*.data)"
+          ></furo-custom-method>
           <furo-data-object @-object-ready="--doReady"></furo-data-object>
         </template>
       </flow-bind>
@@ -235,7 +237,7 @@ describe('furo-custom-method', () => {
       });
       assert.equal(
         request.headers.get('Accept'),
-        'application/experiment.Experiment+json, application/json;q=0.9',
+        'application/experiment.Experiment+json, application/json;q=0.9'
       );
       done();
     });

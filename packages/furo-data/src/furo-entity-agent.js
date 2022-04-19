@@ -106,9 +106,11 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     // HTS aus response anwenden
     this._FBPAddWireHook('--responseParsed', r => {
-
       if (this._updateInternalHTS(r[this._linkField])) {
-        const customEvent = new Event('response-hts-updated', { composed: true, bubbles: true });
+        const customEvent = new Event('response-hts-updated', {
+          composed: true,
+          bubbles: true,
+        });
         customEvent.detail = r[this._linkField];
         this.dispatchEvent(customEvent);
       }
@@ -158,14 +160,14 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @param service
    */
   set service(service) {
-    this._requestedService = service
+    this._requestedService = service;
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.error(
         `service ${service} does not exist`,
         this,
         'Available Services:',
-        this._servicedefinitions,
+        this._servicedefinitions
       );
       return;
     }
@@ -173,7 +175,7 @@ class FuroEntityAgent extends FBP(LitElement) {
     if (this._service.lifecycle && this._service.lifecycle.deprecated) {
       // eslint-disable-next-line no-console
       console.warn(
-        `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`,
+        `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`
       );
     }
   }
@@ -227,7 +229,11 @@ class FuroEntityAgent extends FBP(LitElement) {
             body[field._name] = field._value;
           } else if (val !== undefined) {
             // send null if null was set!!
-            if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
+            if (
+              val !== null &&
+              typeof val === 'object' &&
+              !Array.isArray(val)
+            ) {
               body[field._name] = {};
               // eslint-disable-next-line guard-for-in,no-restricted-syntax
               for (const key in val) {
@@ -243,13 +249,22 @@ class FuroEntityAgent extends FBP(LitElement) {
 
         // check for query field update_mask
         // todo: maybe proof one query param for type google.protobuf.FieldMask like grpc-gateway does it would be better
-        if (this.appendUpdateMaskQP && this._service.services.Update.query.update_mask) {
+        if (
+          this.appendUpdateMaskQP &&
+          this._service.services.Update.query.update_mask
+        ) {
           // add the field_mask
           this._queryParams.update_mask = this._getFieldMask(body).join(',');
         }
-      } else if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
+      } else if (
+        Env.api.sendAllDataOnMethodPut &&
+        link.method.toLowerCase() === 'put'
+      ) {
         body = dataObject._value;
-      } else if (dataObject._spec && dataObject._spec.type === 'google.protobuf.Struct') {
+      } else if (
+        dataObject._spec &&
+        dataObject._spec.type === 'google.protobuf.Struct'
+      ) {
         // if the data object is from type Struct, set the body to the value of the data object
         // this is necessary because a Struct doesn't have child nodes
         // otherwise, copy only the non-readonly fields to the body
@@ -322,17 +337,18 @@ class FuroEntityAgent extends FBP(LitElement) {
       headers.append('Content-Type', 'application/json; charset=utf-8');
     }
 
-    const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
+    const REL_NAME =
+      link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
-    if(this._ApiEnvironment.services[link.service] === undefined){
+    if (this._ApiEnvironment.services[link.service] === undefined) {
       // eslint-disable-next-line no-console
-      console.warn("unknown service" , link.service)
+      console.warn('unknown service', link.service);
     }
     // generate accept field for header
     const ACCEPT = AgentHelper.generateHeaderAccept(
       this,
       this._ApiEnvironment.services[link.service].services,
-      REL_NAME,
+      REL_NAME
     );
 
     if (ACCEPT) {
@@ -426,32 +442,39 @@ class FuroEntityAgent extends FBP(LitElement) {
     return result;
   }
 
-
   /**
    * find the first field of type furo.Link and use this for hts-out
    * @param fields
    * @private
    */
-  _evaluateLinksField(fields){
-    Object.keys(fields).forEach(field=>{
-      if (fields[field].type === "furo.Link"){
+  _evaluateLinksField(fields) {
+    Object.keys(fields).forEach(field => {
+      if (fields[field].type === 'furo.Link') {
         this._linkField = field;
         // eslint-disable-next-line
-        return
+        return;
       }
-    })
+    });
   }
 
   /**
    * loads the entity if hts is available
    */
   load() {
-    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'self', 'Get');
-    const responseType = this._service.services["Get"].data.response;
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(
+      this,
+      'self',
+      'Get'
+    );
+    // eslint-disable-next-line
+    const responseType = this._service.services['Get'].data.response;
     this._evaluateLinksField(Env.api.specs[responseType].fields);
 
     if (!hts) {
-      const customEvent = new Event('missing-hts-self', { composed: true, bubbles: false });
+      const customEvent = new Event('missing-hts-self', {
+        composed: true,
+        bubbles: false,
+      });
       this.dispatchEvent(customEvent);
       return false;
     }
@@ -464,9 +487,16 @@ class FuroEntityAgent extends FBP(LitElement) {
    * delete the entity if hts is available
    */
   delete() {
-    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'delete', 'Delete');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(
+      this,
+      'delete',
+      'Delete'
+    );
     if (!hts) {
-      const customEvent = new Event('missing-hts-delete', { composed: true, bubbles: false });
+      const customEvent = new Event('missing-hts-delete', {
+        composed: true,
+        bubbles: false,
+      });
       this.dispatchEvent(customEvent);
       return;
     }
@@ -487,15 +517,25 @@ class FuroEntityAgent extends FBP(LitElement) {
       return this.create();
     }
 
-    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'update', 'Update');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(
+      this,
+      'update',
+      'Update'
+    );
     if (!hts) {
-      const customEvent = new Event('missing-hts-update', { composed: true, bubbles: false });
+      const customEvent = new Event('missing-hts-update', {
+        composed: true,
+        bubbles: false,
+      });
       this.dispatchEvent(customEvent);
       return new Error('HATEOAS update is not available');
     }
 
     this._attachListeners('save');
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts, this._requestDataObject));
+    this._FBPTriggerWire(
+      '--triggerLoad',
+      this._makeRequest(hts, this._requestDataObject)
+    );
 
     return true;
   }
@@ -504,28 +544,48 @@ class FuroEntityAgent extends FBP(LitElement) {
    * saves the entity with method put if hts is available
    */
   put() {
-    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'update', 'Update');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(
+      this,
+      'update',
+      'Update'
+    );
     if (!hts) {
-      const customEvent = new Event('missing-hts-update', { composed: true, bubbles: false });
+      const customEvent = new Event('missing-hts-update', {
+        composed: true,
+        bubbles: false,
+      });
       this.dispatchEvent(customEvent);
       return;
     }
     this._attachListeners('put');
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts, this._requestDataObject));
+    this._FBPTriggerWire(
+      '--triggerLoad',
+      this._makeRequest(hts, this._requestDataObject)
+    );
   }
 
   /**
    * creating the entity if hts rel="create" is available
    */
   create() {
-    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'create', 'Create');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(
+      this,
+      'create',
+      'Create'
+    );
     if (!hts) {
-      const customEvent = new Event('missing-hts-create', { composed: true, bubbles: false });
+      const customEvent = new Event('missing-hts-create', {
+        composed: true,
+        bubbles: false,
+      });
       this.dispatchEvent(customEvent);
       return;
     }
     this._attachListeners('create');
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts, this._requestDataObject));
+    this._FBPTriggerWire(
+      '--triggerLoad',
+      this._makeRequest(hts, this._requestDataObject)
+    );
   }
 
   /**
@@ -537,7 +597,10 @@ class FuroEntityAgent extends FBP(LitElement) {
     const success = e => {
       // we do not want req-success and req-failed outside of this component
       e.stopPropagation();
-      const customEvent = new Event(`${eventPrefix}-success`, { composed: true, bubbles: true });
+      const customEvent = new Event(`${eventPrefix}-success`, {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
 
@@ -553,7 +616,9 @@ class FuroEntityAgent extends FBP(LitElement) {
       if ((err.message || err.code) && err.details) {
         err.details.forEach(errorSet => {
           if (errorSet.field_violations) {
-            const fieldViolations = JSON.parse(JSON.stringify(errorSet.field_violations));
+            const fieldViolations = JSON.parse(
+              JSON.stringify(errorSet.field_violations)
+            );
             fieldViolations.forEach(error => {
               const path = error.field.split('.');
               if (path.length > 0) {
@@ -574,7 +639,10 @@ class FuroEntityAgent extends FBP(LitElement) {
 
       // we do not want req-success and req-failed outside of this component
       e.stopPropagation();
-      const customEvent = new Event(`${eventPrefix}-failed`, { composed: true, bubbles: true });
+      const customEvent = new Event(`${eventPrefix}-failed`, {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
 
@@ -608,7 +676,10 @@ class FuroEntityAgent extends FBP(LitElement) {
       hts.forEach(link => {
         this._hts.push(link);
       });
-      const customEvent = new Event('hts-updated', { composed: true, bubbles: false });
+      const customEvent = new Event('hts-updated', {
+        composed: true,
+        bubbles: false,
+      });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
       return true;
@@ -618,7 +689,10 @@ class FuroEntityAgent extends FBP(LitElement) {
 
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
-      const customEvent = new Event('hts-injected', { composed: true, bubbles: false });
+      const customEvent = new Event('hts-injected', {
+        composed: true,
+        bubbles: false,
+      });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
 
@@ -665,12 +739,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abortDemanded"
-              @-response="--responseParsed, --requestFinished, ^^req-success"
-              @-response-error="^^req-failed, --requestFinished"
-              @-parse-error="^^req-failed, --requestFinished"
-              @-fatal-error="--requestFinished"
+        ƒ-invoke-request="--triggerLoad"
+        ƒ-abort-request="--abortDemanded"
+        @-response="--responseParsed, --requestFinished, ^^req-success"
+        @-response-error="^^req-failed, --requestFinished"
+        @-parse-error="^^req-failed, --requestFinished"
+        @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

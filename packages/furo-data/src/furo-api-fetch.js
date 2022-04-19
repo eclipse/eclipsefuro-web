@@ -55,7 +55,11 @@ class FuroApiFetch extends HTMLElement {
   invokeRequest(request) {
     if (!request || !request.url) {
       // eslint-disable-next-line no-console
-      console.warn('No valid request object was passed. No operation is performed!', request, this);
+      console.warn(
+        'No valid request object was passed. No operation is performed!',
+        request,
+        this
+      );
       return;
     }
     this.lastRequest = request;
@@ -90,7 +94,7 @@ class FuroApiFetch extends HTMLElement {
           detail,
           bubbles: true,
           composed: true,
-        }),
+        })
       );
     };
 
@@ -105,7 +109,7 @@ class FuroApiFetch extends HTMLElement {
         detail: request,
         bubbles: true,
         composed: true,
-      }),
+      })
     );
 
     fetch(request)
@@ -119,7 +123,7 @@ class FuroApiFetch extends HTMLElement {
               detail: request,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
           // eslint-disable-next-line no-console
           console.error('RequestService fetch aborted: ', err);
@@ -166,7 +170,7 @@ class FuroApiFetch extends HTMLElement {
           detail: response,
           bubbles: true,
           composed: true,
-        }),
+        })
       );
 
       /**
@@ -180,7 +184,7 @@ class FuroApiFetch extends HTMLElement {
               detail: r,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
         })
         .catch(error => {
@@ -189,7 +193,7 @@ class FuroApiFetch extends HTMLElement {
               detail: error,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
         });
     } else {
@@ -203,7 +207,7 @@ class FuroApiFetch extends HTMLElement {
           detail: response,
           bubbles: true,
           composed: true,
-        }),
+        })
       );
 
       /**
@@ -217,7 +221,7 @@ class FuroApiFetch extends HTMLElement {
               detail: r,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
           /**
            * @event response-error-[status-code]
@@ -227,14 +231,17 @@ class FuroApiFetch extends HTMLElement {
               detail: r,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
           this.dispatchEvent(
-            new CustomEvent(`response-error-${response.status.toString().charAt(0)}xx`, {
-              detail: r,
-              bubbles: true,
-              composed: true,
-            }),
+            new CustomEvent(
+              `response-error-${response.status.toString().charAt(0)}xx`,
+              {
+                detail: r,
+                bubbles: true,
+                composed: true,
+              }
+            )
           );
         })
         /**
@@ -247,28 +254,31 @@ class FuroApiFetch extends HTMLElement {
               detail: error,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
           this.dispatchEvent(
             new CustomEvent('response-error', {
               detail: error,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
           this.dispatchEvent(
             new CustomEvent(`response-error-${response.status}`, {
               detail: error,
               bubbles: true,
               composed: true,
-            }),
+            })
           );
           this.dispatchEvent(
-            new CustomEvent(`response-error-${response.status.toString().charAt(0)}xx`, {
-              detail: error,
-              bubbles: true,
-              composed: true,
-            }),
+            new CustomEvent(
+              `response-error-${response.status.toString().charAt(0)}xx`,
+              {
+                detail: error,
+                bubbles: true,
+                composed: true,
+              }
+            )
           );
         });
     }
@@ -353,7 +363,8 @@ class FuroApiFetch extends HTMLElement {
         };
         const contentType = response.headers.get('content-type');
         const typeHandler =
-          responseHandler[contentType.split(';')[0].trim()] || responseHandler.default;
+          responseHandler[contentType.split(';')[0].trim()] ||
+          responseHandler.default;
         typeHandler(response);
       } else {
         reject(new Error('no response'));
