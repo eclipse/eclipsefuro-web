@@ -6,7 +6,7 @@ weight: 100
 
 # FuroFeatureToggle
 
-**@furo/furo-framework** <small>v2.0.1</small>
+**@furo/furo-framework** <small>v2.1.0</small>
 <br>`import '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js';`<small>
 <br>exports *FuroFeatureToggle* js</small>
 
@@ -31,6 +31,8 @@ Sometimes you want to hide some parts if a key is true and sometimes you have to
 - `data-furo-toggle-disable` Adds a disabled attribute to the element on true state of the key, removes the attribute on false state
 - `data-furo-toggle-enable` Removes a disabled attribute from the element on true state of the key, adds the attribute on false state
 
+- `data-furo-toggle-custom-add` Adds the custom attribute to the element on true state of the key, removes the attribute on false state
+- `data-furo-toggle-custom-remove` Removes the custom attribute from the element on true state of the key, adds the attribute on false state
 
 ## Example usage:
 ### js
@@ -76,6 +78,16 @@ FuroFeatureToggle.parseDom(this.shadowRoot)
  show:
  <div data-furo-toggle-show='feature.key'>
   The hidden attribute will be removed when the key state is true, otherwise the hidden attribute will be set.
+ </div>
+
+ custom add:
+ <div data-furo-toggle-custom-add='feature.key, ATTRIBUTE, VALUE'>
+  Div will get a custom attribute when the key state is true, otherwise the custom attribute will be removed.
+ </div>
+
+ custom remove:
+ <div data-furo-toggle-custom-remove='feature.key, ATTRIBUTE, VALUE'>
+  The custom attribute will be removed when the key state is true, otherwise the custom attribute will be set.
  </div>
 
 ```

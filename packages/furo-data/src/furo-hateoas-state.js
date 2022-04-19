@@ -67,6 +67,7 @@ class FuroHateoasState extends FieldNodeAdapter(LitElement) {
    */
   bindData(fieldNode) {
     if (fieldNode._spec.type !== 'furo.Link') {
+      // eslint-disable-next-line no-console
       console.warn('invalid type ', fieldNode._spec.type, ', must be furo.Link')
     }
     return super.bindData(fieldNode)

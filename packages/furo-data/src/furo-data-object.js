@@ -141,11 +141,11 @@ export class FuroDataObject extends LitElement {
     setTimeout(() => {
       if (this.data._isValid) {
         const customEvent = new Event('validation-success', { composed: true, bubbles: true });
-        customEvent.detail = this.data;
+        customEvent.detail = {data: this.data};
         this.dispatchEvent(customEvent);
       } else {
         const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
-        customEvent.detail = this.data;
+        customEvent.detail = {data: this.data, field_violations: this.data.getValidityMessage()};
         this.dispatchEvent(customEvent);
       }
     }, 64);

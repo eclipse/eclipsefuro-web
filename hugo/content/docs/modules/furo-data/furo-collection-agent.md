@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-collection-agent
-**@furo/data** <small>v2.0.1</small>
+**@furo/data** <small>v2.0.5</small>
 <br>`import '@furo/data/src/furo-collection-agent.js';`<small>
 <br>exports `<furo-collection-agent>` custom-element-definition
 <br>superclass *LitElement*
@@ -82,6 +82,8 @@ Only useable if your service has implemented this feature.
 
 The service name from the specs.
 <br><br>
+
+
 
 
 
@@ -389,6 +391,7 @@ clear the query params that you have setted before
 
 
 
+
 ### **list**
 <small>**list**() ⟹ `void`</small>
 
@@ -506,6 +509,7 @@ Inject HATEOAS links.
 Aborts a pending request
 
 <br><br>
+
 
 
 

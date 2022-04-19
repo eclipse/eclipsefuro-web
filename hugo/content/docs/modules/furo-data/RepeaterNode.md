@@ -6,7 +6,7 @@ weight: 100
 
 # RepeaterNode
 
-**@furo/furo-data** <small>v2.0.1</small>
+**@furo/furo-data** <small>v2.0.5</small>
 <br>`import '@furo/data/src/lib/RepeaterNode.js';`<small>
 <br>exports *RepeaterNode* js
 <br>superclass *EventTreeNode*</small>
@@ -32,6 +32,7 @@ default: **tmp**</small>
 
 
 <br><br>
+
 
 
 
@@ -161,6 +162,7 @@ we can return false here, because a repeater node is not created automatically
 
 - <small>*metaAndConstraints* </small>
 <br><br>
+
 
 
 

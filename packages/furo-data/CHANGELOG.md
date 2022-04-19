@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.5...@furo/data@2.1.0) (2022-04-14)
+
+
+### Bug Fixes
+
+* issue-70, testing Integer types ([500ebf1](https://github.com/eclipse/eclipsefuro-web/commit/500ebf1bcaa2cdefe6d55f7f4fe2394b53ae9e44))
+
+
+### Features
+
+* issue-75, validity message list ([1074686](https://github.com/eclipse/eclipsefuro-web/commit/10746867e72cd8333abe35ec47a28aabaa0637ee))
+* Removing the fixed names for links and meta [#73](https://github.com/eclipse/eclipsefuro-web/issues/73) ([a9ae7ad](https://github.com/eclipse/eclipsefuro-web/commit/a9ae7adb4bcf713edc792dfacbcb843e2582d7df))
+
+
+
+
+
 ## [2.0.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.4...@furo/data@2.0.5) (2022-03-17)
 
 **Note:** Version bump only for package @furo/data
