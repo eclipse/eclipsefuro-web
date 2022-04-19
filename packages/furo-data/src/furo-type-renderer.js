@@ -1,5 +1,5 @@
-import { LitElement, html, css } from 'lit';
-import { FBP } from '@furo/fbp/src/fbp.js';
+import { LitElement, html, css } from 'lit'
+import { FBP } from '@furo/fbp/src/fbp.js'
 
 /**
  * The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you
@@ -58,8 +58,8 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  */
 class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
-    super();
-    this.context = 'display';
+    super()
+    this.context = 'display'
   }
 
   static get styles() {
@@ -68,7 +68,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
       :host {
         display: none;
       }
-    `;
+    `
   }
 
   /**
@@ -88,7 +88,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
        *
        */
       context: { type: String },
-    };
+    }
   }
 
   /**
@@ -97,7 +97,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    this._field = fieldNode;
+    this._field = fieldNode
 
     if (this._field) {
       if (this._field['@type']) {
@@ -109,7 +109,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
           .replace(/.*\//, '')
           .replaceAll('.', '-')
           .replaceAll('_', '-')
-          .toLocaleLowerCase()}`;
+          .toLocaleLowerCase()}`
       } else {
         /**
          * all other types
@@ -117,15 +117,15 @@ class FuroTypeRenderer extends FBP(LitElement) {
         this.renderName = `${this.context}-${this._field._spec.type
           .replaceAll('.', '-')
           .replaceAll('_', '-')
-          .toLocaleLowerCase()}`;
+          .toLocaleLowerCase()}`
       }
 
-      this.defaultElement = document.createElement(this.renderName);
+      this.defaultElement = document.createElement(this.renderName)
 
       if (!this._field._isRepeater) {
-        this._createDisplay();
+        this._createDisplay()
       } else {
-        this._createRepeatedDisplay();
+        this._createRepeatedDisplay()
       }
     }
   }
@@ -136,9 +136,9 @@ class FuroTypeRenderer extends FBP(LitElement) {
    */
   _createDisplay() {
     if (this.defaultElement.bindData) {
-      this._addElement(this.defaultElement);
+      this._addElement(this.defaultElement)
     } else {
-      this._warning();
+      this._warning()
     }
   }
 
@@ -150,22 +150,22 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @private
    */
   _createRepeatedDisplay() {
-    const rRenderName = `${this.renderName}-repeated`;
-    const elementRepeat = document.createElement(rRenderName);
+    const rRenderName = `${this.renderName}-repeated`
+    const elementRepeat = document.createElement(rRenderName)
     if (elementRepeat.bindData) {
-      this._addElement(elementRepeat);
+      this._addElement(elementRepeat)
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      this._fallbackFlowRepeat = document.createElement('flow-repeat');
-      const tpl = document.createElement('template');
-      tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`;
-      this._fallbackFlowRepeat.appendChild(tpl);
+      this._fallbackFlowRepeat = document.createElement('flow-repeat')
+      const tpl = document.createElement('template')
+      tpl.innerHTML = `<${this.renderName} ƒ-bind-data='--item'></${this.renderName}>`
+      this._fallbackFlowRepeat.appendChild(tpl)
 
-      this.parentNode.insertBefore(this._fallbackFlowRepeat, this);
+      this.parentNode.insertBefore(this._fallbackFlowRepeat, this)
 
-      this._fallbackFlowRepeat.injectItems(this._field.repeats);
+      this._fallbackFlowRepeat.injectItems(this._field.repeats)
     } else {
-      this._warning();
+      this._warning()
     }
   }
 
@@ -176,19 +176,33 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @private
    */
   _addElement(el) {
-    const l = this.attributes.length;
+    const l = this.attributes.length
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < l; ++i) {
-      const { nodeName } = this.attributes.item(i);
-      const { nodeValue } = this.attributes.item(i);
+      const { nodeName } = this.attributes.item(i)
+      const { nodeValue } = this.attributes.item(i)
       // eslint-disable-next-line eqeqeq
       if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
-        el.setAttribute(nodeName, nodeValue);
+        el.setAttribute(nodeName, nodeValue)
       }
     }
-    el.bindData(this._field);
-    this.parentNode.insertBefore(el, this);
+    el.bindData(this._field)
+    this._insertedElementRef = this.parentNode.insertBefore(el, this)
   }
+
+
+  /**
+   * Remove the inserted element, if the type renderer itself is removed
+   * @private
+   */
+  disconnectedCallback() {
+    if (this._insertedElementRef) {
+      this._insertedElementRef.remove()
+    }
+    // eslint-disable-next-line wc/guard-super-call
+    super.disconnectedCallback()
+  }
+
 
   /**
    *
@@ -199,8 +213,8 @@ class FuroTypeRenderer extends FBP(LitElement) {
     console.warn(
       `No type specific renderer ${this.renderName} found. Check your imports.`,
       this._field._spec.type,
-    );
+    )
   }
 }
 
-window.customElements.define('furo-type-renderer', FuroTypeRenderer);
+window.customElements.define('furo-type-renderer', FuroTypeRenderer)
