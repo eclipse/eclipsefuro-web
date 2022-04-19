@@ -34,10 +34,26 @@ describe('furo data oneof', () => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
 
-    assert.equal(EntityRoot.display_name._spec.__proto.oneof, 'aaa', 'in aaa group');
-    assert.equal(EntityRoot.furo_data_checkbox_input._spec.__proto.oneof, 'aaa', 'in aaa group');
-    assert.equal(EntityRoot.description._spec.__proto.oneof, 'bbb', 'in bbb group');
-    assert.equal(EntityRoot.furo_data_text_input._spec.__proto.oneof, 'bbb', 'in bbb group');
+    assert.equal(
+      EntityRoot.display_name._spec.__proto.oneof,
+      'aaa',
+      'in aaa group'
+    );
+    assert.equal(
+      EntityRoot.furo_data_checkbox_input._spec.__proto.oneof,
+      'aaa',
+      'in aaa group'
+    );
+    assert.equal(
+      EntityRoot.description._spec.__proto.oneof,
+      'bbb',
+      'in bbb group'
+    );
+    assert.equal(
+      EntityRoot.furo_data_text_input._spec.__proto.oneof,
+      'bbb',
+      'in bbb group'
+    );
     done();
   });
 
@@ -72,7 +88,10 @@ describe('furo data oneof', () => {
     const jsonval = EntityRoot.getJson();
 
     // eslint-disable-next-line no-prototype-builtins
-    assert.equal(JSON.parse(JSON.stringify(jsonval)).hasOwnProperty('update_mask'), true);
+    assert.equal(
+      JSON.parse(JSON.stringify(jsonval)).hasOwnProperty('update_mask'),
+      true
+    );
     assert.equal(jsonval.update_mask, null);
     done();
   });

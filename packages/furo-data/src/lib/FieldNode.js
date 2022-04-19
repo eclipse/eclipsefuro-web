@@ -1,11 +1,11 @@
-import {EventTreeNode, NodeEvent} from '@furo/framework/src/EventTreeNode.js';
+import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 // eslint-disable-next-line import/no-cycle
-import {RepeaterNode} from './RepeaterNode.js';
-import {ScalarTypeHelper} from './ScalarTypeHelper.js';
-import {ValidatorNumericTypes} from './ValidatorNumericTypes.js';
-import {ValidatorDefaultTypes} from './ValidatorDefaultTypes.js';
-import {ValidatorGoogleTypeDate} from './ValidatorGoogleTypeDate.js';
-import {ValidatorGoogleTypeMoney} from './ValidatorGoogleTypeMoney.js';
+import { RepeaterNode } from './RepeaterNode.js';
+import { ScalarTypeHelper } from './ScalarTypeHelper.js';
+import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
+import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
+import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
+import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 
 /**
  *
@@ -66,7 +66,8 @@ export class FieldNode extends EventTreeNode {
         Object.keys(parentNode._constraints).forEach(parentconstraint => {
           const pc = parentconstraint.split('.');
           if (pc.shift() === fieldName) {
-            this._constraints[pc.join('.')] = parentNode._constraints[parentconstraint];
+            this._constraints[pc.join('.')] =
+              parentNode._constraints[parentconstraint];
           }
         });
       }
@@ -102,7 +103,6 @@ export class FieldNode extends EventTreeNode {
      * @type {boolean}
      */
     this._isValid = true;
-
 
     /**
      *
@@ -162,7 +162,11 @@ export class FieldNode extends EventTreeNode {
       }
 
       // check parent readonly meta and inherit if true
-      if (parentNode && parentNode._meta && parentNode._meta.readonly === true) {
+      if (
+        parentNode &&
+        parentNode._meta &&
+        parentNode._meta.readonly === true
+      ) {
         this._meta.readonly = true;
       }
       this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
@@ -230,7 +234,9 @@ export class FieldNode extends EventTreeNode {
         this._meta.readonly = false;
       }
       if (roBefore !== this._meta.readonly) {
-        this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
+        this.dispatchNodeEvent(
+          new NodeEvent('this-metas-changed', this, false)
+        );
       }
     });
 
@@ -248,8 +254,8 @@ export class FieldNode extends EventTreeNode {
    * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
    */
   createField(options) {
-    const {fieldName} = options;
-    let spec = {type: options.type};
+    const { fieldName } = options;
+    let spec = { type: options.type };
 
     if (options.spec) {
       spec = options.spec;
@@ -257,7 +263,9 @@ export class FieldNode extends EventTreeNode {
 
     if (!this[fieldName]) {
       this[fieldName] = new FieldNode(this, spec, fieldName);
-      this.dispatchNodeEvent(new NodeEvent('this-node-field-added', this, false));
+      this.dispatchNodeEvent(
+        new NodeEvent('this-node-field-added', this, false)
+      );
       this.dispatchNodeEvent(new NodeEvent('node-field-added', this, true));
       // set Value if given
       if (options._value) {
@@ -282,7 +290,9 @@ export class FieldNode extends EventTreeNode {
   moveNode(oldIndex, newIndex) {
     super.moveNode(oldIndex, newIndex);
     this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
-    this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
+    this.dispatchNodeEvent(
+      new NodeEvent('this-field-value-changed', this, false)
+    );
   }
 
   /**
@@ -314,13 +324,13 @@ export class FieldNode extends EventTreeNode {
           this[fieldName] = new RepeaterNode(
             this,
             this.__specdefinitions[type].fields[fieldName],
-            fieldName,
+            fieldName
           );
         } else {
           this[fieldName] = new FieldNode(
             this,
             this.__specdefinitions[type].fields[fieldName],
-            fieldName,
+            fieldName
           );
         }
       }
@@ -391,7 +401,9 @@ export class FieldNode extends EventTreeNode {
          *
          * detail payload: **{NodeEvent}** with reference to the FieldNode
          */
-        this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+        this.dispatchNodeEvent(
+          new NodeEvent('field-value-changed', this, true)
+        );
         /**
          * @fires (this-field-value-changed)
          *
@@ -401,7 +413,9 @@ export class FieldNode extends EventTreeNode {
          *
          * detail payload: **{NodeEvent}** with reference to the FieldNode
          */
-        this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
+        this.dispatchNodeEvent(
+          new NodeEvent('this-field-value-changed', this, false)
+        );
       }
     }
 
@@ -434,7 +448,13 @@ export class FieldNode extends EventTreeNode {
      * - if the FieldNode has data, apply data and reset all other fields of the oneOf definition
      * - if the FieldNode is undefined, do nothing
      */
-    if (this && val !== null && this._spec && this._spec.__proto && this._spec.__proto.oneof) {
+    if (
+      this &&
+      val !== null &&
+      this._spec &&
+      this._spec.__proto &&
+      this._spec.__proto.oneof
+    ) {
       // clear oneof siblings
       const oneofGorup = this._spec.__proto.oneof;
       // avoid recursion with __oneofrecusion
@@ -455,10 +475,14 @@ export class FieldNode extends EventTreeNode {
 
             // send an event to notify that this field was cleared
             // eslint-disable-next-line no-param-reassign
-            sibling.dispatchNodeEvent(new NodeEvent('oneof-field-cleared', sibling, false));
+            sibling.dispatchNodeEvent(
+              new NodeEvent('oneof-field-cleared', sibling, false)
+            );
           }
         });
-        this.dispatchNodeEvent(new NodeEvent('oneof-field-changed', this, false));
+        this.dispatchNodeEvent(
+          new NodeEvent('oneof-field-changed', this, false)
+        );
       }
     }
 
@@ -476,7 +500,7 @@ export class FieldNode extends EventTreeNode {
     const failure = error => {
       const field = error.node;
       field._isValid = false;
-      field._validity = {constraint: error.name, description: error.message};
+      field._validity = { constraint: error.name, description: error.message };
       field.dispatchNodeEvent(new NodeEvent('field-became-invalid', field));
     };
 
@@ -487,21 +511,36 @@ export class FieldNode extends EventTreeNode {
 
       if (isScalarType) {
         if (isNumericType) {
-          ValidatorNumericTypes.validateConstraints(this).then(success, failure);
+          ValidatorNumericTypes.validateConstraints(this).then(
+            success,
+            failure
+          );
         } else {
-          ValidatorDefaultTypes.validateConstraints(this).then(success, failure);
+          ValidatorDefaultTypes.validateConstraints(this).then(
+            success,
+            failure
+          );
         }
       } else {
         // complex special type path
         switch (this._spec.type) {
           case 'google.type.Date':
-            ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
+            ValidatorGoogleTypeDate.validateConstraints(this).then(
+              success,
+              failure
+            );
             break;
           case 'furo.type.Date':
-            ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
+            ValidatorGoogleTypeDate.validateConstraints(this).then(
+              success,
+              failure
+            );
             break;
           case 'google.type.Money':
-            ValidatorGoogleTypeMoney.validateConstraints(this).then(success, failure);
+            ValidatorGoogleTypeMoney.validateConstraints(this).then(
+              success,
+              failure
+            );
             break;
           default:
             break;
@@ -535,13 +574,17 @@ export class FieldNode extends EventTreeNode {
             this._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
-              this.broadcastEvent(new NodeEvent('parent-readonly-meta-set', this, true));
+              this.broadcastEvent(
+                new NodeEvent('parent-readonly-meta-set', this, true)
+              );
             }
           } else if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
-              this.broadcastEvent(new NodeEvent('parent-readonly-meta-set', this, true));
+              this.broadcastEvent(
+                new NodeEvent('parent-readonly-meta-set', this, true)
+              );
             }
           } else {
             // eslint-disable-next-line no-console
@@ -572,12 +615,13 @@ export class FieldNode extends EventTreeNode {
           // eslint-disable-next-line no-plusplus
           this._triggerDeepNodeEvent('this-metas-changed');
         } else if (this[field]) {
-          this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
+          this[field].dispatchNodeEvent(
+            new NodeEvent('this-metas-changed', this[field], false)
+          );
         }
-
       } else {
         const target = f[0];
-        const subMetaAndConstraints = {fields: {}};
+        const subMetaAndConstraints = { fields: {} };
         subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
         // eslint-disable-next-line no-param-reassign
         level += 1;
@@ -608,7 +652,12 @@ export class FieldNode extends EventTreeNode {
 
   _createAnyType(val) {
     // remove if type changes
-    if (val && this.__anyCreated && this['@type'] && this['@type']._value !== val['@type']) {
+    if (
+      val &&
+      this.__anyCreated &&
+      this['@type'] &&
+      this['@type']._value !== val['@type']
+    ) {
       this.dispatchNodeEvent(new NodeEvent('any-type-removed', this, false));
       for (let i = this.__childNodes.length - 1; i >= 0; i -= 1) {
         const field = this.__childNodes[i];
@@ -619,19 +668,30 @@ export class FieldNode extends EventTreeNode {
       this.__anyCreated = false;
     }
 
-    if (this._spec.type === 'google.protobuf.Any' && val && val['@type'] && !this.__anyCreated) {
+    if (
+      this._spec.type === 'google.protobuf.Any' &&
+      val &&
+      val['@type'] &&
+      !this.__anyCreated
+    ) {
       // create custom type if not exist
       // any can only be a complex type
       this._createVendorType(val['@type'].replace(/.*\//, '')); // create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
       this.__anyCreated = true;
-      this.createField({fieldName: '@type', type: 'string', value: val['@type']});
-      this.dispatchNodeEvent(new NodeEvent('any-type-created', val['@type'], false));
+      this.createField({
+        fieldName: '@type',
+        type: 'string',
+        value: val['@type'],
+      });
+      this.dispatchNodeEvent(
+        new NodeEvent('any-type-created', val['@type'], false)
+      );
     }
   }
 
   _updateKeyValueMap(val, spec) {
     const vType = spec.match(/,\s*(.*)>/)[1];
-    const fieldSpec = {type: vType};
+    const fieldSpec = { type: vType };
 
     this._fieldIsMap = true;
     // create if not exist
@@ -664,11 +724,17 @@ export class FieldNode extends EventTreeNode {
       const index = this.__parentNode.__childNodes.indexOf(this);
       this.__parentNode.__childNodes.splice(index, 1);
       delete this.__parentNode[this._name];
-      this.dispatchNodeEvent(new NodeEvent('field-value-changed', this._name, true));
+      this.dispatchNodeEvent(
+        new NodeEvent('field-value-changed', this._name, true)
+      );
     }
     // notify
-    this.dispatchNodeEvent(new NodeEvent('this-node-field-deleted', this._name, false));
-    this.dispatchNodeEvent(new NodeEvent('node-field-deleted', this._name, true));
+    this.dispatchNodeEvent(
+      new NodeEvent('this-node-field-deleted', this._name, false)
+    );
+    this.dispatchNodeEvent(
+      new NodeEvent('node-field-deleted', this._name, true)
+    );
   }
 
   /**
@@ -730,7 +796,9 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   get _base64() {
-    return window.btoa(unescape(encodeURIComponent(JSON.stringify(this._value))));
+    return window.btoa(
+      unescape(encodeURIComponent(JSON.stringify(this._value)))
+    );
   }
 
   /**
@@ -739,7 +807,9 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   set _base64(encodedData) {
-    this._value = (JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
+    this._value = JSON.parse(
+      decodeURIComponent(escape(window.atob(encodedData)))
+    );
   }
 
   /**
@@ -851,7 +921,7 @@ export class FieldNode extends EventTreeNode {
         validityTransfer.field_description = this._spec;
         return validityTransfer;
       }
-      return undefined
+      return undefined;
     }
     if (Object.keys(this._validity).length) {
       const validityTransfer = this._validity;
@@ -884,7 +954,9 @@ export class FieldNode extends EventTreeNode {
        *
        * detail payload: **{NodeEvent}** with reference to the FieldNode
        */
-      this.dispatchNodeEvent(new NodeEvent('this-field-became-valid', this, false));
+      this.dispatchNodeEvent(
+        new NodeEvent('this-field-became-valid', this, false)
+      );
     }
   }
 

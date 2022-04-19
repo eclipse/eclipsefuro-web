@@ -140,12 +140,21 @@ export class FuroDataObject extends LitElement {
     this.data.validateAllFields();
     setTimeout(() => {
       if (this.data._isValid) {
-        const customEvent = new Event('validation-success', { composed: true, bubbles: true });
-        customEvent.detail = {data: this.data};
+        const customEvent = new Event('validation-success', {
+          composed: true,
+          bubbles: true,
+        });
+        customEvent.detail = { data: this.data };
         this.dispatchEvent(customEvent);
       } else {
-        const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
-        customEvent.detail = {data: this.data, field_violations: this.data.getValidityMessage()};
+        const customEvent = new Event('validation-failed', {
+          composed: true,
+          bubbles: true,
+        });
+        customEvent.detail = {
+          data: this.data,
+          field_violations: this.data.getValidityMessage(),
+        };
         this.dispatchEvent(customEvent);
       }
     }, 64);
@@ -172,7 +181,9 @@ export class FuroDataObject extends LitElement {
   appendErrors(grpcStatus) {
     grpcStatus.details.forEach(errorSet => {
       if (errorSet.field_violations) {
-        const fieldViolations = JSON.parse(JSON.stringify(errorSet.field_violations));
+        const fieldViolations = JSON.parse(
+          JSON.stringify(errorSet.field_violations)
+        );
         fieldViolations.forEach(error => {
           const path = error.field.split('.');
           if (path.length > 0) {
@@ -235,7 +246,10 @@ export class FuroDataObject extends LitElement {
 
     this._injectPromise.then(() => {
       this._injectingCompleted = true;
-      const customEvent = new Event('init-completed', { composed: true, bubbles: true });
+      const customEvent = new Event('init-completed', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     });
@@ -275,14 +289,20 @@ export class FuroDataObject extends LitElement {
       this._queuedInjectResolver(this.data);
     }
 
-    const customEvent = new Event('object-ready', { composed: true, bubbles: true });
+    const customEvent = new Event('object-ready', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
 
     this.data.addEventListener('data-object-became-valid', e => {
-      const validEvent = new Event('data-object-became-valid', { composed: true, bubbles: true });
+      const validEvent = new Event('data-object-became-valid', {
+        composed: true,
+        bubbles: true,
+      });
       validEvent.detail = e.detail;
       this.dispatchEvent(validEvent);
     });
@@ -297,13 +317,19 @@ export class FuroDataObject extends LitElement {
     });
 
     this.data.addEventListener('data-injected', e => {
-      const injectedEvent = new Event('data-injected', { composed: true, bubbles: true });
+      const injectedEvent = new Event('data-injected', {
+        composed: true,
+        bubbles: true,
+      });
       injectedEvent.detail = e.detail;
       this.dispatchEvent(injectedEvent);
     });
 
     this.data.addEventListener('field-value-changed', e => {
-      const dataEvent = new Event('data-changed', { composed: true, bubbles: true });
+      const dataEvent = new Event('data-changed', {
+        composed: true,
+        bubbles: true,
+      });
       dataEvent.detail = this.data;
       this.dispatchEvent(dataEvent);
 
@@ -316,7 +342,10 @@ export class FuroDataObject extends LitElement {
         this.dispatchEvent(dataInjectEvent);
       }
 
-      const valueChangedEvent = new Event('field-value-changed', { composed: true, bubbles: true });
+      const valueChangedEvent = new Event('field-value-changed', {
+        composed: true,
+        bubbles: true,
+      });
       valueChangedEvent.detail = e.detail;
       this.dispatchEvent(valueChangedEvent);
     });

@@ -91,7 +91,10 @@ class FuroDeepLink extends LitElement {
       }
     }
     if (this._hts.length) {
-      const customEvent = new Event('hts-out', { composed: true, bubbles: true });
+      const customEvent = new Event('hts-out', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = this._hts;
       this.dispatchEvent(customEvent);
     }
@@ -143,13 +146,13 @@ class FuroDeepLink extends LitElement {
    * @param service
    */
   set service(service) {
-    this._requestedService = service
+    this._requestedService = service;
     if (this._servicedefinitions[service]) {
       this._service = this._servicedefinitions[service];
       if (this._service.lifecycle && this._service.lifecycle.deprecated) {
         // eslint-disable-next-line no-console
         console.warn(
-          `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`,
+          `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`
         );
       }
     } else {
@@ -158,7 +161,7 @@ class FuroDeepLink extends LitElement {
         `service ${service} does not exist`,
         this,
         'Available Services:',
-        this._servicedefinitions,
+        this._servicedefinitions
       );
     }
   }

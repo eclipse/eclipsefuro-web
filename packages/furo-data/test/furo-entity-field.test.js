@@ -26,8 +26,13 @@ describe('furo-entity-field', () => {
             @-object-ready="--entity"
             ƒ-inject-raw="--response"
           ></furo-data-object>
-          <furo-entity-field ƒ-bind-data="--entity(*.invalidBinding)"></furo-entity-field>
-          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-field
+            ƒ-bind-data="--entity(*.invalidBinding)"
+          ></furo-entity-field>
+          <furo-deep-link
+            service="ExperimentService"
+            @-hts-out="--hts"
+          ></furo-deep-link>
           <furo-entity-agent
             service="ExperimentService"
             ƒ-hts-in="--hts"
@@ -41,7 +46,8 @@ describe('furo-entity-field', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, entityField, dataObject, entityField2, deeplink, entityAgent] = testbind.parentNode.children;
+    [, entityField, dataObject, entityField2, deeplink, entityAgent] =
+      testbind.parentNode.children;
     await host.updateComplete;
     await entityField.updateComplete;
 
@@ -78,7 +84,7 @@ describe('furo-entity-field', () => {
       () => {
         done();
       },
-      { once: true },
+      { once: true }
     );
     deeplink.qpIn({ exp: 1 });
   });

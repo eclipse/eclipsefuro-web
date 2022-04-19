@@ -176,11 +176,15 @@ describe('furo-data-object', () => {
       .then(response => {
         const p = element.injectRaw(response);
 
-        assert.equal(element.json.data.display_name, response.data.display_name);
+        assert.equal(
+          element.json.data.display_name,
+          response.data.display_name
+        );
         p.then(ObjectDataRoot => {
           const EntityRoot = ObjectDataRoot.data;
 
-          EntityRoot.description._value = 'Specs say you can only have 20 letters';
+          EntityRoot.description._value =
+            'Specs say you can only have 20 letters';
           setTimeout(() => {
             assert.equal(EntityRoot._isValid, false, 'description is too long');
             done();
@@ -193,7 +197,10 @@ describe('furo-data-object', () => {
     element.setAttribute('type', 'project.ProjectEntity');
 
     const handler = () => {
-      assert.equal(element.json.data.display_name, "Furo Foundation, CHF 150'000.00");
+      assert.equal(
+        element.json.data.display_name,
+        "Furo Foundation, CHF 150'000.00"
+      );
       done();
     };
 
@@ -225,14 +232,26 @@ describe('furo-data-object', () => {
   it('should apply meta of fields and overwrite existing default meta information', done => {
     element.setAttribute('type', 'experiment.ExperimentEntity');
     assert.equal(element.data.data.description._value, 'Default Description');
-    assert.equal(element.data.data.furo_data_checkbox_input._meta.label, 'checkbox_input**');
-    assert.equal(element.data.data.furo_data_checkbox_input._meta.readonly, false);
+    assert.equal(
+      element.data.data.furo_data_checkbox_input._meta.label,
+      'checkbox_input**'
+    );
+    assert.equal(
+      element.data.data.furo_data_checkbox_input._meta.readonly,
+      false
+    );
 
     // after response inject
     const handler = () => {
       assert.equal(element.data.data.description._value, '');
-      assert.equal(element.data.data.furo_data_checkbox_input._meta.label, 'Label from response');
-      assert.equal(element.data.data.furo_data_checkbox_input._meta.readonly, true);
+      assert.equal(
+        element.data.data.furo_data_checkbox_input._meta.label,
+        'Label from response'
+      );
+      assert.equal(
+        element.data.data.furo_data_checkbox_input._meta.readonly,
+        true
+      );
       done();
     };
     element.addEventListener('data-injected', handler, { once: true });
@@ -293,7 +312,10 @@ describe('furo-data-object', () => {
 
     element.data.repstring.add();
     assert.equal(element.data._pristine, false);
-    assert.equal(element.data.repstring.repeats[0]._value, 'Ein text per default');
+    assert.equal(
+      element.data.repstring.repeats[0]._value,
+      'Ein text per default'
+    );
     element.data.repstring.add('new');
 
     assert.equal(element.data.repstring.repeats[1]._value, 'new');
@@ -317,7 +339,10 @@ describe('furo-data-object', () => {
       .then(response => {
         const p = element.injectRaw(response);
 
-        assert.equal(element.json.data.display_name, response.data.display_name);
+        assert.equal(
+          element.json.data.display_name,
+          response.data.display_name
+        );
         p.then(ObjectDataRoot => {
           const EntityRoot = ObjectDataRoot.data;
           EntityRoot.description._value = 'New';
@@ -348,13 +373,19 @@ describe('furo-data-object', () => {
 
           assert.equal(EntityRoot.description._value, 'Furo Foundation');
 
-          assert.equal(EntityRoot.description._meta.label, 'ID label from response');
-          assert.equal(EntityRoot.cost_limit.currency_code._meta.label, 'deep label');
+          assert.equal(
+            EntityRoot.description._meta.label,
+            'ID label from response'
+          );
+          assert.equal(
+            EntityRoot.cost_limit.currency_code._meta.label,
+            'deep label'
+          );
           assert.equal(EntityRoot.description._constraints.min.is, 5);
           assert.equal(EntityRoot.description._constraints.max.is, 20);
           assert.equal(
             EntityRoot.members.repeats[0].first_name._meta.label,
-            'firstname label from response',
+            'firstname label from response'
           );
           assert.equal(EntityRoot.description._meta.options.list.length, 2);
           done();
@@ -374,16 +405,25 @@ describe('furo-data-object', () => {
           const EntityRoot = ObjectDataRoot.entities.repeats[0].data;
           assert.equal(EntityRoot.description._value, 'Furo Foundation');
 
-          assert.equal(EntityRoot.description._meta.label, 'ID label from response');
-          assert.equal(EntityRoot.cost_limit.currency_code._meta.label, 'deep label');
+          assert.equal(
+            EntityRoot.description._meta.label,
+            'ID label from response'
+          );
+          assert.equal(
+            EntityRoot.cost_limit.currency_code._meta.label,
+            'deep label'
+          );
           assert.equal(EntityRoot.description._constraints.min.is, 5);
           assert.equal(EntityRoot.description._constraints.max.is, 20);
           assert.equal(EntityRoot.description._meta.options.list.length, 2);
           assert.equal(EntityRoot.members._meta.readonly, true);
-          assert.equal(EntityRoot.members.repeats[0].first_name._meta.readonly, true);
+          assert.equal(
+            EntityRoot.members.repeats[0].first_name._meta.readonly,
+            true
+          );
           assert.equal(
             EntityRoot.members.repeats[0].first_name._meta.label,
-            'firstname label from response',
+            'firstname label from response'
           );
 
           done();
@@ -437,7 +477,10 @@ describe('furo-data-object', () => {
           assert.equal(EntityRoot._pristine, false);
           assert.equal(EntityRoot.members._pristine, false);
           assert.equal(EntityRoot.members.repeats[0]._pristine, false);
-          assert.equal(EntityRoot.members.repeats[0].first_name._pristine, false);
+          assert.equal(
+            EntityRoot.members.repeats[0].first_name._pristine,
+            false
+          );
 
           done();
         });
@@ -594,7 +637,8 @@ describe('furo-data-object', () => {
 
           const handler = () => {
             assert.equal(element.data.data._spec.type, 'project.Project');
-            const firstname = element.data.data.members.repeats[0].first_name._value;
+            const firstname =
+              element.data.data.members.repeats[0].first_name._value;
             assert.equal(firstname, 'Lysander');
             element.removeEventListener('data-changed', handler);
             done();

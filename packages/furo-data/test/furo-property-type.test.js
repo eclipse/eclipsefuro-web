@@ -71,9 +71,18 @@ describe('furo-property-type', () => {
       ],
     });
 
-    assert.equal(element.data.type_property.repeats[1].data.data._value, 'display_name');
-    assert.equal(element.data.type_property.repeats[1].data.data._meta.label, 'test label');
-    assert.equal(element.data.type_property.repeats[1].data.data._meta.readonly, true);
+    assert.equal(
+      element.data.type_property.repeats[1].data.data._value,
+      'display_name'
+    );
+    assert.equal(
+      element.data.type_property.repeats[1].data.data._meta.label,
+      'test label'
+    );
+    assert.equal(
+      element.data.type_property.repeats[1].data.data._meta.readonly,
+      true
+    );
     done();
   });
 });

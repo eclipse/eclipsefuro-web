@@ -51,7 +51,9 @@ export class DataObject extends EventTreeNode {
     this.addEventListener('repeated-fields-changed', e => {
       this._pristine = false;
       // notifiy field-value-changed on top level
-      this.dispatchNodeEvent(new NodeEvent('field-value-changed', e.detail, true));
+      this.dispatchNodeEvent(
+        new NodeEvent('field-value-changed', e.detail, true)
+      );
     });
   }
 
@@ -148,14 +150,15 @@ export class DataObject extends EventTreeNode {
     return this.injectRaw(val);
   }
 
-
   /**
    * returns the value of the data object as a base64 encoded string
    * @return {string}
    * @private
    */
   get _base64() {
-    return window.btoa(unescape(encodeURIComponent(JSON.stringify(this._value))));
+    return window.btoa(
+      unescape(encodeURIComponent(JSON.stringify(this._value)))
+    );
   }
 
   /**
@@ -164,7 +167,9 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   set _base64(encodedData) {
-    this.injectRaw(JSON.parse(decodeURIComponent(escape(window.atob(encodedData)))));
+    this.injectRaw(
+      JSON.parse(decodeURIComponent(escape(window.atob(encodedData))))
+    );
   }
 
   /**
@@ -192,7 +197,7 @@ export class DataObject extends EventTreeNode {
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const index in this.__childNodes) {
       const field = this.__childNodes[index];
-      if (field._validityMessage !== undefined){
+      if (field._validityMessage !== undefined) {
         msg[field._name] = field._validityMessage;
       }
     }
@@ -221,7 +226,7 @@ export class DataObject extends EventTreeNode {
         // const initialSize = fieldNode.repeats.length;
 
         fieldNode.dispatchNodeEvent(
-          new NodeEvent('before-repeated-field-changed', fieldNode, false),
+          new NodeEvent('before-repeated-field-changed', fieldNode, false)
         );
 
         if (fieldNode.clearListOnNewData) {
@@ -249,8 +254,12 @@ export class DataObject extends EventTreeNode {
         }
 
         fieldNode._pristine = true;
-        fieldNode.dispatchNodeEvent(new NodeEvent('repeated-fields-changed', fieldNode, true));
-        fieldNode.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', fieldNode, false));
+        fieldNode.dispatchNodeEvent(
+          new NodeEvent('repeated-fields-changed', fieldNode, true)
+        );
+        fieldNode.dispatchNodeEvent(
+          new NodeEvent('this-repeated-field-changed', fieldNode, false)
+        );
       } else if (fieldNode) {
         fieldNode._clearInvalidity();
 
@@ -298,28 +307,32 @@ export class DataObject extends EventTreeNode {
     if (metaAndConstraints.fields) {
       Object.keys(metaAndConstraints.fields).forEach(fldName => {
         if (metaAndConstraints.fields[fldName].constraints) {
-          Object.keys(metaAndConstraints.fields[fldName].constraints).forEach(constraintKey => {
-            // check for dots in key, like value.min
-            const constraintPath = constraintKey.split('.');
-            if (constraintPath.length > 1) {
-              // we have a deep contraint
-              const constraintName = constraintPath.pop();
+          Object.keys(metaAndConstraints.fields[fldName].constraints).forEach(
+            constraintKey => {
+              // check for dots in key, like value.min
+              const constraintPath = constraintKey.split('.');
+              if (constraintPath.length > 1) {
+                // we have a deep contraint
+                const constraintName = constraintPath.pop();
 
-              const newFldName = [fldName].concat(constraintPath).join('.');
-              if (!(newFldName in metaAndConstraints.fields)) {
+                const newFldName = [fldName].concat(constraintPath).join('.');
+                if (!(newFldName in metaAndConstraints.fields)) {
+                  // eslint-disable-next-line no-param-reassign
+                  metaAndConstraints.fields[newFldName] = {};
+                }
+                DataObject._pathSet(
+                  metaAndConstraints.fields[newFldName],
+                  ['constraints', constraintName].join('.'),
+                  metaAndConstraints.fields[fldName].constraints[constraintKey]
+                );
+                // delete from current field, because constraints like value.max are useless
                 // eslint-disable-next-line no-param-reassign
-                metaAndConstraints.fields[newFldName] = {};
+                delete metaAndConstraints.fields[fldName].constraints[
+                  constraintKey
+                ];
               }
-              DataObject._pathSet(
-                metaAndConstraints.fields[newFldName],
-                ['constraints', constraintName].join('.'),
-                metaAndConstraints.fields[fldName].constraints[constraintKey],
-              );
-              // delete from current field, because constraints like value.max are useless
-              // eslint-disable-next-line no-param-reassign
-              delete metaAndConstraints.fields[fldName].constraints[constraintKey];
             }
-          });
+          );
         }
       });
     }
@@ -373,7 +386,11 @@ export class DataObject extends EventTreeNode {
     for (const fieldName in fieldSpec) {
       if (fieldSpec[fieldName].meta && fieldSpec[fieldName].meta.repeated) {
         // eslint-disable-next-line no-param-reassign
-        node[fieldName] = new RepeaterNode(node, fieldSpec[fieldName], fieldName);
+        node[fieldName] = new RepeaterNode(
+          node,
+          fieldSpec[fieldName],
+          fieldName
+        );
       } else {
         // eslint-disable-next-line no-param-reassign
         node[fieldName] = new FieldNode(node, fieldSpec[fieldName], fieldName);

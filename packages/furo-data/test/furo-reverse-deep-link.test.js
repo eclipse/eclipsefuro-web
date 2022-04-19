@@ -13,7 +13,9 @@ describe('furo-reverse-deep-link', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <furo-reverse-deep-link service="ProjectMembersService"></furo-reverse-deep-link>
+          <furo-reverse-deep-link
+            service="ProjectMembersService"
+          ></furo-reverse-deep-link>
         </template>
       </flow-bind>
     `);
@@ -90,7 +92,9 @@ describe('furo-reverse-deep-link', () => {
       expect(d.detail.vtr).to.equal('31337');
       done();
     });
-    element._services.ProjectMembersService.services.Get = { deeplink: { href: '' } };
+    element._services.ProjectMembersService.services.Get = {
+      deeplink: { href: '' },
+    };
     element._services.ProjectMembersService.services.Get.deeplink.href =
       '/{demo}/api/{version}/tasks/{vtr}.json';
     element._services.ProjectMembersService.services.Unsubscribe.deeplink.href =
@@ -123,7 +127,9 @@ describe('furo-reverse-deep-link', () => {
       expect(d.detail.vtr).to.equal('THISONE');
       done();
     });
-    element._services.ProjectMembersService.services.Get = { deeplink: { href: '' } };
+    element._services.ProjectMembersService.services.Get = {
+      deeplink: { href: '' },
+    };
     element._services.ProjectMembersService.services.Get.deeplink.href =
       '/{demo}/api/{version}/tasks/{vtr}.json';
     element._services.ProjectMembersService.services.Unsubscribe.deeplink.href =

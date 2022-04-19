@@ -1,8 +1,6 @@
 import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 
-
-
 import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';
@@ -18,7 +16,9 @@ describe('furo-data-hide-content', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <furo-data-hide-content ƒ-bind-data="--entity(*.furo_data_checkbox_input)">
+          <furo-data-hide-content
+            ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+          >
             <h1>This is the content</h1>
           </furo-data-hide-content>
 
@@ -36,7 +36,6 @@ describe('furo-data-hide-content', () => {
     await host.updateComplete;
     await element.updateComplete;
     await dataObject.updateComplete;
-
   });
 
   it('should be a furo-data-hide-content', done => {
@@ -55,7 +54,7 @@ describe('furo-data-hide-content', () => {
         assert.equal(element.hidden, true);
         done();
       },
-      { once: true },
+      { once: true }
     );
 
     element.hide();
@@ -74,7 +73,7 @@ describe('furo-data-hide-content', () => {
         assert.equal(element.hidden, true);
         done();
       },
-      { once: true },
+      { once: true }
     );
     element.toggle();
   });
@@ -88,7 +87,7 @@ describe('furo-data-hide-content', () => {
         assert.equal(element.hidden, false);
         done();
       },
-      { once: true },
+      { once: true }
     );
     element.show();
   });
@@ -102,7 +101,7 @@ describe('furo-data-hide-content', () => {
         assert.equal(element.hidden, false);
         done();
       },
-      { once: true },
+      { once: true }
     );
     dataObject.data.furo_data_checkbox_input._value = false;
   });
@@ -116,7 +115,7 @@ describe('furo-data-hide-content', () => {
         assert.equal(element.hidden, true);
         done();
       },
-      { once: true },
+      { once: true }
     );
     dataObject.data.furo_data_checkbox_input._value = true;
   });
@@ -131,7 +130,7 @@ describe('furo-data-hide-content', () => {
         assert.equal(dataObject.data.furo_data_checkbox_input._value, true);
         done();
       },
-      { once: true },
+      { once: true }
     );
     setTimeout(() => {
       element.hide();

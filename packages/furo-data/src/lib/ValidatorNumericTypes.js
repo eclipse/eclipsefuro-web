@@ -100,7 +100,10 @@ export class ValidatorNumericTypes {
            * the pattern constraint
            */
           case 'pattern':
-            if (field._value == null || !field._value.match(new RegExp(constraint.is))) {
+            if (
+              field._value == null ||
+              !field._value.match(new RegExp(constraint.is))
+            ) {
               const NODE = {};
               NODE.message = constraint.message;
               NODE.name = constraintName;

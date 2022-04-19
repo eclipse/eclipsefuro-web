@@ -16,9 +16,9 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * <!-- produces a hateoas link array -->
  * <furo-deep-link
-*     service="Servicename" @-hts-out="--hts"></furo-deep-link>
-*
-* ```
+ *     service="Servicename" @-hts-out="--hts"></furo-deep-link>
+ *
+ * ```
  *
  *
  *
@@ -91,7 +91,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
     // HTS aus response anwenden
     this._FBPAddWireHook('--responseParsed', r => {
       if (this._updateInternalHTS(r[this._linkField])) {
-        const customEvent = new Event('response-hts-updated', { composed: true, bubbles: true });
+        const customEvent = new Event('response-hts-updated', {
+          composed: true,
+          bubbles: true,
+        });
         customEvent.detail = r[this._linkField];
         this.dispatchEvent(customEvent);
       }
@@ -120,7 +123,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
     const success = e => {
       // we do not want req-success and req-failed outside of this component
       e.stopPropagation();
-      const customEvent = new Event(`${eventPrefix}-success`, { composed: true, bubbles: true });
+      const customEvent = new Event(`${eventPrefix}-success`, {
+        composed: true,
+        bubbles: true,
+      });
 
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
@@ -134,7 +140,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
     let failed = e => {
       // we do not want req-success and req-failed outside of this component
       e.stopPropagation();
-      const customEvent = new Event(`${eventPrefix}-failed`, { composed: true, bubbles: true });
+      const customEvent = new Event(`${eventPrefix}-failed`, {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
 
@@ -230,8 +239,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     };
   }
 
-
-  set view(v){
+  set view(v) {
     this._queryParams.view = v;
   }
 
@@ -296,7 +304,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   set filter(filterstring) {
     this._filter = filterstring;
-    const customEvent = new Event('filter-changed', { composed: true, bubbles: true });
+    const customEvent = new Event('filter-changed', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
   }
@@ -317,14 +328,14 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @param service {String} -
    */
   set service(service) {
-    this._requestedService = service
+    this._requestedService = service;
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.warn(
         `service ${service} does not exist`,
         this,
         'Available Services:',
-        this._servicedefinitions,
+        this._servicedefinitions
       );
       return;
     }
@@ -333,7 +344,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     if (this._service.lifecycle && this._service.lifecycle.deprecated) {
       // eslint-disable-next-line no-console
       console.warn(
-        `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`,
+        `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`
       );
     }
     // set pagination defaults
@@ -396,7 +407,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     const ACCEPT = AgentHelper.generateHeaderAccept(
       this,
       this._ApiEnvironment.services[link.service].services,
-      REL_NAME,
+      REL_NAME
     );
 
     if (ACCEPT) {
@@ -471,15 +482,14 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @param fields
    * @private
    */
-  _evaluateLinksField(fields){
-    Object.keys(fields).forEach(field=>{
-      if (fields[field].type === "furo.Link"){
+  _evaluateLinksField(fields) {
+    Object.keys(fields).forEach(field => {
+      if (fields[field].type === 'furo.Link') {
         this._linkField = field;
         // eslint-disable-next-line
-        return
+        return;
       }
-    })
-
+    });
   }
 
   /**
@@ -493,9 +503,16 @@ class FuroCollectionAgent extends FBP(LitElement) {
     const responseType = this._service.services[serviceName].data.response;
     this._evaluateLinksField(Env.api.specs[responseType].fields);
 
-    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, rel, serviceName);
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(
+      this,
+      rel,
+      serviceName
+    );
     if (!hts) {
-      const customEvent = new Event(`missing-hts-${rel}`, { composed: true, bubbles: false });
+      const customEvent = new Event(`missing-hts-${rel}`, {
+        composed: true,
+        bubbles: false,
+      });
       this.dispatchEvent(customEvent);
       return;
     }
@@ -596,7 +613,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
         this._hts.push(link);
       });
 
-      const customEvent = new Event('hts-updated', { composed: true, bubbles: false });
+      const customEvent = new Event('hts-updated', {
+        composed: true,
+        bubbles: false,
+      });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
       return true;
@@ -610,7 +630,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
-      const customEvent = new Event('hts-injected', { composed: true, bubbles: false });
+      const customEvent = new Event('hts-injected', {
+        composed: true,
+        bubbles: false,
+      });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
 
@@ -651,13 +674,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abortDemanded"
-              @-response="--responseParsed, --requestFinished, ^^req-success"
-              @-response-error="^^req-failed, --requestFinished"
-              @-request-aborted="^^req-aborted"
-              @-parse-error="^^req-failed, --requestFinished"
-              @-fatal-error="--requestFinished"
+        ƒ-invoke-request="--triggerLoad"
+        ƒ-abort-request="--abortDemanded"
+        @-response="--responseParsed, --requestFinished, ^^req-success"
+        @-response-error="^^req-failed, --requestFinished"
+        @-request-aborted="^^req-aborted"
+        @-parse-error="^^req-failed, --requestFinished"
+        @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

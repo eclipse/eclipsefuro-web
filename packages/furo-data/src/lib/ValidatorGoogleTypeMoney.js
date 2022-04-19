@@ -23,8 +23,14 @@ export class ValidatorGoogleTypeMoney {
            * the min constraint
            */
           case 'min':
-            if (field.units && field.units._value !== null && field.nanos._value !== null) {
-              const amount = Number(`${field.units._value}.${field.nanos._value}`);
+            if (
+              field.units &&
+              field.units._value !== null &&
+              field.nanos._value !== null
+            ) {
+              const amount = Number(
+                `${field.units._value}.${field.nanos._value}`
+              );
               if (amount < parseFloat(constraint.is)) {
                 const NODE = {};
                 NODE.message = constraint.message;
@@ -38,8 +44,14 @@ export class ValidatorGoogleTypeMoney {
            * the max constraint
            */
           case 'max':
-            if (field.units && field.units._value !== null && field.nanos._value !== null) {
-              const amount = Number(`${field.units._value}.${field.nanos._value}`);
+            if (
+              field.units &&
+              field.units._value !== null &&
+              field.nanos._value !== null
+            ) {
+              const amount = Number(
+                `${field.units._value}.${field.nanos._value}`
+              );
               if (amount > parseFloat(constraint.is)) {
                 const NODE = {};
                 NODE.message = constraint.message;
@@ -53,8 +65,14 @@ export class ValidatorGoogleTypeMoney {
            * step
            */
           case 'step':
-            if (field.units && field.units._value !== null && field.nanos._value !== null) {
-              const amount = Number(`${field.units._value}.${field.nanos._value}`);
+            if (
+              field.units &&
+              field.units._value !== null &&
+              field.nanos._value !== null
+            ) {
+              const amount = Number(
+                `${field.units._value}.${field.nanos._value}`
+              );
               // step check is (value - min)%is == 0
               const modulo = parseFloat(constraint.is);
               let min = 0;
@@ -75,7 +93,10 @@ export class ValidatorGoogleTypeMoney {
            * the pattern constraint
            */
           case 'pattern':
-            if (field._value == null || !field._value.match(new RegExp(constraint.is))) {
+            if (
+              field._value == null ||
+              !field._value.match(new RegExp(constraint.is))
+            ) {
               const NODE = {};
               NODE.message = constraint.message;
               NODE.name = constraintName;
@@ -110,11 +131,16 @@ export class ValidatorGoogleTypeMoney {
    */
   static isEmpty(field) {
     const filterFloat = value => {
-      if (/^(-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/.test(value)) return Number(value);
+      if (/^(-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/.test(value))
+        return Number(value);
       return NaN;
     };
 
-    if (field.units && field.units._value !== null && field.nanos._value !== null) {
+    if (
+      field.units &&
+      field.units._value !== null &&
+      field.nanos._value !== null
+    ) {
       const amount = Number(`${field.units._value}.${field.nanos._value}`);
       return !filterFloat(amount);
     }

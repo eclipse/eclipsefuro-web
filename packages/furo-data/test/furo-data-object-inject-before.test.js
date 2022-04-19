@@ -4,7 +4,6 @@ import './initEnv.js';
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 
-
 describe('furo-data-object-inject-before', () => {
   let element;
   let host;
@@ -13,7 +12,7 @@ describe('furo-data-object-inject-before', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <furo-data-object type='tree.Tree'></furo-data-object>
+          <furo-data-object type="tree.Tree"></furo-data-object>
         </template>
       </flow-bind>
     `);
@@ -31,8 +30,6 @@ describe('furo-data-object-inject-before', () => {
   });
 
   it('should update meta on server meta data', done => {
-
-
     fetch('/mockdata/trees/test_injectB.json')
       .then(res => res.json())
       .then(response => {
@@ -46,8 +43,12 @@ describe('furo-data-object-inject-before', () => {
 
               p.then(initialData => {
                 assert.equal(initialData.root.children.repeats.length, 2);
-                const node = initialData.root.children.repeats[0].children.repeats[0];
-                assert.equal(initialData.root.children.repeats[0].display_name._value, 'A');
+                const node =
+                  initialData.root.children.repeats[0].children.repeats[0];
+                assert.equal(
+                  initialData.root.children.repeats[0].display_name._value,
+                  'A'
+                );
                 assert.equal(node.display_name._value, 'Produktansicht');
 
                 fetch('/mockdata/trees/test_injectB.json')
@@ -56,11 +57,17 @@ describe('furo-data-object-inject-before', () => {
                     const before = element.injectRaw(response3);
 
                     before.then(ObjectDataRoot => {
-                      assert.equal(ObjectDataRoot.root.children.repeats.length, 3);
-                      const repnode = ObjectDataRoot.root.children.repeats[0].children.repeats[0];
                       assert.equal(
-                        ObjectDataRoot.root.children.repeats[0].display_name._value,
-                        'Before',
+                        ObjectDataRoot.root.children.repeats.length,
+                        3
+                      );
+                      const repnode =
+                        ObjectDataRoot.root.children.repeats[0].children
+                          .repeats[0];
+                      assert.equal(
+                        ObjectDataRoot.root.children.repeats[0].display_name
+                          ._value,
+                        'Before'
                       );
                       assert.equal(repnode, undefined);
 

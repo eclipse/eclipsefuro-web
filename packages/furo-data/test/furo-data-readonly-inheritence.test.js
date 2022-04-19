@@ -78,8 +78,14 @@ describe('furo-data-readonly-inheritence', () => {
     const EntityRoot = element.data;
 
     assert.equal(EntityRoot._isValid, true);
-    assert.equal(EntityRoot.project.members._meta.label, 'Label update from response');
-    assert.equal(EntityRoot.project.members.repeats[0].phone_nr._meta.readonly, true);
+    assert.equal(
+      EntityRoot.project.members._meta.label,
+      'Label update from response'
+    );
+    assert.equal(
+      EntityRoot.project.members.repeats[0].phone_nr._meta.readonly,
+      true
+    );
     assert.equal(EntityRoot.project.display_name._meta.readonly, true);
     done();
   });
@@ -135,7 +141,10 @@ describe('furo-data-readonly-inheritence', () => {
     assert.equal(EntityRoot.project.start._meta.readonly, true);
     assert.equal(EntityRoot.project.end._meta.readonly, true);
     assert.equal(EntityRoot.project.members._meta.readonly, true);
-    assert.equal(EntityRoot.project.members.repeats[0].phone_nr._meta.readonly, true);
+    assert.equal(
+      EntityRoot.project.members.repeats[0].phone_nr._meta.readonly,
+      true
+    );
 
     done();
   });
@@ -209,8 +218,14 @@ describe('furo-data-readonly-inheritence', () => {
 
         assert.equal(EntityRoot._isValid, true);
         assert.equal(EntityRoot.members._meta.readonly, true);
-        assert.equal(EntityRoot.members.repeats[0].phone_nr._meta.readonly, true);
-        assert.equal(EntityRoot.members.repeats[1].phone_nr._meta.readonly, true);
+        assert.equal(
+          EntityRoot.members.repeats[0].phone_nr._meta.readonly,
+          true
+        );
+        assert.equal(
+          EntityRoot.members.repeats[1].phone_nr._meta.readonly,
+          true
+        );
 
         done();
       });
@@ -315,7 +330,10 @@ describe('furo-data-readonly-inheritence', () => {
         assert.equal(EntityRoot.data._meta.readonly, true);
         assert.equal(EntityRoot.data._isValid, true);
         assert.equal(EntityRoot.data.members._meta.label, 'Project members**');
-        assert.equal(EntityRoot.data.members.repeats[0].phone_nr._meta.readonly, true);
+        assert.equal(
+          EntityRoot.data.members.repeats[0].phone_nr._meta.readonly,
+          true
+        );
         assert.equal(EntityRoot.data.display_name._meta.readonly, true);
         assert.equal(EntityRoot.data.start.year._meta.readonly, true);
         assert.equal(EntityRoot.data.start.month._meta.readonly, true);

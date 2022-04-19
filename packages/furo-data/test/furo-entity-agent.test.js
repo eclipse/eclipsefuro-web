@@ -14,7 +14,9 @@ describe('furo-entity-agent', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <furo-entity-agent ƒ-bind-request-data="--doReady(*.data)"></furo-entity-agent>
+          <furo-entity-agent
+            ƒ-bind-request-data="--doReady(*.data)"
+          ></furo-entity-agent>
           <furo-data-object @-object-ready="--doReady"></furo-data-object>
         </template>
       </flow-bind>
@@ -37,9 +39,11 @@ describe('furo-entity-agent', () => {
       assert.equal(r.detail.json.furo_data_money_input.units, 3333);
       assert.equal(r.detail.json.furo_data_money_input.nanos, 75100000);
       // eslint-disable-next-line no-prototype-builtins
-      expect(r.detail.json.furo_data_money_input.hasOwnProperty('display_name')).to.be.false;
+      expect(r.detail.json.furo_data_money_input.hasOwnProperty('display_name'))
+        .to.be.false;
       // eslint-disable-next-line no-prototype-builtins
-      expect(r.detail.json.type_property[0].hasOwnProperty('display_name')).to.be.false;
+      expect(r.detail.json.type_property[0].hasOwnProperty('display_name')).to
+        .be.false;
       assert.equal(r.detail.json.repstring.length, 3);
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.hasOwnProperty('display_name')).to.be.false;
@@ -300,13 +304,14 @@ describe('furo-entity-agent', () => {
     entityAgent.addEventListener('save-success', r => {
       assert.equal(
         r.detail.json.furo_data_text_input,
-        'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.',
+        'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.'
       );
       assert.equal(r.detail.json.furo_data_money_input.currency_code, 'CHF');
       assert.equal(r.detail.json.furo_data_money_input.units, 3333);
       assert.equal(r.detail.json.furo_data_money_input.nanos, 75100000);
       // eslint-disable-next-line no-prototype-builtins
-      expect(r.detail.json.furo_data_money_input.hasOwnProperty('display_name')).to.be.false;
+      expect(r.detail.json.furo_data_money_input.hasOwnProperty('display_name'))
+        .to.be.false;
       done();
     });
 
@@ -321,7 +326,7 @@ describe('furo-entity-agent', () => {
       r => {
         dataObject.injectRaw(r.detail);
       },
-      { once: true },
+      { once: true }
     );
 
     entityAgent.htsIn([
@@ -361,7 +366,8 @@ describe('furo-entity-agent', () => {
       assert.equal(r.detail.json.furo_data_money_input.units, 3333);
       assert.equal(r.detail.json.furo_data_money_input.nanos, 75100000);
       // eslint-disable-next-line no-prototype-builtins
-      expect(r.detail.json.furo_data_money_input.hasOwnProperty('display_name')).to.be.false;
+      expect(r.detail.json.furo_data_money_input.hasOwnProperty('display_name'))
+        .to.be.false;
       done();
     });
 
@@ -374,8 +380,14 @@ describe('furo-entity-agent', () => {
       assert.equal(EntityRoot._pristine, false);
       assert.equal(EntityRoot.data.type_property._pristine, false);
       assert.equal(EntityRoot.data.type_property.repeats[1]._pristine, false);
-      assert.equal(EntityRoot.data.type_property.repeats[1].data._pristine, false);
-      assert.equal(EntityRoot.data.type_property.repeats[1].data.day._pristine, false);
+      assert.equal(
+        EntityRoot.data.type_property.repeats[1].data._pristine,
+        false
+      );
+      assert.equal(
+        EntityRoot.data.type_property.repeats[1].data.day._pristine,
+        false
+      );
 
       entityAgent.save();
     });
@@ -385,7 +397,7 @@ describe('furo-entity-agent', () => {
       r => {
         dataObject.injectRaw(r.detail);
       },
-      { once: true },
+      { once: true }
     );
 
     entityAgent.htsIn([
@@ -475,7 +487,10 @@ describe('furo-entity-agent', () => {
        * Fired when
        * detail payload:
        */
-      const customEvent = new Event('req-failed', { composed: true, bubbles: true });
+      const customEvent = new Event('req-failed', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = {
         error: 'invalid username',
         message: 'invalid username',
@@ -604,9 +619,13 @@ describe('furo-entity-agent', () => {
   it('should update with method put when hts is set', done => {
     entityAgent.setAttribute('service', 'TaskService');
     dataObject.setAttribute('type', 'task.TaskEntity');
-    entityAgent.addEventListener('save-success', () => {
-      done();
-    },{once:true});
+    entityAgent.addEventListener(
+      'save-success',
+      () => {
+        done();
+      },
+      { once: true }
+    );
     entityAgent.htsIn([
       {
         href: '/mockdata/tasks/1/get.json',
@@ -748,7 +767,7 @@ describe('furo-entity-agent', () => {
       });
       assert.equal(
         request.headers.get('Accept'),
-        'application/task.TaskEntity+json, application/json;q=0.9',
+        'application/task.TaskEntity+json, application/json;q=0.9'
       );
       done();
     });

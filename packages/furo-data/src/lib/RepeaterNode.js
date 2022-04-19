@@ -70,7 +70,11 @@ export class RepeaterNode extends EventTreeNode {
         })();
       }
       // check parent readonly meta
-      if (parentNode && parentNode._meta && parentNode._meta.readonly === true) {
+      if (
+        parentNode &&
+        parentNode._meta &&
+        parentNode._meta.readonly === true
+      ) {
         this._meta.readonly = true;
       }
       this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
@@ -134,7 +138,9 @@ export class RepeaterNode extends EventTreeNode {
         this._meta.readonly = false;
       }
       if (roBefore !== this._meta.readonly) {
-        this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
+        this.dispatchNodeEvent(
+          new NodeEvent('this-metas-changed', this, false)
+        );
       }
     });
 
@@ -144,8 +150,12 @@ export class RepeaterNode extends EventTreeNode {
 
   moveNode(oldIndex, newIndex) {
     super.moveNode(oldIndex, newIndex);
-    this.dispatchNodeEvent(new NodeEvent('repeated-fields-changed', this, true));
-    this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
+    this.dispatchNodeEvent(
+      new NodeEvent('repeated-fields-changed', this, true)
+    );
+    this.dispatchNodeEvent(
+      new NodeEvent('this-repeated-field-changed', this, false)
+    );
   }
 
   /**
@@ -168,7 +178,9 @@ export class RepeaterNode extends EventTreeNode {
   removeAllChildren() {
     this.__childNodes = [];
     this.repeats = [];
-    this.dispatchNodeEvent(new NodeEvent('repeated-fields-all-removed', this.repeats, false));
+    this.dispatchNodeEvent(
+      new NodeEvent('repeated-fields-all-removed', this.repeats, false)
+    );
   }
 
   /**
@@ -186,25 +198,33 @@ export class RepeaterNode extends EventTreeNode {
     delete this.__parentNode[this._name];
 
     // notify
-    this.dispatchNodeEvent(new NodeEvent('this-node-field-deleted', this._name, false));
-    this.dispatchNodeEvent(new NodeEvent('node-field-deleted', this._name, true));
+    this.dispatchNodeEvent(
+      new NodeEvent('this-node-field-deleted', this._name, false)
+    );
+    this.dispatchNodeEvent(
+      new NodeEvent('node-field-deleted', this._name, true)
+    );
 
     // because this is deleted, notifiy from parent
     this.__parentNode.dispatchNodeEvent(
-      new NodeEvent('repeated-fields-changed', this.__parentNode, true),
+      new NodeEvent('repeated-fields-changed', this.__parentNode, true)
     );
     this.__parentNode.dispatchNodeEvent(
-      new NodeEvent('this-repeated-field-changed', this.__parentNode, false),
+      new NodeEvent('this-repeated-field-changed', this.__parentNode, false)
     );
   }
 
   set _value(val) {
     if (Array.isArray(val)) {
-      this.dispatchNodeEvent(new NodeEvent('before-repeated-field-changed', this, false));
+      this.dispatchNodeEvent(
+        new NodeEvent('before-repeated-field-changed', this, false)
+      );
 
       if (this.clearListOnNewData) {
         this.removeAllChildren();
-        this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
+        this.dispatchNodeEvent(
+          new NodeEvent('this-repeated-field-changed', this, false)
+        );
       }
 
       val.forEach((repdata, i) => {
@@ -224,11 +244,15 @@ export class RepeaterNode extends EventTreeNode {
         }
       }
 
-      this.dispatchNodeEvent(new NodeEvent('repeated-fields-changed', this, true));
-      this.__parentNode.dispatchNodeEvent(
-        new NodeEvent('this-repeated-field-changed', this, false),
+      this.dispatchNodeEvent(
+        new NodeEvent('repeated-fields-changed', this, true)
       );
-      this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
+      this.__parentNode.dispatchNodeEvent(
+        new NodeEvent('this-repeated-field-changed', this, false)
+      );
+      this.dispatchNodeEvent(
+        new NodeEvent('this-repeated-field-changed', this, false)
+      );
     }
   }
 
@@ -253,7 +277,9 @@ export class RepeaterNode extends EventTreeNode {
             field._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
-              this.broadcastEvent(new NodeEvent('parent-readonly-meta-set', this, true));
+              this.broadcastEvent(
+                new NodeEvent('parent-readonly-meta-set', this, true)
+              );
             }
           }
           // eslint-disable-next-line guard-for-in,no-restricted-syntax
@@ -267,7 +293,9 @@ export class RepeaterNode extends EventTreeNode {
            * Fired when field metas, constraints or options changed
            * detail payload:
            */
-          field.dispatchNodeEvent(new NodeEvent('this-metas-changed', field, false));
+          field.dispatchNodeEvent(
+            new NodeEvent('this-metas-changed', field, false)
+          );
 
           // exit here, it does not go deeper
           return;
@@ -278,9 +306,9 @@ export class RepeaterNode extends EventTreeNode {
       subMetaAndConstraints.fields[f.slice(2).join('.')] = mc;
       // typo protection
       if (this.repeats[parseInt(target, 10)][targetfield]) {
-        this.repeats[parseInt(target, 10)][targetfield].__updateMetaAndConstraints(
-          subMetaAndConstraints,
-        );
+        this.repeats[parseInt(target, 10)][
+          targetfield
+        ].__updateMetaAndConstraints(subMetaAndConstraints);
       }
     }
   }
@@ -344,7 +372,6 @@ export class RepeaterNode extends EventTreeNode {
     return undefined;
   }
 
-
   /**
    * delegates the trigger to all repeats
    * @param event
@@ -364,12 +391,22 @@ export class RepeaterNode extends EventTreeNode {
     this.repeats.splice(index, 1);
     this.__childNodes.splice(index, 1);
 
-    this.dispatchNodeEvent(new NodeEvent('repeated-fields-changed', this.repeats, true));
-    this.dispatchNodeEvent(new NodeEvent('this-repeated-field-removed', this.repeats, false));
+    this.dispatchNodeEvent(
+      new NodeEvent('repeated-fields-changed', this.repeats, true)
+    );
+    this.dispatchNodeEvent(
+      new NodeEvent('this-repeated-field-removed', this.repeats, false)
+    );
 
-    this.dispatchNodeEvent(new NodeEvent('repeated-fields-removed', this.repeats, true));
-    this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
-    this.__parentNode.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
+    this.dispatchNodeEvent(
+      new NodeEvent('repeated-fields-removed', this.repeats, true)
+    );
+    this.dispatchNodeEvent(
+      new NodeEvent('this-repeated-field-changed', this, false)
+    );
+    this.__parentNode.dispatchNodeEvent(
+      new NodeEvent('this-repeated-field-changed', this, false)
+    );
   }
 
   _addSilent() {
@@ -420,13 +457,21 @@ export class RepeaterNode extends EventTreeNode {
       const child = this.repeats[index];
       child._value = data;
     }
-    this.dispatchNodeEvent(new NodeEvent('repeated-fields-added', this.repeats[index], true));
-    this.__parentNode.dispatchNodeEvent(
-      new NodeEvent('this-repeated-field-added', this.repeats[index], false),
+    this.dispatchNodeEvent(
+      new NodeEvent('repeated-fields-added', this.repeats[index], true)
     );
-    this.dispatchNodeEvent(new NodeEvent('repeated-fields-changed', this, true));
-    this.__parentNode.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
-    this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
+    this.__parentNode.dispatchNodeEvent(
+      new NodeEvent('this-repeated-field-added', this.repeats[index], false)
+    );
+    this.dispatchNodeEvent(
+      new NodeEvent('repeated-fields-changed', this, true)
+    );
+    this.__parentNode.dispatchNodeEvent(
+      new NodeEvent('this-repeated-field-changed', this, false)
+    );
+    this.dispatchNodeEvent(
+      new NodeEvent('this-repeated-field-changed', this, false)
+    );
     // return field for chainabilty
     return this.repeats[index];
   }
