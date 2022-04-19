@@ -435,9 +435,11 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @param validity
    */
   onFnaFieldNodeBecameInvalid(validity) {
-    if (validity.description) {
+    // this.valueStateText has the built-in message from ui5 (i18 error text)
+    // This message is only used for the automatic texts and does not apply to the constraints checks.
+    if (validity.description || this.valueStateText) {
       // this value state should not be saved as a previous value state
-      this._setValueStateMessage('Error', validity.description);
+      this._setValueStateMessage('Error', validity.description ? validity.description : this.valueStateText);
     } else {
       this.valueState = 'Error';
     }
