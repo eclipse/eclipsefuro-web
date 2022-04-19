@@ -187,7 +187,19 @@ class FuroTypeRenderer extends FBP(LitElement) {
       }
     }
     el.bindData(this._field);
-    this.parentNode.insertBefore(el, this);
+    this._insertedElementRef = this.parentNode.insertBefore(el, this);
+  }
+
+  /**
+   * Remove the inserted element, if the type renderer itself is removed
+   * @private
+   */
+  disconnectedCallback() {
+    if (this._insertedElementRef) {
+      this._insertedElementRef.remove();
+    }
+    // eslint-disable-next-line wc/guard-super-call
+    super.disconnectedCallback();
   }
 
   /**
@@ -198,7 +210,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
     // eslint-disable-next-line no-console
     console.warn(
       `No type specific renderer ${this.renderName} found. Check your imports.`,
-      this._field._spec.type,
+      this._field._spec.type
     );
   }
 }
