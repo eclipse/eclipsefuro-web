@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.1.0...@furo/data@2.1.1) (2022-04-26)
+
+
+### Bug Fixes
+
+* typerenderer must also remove dynamically created elements ([0777279](https://github.com/eclipse/eclipsefuro-web/commit/077727987e7232ef636c7d604562324f8c0b5926))
+
+
+
+
+
 # [2.1.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.0.5...@furo/data@2.1.0) (2022-04-14)
 
 
