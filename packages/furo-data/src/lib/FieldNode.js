@@ -7,6 +7,7 @@ import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
 import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
 import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 import { ValidatorFuroReference } from './ValidatorFuroReference.js';
+import { ValidatorGoogleProtobufBoolValue } from './ValidatorGoogleProtobufBoolValue.js';
 
 /**
  *
@@ -539,6 +540,12 @@ export class FieldNode extends EventTreeNode {
             break;
           case 'google.type.Money':
             ValidatorGoogleTypeMoney.validateConstraints(this).then(
+              success,
+              failure
+            );
+            break;
+          case 'google.protobuf.BoolValue':
+            ValidatorGoogleProtobufBoolValue.validateConstraints(this).then(
               success,
               failure
             );
