@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.1.1...@furo/data@2.1.2) (2022-05-04)
+
+
+### Bug Fixes
+
+* issue-45, new validator class for type furo.Reference ([b77eb75](https://github.com/eclipse/eclipsefuro-web/commit/b77eb7559338fbc01f1b58085606a75545fa5183))
+* issue-45, new validator class for type google.protobuf.BoolValue ([b3a9429](https://github.com/eclipse/eclipsefuro-web/commit/b3a9429041c26aaa4762b57cbe737227590cd54f))
+
+
+
+
+
 ## [2.1.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.1.0...@furo/data@2.1.1) (2022-04-26)
 
 

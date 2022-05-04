@@ -1,7 +1,7 @@
 {
   "name": "@furo/data",
   "description": "Furo data components",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-data",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
