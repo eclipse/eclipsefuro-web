@@ -6,6 +6,7 @@ import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
 import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
 import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
 import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
+import { ValidatorFuroReference } from './ValidatorFuroReference.js';
 
 /**
  *
@@ -538,6 +539,12 @@ export class FieldNode extends EventTreeNode {
             break;
           case 'google.type.Money':
             ValidatorGoogleTypeMoney.validateConstraints(this).then(
+              success,
+              failure
+            );
+            break;
+          case 'furo.Reference':
+            ValidatorFuroReference.validateConstraints(this).then(
               success,
               failure
             );
