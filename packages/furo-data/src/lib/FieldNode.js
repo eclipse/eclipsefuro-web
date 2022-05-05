@@ -5,7 +5,10 @@ import { ScalarTypeHelper } from './ScalarTypeHelper.js';
 import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
 import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
 import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
+import { ValidatorFuroBigDecimal } from './ValidatorFuroBigDecimal.js';
 import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
+import { ValidatorGoogleProtobufInt64Value } from './ValidatorGoogleProtobufInt64Value.js';
+import { ValidatorGoogleProtobufFloatValue } from './ValidatorGoogleProtobufFloatValue.js';
 import { ValidatorFuroReference } from './ValidatorFuroReference.js';
 import { ValidatorGoogleProtobufBoolValue } from './ValidatorGoogleProtobufBoolValue.js';
 
@@ -214,8 +217,8 @@ export class FieldNode extends EventTreeNode {
       this._validationDisabled = false;
     });
 
-    this.addEventListener('validation-requested', () => {
-      this._checkConstraints();
+    this.addEventListener('validation-requested', event => {
+      this._checkConstraints(event);
     });
 
     // clear the errors
@@ -492,7 +495,7 @@ export class FieldNode extends EventTreeNode {
   }
 
   // check the validity against spec and meta
-  _checkConstraints() {
+  _checkConstraints(event) {
     const validity = true;
 
     const success = field => {
@@ -527,30 +530,79 @@ export class FieldNode extends EventTreeNode {
         // complex special type path
         switch (this._spec.type) {
           case 'google.type.Date':
+            if (event) {
+              event.stopBroadcast();
+            }
             ValidatorGoogleTypeDate.validateConstraints(this).then(
               success,
               failure
             );
             break;
           case 'furo.type.Date':
+            if (event) {
+              event.stopBroadcast();
+            }
+
             ValidatorGoogleTypeDate.validateConstraints(this).then(
               success,
               failure
             );
             break;
+
+          case 'google.protobuf.Int32Value':
+          case 'google.protobuf.UInt32Value':
+          case 'google.protobuf.Int64Value':
+          case 'google.protobuf.UInt64Value':
+            if (event) {
+              event.stopBroadcast();
+            }
+            ValidatorGoogleProtobufInt64Value.validateConstraints(this).then(
+              success,
+              failure
+            );
+            break;
+          case 'google.protobuf.DoubleValue':
+          case 'google.protobuf.FloatValue':
+            if (event) {
+              event.stopBroadcast();
+            }
+            ValidatorGoogleProtobufFloatValue.validateConstraints(this).then(
+              success,
+              failure
+            );
+            break;
+          case 'furo.BigDecimal':
+            if (event) {
+              event.stopBroadcast();
+            }
+
+            ValidatorFuroBigDecimal.validateConstraints(this).then(
+              success,
+              failure
+            );
+            break;
           case 'google.type.Money':
+            if (event) {
+              event.stopBroadcast();
+            }
             ValidatorGoogleTypeMoney.validateConstraints(this).then(
               success,
               failure
             );
             break;
           case 'google.protobuf.BoolValue':
+            if (event) {
+              event.stopBroadcast();
+            }
             ValidatorGoogleProtobufBoolValue.validateConstraints(this).then(
               success,
               failure
             );
             break;
           case 'furo.Reference':
+            if (event) {
+              event.stopBroadcast();
+            }
             ValidatorFuroReference.validateConstraints(this).then(
               success,
               failure
