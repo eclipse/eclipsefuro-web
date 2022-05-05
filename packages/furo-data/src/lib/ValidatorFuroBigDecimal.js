@@ -66,12 +66,10 @@ export class ValidatorFuroBigDecimal {
           case 'step':
             // step check is (value - min)%is == 0
             // eslint-disable-next-line no-case-declarations
-            let step = parseFloat(constraint.is)
-              if(field.scale._value !== 0 ){
-                step *= (10 ** field.scale._value);
-              }
-
-
+            let step = parseFloat(constraint.is);
+            if (field.scale._value !== 0) {
+              step *= 10 ** field.scale._value;
+            }
 
             // step check is (value - min)%is == 0
             // eslint-disable-next-line no-case-declarations
