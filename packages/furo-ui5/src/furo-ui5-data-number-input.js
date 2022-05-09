@@ -171,7 +171,9 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @private
    */
   _updateFNA() {
-    const { value } = this;
+    // do not rely on this.value, because the delete key press will send the old value instead of the current one
+    const innerInputField = this.shadowRoot.querySelector('input')
+    const  {value} = innerInputField;
     if (this.isFat()) {
       if (value === '') {
         this._tmpFAT.value = null;
