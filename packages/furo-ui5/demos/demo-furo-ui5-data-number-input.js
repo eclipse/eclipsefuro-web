@@ -86,10 +86,18 @@ class DemoFuroUi5DataNumberInput extends FBP(LitElement) {
             <furo-vertical-scroller>
               <furo-form-layouter two>
                 <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
-                  >Load Demo Data</furo-ui5-button
+                  >Load Demo Data.</furo-ui5-button
                 >
                 <furo-ui5-data-number-input
                   ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+                ></furo-ui5-data-number-input>
+
+                <furo-ui5-data-number-input
+                  ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+                ></furo-ui5-data-number-input>
+
+                <furo-ui5-data-number-input
+                  ƒ-bind-data="--entity(*.data.furo_data_range_input)"
                 ></furo-ui5-data-number-input>
                 <furo-ui5-data-number-input
                   ƒ-bind-data="--entity(*.data.furo_data_range_input)"
