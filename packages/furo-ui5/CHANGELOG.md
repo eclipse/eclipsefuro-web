@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.6...@furo/ui5@0.48.7) (2022-05-09)
+
+
+### Bug Fixes
+
+* react to delete keypress on numeric fields ([baaf122](https://github.com/eclipse/eclipsefuro-web/commit/baaf1229e4f721485daae1c3ae7a81553e21bccc))
+
+
+
+
+
 ## [0.48.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.5...@furo/ui5@0.48.6) (2022-04-19)
 
 **Note:** Version bump only for package @furo/ui5
