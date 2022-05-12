@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.8...@furo/data@1.34.9) (2022-05-12)
+
+
+### Bug Fixes
+
+* full qualified service name support ([ab3f30f](https://github.com/eclipse/eclipsefuro-web/commit/ab3f30f0e1ee8ae53c194a21c39ed094118cb928))
+
+
+
+
+
 ## [1.34.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@1.34.7...@furo/data@1.34.8) (2022-04-07)
 
 

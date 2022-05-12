@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.14](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.13...@furo/doc-helper@1.10.14) (2022-05-12)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [1.10.13](https://github.com/eclipse/eclipsefuro-web/compare/@furo/doc-helper@1.10.12...@furo/doc-helper@1.10.13) (2022-04-07)
 
 **Note:** Version bump only for package @furo/doc-helper

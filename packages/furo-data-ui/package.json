@@ -1,7 +1,7 @@
 {
   "name": "@furo/data-ui",
   "description": "Visual furo-data compatible components",
-  "version": "1.13.11",
+  "version": "1.13.12",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-data-ui",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -28,7 +28,7 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/data": "^1.34.8",
+    "@furo/data": "^1.34.9",
     "@furo/fbp": "^5.12.4",
     "@furo/framework": "^1.9.5",
     "apexcharts": "^3.25.0",
@@ -37,10 +37,10 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data-input": "^1.15.10",
+    "@furo/data-input": "^1.15.11",
     "@furo/input": "^1.10.5",
     "@furo/specs": "^1.24.0",
-    "@furo/util": "^1.8.11",
+    "@furo/util": "^1.8.12",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

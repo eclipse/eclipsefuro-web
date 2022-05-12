@@ -1,6 +1,6 @@
 {
   "name": "@furo/util",
-  "version": "1.8.11",
+  "version": "1.8.12",
   "description": "package sample",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-util",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/navigation": "^1.10.11",
+    "@furo/navigation": "^1.10.12",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.11](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-input@1.15.10...@furo/data-input@1.15.11) (2022-05-12)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [1.15.10](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data-input@1.15.9...@furo/data-input@1.15.10) (2022-04-07)
 
 **Note:** Version bump only for package @furo/data-input
