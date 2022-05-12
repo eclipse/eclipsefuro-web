@@ -113,6 +113,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @param service
    */
   set service(service) {
+    this._requestedService = service;
     if (!this._servicedefinitions[service]) {
       // eslint-disable-next-line no-console
       console.error(

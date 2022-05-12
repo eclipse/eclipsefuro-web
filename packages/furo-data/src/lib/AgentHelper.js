@@ -160,7 +160,7 @@ export class AgentHelper {
     }
     // check rel and type
     const htsFound = caller._hts.find(
-      link => link.rel === rel && link.service === caller._service.name,
+      link => link.rel === rel && link.service === caller._requestedService
     );
     if (!htsFound) {
       // eslint-disable-next-line no-console
