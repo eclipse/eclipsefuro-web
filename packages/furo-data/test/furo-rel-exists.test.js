@@ -13,13 +13,13 @@ describe('furo-rel-exists', () => {
       rel: 'self',
       method: 'GET',
       href: './mockdata/tasks/1/get.json',
-      type: 'task.Task',
+      service: "TaskService",
     },
     {
       rel: 'update',
       method: 'PATCH',
       href: './mockdata/tasks/1/get.json',
-      type: 'task.Task',
+      service: "TaskService",
     },
   ];
 
@@ -43,18 +43,18 @@ describe('furo-rel-exists', () => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-rel-exists');
     done();
   });
-  it('should fire rel-dont-exist if the type doesnt match', done => {
-    element.setAttribute('type', 'some');
+  it('should fire rel-dont-exist if the service doesnt match', done => {
+    element.setAttribute('service', 'some');
     element.addEventListener('rel-dont-exist', () => {
       done();
     });
     element.inject(linkArray);
   });
 
-  it('should fire rel-exist if the type  match', done => {
-    element.setAttribute('type', 'task.Task');
+  it('should fire rel-exist if the service  match', done => {
+    element.setAttribute('service', 'TaskService');
     element.addEventListener('furo-rel-exists', e => {
-      assert.equal(e.detail.type, 'task.Task');
+      assert.equal(e.detail.service, 'TaskService');
       done();
     });
     element.inject(linkArray);
@@ -78,7 +78,7 @@ describe('furo-rel-exists', () => {
 
   it('should return a hateoas link', done => {
     element.addEventListener('furo-rel-exists', e => {
-      assert.equal(e.detail.type, 'task.Task');
+      assert.equal(e.detail.service, 'TaskService');
       done();
     });
     element.inject(linkArray);
