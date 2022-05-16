@@ -602,7 +602,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   _updateInternalHTS(hts) {
     // convert link object to hts array
-    if (hts && hts.rel && hts.method && hts.type && hts.href) {
+    if (hts && hts.rel && hts.method && hts.href) {
       // eslint-disable-next-line no-param-reassign
       hts = [hts];
     }

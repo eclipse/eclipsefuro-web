@@ -22,7 +22,6 @@ class FuroRelExists extends LitElement {
    * inject returns true for existing links and false for non existing links.
    * TODO: implement bind data too
    * TODO: emit a event with bool which is triggered on any change of the hts array or binded data
-   * Todo: Better and consistent names for the events
    *
    *
    * @param {[furo.Link]} linkArray - Array of furo links
@@ -30,8 +29,8 @@ class FuroRelExists extends LitElement {
    */
   inject(linkArray) {
     const links = linkArray.filter(link => {
-      if (this.type) {
-        return link.rel === this.rel && link.type === this.type;
+      if (this.service) {
+        return link.rel === this.rel && link.service === this.service;
       }
       return link.rel === this.rel;
     });
@@ -64,11 +63,11 @@ class FuroRelExists extends LitElement {
       /**
        * Name of the rel
        */
-      rel: { type: String },
+      rel: { service: String },
       /**
-       * define the type if you want a specific check on the type also
+       * define the service if you want a specific check on the service also
        */
-      type: { type: String },
+      service: { service: String },
     };
   }
 
@@ -78,8 +77,8 @@ class FuroRelExists extends LitElement {
         this.rel = value;
         break;
 
-      case 'type':
-        this.type = value;
+      case 'service':
+        this.service = value;
         break;
       default:
     }
