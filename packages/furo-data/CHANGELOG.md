@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.0...@furo/data@2.2.1) (2022-05-17)
+
+
+### Bug Fixes
+
+* remove unneeded type checks ([fd955a6](https://github.com/eclipse/eclipsefuro-web/commit/fd955a69fba0d276b3eb31a5270894c8258922f0))
+
+
+
+
+
 # [2.2.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.1.2...@furo/data@2.2.0) (2022-05-05)
 
 
