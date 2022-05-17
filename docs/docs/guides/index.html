@@ -16,8 +16,8 @@ Minimal Environment #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 
 <title>Guides | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
-<script defer src="/en.search.min.2c6b49fd2ec0d90a079fa90125168d89826038793ee11293c0f44e424e688e6e.js" integrity="sha256-LGtJ/S7A2QoHn6kBJRaNiYJgOHk&#43;4RKTwPROQk5ojm4="></script>
+<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
+<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
 <link rel="alternate" type="application/rss+xml" href="https://web-components.furo.pro/docs/guides/index.xml" title="フロー Furo Web" />
 <!--
 Made with Book Theme
@@ -478,6 +478,71 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/" class="">ValidatorDefaultTypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroBigDecimal/" class="">ValidatorFuroBigDecimal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroReference/" class="">ValidatorFuroReference</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufBoolValue/" class="">ValidatorGoogleProtobufBoolValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufFloatValue/" class="">ValidatorGoogleProtobufFloatValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufInt64Value/" class="">ValidatorGoogleProtobufInt64Value</a>
   
 
         </li>
@@ -1493,7 +1558,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
 
 
  
@@ -1556,7 +1621,7 @@ register the <code>types</code> and <code>services</code>.</p>
 </h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -1583,7 +1648,7 @@ register the <code>types</code> and <code>services</code>.</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#998;font-style:italic">// -- initialize application env, api 
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#998;font-style:italic">// -- initialize application env, api 
 </span><span style="color:#998;font-style:italic"></span>
 <span style="color:#000;font-weight:bold">import</span> {Init, Env} from <span style="color:#d14">&#34;@furo/framework/src/furo.js&#34;</span>
 
@@ -1668,8 +1733,8 @@ Env.api.prefix <span style="color:#000;font-weight:bold">=</span> <span style="c
 </body>
 
 
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/doc-helper.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/furo-fbp.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/doc-helper.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js"></script>
 </html>
 
 

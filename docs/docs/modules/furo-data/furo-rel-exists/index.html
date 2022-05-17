@@ -9,15 +9,13 @@
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="furo-rel-exists" />
 <meta property="og:description" content="checks for a specific rel" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/" /><meta property="article:section" content="docs" />
-
+<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/" />
 <meta property="article:modified_time" content="2022-04-14T11:34:34+02:00" />
-
 <title>furo-rel-exists | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
-<script defer src="/en.search.min.2c6b49fd2ec0d90a079fa90125168d89826038793ee11293c0f44e424e688e6e.js" integrity="sha256-LGtJ/S7A2QoHn6kBJRaNiYJgOHk&#43;4RKTwPROQk5ojm4="></script>
+<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
+<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -477,6 +475,71 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/" class="">ValidatorDefaultTypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroBigDecimal/" class="">ValidatorFuroBigDecimal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroReference/" class="">ValidatorFuroReference</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufBoolValue/" class="">ValidatorGoogleProtobufBoolValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufFloatValue/" class="">ValidatorGoogleProtobufFloatValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufInt64Value/" class="">ValidatorGoogleProtobufInt64Value</a>
   
 
         </li>
@@ -1492,7 +1555,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
 
 
  
@@ -1524,7 +1587,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#attributes-and-properties">Attributes and Properties</a>
       <ul>
         <li><a href="#rel"><strong>rel</strong></a></li>
-        <li><a href="#type"><strong>type</strong></a></li>
+        <li><a href="#service"><strong>service</strong></a></li>
       </ul>
     </li>
     <li><a href="#events">Events</a>
@@ -1553,7 +1616,7 @@ https://github.com/alex-shpak/hugo-book
   furo-rel-exists
   <a class="anchor" href="#furo-rel-exists">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.0.5</small>
+<p><strong>@furo/data</strong> <small>v2.2.1</small>
 <br><code>import '@furo/data/src/furo-rel-exists.js';</code><small>
 <br>exports <code>&lt;furo-rel-exists&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em></small>
@@ -1562,10 +1625,10 @@ https://github.com/alex-shpak/hugo-book
 Checks if a hateoas relation exists in a given hateaos Links array.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-rel-exists</span> <span style="color:#008080">ƒ-inject</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--HTS-array&#34;</span>&gt;&lt;/<span style="color:#000080">furo-rel-exists</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-rel-exists</span> <span style="color:#008080">ƒ-inject</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--HTS-array&#34;</span>&gt;&lt;/<span style="color:#000080">furo-rel-exists</span>&gt;
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="attributes-and-properties">
@@ -1580,13 +1643,13 @@ Checks if a hateoas relation exists in a given hateaos Links array.</p>
 </small></p>
 <p>Name of the rel
 <br><br></p>
-<h3 id="type">
-  <strong>type</strong>
-  <a class="anchor" href="#type">#</a>
+<h3 id="service">
+  <strong>service</strong>
+  <a class="anchor" href="#service">#</a>
 </h3>
-<p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">type</span>
+<p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
 </small></p>
-<p>define the type if you want a specific check on the type also
+<p>define the service if you want a specific check on the service also
 <br><br></p>
 <h2 id="events">
   Events
@@ -1622,8 +1685,7 @@ Checks if a hateoas relation exists in a given hateaos Links array.</p>
 <p>Inject a HTS Link Array to receive a <code>rel-exist</code> or a <code>rel-dont-exist</code> event.</p>
 <p>inject returns true for existing links and false for non existing links.
 TODO: implement bind data too
-TODO: emit a event with bool which is triggered on any change of the hts array or binded data
-Todo: Better and consistent names for the events</p>
+TODO: emit a event with bool which is triggered on any change of the hts array or binded data</p>
 <ul>
 <li><small><em>linkArray</em> Array of furo links</small>
 <br><br></li>
@@ -1671,7 +1733,7 @@ Todo: Better and consistent names for the events</p>
     <li><a href="#attributes-and-properties">Attributes and Properties</a>
       <ul>
         <li><a href="#rel"><strong>rel</strong></a></li>
-        <li><a href="#type"><strong>type</strong></a></li>
+        <li><a href="#service"><strong>service</strong></a></li>
       </ul>
     </li>
     <li><a href="#events">Events</a>
@@ -1697,8 +1759,8 @@ Todo: Better and consistent names for the events</p>
 </body>
 
 
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/doc-helper.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/furo-fbp.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/doc-helper.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js"></script>
 </html>
 
 

@@ -5,7 +5,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="@furo/util #  @furo/util v2.0.5 package sample
+<meta name="description" content="@furo/util #  @furo/util v2.0.6 package sample
 Installation #  npm:
 1  npm i -S @furo/util`   What is inside #  Components #    furo-config-loader load config files  furo-config config access  furo-de-bounce event de bouncer  furo-feature-toggle flow based handler for feature toggles  furo-fetch-json fetch json data  furo-forth-stack forth like stack  furo-get-clipboard get clipboard content  furo-head-tail split an array  furo-hp-35 calculator component  furo-interval-pulse trigger an event in intervals  furo-key-filter keyboard event filter  furo-keydown keyboard event listener  furo-markdown renders markdown data  furo-navigation-pad keyboard navigation helper  furo-pretty-json pretty prints json data  furo-put-clipboard write content to clipboard  furo-demo-snippet documentation helper  light-bulb a light bulb for the documentation  furo-graph-renderer paints a dagree graph as svg  furo-show-flow internal helper component  ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="@furo/util" />
@@ -16,8 +16,8 @@ Installation #  npm:
 <title>@furo/util | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
-<script defer src="/en.search.min.2c6b49fd2ec0d90a079fa90125168d89826038793ee11293c0f44e424e688e6e.js" integrity="sha256-LGtJ/S7A2QoHn6kBJRaNiYJgOHk&#43;4RKTwPROQk5ojm4="></script>
+<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
+<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
 <link rel="alternate" type="application/rss+xml" href="https://web-components.furo.pro/docs/modules/furo-util/index.xml" title="フロー Furo Web" />
 <!--
 Made with Book Theme
@@ -478,6 +478,71 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/" class="">ValidatorDefaultTypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroBigDecimal/" class="">ValidatorFuroBigDecimal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroReference/" class="">ValidatorFuroReference</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufBoolValue/" class="">ValidatorGoogleProtobufBoolValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufFloatValue/" class="">ValidatorGoogleProtobufFloatValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufInt64Value/" class="">ValidatorGoogleProtobufInt64Value</a>
   
 
         </li>
@@ -1493,7 +1558,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
 
 
  
@@ -1525,7 +1590,7 @@ https://github.com/alex-shpak/hugo-book
   @furo/util
   <a class="anchor" href="#furoutil">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.0.5</small>
+<p><strong>@furo/util</strong> <small>v2.0.6</small>
 package sample</p>
 <h3 id="installation">
   Installation
@@ -1534,10 +1599,10 @@ package sample</p>
 <p><em>npm</em>:</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i -S @furo/util<span style="color:#d14">`</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i -S @furo/util<span style="color:#d14">`</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="what-is-inside">
@@ -1632,8 +1697,8 @@ package sample</p>
 </body>
 
 
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/doc-helper.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/furo-fbp.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/doc-helper.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js"></script>
 </html>
 
 

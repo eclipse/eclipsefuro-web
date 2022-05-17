@@ -5,25 +5,23 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="i18n #  @furo/furo-framework v2.1.0 import &#39;@furo/framework/src/i18n.js&#39;; exports i18n js
+<meta name="description" content="i18n #  @furo/furo-framework v2.1.1 import &#39;@furo/framework/src/i18n.js&#39;; exports i18n js
  The built in i18n is a trivial translation mechanism which translates keys (words) a method for pluralized keys (words with numbers) is available but not implemented.
 You can override the builtin methods in your init file, as long you keep i18n.t and i18n.n
 Usage #  After you have registered a translation file, you can use i18n in your components.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="i18n" />
-<meta property="og:description" content="i18n #  @furo/furo-framework v2.1.0 import &#39;@furo/framework/src/i18n.js&#39;; exports i18n js
+<meta property="og:description" content="i18n #  @furo/furo-framework v2.1.1 import &#39;@furo/framework/src/i18n.js&#39;; exports i18n js
  The built in i18n is a trivial translation mechanism which translates keys (words) a method for pluralized keys (words with numbers) is available but not implemented.
 You can override the builtin methods in your init file, as long you keep i18n.t and i18n.n
 Usage #  After you have registered a translation file, you can use i18n in your components." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-framework/i18n/" /><meta property="article:section" content="docs" />
-
+<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-framework/i18n/" />
 <meta property="article:modified_time" content="2022-04-14T11:34:34+02:00" />
-
 <title>i18n | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
-<script defer src="/en.search.min.2c6b49fd2ec0d90a079fa90125168d89826038793ee11293c0f44e424e688e6e.js" integrity="sha256-LGtJ/S7A2QoHn6kBJRaNiYJgOHk&#43;4RKTwPROQk5ojm4="></script>
+<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
+<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -483,6 +481,71 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorDefaultTypes/" class="">ValidatorDefaultTypes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroBigDecimal/" class="">ValidatorFuroBigDecimal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorFuroReference/" class="">ValidatorFuroReference</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufBoolValue/" class="">ValidatorGoogleProtobufBoolValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufFloatValue/" class="">ValidatorGoogleProtobufFloatValue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://web-components.furo.pro/docs/modules/furo-data/ValidatorGoogleProtobufInt64Value/" class="">ValidatorGoogleProtobufInt64Value</a>
   
 
         </li>
@@ -1498,7 +1561,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
 
 
  
@@ -1552,7 +1615,7 @@ https://github.com/alex-shpak/hugo-book
   i18n
   <a class="anchor" href="#i18n">#</a>
 </h1>
-<p><strong>@furo/furo-framework</strong> <small>v2.1.0</small>
+<p><strong>@furo/furo-framework</strong> <small>v2.1.1</small>
 <br><code>import '@furo/framework/src/i18n.js';</code><small>
 <br>exports <em>i18n</em> js</small></p>
 <hr>
@@ -1566,7 +1629,7 @@ a method for pluralized keys (words with numbers) is available but not implement
 <p>After you have registered a translation file, you can use <strong>i18n</strong> in your components.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -1580,7 +1643,7 @@ a method for pluralized keys (words with numbers) is available but not implement
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#998;font-style:italic">// import i18n
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#998;font-style:italic">// import i18n
 </span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">import</span> {i18n} from <span style="color:#d14">&#34;@furo/framework/src/i18n&#34;</span>
 
 <span style="color:#998;font-style:italic">// use it in your source
@@ -1601,7 +1664,7 @@ a method for pluralized keys (words with numbers) is available but not implement
 <p>Register i18n in the init phase of your application.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -1669,7 +1732,7 @@ a method for pluralized keys (words with numbers) is available but not implement
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">import</span> {Init, i18n, Env, Iconset} from <span style="color:#d14">&#34;@furo/framework/src/furo.js&#34;</span>;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">import</span> {Init, i18n, Env, Iconset} from <span style="color:#d14">&#34;@furo/framework/src/furo.js&#34;</span>;
 
 <span style="color:#998;font-style:italic">// import your translations
 </span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">import</span> {Translations} from <span style="color:#d14">&#34;./translations&#34;</span>;
@@ -1835,8 +1898,8 @@ a method for pluralized keys (words with numbers) is available but not implement
 </body>
 
 
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/doc-helper.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.0.0/dist/furo-fbp.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/doc-helper.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js"></script>
 </html>
 
 
