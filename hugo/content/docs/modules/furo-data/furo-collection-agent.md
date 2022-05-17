@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-collection-agent
-**@furo/data** <small>v2.0.5</small>
+**@furo/data** <small>v2.2.1</small>
 <br>`import '@furo/data/src/furo-collection-agent.js';`<small>
 <br>exports `<furo-collection-agent>` custom-element-definition
 <br>superclass *LitElement*
@@ -24,7 +24,7 @@ weight: 50
 
 <!-- produces a hateoas link array -->
 <furo-deep-link
-   service="Servicename" @-hts-out="--hts"></furo-deep-link>
+    service="Servicename" @-hts-out="--hts"></furo-deep-link>
 
 ```
 

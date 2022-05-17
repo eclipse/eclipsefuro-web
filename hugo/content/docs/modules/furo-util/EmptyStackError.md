@@ -6,7 +6,7 @@ weight: 100
 
 # EmptyStackError
 
-**@furo/furo-util** <small>v2.0.5</small>
+**@furo/furo-util** <small>v2.0.6</small>
 <br>`import '@furo/util/src/lib/EmptyStackError.js';`<small>
 <br>exports *EmptyStackError* js
 <br>extends *src/lib/EmptyStackError.js*

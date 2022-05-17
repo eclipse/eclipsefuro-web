@@ -6,7 +6,7 @@ weight: 100
 
 # FuroFeatureToggle
 
-**@furo/furo-framework** <small>v2.1.0</small>
+**@furo/furo-framework** <small>v2.1.1</small>
 <br>`import '@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js';`<small>
 <br>exports *FuroFeatureToggle* js</small>
 

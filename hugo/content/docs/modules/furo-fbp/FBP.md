@@ -6,7 +6,7 @@ weight: 100
 
 # FBP
 
-**@furo/furo-fbp** <small>v6.3.0</small>
+**@furo/furo-fbp** <small>v6.3.1</small>
 <br>`import '@furo/fbp/src/fbp.js';`<small>
 <br>exports *FBP* js</small>
 

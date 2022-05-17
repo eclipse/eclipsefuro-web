@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-backdrop
-**@furo/layout** <small>v2.0.4</small>
+**@furo/layout** <small>v2.0.5</small>
 <br>`import '@furo/layout/src/furo-backdrop.js';`<small>
 <br>exports `<furo-backdrop>` custom-element-definition
 <br>superclass *LitElement*

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-rel-exists
-**@furo/data** <small>v2.0.5</small>
+**@furo/data** <small>v2.2.1</small>
 <br>`import '@furo/data/src/furo-rel-exists.js';`<small>
 <br>exports `<furo-rel-exists>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -37,12 +37,12 @@ Checks if a hateoas relation exists in a given hateaos Links array.
 Name of the rel
 <br><br>
 
-### **type**
+### **service**
 
-<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">type</span>
+<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
 </small>
 
-define the type if you want a specific check on the type also
+define the service if you want a specific check on the service also
 <br><br>
 ## Events
 {{% api "_furo-rel-exists-events.md" %}}
@@ -75,7 +75,6 @@ Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
 inject returns true for existing links and false for non existing links.
 TODO: implement bind data too
 TODO: emit a event with bool which is triggered on any change of the hts array or binded data
-Todo: Better and consistent names for the events
 
 - <small>*linkArray* Array of furo links</small>
 <br><br>

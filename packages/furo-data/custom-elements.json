@@ -199,7 +199,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n   service=\"Servicename\"\n   ƒ-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n   service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
+          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n   service=\"Servicename\"\n   ƒ-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
           "name": "FuroCollectionAgent",
           "members": [
             {
@@ -2805,7 +2805,7 @@
                   }
                 }
               ],
-              "description": "Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.\n\ninject returns true for existing links and false for non existing links.\nTODO: implement bind data too\nTODO: emit a event with bool which is triggered on any change of the hts array or binded data\nTodo: Better and consistent names for the events",
+              "description": "Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.\n\ninject returns true for existing links and false for non existing links.\nTODO: implement bind data too\nTODO: emit a event with bool which is triggered on any change of the hts array or binded data",
               "return": {
                 "type": {
                   "text": "boolean"
@@ -2821,10 +2821,10 @@
             },
             {
               "kind": "field",
-              "name": "type",
+              "name": "service",
               "privacy": "public",
-              "description": "define the type if you want a specific check on the type also",
-              "attribute": "type"
+              "description": "define the service if you want a specific check on the service also",
+              "attribute": "service"
             }
           ],
           "events": [
@@ -2850,9 +2850,9 @@
               "fieldName": "rel"
             },
             {
-              "name": "type",
-              "description": "define the type if you want a specific check on the type also",
-              "fieldName": "type"
+              "name": "service",
+              "description": "define the service if you want a specific check on the service also",
+              "fieldName": "service"
             }
           ],
           "superclass": {
@@ -3567,7 +3567,12 @@
             },
             {
               "kind": "method",
-              "name": "_checkConstraints"
+              "name": "_checkConstraints",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             },
             {
               "kind": "method",
@@ -3701,7 +3706,7 @@
               "kind": "field",
               "name": "_spec",
               "description": "Reference to the current spec definition of the fieldNode",
-              "default": "{type: vType}",
+              "default": "{ type: vType }",
               "type": {
                 "text": "object"
               }
@@ -4328,6 +4333,197 @@
           "declaration": {
             "name": "ValidatorDefaultTypes",
             "module": "src/lib/ValidatorDefaultTypes.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorFuroBigDecimal.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "name": "ValidatorFuroBigDecimal",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorFuroBigDecimal",
+          "declaration": {
+            "name": "ValidatorFuroBigDecimal",
+            "module": "src/lib/ValidatorFuroBigDecimal.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorFuroReference.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type <code>furo.Reference</code",
+          "name": "ValidatorFuroReference",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks field constraints",
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorFuroReference",
+          "declaration": {
+            "name": "ValidatorFuroReference",
+            "module": "src/lib/ValidatorFuroReference.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorGoogleProtobufBoolValue.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "name": "ValidatorGoogleProtobufBoolValue",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleProtobufBoolValue",
+          "declaration": {
+            "name": "ValidatorGoogleProtobufBoolValue",
+            "module": "src/lib/ValidatorGoogleProtobufBoolValue.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorGoogleProtobufFloatValue.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "name": "ValidatorGoogleProtobufFloatValue",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleProtobufFloatValue",
+          "declaration": {
+            "name": "ValidatorGoogleProtobufFloatValue",
+            "module": "src/lib/ValidatorGoogleProtobufFloatValue.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/ValidatorGoogleProtobufInt64Value.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "name": "ValidatorGoogleProtobufInt64Value",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleProtobufInt64Value",
+          "declaration": {
+            "name": "ValidatorGoogleProtobufInt64Value",
+            "module": "src/lib/ValidatorGoogleProtobufInt64Value.js"
           }
         }
       ]

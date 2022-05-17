@@ -6,7 +6,7 @@ weight: 100
 
 # FieldNode
 
-**@furo/furo-data** <small>v2.0.5</small>
+**@furo/furo-data** <small>v2.2.1</small>
 <br>`import '@furo/data/src/lib/FieldNode.js';`<small>
 <br>exports *FieldNode* js
 <br>superclass *EventTreeNode*</small>
@@ -71,7 +71,7 @@ Set the value of the field to the specified defaults.
 
 
 ### **_spec**
-default: **{type: vType}**</small>
+default: **{ type: vType }**</small>
 
 Reference to the current spec definition of the fieldNode
 <br><br>
@@ -137,10 +137,11 @@ default values are applied
 
 
 ### **_checkConstraints**
-<small>**_checkConstraints**() ⟹ `void`</small>
+<small>**_checkConstraints**(*event* `` ) ⟹ `void`</small>
 
 
 
+- <small>*event* </small>
 <br><br>
 
 

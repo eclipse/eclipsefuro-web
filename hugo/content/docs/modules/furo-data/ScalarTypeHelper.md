@@ -6,7 +6,7 @@ weight: 100
 
 # ScalarTypeHelper
 
-**@furo/furo-data** <small>v2.0.5</small>
+**@furo/furo-data** <small>v2.2.1</small>
 <br>`import '@furo/data/src/lib/ScalarTypeHelper.js';`<small>
 <br>exports *ScalarTypeHelper* js</small>
 
