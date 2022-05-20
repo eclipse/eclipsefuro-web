@@ -207,8 +207,8 @@ describe('furo-api-fetch', () => {
     );
     element.addEventListener('parse-error', e => {
       assert.equal(
-        e.detail.stack,
-        'SyntaxError: Unexpected token T in JSON at position 0'
+        e.detail.stack.startsWith('SyntaxError'),
+        true
       );
       done();
     });
