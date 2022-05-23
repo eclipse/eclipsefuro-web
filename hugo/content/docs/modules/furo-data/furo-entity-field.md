@@ -13,7 +13,7 @@ weight: 50
 
 {{% api "_furo-entity-field-head.md" %}}
 
-Use this component to interact with fields from an furo-data-object.
+Use this component to interact with fields from a furo-data-object.
 
 You can update the field value or listen to changes of a field.
 
@@ -33,7 +33,7 @@ You can update the field value or listen to changes of a field.
 ### **value**
 </small>
 
-Setter
+Set a value to update the fieldnode
 <br><br>
 
 ## Events
@@ -51,14 +51,14 @@ Setter
 
 
 ### **setValue**
-<small>**setValue**(*v* `` ) ⟹ `void`</small>
+<small>**setValue**(*value* `*` ) ⟹ `void`</small>
 
-<small>`` </small> →
+<small>`*` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-value</span>
 
 Set the value of the field.
 
-- <small>*v* </small>
+- <small>*value* </small>
 <br><br>
 
 
@@ -68,8 +68,9 @@ Set the value of the field.
 <small>`Object|FieldNode` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span>
 
-Bind a entity field to the date-input. You can use the entity even when no data was received.
-When you use `at-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+Bind a FieldNode to the date-input.
+
+`--personDO(*.person.firstname)`
 
 - <small>*fieldNode* a Field object</small>
 <br><br>

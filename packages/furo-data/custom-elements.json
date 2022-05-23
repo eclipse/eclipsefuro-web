@@ -2367,7 +2367,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Use this component to interact with fields from an furo-data-object.\n\nYou can update the field value or listen to changes of a field.\n\n```html\n<furo-entity-field fn-bind-data=\"--dataObject(*.field)\"></furo-entity-field>\n```",
+          "description": "Use this component to interact with fields from a furo-data-object.\n\nYou can update the field value or listen to changes of a field.\n\n```html\n<furo-entity-field fn-bind-data=\"--dataObject(*.field)\"></furo-entity-field>\n```",
           "name": "FuroEntityField",
           "members": [
             {
@@ -2375,7 +2375,10 @@
               "name": "setValue",
               "parameters": [
                 {
-                  "name": "v"
+                  "name": "value",
+                  "type": {
+                    "text": "*"
+                  }
                 }
               ],
               "description": "Set the value of the field."
@@ -2383,10 +2386,13 @@
             {
               "kind": "field",
               "name": "value",
-              "description": "Setter",
+              "description": "Set a value to update the fieldnode",
               "parameters": [
                 {
-                  "name": "v"
+                  "name": "v",
+                  "type": {
+                    "text": "*"
+                  }
                 }
               ]
             },
@@ -2402,7 +2408,7 @@
                   }
                 }
               ],
-              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `at-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`"
+              "description": "Bind a FieldNode to the date-input.\n\n`--personDO(*.person.firstname)`"
             }
           ],
           "events": [
