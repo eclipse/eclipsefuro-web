@@ -18,13 +18,13 @@ describe('furo-deep-link', () => {
             <button hide-no-rel data-rel="list">hide no rel</button>
             <button data-rel="add">add</button>
             <furo-hateoas-state
-              ƒ-bind-hts="--collection(*.links)"
+              fn-bind-hts="--collection(*.links)"
             ></furo-hateoas-state>
           </div>
           <furo-data-object
             type="person.PersonCollection"
-            @-object-ready="--collection"
-            ƒ-inject-raw="--raw"
+            at-object-ready="--collection"
+            fn-inject-raw="--raw"
           ></furo-data-object>
         </template>
       </flow-bind>

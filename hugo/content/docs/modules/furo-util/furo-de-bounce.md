@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-de-bounce
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-de-bounce.js';`<small>
 <br>exports `<furo-de-bounce>` custom-element-definition
 <br>superclass *LitElement*
@@ -22,7 +22,7 @@ The Debounce technique allow us to “group” multiple sequential calls in a si
 
 ```html
 <furo-de-bounce
-    ƒ-trigger="--searchStringEntered" @-debounced="--debouncedSrch"
+    fn-trigger="--searchStringEntered" at-debounced="--debouncedSrch"
     ></furo-de-bounce>
 ```
 
@@ -62,13 +62,13 @@ Default value: 250
 {{% api "_furo-de-bounce-events.md" %}}
 
 ### **out**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-out</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-out</span>
 → <small>`*`</small>
 
-deprecated, use debounced instead. // TODO: remove @out and ƒ-input-wire in q2 2022
+deprecated, use debounced instead. // TODO: remove @out and fn-input-wire in q2 2022
 <br><br>
 ### **debounced**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-debounced</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-debounced</span>
 → <small>`*`</small>
 
 Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge.
@@ -86,7 +86,7 @@ Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leadin
 <small>**trigger**(*data* `*` ) ⟹ `void`</small>
 
 <small>`*` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span>
 
 Trigger the debounce
 

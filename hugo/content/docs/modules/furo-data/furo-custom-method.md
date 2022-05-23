@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-custom-method
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-custom-method.js';`<small>
 <br>exports `<furo-custom-method>` custom-element-definition
 <br>superclass *LitElement*
@@ -20,12 +20,12 @@ weight: 50
 <furo-custom-method
     service="Servicename"
     method="release"
-    ƒ-hts-in="--hts"
-    ƒ-trigger="--customClick"></furo-custom-method>
+    fn-hts-in="--hts"
+    fn-trigger="--customClick"></furo-custom-method>
 
 <!-- produces a hateoas link array -->
 <furo-deep-link
-    service="Servicename" @-hts-out="--hts"></furo-deep-link>
+    service="Servicename" at-hts-out="--hts"></furo-deep-link>
 
 ```
 * *before you can do any requests, the service, method and the HATEOAS must be known*
@@ -71,67 +71,67 @@ Name of the custom method / rel.
 {{% api "_furo-custom-method-events.md" %}}
 
 ### **hts-updated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-updated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-updated</span>
 → <small>`HTS`</small>
 
- Fired when hts was updated by `ƒ-hts-in`.
+ Fired when hts was updated by `fn-hts-in`.
 <br><br>
 ### **request-aborted**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-aborted</span>
 → <small>`Request`</small>
 
 Fired when a request was canceled.
 <br><br>
 ### **request-started**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-started</span>
 → <small>`Request`</small>
 
 Fired when a request is sent.
 <br><br>
 ### **response-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-raw</span>
 → <small>`Object`</small>
 
 Fired when a response is received.
 <br><br>
 ### **response-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
 <br><br>
 ### **response-error-[status-code]**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-[status-code]</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a specific error event.
 <br><br>
 ### **fatal-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-fatal-error</span>
 → <small>`Request`</small>
 
 Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
 <br><br>
 ### **response-error-4xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-4xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br>
 ### **response-error-5xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-5xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br>
 ### **response-error-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-raw</span>
 → <small>`Object`</small>
 
 Fired when a error has occoured.
 <br><br>
 ### **response**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response</span>
 → <small>`Object`</small>
 
 Fired when a response is received.
@@ -146,7 +146,7 @@ Fired when a response is received.
 <small>**updateQp**(*qp* `` *key* `Object` ) ⟹ `void`</small>
 
 <small>`` `Object` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-update-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-update-qp</span>
 
 Update query params
 a qp like {"active":true} will just update the qp *active*
@@ -161,7 +161,7 @@ If the current value of the qp is not the same like the injected value, a qp-cha
 <small>**bindRequestData**(*dataObject* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-request-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-request-data</span>
 
 Binds a furo-data-object type.
 
@@ -172,7 +172,7 @@ Binds a furo-data-object type.
 <small>**clearQp**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-qp</span>
 
 clear the query params that you have setted before
 
@@ -184,7 +184,7 @@ clear the query params that you have setted before
 <small>**trigger**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span>
 
 trigger the method with respect for binded-requset-object
 
@@ -194,7 +194,7 @@ trigger the method with respect for binded-requset-object
 <small>**triggerEmpty**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-empty</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-empty</span>
 
 
 
@@ -204,7 +204,7 @@ trigger the method with respect for binded-requset-object
 <small>**triggerWithBody**(*body* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-with-body</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-with-body</span>
 
 trigger the method with data
 
@@ -215,7 +215,7 @@ trigger the method with data
 <small>**htsIn**(*hts* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-hts-in</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-hts-in</span>
 
 
 
@@ -226,7 +226,7 @@ trigger the method with data
 <small>**abortPendingRequest**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abort-pending-request</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abort-pending-request</span>
 
 Aborts a pending request
 

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-keydown
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-keydown.js';`<small>
 <br>exports `<furo-keydown>` custom-element-definition
 <br>superclass *LitElement*
@@ -21,8 +21,8 @@ When you set `alt`, `ctrl` or any of the other arguments, the key event will be 
  [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
 
 ```html
-<furo-keydown key="Enter" @-key="--enterPressed"></furo-keydown>
-<furo-keydown ctrl key="c" @-key="--copyRequested"></furo-keydown>
+<furo-keydown key="Enter" at-key="--enterPressed"></furo-keydown>
+<furo-keydown ctrl key="c" at-key="--copyRequested"></furo-keydown>
 ```
 
 {{% api "_furo-keydown-description.md" %}}
@@ -101,7 +101,7 @@ Set this to true to stop the event propagation of the keypress event.
 {{% api "_furo-keydown-events.md" %}}
 
 ### **key**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-key</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-key</span>
 → <small>`KeyboardEvent`</small>
 
 Fired when key was catched on target

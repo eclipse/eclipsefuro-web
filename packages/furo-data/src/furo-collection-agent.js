@@ -12,11 +12,11 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * ```html
  * <furo-collection-agent
  *    service="Servicename"
- *    ƒ-hts-in="--hts"></furo-collection-agent>
+ *    fn-hts-in="--hts"></furo-collection-agent>
  *
  * <!-- produces a hateoas link array -->
  * <furo-deep-link
- *     service="Servicename" @-hts-out="--hts"></furo-deep-link>
+ *     service="Servicename" at-hts-out="--hts"></furo-deep-link>
  *
  * ```
  *
@@ -35,7 +35,7 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @fires {Object} response-error-raw - Fired when a error has occoured.
  * @fires {Object} response - Fired when a response is received.
  * @fires {hts} response-hts-updated -  Fired when the hts was updated by the received response.
- * @fires {} filter-changed -  Fired when filter was updated with `ƒ-set-filter`.
+ * @fires {} filter-changed -  Fired when filter was updated with `fn-set-filter`.
  * @fires {Array|HATEOAS} hts-updated -  Fired when hateoas was updated from response.
  * @fires {Hateoas links} hts-injected -  Fired when hateoas was updated
  * @fires request-aborted - Fired if the request was successfully cancelled
@@ -674,13 +674,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed, --requestFinished"
-        @-request-aborted="^^req-aborted"
-        @-parse-error="^^req-failed, --requestFinished"
-        @-fatal-error="--requestFinished"
+        fn-invoke-request="--triggerLoad"
+        fn-abort-request="--abortDemanded"
+        at-response="--responseParsed, --requestFinished, ^^req-success"
+        at-response-error="^^req-failed, --requestFinished"
+        at-request-aborted="^^req-aborted"
+        at-parse-error="^^req-failed, --requestFinished"
+        at-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

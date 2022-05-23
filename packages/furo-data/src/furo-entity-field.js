@@ -6,7 +6,7 @@ import { LitElement, css } from 'lit';
  * You can update the field value or listen to changes of a field.
  *
  * ```html
- * <furo-entity-field ƒ-bind-data="--dataObject(*.field)"></furo-entity-field>
+ * <furo-entity-field fn-bind-data="--dataObject(*.field)"></furo-entity-field>
  * ```
  *
  * @fires {*} value-changed -  Fired when the field value or a child value of it was changed.
@@ -45,7 +45,7 @@ class FuroEntityField extends LitElement {
 
   /**
    * Bind a entity field to the date-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * When you use `at-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {

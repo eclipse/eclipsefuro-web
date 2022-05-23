@@ -541,28 +541,6 @@ export const FBP = superClass =>
         }
 
         for (let i = 0; i < element.attributes.length; i += 1) {
-          // collect data property receiver
-          if (element.attributes[i].name.startsWith('ƒ-.')) {
-            const property = element.attributes[i].name.substring(3);
-            _collectPropertySetters.call(this, element, i, property);
-            // eslint-disable-next-line no-continue
-            continue;
-          }
-          // collect data property setter receiver
-          if (element.attributes[i].name.startsWith('set-')) {
-            const property = element.attributes[i].name.substring(4);
-            _collectPropertySetters.call(this, element, i, property);
-            // eslint-disable-next-line no-continue
-            continue;
-          }
-
-          // collect receiving tags
-          if (element.attributes[i].name.startsWith('ƒ-')) {
-            const attr = element.attributes[i].name.substring(2);
-            _collectReceivers.call(this, element, i, attr);
-            // eslint-disable-next-line no-continue
-            continue;
-          }
 
           // collect receiving tags
           if (element.attributes[i].name.startsWith('fn-')) {
@@ -584,6 +562,31 @@ export const FBP = superClass =>
             // eslint-disable-next-line no-continue
             continue;
           }
+          // collect data property setter receiver
+          if (element.attributes[i].name.startsWith('set-')) {
+            const property = element.attributes[i].name.substring(4);
+            _collectPropertySetters.call(this, element, i, property);
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          // collect data property receiver
+          if (element.attributes[i].name.startsWith('ƒ-.')) {
+            const property = element.attributes[i].name.substring(3);
+            _collectPropertySetters.call(this, element, i, property);
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+          // collect receiving tags
+          if (element.attributes[i].name.startsWith('ƒ-')) {
+            const attr = element.attributes[i].name.substring(2);
+            _collectReceivers.call(this, element, i, attr);
+            // eslint-disable-next-line no-continue
+            continue;
+          }
+
+
           // collect sending tags
           if (element.attributes[i].name.startsWith('@-')) {
             const eventname = element.attributes[i].name.substring(2);

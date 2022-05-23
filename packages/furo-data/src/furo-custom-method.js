@@ -11,17 +11,17 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * <furo-custom-method
  *     service="Servicename"
  *     method="release"
- *     ƒ-hts-in="--hts"
- *     ƒ-trigger="--customClick"></furo-custom-method>
+ *     fn-hts-in="--hts"
+ *     fn-trigger="--customClick"></furo-custom-method>
  *
  * <!-- produces a hateoas link array -->
  * <furo-deep-link
- *     service="Servicename" @-hts-out="--hts"></furo-deep-link>
+ *     service="Servicename" at-hts-out="--hts"></furo-deep-link>
  *
  * ```
  * * *before you can do any requests, the service, method and the HATEOAS must be known*
  *
- * @fires {HTS} hts-updated -  Fired when hts was updated by `ƒ-hts-in`.
+ * @fires {HTS} hts-updated -  Fired when hts was updated by `fn-hts-in`.
  *
  * @fires request-aborted - Fired if the request was successfully cancelled.
  *
@@ -326,11 +326,11 @@ class FuroCustomMethod extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--requestFinished"
-        @-response-error="--requestFinished"
-        @-fatal-error="--requestFinished"
+        fn-invoke-request="--triggerLoad"
+        fn-abort-request="--abortDemanded"
+        at-response="--requestFinished"
+        at-response-error="--requestFinished"
+        at-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

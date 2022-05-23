@@ -10,14 +10,14 @@ import {FBP} from '@furo/fbp';
  *
  * ```html
  * <furo-de-bounce
- *     ƒ-trigger="--searchStringEntered" @-debounced="--debouncedSrch"
+ *     fn-trigger="--searchStringEntered" at-debounced="--debouncedSrch"
  *     ></furo-de-bounce>
  * ```
  *
  * @fires {*} debounced - Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge.
  * @fires {*} out - deprecated, use debounced instead.
  *
- * // TODO: remove @out and ƒ-input-wire in q2 2022
+ * // TODO: remove @out and fn-input-wire in q2 2022
  * @summary event de bouncer
  * @customElement
  * @appliesMixin FBP

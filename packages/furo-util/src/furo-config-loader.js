@@ -88,7 +88,7 @@ class FuroConfigLoader extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-fetch-json ƒ-fetch-src="--load" @-data="--response"></furo-fetch-json>
+      <furo-fetch-json fn-fetch-src="--load" at-data="--response"></furo-fetch-json>
     `;
   }
 }

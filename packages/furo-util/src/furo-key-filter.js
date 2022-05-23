@@ -7,9 +7,9 @@ import { FBP } from '@furo/fbp';
  *
  * ```html
  * <!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->
- * <other-component @-keydown="--keydown(*)"></other-component>
+ * <other-component at-keydown="--keydown(*)"></other-component>
  * <furo-key-filter
- *     ƒ-filter="--keydown" @-matched="--escapePressed"
+ *     fn-filter="--keydown" at-matched="--escapePressed"
  *     keys="Escape"
  *     ></furo-key-filter>
  * ```

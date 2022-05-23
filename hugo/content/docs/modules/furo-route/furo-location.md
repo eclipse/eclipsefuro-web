@@ -18,10 +18,10 @@ weight: 50
 
 
 ```html
-<furo-location @-location-changed="--pathChanged"></furo-location>
+<furo-location at-location-changed="--pathChanged"></furo-location>
 
 <furo-pages
-  ƒ-inject-location="--pathChanged"
+  fn-inject-location="--pathChanged"
   default="list">
     <view-list name="list"></view-list>
     <view-create name="create"></view-create>
@@ -81,37 +81,37 @@ folders with a link.
 {{% api "_furo-location-events.md" %}}
 
 ### **location-path-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-location-path-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-location-path-changed</span>
 → <small>`Location object`</small>
 
  Fired when Path portion of the location changed
 <br><br>
 ### **location-hash-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-location-hash-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-location-hash-changed</span>
 → <small>`Location object`</small>
 
  Fired when Hash portion of the location changed
 <br><br>
 ### **location-query-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-location-query-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-location-query-changed</span>
 → <small>`Location object`</small>
 
  Fired when Query portion of the location changed
 <br><br>
 ### **location-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-location-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-location-changed</span>
 → <small>`Location object`</small>
 
  Fired when something in the location changed
 <br><br>
 ### **url-space-entered**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-url-space-entered</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-url-space-entered</span>
 → <small>`Location object`</small>
 
  Fired when the path matches the url-space-regex and neither a search query or hash was given, useful to detect if someone enters the current url
 <br><br>
 ### **__beforeReplaceState**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-__beforeReplaceState</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-__beforeReplaceState</span>
 → <small>`void`</small>
 
  Fired when before the state will be updated

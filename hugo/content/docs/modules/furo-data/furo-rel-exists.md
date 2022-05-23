@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-rel-exists
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-rel-exists.js';`<small>
 <br>exports `<furo-rel-exists>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -17,7 +17,7 @@ weight: 50
 Checks if a hateoas relation exists in a given hateaos Links array.
 
 ```html
-<furo-rel-exists ƒ-inject="--HTS-array"></furo-rel-exists>
+<furo-rel-exists fn-inject="--HTS-array"></furo-rel-exists>
 ```
 
 {{% api "_furo-rel-exists-description.md" %}}
@@ -48,13 +48,13 @@ define the service if you want a specific check on the service also
 {{% api "_furo-rel-exists-events.md" %}}
 
 ### **furo-rel-exists**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-furo-rel-exists</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-furo-rel-exists</span>
 → <small>`Object Hateoas Link`</small>
 
  Fired when rel exists in `linkArray`.
 <br><br>
 ### **rel-dont-exist**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-rel-dont-exist</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-rel-dont-exist</span>
 → <small>`void`</small>
 
  Fired when rel does not exists in `linkArray`.
@@ -68,7 +68,7 @@ define the service if you want a specific check on the service also
 <small>**inject**(*linkArray* `[furo.Link]` ) ⟹ `boolean`</small>
 
 <small>`[furo.Link]` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject</span>
 
 Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
 

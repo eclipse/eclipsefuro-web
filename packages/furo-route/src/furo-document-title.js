@@ -33,9 +33,9 @@ import { FBP } from '@furo/fbp';
  *  ```html
  *   <furo-document-title
  *     prefix="${i18n.t('prefix.label')} ["
- *     ƒ-bind-title="--DataObject(*.display_name)"
+ *     fn-bind-title="--DataObject(*.display_name)"
  *     suffix="]"
- *     ƒ-set-waypoint="--pageActivated"
+ *     fn-set-waypoint="--pageActivated"
  *   ></furo-document-title>
  *  ```
  *  The document title will be set to: `PrefixLabel [display_name_value]`

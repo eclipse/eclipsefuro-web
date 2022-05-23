@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-hp-35
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-hp-35.js';`<small>
 <br>exports `<furo-hp-35>` custom-element-definition
 <br>extends */src/furo-forth-stack.js*
@@ -115,37 +115,37 @@ Current size of the stack
 {{% api "_furo-hp-35-events.md" %}}
 
 ### **stackchange**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stackchange</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stackchange</span>
 → <small>`void`</small>
 
 Fired when something in stack changes
 <br><br>
 ### **stack-size-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-size-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-size-changed</span>
 → <small>`Number`</small>
 
  Fired when the stack size changes with Integer with the current size of the stack.
 <br><br>
 ### **rotated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-rotated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-rotated</span>
 → <small>`the top element`</small>
 
  Fired when stack was rotated
 <br><br>
 ### **stack-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-changed</span>
 → <small>`the top element`</small>
 
  Fired when the stack contents changes after put, drop,...
 <br><br>
 ### **swapped**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-swapped</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-swapped</span>
 → <small>`void`</small>
 
 Fired when stack was swapped
 <br><br>
 ### **empty**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-empty</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-empty</span>
 → <small>`void`</small>
 
 Fired when stack gets empty
@@ -159,7 +159,7 @@ Fired when stack gets empty
 <small>**enter**(*n* `Number` ) ⟹ `void`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-enter</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-enter</span>
 
 Enter a number
 
@@ -170,7 +170,7 @@ Enter a number
 <small>**updateXYZT**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-update-xyzt</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-update-xyzt</span>
 
 
 
@@ -180,7 +180,7 @@ Enter a number
 <small>**swap**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-swap</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-swap</span>
 
 
 swap **( n1 n2 -- n2 n1 )**
@@ -198,7 +198,7 @@ will give you:
 <small>**rot**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rot</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rot</span>
 
 rot **( n1 n2 n3 -- n2 n3 n1 )**
 
@@ -215,7 +215,7 @@ rot **( n1 n2 n3 -- n2 n3 n1 )**
 <small>**roll**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-roll</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-roll</span>
 
 rot **( n1 n2 n3 -- n2 n3 n1 )**
 
@@ -232,7 +232,7 @@ rot **( n1 n2 n3 -- n2 n3 n1 )**
 <small>**add**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-add</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-add</span>
 
 Process an addition
 
@@ -243,7 +243,7 @@ Process an addition
 <small>**substract**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-substract</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-substract</span>
 
 Process a substraction
 
@@ -254,7 +254,7 @@ Process a substraction
 <small>**sqrt**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-sqrt</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-sqrt</span>
 
 Perform square root operation
 
@@ -265,7 +265,7 @@ Perform square root operation
 <small>**ln**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-ln</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-ln</span>
 
 Perform log operation
 
@@ -276,7 +276,7 @@ Perform log operation
 <small>**cos**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-cos</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-cos</span>
 
 Perform cos operation
 
@@ -287,7 +287,7 @@ Perform cos operation
 <small>**sin**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-sin</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-sin</span>
 
 Perform sin operation
 
@@ -298,7 +298,7 @@ Perform sin operation
 <small>**tan**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-tan</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-tan</span>
 
 Perform tan operation
 
@@ -309,7 +309,7 @@ Perform tan operation
 <small>**abs**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abs</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abs</span>
 
 Perform abs operation
 
@@ -320,7 +320,7 @@ Perform abs operation
 <small>**reciprocal**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-reciprocal</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-reciprocal</span>
 
 Perform reciprocal operation
 
@@ -331,7 +331,7 @@ Perform reciprocal operation
 <small>**exp**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-exp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-exp</span>
 
 Perform exp operation
 
@@ -344,7 +344,7 @@ returns e^x, where x is the argument, and e is Euler's number (also known as Nap
 <small>**xroot**(*n* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-xroot</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-xroot</span>
 
 
 
@@ -355,7 +355,7 @@ returns e^x, where x is the argument, and e is Euler's number (also known as Nap
 <small>**multiply**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-multiply</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-multiply</span>
 
 Process a multiplication
 
@@ -366,7 +366,7 @@ Process a multiplication
 <small>**pow**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-pow</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-pow</span>
 
 Process power
 
@@ -377,7 +377,7 @@ Process power
 <small>**divide**(*n* `Number` ) ⟹ `number`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-divide</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-divide</span>
 
 Process a division
 
@@ -388,7 +388,7 @@ Process a division
 <small>**clear**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear</span>
 
 clear the stack
 
@@ -406,7 +406,7 @@ clear the stack
 <small>**clearStack**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-stack</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-stack</span>
 
 Empties the stack and set the stack-size to 0
 
@@ -416,7 +416,7 @@ Empties the stack and set the stack-size to 0
 <small>**put**(*e* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-put</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-put</span>
 
 Add an element to the stack
 
@@ -427,7 +427,7 @@ Add an element to the stack
 <small>**drop**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-drop</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-drop</span>
 
 drop **( n -- )**
 
@@ -444,7 +444,7 @@ drop **( n -- )**
 <small>**dup**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-dup</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-dup</span>
 
 dup **( n -- n n )**
 
@@ -462,7 +462,7 @@ dup **( n -- n n )**
 <small>**over**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-over</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-over</span>
 
 
 over **( n1 n2 -- n1 n2 n1 )**
@@ -480,7 +480,7 @@ over **( n1 n2 -- n1 n2 n1 )**
 <small>**rrot**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rrot</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rrot</span>
 
 rrot **( n1 n2 n3 -- n3 n1 n2 )**
 

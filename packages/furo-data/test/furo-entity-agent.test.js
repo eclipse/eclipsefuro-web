@@ -15,9 +15,9 @@ describe('furo-entity-agent', () => {
       <flow-bind>
         <template>
           <furo-entity-agent
-            ƒ-bind-request-data="--doReady(*.data)"
+            fn-bind-request-data="--doReady(*.data)"
           ></furo-entity-agent>
-          <furo-data-object @-object-ready="--doReady"></furo-data-object>
+          <furo-data-object at-object-ready="--doReady"></furo-data-object>
         </template>
       </flow-bind>
     `);

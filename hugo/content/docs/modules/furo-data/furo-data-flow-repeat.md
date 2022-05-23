@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-flow-repeat
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-data-flow-repeat.js';`<small>
 <br>exports *FuroDataFlowRepeat* js
 <br>exports `<furo-data-flow-repeat>` custom-element-definition
@@ -19,10 +19,10 @@ weight: 50
 
 
  ```html
- <furo-data-flow-repeat identity-path="id" ƒ-bind-data="--data(*.repeaterfield)">
+ <furo-data-flow-repeat identity-path="id" fn-bind-data="--data(*.repeaterfield)">
    <template>
      <furo-ui5-data-text-input-labeled
-         ƒ-bind-data="--init"></furo-ui5-data-text-input-labeled>
+         fn-bind-data="--init"></furo-ui5-data-text-input-labeled>
    </template>
  </furo-data-flow-repeat>
  ```
@@ -45,8 +45,8 @@ weight: 50
 -  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).
 
 ## Available attributes
-**index** contains the current index of the item. Use this to fire a event with an index like `@-click="^^item-clicked(index)"`
-**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click="^^item-selected(item)"`
+**index** contains the current index of the item. Use this to fire a event with an index like `at-click="^^item-clicked(index)"`
+**item** contains the current index of the item. Use this to fire a event with the repeated item like `at-click="^^item-selected(item)"`
 
 {{% api "_furo-data-flow-repeat-description.md" %}}
 
@@ -63,7 +63,7 @@ weight: 50
 default: **false**</small>
 
 Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to
-`ƒ-focus="--itemSelected"`.
+`fn-focus="--itemSelected"`.
 <br><br>
 
 ### **identityPath**
@@ -100,7 +100,7 @@ The path is a field, relative to the root of the repeated item.
 <small>**bindData**(*fieldNode* `RepeaterNode` ) ⟹ `boolean`</small>
 
 <small>`RepeaterNode` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span>
 
 Bind a repeater node.
 
@@ -114,7 +114,7 @@ If `identity-path` is not set, the list will be cleared every time it receives n
 <small>**add**(*data* `Object` ) ⟹ `void`</small>
 
 <small>`Object` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-add</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-add</span>
 
 Adds a repeated item of the same type.
 

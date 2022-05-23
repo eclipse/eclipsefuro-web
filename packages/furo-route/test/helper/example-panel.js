@@ -76,7 +76,7 @@ class ExamplePanel extends BasePanel {
     // language=HTML
     return html`
       <p>I am a example-panel component with name ${this.name}</p>
-      <furo-pretty-json ƒ-inject-data="--panelActivated"></furo-pretty-json>
+      <furo-pretty-json fn-inject-data="--panelActivated"></furo-pretty-json>
     `;
   }
 }

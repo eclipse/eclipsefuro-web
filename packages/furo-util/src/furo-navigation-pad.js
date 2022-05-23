@@ -10,7 +10,7 @@ import { FBP } from '@furo/fbp';
  *  ```html
  *  <!-- forward all navigation events except the Escape  -->
  *  <furo-navigation-pad
- *      ignored-keys="Escape" @-navigated="--navpad"
+ *      ignored-keys="Escape" at-navigated="--navpad"
  *      ></furo-navigation-pad>
  *
  *  ```

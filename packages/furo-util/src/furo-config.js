@@ -17,12 +17,12 @@ import { Config } from './lib/Config.js';
  *
  * <!-- consume a config -->
  * <furo-config
- *     section="views" @-config-updated="--conf"
+ *     section="views" at-config-updated="--conf"
  *     ></furo-config>
  *
  * <!-- consume a sub path of a config section -->
  * <furo-config
- *     section="views.subset.deep" @-config-updated="--deepconf"
+ *     section="views.subset.deep" at-config-updated="--deepconf"
  *     ></furo-config>
  * ```
  *

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-type-renderer
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-type-renderer.js';`<small>
 <br>exports `<furo-type-renderer>` custom-element-definition
 <br>superclass *LitElement*
@@ -54,7 +54,7 @@ context-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
 
 ## Basic Usage
 ```html
-  <furo-type-renderer ƒ-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
+  <furo-type-renderer fn-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
 ```
 
 ## Writing your own renderer
@@ -99,7 +99,7 @@ A Boolean attribute which, if present, means this field is displayed in disabled
 <small>**bindData**(*fieldNode* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span>
 
 Evaluates the component name
 Special treatment for google.protobuf.Any

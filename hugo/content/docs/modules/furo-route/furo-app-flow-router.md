@@ -20,7 +20,7 @@ Use this component with app-flow and furo-pages to implement application flow
 
 
 ```html
-   <app-flow-router ƒ-.config="--flowConfigLoaded" ƒ-trigger="--flowEvent" ƒ-back="--wire" ƒ-forward="--wire"></app-flow-router>
+   <app-flow-router set-config="--flowConfigLoaded" fn-trigger="--flowEvent" fn-back="--wire" fn-forward="--wire"></app-flow-router>
 ```
 
  *Configuration Array
@@ -92,19 +92,19 @@ default value of urlSpaceRegex. this value can be rewritten via `url-space-regex
 {{% api "_furo-app-flow-router-events.md" %}}
 
 ### **__beforeReplaceState**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-__beforeReplaceState</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-__beforeReplaceState</span>
 → <small>`void`</small>
 
  Fired when before the state will be updated.
 <br><br>
 ### **view-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-view-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-view-changed</span>
 → <small>`flowEvent`</small>
 
  Fired when page was changed.
 <br><br>
 ### **event-not-found**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-event-not-found</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-event-not-found</span>
 → <small>`flowEvent`</small>
 
  Fired when view was not found.
@@ -118,7 +118,7 @@ default value of urlSpaceRegex. this value can be rewritten via `url-space-regex
 <small>**back**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-back</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-back</span>
 
 trigger a history back
 
@@ -128,7 +128,7 @@ trigger a history back
 <small>**forward**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-forward</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-forward</span>
 
 trigger a history forward
 
@@ -138,7 +138,7 @@ trigger a history forward
 <small>**setConfig**(*config* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-config</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-config</span>
 
 Set the config
 
@@ -149,7 +149,7 @@ Set the config
 <small>**trigger**(*flowEvent* `` ) ⟹ `boolean`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span>
 
 Trigger the router
 

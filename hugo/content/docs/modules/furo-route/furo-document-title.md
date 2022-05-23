@@ -44,9 +44,9 @@ weight: 50
  ```html
   <furo-document-title
     prefix="${i18n.t('prefix.label')} ["
-    ƒ-bind-title="--DataObject(*.display_name)"
+    fn-bind-title="--DataObject(*.display_name)"
     suffix="]"
-    ƒ-set-waypoint="--pageActivated"
+    fn-set-waypoint="--pageActivated"
   ></furo-document-title>
  ```
  The document title will be set to: `PrefixLabel [display_name_value]`
@@ -93,13 +93,13 @@ Suffix part, you can also use `setSuffix()` or `bindSuffix().`
 {{% api "_furo-document-title-events.md" %}}
 
 ### **waypoint-pushed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-waypoint-pushed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-waypoint-pushed</span>
 → <small>`Event`</small>
 
  Fired when the waypoint is finaly pushed to the browser history.
 <br><br>
 ### **waypoint-canceled**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-waypoint-canceled</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-waypoint-canceled</span>
 → <small>`Event`</small>
 
  Fired when the waypoint was set but not pushed to the history, because the user navigated back.
@@ -113,7 +113,7 @@ Suffix part, you can also use `setSuffix()` or `bindSuffix().`
 <small>**setWaypoint**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-waypoint</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-waypoint</span>
 
 
 
@@ -123,7 +123,7 @@ Suffix part, you can also use `setSuffix()` or `bindSuffix().`
 <small>**activate**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-activate</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-activate</span>
 
 Set the document title with the current prefix title suffix. Without setting a waypoint.
 
@@ -134,7 +134,7 @@ Set the document title with the current prefix title suffix. Without setting a w
 <small>**setSuffix**(*s* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-suffix</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-suffix</span>
 
 Updates the suffix
 
@@ -145,7 +145,7 @@ Updates the suffix
 <small>**setTitle**(*title* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-title</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-title</span>
 
 Updates the title
 
@@ -156,7 +156,7 @@ Updates the title
 <small>**bindSuffix**(*fieldnode* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-suffix</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-suffix</span>
 
 Bind a fieldnode to auto update the suffix
 
@@ -167,7 +167,7 @@ Bind a fieldnode to auto update the suffix
 <small>**bindTitle**(*fieldnode* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-title</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-title</span>
 
 Bind a fieldnode to auto update the title
 

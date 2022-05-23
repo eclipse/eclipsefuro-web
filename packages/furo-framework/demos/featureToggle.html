@@ -43,8 +43,8 @@
   render(
     html`
 
-      <button data-furo-toggle-disable='feature' @-click='--setTrueClicked'>set true</button>
-      <button data-furo-toggle-enable='feature' @-click='--setFalseClicked'>set false</button>
+      <button data-furo-toggle-disable='feature' at-click='--setTrueClicked'>set true</button>
+      <button data-furo-toggle-enable='feature' at-click='--setFalseClicked'>set false</button>
 
       <furo-feature-toggle key='feature' fn-set-true='--setTrueClicked' fn-set-false='--setFalseClicked'></furo-feature-toggle>
       <hr>
@@ -58,7 +58,7 @@
       hide: <span data-furo-toggle-hide='feature'>data-furo-toggle-hide='feature'</span> <br>
       show:  <span data-furo-toggle-show='feature'>data-furo-toggle-show='feature'</span> <br>
 
-      <furo-feature-toggle key='feature' @-key-changed='--keyChanged'></furo-feature-toggle>
+      <furo-feature-toggle key='feature' at-key-changed='--keyChanged'></furo-feature-toggle>
 
       <div fn-xx='--keyChanged'></div>
 

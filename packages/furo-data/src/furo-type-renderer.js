@@ -42,7 +42,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  *
  * ## Basic Usage
  * ```html
- *   <furo-type-renderer ƒ-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
+ *   <furo-type-renderer fn-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
  * ```
  *
  * ## Writing your own renderer
@@ -158,7 +158,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
       // fallback , display the display-[type] component repeatedly
       this._fallbackFlowRepeat = document.createElement('flow-repeat');
       const tpl = document.createElement('template');
-      tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`;
+      tpl.innerHTML = `<${this.renderName} fn-bind-data="--item"></${this.renderName}>`;
       this._fallbackFlowRepeat.appendChild(tpl);
 
       this.parentNode.insertBefore(this._fallbackFlowRepeat, this);

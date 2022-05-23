@@ -8,7 +8,7 @@ import { FBP } from '@furo/fbp';
  *
  * ```html
  * <furo-pretty-json
- *   ƒ-inject-json="--data"></furo-pretty-json>
+ *   fn-inject-json="--data"></furo-pretty-json>
  * ```
  *
  * @summary pretty prints json data

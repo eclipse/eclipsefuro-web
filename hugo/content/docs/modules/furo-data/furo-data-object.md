@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-object
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-data-object.js';`<small>
 <br>exports *FuroDataObject* js
 <br>exports `<furo-data-object>` custom-element-definition
@@ -27,16 +27,16 @@ transform incomming data to an object and vice versa. You can access the manipul
 `.data.rawData` with javascript (if needed).
 
 ```html
- <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
+ <!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready -->
  <furo-data-object
      type="project.Project"
-     ƒ-inject-raw="--response(*.data)" @-object-ready="--dataObject"></furo-data-object>
+     fn-inject-raw="--response(*.data)" at-object-ready="--dataObject"></furo-data-object>
 
- <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
+ <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  -->
  <furo-entity-agent
      service="ProjectService"
-     ƒ-save="--saveClicked"
-     ƒ-bind-request-data="--dataObject" @-response="--response" ></furo-entity-agent>
+     fn-save="--saveClicked"
+     fn-bind-request-data="--dataObject" at-response="--response" ></furo-entity-agent>
 ```
 
 {{% api "_furo-data-object-description.md" %}}
@@ -74,61 +74,61 @@ get the data from the data object as raw json
 {{% api "_furo-data-object-events.md" %}}
 
 ### **data-injected**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-injected</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-injected</span>
 → <small>``</small>
 
  Fired when injected data was processed (**bubbles**).
 <br><br>
 ### **data-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-changed</span>
 → <small>`{Object|CollectionNode}`</small>
 
  Fired when data in furo-data-object has changed  (**bubbles**). This event fires a lot, consider using a de-bounce with the event.
 <br><br>
 ### **data-changed-after-inject**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-changed-after-inject</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-changed-after-inject</span>
 → <small>`{Object|CollectionNode}`</small>
 
  Fired when data in furo-data-object has changed after injectRaw is complete (**bubbles**). This event fires a lot, consider using a de-bounce with the event.
 <br><br>
 ### **field-value-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-field-value-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-field-value-changed</span>
 → <small>`{Object} the field node`</small>
 
  Fired when a field has changed.
 <br><br>
 ### **validation-success**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-validation-success</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-validation-success</span>
 → <small>`DataObject`</small>
 
  Fired when validation results in a valid state.
 <br><br>
 ### **validation-failed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-validation-failed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-validation-failed</span>
 → <small>`DataObject`</small>
 
  Fired when validation results in a invalid state.
 <br><br>
 ### **data-object-became-invalid**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-object-became-invalid</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-object-became-invalid</span>
 → <small>`{Object|EntityNode} reference to entity`</small>
 
  Fired when the data object switches from ininvalid to invalid state (**bubbles**).
 <br><br>
 ### **data-object-became-valid**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-object-became-valid</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-object-became-valid</span>
 → <small>`{Object|EntityNode} reference to entity`</small>
 
  Fired when the data object switches from invalid to valid state (**bubbles**).
 <br><br>
 ### **object-ready**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-object-ready</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-object-ready</span>
 → <small>`A EntityNode object`</small>
 
  Fired when the object defined by `type` is built (**bubbles**).
 <br><br>
 ### **init-completed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-init-completed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-init-completed</span>
 → <small>`A EntityNode object`</small>
 
  Fired when the object init was done (**bubbles**).
@@ -142,7 +142,7 @@ get the data from the data object as raw json
 <small>**injectRaw**(*jsonObj* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-raw</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-raw</span>
 
 inject a raw data response from the corresonding agent.
 
@@ -176,7 +176,7 @@ Input may look something like this:
 <small>**setPristine**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-pristine</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-pristine</span>
 
 Set all nodes to pristine
 
@@ -188,7 +188,7 @@ Useful for working with deltas
 <small>**clearAllErrors**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-all-errors</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-all-errors</span>
 
 Clears all errors on children without any validation!
 
@@ -198,7 +198,7 @@ Clears all errors on children without any validation!
 <small>**validateAllFields**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-validate-all-fields</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-validate-all-fields</span>
 
 Triggers the validation of all fields in the data object.
 
@@ -212,7 +212,7 @@ Will cause a `data-object-became-valid` or `data-object-became-invalid` and a va
 <small>**appendErrors**(*grpcStatus* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-append-errors</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-append-errors</span>
 
 Append errors from custom methods or other agents or sources to the data object.
 The error object must have a grpc status error signature like:
@@ -239,7 +239,7 @@ The error object must have a grpc status error signature like:
 <small>**reset**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-reset</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-reset</span>
 
 Reset the model to the last injected state.
 
@@ -251,7 +251,7 @@ To set the model to the initial state use init
 <small>**init**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-init</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-init</span>
 
 Sets the model to an initial state according to the given type.
 
@@ -265,7 +265,7 @@ To reset changed data to the last injected state, please use reset();
 <small>**getData**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-get-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-get-data</span>
 
 get the data of the data object
 

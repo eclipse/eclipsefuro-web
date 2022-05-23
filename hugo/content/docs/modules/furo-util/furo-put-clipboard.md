@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-put-clipboard
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-put-clipboard.js';`<small>
 <br>exports `<furo-put-clipboard>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -20,7 +20,7 @@ weight: 50
 
 <furo-put-clipboard
     json
-    ƒ-trigger="--data" @-content-put="--contentInClipboard"
+    fn-trigger="--data" at-content-put="--contentInClipboard"
     ></furo-put-clipboard>
 
 ```
@@ -46,7 +46,7 @@ Stringify JSON content. Set this to true to auto stringify your JSON object with
 {{% api "_furo-put-clipboard-events.md" %}}
 
 ### **content-put**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-content-put</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-content-put</span>
 → <small>`*`</small>
 
 Fired when content is written to clipboard
@@ -60,7 +60,7 @@ Fired when content is written to clipboard
 <small>**setData**(*data* `Object` ) ⟹ `void`</small>
 
 <small>`Object` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-data</span>
 
 Set data that you want to put to clipboard.
 
@@ -71,7 +71,7 @@ Set data that you want to put to clipboard.
 <small>**trigger**(*data* `Object|null` ) ⟹ `void`</small>
 
 <small>`Object|null` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span>
 
 Write data to the clipboard
 

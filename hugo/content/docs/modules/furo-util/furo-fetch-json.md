@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-fetch-json
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-fetch-json.js';`<small>
 <br>exports `<furo-fetch-json>` custom-element-definition
 <br>superclass *LitElement*
@@ -18,7 +18,7 @@ weight: 50
  Fetches and parses json data from a source.
 
  ```html
- <furo-fetch-json src="/example.json" ƒ-fetch="|--FBPready" @-data="--contentReceived"></furo-fetch-json>
+ <furo-fetch-json src="/example.json" fn-fetch="|--FBPready" at-data="--contentReceived"></furo-fetch-json>
  ```
 
 {{% api "_furo-fetch-json-description.md" %}}
@@ -42,13 +42,13 @@ the url you want to fetch
 {{% api "_furo-fetch-json-events.md" %}}
 
 ### **data**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data</span>
 → <small>`{Object} json data`</small>
 
  Fired when data received and json parsed
 <br><br>
 ### **parse-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-parse-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-parse-error</span>
 → <small>`error`</small>
 
  Fired when json is not parseable
@@ -62,7 +62,7 @@ the url you want to fetch
 <small>**fetch**() ⟹ `Promise`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-fetch</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-fetch</span>
 
 fetch and parse the data from specified `src`.
 
@@ -74,7 +74,7 @@ Use fetch-src if you want to pass the source url
 <small>**fetchSrc**(*source* `` *String* `` ) ⟹ `Promise`</small>
 
 <small>`` `` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-fetch-src</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-fetch-src</span>
 
 fetch json data from source
 

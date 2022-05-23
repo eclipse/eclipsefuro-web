@@ -8,7 +8,7 @@ import { FBP } from '@furo/fbp';
  *```html
  *
  * <furo-get-clipboard
- *     ƒ-trigger="--clipboardContentRequested" @-content="--contentReceived"
+ *     fn-trigger="--clipboardContentRequested" at-content="--contentReceived"
  *     ></furo-get-clipboard>
  *
  *```

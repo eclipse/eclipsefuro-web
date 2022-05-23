@@ -695,12 +695,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * clearing field nodes, respect the specified default values ([b10ea06](https://github.com/theNorstroem/FuroBaseComponents/commit/b10ea0685b1ffbd6ab4b29a609e0bba60d9c0b0a))
 * clearing repeated nodes, respect the specified default values ([0f958f4](https://github.com/theNorstroem/FuroBaseComponents/commit/0f958f4dda84ceefb7482a4d5bd942eb2307ed9b))
 * collection-agent accepts fields, order-by and filter ([76010f2](https://github.com/theNorstroem/FuroBaseComponents/commit/76010f240e411b096b76fec0b78428ad9469de69))
-* collection-agent accepts link object on ƒ-hts-in ([e83a0ca](https://github.com/theNorstroem/FuroBaseComponents/commit/e83a0cac610a3b43c136ca796d454dc95d20d7af))
-* collection-agent ƒ-clear-filter ([4f504f5](https://github.com/theNorstroem/FuroBaseComponents/commit/4f504f5a1f6ee8426e545527f1609c74e0ac91a4))
+* collection-agent accepts link object on fn-hts-in ([e83a0ca](https://github.com/theNorstroem/FuroBaseComponents/commit/e83a0cac610a3b43c136ca796d454dc95d20d7af))
+* collection-agent fn-clear-filter ([4f504f5](https://github.com/theNorstroem/FuroBaseComponents/commit/4f504f5a1f6ee8426e545527f1609c74e0ac91a4))
 * collection-agent list-on-hts-in ([9c9eb50](https://github.com/theNorstroem/FuroBaseComponents/commit/9c9eb50c40af27a0ce987fa0c88af0bcb4da55c1))
 * collection-filter ([71d855b](https://github.com/theNorstroem/FuroBaseComponents/commit/71d855b3df5c861cddc54c7e858692345f4ae218))
 * complex objects ([14307ca](https://github.com/theNorstroem/FuroBaseComponents/commit/14307ca1151293374c4bc9d98103bab6e7ef6bcd))
-* custom-method fires event hts-updated, so you can rewire it to ƒ-trigger ([ce9f769](https://github.com/theNorstroem/FuroBaseComponents/commit/ce9f769da4816276464dc1e94fc9b0f0b71d6fa2))
+* custom-method fires event hts-updated, so you can rewire it to fn-trigger ([ce9f769](https://github.com/theNorstroem/FuroBaseComponents/commit/ce9f769da4816276464dc1e94fc9b0f0b71d6fa2))
 * data-object emits data-changed-after-inject ([605c4f5](https://github.com/theNorstroem/FuroBaseComponents/commit/605c4f5bf1ee427f97a1c258b665fa337ad8d818))
 * data-object with oneof support ([f6cf2cb](https://github.com/theNorstroem/FuroBaseComponents/commit/f6cf2cb87b7dee77737f6a81a0a6b2c280a8c678))
 * data-repeater ([c2f6d12](https://github.com/theNorstroem/FuroBaseComponents/commit/c2f6d127f2cc52ab61650e0ad2adb569891bf48a))
@@ -2994,7 +2994,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* furo-collection-agent accepts link object on ƒ-hts-in ([e83a0ca](https://github.com/veith/FuroBaseComponents/commit/e83a0ca))
+* furo-collection-agent accepts link object on fn-hts-in ([e83a0ca](https://github.com/veith/FuroBaseComponents/commit/e83a0ca))
 
 
 
@@ -3310,7 +3310,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * call furo-collection-agent before hts waits for hts ([edce82f](https://github.com/veith/FuroBaseComponents/commit/edce82f))
-* furo-collection-agent ƒ-clear-filter ([4f504f5](https://github.com/veith/FuroBaseComponents/commit/4f504f5))
+* furo-collection-agent fn-clear-filter ([4f504f5](https://github.com/veith/FuroBaseComponents/commit/4f504f5))
 
 
 
@@ -3368,7 +3368,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* furo-custom-method fires event hts-updated, so you can rewire it to ƒ-trigger ([ce9f769](https://github.com/veith/FuroBaseComponents/commit/ce9f769))
+* furo-custom-method fires event hts-updated, so you can rewire it to fn-trigger ([ce9f769](https://github.com/veith/FuroBaseComponents/commit/ce9f769))
 
 
 

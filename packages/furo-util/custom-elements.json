@@ -85,7 +85,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-config`\n\n Access config data\n\n\n```html\n<!-- set with config-loader -->\n<furo-config-loader\n    section=\"views\"\n    src=\"/viewconfig.json\"\n    ></furo-config>\n\n\n<!-- consume a config -->\n<furo-config\n    section=\"views\" @-config-updated=\"--conf\"\n    ></furo-config>\n\n<!-- consume a sub path of a config section -->\n<furo-config\n    section=\"views.subset.deep\" @-config-updated=\"--deepconf\"\n    ></furo-config>\n```",
+          "description": "`furo-config`\n\n Access config data\n\n\n```html\n<!-- set with config-loader -->\n<furo-config-loader\n    section=\"views\"\n    src=\"/viewconfig.json\"\n    ></furo-config>\n\n\n<!-- consume a config -->\n<furo-config\n    section=\"views\" at-config-updated=\"--conf\"\n    ></furo-config>\n\n<!-- consume a sub path of a config section -->\n<furo-config\n    section=\"views.subset.deep\" at-config-updated=\"--deepconf\"\n    ></furo-config>\n```",
           "name": "FuroConfig",
           "members": [
             {
@@ -144,7 +144,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The Debounce technique allow us to “group” multiple sequential calls in a single one.\n\n[Read more about debouncing here](https://css-tricks.com/debouncing-throttling-explained-examples/)\n\n\n\n```html\n<furo-de-bounce\n    ƒ-trigger=\"--searchStringEntered\" @-debounced=\"--debouncedSrch\"\n    ></furo-de-bounce>\n```",
+          "description": "The Debounce technique allow us to “group” multiple sequential calls in a single one.\n\n[Read more about debouncing here](https://css-tricks.com/debouncing-throttling-explained-examples/)\n\n\n\n```html\n<furo-de-bounce\n    fn-trigger=\"--searchStringEntered\" at-debounced=\"--debouncedSrch\"\n    ></furo-de-bounce>\n```",
           "name": "FuroDeBounce",
           "members": [
             {
@@ -254,7 +254,7 @@
               "type": {
                 "text": "*"
               },
-              "description": "deprecated, use debounced instead. // TODO: remove @out and ƒ-input-wire in q2 2022"
+              "description": "deprecated, use debounced instead. // TODO: remove @out and fn-input-wire in q2 2022"
             },
             {
               "name": "debounced",
@@ -308,7 +308,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-feature-toggle`\n Is a handler for feature toggles, you can react to key changes with FBP.\n This component is quite simple, but gives you a lot of possibilities.\n Read more about feature toggles in the [guide](/docs/guides/featuretoggle/)\n\n ```html\n <!-- setting a key -->\n<furo-feature-toggle\n    key=\"feature.easter.egg\" fn-set-true=\"--activateClicked\" fn-set-false=\"--disableClicked\">\n    </furo-feature-toggle>\n\n <!-- observing key changes -->\n <furo-feature-toggle\n    key=\"feature.xxxx.yyy\"  @-key-activated=\"--fxyActivated\" @-key-changed=\"--fxyChanged\">\n    </furo-feature-toggle>\n\n ```",
+          "description": "`furo-feature-toggle`\n Is a handler for feature toggles, you can react to key changes with FBP.\n This component is quite simple, but gives you a lot of possibilities.\n Read more about feature toggles in the [guide](/docs/guides/featuretoggle/)\n\n ```html\n <!-- setting a key -->\n<furo-feature-toggle\n    key=\"feature.easter.egg\" fn-set-true=\"--activateClicked\" fn-set-false=\"--disableClicked\">\n    </furo-feature-toggle>\n\n <!-- observing key changes -->\n <furo-feature-toggle\n    key=\"feature.xxxx.yyy\"  at-key-activated=\"--fxyActivated\" at-key-changed=\"--fxyChanged\">\n    </furo-feature-toggle>\n\n ```",
           "name": "FuroFeatureToggle",
           "members": [
             {
@@ -396,7 +396,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-fetch-json`\n Fetches and parses json data from a source.\n\n ```html\n <furo-fetch-json src=\"/example.json\" ƒ-fetch=\"|--FBPready\" @-data=\"--contentReceived\"></furo-fetch-json>\n ```",
+          "description": "`furo-fetch-json`\n Fetches and parses json data from a source.\n\n ```html\n <furo-fetch-json src=\"/example.json\" fn-fetch=\"|--FBPready\" at-data=\"--contentReceived\"></furo-fetch-json>\n ```",
           "name": "FuroFetchJson",
           "members": [
             {
@@ -657,7 +657,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-get-clipboard`\n get the clipboard content from the OS.\n\n```html\n\n<furo-get-clipboard\n    ƒ-trigger=\"--clipboardContentRequested\" @-content=\"--contentReceived\"\n    ></furo-get-clipboard>\n\n```",
+          "description": "`furo-get-clipboard`\n get the clipboard content from the OS.\n\n```html\n\n<furo-get-clipboard\n    fn-trigger=\"--clipboardContentRequested\" at-content=\"--contentReceived\"\n    ></furo-get-clipboard>\n\n```",
           "name": "FuroGetClipboard",
           "members": [
             {
@@ -717,7 +717,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "\n`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-head-tail ƒ-split=\"--arrayData\" @-head=\"--firstElement\" @-tail=\"--restOfArray\"></furo-head-tail>\n```",
+          "description": "\n`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-head-tail fn-split=\"--arrayData\" at-head=\"--firstElement\" at-tail=\"--restOfArray\"></furo-head-tail>\n```",
           "name": "FuroHeadTail",
           "members": [
             {
@@ -1483,7 +1483,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```html\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter\n    ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\"\n    keys=\"Escape\"\n    ></furo-key-filter>\n```",
+          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```html\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component at-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter\n    fn-filter=\"--keydown\" at-matched=\"--escapePressed\"\n    keys=\"Escape\"\n    ></furo-key-filter>\n```",
           "name": "FuroKeyFilter",
           "members": [
             {
@@ -1612,7 +1612,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-keydown` attaches a keypress listener to the parent element and gives you handy events to work with.\n\nWhen you set `alt`, `ctrl` or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)\n\n```html\n<furo-keydown key=\"Enter\" @-key=\"--enterPressed\"></furo-keydown>\n<furo-keydown ctrl key=\"c\" @-key=\"--copyRequested\"></furo-keydown>\n```",
+          "description": "`furo-keydown` attaches a keypress listener to the parent element and gives you handy events to work with.\n\nWhen you set `alt`, `ctrl` or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)\n\n```html\n<furo-keydown key=\"Enter\" at-key=\"--enterPressed\"></furo-keydown>\n<furo-keydown ctrl key=\"c\" at-key=\"--copyRequested\"></furo-keydown>\n```",
           "name": "FuroKeydown",
           "members": [
             {
@@ -1875,7 +1875,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad\n     ignored-keys=\"Escape\" @-navigated=\"--navpad\"\n     ></furo-navigation-pad>\n\n ```",
+          "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad\n     ignored-keys=\"Escape\" at-navigated=\"--navpad\"\n     ></furo-navigation-pad>\n\n ```",
           "name": "FuroNavigationPad",
           "members": [
             {
@@ -2010,7 +2010,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-pretty-json`\nPretty json with highlighting\n\n```html\n<furo-pretty-json\n  ƒ-inject-json=\"--data\"></furo-pretty-json>\n```",
+          "description": "`furo-pretty-json`\nPretty json with highlighting\n\n```html\n<furo-pretty-json\n  fn-inject-json=\"--data\"></furo-pretty-json>\n```",
           "name": "FuroPrettyJson",
           "members": [
             {
@@ -2076,7 +2076,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-put-clipboard`\n put content to the clipboard of the OS.\n\n```html\n\n<furo-put-clipboard\n    json\n    ƒ-trigger=\"--data\" @-content-put=\"--contentInClipboard\"\n    ></furo-put-clipboard>\n\n```",
+          "description": "`furo-put-clipboard`\n put content to the clipboard of the OS.\n\n```html\n\n<furo-put-clipboard\n    json\n    fn-trigger=\"--data\" at-content-put=\"--contentInClipboard\"\n    ></furo-put-clipboard>\n\n```",
           "name": "FuroPutClipboard",
           "members": [
             {

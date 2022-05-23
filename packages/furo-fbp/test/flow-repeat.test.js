@@ -36,7 +36,7 @@ describe('flow-repeat', () => {
               <rep-item ƒ-index="--inject(*.index)" ƒ-yy="--xx"></rep-item>
               <flow-repeat ƒ-inject-items="--inject(*.item.arr)">
                 <template>
-                  <div ƒ-.inner-text="--item"></div>
+                  <div set-inner-text="--item"></div>
                 </template>
               </flow-repeat>
             </li>

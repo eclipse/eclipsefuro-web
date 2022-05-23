@@ -51,7 +51,7 @@ i.e. 'task-clicked', 'wizard-step1-completed',...
 {{% api "_furo-app-flow-events.md" %}}
 
 ### **app-flow**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-app-flow</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-app-flow</span>
 → <small>`data`</small>
 
  App-flow event with app-flow object will be fired when you trigger the `emit` function.
@@ -65,7 +65,7 @@ i.e. 'task-clicked', 'wizard-step1-completed',...
 <small>**setQp**(*qp* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-qp</span>
 
 
 
@@ -77,7 +77,7 @@ i.e. 'task-clicked', 'wizard-step1-completed',...
 <small>**trigger**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span>
 
 
 
@@ -87,7 +87,7 @@ i.e. 'task-clicked', 'wizard-step1-completed',...
 <small>**emit**(*queryParams* `` *QueryParam* `object|QueryParams` ) ⟹ `void`</small>
 
 <small>`` `object|QueryParams` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-emit</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-emit</span>
 
 fire the app-flow event
 

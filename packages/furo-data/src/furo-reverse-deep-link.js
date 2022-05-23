@@ -8,8 +8,8 @@ import { Env } from '@furo/framework';
  *```html
  *<furo-reverse-deep-link
  *    service="TaskService"
- *    rel="self" @-converted="--queryParams"
- *    ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
+ *    rel="self" at-converted="--queryParams"
+ *    fn-convert="--rawEntityOrCollection, --linksArray, --linkObject"
  *></furo-reverse-deep-link>
  *```
  *

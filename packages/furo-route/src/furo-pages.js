@@ -18,13 +18,13 @@ import { LitElement, html, css } from 'lit';
  *
  * ```html
  *
- * <furo-pages ƒ-inject-location="--locationChanged" default="home">
+ * <furo-pages fn-inject-location="--locationChanged" default="home">
  *    <page-home name="home"></page-home>
  *    <other-page name="more"></other-page>
  *    <view-404 name="404"></view-404>
  * </furo-pages>
  *
- * <furo-location @-location-changed="--locationChanged"></furo-location>
+ * <furo-location at-location-changed="--locationChanged"></furo-location>
  * ```
  * *If the url is `/` or `/home`, page-home is displayed.*
  * *If the url is `/more`,  other-page is displayed.*

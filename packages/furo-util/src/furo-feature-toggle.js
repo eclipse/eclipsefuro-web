@@ -16,7 +16,7 @@ import { FuroFeatureToggle as FeatureToggle } from '@furo/framework/src/FuroFeat
  *
  *  <!-- observing key changes -->
  *  <furo-feature-toggle
- *     key="feature.xxxx.yyy"  @-key-activated="--fxyActivated" @-key-changed="--fxyChanged">
+ *     key="feature.xxxx.yyy"  at-key-activated="--fxyActivated" at-key-changed="--fxyChanged">
  *     </furo-feature-toggle>
  *
  *  ```

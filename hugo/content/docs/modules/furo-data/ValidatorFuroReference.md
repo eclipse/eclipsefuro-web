@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorFuroReference
 
-**@furo/furo-data** <small>v2.2.1</small>
+**@furo/furo-data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/lib/ValidatorFuroReference.js';`<small>
 <br>exports *ValidatorFuroReference* js</small>
 

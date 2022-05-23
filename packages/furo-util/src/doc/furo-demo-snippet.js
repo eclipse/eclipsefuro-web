@@ -237,16 +237,16 @@ class FuroDemoSnippet extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div class="nav">
-          <span class="demo" @-click="-^demo">demo</span> |
-          <span class="source" @-click="-^source">source</span> |
-          <span class="flow" @-click="-^flow">flow</span> |
-          <span style="float:right" @-click="--fullscreen">${this.icon}</span>
+          <span class="demo" at-click="-^demo">demo</span> |
+          <span class="source" at-click="-^source">source</span> |
+          <span class="flow" at-click="-^flow">flow</span> |
+          <span style="float:right" at-click="--fullscreen">${this.icon}</span>
         </div>
 
         <div flex class="flexbody">
           <div id="demo" flex></div>
-          <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
-          <furo-markdown id="source" ƒ-parse-markdown="--markdown"></furo-markdown>
+          <furo-show-flow id="flow" fn-parse-template="--template"></furo-show-flow>
+          <furo-markdown id="source" fn-parse-markdown="--markdown"></furo-markdown>
         </div>
       </furo-vertical-flex>
     `;

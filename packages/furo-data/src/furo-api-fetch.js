@@ -3,7 +3,7 @@
  *
  *
  * ```html
- * <furo-api-fetch ƒ-invoke-request="--Request"></furo-api-fetch>
+ * <furo-api-fetch fn-invoke-request="--Request"></furo-api-fetch>
  * ```
  *
  * @fires {Request} request-aborted - Fired when a request was canceled.

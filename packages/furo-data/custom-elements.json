@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Use `furo-api-fetch` to fetch data from the network.\n\n\n```html\n<furo-api-fetch ƒ-invoke-request=\"--Request\"></furo-api-fetch>\n```",
+          "description": "Use `furo-api-fetch` to fetch data from the network.\n\n\n```html\n<furo-api-fetch fn-invoke-request=\"--Request\"></furo-api-fetch>\n```",
           "name": "FuroApiFetch",
           "members": [
             {
@@ -199,7 +199,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n   service=\"Servicename\"\n   ƒ-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
+          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n   service=\"Servicename\"\n   fn-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" at-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
           "name": "FuroCollectionAgent",
           "members": [
             {
@@ -664,7 +664,7 @@
               "name": "response-hts-updated"
             },
             {
-              "description": " Fired when filter was updated with `ƒ-set-filter`.",
+              "description": " Fired when filter was updated with `fn-set-filter`.",
               "name": "filter-changed"
             },
             {
@@ -766,7 +766,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-custom-method` is a interface component to handle custom methods.\n\n```html\n<furo-custom-method\n    service=\"Servicename\"\n    method=\"release\"\n    ƒ-hts-in=\"--hts\"\n    ƒ-trigger=\"--customClick\"></furo-custom-method>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" @-hts-out=\"--hts\"></furo-deep-link>\n\n```\n* *before you can do any requests, the service, method and the HATEOAS must be known*",
+          "description": "`furo-custom-method` is a interface component to handle custom methods.\n\n```html\n<furo-custom-method\n    service=\"Servicename\"\n    method=\"release\"\n    fn-hts-in=\"--hts\"\n    fn-trigger=\"--customClick\"></furo-custom-method>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" at-hts-out=\"--hts\"></furo-deep-link>\n\n```\n* *before you can do any requests, the service, method and the HATEOAS must be known*",
           "name": "FuroCustomMethod",
           "members": [
             {
@@ -929,7 +929,7 @@
               "type": {
                 "text": "HTS"
               },
-              "description": " Fired when hts was updated by `ƒ-hts-in`.",
+              "description": " Fired when hts was updated by `fn-hts-in`.",
               "name": "hts-updated"
             },
             {
@@ -1047,7 +1047,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat identity-path=\"id\" ƒ-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         ƒ-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n *The wire `--init` is fired from furo-data-flow-repeat*\n\n If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
+          "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat identity-path=\"id\" fn-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         fn-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n *The wire `--init` is fired from furo-data-flow-repeat*\n\n If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `at-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `at-click=\"^^item-selected(item)\"`",
           "name": "FuroDataFlowRepeat",
           "members": [
             {
@@ -1104,7 +1104,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to\n`ƒ-focus=\"--itemSelected\"`.",
+              "description": "Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to\n`fn-focus=\"--itemSelected\"`.",
               "default": "false"
             },
             {
@@ -1408,7 +1408,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO:  support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content ƒ-bind-data=\"--bind(*.bool)\">\n  <div>some content</div>\n</furo-collapsible-box>\n```",
+          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO:  support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content fn-bind-data=\"--bind(*.bool)\">\n  <div>some content</div>\n</furo-collapsible-box>\n```",
           "name": "FuroDataHideContent",
           "slots": [
             {
@@ -1432,7 +1432,7 @@
                   }
                 }
               ],
-              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`"
+              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `at-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`"
             },
             {
               "kind": "method",
@@ -1566,7 +1566,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`furo-data-object` receives its data regularly from a [collection-aget](furo-collection-agent) or a  [entity-aget](furo-entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.data.rawData` with javascript (if needed).\n\n```html\n <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n <furo-data-object\n     type=\"project.Project\"\n     ƒ-inject-raw=\"--response(*.data)\" @-object-ready=\"--dataObject\"></furo-data-object>\n\n <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n <furo-entity-agent\n     service=\"ProjectService\"\n     ƒ-save=\"--saveClicked\"\n     ƒ-bind-request-data=\"--dataObject\" @-response=\"--response\" ></furo-entity-agent>\n```",
+          "description": "`furo-data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`furo-data-object` receives its data regularly from a [collection-aget](furo-collection-agent) or a  [entity-aget](furo-entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.data.rawData` with javascript (if needed).\n\n```html\n <!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready -->\n <furo-data-object\n     type=\"project.Project\"\n     fn-inject-raw=\"--response(*.data)\" at-object-ready=\"--dataObject\"></furo-data-object>\n\n <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  -->\n <furo-entity-agent\n     service=\"ProjectService\"\n     fn-save=\"--saveClicked\"\n     fn-bind-request-data=\"--dataObject\" at-response=\"--response\" ></furo-entity-agent>\n```",
           "name": "FuroDataObject",
           "members": [
             {
@@ -1765,7 +1765,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-deep-link`\nResolve deep links HATEOAS based on the query params and the selected service.\n\n```html\n<furo-deep-link\n service=\"TaskService\"\n ƒ-qp-in=\"--pageQueryChanged(*.query)\" @-hts-out=\"--serviceHTS\">\n </furo-deep-link>\n```\n*Deeplink inside of a furo-page*\n\n\nThe services must be registered in the Env:\n\n```html\nimport {Services,Types} from \"./furo-spec.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\n\n\nUsually this is done in your src/configs/init.js",
+          "description": "`furo-deep-link`\nResolve deep links HATEOAS based on the query params and the selected service.\n\n```html\n<furo-deep-link\n service=\"TaskService\"\n fn-qp-in=\"--pageQueryChanged(*.query)\" at-hts-out=\"--serviceHTS\">\n </furo-deep-link>\n```\n*Deeplink inside of a furo-page*\n\n\nThe services must be registered in the Env:\n\n```html\nimport {Services,Types} from \"./furo-spec.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\n\n\nUsually this is done in your src/configs/init.js",
           "name": "FuroDeepLink",
           "members": [
             {
@@ -1878,7 +1878,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-entity-agent` is an interface component to handle entity requests.\n\n> **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of\n> the values are sent.\n\n> **Hint** PUT will send all fields which are not marked as **readonly**.\n> If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`\n\n```html\n<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n<furo-entity-agent\n  service=\"ProjectService\"\n  ƒ-hts-in=\"--hts\" @-response=\"--response\"\n  ></furo-entity-agent>\n\n\n<!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n<furo-data-object\n  type=\"project.ProjectEntity\"\n  ƒ-inject-raw=\"--response\"\n  ></furo-data-object>\n```",
+          "description": "`furo-entity-agent` is an interface component to handle entity requests.\n\n> **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of\n> the values are sent.\n\n> **Hint** PUT will send all fields which are not marked as **readonly**.\n> If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`\n\n```html\n<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  -->\n<furo-entity-agent\n  service=\"ProjectService\"\n  fn-hts-in=\"--hts\" at-response=\"--response\"\n  ></furo-entity-agent>\n\n\n<!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready -->\n<furo-data-object\n  type=\"project.ProjectEntity\"\n  fn-inject-raw=\"--response\"\n  ></furo-data-object>\n```",
           "name": "FuroEntityAgent",
           "members": [
             {
@@ -2367,7 +2367,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Use this component to interact with fields from an furo-data-object.\n\nYou can update the field value or listen to changes of a field.\n\n```html\n<furo-entity-field ƒ-bind-data=\"--dataObject(*.field)\"></furo-entity-field>\n```",
+          "description": "Use this component to interact with fields from an furo-data-object.\n\nYou can update the field value or listen to changes of a field.\n\n```html\n<furo-entity-field fn-bind-data=\"--dataObject(*.field)\"></furo-entity-field>\n```",
           "name": "FuroEntityField",
           "members": [
             {
@@ -2402,7 +2402,7 @@
                   }
                 }
               ],
-              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`"
+              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `at-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`"
             }
           ],
           "events": [
@@ -2440,7 +2440,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-hateoas-state` is an invisible component with a binding of type furo.Link or injection of a link array.\n\nIt disables / enables or hides / shows components according to the injected HATEOAS links. `furo-hateoas-state` only\nsets or remove the attributes **hidden** and **disabled** on the nodes.\n\nAll nodes inside the same parent are taken in to control.\n\nElements inside a shadow root are not selected.\n\nSet the attribute **data-rel=\"list\"** on any element you want to control with `furo-hateoas-state`.\n\nSet the attribute **hide-no-rel** if you want to hide the node instead of being disabled.\n\n```html\n<div>\n  <button data-rel='list'>list</button>\n  <button hide-no-rel data-rel='list'>hide no rel</button>\n  <button data-rel='add'>add</button>\n  <furo-hateoas-state ƒ-bind-hts='--collection(*.links)'></furo-hateoas-state>\n</div>\n```\n*all elements with a data-rel=\"something\" attribute inside the div are controlled*",
+          "description": "`furo-hateoas-state` is an invisible component with a binding of type furo.Link or injection of a link array.\n\nIt disables / enables or hides / shows components according to the injected HATEOAS links. `furo-hateoas-state` only\nsets or remove the attributes **hidden** and **disabled** on the nodes.\n\nAll nodes inside the same parent are taken in to control.\n\nElements inside a shadow root are not selected.\n\nSet the attribute **data-rel=\"list\"** on any element you want to control with `furo-hateoas-state`.\n\nSet the attribute **hide-no-rel** if you want to hide the node instead of being disabled.\n\n```html\n<div>\n  <button data-rel='list'>list</button>\n  <button hide-no-rel data-rel='list'>hide no rel</button>\n  <button data-rel='add'>add</button>\n  <furo-hateoas-state fn-bind-hts='--collection(*.links)'></furo-hateoas-state>\n</div>\n```\n*all elements with a data-rel=\"something\" attribute inside the div are controlled*",
           "name": "FuroHateoasState",
           "members": [
             {
@@ -2790,7 +2790,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-rel-exists`\nChecks if a hateoas relation exists in a given hateaos Links array.\n\n```html\n<furo-rel-exists ƒ-inject=\"--HTS-array\"></furo-rel-exists>\n```",
+          "description": "`furo-rel-exists`\nChecks if a hateoas relation exists in a given hateaos Links array.\n\n```html\n<furo-rel-exists fn-inject=\"--HTS-array\"></furo-rel-exists>\n```",
           "name": "FuroRelExists",
           "members": [
             {
@@ -2881,7 +2881,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```html\n<furo-reverse-deep-link\n   service=\"TaskService\"\n   rel=\"self\" @-converted=\"--queryParams\"\n   ƒ-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n></furo-reverse-deep-link>\n```",
+          "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```html\n<furo-reverse-deep-link\n   service=\"TaskService\"\n   rel=\"self\" at-converted=\"--queryParams\"\n   fn-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n></furo-reverse-deep-link>\n```",
           "name": "FuroReverseDeepLink",
           "members": [
             {
@@ -2992,7 +2992,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```html\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
+          "description": "The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```html\n  <furo-type-renderer fn-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
           "name": "FuroTypeRenderer",
           "members": [
             {

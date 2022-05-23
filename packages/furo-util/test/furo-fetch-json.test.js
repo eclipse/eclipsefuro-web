@@ -14,10 +14,10 @@ describe('furo-fetch-json', () => {
         <template>
           <furo-fetch-json
             src="/mockdata/experiments/1/get.json"
-            ƒ-fetch-src="--fetchSrc"
-            ƒ-fetch="--fetch"
-            @-data="--contentReceived"
-            @-parse-error="--error"
+            fn-fetch-src="--fetchSrc"
+            fn-fetch="--fetch"
+            at-data="--contentReceived"
+            at-parse-error="--error"
           ></furo-fetch-json>
         </template>
       </flow-bind>

@@ -5,7 +5,7 @@ import { LitElement, css } from 'lit';
  * Checks if a hateoas relation exists in a given hateaos Links array.
  *
  *```html
- * <furo-rel-exists ƒ-inject="--HTS-array"></furo-rel-exists>
+ * <furo-rel-exists fn-inject="--HTS-array"></furo-rel-exists>
  * ```
  *
  *

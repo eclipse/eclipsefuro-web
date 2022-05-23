@@ -17,15 +17,15 @@ describe('furo-data-hide-content', () => {
       <flow-bind>
         <template>
           <furo-data-hide-content
-            ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+            fn-bind-data="--entity(*.furo_data_checkbox_input)"
           >
             <h1>This is the content</h1>
           </furo-data-hide-content>
 
           <furo-data-object
             type="experiment.Experiment"
-            @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
+            at-object-ready="--entity"
+            fn-inject-raw="--response(*.data)"
           ></furo-data-object>
         </template>
       </flow-bind>

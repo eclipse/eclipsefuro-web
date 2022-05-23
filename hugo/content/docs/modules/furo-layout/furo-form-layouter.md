@@ -112,7 +112,7 @@ Set narrower-fix attribute to force
 {{% api "_furo-form-layouter-events.md" %}}
 
 ### **layout-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-layout-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-layout-changed</span>
 → <small>`CustomEvent`</small>
 
 

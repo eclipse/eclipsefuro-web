@@ -9,8 +9,8 @@ import { FBP } from '@furo/fbp';
  *  [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
  *
  * ```html
- * <furo-keydown key="Enter" @-key="--enterPressed"></furo-keydown>
- * <furo-keydown ctrl key="c" @-key="--copyRequested"></furo-keydown>
+ * <furo-keydown key="Enter" at-key="--enterPressed"></furo-keydown>
+ * <furo-keydown ctrl key="c" at-key="--copyRequested"></furo-keydown>
  * ```
  * @fires {KeyboardEvent} key - Fired when key was catched on target
  *

@@ -8,7 +8,7 @@ import { Env } from '@furo/framework';
  * ```html
  * <furo-deep-link
  *  service="TaskService"
- *  ƒ-qp-in="--pageQueryChanged(*.query)" @-hts-out="--serviceHTS">
+ *  fn-qp-in="--pageQueryChanged(*.query)" at-hts-out="--serviceHTS">
  *  </furo-deep-link>
  * ```
  * *Deeplink inside of a furo-page*

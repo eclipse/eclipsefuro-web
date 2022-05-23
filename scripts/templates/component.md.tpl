@@ -42,7 +42,7 @@ weight: 50
 {{"{{"}}% api "_{{.component}}-events.md" %{{"}}"}}
 {{range $event := .decl.events}}
 ### **{{$event.name}}**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-{{$event.name}}</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-{{$event.name}}</span>
 → <small>`{{$event.type.text}}`</small>
 
 {{if $event.description}}{{$event.description | noescape}}{{end}}
@@ -57,7 +57,7 @@ weight: 50
 <small>**{{$method.name}}**({{range $p := $method.parameters}}*{{$p.name}}* `{{$p.type.text}}` {{end}}) ⟹ `{{if $method.return.type.text}}{{$method.return.type.text}}{{else}}void{{end}}`</small>
 
 <small>{{if $method.parameters}}{{range $p := $method.parameters}}`{{$p.type.text}}` {{end}}{{else}}`*`{{end}}</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-{{kebabcase $method.name}}</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-{{kebabcase $method.name}}</span>
 
 {{if $method.description}}{{$method.description | noescape}}{{end}}
 {{range $p := $method.parameters}}

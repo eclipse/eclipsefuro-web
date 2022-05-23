@@ -98,13 +98,13 @@ Custom element to repeat Arrays. The repeated items are injected *before* the `f
 {{% api "_flow-repeat-events.md" %}}
 
 ### **last-element-selected**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-last-element-selected</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-last-element-selected</span>
 → <small>`index of the element`</small>
 
  Fired when the last element is selected. Use this to trigger a load next.
 <br><br>
 ### **items-in-dom**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-items-in-dom</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-items-in-dom</span>
 → <small>`Number`</small>
 
  Fired when items are attached to the dom, with Number of items.
@@ -118,7 +118,7 @@ Custom element to repeat Arrays. The repeated items are injected *before* the `f
 <small>**clear**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear</span>
 
 Clear the list
 
@@ -128,7 +128,7 @@ Clear the list
 <small>**select**(*index* `int` ) ⟹ `void`</small>
 
 <small>`int` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select</span>
 
 Triggers the wire `--itemSelected` on selected item and `--itemDeSelected` on last selected Item.
 
@@ -139,7 +139,7 @@ Triggers the wire `--itemSelected` on selected item and `--itemDeSelected` on la
 <small>**selectIdentity**(*identifier* `*` ) ⟹ `void`</small>
 
 <small>`*` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select-identity</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select-identity</span>
 
 Select item by its identity.
 
@@ -152,7 +152,7 @@ Using this method only works when you have set the `identity-path`.
 <small>**selectNextIndex**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select-next-index</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select-next-index</span>
 
 Selects next index.  If none was selected, the first index will be selected.
 
@@ -168,7 +168,7 @@ Triggers the wire `--itemSelected` on selected item and `--itemDeSelected` on la
 <small>**selectPreviousIndex**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select-previous-index</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select-previous-index</span>
 
 Selects the previous index.
 
@@ -182,7 +182,7 @@ Triggers the wire `--itemSelected` on selected item and `--itemDeSelected` on la
 <small>**triggerSelected**(*data* `*` ) ⟹ `void`</small>
 
 <small>`*` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-selected</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-selected</span>
 
 Triggers the currently selected item.
 
@@ -197,7 +197,7 @@ Triggers the wire `--triggerIndex` on the every item.
 <small>**triggerAll**(*data* `*` ) ⟹ `void`</small>
 
 <small>`*` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-all</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-all</span>
 
 Triggers all nodes.
 
@@ -212,7 +212,7 @@ Triggers the wire `--triggerIndex` on the every item.
 <small>**deselect**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-deselect</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-deselect</span>
 
 Triggers the wire `--itemDeSelected` on the last selected item
 
@@ -222,7 +222,7 @@ Triggers the wire `--itemDeSelected` on the last selected item
 <small>**setInsertRef**(*ref* `DomNode` ) ⟹ `void`</small>
 
 <small>`DomNode` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-insert-ref</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-insert-ref</span>
 
 Set a reference to append the repeated elements in to the ref instead of appending them before the repeater itself.
 
@@ -234,7 +234,7 @@ Set a reference to append the repeated elements in to the ref instead of appendi
 <small>**deselectAll**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-deselect-all</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-deselect-all</span>
 
 Triggers the wire `--itemDeSelected` on all items
 
@@ -245,7 +245,7 @@ Triggers the wire `--itemDeSelected` on all items
 <small>**injectItems**(*items* `Array` ) ⟹ `void`</small>
 
 <small>`Array` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-items</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-items</span>
 
 Inject items to repeat.
 
@@ -257,7 +257,7 @@ Inject items to repeat.
 <small>**triggerFirst**(*data* `*` ) ⟹ `void`</small>
 
 <small>`*` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-first</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-first</span>
 
 Triggers the wire `--trigger` on the first item.
 
@@ -270,7 +270,7 @@ Triggers the wire --triggerFirst on the first item.
 <small>**triggerLast**(*data* `*` ) ⟹ `void`</small>
 
 <small>`*` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-last</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-last</span>
 
 Triggers the wire `--trigger` on the last item.
 
@@ -283,7 +283,7 @@ Triggers the wire --triggerLast on the last item.
 <small>**triggerIndex**(*i* `int` *data* `*` ) ⟹ `void`</small>
 
 <small>`int` `*` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-index</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-index</span>
 
 Triggers the wire `--trigger` on the  item.
 

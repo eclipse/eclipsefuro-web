@@ -8,7 +8,7 @@ import { LitElement, css } from 'lit';
  *
  * <furo-put-clipboard
  *     json
- *     ƒ-trigger="--data" @-content-put="--contentInClipboard"
+ *     fn-trigger="--data" at-content-put="--contentInClipboard"
  *     ></furo-put-clipboard>
  *
  *```

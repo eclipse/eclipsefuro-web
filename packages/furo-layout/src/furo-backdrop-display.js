@@ -55,9 +55,9 @@ class FuroBackdropDisplay extends FBP(LitElement) {
        *
        * Note: the animations in the css are set with 250ms.
        *
-       * If you are interested to use @-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.
+       * If you are interested to use at-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.
        *
-       * If you are interested to use @-opened to show some ui stuff, set this value higher or equal 250.
+       * If you are interested to use at-opened to show some ui stuff, set this value higher or equal 250.
        */
       toDuration: {
         type: Number,

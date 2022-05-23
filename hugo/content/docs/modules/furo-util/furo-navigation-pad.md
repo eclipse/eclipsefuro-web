@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-navigation-pad
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-navigation-pad.js';`<small>
 <br>exports `<furo-navigation-pad>` custom-element-definition
 <br>superclass *LitElement*
@@ -22,7 +22,7 @@ weight: 50
  ```html
  <!-- forward all navigation events except the Escape  -->
  <furo-navigation-pad
-     ignored-keys="Escape" @-navigated="--navpad"
+     ignored-keys="Escape" at-navigated="--navpad"
      ></furo-navigation-pad>
 
  ```
@@ -49,67 +49,67 @@ i.e. "Escape, ArrowLeft"
 {{% api "_furo-navigation-pad-events.md" %}}
 
 ### **navigated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-navigated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-navigated</span>
 → <small>`String`</small>
 
 Generic navigation event, fired when one of the navigation keys was pressed, detail contains one of these: Escape | Enter | ArrowDown | ArrowUp |ArrowLeft|ArrowRight| PageUp | PageDown | Home | End
 <br><br>
 ### **enter-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-enter-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-enter-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when Enter key was pressed.
 <br><br>
 ### **arrow-down-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-arrow-down-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-arrow-down-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when ArrowDown key was pressed.
 <br><br>
 ### **arrow-up-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-arrow-up-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-arrow-up-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when ArrowUp key was pressed.
 <br><br>
 ### **arrow-left-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-arrow-left-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-arrow-left-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when ArrowLeft key was pressed.
 <br><br>
 ### **arrow-right-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-arrow-right-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-arrow-right-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when ArrowRight key was pressed.
 <br><br>
 ### **escape-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-escape-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-escape-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when Escape key was pressed.
 <br><br>
 ### **page-up-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-page-up-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-page-up-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when PageUp key was pressed.
 <br><br>
 ### **page-down-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-page-down-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-page-down-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when PageDown key was pressed.
 <br><br>
 ### **home-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-home-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-home-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when Home key was pressed.
 <br><br>
 ### **end-pressed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-end-pressed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-end-pressed</span>
 → <small>`KeyboardEvent`</small>
 
  Fired when End key was pressed.

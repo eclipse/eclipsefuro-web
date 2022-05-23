@@ -8,7 +8,7 @@ import { FBP } from '@furo/fbp';
  *
  *
  * ```html
- *    <app-flow-router ƒ-.config="--flowConfigLoaded" ƒ-trigger="--flowEvent" ƒ-back="--wire" ƒ-forward="--wire"></app-flow-router>
+ *    <app-flow-router set-config="--flowConfigLoaded" fn-trigger="--flowEvent" fn-back="--wire" fn-forward="--wire"></app-flow-router>
  * ```
  *
  *  *Configuration Array
@@ -226,7 +226,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           this._blank = false;
           window.open(prefix + selection.target + search);
         } else {
-          // keep the current history state, the state is set with ƒ-set-waypoint from furo-document-title.
+          // keep the current history state, the state is set with fn-set-waypoint from furo-document-title.
           window.history.replaceState(window.history.state, '', prefix + selection.target + search);
 
         }

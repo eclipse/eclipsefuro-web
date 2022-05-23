@@ -73,7 +73,7 @@
             },
             {
               "name": "to-duration",
-              "description": "Timeout duration, to wait to notify the changes.\n\nNote: the animations in the css are set with 250ms.\n\nIf you are interested to use @-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.\n\nIf you are interested to use @-opened to show some ui stuff, set this value higher or equal 250.",
+              "description": "Timeout duration, to wait to notify the changes.\n\nNote: the animations in the css are set with 250ms.\n\nIf you are interested to use at-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.\n\nIf you are interested to use at-opened to show some ui stuff, set this value higher or equal 250.",
               "fieldName": "toDuration"
             }
           ],
@@ -109,7 +109,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n<furo-backdrop @-opened=\"--BackdropFocus\" @-closed=\"--backdropClosed\"\n  ƒ-show=\"--expandIconClicked\"\n  ƒ-close=\"--closeRequested, --recordSelected\">\n     <any-component @-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n</furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
+          "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n<furo-backdrop at-opened=\"--BackdropFocus\" at-closed=\"--backdropClosed\"\n  fn-show=\"--expandIconClicked\"\n  fn-close=\"--closeRequested, --recordSelected\">\n     <any-component at-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n</furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
           "name": "FuroBackdrop",
           "members": [
             {

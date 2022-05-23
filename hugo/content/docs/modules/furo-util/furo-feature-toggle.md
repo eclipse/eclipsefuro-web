@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-feature-toggle
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-feature-toggle.js';`<small>
 <br>exports `<furo-feature-toggle>` custom-element-definition
 <br>superclass *LitElement*
@@ -27,7 +27,7 @@ weight: 50
 
  <!-- observing key changes -->
  <furo-feature-toggle
-    key="feature.xxxx.yyy"  @-key-activated="--fxyActivated" @-key-changed="--fxyChanged">
+    key="feature.xxxx.yyy"  at-key-activated="--fxyActivated" at-key-changed="--fxyChanged">
     </furo-feature-toggle>
 
  ```
@@ -54,19 +54,19 @@ Name of a feature toggle.
 {{% api "_furo-feature-toggle-events.md" %}}
 
 ### **key-true**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-key-true</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-key-true</span>
 → <small>`true`</small>
 
 Fired when the key is set to true or is true on init.
 <br><br>
 ### **key-false**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-key-false</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-key-false</span>
 → <small>`false`</small>
 
 Fired when the key is set to false or is false on init.
 <br><br>
 ### **key-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-key-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-key-changed</span>
 → <small>`Boolean`</small>
 
 Fired on init and when the key changes its state.
@@ -81,7 +81,7 @@ Fired on init and when the key changes its state.
 <small>**setFalse**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-false</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-false</span>
 
 Sets a feature key state to false.
 
@@ -91,7 +91,7 @@ Sets a feature key state to false.
 <small>**setTrue**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-true</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-true</span>
 
 Sets a feature key state to true.
 

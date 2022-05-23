@@ -4,7 +4,7 @@
  *  Splits an iterable (i.e. Array) in its head and tail part.
  *
  *```
- *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
+ *  <furo-head-tail fn-split="--arrayData" at-head="--firstElement" at-tail="--restOfArray"></furo-head-tail>
  *```
  *
  * @fires {{Any} } head -  Fired when Array was splitted, contains the first element of array.

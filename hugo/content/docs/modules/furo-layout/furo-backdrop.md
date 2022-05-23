@@ -22,10 +22,10 @@ The element you place in to furo-backdrop will be displayed centered.
 
 
 ```html
-<furo-backdrop @-opened="--BackdropFocus" @-closed="--backdropClosed"
-  ƒ-show="--expandIconClicked"
-  ƒ-close="--closeRequested, --recordSelected">
-     <any-component @-item-selected="--recordSelected" style="width: 90vw; height: 90vh"></any-component>
+<furo-backdrop at-opened="--BackdropFocus" at-closed="--backdropClosed"
+  fn-show="--expandIconClicked"
+  fn-close="--closeRequested, --recordSelected">
+     <any-component at-item-selected="--recordSelected" style="width: 90vw; height: 90vh"></any-component>
 </furo-backdrop>
 
 ```
@@ -48,19 +48,19 @@ Do not forget to add the furo-backdrop-display somewhere in the parent dom.
 {{% api "_furo-backdrop-events.md" %}}
 
 ### **opened**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-opened</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-opened</span>
 → <small>`handle: this`</small>
 
 The **opened** event will be fired when the content is visible on the backdrop. Tipp: you can use this to focus something on the shown content.
 <br><br>
 ### **closed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-closed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-closed</span>
 → <small>`handle: this`</small>
 
 The **closed** event will be fired when the displayed content is invisible and the backdrop is closed. Tipp: Maybe you want to use this event to refocus the initiator.
 <br><br>
 ### **register-backdrop**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-register-backdrop</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-register-backdrop</span>
 → <small>`handle: this`</small>
 
 Internal event to move the contents to the backdrop-display.
@@ -75,7 +75,7 @@ Internal event to move the contents to the backdrop-display.
 <small>**show**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-show</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-show</span>
 
 Initiates the backdrop and shows the content on top of the backdrop area.
 
@@ -85,7 +85,7 @@ Initiates the backdrop and shows the content on top of the backdrop area.
 <small>**close**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-close</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-close</span>
 
 Hides the display.
 

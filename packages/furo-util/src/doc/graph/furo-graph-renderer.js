@@ -194,7 +194,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
           box.addClass('eventindicator');
         }
 
-        // add classes for ^^bubbling, -^host, ^nonbubbling, ƒ-.property
+        // add classes for ^^bubbling, -^host, ^nonbubbling, set-property
         // for bool like flex
         if (!node.attr.value) {
           box.addClass('flag');

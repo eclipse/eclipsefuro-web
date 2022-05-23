@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-show-flow
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/doc/graph/furo-show-flow.js';`<small>
 <br>exports `<furo-show-flow>` custom-element-definition
 <br>superclass *LitElement*
@@ -37,7 +37,7 @@ Renders a flow from dom node or html source
 <small>**parseHtml**(*source* `string` ) ⟹ `void`</small>
 
 <small>`string` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-parse-html</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-parse-html</span>
 
 Parse html content
 
@@ -48,7 +48,7 @@ Parse html content
 <small>**parseTemplate**(*template* `` *dom* `dom` ) ⟹ `void`</small>
 
 <small>`` `dom` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-parse-template</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-parse-template</span>
 
 Parse a dom node
 

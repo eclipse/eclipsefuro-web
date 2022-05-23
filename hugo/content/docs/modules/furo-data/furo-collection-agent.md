@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-collection-agent
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-collection-agent.js';`<small>
 <br>exports `<furo-collection-agent>` custom-element-definition
 <br>superclass *LitElement*
@@ -20,11 +20,11 @@ weight: 50
 ```html
 <furo-collection-agent
    service="Servicename"
-   ƒ-hts-in="--hts"></furo-collection-agent>
+   fn-hts-in="--hts"></furo-collection-agent>
 
 <!-- produces a hateoas link array -->
 <furo-deep-link
-    service="Servicename" @-hts-out="--hts"></furo-deep-link>
+    service="Servicename" at-hts-out="--hts"></furo-deep-link>
 
 ```
 
@@ -185,85 +185,85 @@ This attribute should not be needed in future versions, because the rel already 
 {{% api "_furo-collection-agent-events.md" %}}
 
 ### **request-aborted**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-aborted</span>
 → <small>`Request`</small>
 
 Fired if the request was successfully cancelled
 <br><br>
 ### **request-started**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-started</span>
 → <small>`Request`</small>
 
 Fired when a request is sent.
 <br><br>
 ### **response-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-raw</span>
 → <small>`Object`</small>
 
 Fired when a response is received.
 <br><br>
 ### **response-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
 <br><br>
 ### **response-error-[status-code]**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-[status-code]</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a specific error event.
 <br><br>
 ### **fatal-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-fatal-error</span>
 → <small>`Request`</small>
 
 Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
 <br><br>
 ### **response-error-4xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-4xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br>
 ### **response-error-5xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-5xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br>
 ### **response-error-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-raw</span>
 → <small>`Object`</small>
 
 Fired when a error has occoured.
 <br><br>
 ### **response**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response</span>
 → <small>`Object`</small>
 
 Fired when a response is received.
 <br><br>
 ### **response-hts-updated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-hts-updated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-hts-updated</span>
 → <small>`hts`</small>
 
  Fired when the hts was updated by the received response.
 <br><br>
 ### **filter-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-filter-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-filter-changed</span>
 → <small>``</small>
 
- Fired when filter was updated with `ƒ-set-filter`.
+ Fired when filter was updated with `fn-set-filter`.
 <br><br>
 ### **hts-updated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-updated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-updated</span>
 → <small>`Array|HATEOAS`</small>
 
  Fired when hateoas was updated from response.
 <br><br>
 ### **hts-injected**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-injected</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-injected</span>
 → <small>`Hateoas links`</small>
 
  Fired when hateoas was updated
@@ -279,7 +279,7 @@ Fired when a response is received.
 <small>**setFields**(*fields* `String` ) ⟹ `void`</small>
 
 <small>`String` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-fields</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-fields</span>
 
 
 Comma separated list of fields (like a fieldmask)
@@ -294,7 +294,7 @@ If your services supports this feature, you will receive a subset of the fields.
 <small>**setOrderBy**(*order* `String` ) ⟹ `void`</small>
 
 <small>`String` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-order-by</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-order-by</span>
 
 Sorting order
 
@@ -313,7 +313,7 @@ Only useable if your service has implemented this feature.
 <small>**clearFilter**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-filter</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-filter</span>
 
 clear the setted filter
 
@@ -323,7 +323,7 @@ clear the setted filter
 <small>**setFilter**(*filterstring* `String` ) ⟹ `void`</small>
 
 <small>`String` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-filter</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-filter</span>
 
 Set the filter.
 
@@ -339,7 +339,7 @@ Only useable if your service has implemented this feature.
 <small>**setPageSize**(*size* `Number` ) ⟹ `void`</small>
 
 <small>`Number` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-page-size</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-page-size</span>
 
 Sets pagination size in the List request.
 
@@ -353,7 +353,7 @@ Only useful if your service supports pagination.
 <small>**updateQp**(*qp* `` *key* `Object` ) ⟹ `void`</small>
 
 <small>`` `Object` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-update-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-update-qp</span>
 
 Update query params
 a qp like {"active":true} will just update the qp *active*
@@ -368,7 +368,7 @@ If the current value of the qp is not the same like the injected value, a qp-cha
 <small>**setQp**(*qp* `` *key* `Object` ) ⟹ `void`</small>
 
 <small>`` `Object` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-qp</span>
 
 Set query params
 All existing query params are replaced by the transferred parameters
@@ -383,7 +383,7 @@ The AgentHelper fires a qp-set event after the query params are replaced.
 <small>**clearQp**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-qp</span>
 
 clear the query params that you have setted before
 
@@ -396,7 +396,7 @@ clear the query params that you have setted before
 <small>**list**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-list</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-list</span>
 
 loads the entity if hts is available
 
@@ -406,7 +406,7 @@ loads the entity if hts is available
 <small>**load**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-load</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-load</span>
 
 loads the entity if hts is available
 
@@ -416,7 +416,7 @@ loads the entity if hts is available
 <small>**loadRel**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-load-rel</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-load-rel</span>
 
 loads the entity following the link which is specified on the attribute **rel** if it is available.
 
@@ -426,7 +426,7 @@ loads the entity following the link which is specified on the attribute **rel** 
 <small>**searchRel**(*term* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-search-rel</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-search-rel</span>
 
 search for a term following the link which is specified on the attribute **rel**
 
@@ -439,7 +439,7 @@ This will set the query param q and execute the query.
 <small>**search**(*term* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-search</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-search</span>
 
 search for a term.
 
@@ -452,7 +452,7 @@ This will set the query param q and triggers a list()
 <small>**first**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-first</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-first</span>
 
 loads the entity if hts is available
 
@@ -462,7 +462,7 @@ loads the entity if hts is available
 <small>**prev**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-prev</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-prev</span>
 
 loads the entity if hts is available
 
@@ -472,7 +472,7 @@ loads the entity if hts is available
 <small>**next**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-next</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-next</span>
 
 loads the entity if hts is available
 
@@ -482,7 +482,7 @@ loads the entity if hts is available
 <small>**last**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-last</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-last</span>
 
 loads the entity if hts is available
 
@@ -493,7 +493,7 @@ loads the entity if hts is available
 <small>**htsIn**(*hts* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-hts-in</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-hts-in</span>
 
 Inject HATEOAS links.
 
@@ -504,7 +504,7 @@ Inject HATEOAS links.
 <small>**abortPendingRequest**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abort-pending-request</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abort-pending-request</span>
 
 Aborts a pending request
 

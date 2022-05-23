@@ -54,7 +54,7 @@ describe('furo-deep-link', () => {
     element.qpIn({ prj: 12, tfag: 233 });
   });
 
-  it('should accept and trigger qp via ƒ-qp-in', done => {
+  it('should accept and trigger qp via fn-qp-in', done => {
     element.setService('ProjectService');
     element.addEventListener('hts-out', e => {
       const { detail } = e;
@@ -64,7 +64,7 @@ describe('furo-deep-link', () => {
     element.qpIn({ prj: 12, tfag: 233 });
   });
 
-  it('should load service via ƒ-set-service', done => {
+  it('should load service via fn-set-service', done => {
     element.setService('ProjectService');
     assert.equal(element._service.name, 'ProjectService');
     done();

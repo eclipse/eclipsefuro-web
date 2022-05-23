@@ -6,10 +6,10 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  *
  *
  *  ```html
- *  <furo-data-flow-repeat identity-path="id" ƒ-bind-data="--data(*.repeaterfield)">
+ *  <furo-data-flow-repeat identity-path="id" fn-bind-data="--data(*.repeaterfield)">
  *    <template>
  *      <furo-ui5-data-text-input-labeled
- *          ƒ-bind-data="--init"></furo-ui5-data-text-input-labeled>
+ *          fn-bind-data="--init"></furo-ui5-data-text-input-labeled>
  *    </template>
  *  </furo-data-flow-repeat>
  *  ```
@@ -32,8 +32,8 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  * -  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).
  *
  * ## Available attributes
- * **index** contains the current index of the item. Use this to fire a event with an index like `@-click="^^item-clicked(index)"`
- * **item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click="^^item-selected(item)"`
+ * **index** contains the current index of the item. Use this to fire a event with an index like `at-click="^^item-clicked(index)"`
+ * **item** contains the current index of the item. Use this to fire a event with the repeated item like `at-click="^^item-selected(item)"`
  *
  * @summary automatic display of repeated fields
  * @customElement
@@ -45,7 +45,7 @@ export class FuroDataFlowRepeat extends FieldNodeAdapter(FlowRepeat) {
     super();
     /**
      * Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to
-     * `ƒ-focus="--itemSelected"`.
+     * `fn-focus="--itemSelected"`.
      * @type {boolean}
      */
     this.selectAddedItem = false;
