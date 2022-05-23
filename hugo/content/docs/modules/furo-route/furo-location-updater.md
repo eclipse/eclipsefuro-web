@@ -41,7 +41,7 @@ The furo-location component will fire the location events as usual.
 ### **clearQp**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">clear-qp</span>
-</small>
+<small>`String` </small>
 
 Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`
 <br><br>
@@ -49,7 +49,7 @@ Comma separated list of qp keys to clear if they are not explicitly set with `fn
 ### **clearHash**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">clear-hash</span>
-</small>
+<small>`String` </small>
 
 Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`
 <br><br>

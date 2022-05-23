@@ -38,7 +38,7 @@ The Debounce technique allow us to “group” multiple sequential calls in a si
 ### **immediate**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">immediate</span>
-</small>
+<small>`Boolean` </small>
 
 If true, input-wire is triggered immediatley (leading edge instead of trailing)
 Default value: false
@@ -47,7 +47,7 @@ Default value: false
 ### **wait**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">wait</span>
-</small>
+<small>`Number` </small>
 
 Debounce time in milliseconds
 Default value: 250

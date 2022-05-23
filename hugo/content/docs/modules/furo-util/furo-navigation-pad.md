@@ -39,7 +39,7 @@ weight: 50
 ### **ignoredKeys**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">ignored-keys</span>
-</small>
+<small>`String` </small>
 
 Enter the keys you want to ignore as comma seperated values.
 

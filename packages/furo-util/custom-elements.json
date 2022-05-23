@@ -22,6 +22,9 @@
               "name": "src",
               "privacy": "public",
               "description": "File source",
+              "type": {
+                "text": "String"
+              },
               "attribute": "src"
             },
             {
@@ -29,6 +32,9 @@
               "name": "section",
               "privacy": "public",
               "description": "Targeted section to load the config in.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "section"
             }
           ],
@@ -45,11 +51,17 @@
             {
               "name": "src",
               "description": "File source",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "src"
             },
             {
               "name": "section",
               "description": "Targeted section to load the config in.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "section"
             }
           ],
@@ -93,6 +105,9 @@
               "name": "section",
               "privacy": "public",
               "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
+              "type": {
+                "text": "String"
+              },
               "attribute": "section"
             },
             {
@@ -115,6 +130,9 @@
             {
               "name": "section",
               "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "section"
             }
           ],
@@ -158,6 +176,9 @@
               "name": "immediate",
               "privacy": "public",
               "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "immediate"
             },
             {
@@ -165,6 +186,9 @@
               "name": "wait",
               "privacy": "public",
               "description": "Debounce time in milliseconds\nDefault value: 250",
+              "type": {
+                "text": "Number"
+              },
               "attribute": "wait"
             },
             {
@@ -268,11 +292,17 @@
             {
               "name": "wait",
               "description": "Debounce time in milliseconds\nDefault value: 250",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "wait"
             },
             {
               "name": "immediate",
               "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "immediate"
             }
           ],
@@ -331,6 +361,9 @@
               "name": "key",
               "privacy": "public",
               "description": "Name of a feature toggle.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "key"
             }
           ],
@@ -361,6 +394,9 @@
             {
               "name": "key",
               "description": "Name of a feature toggle.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "key"
             }
           ],
@@ -433,6 +469,9 @@
               "name": "src",
               "privacy": "public",
               "description": "the url you want to fetch",
+              "type": {
+                "text": "String"
+              },
               "attribute": "src"
             }
           ],
@@ -456,6 +495,9 @@
             {
               "name": "src",
               "description": "the url you want to fetch",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "src"
             }
           ],
@@ -669,6 +711,9 @@
               "name": "json",
               "privacy": "public",
               "description": "Convert clipboard content to json",
+              "type": {
+                "text": "String"
+              },
               "attribute": "json"
             }
           ],
@@ -682,6 +727,9 @@
             {
               "name": "json",
               "description": "Convert clipboard content to json",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "json"
             }
           ],
@@ -1078,7 +1126,7 @@
               "kind": "field",
               "name": "radMode",
               "type": {
-                "text": "boolean"
+                "text": "Boolean"
               },
               "default": "false",
               "privacy": "public",
@@ -1110,6 +1158,9 @@
               "name": "z",
               "privacy": "public",
               "description": "current z",
+              "type": {
+                "text": "Number"
+              },
               "attribute": "z"
             },
             {
@@ -1117,6 +1168,9 @@
               "name": "t",
               "privacy": "public",
               "description": "current t",
+              "type": {
+                "text": "Number"
+              },
               "attribute": "t"
             },
             {
@@ -1124,6 +1178,9 @@
               "name": "stack",
               "privacy": "public",
               "description": "the stack.",
+              "type": {
+                "text": "Array"
+              },
               "attribute": "stack"
             },
             {
@@ -1332,26 +1389,41 @@
             {
               "name": "z",
               "description": "current z",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "z"
             },
             {
               "name": "t",
               "description": "current t",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "t"
             },
             {
               "name": "stack",
               "description": "the stack.",
+              "type": {
+                "text": "Array"
+              },
               "fieldName": "stack"
             },
             {
               "name": "radMode",
               "description": "Set to true to use rad, default is deg",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "radMode"
             },
             {
               "name": "_PIdivby180",
               "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "_PIdivby180"
             }
           ],
@@ -1398,7 +1470,7 @@
               "kind": "field",
               "name": "interval",
               "type": {
-                "text": "number"
+                "text": "Number"
               },
               "default": "200",
               "privacy": "public",
@@ -1409,7 +1481,7 @@
               "kind": "field",
               "name": "takt",
               "type": {
-                "text": "number"
+                "text": "Number"
               },
               "default": "4",
               "privacy": "public",
@@ -1421,6 +1493,9 @@
               "name": "auto",
               "privacy": "public",
               "description": "Starts interval automatically",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "auto"
             }
           ],
@@ -1444,16 +1519,25 @@
             {
               "name": "interval",
               "description": "Duration of a tact in ms.",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "interval"
             },
             {
               "name": "takt",
               "description": "Number of ticks per tact.",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "takt"
             },
             {
               "name": "auto",
               "description": "Starts interval automatically",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "auto"
             }
           ],
@@ -1501,6 +1585,9 @@
               "name": "keys",
               "privacy": "public",
               "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
+              "type": {
+                "text": "String"
+              },
               "attribute": "keys"
             },
             {
@@ -1508,6 +1595,9 @@
               "name": "shift",
               "privacy": "public",
               "description": "Modifier key **shift** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "shift"
             },
             {
@@ -1515,6 +1605,9 @@
               "name": "alt",
               "privacy": "public",
               "description": "Modifier key **alt** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "alt"
             },
             {
@@ -1522,6 +1615,9 @@
               "name": "command",
               "privacy": "public",
               "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "command"
             },
             {
@@ -1529,6 +1625,9 @@
               "name": "meta",
               "privacy": "public",
               "description": "Modifier key **meta** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "meta"
             },
             {
@@ -1536,6 +1635,9 @@
               "name": "control",
               "privacy": "public",
               "description": "Modifier key **control** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "control"
             }
           ],
@@ -1552,31 +1654,49 @@
             {
               "name": "keys",
               "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "keys"
             },
             {
               "name": "shift",
               "description": "Modifier key **shift** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "shift"
             },
             {
               "name": "alt",
               "description": "Modifier key **alt** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "alt"
             },
             {
               "name": "command",
               "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "command"
             },
             {
               "name": "meta",
               "description": "Modifier key **meta** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "meta"
             },
             {
               "name": "control",
               "description": "Modifier key **control** must be pressed too to match",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "control"
             }
           ],
@@ -1626,6 +1746,9 @@
               "name": "key",
               "privacy": "public",
               "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
+              "type": {
+                "text": "String"
+              },
               "attribute": "key"
             },
             {
@@ -1633,6 +1756,9 @@
               "name": "global",
               "privacy": "public",
               "description": "Set this attribute to listen to the keydown event global (window).",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "global"
             },
             {
@@ -1640,6 +1766,9 @@
               "name": "alt",
               "privacy": "public",
               "description": "`alt` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "alt"
             },
             {
@@ -1647,6 +1776,9 @@
               "name": "ctrl",
               "privacy": "public",
               "description": "`ctrl` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "ctrl"
             },
             {
@@ -1654,6 +1786,9 @@
               "name": "meta",
               "privacy": "public",
               "description": "`meta` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "meta"
             },
             {
@@ -1661,6 +1796,9 @@
               "name": "shift",
               "privacy": "public",
               "description": "`shift` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "shift"
             },
             {
@@ -1668,6 +1806,9 @@
               "name": "preventDefault",
               "privacy": "public",
               "description": "Set this attribute to prevent the event default of the keypress event.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "prevent-default"
             },
             {
@@ -1675,6 +1816,9 @@
               "name": "stopPropagation",
               "privacy": "public",
               "description": "Set this to true to stop the event propagation of the keypress event.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "stop-propagation"
             }
           ],
@@ -1691,41 +1835,65 @@
             {
               "name": "key",
               "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "key"
             },
             {
               "name": "global",
               "description": "Set this attribute to listen to the keydown event global (window).",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "global"
             },
             {
               "name": "alt",
               "description": "`alt` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "alt"
             },
             {
               "name": "ctrl",
               "description": "`ctrl` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "ctrl"
             },
             {
               "name": "meta",
               "description": "`meta` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "meta"
             },
             {
               "name": "shift",
               "description": "`shift` key must be pressed to trigger the `key` event.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "shift"
             },
             {
               "name": "prevent-default",
               "description": "Set this attribute to prevent the event default of the keypress event.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "preventDefault"
             },
             {
               "name": "stop-propagation",
               "description": "Set this to true to stop the event propagation of the keypress event.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "stopPropagation"
             }
           ],
@@ -1769,6 +1937,9 @@
               "name": "mdsrc",
               "privacy": "public",
               "description": "source of the md",
+              "type": {
+                "text": "String"
+              },
               "attribute": "mdsrc"
             },
             {
@@ -1776,6 +1947,9 @@
               "name": "markdown",
               "privacy": "public",
               "description": "markdown string",
+              "type": {
+                "text": "String"
+              },
               "attribute": "markdown"
             },
             {
@@ -1829,6 +2003,9 @@
               "name": "unsafe",
               "privacy": "public",
               "description": "allow unsafe md. (writing html, components,...)",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "unsafe"
             }
           ],
@@ -1836,16 +2013,25 @@
             {
               "name": "unsafe",
               "description": "allow unsafe md. (writing html, components,...)",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "unsafe"
             },
             {
               "name": "mdsrc",
               "description": "source of the md",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "mdsrc"
             },
             {
               "name": "markdown",
               "description": "markdown string",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "markdown"
             }
           ],
@@ -1889,6 +2075,9 @@
               "name": "ignoredKeys",
               "privacy": "public",
               "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
+              "type": {
+                "text": "String"
+              },
               "attribute": "ignored-keys"
             }
           ],
@@ -1975,6 +2164,9 @@
             {
               "name": "ignored-keys",
               "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "ignoredKeys"
             }
           ],
@@ -2112,6 +2304,9 @@
               "name": "json",
               "privacy": "public",
               "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "json"
             }
           ],
@@ -2128,6 +2323,9 @@
             {
               "name": "json",
               "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "json"
             }
           ],
@@ -2187,7 +2385,10 @@
               "kind": "field",
               "name": "source",
               "privacy": "public",
-              "description": "Description",
+              "description": "Show the source tab",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "source",
               "reflects": true
             },
@@ -2195,6 +2396,10 @@
               "kind": "field",
               "name": "demo",
               "privacy": "public",
+              "description": "Show the demo tab",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "demo",
               "reflects": true
             },
@@ -2202,20 +2407,25 @@
               "kind": "field",
               "name": "flow",
               "privacy": "public",
+              "description": "Show the flow tab",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "flow",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "fullscreen",
-              "privacy": "public",
+              "privacy": "private",
               "attribute": "fullscreen",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "noDemo",
-              "privacy": "public",
+              "privacy": "private",
+              "description": "hide the demo tab",
               "attribute": "no-demo",
               "reflects": true
             }
@@ -2223,15 +2433,26 @@
           "attributes": [
             {
               "name": "source",
-              "description": "Description",
+              "description": "Show the source tab",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "source"
             },
             {
               "name": "demo",
+              "description": "Show the demo tab",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "demo"
             },
             {
               "name": "flow",
+              "description": "Show the flow tab",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "flow"
             },
             {
@@ -2240,6 +2461,7 @@
             },
             {
               "name": "no-demo",
+              "description": "hide the demo tab",
               "fieldName": "noDemo"
             }
           ],
@@ -2282,6 +2504,10 @@
               "kind": "field",
               "name": "on",
               "privacy": "public",
+              "description": "Switch on the bulb",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "on"
             },
             {
@@ -2302,11 +2528,11 @@
               "kind": "field",
               "name": "off",
               "type": {
-                "text": "boolean"
+                "text": "Boolean"
               },
               "default": "true",
               "privacy": "public",
-              "description": "Description",
+              "description": "Switch of the bulb",
               "attribute": "off",
               "reflects": true
             },
@@ -2322,11 +2548,18 @@
           "attributes": [
             {
               "name": "off",
-              "description": "Description",
+              "description": "Switch of the bulb",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "off"
             },
             {
               "name": "on",
+              "description": "Switch on the bulb",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "on"
             }
           ],

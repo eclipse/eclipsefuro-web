@@ -74,6 +74,9 @@
             {
               "name": "to-duration",
               "description": "Timeout duration, to wait to notify the changes.\n\nNote: the animations in the css are set with 250ms.\n\nIf you are interested to use at-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.\n\nIf you are interested to use at-opened to show some ui stuff, set this value higher or equal 250.",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "toDuration"
             }
           ],
@@ -190,7 +193,7 @@
               "kind": "field",
               "name": "flex",
               "type": {
-                "text": "boolean"
+                "text": "Boolean"
               },
               "default": "true",
               "privacy": "public",
@@ -202,7 +205,7 @@
               "kind": "field",
               "name": "hidden",
               "type": {
-                "text": "boolean"
+                "text": "Boolean"
               },
               "default": "false",
               "privacy": "public",
@@ -215,11 +218,17 @@
             {
               "name": "flex",
               "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "flex"
             },
             {
               "name": "hidden",
               "description": "Set to true to hide the spacer",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "hidden"
             }
           ],
@@ -320,7 +329,7 @@
               "kind": "field",
               "name": "breakpointBig",
               "type": {
-                "text": "number"
+                "text": "String"
               },
               "default": "810",
               "privacy": "public",
@@ -332,7 +341,7 @@
               "kind": "field",
               "name": "breakpointSmall",
               "type": {
-                "text": "number"
+                "text": "String"
               },
               "default": "405",
               "privacy": "public",
@@ -345,6 +354,9 @@
               "name": "narrowFix",
               "privacy": "public",
               "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "narrow-fix",
               "reflects": true
             },
@@ -353,6 +365,9 @@
               "name": "narrowerFix",
               "privacy": "public",
               "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "narrower-fix",
               "reflects": true
             }
@@ -369,21 +384,33 @@
             {
               "name": "breakpoint-big",
               "description": "Set custom breakpoint big\nDefault: \"810\"",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "breakpointBig"
             },
             {
               "name": "breakpoint-small",
               "description": "Set custom breakpoints small\nDefault: \"405\"",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "breakpointSmall"
             },
             {
               "name": "narrow-fix",
               "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "narrowFix"
             },
             {
               "name": "narrower-fix",
               "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "narrowerFix"
             }
           ],
@@ -554,6 +581,9 @@
               "name": "lefthandle",
               "privacy": "public",
               "description": "add a handle to the left side",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "lefthandle"
             },
             {
@@ -561,6 +591,9 @@
               "name": "righthandle",
               "privacy": "public",
               "description": "add a handle to the right side",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "righthandle"
             },
             {
@@ -568,6 +601,9 @@
               "name": "remember",
               "privacy": "public",
               "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
+              "type": {
+                "text": "String"
+              },
               "attribute": "remember"
             },
             {
@@ -575,6 +611,9 @@
               "name": "maxwidth",
               "privacy": "public",
               "description": "Set the maximal width of the resizer",
+              "type": {
+                "text": "Number"
+              },
               "attribute": "maxwidth"
             },
             {
@@ -582,6 +621,9 @@
               "name": "minwidth",
               "privacy": "public",
               "description": "Set the minimal width of the resizer",
+              "type": {
+                "text": "Number"
+              },
               "attribute": "minwidth"
             }
           ],
@@ -589,26 +631,41 @@
             {
               "name": "lefthandle",
               "description": "add a handle to the left side",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "lefthandle"
             },
             {
               "name": "righthandle",
               "description": "add a handle to the right side",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "righthandle"
             },
             {
               "name": "remember",
               "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "remember"
             },
             {
               "name": "maxwidth",
               "description": "Set the maximal width of the resizer",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "maxwidth"
             },
             {
               "name": "minwidth",
               "description": "Set the minimal width of the resizer",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "minwidth"
             }
           ],
@@ -678,6 +735,9 @@
               "name": "reverse",
               "privacy": "public",
               "description": "flip the left and right side",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "reverse"
             }
           ],
@@ -685,6 +745,9 @@
             {
               "name": "reverse",
               "description": "flip the left and right side",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "reverse"
             }
           ],

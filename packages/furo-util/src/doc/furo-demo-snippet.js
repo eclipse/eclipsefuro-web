@@ -61,12 +61,28 @@ class FuroDemoSnippet extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Description
+       * Show the source tab
+       * @type Boolean
        */
       source: { type: Boolean, reflect: true },
+      /**
+       * Show the demo tab
+       * @type Boolean
+       */
       demo: { type: Boolean, reflect: true },
+      /**
+       * Show the flow tab
+       * @type Boolean
+       */
       flow: { type: Boolean, reflect: true },
+      /**
+       * @private
+       */
       fullscreen: { type: Boolean, reflect: true },
+      /**
+       * hide the demo tab
+       * @private
+       */
       noDemo: { type: Boolean, reflect: true, attribute: 'no-demo' },
     };
   }

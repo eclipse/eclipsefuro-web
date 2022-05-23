@@ -62,6 +62,8 @@ class FuroPutClipboard extends LitElement {
     return {
       /**
        * Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.
+       *
+       * @type Boolean
        */
       json: { type: Boolean },
     };

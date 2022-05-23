@@ -59,28 +59,40 @@ class FuroKeyFilter extends FBP(LitElement) {
     return {
       /**
        * Coma separated list with allowed keys to pass. i.e "Enter, ArrowUp"
+       *
+       * @type String
        */
       keys: { type: String },
       /**
        * Modifier key **shift** must be pressed too to match
+       *
+       * @type Boolean
        */
       shift: { type: Boolean },
       /**
        * Modifier key **alt** must be pressed too to match
+       *
+       * @type Boolean
        */
       alt: { type: Boolean },
       /**
        * Alias for meta.
        *
        * Modifier key **meta** must be pressed too to match.
+       *
+       * @type Boolean
        */
       command: { type: Boolean },
       /**
        * Modifier key **meta** must be pressed too to match
+       *
+       * @type Boolean
        */
       meta: { type: Boolean },
       /**
        * Modifier key **control** must be pressed too to match
+       *
+       * @type Boolean
        */
       control: { type: Boolean },
       // stopPropagation, disableDefault??

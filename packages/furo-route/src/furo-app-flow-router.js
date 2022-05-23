@@ -107,6 +107,8 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     return {
       /**
        * The Configuration Array
+       *
+       * @type Array
        */
       config: { type: Array },
 

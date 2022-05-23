@@ -36,7 +36,7 @@ You can add the attribute scroll on the detail view to make the content scrollab
 ### **reverse**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">reverse</span>
-</small>
+<small>`Boolean` </small>
 
 flip the left and right side
 <br><br>

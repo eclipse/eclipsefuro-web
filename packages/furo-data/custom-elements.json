@@ -1568,6 +1568,9 @@
               "name": "hideOnFalse",
               "privacy": "public",
               "description": "Hide element on false instead of true",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "hide-on-false"
             }
           ],
@@ -1603,6 +1606,9 @@
             {
               "name": "hide-on-false",
               "description": "Hide element on false instead of true",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "hideOnFalse"
             }
           ],
@@ -1686,6 +1692,9 @@
                 }
               ],
               "privacy": "public",
+              "type": {
+                "text": "String"
+              },
               "attribute": "type"
             },
             {
@@ -1800,6 +1809,9 @@
             {
               "name": "type",
               "description": "The name of the type you want to use. The type must be registered in Env",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "type"
             }
           ],

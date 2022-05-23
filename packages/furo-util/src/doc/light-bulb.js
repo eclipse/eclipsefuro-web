@@ -26,9 +26,14 @@ class LightBulb extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Description
+       * Switch of the bulb
+       * @type Boolean
        */
       off: {type: Boolean, reflect: true},
+      /**
+       * Switch on the bulb
+       * @type Boolean
+       */
       on: {type: Boolean}
     };
   }

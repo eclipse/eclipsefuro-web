@@ -49,6 +49,8 @@ class FuroDataHideContent extends FBP(LitElement) {
       },
       /**
        * Hide element on false instead of true
+       *
+       * @type Boolean
        */
       hideOnFalse: {
         type: Boolean,

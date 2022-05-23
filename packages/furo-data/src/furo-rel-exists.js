@@ -62,12 +62,13 @@ class FuroRelExists extends LitElement {
     return {
       /**
        * Name of the rel
+       *
        * @type String
        */
       rel: { service: String },
       /**
        * define the service if you want a specific check on the service also
-       * @type String
+       *
        * @type String
        */
       service: { service: String },

@@ -27,6 +27,8 @@ class FuroFetchJson extends FBP(LitElement) {
     return {
       /**
        * the url you want to fetch
+       *
+       * @type String
        */
       src: { type: String },
     };

@@ -28,6 +28,8 @@ class FuroAppFlow extends LitElement {
        * Name of your app-flow event object
        *
        * i.e. 'task-clicked', 'wizard-step1-completed',...
+       *
+       * @type String
        */
       event: { type: String },
     };

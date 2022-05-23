@@ -70,7 +70,7 @@ Use this component with app-flow and furo-pages to implement application flow
 ### **config**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">config</span>
-</small>
+<small>`Array` </small>
 
 The Configuration Array
 <br><br>

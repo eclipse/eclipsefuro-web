@@ -37,7 +37,7 @@ When you set `alt`, `ctrl` or any of the other arguments, the key event will be 
 ### **key**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">key</span>
-</small>
+<small>`String` </small>
 
 Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c
 <br><br>
@@ -45,7 +45,7 @@ Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c
 ### **global**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">global</span>
-</small>
+<small>`Boolean` </small>
 
 Set this attribute to listen to the keydown event global (window).
 <br><br>
@@ -53,7 +53,7 @@ Set this attribute to listen to the keydown event global (window).
 ### **alt**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">alt</span>
-</small>
+<small>`Boolean` </small>
 
 `alt` key must be pressed to trigger the `key` event.
 <br><br>
@@ -61,7 +61,7 @@ Set this attribute to listen to the keydown event global (window).
 ### **ctrl**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">ctrl</span>
-</small>
+<small>`Boolean` </small>
 
 `ctrl` key must be pressed to trigger the `key` event.
 <br><br>
@@ -69,7 +69,7 @@ Set this attribute to listen to the keydown event global (window).
 ### **meta**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">meta</span>
-</small>
+<small>`Boolean` </small>
 
 `meta` key must be pressed to trigger the `key` event.
 <br><br>
@@ -77,7 +77,7 @@ Set this attribute to listen to the keydown event global (window).
 ### **shift**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">shift</span>
-</small>
+<small>`Boolean` </small>
 
 `shift` key must be pressed to trigger the `key` event.
 <br><br>
@@ -85,7 +85,7 @@ Set this attribute to listen to the keydown event global (window).
 ### **preventDefault**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">prevent-default</span>
-</small>
+<small>`Boolean` </small>
 
 Set this attribute to prevent the event default of the keypress event.
 <br><br>
@@ -93,7 +93,7 @@ Set this attribute to prevent the event default of the keypress event.
 ### **stopPropagation**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">stop-propagation</span>
-</small>
+<small>`Boolean` </small>
 
 Set this to true to stop the event propagation of the keypress event.
 <br><br>

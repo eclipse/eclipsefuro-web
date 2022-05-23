@@ -49,6 +49,7 @@ class FuroConfig extends LitElement {
        * section of the config object that you are interested in
        *
        * access deep object with dots like `main.sub.sub`
+       * @type String
        */
       section: { type: String },
     };

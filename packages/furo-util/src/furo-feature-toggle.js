@@ -41,6 +41,8 @@ class FuroFeatureToggle extends FBP(LitElement) {
     return {
       /**
        * Name of a feature toggle.
+       *
+       * @type String
        */
       key: { type: String },
     }

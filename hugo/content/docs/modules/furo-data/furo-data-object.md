@@ -55,7 +55,7 @@ transform incomming data to an object and vice versa. You can access the manipul
 ### **type**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">type</span>
-</small>
+<small>`String` </small>
 
 The name of the type you want to use. The type must be registered in Env
 <br><br>

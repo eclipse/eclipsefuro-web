@@ -64,14 +64,20 @@ class FuroDocumentTitle extends FBP(LitElement) {
     return {
       /**
        * Title part, you can also use `setTitle()` or `bindTitle().`
+       *
+       * @type String
        */
       title: { type: String },
       /**
        * prefix part, you can also use `setPrefix()`.`
+       *
+       * @type String
        */
       prefix: { type: String },
       /**
        * Suffix part, you can also use `setSuffix()` or `bindSuffix().`
+       *
+       * @type String
        */
       suffix: { type: String },
     };

@@ -38,7 +38,7 @@ Allows only defined keyboard events to pass through
 ### **keys**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">keys</span>
-</small>
+<small>`String` </small>
 
 Coma separated list with allowed keys to pass. i.e "Enter, ArrowUp"
 <br><br>
@@ -46,7 +46,7 @@ Coma separated list with allowed keys to pass. i.e "Enter, ArrowUp"
 ### **shift**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">shift</span>
-</small>
+<small>`Boolean` </small>
 
 Modifier key **shift** must be pressed too to match
 <br><br>
@@ -54,7 +54,7 @@ Modifier key **shift** must be pressed too to match
 ### **alt**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">alt</span>
-</small>
+<small>`Boolean` </small>
 
 Modifier key **alt** must be pressed too to match
 <br><br>
@@ -62,7 +62,7 @@ Modifier key **alt** must be pressed too to match
 ### **command**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">command</span>
-</small>
+<small>`Boolean` </small>
 
 Alias for meta.
 
@@ -72,7 +72,7 @@ Modifier key **meta** must be pressed too to match.
 ### **meta**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">meta</span>
-</small>
+<small>`Boolean` </small>
 
 Modifier key **meta** must be pressed too to match
 <br><br>
@@ -80,7 +80,7 @@ Modifier key **meta** must be pressed too to match
 ### **control**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">control</span>
-</small>
+<small>`Boolean` </small>
 
 Modifier key **control** must be pressed too to match
 <br><br>

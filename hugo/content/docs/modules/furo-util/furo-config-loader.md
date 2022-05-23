@@ -37,7 +37,7 @@ To access the config values, use `furo-config`.
 ### **src**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">src</span>
-</small>
+<small>`String` </small>
 
 File source
 <br><br>
@@ -45,7 +45,7 @@ File source
 ### **section**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">section</span>
-</small>
+<small>`String` </small>
 
 Targeted section to load the config in.
 <br><br>

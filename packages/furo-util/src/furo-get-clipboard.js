@@ -41,6 +41,8 @@ class FuroGetClipboard extends FBP(LitElement) {
     return {
       /**
        * Convert clipboard content to json
+       *
+       * @type String
        */
       json: { type: Boolean },
     };

@@ -37,7 +37,7 @@ weight: 50
 ### **json**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">json</span>
-</small>
+<small>`String` </small>
 
 Convert clipboard content to json
 <br><br>

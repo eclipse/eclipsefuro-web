@@ -139,16 +139,22 @@ class FuroFormLayouter extends FBP(LitElement) {
       /**
        * Set custom breakpoint big
        * Default: "810"
+       *
+       * @type String
        */
       breakpointBig: { type: String, attribute: 'breakpoint-big', reflect: true },
       /**
        * Set custom breakpoints small
        * Default: "405"
+       *
+       * @type String
        */
       breakpointSmall: { type: String, attribute: 'breakpoint-small', reflect: true },
       /**
        * Set narrow-fix attribute to force
        * the layout analog to breakpoint big
+       *
+       * @type Boolean
        */
       narrowFix: {
         type: Boolean,
@@ -158,6 +164,8 @@ class FuroFormLayouter extends FBP(LitElement) {
       /**
        * Set narrower-fix attribute to force
        * 1 column view (analog breakpoint small)
+       *
+       * @type Boolean
        */
       narrowerFix: {
         type: Boolean,

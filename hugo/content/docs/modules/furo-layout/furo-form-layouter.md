@@ -76,7 +76,7 @@ default: **false**</small>
 ### **breakpointBig**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">breakpoint-big</span> <small>**reflects**</small>
-<small>`number` default: **810**</small>
+<small>`String` default: **810**</small>
 
 Set custom breakpoint big
 Default: "810"
@@ -85,7 +85,7 @@ Default: "810"
 ### **breakpointSmall**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">breakpoint-small</span> <small>**reflects**</small>
-<small>`number` default: **405**</small>
+<small>`String` default: **405**</small>
 
 Set custom breakpoints small
 Default: "405"
@@ -94,7 +94,7 @@ Default: "405"
 ### **narrowFix**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">narrow-fix</span> <small>**reflects**</small>
-</small>
+<small>`Boolean` </small>
 
 Set narrow-fix attribute to force
 the layout analog to breakpoint big
@@ -103,7 +103,7 @@ the layout analog to breakpoint big
 ### **narrowerFix**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">narrower-fix</span> <small>**reflects**</small>
-</small>
+<small>`Boolean` </small>
 
 Set narrower-fix attribute to force
 1 column view (analog breakpoint small)

@@ -59,6 +59,8 @@ export class FuroDataObject extends LitElement {
     return {
       /**
        * The name of the type you want to use. The type must be registered in Env
+       *
+       * @type String
        */
       type: { type: String },
     };

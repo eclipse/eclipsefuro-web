@@ -52,7 +52,7 @@ http://h10032.www1.hp.com/ctg/Manual/c01579350
 ### **radMode**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">radMode</span>
-<small>`boolean` default: **false**</small>
+<small>`Boolean` default: **false**</small>
 
 Set to true to use rad, default is deg
 <br><br>
@@ -76,7 +76,7 @@ current y
 ### **z**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">z</span>
-</small>
+<small>`Number` </small>
 
 current z
 <br><br>
@@ -84,7 +84,7 @@ current z
 ### **t**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">t</span>
-</small>
+<small>`Number` </small>
 
 current t
 <br><br>
@@ -92,7 +92,7 @@ current t
 ### **stack**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">stack</span>
-</small>
+<small>`Array` </small>
 
 the stack.
 <br><br>

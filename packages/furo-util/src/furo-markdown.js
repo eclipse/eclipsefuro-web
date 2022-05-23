@@ -33,14 +33,20 @@ class FuroMarkdown extends LitElement {
     return {
       /**
        * allow unsafe md. (writing html, components,...)
+       *
+       * @type Boolean
        */
       unsafe: { type: Boolean },
       /**
        * source of the md
+       *
+       * @type String
        */
       mdsrc: { type: String },
       /**
        * markdown string
+       *
+       * @type String
        */
       markdown: { type: String },
     };

@@ -27,14 +27,20 @@ class FuroIntervalPulse extends LitElement {
     return {
       /**
        * Duration of a tact in ms.
+       *
+       * @type Number
        */
       interval: { type: Number },
       /**
        * Number of ticks per tact.
+       *
+       * @type Number
        */
       takt: { type: Number },
       /**
        * Starts interval automatically
+       *
+       * @type Boolean
        */
       auto: Boolean,
     };

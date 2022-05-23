@@ -41,7 +41,7 @@ default: **&#39;none&#39;**</small>
 ### **event**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">event</span>
-</small>
+<small>`String` </small>
 
 Name of your app-flow event object
 

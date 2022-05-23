@@ -43,7 +43,6 @@ import { LitElement, html, css } from 'lit';
  *
  *
  * @prop {String} default - Set the default page to show.
- *
  * @slot {HTMLElement [0..n]} - default slot to add pages.
  * @summary Simple content switcher
  * @demo demo-furo-panel-coordinator with panel coordinator

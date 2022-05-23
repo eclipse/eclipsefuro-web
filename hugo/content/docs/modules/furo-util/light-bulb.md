@@ -29,9 +29,9 @@ weight: 50
 ### **on**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">on</span>
-</small>
+<small>`Boolean` </small>
 
-
+Switch on the bulb
 <br><br>
 
 
@@ -39,9 +39,9 @@ weight: 50
 ### **off**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">off</span> <small>**reflects**</small>
-<small>`boolean` default: **true**</small>
+<small>`Boolean` default: **true**</small>
 
-Description
+Switch of the bulb
 <br><br>
 
 ### **color**

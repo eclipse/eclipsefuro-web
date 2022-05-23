@@ -45,6 +45,8 @@ class FuroNavigationPad extends FBP(LitElement) {
        * Enter the keys you want to ignore as comma seperated values.
        *
        * i.e. "Escape, ArrowLeft"
+       *
+       * @type String
        */
       ignoredKeys: { type: String, attribute: 'ignored-keys' },
     };

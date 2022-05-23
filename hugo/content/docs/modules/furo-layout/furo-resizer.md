@@ -54,7 +54,7 @@ removes remember and set to the initial size
 ### **lefthandle**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">lefthandle</span>
-</small>
+<small>`Boolean` </small>
 
 add a handle to the left side
 <br><br>
@@ -62,7 +62,7 @@ add a handle to the left side
 ### **righthandle**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">righthandle</span>
-</small>
+<small>`Boolean` </small>
 
 add a handle to the right side
 <br><br>
@@ -70,7 +70,7 @@ add a handle to the right side
 ### **remember**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">remember</span>
-</small>
+<small>`String` </small>
 
 remember the size after resizing.
 Give the id for the rememberer, you can use the id on different views
@@ -79,7 +79,7 @@ Give the id for the rememberer, you can use the id on different views
 ### **maxwidth**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">maxwidth</span>
-</small>
+<small>`Number` </small>
 
 Set the maximal width of the resizer
 <br><br>
@@ -87,7 +87,7 @@ Set the maximal width of the resizer
 ### **minwidth**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">minwidth</span>
-</small>
+<small>`Number` </small>
 
 Set the minimal width of the resizer
 <br><br>

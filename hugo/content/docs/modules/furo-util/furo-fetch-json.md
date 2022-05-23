@@ -34,7 +34,7 @@ weight: 50
 ### **src**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">src</span>
-</small>
+<small>`String` </small>
 
 the url you want to fetch
 <br><br>

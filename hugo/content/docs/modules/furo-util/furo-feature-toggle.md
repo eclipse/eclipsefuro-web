@@ -46,7 +46,7 @@ weight: 50
 ### **key**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">key</span>
-</small>
+<small>`String` </small>
 
 Name of a feature toggle.
 <br><br>

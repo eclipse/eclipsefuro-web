@@ -58,6 +58,8 @@ class FuroBackdropDisplay extends FBP(LitElement) {
        * If you are interested to use at-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.
        *
        * If you are interested to use at-opened to show some ui stuff, set this value higher or equal 250.
+       *
+       * @type Number
        */
       toDuration: {
         type: Number,

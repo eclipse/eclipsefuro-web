@@ -27,7 +27,7 @@ weight: 50
 ### **mdsrc**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">mdsrc</span>
-</small>
+<small>`String` </small>
 
 source of the md
 <br><br>
@@ -35,7 +35,7 @@ source of the md
 ### **markdown**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">markdown</span>
-</small>
+<small>`String` </small>
 
 markdown string
 <br><br>
@@ -52,7 +52,7 @@ default: **undefined**</small>
 ### **unsafe**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">unsafe</span>
-</small>
+<small>`Boolean` </small>
 
 allow unsafe md. (writing html, components,...)
 <br><br>

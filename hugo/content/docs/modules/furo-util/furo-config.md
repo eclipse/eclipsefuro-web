@@ -48,7 +48,7 @@ weight: 50
 ### **section**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">section</span>
-</small>
+<small>`String` </small>
 
 section of the config object that you are interested in
 

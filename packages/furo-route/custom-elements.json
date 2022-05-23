@@ -51,6 +51,9 @@
               "name": "config",
               "description": "The Configuration Array",
               "privacy": "public",
+              "type": {
+                "text": "Array"
+              },
               "attribute": "config"
             },
             {
@@ -100,6 +103,9 @@
             {
               "name": "config",
               "description": "The Configuration Array",
+              "type": {
+                "text": "Array"
+              },
               "fieldName": "config"
             },
             {
@@ -194,6 +200,9 @@
               "name": "event",
               "privacy": "public",
               "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
+              "type": {
+                "text": "String"
+              },
               "attribute": "event"
             }
           ],
@@ -210,6 +219,9 @@
             {
               "name": "event",
               "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "event"
             }
           ],
@@ -302,7 +314,7 @@
               "kind": "field",
               "name": "prefix",
               "type": {
-                "text": "string"
+                "text": "String"
               },
               "default": "''",
               "privacy": "public",
@@ -313,7 +325,7 @@
               "kind": "field",
               "name": "title",
               "type": {
-                "text": "string"
+                "text": "String"
               },
               "default": "''",
               "privacy": "public",
@@ -324,7 +336,7 @@
               "kind": "field",
               "name": "suffix",
               "type": {
-                "text": "string"
+                "text": "String"
               },
               "default": "''",
               "privacy": "public",
@@ -352,16 +364,25 @@
             {
               "name": "title",
               "description": "Title part, you can also use `setTitle()` or `bindTitle().`",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "title"
             },
             {
               "name": "prefix",
               "description": "prefix part, you can also use `setPrefix()`.`",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "prefix"
             },
             {
               "name": "suffix",
               "description": "Suffix part, you can also use `setSuffix()` or `bindSuffix().`",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "suffix"
             }
           ],
@@ -425,6 +446,9 @@
               "name": "clearQp",
               "privacy": "public",
               "description": "Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`",
+              "type": {
+                "text": "String"
+              },
               "attribute": "clear-qp"
             },
             {
@@ -432,6 +456,9 @@
               "name": "clearHash",
               "privacy": "public",
               "description": "Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`",
+              "type": {
+                "text": "String"
+              },
               "attribute": "clear-hash"
             }
           ],
@@ -448,11 +475,17 @@
             {
               "name": "clear-qp",
               "description": "Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "clearQp"
             },
             {
               "name": "clear-hash",
               "description": "Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "clearHash"
             }
           ],

@@ -49,7 +49,7 @@ default: **false**</small>
 ### **hideOnFalse**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">hide-on-false</span>
-</small>
+<small>`Boolean` </small>
 
 Hide element on false instead of true
 <br><br>
