@@ -5,8 +5,8 @@
  * a qp like {"active":true} will just update the qp *active*
  *
  * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
- * @param caller
- * @param qp
+ * @param caller {Object}
+ * @param qp {QueryParams} Queryparam Object
  * @fires {qp} qp-changed -  Fired when query params changed
  * @fires {qp} qp-set -  Fired when query params are replaced
  * @fires {hts} xxx-rejected -  Fired when the request for a rel was rejected because the hts was not available
@@ -43,8 +43,8 @@ export class AgentHelper {
    * All existing query params are replaced by the transferred parameters
    * If the transferred object is empty or undefined, all the values will be removed!
    *
-   * @param caller
-   * @param qp
+   * @param caller {Object} caller
+   * @param qp {QueryParams} Queryparam Object
    */
   static setQp(caller, qp) {
     if (caller && caller._queryParams) {
@@ -62,8 +62,8 @@ export class AgentHelper {
 
   /**
    *  get existing params from href and append query params
-   * @param link
-   * @returns {{}}
+   * @param link {}
+   * @returns {Object}
    */
   static getParams(caller, link) {
     const params = {};

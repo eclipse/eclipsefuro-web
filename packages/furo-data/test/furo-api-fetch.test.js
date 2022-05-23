@@ -206,10 +206,7 @@ describe('furo-api-fetch', () => {
       }
     );
     element.addEventListener('parse-error', e => {
-      assert.equal(
-        e.detail.stack.startsWith('SyntaxError'),
-        true
-      );
+      assert.equal(e.detail.stack.startsWith('SyntaxError'), true);
       done();
     });
     element.invokeRequest(request);

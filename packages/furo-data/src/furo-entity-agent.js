@@ -134,10 +134,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     return {
       /**
        * Name des Services
+       * @type String
        */
       service: { type: String, attribute: true },
       /**
        * triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
+       * @type Boolean
        */
       loadOnHtsIn: { type: Boolean, attribute: 'load-on-hts-in' },
       /**
@@ -149,7 +151,7 @@ class FuroEntityAgent extends FBP(LitElement) {
        *
        * You may not need it if your server can handle PATCHes without a update_mask
        * https://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html
-       *
+       * @type Boolean
        */
       appendUpdateMaskQP: { type: Boolean, attribute: 'with-update-mask' },
     };

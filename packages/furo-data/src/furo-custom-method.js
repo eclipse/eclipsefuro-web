@@ -88,10 +88,12 @@ class FuroCustomMethod extends FBP(LitElement) {
     return {
       /**
        * Name of the service.
+       * @type String
        */
       service: { type: String, attribute: true },
       /**
        * Name of the custom method / rel.
+       * @type String
        */
       method: { type: String, attribute: true },
     };

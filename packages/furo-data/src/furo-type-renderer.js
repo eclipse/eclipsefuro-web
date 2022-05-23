@@ -49,11 +49,8 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * The only API you need to implement in your component is the `bindData()` method.
  * You just have to follow the naming convention for your renderer.
  *
- * @summary type rendering
- * @customElement
- * @demo demo-furo-type-renderer Display context (default)
- * @demo demo-furo-type-renderer-cell cell context
- * @demo demo-furo-type-renderer-celledit celledit context
+ * @summary dynamic type rendering
+ * @customElement furo-type-renderer
  * @appliesMixin FBP
  */
 class FuroTypeRenderer extends FBP(LitElement) {
@@ -78,25 +75,28 @@ class FuroTypeRenderer extends FBP(LitElement) {
     return {
       /**
        * A Boolean attribute which, if present, means this field is displayed in disabled state.
+       * @type Boolean
        */
-      disabled: {
-        type: Boolean,
-      },
+      disabled: { type: Boolean },
       /**
        * Set the context if you need another then display.
        * Prebuilt context renderers exist for display, cell, celledit.
-       *
+       * @type String
        */
       context: { type: String },
     };
   }
 
   /**
-   * Evaluates the component name
-   * Special treatment for google.protobuf.Any
-   * @param fieldNode
+   * Bind a fieldnode of any type
+   * @param fieldNode {FieldNode} Fieldnode of any type
    */
   bindData(fieldNode) {
+    /**
+     * Evaluates the component name
+     * Special treatment for google.protobuf.Any
+     */
+
     this._field = fieldNode;
 
     if (this._field) {

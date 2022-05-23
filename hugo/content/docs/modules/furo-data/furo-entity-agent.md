@@ -48,7 +48,7 @@ weight: 50
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small>
+<small>`String` </small>
 
 Name des Services
 <br><br>
@@ -80,7 +80,7 @@ Name des Services
 ### **loadOnHtsIn**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">load-on-hts-in</span>
-</small>
+<small>`Boolean` </small>
 
 triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
 <br><br>
@@ -88,7 +88,7 @@ triggers a load when link rel="self" is in the injected hts (after hts-injected 
 ### **appendUpdateMaskQP**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">with-update-mask</span>
-</small>
+<small>`Boolean` </small>
 
 Creates the query param update mask according to the google api design guidelines.
 

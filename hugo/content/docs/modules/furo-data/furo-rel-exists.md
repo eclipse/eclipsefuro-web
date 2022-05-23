@@ -17,7 +17,7 @@ weight: 50
 Checks if a hateoas relation exists in a given hateaos Links array.
 
 ```html
-<furo-rel-exists fn-inject="--HTS-array"></furo-rel-exists>
+<furo-rel-exists rel="update" service="person.Personservice" fn-inject="--HTS-array"></furo-rel-exists>
 ```
 
 {{% api "_furo-rel-exists-description.md" %}}
@@ -32,7 +32,7 @@ Checks if a hateoas relation exists in a given hateaos Links array.
 ### **rel**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">rel</span>
-</small>
+<small>`String` </small>
 
 Name of the rel
 <br><br>
@@ -40,7 +40,7 @@ Name of the rel
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small>
+<small>`String` </small>
 
 define the service if you want a specific check on the service also
 <br><br>

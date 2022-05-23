@@ -54,6 +54,7 @@ class FuroDeepLink extends LitElement {
     return {
       /**
        * Name of the service
+       * @type String
        */
       service: { type: String, attribute: true },
     };

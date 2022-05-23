@@ -5,7 +5,7 @@ import { LitElement, css } from 'lit';
  * Checks if a hateoas relation exists in a given hateaos Links array.
  *
  *```html
- * <furo-rel-exists fn-inject="--HTS-array"></furo-rel-exists>
+ * <furo-rel-exists rel="update" service="person.Personservice" fn-inject="--HTS-array"></furo-rel-exists>
  * ```
  *
  *
@@ -62,10 +62,13 @@ class FuroRelExists extends LitElement {
     return {
       /**
        * Name of the rel
+       * @type String
        */
       rel: { service: String },
       /**
        * define the service if you want a specific check on the service also
+       * @type String
+       * @type String
        */
       service: { service: String },
     };

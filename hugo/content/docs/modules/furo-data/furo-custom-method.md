@@ -41,7 +41,7 @@ weight: 50
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small>
+<small>`String` </small>
 
 Name of the service.
 <br><br>
@@ -63,7 +63,7 @@ Name of the service.
 ### **method**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">method</span>
-</small>
+<small>`String` </small>
 
 Name of the custom method / rel.
 <br><br>

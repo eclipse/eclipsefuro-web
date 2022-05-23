@@ -13,7 +13,7 @@ weight: 100
 
 ****
 
-A class to validate constraints on type of <code>google.protobuf.BoolValue</code>
+A class to validate constraints on type of <code>furo.BigDecimal</code>
 
 ## Attributes and Properties
 {{% api "_ValidatorFuroBigDecimal-properties.md" %}}

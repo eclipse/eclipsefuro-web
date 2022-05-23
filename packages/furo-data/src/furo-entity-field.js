@@ -22,6 +22,7 @@ class FuroEntityField extends LitElement {
   setValue(value) {
     /**
      * The value of the node which was connected with bind-data
+     * @type *
      */
     this.value = value;
   }

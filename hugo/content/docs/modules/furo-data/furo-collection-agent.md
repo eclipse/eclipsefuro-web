@@ -44,7 +44,7 @@ weight: 50
 ### **view**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">view</span>
-</small>
+<small>`String` </small>
 
 Parameter for contextual representations
 
@@ -65,7 +65,7 @@ Only useable if your service has implemented this feature.
 ### **filter**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">filter</span>
-</small>
+<small>`String` </small>
 
 Set the filter.
 
@@ -78,7 +78,7 @@ Only useable if your service has implemented this feature.
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small>
+<small>`String` </small>
 
 The service name from the specs.
 <br><br>
@@ -110,7 +110,7 @@ The service name from the specs.
 ### **pageSize**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">page-size</span>
-</small>
+<small>`Number` </small>
 
 Sets pagination size in the List request.
 
@@ -120,7 +120,7 @@ Only useful if your service supports pagination.
 ### **fields**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">fields</span>
-</small>
+<small>`String` </small>
 
 Comma separated list of fields (like a fieldmask)
 used for partial representation / partial responses.
@@ -131,7 +131,7 @@ If your services supports this feature, you will receive a subset of the fields.
 ### **orderBy**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">order-by</span>
-</small>
+<small>`String` </small>
 
 Sorting order
 
@@ -147,7 +147,7 @@ Only useable if your service has implemented this feature.
 ### **listOnHtsIn**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">list-on-hts-in</span>
-</small>
+<small>`Boolean` </small>
 
 Executes a list when a rel="list" is injected.
 <br><br>
@@ -155,7 +155,7 @@ Executes a list when a rel="list" is injected.
 ### **loadRelOnHtsIn**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">load-rel-on-hts-in</span>
-</small>
+<small>`Boolean` </small>
 
 Executes a loadRel when a rel="XXXX" is injected.
 
@@ -167,7 +167,7 @@ This is useful for getting "custom" collections.
 ### **rel**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">rel</span>
-</small>
+<small>`String` </small>
 
 rel which should be used on load rel
 <br><br>
@@ -175,7 +175,7 @@ rel which should be used on load rel
 ### **method**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">method</span>
-</small>
+<small>`String` </small>
 
 for compatibility reasons you have to specify the method inside of the service.
 

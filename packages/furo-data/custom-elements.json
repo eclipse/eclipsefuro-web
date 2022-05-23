@@ -218,6 +218,9 @@
               "name": "view",
               "privacy": "public",
               "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "view"
             },
             {
@@ -281,6 +284,9 @@
                 }
               ],
               "privacy": "public",
+              "type": {
+                "text": "String"
+              },
               "attribute": "filter"
             },
             {
@@ -311,6 +317,9 @@
                 }
               ],
               "privacy": "public",
+              "type": {
+                "text": "String"
+              },
               "attribute": "service"
             },
             {
@@ -540,6 +549,9 @@
               "name": "pageSize",
               "privacy": "public",
               "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
+              "type": {
+                "text": "Number"
+              },
               "attribute": "page-size"
             },
             {
@@ -547,6 +559,9 @@
               "name": "fields",
               "privacy": "public",
               "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "fields"
             },
             {
@@ -554,6 +569,9 @@
               "name": "orderBy",
               "privacy": "public",
               "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "order-by"
             },
             {
@@ -561,6 +579,9 @@
               "name": "listOnHtsIn",
               "privacy": "public",
               "description": "Executes a list when a rel=\"list\" is injected.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "list-on-hts-in"
             },
             {
@@ -568,6 +589,9 @@
               "name": "loadRelOnHtsIn",
               "privacy": "public",
               "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "load-rel-on-hts-in"
             },
             {
@@ -575,6 +599,9 @@
               "name": "rel",
               "privacy": "public",
               "description": "rel which should be used on load rel",
+              "type": {
+                "text": "String"
+              },
               "attribute": "rel"
             },
             {
@@ -582,6 +609,9 @@
               "name": "method",
               "privacy": "public",
               "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "method"
             }
           ],
@@ -686,51 +716,81 @@
             {
               "name": "service",
               "description": "The service name from the specs.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "service"
             },
             {
               "name": "page-size",
               "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
+              "type": {
+                "text": "Number"
+              },
               "fieldName": "pageSize"
             },
             {
               "name": "fields",
               "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "fields"
             },
             {
               "name": "order-by",
               "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "orderBy"
             },
             {
               "name": "filter",
               "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "filter"
             },
             {
               "name": "view",
               "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "view"
             },
             {
               "name": "list-on-hts-in",
               "description": "Executes a list when a rel=\"list\" is injected.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "listOnHtsIn"
             },
             {
               "name": "load-rel-on-hts-in",
               "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "loadRelOnHtsIn"
             },
             {
               "name": "rel",
               "description": "rel which should be used on load rel",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "rel"
             },
             {
               "name": "method",
               "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "method"
             }
           ],
@@ -779,6 +839,9 @@
                 }
               ],
               "privacy": "public",
+              "type": {
+                "text": "String"
+              },
               "attribute": "service"
             },
             {
@@ -921,6 +984,9 @@
               "name": "method",
               "privacy": "public",
               "description": "Name of the custom method / rel.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "method"
             }
           ],
@@ -1007,11 +1073,17 @@
             {
               "name": "service",
               "description": "Name of the service.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "service"
             },
             {
               "name": "method",
               "description": "Name of the custom method / rel.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "method"
             }
           ],
@@ -1816,6 +1888,9 @@
                 }
               ],
               "privacy": "public",
+              "type": {
+                "text": "String"
+              },
               "attribute": "service"
             },
             {
@@ -1849,6 +1924,9 @@
             {
               "name": "service",
               "description": "Name of the service",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "service"
             }
           ],
@@ -1891,6 +1969,9 @@
                 }
               ],
               "privacy": "public",
+              "type": {
+                "text": "String"
+              },
               "attribute": "service"
             },
             {
@@ -2145,6 +2226,9 @@
               "name": "loadOnHtsIn",
               "privacy": "public",
               "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "load-on-hts-in"
             },
             {
@@ -2152,6 +2236,9 @@
               "name": "appendUpdateMaskQP",
               "privacy": "public",
               "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "with-update-mask"
             }
           ],
@@ -2322,16 +2409,25 @@
             {
               "name": "service",
               "description": "Name des Services",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "service"
             },
             {
               "name": "load-on-hts-in",
               "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "loadOnHtsIn"
             },
             {
               "name": "with-update-mask",
               "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "appendUpdateMaskQP"
             }
           ],
@@ -2796,7 +2892,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-rel-exists`\nChecks if a hateoas relation exists in a given hateaos Links array.\n\n```html\n<furo-rel-exists fn-inject=\"--HTS-array\"></furo-rel-exists>\n```",
+          "description": "`furo-rel-exists`\nChecks if a hateoas relation exists in a given hateaos Links array.\n\n```html\n<furo-rel-exists rel=\"update\" service=\"person.Personservice\" fn-inject=\"--HTS-array\"></furo-rel-exists>\n```",
           "name": "FuroRelExists",
           "members": [
             {
@@ -2823,6 +2919,9 @@
               "name": "rel",
               "privacy": "public",
               "description": "Name of the rel",
+              "type": {
+                "text": "String"
+              },
               "attribute": "rel"
             },
             {
@@ -2830,6 +2929,9 @@
               "name": "service",
               "privacy": "public",
               "description": "define the service if you want a specific check on the service also",
+              "type": {
+                "text": "String"
+              },
               "attribute": "service"
             }
           ],
@@ -2853,11 +2955,17 @@
             {
               "name": "rel",
               "description": "Name of the rel",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "rel"
             },
             {
               "name": "service",
               "description": "define the service if you want a specific check on the service also",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "service"
             }
           ],
@@ -2928,7 +3036,7 @@
               "kind": "field",
               "name": "service",
               "type": {
-                "text": "string"
+                "text": "String"
               },
               "default": "''",
               "privacy": "public",
@@ -2948,6 +3056,9 @@
               "name": "rel",
               "privacy": "public",
               "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
+              "type": {
+                "text": "String"
+              },
               "attribute": "rel"
             }
           ],
@@ -2964,11 +3075,17 @@
             {
               "name": "service",
               "description": "Name of service",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "service"
             },
             {
               "name": "rel",
               "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "rel"
             }
           ],
@@ -3006,10 +3123,14 @@
               "name": "bindData",
               "parameters": [
                 {
-                  "name": "fieldNode"
+                  "name": "fieldNode",
+                  "description": "Fieldnode of any type",
+                  "type": {
+                    "text": "FieldNode"
+                  }
                 }
               ],
-              "description": "Evaluates the component name\nSpecial treatment for google.protobuf.Any"
+              "description": "Bind a fieldnode of any type"
             },
             {
               "kind": "method",
@@ -3043,7 +3164,7 @@
               "kind": "field",
               "name": "context",
               "type": {
-                "text": "string"
+                "text": "String"
               },
               "default": "'display'",
               "privacy": "public",
@@ -3055,6 +3176,9 @@
               "name": "disabled",
               "privacy": "public",
               "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
+              "type": {
+                "text": "Boolean"
+              },
               "attribute": "disabled"
             }
           ],
@@ -3062,11 +3186,17 @@
             {
               "name": "disabled",
               "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
+              "type": {
+                "text": "Boolean"
+              },
               "fieldName": "disabled"
             },
             {
               "name": "context",
               "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+              "type": {
+                "text": "String"
+              },
               "fieldName": "context"
             }
           ],
@@ -3080,7 +3210,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "summary": "type rendering",
+          "summary": "dynamic type rendering",
           "tagName": "furo-type-renderer",
           "customElement": true
         }
@@ -3124,10 +3254,18 @@
               "static": true,
               "parameters": [
                 {
-                  "name": "caller"
+                  "name": "caller",
+                  "description": "caller",
+                  "type": {
+                    "text": "Object"
+                  }
                 },
                 {
-                  "name": "qp"
+                  "name": "qp",
+                  "description": "Queryparam Object",
+                  "type": {
+                    "text": "QueryParams"
+                  }
                 }
               ],
               "description": "Set query params\nAll existing query params are replaced by the transferred parameters\nIf the transferred object is empty or undefined, all the values will be removed!"
@@ -3141,13 +3279,16 @@
                   "name": "caller"
                 },
                 {
-                  "name": "link"
+                  "name": "link",
+                  "type": {
+                    "text": ""
+                  }
                 }
               ],
               "description": "get existing params from href and append query params",
               "return": {
                 "type": {
-                  "text": "{}"
+                  "text": "Object"
                 }
               }
             },
@@ -4029,7 +4170,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "\n## internal events\n- *before-repeated-field-changed*, fired before new data is injected\n- *this-metas-changed*, when the metas of a field changed\n- *repeat-became-valid*, fired when all sub items are valid, after one was invalid before\n- *repeat-became-invalid*, fired when one sub item switches to a invalid state\n- *repeated-fields-changed*, fired when this or any child repeaters was changed (new data, add, remove)\n- *this-repeated-field-changed*, fired when this repeater was changed (new data, add, remove)\n- *repeated-fields-all-removed* fired when all nodes of a repeater was deleted\n- *this-repeated-field-removed*, fired whe a node of this repeater was deleted\n- *this-node-field-deleted*, fired when this node was deleted\n- *node-field-deleted, fired when a child node was deleted\n- *repeated-fields-added*, fired when a node on this or any child repeater was added\n- *this-repeated-field-added*, fired when a node on this repeater was added",
           "name": "RepeaterNode",
           "members": [
             {
@@ -4349,7 +4490,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "description": "A class to validate constraints on type of <code>furo.BigDecimal</code>",
           "name": "ValidatorFuroBigDecimal",
           "members": [
             {
@@ -4464,7 +4605,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "description": "A class to validate constraints on type of <code>google.protobuf.FloatValue</code>",
           "name": "ValidatorGoogleProtobufFloatValue",
           "members": [
             {
@@ -4502,7 +4643,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "description": "A class to validate constraints on type of <code>google.protobuf.Int64Value</code>",
           "name": "ValidatorGoogleProtobufInt64Value",
           "members": [
             {

@@ -37,7 +37,7 @@ Converts hateoas to queryParams, which is useful for routing with app-flow
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-<small>`string` default: **&#39;&#39;**</small>
+<small>`String` default: **&#39;&#39;**</small>
 
 Name of service
 <br><br>
@@ -46,7 +46,7 @@ Name of service
 ### **rel**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">rel</span>
-</small>
+<small>`String` </small>
 
 Optional rel to convert.
 
