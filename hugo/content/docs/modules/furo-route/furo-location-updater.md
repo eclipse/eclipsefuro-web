@@ -23,8 +23,8 @@ The furo-location component will fire the location events as usual.
 ```html
 
  <furo-location-updater
-    ƒ-set-qp="--QueryParamKeyValuePairs"
-    ƒ-set-hash="--HashKeyValuePairs"></furo-location-updater>
+    fn-set-qp="--QueryParamKeyValuePairs"
+    fn-set-hash="--HashKeyValuePairs"></furo-location-updater>
 
 ```
 
@@ -41,23 +41,23 @@ The furo-location component will fire the location events as usual.
 ### **clearQp**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">clear-qp</span>
-</small>
+<small>`String` </small>
 
-Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`
+Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`
 <br><br>
 
 ### **clearHash**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">clear-hash</span>
-</small>
+<small>`String` </small>
 
-Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`
+Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`
 <br><br>
 ## Events
 {{% api "_furo-location-updater-events.md" %}}
 
 ### **__beforeReplaceState**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-__beforeReplaceState</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-__beforeReplaceState</span>
 → <small>`Number`</small>
 
  Fired when before the state will be updated, with `window.performance.now()`.
@@ -71,7 +71,7 @@ Comma separated list of hashes to clear if they are not explicitly set with `ƒ-
 <small>**setQp**(*newQP* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-qp</span>
 
 Set query params by giving an object with key-value pairs.
 
@@ -84,7 +84,7 @@ Keep in mind, that this values goes to the url, so setting objects as values is 
 <small>**setHash**(*newHASH* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-hash</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-hash</span>
 
 Set hash values by giving an object with key-value pairs.
 

@@ -38,23 +38,29 @@ class FuroHp35 extends FuroForthStack {
       y: { type: Number, value: 0, notify: true },
       /**
        * current z
+       * @type {Number}
        */
       z: { type: Number, value: 0, notify: true },
       /**
        * current t
+       * @type {Number}
        */
       t: { type: Number, value: 0, notify: true },
       /**
        * the stack.
+       * @type {Array}
        */
       stack: { type: Array, readOnly: true, notify: true },
       /**
        * Set to true to use rad, default is deg
+       * @type {Boolean}
        */
       radMode: { type: Boolean },
       /**
        * so we dont have to calculate Math.PI / 180  every time
        * used to calculate rad from angle
+       *
+       * @type {Number}
        */
       _PIdivby180: { type: Number },
     };

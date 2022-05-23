@@ -19,26 +19,26 @@ describe('furo-entity-field', () => {
       <flow-bind>
         <template>
           <furo-entity-field
-            ƒ-bind-data="--entity(*.data.furo_data_text_input)"
+            fn-bind-data="--entity(*.data.furo_data_text_input)"
           ></furo-entity-field>
           <furo-data-object
             type="experiment.ExperimentEntity"
-            @-object-ready="--entity"
-            ƒ-inject-raw="--response"
+            at-object-ready="--entity"
+            fn-inject-raw="--response"
           ></furo-data-object>
           <furo-entity-field
-            ƒ-bind-data="--entity(*.invalidBinding)"
+            fn-bind-data="--entity(*.invalidBinding)"
           ></furo-entity-field>
           <furo-deep-link
             service="ExperimentService"
-            @-hts-out="--hts"
+            at-hts-out="--hts"
           ></furo-deep-link>
           <furo-entity-agent
             service="ExperimentService"
-            ƒ-hts-in="--hts"
-            ƒ-load="--hts"
-            ƒ-bind-request-data="--entity"
-            @-response="--response"
+            fn-hts-in="--hts"
+            fn-load="--hts"
+            fn-bind-request-data="--entity"
+            at-response="--response"
           >
           </furo-entity-agent>
         </template>

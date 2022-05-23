@@ -6,14 +6,14 @@ weight: 100
 
 # ValidatorGoogleProtobufInt64Value
 
-**@furo/furo-data** <small>v2.2.1</small>
+**@furo/furo-data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/lib/ValidatorGoogleProtobufInt64Value.js';`<small>
 <br>exports *ValidatorGoogleProtobufInt64Value* js</small>
 
 
 ****
 
-A class to validate constraints on type of <code>google.protobuf.BoolValue</code>
+A class to validate constraints on type of <code>google.protobuf.Int64Value</code>
 
 ## Attributes and Properties
 {{% api "_ValidatorGoogleProtobufInt64Value-properties.md" %}}

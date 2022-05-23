@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-reverse-deep-link
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-reverse-deep-link.js';`<small>
 <br>exports `<furo-reverse-deep-link>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -19,8 +19,8 @@ Converts hateoas to queryParams, which is useful for routing with app-flow
 ```html
 <furo-reverse-deep-link
    service="TaskService"
-   rel="self" @-converted="--queryParams"
-   ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
+   rel="self" at-converted="--queryParams"
+   fn-convert="--rawEntityOrCollection, --linksArray, --linkObject"
 ></furo-reverse-deep-link>
 ```
 
@@ -37,7 +37,7 @@ Converts hateoas to queryParams, which is useful for routing with app-flow
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-<small>`string` default: **&#39;&#39;**</small>
+<small>`String` default: **&#39;&#39;**</small>
 
 Name of service
 <br><br>
@@ -46,7 +46,7 @@ Name of service
 ### **rel**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">rel</span>
-</small>
+<small>`String` </small>
 
 Optional rel to convert.
 
@@ -58,7 +58,7 @@ If you insert an entity rel self is taken. If you insert a collection, rel list 
 {{% api "_furo-reverse-deep-link-events.md" %}}
 
 ### **converted**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-converted</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-converted</span>
 → <small>`QueryParams`</small>
 
  Fired when input was converted.
@@ -72,7 +72,7 @@ If you insert an entity rel self is taken. If you insert a collection, rel list 
 <small>**convert**(*data* `object` ) ⟹ `object`</small>
 
 <small>`object` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-convert</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-convert</span>
 
 converts the href of a LinkObject
 

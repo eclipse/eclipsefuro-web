@@ -16,7 +16,7 @@ describe('furo-collection-agent', () => {
       <flow-bind>
         <template>
           <furo-collection-agent></furo-collection-agent>
-          <furo-data-object @-object-ready="--doReady"></furo-data-object>
+          <furo-data-object at-object-ready="--doReady"></furo-data-object>
         </template>
       </flow-bind>
     `);

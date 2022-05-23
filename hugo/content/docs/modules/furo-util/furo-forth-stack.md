@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-forth-stack
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-forth-stack.js';`<small>
 <br>exports *FuroForthStack* js
 <br>exports `<furo-forth-stack>` custom-element-definition
@@ -48,31 +48,31 @@ Current size of the stack
 {{% api "_furo-forth-stack-events.md" %}}
 
 ### **stack-size-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-size-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-size-changed</span>
 → <small>`Number`</small>
 
  Fired when the stack size changes with Integer with the current size of the stack.
 <br><br>
 ### **rotated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-rotated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-rotated</span>
 → <small>`the top element`</small>
 
  Fired when stack was rotated
 <br><br>
 ### **stack-changed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-changed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-changed</span>
 → <small>`the top element`</small>
 
  Fired when the stack contents changes after put, drop,...
 <br><br>
 ### **swapped**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-swapped</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-swapped</span>
 → <small>`void`</small>
 
 Fired when stack was swapped
 <br><br>
 ### **empty**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-empty</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-empty</span>
 → <small>`void`</small>
 
 Fired when stack gets empty
@@ -87,7 +87,7 @@ Fired when stack gets empty
 <small>**clearStack**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-stack</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-stack</span>
 
 Empties the stack and set the stack-size to 0
 
@@ -97,7 +97,7 @@ Empties the stack and set the stack-size to 0
 <small>**put**(*e* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-put</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-put</span>
 
 Add an element to the stack
 
@@ -108,7 +108,7 @@ Add an element to the stack
 <small>**swap**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-swap</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-swap</span>
 
 
 swap **( n1 n2 -- n2 n1 )**
@@ -126,7 +126,7 @@ will give you:
 <small>**drop**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-drop</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-drop</span>
 
 drop **( n -- )**
 
@@ -143,7 +143,7 @@ drop **( n -- )**
 <small>**dup**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-dup</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-dup</span>
 
 dup **( n -- n n )**
 
@@ -161,7 +161,7 @@ dup **( n -- n n )**
 <small>**over**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-over</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-over</span>
 
 
 over **( n1 n2 -- n1 n2 n1 )**
@@ -179,7 +179,7 @@ over **( n1 n2 -- n1 n2 n1 )**
 <small>**rot**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rot</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rot</span>
 
 rot **( n1 n2 n3 -- n2 n3 n1 )**
 
@@ -196,7 +196,7 @@ rot **( n1 n2 n3 -- n2 n3 n1 )**
 <small>**rrot**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rrot</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rrot</span>
 
 rrot **( n1 n2 n3 -- n3 n1 n2 )**
 

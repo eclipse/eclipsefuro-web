@@ -78,8 +78,8 @@ class ExamplePanelB extends BasePanel {
     return html`
       <p>I am a example-panel-b component with name ${this.name}</p>
 
-      <furo-pretty-json ƒ-inject-data="--panelActivated"></furo-pretty-json>
-      <button @-click="-^close-panel-requested(name)">close</button>
+      <furo-pretty-json fn-inject-data="--panelActivated"></furo-pretty-json>
+      <button at-click="-^close-panel-requested(name)">close</button>
     `;
   }
 }

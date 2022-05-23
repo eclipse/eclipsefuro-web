@@ -6,7 +6,7 @@ weight: 100
 
 # RepeaterNode
 
-**@furo/furo-data** <small>v2.2.1</small>
+**@furo/furo-data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/lib/RepeaterNode.js';`<small>
 <br>exports *RepeaterNode* js
 <br>superclass *EventTreeNode*</small>
@@ -15,6 +15,19 @@ weight: 100
 ****
 
 
+## internal events
+- *before-repeated-field-changed*, fired before new data is injected
+- *this-metas-changed*, when the metas of a field changed
+- *repeat-became-valid*, fired when all sub items are valid, after one was invalid before
+- *repeat-became-invalid*, fired when one sub item switches to a invalid state
+- *repeated-fields-changed*, fired when this or any child repeaters was changed (new data, add, remove)
+- *this-repeated-field-changed*, fired when this repeater was changed (new data, add, remove)
+- *repeated-fields-all-removed* fired when all nodes of a repeater was deleted
+- *this-repeated-field-removed*, fired whe a node of this repeater was deleted
+- *this-node-field-deleted*, fired when this node was deleted
+- *node-field-deleted, fired when a child node was deleted
+- *repeated-fields-added*, fired when a node on this or any child repeater was added
+- *this-repeated-field-added*, fired when a node on this repeater was added
 
 ## Attributes and Properties
 {{% api "_RepeaterNode-properties.md" %}}

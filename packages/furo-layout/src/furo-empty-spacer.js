@@ -33,6 +33,8 @@ class FuroEmptySpacer extends LitElement {
     return {
       /**
        * Attribute flex for furo-horizontal-flex and furo-vertical-flex
+       *
+       * @type Boolean
        */
       flex: {
         type: Boolean,
@@ -40,6 +42,8 @@ class FuroEmptySpacer extends LitElement {
       },
       /**
        * Set to true to hide the spacer
+       *
+       * @type Boolean
        */
       hidden: {
         type: Boolean,

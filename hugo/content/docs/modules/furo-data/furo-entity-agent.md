@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-entity-agent
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-entity-agent.js';`<small>
 <br>exports `<furo-entity-agent>` custom-element-definition
 <br>superclass *LitElement*
@@ -23,17 +23,17 @@ weight: 50
 > If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
 
 ```html
-<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
+<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  -->
 <furo-entity-agent
   service="ProjectService"
-  ƒ-hts-in="--hts" @-response="--response"
+  fn-hts-in="--hts" at-response="--response"
   ></furo-entity-agent>
 
 
-<!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
+<!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready -->
 <furo-data-object
   type="project.ProjectEntity"
-  ƒ-inject-raw="--response"
+  fn-inject-raw="--response"
   ></furo-data-object>
 ```
 
@@ -48,7 +48,7 @@ weight: 50
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small>
+<small>`String` </small>
 
 Name des Services
 <br><br>
@@ -80,7 +80,7 @@ Name des Services
 ### **loadOnHtsIn**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">load-on-hts-in</span>
-</small>
+<small>`Boolean` </small>
 
 triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
 <br><br>
@@ -88,7 +88,7 @@ triggers a load when link rel="self" is in the injected hts (after hts-injected 
 ### **appendUpdateMaskQP**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">with-update-mask</span>
-</small>
+<small>`Boolean` </small>
 
 Creates the query param update mask according to the google api design guidelines.
 
@@ -103,139 +103,139 @@ https://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html
 {{% api "_furo-entity-agent-events.md" %}}
 
 ### **response-hts-updated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-hts-updated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-hts-updated</span>
 → <small>`hts`</small>
 
  Fired when hts was updated from the response.
 <br><br>
 ### **load-success**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-load-success</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-load-success</span>
 → <small>`response`</small>
 
  Fired when `load()` was successful.
 <br><br>
 ### **load-failed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-load-failed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-load-failed</span>
 → <small>`response`</small>
 
  Fired when `load()` was **not** successful.
 <br><br>
 ### **delete-success**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-delete-success</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-delete-success</span>
 → <small>`response`</small>
 
  Fired when `delete()` was successful.
 <br><br>
 ### **delete-failed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-delete-failed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-delete-failed</span>
 → <small>`response`</small>
 
  Fired when `delete()` was **not** successful.
 <br><br>
 ### **save-success**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-save-success</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-save-success</span>
 → <small>`response`</small>
 
  Fired when `save()` was successful.
 <br><br>
 ### **save-failed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-save-failed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-save-failed</span>
 → <small>`response`</small>
 
  Fired when `save()` was **not** successful.
 <br><br>
 ### **put-success**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-put-success</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-put-success</span>
 → <small>`response`</small>
 
  Fired when `update()` was successful.
 <br><br>
 ### **put-failed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-put-failed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-put-failed</span>
 → <small>`response`</small>
 
  Fired when `update()` was **not** successful.
 <br><br>
 ### **create-success**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-create-success</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-create-success</span>
 → <small>`response`</small>
 
  Fired when `create()` was successful.
 <br><br>
 ### **create-failed**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-create-failed</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-create-failed</span>
 → <small>`response`</small>
 
  Fired when `create()` was **not** successful.
 <br><br>
 ### **hts-updated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-updated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-updated</span>
 → <small>`{Array|HATEOAS}`</small>
 
  Fired when hateoas is updated from response.
 <br><br>
 ### **hts-injected**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-injected</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-injected</span>
 → <small>`Hateoas links`</small>
 
  Fired when hateoas is updated.
 <br><br>
 ### **request-aborted**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-aborted</span>
 → <small>`Request`</small>
 
 Fired when a request was canceled.
 <br><br>
 ### **request-started**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-started</span>
 → <small>`Request`</small>
 
 Fired when a request is sent.
 <br><br>
 ### **response-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-raw</span>
 → <small>`Object`</small>
 
 Fired when a response is received.
 <br><br>
 ### **response-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
 <br><br>
 ### **response-error-[status-code]**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-[status-code]</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a specific error event.
 <br><br>
 ### **fatal-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-fatal-error</span>
 → <small>`Request`</small>
 
 Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
 <br><br>
 ### **response-error-4xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-4xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br>
 ### **response-error-5xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-5xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br>
 ### **response-error-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-raw</span>
 → <small>`Object`</small>
 
 Fired when a error has occoured.
 <br><br>
 ### **response**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response</span>
 → <small>`Object`</small>
 
 Fired when a response is received.
@@ -250,7 +250,7 @@ Fired when a response is received.
 <small>**updateQp**(*qp* `` *key* `Object` ) ⟹ `void`</small>
 
 <small>`` `Object` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-update-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-update-qp</span>
 
 Update query params
 a qp like {"active":true} will just update the qp *active*
@@ -265,7 +265,7 @@ If the current value of the qp is not the same like the injected value, a qp-cha
 <small>**bindRequestData**(*dataObject* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-request-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-request-data</span>
 
 Binds a furo-data-object type. Use this if you want save data.
 
@@ -278,7 +278,7 @@ Binds a furo-data-object type. Use this if you want save data.
 <small>**clearQp**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-qp</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-qp</span>
 
 clear the query params that you have setted before
 
@@ -292,7 +292,7 @@ clear the query params that you have setted before
 <small>**load**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-load</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-load</span>
 
 loads the entity if hts is available
 
@@ -302,7 +302,7 @@ loads the entity if hts is available
 <small>**delete**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-delete</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-delete</span>
 
 delete the entity if hts is available
 
@@ -312,7 +312,7 @@ delete the entity if hts is available
 <small>**save**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-save</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-save</span>
 
 loads the entity if hts is available
 
@@ -322,7 +322,7 @@ loads the entity if hts is available
 <small>**put**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-put</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-put</span>
 
 saves the entity with method put if hts is available
 
@@ -332,7 +332,7 @@ saves the entity with method put if hts is available
 <small>**create**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-create</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-create</span>
 
 creating the entity if hts rel="create" is available
 
@@ -344,7 +344,7 @@ creating the entity if hts rel="create" is available
 <small>**htsIn**(*hts* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-hts-in</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-hts-in</span>
 
 
 
@@ -355,7 +355,7 @@ creating the entity if hts rel="create" is available
 <small>**abortPendingRequest**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abort-pending-request</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abort-pending-request</span>
 
 Aborts a pending request
 

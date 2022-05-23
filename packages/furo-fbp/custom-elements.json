@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "DOMFBP allows you to append FBP to any dom element.\n\n**Usage:**\n\n```js\nimport {DOMFBP} from '@furo/fbp/src/DOMFBP.js';\n\n// append fbp to the body\nnew DOMFBP(document.body);\n```",
+          "description": "DOMFBP allows you to append FBP to any dom element.\n\n**Usage:**\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Title</title>\n  <script type=\"module\" src=\"https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js\"></script>\n  <script>\n    import(\"https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/DOMFBP.js\").then(() => {\n      // activate FBP on body\n      const fbphandle = new DOMFBP(document.body)\n      // enable tracing\n      fbphandle._FBPTraceWires();\n    })\n  </script>\n</head>\n<body>\n<button at-click=\"--buttonClicked\" fn-remove=\"--buttonClicked\">remove me</button>\n</body>\n</html>\n```\n\n```js\nimport {DOMFBP} from '@furo/fbp/src/DOMFBP.js';\n\n// append fbp to the body\nnew DOMFBP(document.body);\n\n\n```",
           "name": "DOMFBP",
           "mixins": [
             {

@@ -36,7 +36,7 @@ weight: 50
 {{% api "_furo-panel-coordinator-events.md" %}}
 
 ### **controls-ready**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-controls-ready</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-controls-ready</span>
 → <small>`RepeaterNode`</small>
 
 Fired when Controls for panels are ready, initially it starts with an empty set.
@@ -52,7 +52,7 @@ Fired when Controls for panels are ready, initially it starts with an empty set.
 <small>**showPage**(*NavigationNode* `` ) ⟹ `Promise&lt;void&gt;`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-show-page</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-show-page</span>
 
 Loads and shows the page based on the NavigationNode
 
@@ -63,7 +63,7 @@ Loads and shows the page based on the NavigationNode
 <small>**closeAll**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-close-all</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-close-all</span>
 
 This will trigger a `close-request` event all panels. Which should close themself then.
 
@@ -73,7 +73,7 @@ This will trigger a `close-request` event all panels. Which should close themsel
 <small>**forceCloseAll**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-force-close-all</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-force-close-all</span>
 
 closes all open panels without asking
 

@@ -10,7 +10,7 @@ import { FBP } from '@furo/fbp';
  *  ```html
  *  <!-- forward all navigation events except the Escape  -->
  *  <furo-navigation-pad
- *      ignored-keys="Escape" @-navigated="--navpad"
+ *      ignored-keys="Escape" at-navigated="--navpad"
  *      ></furo-navigation-pad>
  *
  *  ```
@@ -45,6 +45,8 @@ class FuroNavigationPad extends FBP(LitElement) {
        * Enter the keys you want to ignore as comma seperated values.
        *
        * i.e. "Escape, ArrowLeft"
+       *
+       * @type String
        */
       ignoredKeys: { type: String, attribute: 'ignored-keys' },
     };

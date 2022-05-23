@@ -108,7 +108,7 @@ export class DataObject extends EventTreeNode {
      *
      * ✋ Internal Event from EntityNode which you can use in the targeted components!
      *
-     * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+     * Fired when `fn-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
      *
      * This event **bubbles**.
      *

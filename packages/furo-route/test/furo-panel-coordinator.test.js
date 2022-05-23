@@ -29,25 +29,25 @@ describe('furo-panel-coordinator', () => {
         <template>
           <furo-pages>
             <furo-panel-coordinator
-              ƒ-show-page="--nodeSelected"
-              @-panels-changed="--panelChanges"
+              fn-show-page="--nodeSelected"
+              at-panels-changed="--panelChanges"
             ></furo-panel-coordinator>
           </furo-pages>
 
-          <panel-produce-data @-data="--data"></panel-produce-data>
+          <panel-produce-data at-data="--data"></panel-produce-data>
 
           <furo-tree
             slot="master"
-            ƒ-focus="--escapeOnTabs"
-            ƒ-bind-data="--entityObj(*.data)"
-            @-node-selected="--nodeSelected"
+            fn-focus="--escapeOnTabs"
+            fn-bind-data="--entityObj(*.data)"
+            at-node-selected="--nodeSelected"
           >
           </furo-tree>
 
           <furo-data-object
             type="tree.TreeEntity"
-            ƒ-inject-raw="--data"
-            @-object-ready="--entityObj"
+            fn-inject-raw="--data"
+            at-object-ready="--entityObj"
           ></furo-data-object>
         </template>
       </flow-bind>

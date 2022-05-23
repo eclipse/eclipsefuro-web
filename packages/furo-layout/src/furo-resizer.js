@@ -36,25 +36,35 @@ class FuroResizer extends FBP(LitElement) {
     return {
       /**
        * add a handle to the left side
+       *
+       * @type Boolean
        */
       lefthandle: { type: Boolean },
 
       /**
        * add a handle to the right side
+       *
+       * @type Boolean
        */
       righthandle: { type: Boolean },
 
       /**
        * remember the size after resizing.
        * Give the id for the rememberer, you can use the id on different views
+       *
+       * @type String
        */
       remember: { type: String },
       /**
        * Set the maximal width of the resizer
+       *
+       * @type Number
        */
       maxwidth: { type: Number },
       /**
        * Set the minimal width of the resizer
+       *
+       * @type Number
        */
       minwidth: { type: Number },
     };

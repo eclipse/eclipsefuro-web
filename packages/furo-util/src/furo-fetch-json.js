@@ -8,7 +8,7 @@ import { FBP } from '@furo/fbp';
  *  Fetches and parses json data from a source.
  *
  *  ```html
- *  <furo-fetch-json src="/example.json" ƒ-fetch="|--FBPready" @-data="--contentReceived"></furo-fetch-json>
+ *  <furo-fetch-json src="/example.json" fn-fetch="|--FBPready" at-data="--contentReceived"></furo-fetch-json>
  *  ```
  *
  * @fires {{Object} json data} data -  Fired when data received and json parsed
@@ -27,6 +27,8 @@ class FuroFetchJson extends FBP(LitElement) {
     return {
       /**
        * the url you want to fetch
+       *
+       * @type String
        */
       src: { type: String },
     };

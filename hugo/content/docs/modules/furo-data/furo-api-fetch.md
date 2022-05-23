@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-api-fetch
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-api-fetch.js';`<small>
 <br>exports `<furo-api-fetch>` custom-element-definition
 <br>superclass *HTMLElement*</small>
@@ -17,7 +17,7 @@ Use `furo-api-fetch` to fetch data from the network.
 
 
 ```html
-<furo-api-fetch ƒ-invoke-request="--Request"></furo-api-fetch>
+<furo-api-fetch fn-invoke-request="--Request"></furo-api-fetch>
 ```
 
 {{% api "_furo-api-fetch-description.md" %}}
@@ -51,73 +51,73 @@ True while request is in flight.
 {{% api "_furo-api-fetch-events.md" %}}
 
 ### **fatal-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-fatal-error</span>
 → <small>`Request`</small>
 
 Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
 <br><br>
 ### **request-started**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-started</span>
 → <small>`Request`</small>
 
 Fired when a request is sent.
 <br><br>
 ### **request-aborted**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-aborted</span>
 → <small>`Request`</small>
 
 Fired when a request was canceled.
 <br><br>
 ### **response-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-raw</span>
 → <small>`Object`</small>
 
 Fired when a response is received.
 <br><br>
 ### **response**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response</span>
 → <small>`Object`</small>
 
 Fired when a response is received. Here you will get the parsed response Format depends on request header `content-type` supported types: - text/plain - application/json - image/jpeg (Blob) - application/octet-stream (ArrayBuffer) - application/pdf (Blob)
 <br><br>
 ### **parse-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-parse-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-parse-error</span>
 → <small>`CustomEvent`</small>
 
 
 <br><br>
 ### **response-error-raw**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-raw</span>
 → <small>`Object`</small>
 
 Fired when a error has occoured.
 <br><br>
 ### **response-error**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
 <br><br>
 ### ****
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-</span>
 → <small>`CustomEvent`</small>
 
 
 <br><br>
 ### **response-error-[status-code]**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-[status-code]</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a specific error event.
 <br><br>
 ### **response-error-4xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-4xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br>
 ### **response-error-5xx**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-5xx</span>
 → <small>`Object`</small>
 
 Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
@@ -131,7 +131,7 @@ Fired when an error has occoured. This is a group error event. E.g. response-err
 <small>**invokeRequest**(*request* `Request` ) ⟹ `void`</small>
 
 <small>`Request` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-invoke-request</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-invoke-request</span>
 
 Sends a HTTP request to the server
 
@@ -142,7 +142,7 @@ Sends a HTTP request to the server
 <small>**abortRequest**(*controller* `AbortController` ) ⟹ `void`</small>
 
 <small>`AbortController` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abort-request</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abort-request</span>
 
 Aborts a pending request
 You have to submit an AbortController

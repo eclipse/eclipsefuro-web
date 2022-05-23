@@ -1,16 +1,16 @@
 ---
 title: furo-type-renderer
-description: type rendering
+description: dynamic type rendering
 weight: 50
 ---
 
 # furo-type-renderer
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-type-renderer.js';`<small>
 <br>exports `<furo-type-renderer>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>
-<br><small>summary *type rendering*</small>
+<br><small>summary *dynamic type rendering*</small>
 
 {{% api "_furo-type-renderer-head.md" %}}
 
@@ -54,7 +54,7 @@ context-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
 
 ## Basic Usage
 ```html
-  <furo-type-renderer ƒ-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
+  <furo-type-renderer fn-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
 ```
 
 ## Writing your own renderer
@@ -77,7 +77,7 @@ You just have to follow the naming convention for your renderer.
 ### **context**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">context</span>
-<small>`string` default: **&#39;display&#39;**</small>
+<small>`String` default: **&#39;display&#39;**</small>
 
 Set the context if you need another then display.
 Prebuilt context renderers exist for display, cell, celledit.
@@ -86,7 +86,7 @@ Prebuilt context renderers exist for display, cell, celledit.
 ### **disabled**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">disabled</span>
-</small>
+<small>`Boolean` </small>
 
 A Boolean attribute which, if present, means this field is displayed in disabled state.
 <br><br>
@@ -96,15 +96,14 @@ A Boolean attribute which, if present, means this field is displayed in disabled
 
 
 ### **bindData**
-<small>**bindData**(*fieldNode* `` ) ⟹ `void`</small>
+<small>**bindData**(*fieldNode* `FieldNode` ) ⟹ `void`</small>
 
-<small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span>
+<small>`FieldNode` </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span>
 
-Evaluates the component name
-Special treatment for google.protobuf.Any
+Bind a fieldnode of any type
 
-- <small>*fieldNode* </small>
+- <small>*fieldNode* Fieldnode of any type</small>
 <br><br>
 
 

@@ -22,10 +22,10 @@
       <furo-demo-snippet  style="height: 150px">
         <template>
           <!-- This button acts as a light switch -->
-          <input type='color' @-input='--color(*.path.0.value)' value='#fee753' @-change="^color-changed(*.path.0.value)" @-color-changed="((color))">
-          <button @-click="--lightSwitchClicked">i am a lightswitch</button>
-          <button @-click="--newColor(color)">setColor</button>
-          <light-bulb ƒ-toggle="--lightSwitchClicked" on ƒ-set-color="--newColor"></light-bulb>
+          <input type='color' at-input='--color(*.path.0.value)' value='#fee753' at-change="^color-changed(*.path.0.value)" at-color-changed="((color))">
+          <button at-click="--lightSwitchClicked">i am a lightswitch</button>
+          <button at-click="--newColor(color)">setColor</button>
+          <light-bulb fn-toggle="--lightSwitchClicked" on fn-set-color="--newColor"></light-bulb>
         </template>
       </furo-demo-snippet>
       `,

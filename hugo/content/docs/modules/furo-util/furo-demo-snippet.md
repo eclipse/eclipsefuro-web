@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-demo-snippet
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/doc/furo-demo-snippet.js';`<small>
 <br>exports `<furo-demo-snippet>` custom-element-definition
 <br>superclass *LitElement*
@@ -47,42 +47,28 @@ default: **&#39;# &#39;**</small>
 ### **source**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">source</span> <small>**reflects**</small>
-</small>
+<small>`Boolean` </small>
 
-Description
+Show the source tab
 <br><br>
 
 ### **demo**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">demo</span> <small>**reflects**</small>
-</small>
+<small>`Boolean` </small>
 
-
+Show the demo tab
 <br><br>
 
 ### **flow**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">flow</span> <small>**reflects**</small>
-</small>
+<small>`Boolean` </small>
 
-
+Show the flow tab
 <br><br>
 
-### **fullscreen**
 
-<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">fullscreen</span> <small>**reflects**</small>
-</small>
-
-
-<br><br>
-
-### **noDemo**
-
-<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">no-demo</span> <small>**reflects**</small>
-</small>
-
-
-<br><br>
 
 ## Methods
 {{% api "_furo-demo-snippet-methods.md" %}}

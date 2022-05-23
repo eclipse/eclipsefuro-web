@@ -6,14 +6,14 @@ weight: 100
 
 # ValidatorGoogleProtobufFloatValue
 
-**@furo/furo-data** <small>v2.2.1</small>
+**@furo/furo-data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/lib/ValidatorGoogleProtobufFloatValue.js';`<small>
 <br>exports *ValidatorGoogleProtobufFloatValue* js</small>
 
 
 ****
 
-A class to validate constraints on type of <code>google.protobuf.BoolValue</code>
+A class to validate constraints on type of <code>google.protobuf.FloatValue</code>
 
 ## Attributes and Properties
 {{% api "_ValidatorGoogleProtobufFloatValue-properties.md" %}}

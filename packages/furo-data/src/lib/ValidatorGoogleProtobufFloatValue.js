@@ -1,5 +1,5 @@
 /**
- * A class to validate constraints on type of <code>google.protobuf.BoolValue</code>
+ * A class to validate constraints on type of <code>google.protobuf.FloatValue</code>
  *
  * @class
  * @private

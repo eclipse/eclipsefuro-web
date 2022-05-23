@@ -18,4 +18,4 @@ bookHidden: true
 - [furo-hateoas-state](furo-hateoas-state.md) disables or hide nodes based on hts
 - [furo-rel-exists](furo-rel-exists.md) checks for a specific rel
 - [furo-reverse-deep-link](furo-reverse-deep-link.md) create query param object from HATEOAS
-- [furo-type-renderer](furo-type-renderer.md) type rendering
+- [furo-type-renderer](furo-type-renderer.md) dynamic type rendering

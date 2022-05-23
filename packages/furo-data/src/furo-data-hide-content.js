@@ -9,7 +9,7 @@ import { FBP } from '@furo/fbp';
  * TODO:  support furo.fat.Bool and google.protobuf.BoolValue
  *
  *```html
- * <furo-data-hide-content ƒ-bind-data="--bind(*.bool)">
+ * <furo-data-hide-content fn-bind-data="--bind(*.bool)">
  *   <div>some content</div>
  * </furo-collapsible-box>
  *```
@@ -49,6 +49,8 @@ class FuroDataHideContent extends FBP(LitElement) {
       },
       /**
        * Hide element on false instead of true
+       *
+       * @type Boolean
        */
       hideOnFalse: {
         type: Boolean,
@@ -59,7 +61,7 @@ class FuroDataHideContent extends FBP(LitElement) {
 
   /**
    * Bind a entity field to the date-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * When you use `at-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {

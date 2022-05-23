@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-hateoas-state
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-hateoas-state.js';`<small>
 <br>exports `<furo-hateoas-state>` custom-element-definition
 <br>superclass *LitElement*
@@ -32,7 +32,7 @@ Set the attribute **hide-no-rel** if you want to hide the node instead of being 
   <button data-rel='list'>list</button>
   <button hide-no-rel data-rel='list'>hide no rel</button>
   <button data-rel='add'>add</button>
-  <furo-hateoas-state ƒ-bind-hts='--collection(*.links)'></furo-hateoas-state>
+  <furo-hateoas-state fn-bind-hts='--collection(*.links)'></furo-hateoas-state>
 </div>
 ```
 *all elements with a data-rel="something" attribute inside the div are controlled*
@@ -78,7 +78,7 @@ Set the attribute **hide-no-rel** if you want to hide the node instead of being 
 <small>**enable**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-enable</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-enable</span>
 
 Enable or show all nodes.
 
@@ -88,7 +88,7 @@ Enable or show all nodes.
 <small>**disable**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-disable</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-disable</span>
 
 Disable or hide all nodes.
 
@@ -98,7 +98,7 @@ Disable or hide all nodes.
 <small>**bindData**(*fieldNode* `` ) ⟹ `boolean`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span>
 
 Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.
 
@@ -109,7 +109,7 @@ Binds a fieldNode. Make sure the type of your field is accepted by the implement
 <small>**bindHts**(*Links* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-hts</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-hts</span>
 
 Bind a `RepeaterNode` of type `furo.Link`.
 
@@ -120,7 +120,7 @@ Bind a `RepeaterNode` of type `furo.Link`.
 <small>**injectHts**(*value* `[json]` ) ⟹ `void`</small>
 
 <small>`[json]` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-hts</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-hts</span>
 
 Inject a link array directly.
 

@@ -242,7 +242,7 @@ class FuroShowFlow extends FBP(LitElement) {
             this.graph.setParent(`${nodeID}-center`, nodeID);
 
             // collect the event wires
-            if (attr.name.startsWith('@-') || attr.name.startsWith('at-')) {
+            if (attr.name.startsWith('at-') || attr.name.startsWith('at-')) {
               this._collectedWires.events.push(attr);
               // eslint-disable-next-line no-param-reassign
               attr._type = 'event';
@@ -254,17 +254,16 @@ class FuroShowFlow extends FBP(LitElement) {
             }
 
             // collect the method wires
-            if (attr.name.startsWith('ƒ-')) {
-              this._collectedWires.methods.push(attr);
-              // eslint-disable-next-line no-param-reassign
-              attr._type = 'method';
-            }
-            // collect the method wires
             if (attr.name.startsWith('fn-')) {
               this._collectedWires.methods.push(attr);
               // eslint-disable-next-line no-param-reassign
               attr._type = 'method';
-            }// collect the method wires
+            }
+            if (attr.name.startsWith('fn-')) {
+              this._collectedWires.methods.push(attr);
+              // eslint-disable-next-line no-param-reassign
+              attr._type = 'method';
+            }
             if (attr.name.startsWith('set-')) {
               this._collectedWires.methods.push(attr);
               // eslint-disable-next-line no-param-reassign
@@ -305,7 +304,7 @@ class FuroShowFlow extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-graph-renderer ƒ-draw="--graph"></furo-graph-renderer>
+      <furo-graph-renderer fn-draw="--graph"></furo-graph-renderer>
     `;
   }
 }

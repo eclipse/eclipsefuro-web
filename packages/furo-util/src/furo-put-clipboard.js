@@ -8,7 +8,7 @@ import { LitElement, css } from 'lit';
  *
  * <furo-put-clipboard
  *     json
- *     ƒ-trigger="--data" @-content-put="--contentInClipboard"
+ *     fn-trigger="--data" at-content-put="--contentInClipboard"
  *     ></furo-put-clipboard>
  *
  *```
@@ -62,6 +62,8 @@ class FuroPutClipboard extends LitElement {
     return {
       /**
        * Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.
+       *
+       * @type Boolean
        */
       json: { type: Boolean },
     };

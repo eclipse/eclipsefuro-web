@@ -32,6 +32,8 @@ class FuroSplitView extends FBP(LitElement) {
     return {
       /**
        * flip the left and right side
+       *
+       * @type Boolean
        */
       reverse: { type: Boolean },
     };

@@ -30,7 +30,7 @@ for module in $modules; do
 
   cd $packageDir/$module
 
-  $cwd/node_modules/.bin/cem analyze --globs "src/**/*.js" --exclude **/furo-catalog.js --litelement
+  $cwd/node_modules/.bin/cem analyze --litelement --globs "src/**/*.js" --exclude **/furo-catalog.js
   cp custom-elements.json $tmpDir/$module
   cp package.json $tmpDir/$module
 

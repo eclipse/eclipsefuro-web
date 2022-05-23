@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # light-bulb
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/doc/light-bulb.js';`<small>
 <br>exports `<light-bulb>` custom-element-definition
 <br>superclass *LitElement*
@@ -29,9 +29,9 @@ weight: 50
 ### **on**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">on</span>
-</small>
+<small>`Boolean` </small>
 
-
+Switch on the bulb
 <br><br>
 
 
@@ -39,9 +39,9 @@ weight: 50
 ### **off**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">off</span> <small>**reflects**</small>
-<small>`boolean` default: **true**</small>
+<small>`Boolean` default: **true**</small>
 
-Description
+Switch of the bulb
 <br><br>
 
 ### **color**
@@ -59,7 +59,7 @@ default: **&#34;#fee753&#34;**</small>
 <small>**setColor**(*color* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-color</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-color</span>
 
 
 
@@ -70,7 +70,7 @@ default: **&#34;#fee753&#34;**</small>
 <small>**toggle**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-toggle</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-toggle</span>
 
 toggles the light bulb on off
 

@@ -1,12 +1,12 @@
 import { LitElement, css } from 'lit';
 
 /**
- * Use this component to interact with fields from an furo-data-object.
+ * Use this component to interact with fields from a furo-data-object.
  *
  * You can update the field value or listen to changes of a field.
  *
  * ```html
- * <furo-entity-field ƒ-bind-data="--dataObject(*.field)"></furo-entity-field>
+ * <furo-entity-field fn-bind-data="--dataObject(*.field)"></furo-entity-field>
  * ```
  *
  * @fires {*} value-changed -  Fired when the field value or a child value of it was changed.
@@ -17,18 +17,19 @@ import { LitElement, css } from 'lit';
 class FuroEntityField extends LitElement {
   /**
    * Set the value of the field.
-   * @param v
+   * @param value {*}
    */
-  setValue(v) {
+  setValue(value) {
     /**
      * The value of the node which was connected with bind-data
+     * @type *
      */
-    this.value = v;
+    this.value = value;
   }
 
   /**
-   * Setter
-   * @param v
+   * Set a value to update the fieldnode
+   * @param v {*}
    */
   set value(v) {
     if (!this.field) {
@@ -44,8 +45,10 @@ class FuroEntityField extends LitElement {
   }
 
   /**
-   * Bind a entity field to the date-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * Bind a FieldNode to the date-input.
+   *
+   * `--personDO(*.person.firstname)`
+   *
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {

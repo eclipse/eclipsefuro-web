@@ -8,8 +8,8 @@ import { Env } from '@furo/framework';
  *```html
  *<furo-reverse-deep-link
  *    service="TaskService"
- *    rel="self" @-converted="--queryParams"
- *    ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
+ *    rel="self" at-converted="--queryParams"
+ *    fn-convert="--rawEntityOrCollection, --linksArray, --linkObject"
  *></furo-reverse-deep-link>
  *```
  *
@@ -147,6 +147,7 @@ class FuroReverseDeepLink extends LitElement {
     return {
       /**
        * Name of service
+       * @type String
        */
       service: { type: String },
       /**
@@ -155,6 +156,7 @@ class FuroReverseDeepLink extends LitElement {
        * Not needed if you inject a link object.
        *
        * If you insert an entity rel self is taken. If you insert a collection, rel list is used.
+       * @type String
        */
       rel: { type: String },
     };

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-deep-link
-**@furo/data** <small>v2.2.1</small>
+**@furo/data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/furo-deep-link.js';`<small>
 <br>exports `<furo-deep-link>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -19,7 +19,7 @@ Resolve deep links HATEOAS based on the query params and the selected service.
 ```html
 <furo-deep-link
  service="TaskService"
- ƒ-qp-in="--pageQueryChanged(*.query)" @-hts-out="--serviceHTS">
+ fn-qp-in="--pageQueryChanged(*.query)" at-hts-out="--serviceHTS">
  </furo-deep-link>
 ```
 *Deeplink inside of a furo-page*
@@ -51,7 +51,7 @@ Usually this is done in your src/configs/init.js
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small>
+<small>`String` </small>
 
 Name of the service
 <br><br>
@@ -61,7 +61,7 @@ Name of the service
 {{% api "_furo-deep-link-events.md" %}}
 
 ### **hts-out**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-out</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-out</span>
 → <small>`[]HTSLinks`</small>
 
 Fired when hateoas is available
@@ -76,7 +76,7 @@ Fired when hateoas is available
 <small>**qpIn**(*queryParams* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-qp-in</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-qp-in</span>
 
 Furo-deep-link consumes a object literal with key value pairs.
 
@@ -96,7 +96,7 @@ Relevant wires from furo-pages:
 <small>**trigger**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span>
 
 Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
 This method have no effect as long _qp is not set.
@@ -107,7 +107,7 @@ This method have no effect as long _qp is not set.
 <small>**setService**(*serviceName* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-service</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-service</span>
 
 Sets the service by wire
 

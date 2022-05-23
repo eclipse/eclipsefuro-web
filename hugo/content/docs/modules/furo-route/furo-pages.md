@@ -30,13 +30,13 @@ The components used in a furo-page must implement a **hidden** attribute css to 
 
 ```html
 
-<furo-pages ƒ-inject-location="--locationChanged" default="home">
+<furo-pages fn-inject-location="--locationChanged" default="home">
    <page-home name="home"></page-home>
    <other-page name="more"></other-page>
    <view-404 name="404"></view-404>
 </furo-pages>
 
-<furo-location @-location-changed="--locationChanged"></furo-location>
+<furo-location at-location-changed="--locationChanged"></furo-location>
 ```
 *If the url is `/` or `/home`, page-home is displayed.*
 *If the url is `/more`,  other-page is displayed.*
@@ -82,7 +82,7 @@ Set the default page to show.
 <small>**activatePage**(*pageName* `` *String* `` ) ⟹ `void`</small>
 
 <small>`` `` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-activate-page</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-activate-page</span>
 
 Activate a page by name
 
@@ -94,7 +94,7 @@ Activate a page by name
 <small>**injectLocation**(*location* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-location</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-location</span>
 
 Inject the location Object from furo-location. The page which is defined in location.pathSegments[0] will get activated.
 

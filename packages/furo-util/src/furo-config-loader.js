@@ -30,6 +30,7 @@ class FuroConfigLoader extends FBP(LitElement) {
     return {
       /**
        * File source
+       * @type String
        */
       src: {
         type: String,
@@ -37,6 +38,7 @@ class FuroConfigLoader extends FBP(LitElement) {
 
       /**
        * Targeted section to load the config in.
+       * @type String
        */
       section: {
         type: String,
@@ -88,7 +90,7 @@ class FuroConfigLoader extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-fetch-json ƒ-fetch-src="--load" @-data="--response"></furo-fetch-json>
+      <furo-fetch-json fn-fetch-src="--load" at-data="--response"></furo-fetch-json>
     `;
   }
 }

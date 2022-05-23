@@ -47,22 +47,22 @@
             <button data-rel='list'>list</button>
             <button hide-no-rel data-rel='list'>hide no rel</button>
             <button data-rel='add'>add</button>
-            <furo-hateoas-state ƒ-bind-hts='--collection(*.links)' ƒ-enable='--enableClicked' ƒ-disable='--disableClicked'></furo-hateoas-state>
+            <furo-hateoas-state fn-bind-hts='--collection(*.links)' fn-enable='--enableClicked' fn-disable='--disableClicked'></furo-hateoas-state>
           </div>
 
 
-          <button @-click='--listClicked'>list</button>
-          <button @-click='--enableClicked'>enable</button>
-          <button @-click='--disableClicked'>disable</button>
+          <button at-click='--listClicked'>list</button>
+          <button at-click='--enableClicked'>enable</button>
+          <button at-click='--disableClicked'>disable</button>
 
-          <furo-data-object type='person.PersonCollection' @-object-ready='--collection'
-                            ƒ-inject-raw='--response'></furo-data-object>
-          <furo-location @-location-changed='--locationChanged'></furo-location>
-          <furo-deep-link service='PersonService' @-hts-out='--hts'
-                          ƒ-qp-in='--locationChanged(*.query)'></furo-deep-link>
+          <furo-data-object type='person.PersonCollection' at-object-ready='--collection'
+                            fn-inject-raw='--response'></furo-data-object>
+          <furo-location at-location-changed='--locationChanged'></furo-location>
+          <furo-deep-link service='PersonService' at-hts-out='--hts'
+                          fn-qp-in='--locationChanged(*.query)'></furo-deep-link>
 
-          <furo-collection-agent service='PersonService' ƒ-hts-in='--hts' ƒ-search='--searchRequest'
-                                 ƒ-list='--listClicked' @-response='--response'>
+          <furo-collection-agent service='PersonService' fn-hts-in='--hts' fn-search='--searchRequest'
+                                 fn-list='--listClicked' at-response='--response'>
           </furo-collection-agent>
 
 

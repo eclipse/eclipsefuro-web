@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-pretty-json
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-pretty-json.js';`<small>
 <br>exports `<furo-pretty-json>` custom-element-definition
 <br>superclass *LitElement*
@@ -19,7 +19,7 @@ Pretty json with highlighting
 
 ```html
 <furo-pretty-json
-  ƒ-inject-json="--data"></furo-pretty-json>
+  fn-inject-json="--data"></furo-pretty-json>
 ```
 
 {{% api "_furo-pretty-json-description.md" %}}
@@ -40,7 +40,7 @@ Pretty json with highlighting
 <small>**injectData**(*json* `JSON` ) ⟹ `void`</small>
 
 <small>`JSON` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-data</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-data</span>
 
 Inject JSON data
 

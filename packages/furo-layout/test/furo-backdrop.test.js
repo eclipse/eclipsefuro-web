@@ -15,10 +15,10 @@ describe('furo-backdrop', () => {
       <flow-bind>
         <template>
           <furo-backdrop-display>
-            <furo-backdrop ƒ-show="--clk">
+            <furo-backdrop fn-show="--clk">
               <div>content</div>
             </furo-backdrop>
-            <div @-click="--clk">content</div>
+            <div at-click="--clk">content</div>
           </furo-backdrop-display>
         </template>
       </flow-bind>

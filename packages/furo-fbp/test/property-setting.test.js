@@ -24,10 +24,10 @@ describe('property-setting', () => {
             </div>
             <div
               id="receiver"
-              ƒ-.prop="--data-received"
-              ƒ-.subprop="--sub(*.b)"
-              ƒ-.raw="--rawEvent(*.other)"
-              ƒ-.rawsub="--rawSub(*.a.2)"
+              set-prop="--data-received"
+              set-subprop="--sub(*.b)"
+              set-raw="--rawEvent(*.other)"
+              set-rawsub="--rawSub(*.a.2)"
               ƒ-method-test="--method(*.sub)"
             >
               receiver

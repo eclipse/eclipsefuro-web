@@ -7,9 +7,9 @@ import { FBP } from '@furo/fbp';
  *
  * ```html
  * <!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->
- * <other-component @-keydown="--keydown(*)"></other-component>
+ * <other-component at-keydown="--keydown(*)"></other-component>
  * <furo-key-filter
- *     ƒ-filter="--keydown" @-matched="--escapePressed"
+ *     fn-filter="--keydown" at-matched="--escapePressed"
  *     keys="Escape"
  *     ></furo-key-filter>
  * ```
@@ -59,28 +59,40 @@ class FuroKeyFilter extends FBP(LitElement) {
     return {
       /**
        * Coma separated list with allowed keys to pass. i.e "Enter, ArrowUp"
+       *
+       * @type String
        */
       keys: { type: String },
       /**
        * Modifier key **shift** must be pressed too to match
+       *
+       * @type Boolean
        */
       shift: { type: Boolean },
       /**
        * Modifier key **alt** must be pressed too to match
+       *
+       * @type Boolean
        */
       alt: { type: Boolean },
       /**
        * Alias for meta.
        *
        * Modifier key **meta** must be pressed too to match.
+       *
+       * @type Boolean
        */
       command: { type: Boolean },
       /**
        * Modifier key **meta** must be pressed too to match
+       *
+       * @type Boolean
        */
       meta: { type: Boolean },
       /**
        * Modifier key **control** must be pressed too to match
+       *
+       * @type Boolean
        */
       control: { type: Boolean },
       // stopPropagation, disableDefault??

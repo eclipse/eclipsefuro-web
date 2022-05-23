@@ -6,14 +6,14 @@ weight: 100
 
 # ValidatorFuroBigDecimal
 
-**@furo/furo-data** <small>v2.2.1</small>
+**@furo/furo-data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/lib/ValidatorFuroBigDecimal.js';`<small>
 <br>exports *ValidatorFuroBigDecimal* js</small>
 
 
 ****
 
-A class to validate constraints on type of <code>google.protobuf.BoolValue</code>
+A class to validate constraints on type of <code>furo.BigDecimal</code>
 
 ## Attributes and Properties
 {{% api "_ValidatorFuroBigDecimal-properties.md" %}}

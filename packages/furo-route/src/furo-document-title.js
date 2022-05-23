@@ -33,9 +33,9 @@ import { FBP } from '@furo/fbp';
  *  ```html
  *   <furo-document-title
  *     prefix="${i18n.t('prefix.label')} ["
- *     ƒ-bind-title="--DataObject(*.display_name)"
+ *     fn-bind-title="--DataObject(*.display_name)"
  *     suffix="]"
- *     ƒ-set-waypoint="--pageActivated"
+ *     fn-set-waypoint="--pageActivated"
  *   ></furo-document-title>
  *  ```
  *  The document title will be set to: `PrefixLabel [display_name_value]`
@@ -64,14 +64,20 @@ class FuroDocumentTitle extends FBP(LitElement) {
     return {
       /**
        * Title part, you can also use `setTitle()` or `bindTitle().`
+       *
+       * @type String
        */
       title: { type: String },
       /**
        * prefix part, you can also use `setPrefix()`.`
+       *
+       * @type String
        */
       prefix: { type: String },
       /**
        * Suffix part, you can also use `setSuffix()` or `bindSuffix().`
+       *
+       * @type String
        */
       suffix: { type: String },
     };

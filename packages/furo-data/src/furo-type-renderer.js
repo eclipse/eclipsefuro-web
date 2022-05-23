@@ -42,18 +42,15 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  *
  * ## Basic Usage
  * ```html
- *   <furo-type-renderer ƒ-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
+ *   <furo-type-renderer fn-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
  * ```
  *
  * ## Writing your own renderer
  * The only API you need to implement in your component is the `bindData()` method.
  * You just have to follow the naming convention for your renderer.
  *
- * @summary type rendering
- * @customElement
- * @demo demo-furo-type-renderer Display context (default)
- * @demo demo-furo-type-renderer-cell cell context
- * @demo demo-furo-type-renderer-celledit celledit context
+ * @summary dynamic type rendering
+ * @customElement furo-type-renderer
  * @appliesMixin FBP
  */
 class FuroTypeRenderer extends FBP(LitElement) {
@@ -78,25 +75,28 @@ class FuroTypeRenderer extends FBP(LitElement) {
     return {
       /**
        * A Boolean attribute which, if present, means this field is displayed in disabled state.
+       * @type Boolean
        */
-      disabled: {
-        type: Boolean,
-      },
+      disabled: { type: Boolean },
       /**
        * Set the context if you need another then display.
        * Prebuilt context renderers exist for display, cell, celledit.
-       *
+       * @type String
        */
       context: { type: String },
     };
   }
 
   /**
-   * Evaluates the component name
-   * Special treatment for google.protobuf.Any
-   * @param fieldNode
+   * Bind a fieldnode of any type
+   * @param fieldNode {FieldNode} Fieldnode of any type
    */
   bindData(fieldNode) {
+    /**
+     * Evaluates the component name
+     * Special treatment for google.protobuf.Any
+     */
+
     this._field = fieldNode;
 
     if (this._field) {
@@ -158,7 +158,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
       // fallback , display the display-[type] component repeatedly
       this._fallbackFlowRepeat = document.createElement('flow-repeat');
       const tpl = document.createElement('template');
-      tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`;
+      tpl.innerHTML = `<${this.renderName} fn-bind-data="--item"></${this.renderName}>`;
       this._fallbackFlowRepeat.appendChild(tpl);
 
       this.parentNode.insertBefore(this._fallbackFlowRepeat, this);

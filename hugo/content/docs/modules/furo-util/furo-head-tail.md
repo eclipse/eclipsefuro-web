@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-head-tail
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-head-tail.js';`<small>
 <br>exports `<furo-head-tail>` custom-element-definition
 <br>superclass *HTMLElement*</small>
@@ -18,7 +18,7 @@ weight: 50
  Splits an iterable (i.e. Array) in its head and tail part.
 
 ```
- <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
+ <furo-head-tail fn-split="--arrayData" at-head="--firstElement" at-tail="--restOfArray"></furo-head-tail>
 ```
 
 {{% api "_furo-head-tail-description.md" %}}
@@ -33,13 +33,13 @@ weight: 50
 {{% api "_furo-head-tail-events.md" %}}
 
 ### **head**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-head</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-head</span>
 → <small>`{Any}`</small>
 
  Fired when Array was splitted, contains the first element of array.
 <br><br>
 ### **tail**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-tail</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-tail</span>
 → <small>`Array | Any`</small>
 
  Fired when Array was splitted. {Array || Any} is the tail from the injected array (e1 - 1n)
@@ -53,7 +53,7 @@ weight: 50
 <small>**split**(*iterable* `` ) ⟹ `void`</small>
 
 <small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-split</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-split</span>
 
 Splits an iterable to its head (first item) and its tail (the rest) parts.
 

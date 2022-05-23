@@ -14,17 +14,17 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * > If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
  *
  * ```html
- * <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
+ * <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  -->
  * <furo-entity-agent
  *   service="ProjectService"
- *   ƒ-hts-in="--hts" @-response="--response"
+ *   fn-hts-in="--hts" at-response="--response"
  *   ></furo-entity-agent>
  *
  *
- * <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
+ * <!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready -->
  * <furo-data-object
  *   type="project.ProjectEntity"
- *   ƒ-inject-raw="--response"
+ *   fn-inject-raw="--response"
  *   ></furo-data-object>
  * ```
  *
@@ -134,10 +134,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     return {
       /**
        * Name des Services
+       * @type String
        */
       service: { type: String, attribute: true },
       /**
        * triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
+       * @type Boolean
        */
       loadOnHtsIn: { type: Boolean, attribute: 'load-on-hts-in' },
       /**
@@ -149,7 +151,7 @@ class FuroEntityAgent extends FBP(LitElement) {
        *
        * You may not need it if your server can handle PATCHes without a update_mask
        * https://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html
-       *
+       * @type Boolean
        */
       appendUpdateMaskQP: { type: Boolean, attribute: 'with-update-mask' },
     };
@@ -739,12 +741,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed, --requestFinished"
-        @-parse-error="^^req-failed, --requestFinished"
-        @-fatal-error="--requestFinished"
+        fn-invoke-request="--triggerLoad"
+        fn-abort-request="--abortDemanded"
+        at-response="--responseParsed, --requestFinished, ^^req-success"
+        at-response-error="^^req-failed, --requestFinished"
+        at-parse-error="^^req-failed, --requestFinished"
+        at-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

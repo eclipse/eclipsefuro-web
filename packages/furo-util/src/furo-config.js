@@ -17,12 +17,12 @@ import { Config } from './lib/Config.js';
  *
  * <!-- consume a config -->
  * <furo-config
- *     section="views" @-config-updated="--conf"
+ *     section="views" at-config-updated="--conf"
  *     ></furo-config>
  *
  * <!-- consume a sub path of a config section -->
  * <furo-config
- *     section="views.subset.deep" @-config-updated="--deepconf"
+ *     section="views.subset.deep" at-config-updated="--deepconf"
  *     ></furo-config>
  * ```
  *
@@ -49,6 +49,7 @@ class FuroConfig extends LitElement {
        * section of the config object that you are interested in
        *
        * access deep object with dots like `main.sub.sub`
+       * @type String
        */
       section: { type: String },
     };

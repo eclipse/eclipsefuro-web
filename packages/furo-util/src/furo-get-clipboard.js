@@ -8,7 +8,7 @@ import { FBP } from '@furo/fbp';
  *```html
  *
  * <furo-get-clipboard
- *     ƒ-trigger="--clipboardContentRequested" @-content="--contentReceived"
+ *     fn-trigger="--clipboardContentRequested" at-content="--contentReceived"
  *     ></furo-get-clipboard>
  *
  *```
@@ -41,6 +41,8 @@ class FuroGetClipboard extends FBP(LitElement) {
     return {
       /**
        * Convert clipboard content to json
+       *
+       * @type String
        */
       json: { type: Boolean },
     };

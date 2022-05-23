@@ -9,8 +9,8 @@ import { FBP } from '@furo/fbp';
  *  [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
  *
  * ```html
- * <furo-keydown key="Enter" @-key="--enterPressed"></furo-keydown>
- * <furo-keydown ctrl key="c" @-key="--copyRequested"></furo-keydown>
+ * <furo-keydown key="Enter" at-key="--enterPressed"></furo-keydown>
+ * <furo-keydown ctrl key="c" at-key="--copyRequested"></furo-keydown>
  * ```
  * @fires {KeyboardEvent} key - Fired when key was catched on target
  *
@@ -27,34 +27,50 @@ class FuroKeydown extends FBP(LitElement) {
     return {
       /**
        * Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c
+       *
+       * @type String
        */
       key: { type: String },
       /**
        * Set this attribute to listen to the keydown event global (window).
+       *
+       * @type Boolean
        */
       global: { type: Boolean },
       /**
        * `alt` key must be pressed to trigger the `key` event.
+       *
+       * @type Boolean
        */
       alt: { type: Boolean },
       /**
        * `ctrl` key must be pressed to trigger the `key` event.
+       *
+       * @type Boolean
        */
       ctrl: { type: Boolean },
       /**
        * `meta` key must be pressed to trigger the `key` event.
+       *
+       * @type Boolean
        */
       meta: { type: Boolean },
       /**
        * `shift` key must be pressed to trigger the `key` event.
+       *
+       * @type Boolean
        */
       shift: { type: Boolean },
       /**
        * Set this attribute to prevent the event default of the keypress event.
+       *
+       * @type Boolean
        */
       preventDefault: { type: Boolean, attribute: 'prevent-default' },
       /**
        * Set this to true to stop the event propagation of the keypress event.
+       *
+       * @type Boolean
        */
       stopPropagation: { type: Boolean, attribute: 'stop-propagation' },
     };

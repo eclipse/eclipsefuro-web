@@ -11,8 +11,8 @@ import { FBP } from '@furo/fbp';
  * ```html
  *
  *  <furo-location-updater
- *     ƒ-set-qp="--QueryParamKeyValuePairs"
- *     ƒ-set-hash="--HashKeyValuePairs"></furo-location-updater>
+ *     fn-set-qp="--QueryParamKeyValuePairs"
+ *     fn-set-hash="--HashKeyValuePairs"></furo-location-updater>
  *
  * ```
  *
@@ -27,11 +27,15 @@ class FuroLocationUpdater extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`
+       * Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`
+       *
+       * @type String
        */
       clearQp: { type: String, attribute: 'clear-qp' },
       /**
-       * Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`
+       * Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`
+       *
+       * @type String
        */
       clearHash: { type: String, attribute: 'clear-hash' },
     };

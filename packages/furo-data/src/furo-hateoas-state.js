@@ -20,7 +20,7 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  *   <button data-rel='list'>list</button>
  *   <button hide-no-rel data-rel='list'>hide no rel</button>
  *   <button data-rel='add'>add</button>
- *   <furo-hateoas-state ƒ-bind-hts='--collection(*.links)'></furo-hateoas-state>
+ *   <furo-hateoas-state fn-bind-hts='--collection(*.links)'></furo-hateoas-state>
  * </div>
  * ```
  * *all elements with a data-rel="something" attribute inside the div are controlled*

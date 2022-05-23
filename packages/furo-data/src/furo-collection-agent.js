@@ -12,11 +12,11 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * ```html
  * <furo-collection-agent
  *    service="Servicename"
- *    ƒ-hts-in="--hts"></furo-collection-agent>
+ *    fn-hts-in="--hts"></furo-collection-agent>
  *
  * <!-- produces a hateoas link array -->
  * <furo-deep-link
- *     service="Servicename" @-hts-out="--hts"></furo-deep-link>
+ *     service="Servicename" at-hts-out="--hts"></furo-deep-link>
  *
  * ```
  *
@@ -35,7 +35,7 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @fires {Object} response-error-raw - Fired when a error has occoured.
  * @fires {Object} response - Fired when a response is received.
  * @fires {hts} response-hts-updated -  Fired when the hts was updated by the received response.
- * @fires {} filter-changed -  Fired when filter was updated with `ƒ-set-filter`.
+ * @fires {} filter-changed -  Fired when filter was updated with `fn-set-filter`.
  * @fires {Array|HATEOAS} hts-updated -  Fired when hateoas was updated from response.
  * @fires {Hateoas links} hts-injected -  Fired when hateoas was updated
  * @fires request-aborted - Fired if the request was successfully cancelled
@@ -164,12 +164,14 @@ class FuroCollectionAgent extends FBP(LitElement) {
     return {
       /**
        * The service name from the specs.
+       * @type String
        */
       service: { type: String, attribute: true },
       /**
        * Sets pagination size in the List request.
        *
        * Only useful if your service supports pagination.
+       * @type Number
        */
       pageSize: { type: Number, attribute: 'page-size' },
       /**
@@ -177,6 +179,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * used for partial representation / partial responses.
        *
        * If your services supports this feature, you will receive a subset of the fields.
+       * @type String
        */
       fields: { type: String, attribute: true },
       /**
@@ -189,7 +192,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * To avoid sql injection errors we do not send any sql like syntax!
        *
        * Only useable if your service has implemented this feature.
-       *
+       * @type String
        */
       orderBy: { type: String, attribute: 'order-by' },
       /**
@@ -198,6 +201,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.
        *
        * Only useable if your service has implemented this feature.
+       * @type String
        */
       filter: { type: String, attribute: true },
       /**
@@ -211,11 +215,12 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * view=smallcards
        *
        * Only useable if your service has implemented this feature.
-       *
+       * @type String
        */
       view: { type: String, attribute: true },
       /**
        * Executes a list when a rel="list" is injected.
+       * @type Boolean
        */
       listOnHtsIn: { type: Boolean, attribute: 'list-on-hts-in' },
       /**
@@ -224,16 +229,19 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * You have to set the attributes *rel* and *method* to have this working.
        *
        * This is useful for getting "custom" collections.
+       * @type Boolean
        */
       loadRelOnHtsIn: { type: Boolean, attribute: 'load-rel-on-hts-in' },
       /**
        * rel which should be used on load rel
+       * @type String
        */
       rel: { type: String, attribute: true },
       /**
        * for compatibility reasons you have to specify the method inside of the service.
        *
        * This attribute should not be needed in future versions, because the rel already contains all relevant information.
+       * @type String
        */
       method: { type: String, attribute: true },
     };
@@ -674,13 +682,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
         }
       </style>
       <furo-api-fetch
-        ƒ-invoke-request="--triggerLoad"
-        ƒ-abort-request="--abortDemanded"
-        @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed, --requestFinished"
-        @-request-aborted="^^req-aborted"
-        @-parse-error="^^req-failed, --requestFinished"
-        @-fatal-error="--requestFinished"
+        fn-invoke-request="--triggerLoad"
+        fn-abort-request="--abortDemanded"
+        at-response="--responseParsed, --requestFinished, ^^req-success"
+        at-response-error="^^req-failed, --requestFinished"
+        at-request-aborted="^^req-aborted"
+        at-parse-error="^^req-failed, --requestFinished"
+        at-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
     `;

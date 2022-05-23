@@ -13,13 +13,13 @@ describe('furo-rel-exists', () => {
       rel: 'self',
       method: 'GET',
       href: './mockdata/tasks/1/get.json',
-      service: "TaskService",
+      service: 'TaskService',
     },
     {
       rel: 'update',
       method: 'PATCH',
       href: './mockdata/tasks/1/get.json',
-      service: "TaskService",
+      service: 'TaskService',
     },
   ];
 

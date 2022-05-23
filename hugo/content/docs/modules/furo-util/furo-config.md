@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-config
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-config.js';`<small>
 <br>exports `<furo-config>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -28,12 +28,12 @@ weight: 50
 
 <!-- consume a config -->
 <furo-config
-    section="views" @-config-updated="--conf"
+    section="views" at-config-updated="--conf"
     ></furo-config>
 
 <!-- consume a sub path of a config section -->
 <furo-config
-    section="views.subset.deep" @-config-updated="--deepconf"
+    section="views.subset.deep" at-config-updated="--deepconf"
     ></furo-config>
 ```
 
@@ -48,7 +48,7 @@ weight: 50
 ### **section**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">section</span>
-</small>
+<small>`String` </small>
 
 section of the config object that you are interested in
 
@@ -64,7 +64,7 @@ The current section of the config, which was defined by `section`.
 {{% api "_furo-config-events.md" %}}
 
 ### **config-updated**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-config-updated</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-config-updated</span>
 → <small>`config.section`</small>
 
 Fired when section changed

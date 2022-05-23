@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-interval-pulse
-**@furo/util** <small>v2.0.6</small>
+**@furo/util** <small>v2.0.7</small>
 <br>`import '@furo/util/src/furo-interval-pulse.js';`<small>
 <br>exports `<furo-interval-pulse>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -30,7 +30,7 @@ Pulses a tick event every `interval` ms duration and every `takt` a tock event i
 ### **interval**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">interval</span>
-<small>`number` default: **200**</small>
+<small>`Number` default: **200**</small>
 
 Duration of a tact in ms.
 <br><br>
@@ -38,7 +38,7 @@ Duration of a tact in ms.
 ### **takt**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">takt</span>
-<small>`number` default: **4**</small>
+<small>`Number` default: **4**</small>
 
 Number of ticks per tact.
 <br><br>
@@ -46,7 +46,7 @@ Number of ticks per tact.
 ### **auto**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">auto</span>
-</small>
+<small>`Boolean` </small>
 
 Starts interval automatically
 <br><br>
@@ -54,13 +54,13 @@ Starts interval automatically
 {{% api "_furo-interval-pulse-events.md" %}}
 
 ### **tick**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-tick</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-tick</span>
 → <small>`Number`</small>
 
 Fired on every interval with the position of the pulse starting at 0.
 <br><br>
 ### **tock**
-<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-tock</span>
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-tock</span>
 → <small>`Number`</small>
 
 Fired nth interval defined by takt.
@@ -74,7 +74,7 @@ Fired nth interval defined by takt.
 <small>**start**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-start</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-start</span>
 
 Starts the pulsing.
 
@@ -84,7 +84,7 @@ Starts the pulsing.
 <small>**stop**() ⟹ `void`</small>
 
 <small>`*`</small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-stop</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-stop</span>
 
 Stops the pulsing.
 

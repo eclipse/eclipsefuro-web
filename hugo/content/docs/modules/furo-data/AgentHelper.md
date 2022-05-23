@@ -6,7 +6,7 @@ weight: 100
 
 # AgentHelper
 
-**@furo/furo-data** <small>v2.2.1</small>
+**@furo/furo-data** <small>v2.2.2</small>
 <br>`import '@furo/data/src/lib/AgentHelper.js';`<small>
 <br>exports *AgentHelper* js</small>
 
@@ -48,18 +48,18 @@ If the current value of the qp is not the same like the injected value, a qp-cha
 <br><br>
 
 ### **setQp**
-<small>**setQp**(*caller* `` *qp* `` ) ⟹ `void`</small>
+<small>**setQp**(*caller* `Object` *qp* `QueryParams` ) ⟹ `void`</small>
 
 Set query params
 All existing query params are replaced by the transferred parameters
 If the transferred object is empty or undefined, all the values will be removed!
 
-- <small>*caller* </small>
-- <small>*qp* </small>
+- <small>*caller* caller</small>
+- <small>*qp* Queryparam Object</small>
 <br><br>
 
 ### **getParams**
-<small>**getParams**(*caller* `` *link* `` ) ⟹ `{}`</small>
+<small>**getParams**(*caller* `` *link* `` ) ⟹ `Object`</small>
 
 get existing params from href and append query params
 

@@ -2,7 +2,7 @@
   "name": "furo-base-components",
   "description": "Collection of furo base components",
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "^0.5.3",
+    "@custom-elements-manifest/analyzer": "^0.5.7",
     "@esm-bundle/chai": "^4.3.4-fix.0",
     "@open-wc/eslint-config": "^4.3.0",
     "@open-wc/testing": "next",
@@ -19,7 +19,6 @@
   },
   "scripts": {
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
-    "analyze:all": "./scripts/cem.sh",
     "test:all": "web-test-runner --files packages/**/*.test.js --coverage",
     "test:all:watch": "web-test-runner --files packages/**/*.test.js --watch",
     "docs:start": "cd hugo && hugo serve",

@@ -24,8 +24,8 @@ describe('furo-app-flow-router', () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
-          <furo-app-flow-router url-space-regex="^/app" ƒ-trigger="--f"></furo-app-flow-router>
-          <furo-app-flow @-app-flow="--f"></furo-app-flow>
+          <furo-app-flow-router url-space-regex="^/app" fn-trigger="--f"></furo-app-flow-router>
+          <furo-app-flow at-app-flow="--f"></furo-app-flow>
         </template>
       </flow-bind>
     `);

@@ -6,10 +6,10 @@ import { LitElement, css } from 'lit';
  *
  *
  * ```html
- * <furo-location @-location-changed="--pathChanged"></furo-location>
+ * <furo-location at-location-changed="--pathChanged"></furo-location>
  *
  * <furo-pages
- *   ƒ-inject-location="--pathChanged"
+ *   fn-inject-location="--pathChanged"
  *   default="list">
  *     <view-list name="list"></view-list>
  *     <view-create name="create"></view-create>
