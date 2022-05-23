@@ -51,10 +51,11 @@ import { LitElement, html, css } from 'lit';
 class FuroPages extends LitElement {
   constructor() {
     super();
-    // eslint-disable-next-line wc/no-constructor-attributes
+
     /**
      * @private
      */
+    // eslint-disable-next-line wc/no-constructor-attributes
     this._fallback = this.getAttribute('default');
     /**
      * @private
