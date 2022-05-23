@@ -10,12 +10,12 @@
 <meta property="og:description" content="interface component to handle custom methods" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:05:45+02:00" />
 <title>furo-custom-method | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1632,7 +1632,7 @@ https://github.com/alex-shpak/hugo-book
   furo-custom-method
   <a class="anchor" href="#furo-custom-method">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-custom-method.js';</code><small>
 <br>exports <code>&lt;furo-custom-method&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
@@ -1656,12 +1656,12 @@ https://github.com/alex-shpak/hugo-book
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-custom-method</span>
     <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Servicename&#34;</span>
     <span style="color:#008080">method</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;release&#34;</span>
-    <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>
-    <span style="color:#008080">ƒ-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--customClick&#34;</span>&gt;&lt;/<span style="color:#000080">furo-custom-method</span>&gt;
+    <span style="color:#008080">fn-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>
+    <span style="color:#008080">fn-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--customClick&#34;</span>&gt;&lt;/<span style="color:#000080">furo-custom-method</span>&gt;
 
 <span style="color:#998;font-style:italic">&lt;!-- produces a hateoas link array --&gt;</span>
 &lt;<span style="color:#000080">furo-deep-link</span>
-    <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Servicename&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
+    <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Servicename&#34;</span> <span style="color:#008080">at-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
 
 </code></pre></td></tr></table>
 </div>
@@ -1677,7 +1677,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#service">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>Name of the service.
 <br><br></p>
 <h3 id="method">
@@ -1685,7 +1685,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#method">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">method</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>Name of the custom method / rel.
 <br><br></p>
 <h2 id="events">
@@ -1696,15 +1696,15 @@ https://github.com/alex-shpak/hugo-book
   <strong>hts-updated</strong>
   <a class="anchor" href="#hts-updated">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-updated</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-updated</span>
 → <small><code>HTS</code></small></p>
-<p>Fired when hts was updated by <code>ƒ-hts-in</code>.
+<p>Fired when hts was updated by <code>fn-hts-in</code>.
 <br><br></p>
 <h3 id="request-aborted">
   <strong>request-aborted</strong>
   <a class="anchor" href="#request-aborted">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-aborted</span>
 → <small><code>Request</code></small></p>
 <p>Fired when a request was canceled.
 <br><br></p>
@@ -1712,7 +1712,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>request-started</strong>
   <a class="anchor" href="#request-started">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-started</span>
 → <small><code>Request</code></small></p>
 <p>Fired when a request is sent.
 <br><br></p>
@@ -1720,7 +1720,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>response-raw</strong>
   <a class="anchor" href="#response-raw">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-raw</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a response is received.
 <br><br></p>
@@ -1728,7 +1728,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>response-error</strong>
   <a class="anchor" href="#response-error">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
 <br><br></p>
@@ -1736,7 +1736,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>response-error-[status-code]</strong>
   <a class="anchor" href="#response-error-status-code">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-[status-code]</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a specific error event.
 <br><br></p>
@@ -1744,7 +1744,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>fatal-error</strong>
   <a class="anchor" href="#fatal-error">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-fatal-error</span>
 → <small><code>Request</code></small></p>
 <p>Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
 <br><br></p>
@@ -1752,7 +1752,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>response-error-4xx</strong>
   <a class="anchor" href="#response-error-4xx">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-4xx</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br></p>
@@ -1760,7 +1760,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>response-error-5xx</strong>
   <a class="anchor" href="#response-error-5xx">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-5xx</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br></p>
@@ -1768,7 +1768,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>response-error-raw</strong>
   <a class="anchor" href="#response-error-raw">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-raw</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a error has occoured.
 <br><br></p>
@@ -1776,7 +1776,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>response</strong>
   <a class="anchor" href="#response">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a response is received.
 <br><br></p>
@@ -1790,7 +1790,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>updateQp</strong>(<em>qp</em> `` <em>key</em> <code>Object</code> ) ⟹ <code>void</code></small></p>
 <p><small>`` <code>Object</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-update-qp</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-update-qp</span></p>
 <p>Update query params
 a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p>
 <p>If the current value of the qp is not the same like the injected value, a qp-changed event will be fired</p>
@@ -1805,7 +1805,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>bindRequestData</strong>(<em>dataObject</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-request-data</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-request-data</span></p>
 <p>Binds a furo-data-object type.</p>
 <ul>
 <li><small><em>dataObject</em> </small>
@@ -1817,7 +1817,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>clearQp</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-qp</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-qp</span></p>
 <p>clear the query params that you have setted before</p>
 <p><br><br></p>
 <h3 id="trigger">
@@ -1826,7 +1826,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>trigger</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span></p>
 <p>trigger the method with respect for binded-requset-object</p>
 <p><br><br></p>
 <h3 id="triggerempty">
@@ -1835,7 +1835,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>triggerEmpty</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-empty</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-empty</span></p>
 <p><br><br></p>
 <h3 id="triggerwithbody">
   <strong>triggerWithBody</strong>
@@ -1843,7 +1843,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>triggerWithBody</strong>(<em>body</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-with-body</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-with-body</span></p>
 <p>trigger the method with data</p>
 <ul>
 <li><small><em>body</em> </small>
@@ -1855,7 +1855,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>htsIn</strong>(<em>hts</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-hts-in</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-hts-in</span></p>
 <ul>
 <li><small><em>hts</em> </small>
 <br><br></li>
@@ -1866,7 +1866,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>abortPendingRequest</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abort-pending-request</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abort-pending-request</span></p>
 <p>Aborts a pending request</p>
 <p><br><br></p>
 </article>
@@ -1879,9 +1879,9 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a88beeeffec257b5c9e67083983a7e090f970006" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

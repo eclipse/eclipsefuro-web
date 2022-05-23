@@ -10,12 +10,12 @@
 <meta property="og:description" content="disables or hide nodes based on hts" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-hateoas-state/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T10:30:29+02:00" />
 <title>furo-hateoas-state | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1609,7 +1609,7 @@ https://github.com/alex-shpak/hugo-book
   furo-hateoas-state
   <a class="anchor" href="#furo-hateoas-state">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-hateoas-state.js';</code><small>
 <br>exports <code>&lt;furo-hateoas-state&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
@@ -1636,7 +1636,7 @@ sets or remove the attributes <strong>hidden</strong> and <strong>disabled</stro
   &lt;<span style="color:#000080">button</span> <span style="color:#008080">data-rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;list&#39;</span>&gt;list&lt;/<span style="color:#000080">button</span>&gt;
   &lt;<span style="color:#000080">button</span> <span style="color:#008080">hide-no-rel</span> <span style="color:#008080">data-rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;list&#39;</span>&gt;hide no rel&lt;/<span style="color:#000080">button</span>&gt;
   &lt;<span style="color:#000080">button</span> <span style="color:#008080">data-rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;add&#39;</span>&gt;add&lt;/<span style="color:#000080">button</span>&gt;
-  &lt;<span style="color:#000080">furo-hateoas-state</span> <span style="color:#008080">ƒ-bind-hts</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;--collection(*.links)&#39;</span>&gt;&lt;/<span style="color:#000080">furo-hateoas-state</span>&gt;
+  &lt;<span style="color:#000080">furo-hateoas-state</span> <span style="color:#008080">fn-bind-hts</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;--collection(*.links)&#39;</span>&gt;&lt;/<span style="color:#000080">furo-hateoas-state</span>&gt;
 &lt;/<span style="color:#000080">div</span>&gt;
 </code></pre></td></tr></table>
 </div>
@@ -1655,7 +1655,7 @@ sets or remove the attributes <strong>hidden</strong> and <strong>disabled</stro
 </h3>
 <p><small><strong>enable</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-enable</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-enable</span></p>
 <p>Enable or show all nodes.</p>
 <p><br><br></p>
 <h3 id="disable">
@@ -1664,7 +1664,7 @@ sets or remove the attributes <strong>hidden</strong> and <strong>disabled</stro
 </h3>
 <p><small><strong>disable</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-disable</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-disable</span></p>
 <p>Disable or hide all nodes.</p>
 <p><br><br></p>
 <h3 id="binddata">
@@ -1673,7 +1673,7 @@ sets or remove the attributes <strong>hidden</strong> and <strong>disabled</stro
 </h3>
 <p><small><strong>bindData</strong>(<em>fieldNode</em> `` ) ⟹ <code>boolean</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span></p>
 <p>Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.</p>
 <ul>
 <li><small><em>fieldNode</em> </small>
@@ -1685,7 +1685,7 @@ sets or remove the attributes <strong>hidden</strong> and <strong>disabled</stro
 </h3>
 <p><small><strong>bindHts</strong>(<em>Links</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-hts</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-hts</span></p>
 <p>Bind a <code>RepeaterNode</code> of type <code>furo.Link</code>.</p>
 <ul>
 <li><small><em>Links</em> </small>
@@ -1697,7 +1697,7 @@ sets or remove the attributes <strong>hidden</strong> and <strong>disabled</stro
 </h3>
 <p><small><strong>injectHts</strong>(<em>value</em> <code>[json]</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>[json]</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-hts</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-hts</span></p>
 <p>Inject a link array directly.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1737,9 +1737,9 @@ sets or remove the attributes <strong>hidden</strong> and <strong>disabled</stro
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/c04ab7616f64831cdf3e77f7e3823822d8800e1c" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

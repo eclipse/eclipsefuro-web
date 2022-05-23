@@ -10,12 +10,12 @@
 <meta property="og:description" content="automatic display of repeated fields" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T10:30:29+02:00" />
 <title>furo-data-flow-repeat | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1613,7 +1613,7 @@ https://github.com/alex-shpak/hugo-book
   furo-data-flow-repeat
   <a class="anchor" href="#furo-data-flow-repeat">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-data-flow-repeat.js';</code><small>
 <br>exports <em>FuroDataFlowRepeat</em> js
 <br>exports <code>&lt;furo-data-flow-repeat&gt;</code> custom-element-definition
@@ -1631,10 +1631,10 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-data-flow-repeat</span> <span style="color:#008080">identity-path</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;id&#34;</span> <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data(*.repeaterfield)&#34;</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-data-flow-repeat</span> <span style="color:#008080">identity-path</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;id&#34;</span> <span style="color:#008080">fn-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data(*.repeaterfield)&#34;</span>&gt;
   &lt;<span style="color:#000080">template</span>&gt;
     &lt;<span style="color:#000080">furo-ui5-data-text-input-labeled</span>
-        <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--init&#34;</span>&gt;&lt;/<span style="color:#000080">furo-ui5-data-text-input-labeled</span>&gt;
+        <span style="color:#008080">fn-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--init&#34;</span>&gt;&lt;/<span style="color:#000080">furo-ui5-data-text-input-labeled</span>&gt;
   &lt;/<span style="color:#000080">template</span>&gt;
 &lt;/<span style="color:#000080">furo-data-flow-repeat</span>&gt;
 </code></pre></td></tr></table>
@@ -1662,8 +1662,8 @@ https://github.com/alex-shpak/hugo-book
   Available attributes
   <a class="anchor" href="#available-attributes">#</a>
 </h2>
-<p><strong>index</strong> contains the current index of the item. Use this to fire a event with an index like <code>@-click=&quot;^^item-clicked(index)&quot;</code>
-<strong>item</strong> contains the current index of the item. Use this to fire a event with the repeated item like <code>@-click=&quot;^^item-selected(item)&quot;</code></p>
+<p><strong>index</strong> contains the current index of the item. Use this to fire a event with an index like <code>at-click=&quot;^^item-clicked(index)&quot;</code>
+<strong>item</strong> contains the current index of the item. Use this to fire a event with the repeated item like <code>at-click=&quot;^^item-selected(item)&quot;</code></p>
 <h2 id="attributes-and-properties">
   Attributes and Properties
   <a class="anchor" href="#attributes-and-properties">#</a>
@@ -1674,7 +1674,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p>default: <strong>false</strong></small></p>
 <p>Enable this to select the created item. This will trigger a wire <code>--itemSelected</code> which can be wired to
-<code>ƒ-focus=&quot;--itemSelected&quot;</code>.
+<code>fn-focus=&quot;--itemSelected&quot;</code>.
 <br><br></p>
 <h3 id="identitypath">
   <strong>identityPath</strong>
@@ -1694,7 +1694,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>bindData</strong>(<em>fieldNode</em> <code>RepeaterNode</code> ) ⟹ <code>boolean</code></small></p>
 <p><small><code>RepeaterNode</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span></p>
 <p>Bind a repeater node.</p>
 <p>If <code>identity-path</code> is not set, the list will be cleared every time it receives new data.</p>
 <ul>
@@ -1707,7 +1707,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>add</strong>(<em>data</em> <code>Object</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>Object</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-add</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-add</span></p>
 <p>Adds a repeated item of the same type.</p>
 <p>If  no object is set, a initial FieldNode of the same type is added to the repeats.</p>
 <ul>
@@ -1724,9 +1724,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/c04ab7616f64831cdf3e77f7e3823822d8800e1c" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

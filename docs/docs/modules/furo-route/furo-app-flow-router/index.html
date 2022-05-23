@@ -10,12 +10,12 @@
 <meta property="og:description" content="Application Flow =&amp;gt; routing" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow-router/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-app-flow-router | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1635,7 +1635,7 @@ https://github.com/alex-shpak/hugo-book
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">   &lt;<span style="color:#000080">app-flow-router</span> <span style="color:#008080">ƒ-</span><span style="color:#a61717;background-color:#e3d2d2">.</span><span style="color:#008080">config</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowConfigLoaded&#34;</span> <span style="color:#008080">ƒ-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowEvent&#34;</span> <span style="color:#008080">ƒ-back</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--wire&#34;</span> <span style="color:#008080">ƒ-forward</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--wire&#34;</span>&gt;&lt;/<span style="color:#000080">app-flow-router</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">   &lt;<span style="color:#000080">app-flow-router</span> <span style="color:#008080">set-config</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowConfigLoaded&#34;</span> <span style="color:#008080">fn-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--flowEvent&#34;</span> <span style="color:#008080">fn-back</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--wire&#34;</span> <span style="color:#008080">fn-forward</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--wire&#34;</span>&gt;&lt;/<span style="color:#000080">app-flow-router</span>&gt;
 </code></pre></td></tr></table>
 </div>
 </div><p>*Configuration Array</p>
@@ -1727,7 +1727,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#config">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">config</span>
-</small></p>
+<small><code>Array</code> </small></p>
 <p>The Configuration Array
 <br><br></p>
 <h3 id="display">
@@ -1752,7 +1752,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>__beforeReplaceState</strong>
   <a class="anchor" href="#__beforereplacestate">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-__beforeReplaceState</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-__beforeReplaceState</span>
 → <small><code>void</code></small></p>
 <p>Fired when before the state will be updated.
 <br><br></p>
@@ -1760,7 +1760,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>view-changed</strong>
   <a class="anchor" href="#view-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-view-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-view-changed</span>
 → <small><code>flowEvent</code></small></p>
 <p>Fired when page was changed.
 <br><br></p>
@@ -1768,7 +1768,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>event-not-found</strong>
   <a class="anchor" href="#event-not-found">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-event-not-found</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-event-not-found</span>
 → <small><code>flowEvent</code></small></p>
 <p>Fired when view was not found.
 <br><br></p>
@@ -1782,7 +1782,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>back</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-back</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-back</span></p>
 <p>trigger a history back</p>
 <p><br><br></p>
 <h3 id="forward">
@@ -1791,7 +1791,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>forward</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-forward</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-forward</span></p>
 <p>trigger a history forward</p>
 <p><br><br></p>
 <h3 id="setconfig">
@@ -1800,7 +1800,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>setConfig</strong>(<em>config</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-config</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-config</span></p>
 <p>Set the config</p>
 <ul>
 <li><small><em>config</em> </small>
@@ -1812,7 +1812,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>trigger</strong>(<em>flowEvent</em> `` ) ⟹ <code>boolean</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span></p>
 <p>Trigger the router</p>
 <ul>
 <li><small><em>flowEvent</em> </small>
@@ -1828,9 +1828,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

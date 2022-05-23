@@ -10,12 +10,12 @@
 <meta property="og:description" content="Document title" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-route/furo-document-title/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-document-title | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1669,9 +1669,9 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#000080">furo-document-title</span>
    <span style="color:#008080">prefix</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;${i18n.t(&#39;prefix.label&#39;)} [&#34;</span>
-   <span style="color:#008080">ƒ-bind-title</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--DataObject(*.display_name)&#34;</span>
+   <span style="color:#008080">fn-bind-title</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--DataObject(*.display_name)&#34;</span>
    <span style="color:#008080">suffix</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;]&#34;</span>
-   <span style="color:#008080">ƒ-set-waypoint</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageActivated&#34;</span>
+   <span style="color:#008080">fn-set-waypoint</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageActivated&#34;</span>
  &gt;&lt;/<span style="color:#000080">furo-document-title</span>&gt;
 </code></pre></td></tr></table>
 </div>
@@ -1685,7 +1685,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
   <a class="anchor" href="#prefix">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">prefix</span>
-<small><code>string</code> default: <strong>''</strong></small></p>
+<small><code>String</code> default: <strong>''</strong></small></p>
 <p>prefix part, you can also use <code>setPrefix()</code>.`
 <br><br></p>
 <h3 id="title">
@@ -1693,7 +1693,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
   <a class="anchor" href="#title">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">title</span>
-<small><code>string</code> default: <strong>''</strong></small></p>
+<small><code>String</code> default: <strong>''</strong></small></p>
 <p>Title part, you can also use <code>setTitle()</code> or <code>bindTitle().</code>
 <br><br></p>
 <h3 id="suffix">
@@ -1701,7 +1701,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
   <a class="anchor" href="#suffix">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">suffix</span>
-<small><code>string</code> default: <strong>''</strong></small></p>
+<small><code>String</code> default: <strong>''</strong></small></p>
 <p>Suffix part, you can also use <code>setSuffix()</code> or <code>bindSuffix().</code>
 <br><br></p>
 <h2 id="events">
@@ -1712,7 +1712,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
   <strong>waypoint-pushed</strong>
   <a class="anchor" href="#waypoint-pushed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-waypoint-pushed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-waypoint-pushed</span>
 → <small><code>Event</code></small></p>
 <p>Fired when the waypoint is finaly pushed to the browser history.
 <br><br></p>
@@ -1720,7 +1720,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
   <strong>waypoint-canceled</strong>
   <a class="anchor" href="#waypoint-canceled">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-waypoint-canceled</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-waypoint-canceled</span>
 → <small><code>Event</code></small></p>
 <p>Fired when the waypoint was set but not pushed to the history, because the user navigated back.
 <br><br></p>
@@ -1734,7 +1734,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 </h3>
 <p><small><strong>setWaypoint</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-waypoint</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-waypoint</span></p>
 <p><br><br></p>
 <h3 id="activate">
   <strong>activate</strong>
@@ -1742,7 +1742,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 </h3>
 <p><small><strong>activate</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-activate</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-activate</span></p>
 <p>Set the document title with the current prefix title suffix. Without setting a waypoint.</p>
 <p><br><br></p>
 <h3 id="setsuffix">
@@ -1751,7 +1751,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 </h3>
 <p><small><strong>setSuffix</strong>(<em>s</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-suffix</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-suffix</span></p>
 <p>Updates the suffix</p>
 <ul>
 <li><small><em>s</em> </small>
@@ -1763,7 +1763,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 </h3>
 <p><small><strong>setTitle</strong>(<em>title</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-title</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-title</span></p>
 <p>Updates the title</p>
 <ul>
 <li><small><em>title</em> string</small>
@@ -1775,7 +1775,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 </h3>
 <p><small><strong>bindSuffix</strong>(<em>fieldnode</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-suffix</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-suffix</span></p>
 <p>Bind a fieldnode to auto update the suffix</p>
 <ul>
 <li><small><em>fieldnode</em> </small>
@@ -1787,7 +1787,7 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 </h3>
 <p><small><strong>bindTitle</strong>(<em>fieldnode</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-title</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-title</span></p>
 <p>Bind a fieldnode to auto update the title</p>
 <ul>
 <li><small><em>fieldnode</em> </small>
@@ -1803,9 +1803,9 @@ To return to the last waypoint within your app, you have to trigger a <code>hist
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

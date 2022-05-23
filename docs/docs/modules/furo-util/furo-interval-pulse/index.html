@@ -10,12 +10,12 @@
 <meta property="og:description" content="trigger an event in intervals" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-interval-pulse/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-interval-pulse | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1618,7 +1618,7 @@ https://github.com/alex-shpak/hugo-book
   furo-interval-pulse
   <a class="anchor" href="#furo-interval-pulse">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.0.6</small>
+<p><strong>@furo/util</strong> <small>v2.0.7</small>
 <br><code>import '@furo/util/src/furo-interval-pulse.js';</code><small>
 <br>exports <code>&lt;furo-interval-pulse&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em></small>
@@ -1634,7 +1634,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#interval">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">interval</span>
-<small><code>number</code> default: <strong>200</strong></small></p>
+<small><code>Number</code> default: <strong>200</strong></small></p>
 <p>Duration of a tact in ms.
 <br><br></p>
 <h3 id="takt">
@@ -1642,7 +1642,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#takt">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">takt</span>
-<small><code>number</code> default: <strong>4</strong></small></p>
+<small><code>Number</code> default: <strong>4</strong></small></p>
 <p>Number of ticks per tact.
 <br><br></p>
 <h3 id="auto">
@@ -1650,7 +1650,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#auto">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">auto</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Starts interval automatically
 <br><br></p>
 <h2 id="events">
@@ -1661,7 +1661,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>tick</strong>
   <a class="anchor" href="#tick">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-tick</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-tick</span>
 → <small><code>Number</code></small></p>
 <p>Fired on every interval with the position of the pulse starting at 0.
 <br><br></p>
@@ -1669,7 +1669,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>tock</strong>
   <a class="anchor" href="#tock">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-tock</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-tock</span>
 → <small><code>Number</code></small></p>
 <p>Fired nth interval defined by takt.
 <br><br></p>
@@ -1683,7 +1683,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>start</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-start</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-start</span></p>
 <p>Starts the pulsing.</p>
 <p><br><br></p>
 <h3 id="stop">
@@ -1692,7 +1692,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>stop</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-stop</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-stop</span></p>
 <p>Stops the pulsing.</p>
 <p><br><br></p>
 </article>
@@ -1705,9 +1705,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

@@ -10,12 +10,12 @@
 <meta property="og:description" content="write content to clipboard" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-put-clipboard/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-put-clipboard | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1615,7 +1615,7 @@ https://github.com/alex-shpak/hugo-book
   furo-put-clipboard
   <a class="anchor" href="#furo-put-clipboard">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.0.6</small>
+<p><strong>@furo/util</strong> <small>v2.0.7</small>
 <br><code>import '@furo/util/src/furo-put-clipboard.js';</code><small>
 <br>exports <code>&lt;furo-put-clipboard&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em></small>
@@ -1635,7 +1635,7 @@ put content to the clipboard of the OS.</p>
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">
 &lt;<span style="color:#000080">furo-put-clipboard</span>
     <span style="color:#008080">json</span>
-    <span style="color:#008080">ƒ-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-content-put</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--contentInClipboard&#34;</span>
+    <span style="color:#008080">fn-trigger</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--data&#34;</span> <span style="color:#008080">at-content-put</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--contentInClipboard&#34;</span>
     &gt;&lt;/<span style="color:#000080">furo-put-clipboard</span>&gt;
 
 </code></pre></td></tr></table>
@@ -1649,7 +1649,7 @@ put content to the clipboard of the OS.</p>
   <a class="anchor" href="#json">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">json</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.
 <br><br></p>
 <h2 id="events">
@@ -1660,7 +1660,7 @@ put content to the clipboard of the OS.</p>
   <strong>content-put</strong>
   <a class="anchor" href="#content-put">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-content-put</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-content-put</span>
 → <small><code>*</code></small></p>
 <p>Fired when content is written to clipboard
 <br><br></p>
@@ -1674,7 +1674,7 @@ put content to the clipboard of the OS.</p>
 </h3>
 <p><small><strong>setData</strong>(<em>data</em> <code>Object</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>Object</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-data</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-data</span></p>
 <p>Set data that you want to put to clipboard.</p>
 <ul>
 <li><small><em>data</em> Serializable data to put</small>
@@ -1686,7 +1686,7 @@ put content to the clipboard of the OS.</p>
 </h3>
 <p><small><strong>trigger</strong>(<em>data</em> <code>Object|null</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>Object|null</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span></p>
 <p>Write data to the clipboard</p>
 <p>If you trigger without data, the data which sas set with <code>setData</code> will be written to the clipboard.</p>
 <ul>
@@ -1703,9 +1703,9 @@ put content to the clipboard of the OS.</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

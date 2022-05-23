@@ -49,7 +49,7 @@ Custom element to repeat Arrays. The repeated items are injected before the flow
       <description>DOMFBP #  @furo/furo-fbp v6.3.1 import &#39;@furo/fbp/src/DOMFBP.js&#39;; exports DOMFBP js extends src/DOMFBP.js mixes FBP
  DOMFBP allows you to append FBP to any dom element.
 Usage:
-1 2 3 4  import {DOMFBP} from &amp;#39;@furo/fbp/src/DOMFBP.js&amp;#39;; // append fbp to the body new DOMFBP(document.body);   Attributes and Properties #  Methods #  </description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt; &amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; import(&amp;#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/DOMFBP.js&amp;#34;).then(() =&amp;gt; { // activate FBP on body  const fbphandle = new DOMFBP(document.</description>
     </item>
     
     <item>

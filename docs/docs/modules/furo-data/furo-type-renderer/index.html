@@ -5,17 +5,17 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="type rendering">
+<meta name="description" content="dynamic type rendering">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="furo-type-renderer" />
-<meta property="og:description" content="type rendering" />
+<meta property="og:description" content="dynamic type rendering" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:05:45+02:00" />
 <title>furo-type-renderer | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1613,12 +1613,12 @@ https://github.com/alex-shpak/hugo-book
   furo-type-renderer
   <a class="anchor" href="#furo-type-renderer">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-type-renderer.js';</code><small>
 <br>exports <code>&lt;furo-type-renderer&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
 <br> mixes <em>FBP</em></small>
-<br><small>summary <em>type rendering</em></small></p>
+<br><small>summary <em>dynamic type rendering</em></small></p>
 <p>The furo-type-renderer is used to display type specific data. It uses <strong>display</strong> as default context and will warn you
 on the console if the requested <code>context-[type-name]</code> does not exist or was not imported.</p>
 <p>There is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.</p>
@@ -1661,7 +1661,7 @@ context-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000080">furo-type-renderer</span> <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dao(*.data.fieldname)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-type-renderer</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000080">furo-type-renderer</span> <span style="color:#008080">fn-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dao(*.data.fieldname)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-type-renderer</span>&gt;
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="writing-your-own-renderer">
@@ -1679,7 +1679,7 @@ You just have to follow the naming convention for your renderer.</p>
   <a class="anchor" href="#context">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">context</span>
-<small><code>string</code> default: <strong>'display'</strong></small></p>
+<small><code>String</code> default: <strong>'display'</strong></small></p>
 <p>Set the context if you need another then display.
 Prebuilt context renderers exist for display, cell, celledit.
 <br><br></p>
@@ -1688,7 +1688,7 @@ Prebuilt context renderers exist for display, cell, celledit.
   <a class="anchor" href="#disabled">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">disabled</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>A Boolean attribute which, if present, means this field is displayed in disabled state.
 <br><br></p>
 <h2 id="methods">
@@ -1699,13 +1699,12 @@ Prebuilt context renderers exist for display, cell, celledit.
   <strong>bindData</strong>
   <a class="anchor" href="#binddata">#</a>
 </h3>
-<p><small><strong>bindData</strong>(<em>fieldNode</em> `` ) ⟹ <code>void</code></small></p>
-<p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span></p>
-<p>Evaluates the component name
-Special treatment for google.protobuf.Any</p>
+<p><small><strong>bindData</strong>(<em>fieldNode</em> <code>FieldNode</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>FieldNode</code> </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span></p>
+<p>Bind a fieldnode of any type</p>
 <ul>
-<li><small><em>fieldNode</em> </small>
+<li><small><em>fieldNode</em> Fieldnode of any type</small>
 <br><br></li>
 </ul>
 </article>
@@ -1718,9 +1717,9 @@ Special treatment for google.protobuf.Any</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a88beeeffec257b5c9e67083983a7e090f970006" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

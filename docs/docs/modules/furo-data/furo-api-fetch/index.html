@@ -10,12 +10,12 @@
 <meta property="og:description" content="fetch data from network" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T10:30:29+02:00" />
 <title>furo-api-fetch | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1627,7 +1627,7 @@ https://github.com/alex-shpak/hugo-book
   furo-api-fetch
   <a class="anchor" href="#furo-api-fetch">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-api-fetch.js';</code><small>
 <br>exports <code>&lt;furo-api-fetch&gt;</code> custom-element-definition
 <br>superclass <em>HTMLElement</em></small>
@@ -1638,7 +1638,7 @@ https://github.com/alex-shpak/hugo-book
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-api-fetch</span> <span style="color:#008080">ƒ-invoke-request</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--Request&#34;</span>&gt;&lt;/<span style="color:#000080">furo-api-fetch</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-api-fetch</span> <span style="color:#008080">fn-invoke-request</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--Request&#34;</span>&gt;&lt;/<span style="color:#000080">furo-api-fetch</span>&gt;
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="attributes-and-properties">
@@ -1669,7 +1669,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>fatal-error</strong>
   <a class="anchor" href="#fatal-error">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-fatal-error</span>
 → <small><code>Request</code></small></p>
 <p>Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
 <br><br></p>
@@ -1677,7 +1677,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>request-started</strong>
   <a class="anchor" href="#request-started">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-started</span>
 → <small><code>Request</code></small></p>
 <p>Fired when a request is sent.
 <br><br></p>
@@ -1685,7 +1685,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>request-aborted</strong>
   <a class="anchor" href="#request-aborted">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-aborted</span>
 → <small><code>Request</code></small></p>
 <p>Fired when a request was canceled.
 <br><br></p>
@@ -1693,7 +1693,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>response-raw</strong>
   <a class="anchor" href="#response-raw">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-raw</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a response is received.
 <br><br></p>
@@ -1701,7 +1701,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>response</strong>
   <a class="anchor" href="#response">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a response is received. Here you will get the parsed response Format depends on request header <code>content-type</code> supported types: - text/plain - application/json - image/jpeg (Blob) - application/octet-stream (ArrayBuffer) - application/pdf (Blob)
 <br><br></p>
@@ -1709,14 +1709,14 @@ then lastResponse will correspond to the result of the previous request.
   <strong>parse-error</strong>
   <a class="anchor" href="#parse-error">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-parse-error</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-parse-error</span>
 → <small><code>CustomEvent</code></small></p>
 <p><br><br></p>
 <h3 id="response-error-raw">
   <strong>response-error-raw</strong>
   <a class="anchor" href="#response-error-raw">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-raw</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a error has occoured.
 <br><br></p>
@@ -1724,7 +1724,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>response-error</strong>
   <a class="anchor" href="#response-error">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
 <br><br></p>
@@ -1732,14 +1732,14 @@ then lastResponse will correspond to the result of the previous request.
   ****
   <a class="anchor" href="#heading">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-</span>
 → <small><code>CustomEvent</code></small></p>
 <p><br><br></p>
 <h3 id="response-error-status-code">
   <strong>response-error-[status-code]</strong>
   <a class="anchor" href="#response-error-status-code">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-[status-code]</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a specific error event.
 <br><br></p>
@@ -1747,7 +1747,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>response-error-4xx</strong>
   <a class="anchor" href="#response-error-4xx">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-4xx</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br></p>
@@ -1755,7 +1755,7 @@ then lastResponse will correspond to the result of the previous request.
   <strong>response-error-5xx</strong>
   <a class="anchor" href="#response-error-5xx">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-5xx</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br></p>
@@ -1769,7 +1769,7 @@ then lastResponse will correspond to the result of the previous request.
 </h3>
 <p><small><strong>invokeRequest</strong>(<em>request</em> <code>Request</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>Request</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-invoke-request</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-invoke-request</span></p>
 <p>Sends a HTTP request to the server</p>
 <ul>
 <li><small><em>request</em> (The Request interface of the Fetch API represents a resource request.) <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request">https://developer.mozilla.org/en-US/docs/Web/API/Request</a></small>
@@ -1781,7 +1781,7 @@ then lastResponse will correspond to the result of the previous request.
 </h3>
 <p><small><strong>abortRequest</strong>(<em>controller</em> <code>AbortController</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>AbortController</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abort-request</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abort-request</span></p>
 <p>Aborts a pending request
 You have to submit an AbortController</p>
 <ul>
@@ -1799,9 +1799,9 @@ You have to submit an AbortController</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/c04ab7616f64831cdf3e77f7e3823822d8800e1c" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

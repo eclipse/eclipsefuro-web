@@ -10,12 +10,12 @@
 <meta property="og:description" content="interface component to handle entity requests" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:05:45+02:00" />
 <title>furo-entity-agent | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1647,7 +1647,7 @@ https://github.com/alex-shpak/hugo-book
   furo-entity-agent
   <a class="anchor" href="#furo-entity-agent">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-entity-agent.js';</code><small>
 <br>exports <code>&lt;furo-entity-agent&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
@@ -1678,17 +1678,17 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  --&gt;</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  --&gt;</span>
 &lt;<span style="color:#000080">furo-entity-agent</span>
   <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ProjectService&#34;</span>
-  <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response&#34;</span>
+  <span style="color:#008080">fn-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span> <span style="color:#008080">at-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response&#34;</span>
   &gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
 
 
-<span style="color:#998;font-style:italic">&lt;!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready --&gt;</span>
+<span style="color:#998;font-style:italic">&lt;!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready --&gt;</span>
 &lt;<span style="color:#000080">furo-data-object</span>
   <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;project.ProjectEntity&#34;</span>
-  <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response&#34;</span>
+  <span style="color:#008080">fn-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response&#34;</span>
   &gt;&lt;/<span style="color:#000080">furo-data-object</span>&gt;
 </code></pre></td></tr></table>
 </div>
@@ -1701,7 +1701,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <a class="anchor" href="#service">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>Name des Services
 <br><br></p>
 <h3 id="loadonhtsin">
@@ -1709,7 +1709,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <a class="anchor" href="#loadonhtsin">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">load-on-hts-in</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>triggers a load when link rel=&ldquo;self&rdquo; is in the injected hts (after hts-injected is fired)
 <br><br></p>
 <h3 id="appendupdatemaskqp">
@@ -1717,7 +1717,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <a class="anchor" href="#appendupdatemaskqp">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">with-update-mask</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Creates the query param update mask according to the google api design guidelines.</p>
 <p>Your update service must have a query param <strong>update_mask</strong> to use this feature.</p>
 <p><a href="https://cloud.google.com/apis/design/standard_methods#update">https://cloud.google.com/apis/design/standard_methods#update</a></p>
@@ -1732,7 +1732,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response-hts-updated</strong>
   <a class="anchor" href="#response-hts-updated">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-hts-updated</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-hts-updated</span>
 → <small><code>hts</code></small></p>
 <p>Fired when hts was updated from the response.
 <br><br></p>
@@ -1740,7 +1740,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>load-success</strong>
   <a class="anchor" href="#load-success">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-load-success</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-load-success</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>load()</code> was successful.
 <br><br></p>
@@ -1748,7 +1748,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>load-failed</strong>
   <a class="anchor" href="#load-failed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-load-failed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-load-failed</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>load()</code> was <strong>not</strong> successful.
 <br><br></p>
@@ -1756,7 +1756,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>delete-success</strong>
   <a class="anchor" href="#delete-success">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-delete-success</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-delete-success</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>delete()</code> was successful.
 <br><br></p>
@@ -1764,7 +1764,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>delete-failed</strong>
   <a class="anchor" href="#delete-failed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-delete-failed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-delete-failed</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>delete()</code> was <strong>not</strong> successful.
 <br><br></p>
@@ -1772,7 +1772,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>save-success</strong>
   <a class="anchor" href="#save-success">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-save-success</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-save-success</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>save()</code> was successful.
 <br><br></p>
@@ -1780,7 +1780,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>save-failed</strong>
   <a class="anchor" href="#save-failed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-save-failed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-save-failed</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>save()</code> was <strong>not</strong> successful.
 <br><br></p>
@@ -1788,7 +1788,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>put-success</strong>
   <a class="anchor" href="#put-success">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-put-success</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-put-success</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>update()</code> was successful.
 <br><br></p>
@@ -1796,7 +1796,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>put-failed</strong>
   <a class="anchor" href="#put-failed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-put-failed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-put-failed</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>update()</code> was <strong>not</strong> successful.
 <br><br></p>
@@ -1804,7 +1804,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>create-success</strong>
   <a class="anchor" href="#create-success">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-create-success</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-create-success</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>create()</code> was successful.
 <br><br></p>
@@ -1812,7 +1812,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>create-failed</strong>
   <a class="anchor" href="#create-failed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-create-failed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-create-failed</span>
 → <small><code>response</code></small></p>
 <p>Fired when <code>create()</code> was <strong>not</strong> successful.
 <br><br></p>
@@ -1820,7 +1820,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>hts-updated</strong>
   <a class="anchor" href="#hts-updated">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-updated</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-updated</span>
 → <small><code>{Array|HATEOAS}</code></small></p>
 <p>Fired when hateoas is updated from response.
 <br><br></p>
@@ -1828,7 +1828,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>hts-injected</strong>
   <a class="anchor" href="#hts-injected">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-injected</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-injected</span>
 → <small><code>Hateoas links</code></small></p>
 <p>Fired when hateoas is updated.
 <br><br></p>
@@ -1836,7 +1836,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>request-aborted</strong>
   <a class="anchor" href="#request-aborted">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-aborted</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-aborted</span>
 → <small><code>Request</code></small></p>
 <p>Fired when a request was canceled.
 <br><br></p>
@@ -1844,7 +1844,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>request-started</strong>
   <a class="anchor" href="#request-started">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-request-started</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-request-started</span>
 → <small><code>Request</code></small></p>
 <p>Fired when a request is sent.
 <br><br></p>
@@ -1852,7 +1852,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response-raw</strong>
   <a class="anchor" href="#response-raw">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-raw</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-raw</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a response is received.
 <br><br></p>
@@ -1860,7 +1860,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response-error</strong>
   <a class="anchor" href="#response-error">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.
 <br><br></p>
@@ -1868,7 +1868,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response-error-[status-code]</strong>
   <a class="anchor" href="#response-error-status-code">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-[status-code]</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-[status-code]</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a specific error event.
 <br><br></p>
@@ -1876,7 +1876,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>fatal-error</strong>
   <a class="anchor" href="#fatal-error">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-fatal-error</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-fatal-error</span>
 → <small><code>Request</code></small></p>
 <p>Requests are made via the Fetch API if possible.Fallback XMLHttpRequest
 <br><br></p>
@@ -1884,7 +1884,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response-error-4xx</strong>
   <a class="anchor" href="#response-error-4xx">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-4xx</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-4xx</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br></p>
@@ -1892,7 +1892,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response-error-5xx</strong>
   <a class="anchor" href="#response-error-5xx">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-5xx</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-5xx</span>
 → <small><code>Object</code></small></p>
 <p>Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx
 <br><br></p>
@@ -1900,7 +1900,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response-error-raw</strong>
   <a class="anchor" href="#response-error-raw">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response-error-raw</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response-error-raw</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a error has occoured.
 <br><br></p>
@@ -1908,7 +1908,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
   <strong>response</strong>
   <a class="anchor" href="#response">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-response</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-response</span>
 → <small><code>Object</code></small></p>
 <p>Fired when a response is received.
 <br><br></p>
@@ -1922,7 +1922,7 @@ If you want to send all data on PUT (without filtering readonly fields) set <cod
 </h3>
 <p><small><strong>updateQp</strong>(<em>qp</em> `` <em>key</em> <code>Object</code> ) ⟹ <code>void</code></small></p>
 <p><small>`` <code>Object</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-update-qp</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-update-qp</span></p>
 <p>Update query params
 a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p>
 <p>If the current value of the qp is not the same like the injected value, a qp-changed event will be fired</p>
@@ -1937,7 +1937,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>bindRequestData</strong>(<em>dataObject</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-request-data</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-request-data</span></p>
 <p>Binds a furo-data-object type. Use this if you want save data.</p>
 <ul>
 <li><small><em>dataObject</em> </small>
@@ -1949,7 +1949,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>clearQp</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-qp</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-qp</span></p>
 <p>clear the query params that you have setted before</p>
 <p><br><br></p>
 <h3 id="load">
@@ -1958,7 +1958,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>load</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-load</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-load</span></p>
 <p>loads the entity if hts is available</p>
 <p><br><br></p>
 <h3 id="delete">
@@ -1967,7 +1967,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>delete</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-delete</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-delete</span></p>
 <p>delete the entity if hts is available</p>
 <p><br><br></p>
 <h3 id="save">
@@ -1976,7 +1976,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>save</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-save</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-save</span></p>
 <p>loads the entity if hts is available</p>
 <p><br><br></p>
 <h3 id="put">
@@ -1985,7 +1985,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>put</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-put</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-put</span></p>
 <p>saves the entity with method put if hts is available</p>
 <p><br><br></p>
 <h3 id="create">
@@ -1994,7 +1994,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>create</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-create</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-create</span></p>
 <p>creating the entity if hts rel=&ldquo;create&rdquo; is available</p>
 <p><br><br></p>
 <h3 id="htsin">
@@ -2003,7 +2003,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>htsIn</strong>(<em>hts</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-hts-in</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-hts-in</span></p>
 <ul>
 <li><small><em>hts</em> </small>
 <br><br></li>
@@ -2014,7 +2014,7 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 </h3>
 <p><small><strong>abortPendingRequest</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abort-pending-request</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abort-pending-request</span></p>
 <p>Aborts a pending request</p>
 <p><br><br></p>
 </article>
@@ -2027,9 +2027,9 @@ a qp like {&ldquo;active&rdquo;:true} will just update the qp <em>active</em></p
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a88beeeffec257b5c9e67083983a7e090f970006" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

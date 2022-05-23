@@ -10,12 +10,12 @@
 <meta property="og:description" content="create query param object from HATEOAS" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:05:45+02:00" />
 <title>furo-reverse-deep-link | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1615,7 +1615,7 @@ https://github.com/alex-shpak/hugo-book
   furo-reverse-deep-link
   <a class="anchor" href="#furo-reverse-deep-link">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-reverse-deep-link.js';</code><small>
 <br>exports <code>&lt;furo-reverse-deep-link&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em></small>
@@ -1632,8 +1632,8 @@ https://github.com/alex-shpak/hugo-book
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-reverse-deep-link</span>
    <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-   <span style="color:#008080">rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;self&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-converted</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--queryParams&#34;</span>
-   <span style="color:#008080">ƒ-convert</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawEntityOrCollection, --linksArray, --linkObject&#34;</span>
+   <span style="color:#008080">rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;self&#34;</span> <span style="color:#008080">at-converted</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--queryParams&#34;</span>
+   <span style="color:#008080">fn-convert</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawEntityOrCollection, --linksArray, --linkObject&#34;</span>
 &gt;&lt;/<span style="color:#000080">furo-reverse-deep-link</span>&gt;
 </code></pre></td></tr></table>
 </div>
@@ -1646,7 +1646,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#service">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-<small><code>string</code> default: <strong>''</strong></small></p>
+<small><code>String</code> default: <strong>''</strong></small></p>
 <p>Name of service
 <br><br></p>
 <h3 id="rel">
@@ -1654,7 +1654,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#rel">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">rel</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>Optional rel to convert.</p>
 <p>Not needed if you inject a link object.</p>
 <p>If you insert an entity rel self is taken. If you insert a collection, rel list is used.
@@ -1667,7 +1667,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>converted</strong>
   <a class="anchor" href="#converted">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-converted</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-converted</span>
 → <small><code>QueryParams</code></small></p>
 <p>Fired when input was converted.
 <br><br></p>
@@ -1681,7 +1681,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>convert</strong>(<em>data</em> <code>object</code> ) ⟹ <code>object</code></small></p>
 <p><small><code>object</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-convert</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-convert</span></p>
 <p>converts the href of a LinkObject</p>
 <p>returns Error on undefined service</p>
 <ul>
@@ -1698,9 +1698,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a88beeeffec257b5c9e67083983a7e090f970006" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

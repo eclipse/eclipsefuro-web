@@ -10,12 +10,12 @@
 <meta property="og:description" content="flow based handler for feature toggles" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-feature-toggle/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-feature-toggle | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1617,7 +1617,7 @@ https://github.com/alex-shpak/hugo-book
   furo-feature-toggle
   <a class="anchor" href="#furo-feature-toggle">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.0.6</small>
+<p><strong>@furo/util</strong> <small>v2.0.7</small>
 <br><code>import '@furo/util/src/furo-feature-toggle.js';</code><small>
 <br>exports <code>&lt;furo-feature-toggle&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
@@ -1649,7 +1649,7 @@ Read more about feature toggles in the
 
 <span style="color:#998;font-style:italic">&lt;!-- observing key changes --&gt;</span>
 &lt;<span style="color:#000080">furo-feature-toggle</span>
-   <span style="color:#008080">key</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;feature.xxxx.yyy&#34;</span>  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-key-activated</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--fxyActivated&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-key-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--fxyChanged&#34;</span>&gt;
+   <span style="color:#008080">key</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;feature.xxxx.yyy&#34;</span>  <span style="color:#008080">at-key-activated</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--fxyActivated&#34;</span> <span style="color:#008080">at-key-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--fxyChanged&#34;</span>&gt;
    &lt;/<span style="color:#000080">furo-feature-toggle</span>&gt;
 
 </code></pre></td></tr></table>
@@ -1663,7 +1663,7 @@ Read more about feature toggles in the
   <a class="anchor" href="#key">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">key</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>Name of a feature toggle.
 <br><br></p>
 <h2 id="events">
@@ -1674,7 +1674,7 @@ Read more about feature toggles in the
   <strong>key-true</strong>
   <a class="anchor" href="#key-true">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-key-true</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-key-true</span>
 → <small><code>true</code></small></p>
 <p>Fired when the key is set to true or is true on init.
 <br><br></p>
@@ -1682,7 +1682,7 @@ Read more about feature toggles in the
   <strong>key-false</strong>
   <a class="anchor" href="#key-false">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-key-false</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-key-false</span>
 → <small><code>false</code></small></p>
 <p>Fired when the key is set to false or is false on init.
 <br><br></p>
@@ -1690,7 +1690,7 @@ Read more about feature toggles in the
   <strong>key-changed</strong>
   <a class="anchor" href="#key-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-key-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-key-changed</span>
 → <small><code>Boolean</code></small></p>
 <p>Fired on init and when the key changes its state.
 <br><br></p>
@@ -1704,7 +1704,7 @@ Read more about feature toggles in the
 </h3>
 <p><small><strong>setFalse</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-false</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-false</span></p>
 <p>Sets a feature key state to false.</p>
 <p><br><br></p>
 <h3 id="settrue">
@@ -1713,7 +1713,7 @@ Read more about feature toggles in the
 </h3>
 <p><small><strong>setTrue</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-true</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-true</span></p>
 <p>Sets a feature key state to true.</p>
 <p><br><br></p>
 </article>
@@ -1726,9 +1726,9 @@ Read more about feature toggles in the
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

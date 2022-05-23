@@ -5,43 +5,19 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RepeaterNode #  @furo/furo-data v2.2.1 import &#39;@furo/data/src/lib/RepeaterNode.js&#39;; exports RepeaterNode js superclass EventTreeNode
- Attributes and Properties #  _value #  default: tmp
-
-__specdefinitions #   
-_isRepeater #  default: true
-
-repeats #  default: []
-
-_spec #  default: spec
-
-_name #  default: fieldName
-
-clearListOnNewData #  default: false
-Set this to true to clear the list on new data instead updating the current list.">
+<meta name="description" content="RepeaterNode #  @furo/furo-data v2.2.2 import &#39;@furo/data/src/lib/RepeaterNode.js&#39;; exports RepeaterNode js superclass EventTreeNode
+ internal events #   before-repeated-field-changed, fired before new data is injected this-metas-changed, when the metas of a field changed repeat-became-valid, fired when all sub items are valid, after one was invalid before repeat-became-invalid, fired when one sub item switches to a invalid state repeated-fields-changed, fired when this or any child repeaters was changed (new data, add, remove) this-repeated-field-changed, fired when this repeater was changed (new data, add, remove) repeated-fields-all-removed fired when all nodes of a repeater was deleted this-repeated-field-removed, fired whe a node of this repeater was deleted this-node-field-deleted, fired when this node was deleted *node-field-deleted, fired when a child node was deleted repeated-fields-added, fired when a node on this or any child repeater was added this-repeated-field-added, fired when a node on this repeater was added  Attributes and Properties #  _value #  default: tmp">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="RepeaterNode" />
-<meta property="og:description" content="RepeaterNode #  @furo/furo-data v2.2.1 import &#39;@furo/data/src/lib/RepeaterNode.js&#39;; exports RepeaterNode js superclass EventTreeNode
- Attributes and Properties #  _value #  default: tmp
-
-__specdefinitions #   
-_isRepeater #  default: true
-
-repeats #  default: []
-
-_spec #  default: spec
-
-_name #  default: fieldName
-
-clearListOnNewData #  default: false
-Set this to true to clear the list on new data instead updating the current list." />
+<meta property="og:description" content="RepeaterNode #  @furo/furo-data v2.2.2 import &#39;@furo/data/src/lib/RepeaterNode.js&#39;; exports RepeaterNode js superclass EventTreeNode
+ internal events #   before-repeated-field-changed, fired before new data is injected this-metas-changed, when the metas of a field changed repeat-became-valid, fired when all sub items are valid, after one was invalid before repeat-became-invalid, fired when one sub item switches to a invalid state repeated-fields-changed, fired when this or any child repeaters was changed (new data, add, remove) this-repeated-field-changed, fired when this repeater was changed (new data, add, remove) repeated-fields-all-removed fired when all nodes of a repeater was deleted this-repeated-field-removed, fired whe a node of this repeater was deleted this-node-field-deleted, fired when this node was deleted *node-field-deleted, fired when a child node was deleted repeated-fields-added, fired when a node on this or any child repeater was added this-repeated-field-added, fired when a node on this repeater was added  Attributes and Properties #  _value #  default: tmp" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/RepeaterNode/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:05:45+02:00" />
 <title>RepeaterNode | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1610,6 +1586,7 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#internal-events">internal events</a></li>
     <li><a href="#attributes-and-properties">Attributes and Properties</a>
       <ul>
         <li><a href="#_value"><strong>_value</strong></a></li>
@@ -1655,11 +1632,29 @@ https://github.com/alex-shpak/hugo-book
   RepeaterNode
   <a class="anchor" href="#repeaternode">#</a>
 </h1>
-<p><strong>@furo/furo-data</strong> <small>v2.2.1</small>
+<p><strong>@furo/furo-data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/lib/RepeaterNode.js';</code><small>
 <br>exports <em>RepeaterNode</em> js
 <br>superclass <em>EventTreeNode</em></small></p>
 <hr>
+<h2 id="internal-events">
+  internal events
+  <a class="anchor" href="#internal-events">#</a>
+</h2>
+<ul>
+<li><em>before-repeated-field-changed</em>, fired before new data is injected</li>
+<li><em>this-metas-changed</em>, when the metas of a field changed</li>
+<li><em>repeat-became-valid</em>, fired when all sub items are valid, after one was invalid before</li>
+<li><em>repeat-became-invalid</em>, fired when one sub item switches to a invalid state</li>
+<li><em>repeated-fields-changed</em>, fired when this or any child repeaters was changed (new data, add, remove)</li>
+<li><em>this-repeated-field-changed</em>, fired when this repeater was changed (new data, add, remove)</li>
+<li><em>repeated-fields-all-removed</em> fired when all nodes of a repeater was deleted</li>
+<li><em>this-repeated-field-removed</em>, fired whe a node of this repeater was deleted</li>
+<li><em>this-node-field-deleted</em>, fired when this node was deleted</li>
+<li>*node-field-deleted, fired when a child node was deleted</li>
+<li><em>repeated-fields-added</em>, fired when a node on this or any child repeater was added</li>
+<li><em>this-repeated-field-added</em>, fired when a node on this repeater was added</li>
+</ul>
 <h2 id="attributes-and-properties">
   Attributes and Properties
   <a class="anchor" href="#attributes-and-properties">#</a>
@@ -1833,9 +1828,9 @@ we can return false here, because a repeater node is not created automatically</
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a88beeeffec257b5c9e67083983a7e090f970006" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 
@@ -1863,6 +1858,7 @@ we can return false here, because a repeater node is not created automatically</
       
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#internal-events">internal events</a></li>
     <li><a href="#attributes-and-properties">Attributes and Properties</a>
       <ul>
         <li><a href="#_value"><strong>_value</strong></a></li>

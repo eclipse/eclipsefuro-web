@@ -10,12 +10,12 @@
 <meta property="og:description" content="keyboard event filter" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-key-filter/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-key-filter | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1619,7 +1619,7 @@ https://github.com/alex-shpak/hugo-book
   furo-key-filter
   <a class="anchor" href="#furo-key-filter">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.0.6</small>
+<p><strong>@furo/util</strong> <small>v2.0.7</small>
 <br><code>import '@furo/util/src/furo-key-filter.js';</code><small>
 <br>exports <code>&lt;furo-key-filter&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
@@ -1638,9 +1638,9 @@ Allows only defined keyboard events to pass through</p>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. --&gt;</span>
-&lt;<span style="color:#000080">other-component</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-keydown</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--keydown(*)&#34;</span>&gt;&lt;/<span style="color:#000080">other-component</span>&gt;
+&lt;<span style="color:#000080">other-component</span> <span style="color:#008080">at-keydown</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--keydown(*)&#34;</span>&gt;&lt;/<span style="color:#000080">other-component</span>&gt;
 &lt;<span style="color:#000080">furo-key-filter</span>
-    <span style="color:#008080">ƒ-filter</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--keydown&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-matched</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--escapePressed&#34;</span>
+    <span style="color:#008080">fn-filter</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--keydown&#34;</span> <span style="color:#008080">at-matched</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--escapePressed&#34;</span>
     <span style="color:#008080">keys</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Escape&#34;</span>
     &gt;&lt;/<span style="color:#000080">furo-key-filter</span>&gt;
 </code></pre></td></tr></table>
@@ -1654,7 +1654,7 @@ Allows only defined keyboard events to pass through</p>
   <a class="anchor" href="#keys">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">keys</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>Coma separated list with allowed keys to pass. i.e &ldquo;Enter, ArrowUp&rdquo;
 <br><br></p>
 <h3 id="shift">
@@ -1662,7 +1662,7 @@ Allows only defined keyboard events to pass through</p>
   <a class="anchor" href="#shift">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">shift</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Modifier key <strong>shift</strong> must be pressed too to match
 <br><br></p>
 <h3 id="alt">
@@ -1670,7 +1670,7 @@ Allows only defined keyboard events to pass through</p>
   <a class="anchor" href="#alt">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">alt</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Modifier key <strong>alt</strong> must be pressed too to match
 <br><br></p>
 <h3 id="command">
@@ -1678,7 +1678,7 @@ Allows only defined keyboard events to pass through</p>
   <a class="anchor" href="#command">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">command</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Alias for meta.</p>
 <p>Modifier key <strong>meta</strong> must be pressed too to match.
 <br><br></p>
@@ -1687,7 +1687,7 @@ Allows only defined keyboard events to pass through</p>
   <a class="anchor" href="#meta">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">meta</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Modifier key <strong>meta</strong> must be pressed too to match
 <br><br></p>
 <h3 id="control">
@@ -1695,7 +1695,7 @@ Allows only defined keyboard events to pass through</p>
   <a class="anchor" href="#control">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">control</span>
-</small></p>
+<small><code>Boolean</code> </small></p>
 <p>Modifier key <strong>control</strong> must be pressed too to match
 <br><br></p>
 <h2 id="events">
@@ -1706,7 +1706,7 @@ Allows only defined keyboard events to pass through</p>
   <strong>matched</strong>
   <a class="anchor" href="#matched">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-matched</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-matched</span>
 → <small><code>KeyboardEvent</code></small></p>
 <p>Fired when key matches the options
 <br><br></p>
@@ -1720,7 +1720,7 @@ Allows only defined keyboard events to pass through</p>
 </h3>
 <p><small><strong>filter</strong>(<em>keyboardEvent</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-filter</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-filter</span></p>
 <p>Check the event and dispatch matched when the conditions are fulfilled.</p>
 <ul>
 <li><small><em>keyboardEvent</em> </small>
@@ -1736,9 +1736,9 @@ Allows only defined keyboard events to pass through</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

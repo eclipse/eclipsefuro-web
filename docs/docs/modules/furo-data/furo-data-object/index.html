@@ -10,12 +10,12 @@
 <meta property="og:description" content="Typed data object" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-data-object/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-data-object | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1631,7 +1631,7 @@ https://github.com/alex-shpak/hugo-book
   furo-data-object
   <a class="anchor" href="#furo-data-object">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-data-object.js';</code><small>
 <br>exports <em>FuroDataObject</em> js
 <br>exports <code>&lt;furo-data-object&gt;</code> custom-element-definition
@@ -1661,16 +1661,16 @@ transform incomming data to an object and vice versa. You can access the manipul
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> <span style="color:#998;font-style:italic">&lt;!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready --&gt;</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> <span style="color:#998;font-style:italic">&lt;!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready --&gt;</span>
  &lt;<span style="color:#000080">furo-data-object</span>
      <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;project.Project&#34;</span>
-     <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response(*.data)&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dataObject&#34;</span>&gt;&lt;/<span style="color:#000080">furo-data-object</span>&gt;
+     <span style="color:#008080">fn-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response(*.data)&#34;</span> <span style="color:#008080">at-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dataObject&#34;</span>&gt;&lt;/<span style="color:#000080">furo-data-object</span>&gt;
 
- <span style="color:#998;font-style:italic">&lt;!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  --&gt;</span>
+ <span style="color:#998;font-style:italic">&lt;!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  --&gt;</span>
  &lt;<span style="color:#000080">furo-entity-agent</span>
      <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ProjectService&#34;</span>
-     <span style="color:#008080">ƒ-save</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--saveClicked&#34;</span>
-     <span style="color:#008080">ƒ-bind-request-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dataObject&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response&#34;</span> &gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
+     <span style="color:#008080">fn-save</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--saveClicked&#34;</span>
+     <span style="color:#008080">fn-bind-request-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dataObject&#34;</span> <span style="color:#008080">at-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--response&#34;</span> &gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="attributes-and-properties">
@@ -1682,7 +1682,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <a class="anchor" href="#type">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">type</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>The name of the type you want to use. The type must be registered in Env
 <br><br></p>
 <h3 id="json">
@@ -1700,7 +1700,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>data-injected</strong>
   <a class="anchor" href="#data-injected">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-injected</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-injected</span>
 → <small>``</small></p>
 <p>Fired when injected data was processed (<strong>bubbles</strong>).
 <br><br></p>
@@ -1708,7 +1708,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>data-changed</strong>
   <a class="anchor" href="#data-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-changed</span>
 → <small><code>{Object|CollectionNode}</code></small></p>
 <p>Fired when data in furo-data-object has changed  (<strong>bubbles</strong>). This event fires a lot, consider using a de-bounce with the event.
 <br><br></p>
@@ -1716,7 +1716,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>data-changed-after-inject</strong>
   <a class="anchor" href="#data-changed-after-inject">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-changed-after-inject</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-changed-after-inject</span>
 → <small><code>{Object|CollectionNode}</code></small></p>
 <p>Fired when data in furo-data-object has changed after injectRaw is complete (<strong>bubbles</strong>). This event fires a lot, consider using a de-bounce with the event.
 <br><br></p>
@@ -1724,7 +1724,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>field-value-changed</strong>
   <a class="anchor" href="#field-value-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-field-value-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-field-value-changed</span>
 → <small><code>{Object} the field node</code></small></p>
 <p>Fired when a field has changed.
 <br><br></p>
@@ -1732,7 +1732,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>validation-success</strong>
   <a class="anchor" href="#validation-success">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-validation-success</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-validation-success</span>
 → <small><code>DataObject</code></small></p>
 <p>Fired when validation results in a valid state.
 <br><br></p>
@@ -1740,7 +1740,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>validation-failed</strong>
   <a class="anchor" href="#validation-failed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-validation-failed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-validation-failed</span>
 → <small><code>DataObject</code></small></p>
 <p>Fired when validation results in a invalid state.
 <br><br></p>
@@ -1748,7 +1748,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>data-object-became-invalid</strong>
   <a class="anchor" href="#data-object-became-invalid">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-object-became-invalid</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-object-became-invalid</span>
 → <small><code>{Object|EntityNode} reference to entity</code></small></p>
 <p>Fired when the data object switches from ininvalid to invalid state (<strong>bubbles</strong>).
 <br><br></p>
@@ -1756,7 +1756,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>data-object-became-valid</strong>
   <a class="anchor" href="#data-object-became-valid">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-data-object-became-valid</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-data-object-became-valid</span>
 → <small><code>{Object|EntityNode} reference to entity</code></small></p>
 <p>Fired when the data object switches from invalid to valid state (<strong>bubbles</strong>).
 <br><br></p>
@@ -1764,7 +1764,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>object-ready</strong>
   <a class="anchor" href="#object-ready">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-object-ready</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-object-ready</span>
 → <small><code>A EntityNode object</code></small></p>
 <p>Fired when the object defined by <code>type</code> is built (<strong>bubbles</strong>).
 <br><br></p>
@@ -1772,7 +1772,7 @@ transform incomming data to an object and vice versa. You can access the manipul
   <strong>init-completed</strong>
   <a class="anchor" href="#init-completed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-init-completed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-init-completed</span>
 → <small><code>A EntityNode object</code></small></p>
 <p>Fired when the object init was done (<strong>bubbles</strong>).
 <br><br></p>
@@ -1786,7 +1786,7 @@ transform incomming data to an object and vice versa. You can access the manipul
 </h3>
 <p><small><strong>injectRaw</strong>(<em>jsonObj</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-raw</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-raw</span></p>
 <p>inject a raw data response from the corresonding agent.</p>
 <p>Input may look something like this:</p>
 <p><strong>Entity data</strong></p>
@@ -1835,7 +1835,7 @@ transform incomming data to an object and vice versa. You can access the manipul
 </h3>
 <p><small><strong>setPristine</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-pristine</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-pristine</span></p>
 <p>Set all nodes to pristine</p>
 <p>Useful for working with deltas</p>
 <p><br><br></p>
@@ -1845,7 +1845,7 @@ transform incomming data to an object and vice versa. You can access the manipul
 </h3>
 <p><small><strong>clearAllErrors</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-all-errors</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-all-errors</span></p>
 <p>Clears all errors on children without any validation!</p>
 <p><br><br></p>
 <h3 id="validateallfields">
@@ -1854,7 +1854,7 @@ transform incomming data to an object and vice versa. You can access the manipul
 </h3>
 <p><small><strong>validateAllFields</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-validate-all-fields</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-validate-all-fields</span></p>
 <p>Triggers the validation of all fields in the data object.</p>
 <p>Use this before you submit some data to a server.</p>
 <p>Will cause a <code>data-object-became-valid</code> or <code>data-object-became-invalid</code> and a validation-success or validation-failed event.</p>
@@ -1865,7 +1865,7 @@ transform incomming data to an object and vice versa. You can access the manipul
 </h3>
 <p><small><strong>appendErrors</strong>(<em>grpcStatus</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-append-errors</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-append-errors</span></p>
 <p>Append errors from custom methods or other agents or sources to the data object.
 The error object must have a grpc status error signature like:</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -1906,7 +1906,7 @@ The error object must have a grpc status error signature like:</p>
 </h3>
 <p><small><strong>reset</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-reset</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-reset</span></p>
 <p>Reset the model to the last injected state.</p>
 <p>To set the model to the initial state use init</p>
 <p><br><br></p>
@@ -1916,7 +1916,7 @@ The error object must have a grpc status error signature like:</p>
 </h3>
 <p><small><strong>init</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-init</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-init</span></p>
 <p>Sets the model to an initial state according to the given type.</p>
 <p>fires <em>init-completed</em></p>
 <p>To reset changed data to the last injected state, please use reset();</p>
@@ -1927,7 +1927,7 @@ The error object must have a grpc status error signature like:</p>
 </h3>
 <p><small><strong>getData</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-get-data</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-get-data</span></p>
 <p>get the data of the data object</p>
 <p><br><br></p>
 </article>
@@ -1940,9 +1940,9 @@ The error object must have a grpc status error signature like:</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

@@ -10,12 +10,12 @@
 <meta property="og:description" content="Custom element to allow using FBPs template features in repeated template" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-fbp/flow-repeat/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T10:30:29+02:00" />
 <title>flow-repeat | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1694,7 +1694,7 @@ Use events to interact with components outside of the template.</p>
   <strong>last-element-selected</strong>
   <a class="anchor" href="#last-element-selected">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-last-element-selected</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-last-element-selected</span>
 → <small><code>index of the element</code></small></p>
 <p>Fired when the last element is selected. Use this to trigger a load next.
 <br><br></p>
@@ -1702,7 +1702,7 @@ Use events to interact with components outside of the template.</p>
   <strong>items-in-dom</strong>
   <a class="anchor" href="#items-in-dom">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-items-in-dom</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-items-in-dom</span>
 → <small><code>Number</code></small></p>
 <p>Fired when items are attached to the dom, with Number of items.
 <br><br></p>
@@ -1716,7 +1716,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>clear</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear</span></p>
 <p>Clear the list</p>
 <p><br><br></p>
 <h3 id="select">
@@ -1725,7 +1725,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>select</strong>(<em>index</em> <code>int</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>int</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select</span></p>
 <p>Triggers the wire <code>--itemSelected</code> on selected item and <code>--itemDeSelected</code> on last selected Item.</p>
 <ul>
 <li><small><em>index</em> Index of item to select</small>
@@ -1737,7 +1737,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>selectIdentity</strong>(<em>identifier</em> <code>*</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>*</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select-identity</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select-identity</span></p>
 <p>Select item by its identity.</p>
 <p>Using this method only works when you have set the <code>identity-path</code>.</p>
 <ul>
@@ -1750,7 +1750,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>selectNextIndex</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select-next-index</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select-next-index</span></p>
 <p>Selects next index.  If none was selected, the first index will be selected.</p>
 <p>If you reached the last index, the first index will be selected.</p>
 <p>If you reach the last element, <code>last-element-selected</code> will fire.</p>
@@ -1762,7 +1762,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>selectPreviousIndex</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-select-previous-index</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-select-previous-index</span></p>
 <p>Selects the previous index.</p>
 <p>If you are on the first item, the last will be selected.</p>
 <p>Triggers the wire <code>--itemSelected</code> on selected item and <code>--itemDeSelected</code> on last selected Item</p>
@@ -1773,7 +1773,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>triggerSelected</strong>(<em>data</em> <code>*</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>*</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-selected</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-selected</span></p>
 <p>Triggers the currently selected item.</p>
 <p>Triggers the wire <code>--trigger</code> on the every item.</p>
 <p>Triggers the wire <code>--triggerIndex</code> on the every item.</p>
@@ -1787,7 +1787,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>triggerAll</strong>(<em>data</em> <code>*</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>*</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-all</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-all</span></p>
 <p>Triggers all nodes.</p>
 <p>Triggers the wire <code>--trigger</code> on the every item.</p>
 <p>Triggers the wire <code>--triggerIndex</code> on the every item.</p>
@@ -1801,7 +1801,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>deselect</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-deselect</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-deselect</span></p>
 <p>Triggers the wire <code>--itemDeSelected</code> on the last selected item</p>
 <p><br><br></p>
 <h3 id="setinsertref">
@@ -1810,7 +1810,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>setInsertRef</strong>(<em>ref</em> <code>DomNode</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>DomNode</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-insert-ref</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-insert-ref</span></p>
 <p>Set a reference to append the repeated elements in to the ref instead of appending them before the repeater itself.</p>
 <ul>
 <li><small><em>ref</em> Node to append the repeated items.</small>
@@ -1822,7 +1822,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>deselectAll</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-deselect-all</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-deselect-all</span></p>
 <p>Triggers the wire <code>--itemDeSelected</code> on all items</p>
 <p><br><br></p>
 <h3 id="injectitems">
@@ -1831,7 +1831,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>injectItems</strong>(<em>items</em> <code>Array</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>Array</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-inject-items</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-inject-items</span></p>
 <p>Inject items to repeat.</p>
 <ul>
 <li><small><em>items</em> Items to repeat</small>
@@ -1843,7 +1843,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>triggerFirst</strong>(<em>data</em> <code>*</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>*</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-first</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-first</span></p>
 <p>Triggers the wire <code>--trigger</code> on the first item.</p>
 <p>Triggers the wire &ndash;triggerFirst on the first item.</p>
 <ul>
@@ -1856,7 +1856,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>triggerLast</strong>(<em>data</em> <code>*</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>*</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-last</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-last</span></p>
 <p>Triggers the wire <code>--trigger</code> on the last item.</p>
 <p>Triggers the wire &ndash;triggerLast on the last item.</p>
 <ul>
@@ -1869,7 +1869,7 @@ Use events to interact with components outside of the template.</p>
 </h3>
 <p><small><strong>triggerIndex</strong>(<em>i</em> <code>int</code> <em>data</em> <code>*</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>int</code> <code>*</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger-index</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger-index</span></p>
 <p>Triggers the wire <code>--trigger</code> on the  item.</p>
 <p>Triggers the wire <code>--triggerIndex</code> on the  item.</p>
 <ul>
@@ -1887,9 +1887,9 @@ Use events to interact with components outside of the template.</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/c04ab7616f64831cdf3e77f7e3823822d8800e1c" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

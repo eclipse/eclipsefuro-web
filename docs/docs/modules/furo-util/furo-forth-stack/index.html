@@ -10,12 +10,12 @@
 <meta property="og:description" content="forth like stack" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-forth-stack/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T10:30:29+02:00" />
 <title>furo-forth-stack | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1625,7 +1625,7 @@ https://github.com/alex-shpak/hugo-book
   furo-forth-stack
   <a class="anchor" href="#furo-forth-stack">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.0.6</small>
+<p><strong>@furo/util</strong> <small>v2.0.7</small>
 <br><code>import '@furo/util/src/furo-forth-stack.js';</code><small>
 <br>exports <em>FuroForthStack</em> js
 <br>exports <code>&lt;furo-forth-stack&gt;</code> custom-element-definition
@@ -1654,7 +1654,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>stack-size-changed</strong>
   <a class="anchor" href="#stack-size-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-size-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-size-changed</span>
 → <small><code>Number</code></small></p>
 <p>Fired when the stack size changes with Integer with the current size of the stack.
 <br><br></p>
@@ -1662,7 +1662,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>rotated</strong>
   <a class="anchor" href="#rotated">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-rotated</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-rotated</span>
 → <small><code>the top element</code></small></p>
 <p>Fired when stack was rotated
 <br><br></p>
@@ -1670,7 +1670,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>stack-changed</strong>
   <a class="anchor" href="#stack-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-changed</span>
 → <small><code>the top element</code></small></p>
 <p>Fired when the stack contents changes after put, drop,&hellip;
 <br><br></p>
@@ -1678,7 +1678,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>swapped</strong>
   <a class="anchor" href="#swapped">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-swapped</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-swapped</span>
 → <small><code>void</code></small></p>
 <p>Fired when stack was swapped
 <br><br></p>
@@ -1686,7 +1686,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>empty</strong>
   <a class="anchor" href="#empty">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-empty</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-empty</span>
 → <small><code>void</code></small></p>
 <p>Fired when stack gets empty
 <br><br></p>
@@ -1700,7 +1700,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>clearStack</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-stack</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-stack</span></p>
 <p>Empties the stack and set the stack-size to 0</p>
 <p><br><br></p>
 <h3 id="put">
@@ -1709,7 +1709,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>put</strong>(<em>e</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-put</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-put</span></p>
 <p>Add an element to the stack</p>
 <ul>
 <li><small><em>e</em> </small>
@@ -1721,7 +1721,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>swap</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-swap</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-swap</span></p>
 <p>swap <strong>( n1 n2 &ndash; n2 n1 )</strong></p>
 <p>swap, as you may have guessed, swaps the top two elements of the stack. For example:</p>
 <p>1 2 3 4 swap
@@ -1734,7 +1734,7 @@ will give you:</p>
 </h3>
 <p><small><strong>drop</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-drop</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-drop</span></p>
 <p>drop <strong>( n &ndash; )</strong></p>
 <p>drop simply drops the top element of the stack. Running:</p>
 <p>1 2 3 drop
@@ -1747,7 +1747,7 @@ gives you a stack of:</p>
 </h3>
 <p><small><strong>dup</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-dup</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-dup</span></p>
 <p>dup <strong>( n &ndash; n n )</strong></p>
 <pre><code>dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:
 
@@ -1764,7 +1764,7 @@ You should end up with the following stack:
 </h3>
 <p><small><strong>over</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-over</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-over</span></p>
 <p>over <strong>( n1 n2 &ndash; n1 n2 n1 )</strong></p>
 <p>over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:</p>
 <p>1 2 3 over
@@ -1777,7 +1777,7 @@ will result in this:</p>
 </h3>
 <p><small><strong>rot</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rot</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rot</span></p>
 <p>rot <strong>( n1 n2 n3 &ndash; n2 n3 n1 )</strong></p>
 <p>Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.</p>
 <p>1 2 3 rot
@@ -1790,7 +1790,7 @@ gives you:</p>
 </h3>
 <p><small><strong>rrot</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rrot</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rrot</span></p>
 <p>rrot <strong>( n1 n2 n3 &ndash; n3 n1 n2 )</strong></p>
 <p>Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.
 The top elemen the stack gets moved to the bottom of the stack.</p>
@@ -1808,9 +1808,9 @@ gives you:</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/c04ab7616f64831cdf3e77f7e3823822d8800e1c" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

@@ -10,12 +10,12 @@
 <meta property="og:description" content="interact with single field of a data object" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T11:40:05+02:00" />
 <title>furo-entity-field | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1615,19 +1615,19 @@ https://github.com/alex-shpak/hugo-book
   furo-entity-field
   <a class="anchor" href="#furo-entity-field">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-entity-field.js';</code><small>
 <br>exports <code>&lt;furo-entity-field&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em></small>
 <br><small>summary <em>interact with single field of a data object</em></small></p>
-<p>Use this component to interact with fields from an furo-data-object.</p>
+<p>Use this component to interact with fields from a furo-data-object.</p>
 <p>You can update the field value or listen to changes of a field.</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-entity-field</span> <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dataObject(*.field)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-field</span>&gt;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-entity-field</span> <span style="color:#008080">fn-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--dataObject(*.field)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-field</span>&gt;
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="attributes-and-properties">
@@ -1639,7 +1639,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#value">#</a>
 </h3>
 </small>
-<p>Setter
+<p>Set a value to update the fieldnode
 <br><br></p>
 <h2 id="events">
   Events
@@ -1649,7 +1649,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>value-changed</strong>
   <a class="anchor" href="#value-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-value-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-value-changed</span>
 → <small><code>*</code></small></p>
 <p>Fired when the field value or a child value of it was changed.
 <br><br></p>
@@ -1661,12 +1661,12 @@ https://github.com/alex-shpak/hugo-book
   <strong>setValue</strong>
   <a class="anchor" href="#setvalue">#</a>
 </h3>
-<p><small><strong>setValue</strong>(<em>v</em> `` ) ⟹ <code>void</code></small></p>
-<p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-value</span></p>
+<p><small><strong>setValue</strong>(<em>value</em> <code>*</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>*</code> </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-value</span></p>
 <p>Set the value of the field.</p>
 <ul>
-<li><small><em>v</em> </small>
+<li><small><em>value</em> </small>
 <br><br></li>
 </ul>
 <h3 id="binddata">
@@ -1675,9 +1675,9 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>bindData</strong>(<em>fieldNode</em> <code>Object|FieldNode</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>Object|FieldNode</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-bind-data</span></p>
-<p>Bind a entity field to the date-input. You can use the entity even when no data was received.
-When you use <code>@-object-ready</code> from a <code>furo-data-object</code> which emits a EntityNode, just bind the field with <code>--entity(*.fields.fieldname)</code></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-data</span></p>
+<p>Bind a FieldNode to the date-input.</p>
+<p><code>--personDO(*.person.firstname)</code></p>
 <ul>
 <li><small><em>fieldNode</em> a Field object</small>
 <br><br></li>
@@ -1692,9 +1692,9 @@ When you use <code>@-object-ready</code> from a <code>furo-data-object</code> wh
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/69699804c6f5104547f83b323c1f4b5c56a03b2e" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

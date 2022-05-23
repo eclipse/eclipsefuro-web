@@ -10,12 +10,12 @@
 <meta property="og:description" content="Resolve deep links HATEOAS based on  query params" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:05:45+02:00" />
 <title>furo-deep-link | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1616,7 +1616,7 @@ https://github.com/alex-shpak/hugo-book
   furo-deep-link
   <a class="anchor" href="#furo-deep-link">#</a>
 </h1>
-<p><strong>@furo/data</strong> <small>v2.2.1</small>
+<p><strong>@furo/data</strong> <small>v2.2.2</small>
 <br><code>import '@furo/data/src/furo-deep-link.js';</code><small>
 <br>exports <code>&lt;furo-deep-link&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em></small>
@@ -1633,7 +1633,7 @@ Resolve deep links HATEOAS based on the query params and the selected service.</
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-deep-link</span>
  <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
- <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageQueryChanged(*.query)&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--serviceHTS&#34;</span>&gt;
+ <span style="color:#008080">fn-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageQueryChanged(*.query)&#34;</span> <span style="color:#008080">at-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--serviceHTS&#34;</span>&gt;
  &lt;/<span style="color:#000080">furo-deep-link</span>&gt;
 </code></pre></td></tr></table>
 </div>
@@ -1661,7 +1661,7 @@ Init.registerApiTypes(Types);
   <a class="anchor" href="#service">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-</small></p>
+<small><code>String</code> </small></p>
 <p>Name of the service
 <br><br></p>
 <h2 id="events">
@@ -1672,7 +1672,7 @@ Init.registerApiTypes(Types);
   <strong>hts-out</strong>
   <a class="anchor" href="#hts-out">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-hts-out</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-hts-out</span>
 → <small><code>[]HTSLinks</code></small></p>
 <p>Fired when hateoas is available
 <br><br></p>
@@ -1686,7 +1686,7 @@ Init.registerApiTypes(Types);
 </h3>
 <p><small><strong>qpIn</strong>(<em>queryParams</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-qp-in</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-qp-in</span></p>
 <p>Furo-deep-link consumes a object literal with key value pairs.</p>
 <p>This can come from the <code>*.query</code> part of an event from furo-location.</p>
 <p>Or from a furo-pages wire.</p>
@@ -1712,7 +1712,7 @@ Init.registerApiTypes(Types);
 </h3>
 <p><small><strong>trigger</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-trigger</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span></p>
 <p>Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
 This method have no effect as long _qp is not set.</p>
 <p><br><br></p>
@@ -1722,7 +1722,7 @@ This method have no effect as long _qp is not set.</p>
 </h3>
 <p><small><strong>setService</strong>(<em>serviceName</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-set-service</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-service</span></p>
 <p>Sets the service by wire</p>
 <ul>
 <li><small><em>serviceName</em> </small>
@@ -1738,9 +1738,9 @@ This method have no effect as long _qp is not set.</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a88beeeffec257b5c9e67083983a7e090f970006" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

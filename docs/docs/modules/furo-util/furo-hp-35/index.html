@@ -10,12 +10,12 @@
 <meta property="og:description" content="calculator component" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-hp-35/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T12:45:54+02:00" />
 <title>furo-hp-35 | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1650,7 +1650,7 @@ https://github.com/alex-shpak/hugo-book
   furo-hp-35
   <a class="anchor" href="#furo-hp-35">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.0.6</small>
+<p><strong>@furo/util</strong> <small>v2.0.7</small>
 <br><code>import '@furo/util/src/furo-hp-35.js';</code><small>
 <br>exports <code>&lt;furo-hp-35&gt;</code> custom-element-definition
 <br>extends <em>/src/furo-forth-stack.js</em>
@@ -1668,7 +1668,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#radmode">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">radMode</span>
-<small><code>boolean</code> default: <strong>false</strong></small></p>
+<small><code>Boolean</code> default: <strong>false</strong></small></p>
 <p>Set to true to use rad, default is deg
 <br><br></p>
 <h3 id="x">
@@ -1692,7 +1692,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#z">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">z</span>
-</small></p>
+<small><code>Number</code> </small></p>
 <p>current z
 <br><br></p>
 <h3 id="t">
@@ -1700,7 +1700,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#t">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">t</span>
-</small></p>
+<small><code>Number</code> </small></p>
 <p>current t
 <br><br></p>
 <h3 id="stack">
@@ -1708,7 +1708,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#stack">#</a>
 </h3>
 <p><span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">stack</span>
-</small></p>
+<small><code>Array</code> </small></p>
 <p>the stack.
 <br><br></p>
 <h3 id="size">
@@ -1726,7 +1726,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>stackchange</strong>
   <a class="anchor" href="#stackchange">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stackchange</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stackchange</span>
 → <small><code>void</code></small></p>
 <p>Fired when something in stack changes
 <br><br></p>
@@ -1734,7 +1734,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>stack-size-changed</strong>
   <a class="anchor" href="#stack-size-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-size-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-size-changed</span>
 → <small><code>Number</code></small></p>
 <p>Fired when the stack size changes with Integer with the current size of the stack.
 <br><br></p>
@@ -1742,7 +1742,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>rotated</strong>
   <a class="anchor" href="#rotated">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-rotated</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-rotated</span>
 → <small><code>the top element</code></small></p>
 <p>Fired when stack was rotated
 <br><br></p>
@@ -1750,7 +1750,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>stack-changed</strong>
   <a class="anchor" href="#stack-changed">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-stack-changed</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-stack-changed</span>
 → <small><code>the top element</code></small></p>
 <p>Fired when the stack contents changes after put, drop,&hellip;
 <br><br></p>
@@ -1758,7 +1758,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>swapped</strong>
   <a class="anchor" href="#swapped">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-swapped</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-swapped</span>
 → <small><code>void</code></small></p>
 <p>Fired when stack was swapped
 <br><br></p>
@@ -1766,7 +1766,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>empty</strong>
   <a class="anchor" href="#empty">#</a>
 </h3>
-<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">@-empty</span>
+<p><span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-empty</span>
 → <small><code>void</code></small></p>
 <p>Fired when stack gets empty
 <br><br></p>
@@ -1780,7 +1780,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>enter</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>void</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-enter</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-enter</span></p>
 <p>Enter a number</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1792,7 +1792,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>updateXYZT</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-update-xyzt</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-update-xyzt</span></p>
 <p><br><br></p>
 <h3 id="swap">
   <strong>swap</strong>
@@ -1800,7 +1800,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p><small><strong>swap</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-swap</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-swap</span></p>
 <p>swap <strong>( n1 n2 &ndash; n2 n1 )</strong></p>
 <p>swap, as you may have guessed, swaps the top two elements of the stack. For example:</p>
 <p>1 2 3 4 swap
@@ -1813,7 +1813,7 @@ will give you:</p>
 </h3>
 <p><small><strong>rot</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rot</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rot</span></p>
 <p>rot <strong>( n1 n2 n3 &ndash; n2 n3 n1 )</strong></p>
 <p>Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.</p>
 <p>1 2 3 rot
@@ -1826,7 +1826,7 @@ gives you:</p>
 </h3>
 <p><small><strong>roll</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-roll</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-roll</span></p>
 <p>rot <strong>( n1 n2 n3 &ndash; n2 n3 n1 )</strong></p>
 <p>Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.</p>
 <p>1 2 3 rot
@@ -1839,7 +1839,7 @@ gives you:</p>
 </h3>
 <p><small><strong>add</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-add</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-add</span></p>
 <p>Process an addition</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1851,7 +1851,7 @@ gives you:</p>
 </h3>
 <p><small><strong>substract</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-substract</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-substract</span></p>
 <p>Process a substraction</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1863,7 +1863,7 @@ gives you:</p>
 </h3>
 <p><small><strong>sqrt</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-sqrt</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-sqrt</span></p>
 <p>Perform square root operation</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1875,7 +1875,7 @@ gives you:</p>
 </h3>
 <p><small><strong>ln</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-ln</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-ln</span></p>
 <p>Perform log operation</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1887,7 +1887,7 @@ gives you:</p>
 </h3>
 <p><small><strong>cos</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-cos</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-cos</span></p>
 <p>Perform cos operation</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1899,7 +1899,7 @@ gives you:</p>
 </h3>
 <p><small><strong>sin</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-sin</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-sin</span></p>
 <p>Perform sin operation</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1911,7 +1911,7 @@ gives you:</p>
 </h3>
 <p><small><strong>tan</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-tan</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-tan</span></p>
 <p>Perform tan operation</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1923,7 +1923,7 @@ gives you:</p>
 </h3>
 <p><small><strong>abs</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-abs</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-abs</span></p>
 <p>Perform abs operation</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1935,7 +1935,7 @@ gives you:</p>
 </h3>
 <p><small><strong>reciprocal</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-reciprocal</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-reciprocal</span></p>
 <p>Perform reciprocal operation</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1947,7 +1947,7 @@ gives you:</p>
 </h3>
 <p><small><strong>exp</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-exp</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-exp</span></p>
 <p>Perform exp operation</p>
 <p>returns e^x, where x is the argument, and e is Euler&rsquo;s number (also known as Napier&rsquo;s constant), the base of the natural logarithms.</p>
 <ul>
@@ -1960,7 +1960,7 @@ gives you:</p>
 </h3>
 <p><small><strong>xroot</strong>(<em>n</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-xroot</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-xroot</span></p>
 <ul>
 <li><small><em>n</em> </small>
 <br><br></li>
@@ -1971,7 +1971,7 @@ gives you:</p>
 </h3>
 <p><small><strong>multiply</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-multiply</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-multiply</span></p>
 <p>Process a multiplication</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1983,7 +1983,7 @@ gives you:</p>
 </h3>
 <p><small><strong>pow</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-pow</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-pow</span></p>
 <p>Process power</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -1995,7 +1995,7 @@ gives you:</p>
 </h3>
 <p><small><strong>divide</strong>(<em>n</em> <code>Number</code> ) ⟹ <code>number</code></small></p>
 <p><small><code>Number</code> </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-divide</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-divide</span></p>
 <p>Process a division</p>
 <ul>
 <li><small><em>n</em> </small>
@@ -2007,7 +2007,7 @@ gives you:</p>
 </h3>
 <p><small><strong>clear</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear</span></p>
 <p>clear the stack</p>
 <p><br><br></p>
 <h3 id="clearstack">
@@ -2016,7 +2016,7 @@ gives you:</p>
 </h3>
 <p><small><strong>clearStack</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-clear-stack</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-clear-stack</span></p>
 <p>Empties the stack and set the stack-size to 0</p>
 <p><br><br></p>
 <h3 id="put">
@@ -2025,7 +2025,7 @@ gives you:</p>
 </h3>
 <p><small><strong>put</strong>(<em>e</em> `` ) ⟹ <code>void</code></small></p>
 <p><small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-put</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-put</span></p>
 <p>Add an element to the stack</p>
 <ul>
 <li><small><em>e</em> </small>
@@ -2037,7 +2037,7 @@ gives you:</p>
 </h3>
 <p><small><strong>drop</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-drop</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-drop</span></p>
 <p>drop <strong>( n &ndash; )</strong></p>
 <p>drop simply drops the top element of the stack. Running:</p>
 <p>1 2 3 drop
@@ -2050,7 +2050,7 @@ gives you a stack of:</p>
 </h3>
 <p><small><strong>dup</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-dup</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-dup</span></p>
 <p>dup <strong>( n &ndash; n n )</strong></p>
 <pre><code>dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:
 
@@ -2067,7 +2067,7 @@ You should end up with the following stack:
 </h3>
 <p><small><strong>over</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-over</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-over</span></p>
 <p>over <strong>( n1 n2 &ndash; n1 n2 n1 )</strong></p>
 <p>over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:</p>
 <p>1 2 3 over
@@ -2080,7 +2080,7 @@ will result in this:</p>
 </h3>
 <p><small><strong>rrot</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">ƒ-rrot</span></p>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-rrot</span></p>
 <p>rrot <strong>( n1 n2 n3 &ndash; n3 n1 n2 )</strong></p>
 <p>Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.
 The top elemen the stack gets moved to the bottom of the stack.</p>
@@ -2098,9 +2098,9 @@ gives you:</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/5edb137c2ec845178082a6433cc491b9993e2d61" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 

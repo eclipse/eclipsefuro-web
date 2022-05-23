@@ -16,7 +16,7 @@
 furo-backdrop
 Displays content with a backdrop.
 The element you place in to furo-backdrop will be displayed centered.
-1 2 3 4 5 6  &amp;lt;furo-backdrop @-opened=&amp;#34;--BackdropFocus&amp;#34; @-closed=&amp;#34;--backdropClosed&amp;#34; ƒ-show=&amp;#34;--expandIconClicked&amp;#34; ƒ-close=&amp;#34;--closeRequested, --recordSelected&amp;#34;&amp;gt; &amp;lt;any-component @-item-selected=&amp;#34;--recordSelected&amp;#34; style=&amp;#34;width: 90vw; height: 90vh&amp;#34;&amp;gt;&amp;lt;/any-component&amp;gt; &amp;lt;/furo-backdrop&amp;gt;   You can wire and use the elements in furo-backrop as if they were local elements.</description>
+1 2 3 4 5 6  &amp;lt;furo-backdrop at-opened=&amp;#34;--BackdropFocus&amp;#34; at-closed=&amp;#34;--backdropClosed&amp;#34; fn-show=&amp;#34;--expandIconClicked&amp;#34; fn-close=&amp;#34;--closeRequested, --recordSelected&amp;#34;&amp;gt; &amp;lt;any-component at-item-selected=&amp;#34;--recordSelected&amp;#34; style=&amp;#34;width: 90vw; height: 90vh&amp;#34;&amp;gt;&amp;lt;/any-component&amp;gt; &amp;lt;/furo-backdrop&amp;gt;   You can wire and use the elements in furo-backrop as if they were local elements.</description>
     </item>
     
     <item>
@@ -41,8 +41,8 @@ Tipp: place it below or inside the component which applies the style vars. Othew
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-empty-spacer/</guid>
       <description>furo-empty-spacer #  @furo/layout v2.0.5 import &#39;@furo/layout/src/furo-empty-spacer.js&#39;; exports &amp;lt;furo-empty-spacer&amp;gt; custom-element-definition superclass LitElement summary fill the space in a furo-xxxx-flex
 furo-empty-spacer Takes the place in furo-horizontal-flex or a furo-vertical-flex.
-  small  small    Attributes and Properties #  flex #  flex reflects boolean default: true
-Attribute flex for furo-horizontal-flex and furo-vertical-flex hidden #  hidden reflects boolean default: false
+  small  small    Attributes and Properties #  flex #  flex reflects Boolean default: true
+Attribute flex for furo-horizontal-flex and furo-vertical-flex hidden #  hidden reflects Boolean default: false
 Set to true to hide the spacer Methods #  </description>
     </item>
     
@@ -80,7 +80,7 @@ With this component, any elements can be aligned horizontally. Similar to css fl
       <description>furo-resizer #  @furo/layout v2.0.5 import &#39;@furo/layout/src/furo-resizer.js&#39;; exports &amp;lt;furo-resizer&amp;gt; custom-element-definition superclass LitElement mixes FBP summary resizable box
 furo-resizer container which let you resize its width.
 Double-click on the handler to reset the width. You need a counter part which flexes.
-1 2 3 4 5 6 7  &amp;lt;furo-horizontal-flex&amp;gt; &amp;lt;div flex&amp;gt; the flexible part &amp;lt;/div&amp;gt; &amp;lt;!-- you have to set at leas one handle to resize the content --&amp;gt; &amp;lt;furo-resizer righthandle remember=&amp;#34;logv&amp;#34; minwidth=&amp;#34;280&amp;#34; maxwidth=&amp;#34;780&amp;#34;&amp;gt; &amp;lt;some-content&amp;gt;&amp;lt;/some-content&amp;gt; &amp;lt;/furo-resizer&amp;gt; &amp;lt;/furo-horizontal-flex&amp;gt;   Attributes and Properties #  resetSize #   removes remember and set to the initial size lefthandle #  lefthandle</description>
+1 2 3 4 5 6 7  &amp;lt;furo-horizontal-flex&amp;gt; &amp;lt;div flex&amp;gt; the flexible part &amp;lt;/div&amp;gt; &amp;lt;!-- you have to set at leas one handle to resize the content --&amp;gt; &amp;lt;furo-resizer righthandle remember=&amp;#34;logv&amp;#34; minwidth=&amp;#34;280&amp;#34; maxwidth=&amp;#34;780&amp;#34;&amp;gt; &amp;lt;some-content&amp;gt;&amp;lt;/some-content&amp;gt; &amp;lt;/furo-resizer&amp;gt; &amp;lt;/furo-horizontal-flex&amp;gt;   Attributes and Properties #  resetSize #   removes remember and set to the initial size lefthandle #  lefthandle Boolean</description>
     </item>
     
     <item>
@@ -91,7 +91,7 @@ Double-click on the handler to reset the width. You need a counter part which fl
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-split-view/</guid>
       <description>furo-split-view #  @furo/layout v2.0.5 import &#39;@furo/layout/src/furo-split-view.js&#39;; exports &amp;lt;furo-split-view&amp;gt; custom-element-definition superclass LitElement mixes FBP summary splitted layout
 furo-split-view is a layout component to visualise main / detail views (left right layout for master detail views). You can add the attribute scroll on the detail view to make the content scrollable.
-1 2 3 4  &amp;lt;furo-split-view&amp;gt; &amp;lt;div slot=&amp;#34;master&amp;#34;&amp;gt;Master&amp;lt;/div&amp;gt; &amp;lt;big-component scroll&amp;gt; &amp;lt;/big-component&amp;gt; &amp;lt;/furo-split-view&amp;gt;   Attributes and Properties #  reverse #  reverse</description>
+1 2 3 4  &amp;lt;furo-split-view&amp;gt; &amp;lt;div slot=&amp;#34;master&amp;#34;&amp;gt;Master&amp;lt;/div&amp;gt; &amp;lt;big-component scroll&amp;gt; &amp;lt;/big-component&amp;gt; &amp;lt;/furo-split-view&amp;gt;   Attributes and Properties #  reverse #  reverse Boolean</description>
     </item>
     
     <item>

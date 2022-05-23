@@ -8,20 +8,20 @@
 <meta name="description" content="DOMFBP #  @furo/furo-fbp v6.3.1 import &#39;@furo/fbp/src/DOMFBP.js&#39;; exports DOMFBP js extends src/DOMFBP.js mixes FBP
  DOMFBP allows you to append FBP to any dom element.
 Usage:
-1 2 3 4  import {DOMFBP} from &#39;@furo/fbp/src/DOMFBP.js&#39;; // append fbp to the body new DOMFBP(document.body);   Attributes and Properties #  Methods #  ">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;Title&lt;/title&gt; &lt;script type=&#34;module&#34; src=&#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js&#34;&gt;&lt;/script&gt; &lt;script&gt; import(&#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/DOMFBP.js&#34;).then(() =&gt; { // activate FBP on body  const fbphandle = new DOMFBP(document.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="DOMFBP" />
 <meta property="og:description" content="DOMFBP #  @furo/furo-fbp v6.3.1 import &#39;@furo/fbp/src/DOMFBP.js&#39;; exports DOMFBP js extends src/DOMFBP.js mixes FBP
  DOMFBP allows you to append FBP to any dom element.
 Usage:
-1 2 3 4  import {DOMFBP} from &#39;@furo/fbp/src/DOMFBP.js&#39;; // append fbp to the body new DOMFBP(document.body);   Attributes and Properties #  Methods #  " />
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;Title&lt;/title&gt; &lt;script type=&#34;module&#34; src=&#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js&#34;&gt;&lt;/script&gt; &lt;script&gt; import(&#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/DOMFBP.js&#34;).then(() =&gt; { // activate FBP on body  const fbphandle = new DOMFBP(document." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-fbp/DOMFBP/" />
-<meta property="article:modified_time" content="2022-05-17T10:55:02+02:00" />
+<meta property="article:modified_time" content="2022-05-23T10:30:29+02:00" />
 <title>DOMFBP | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.17cd870d43b18e7724c50c40f196bfd3a372fafadf187e16c6d29df1d35d6d77.js" integrity="sha256-F82HDUOxjnckxQxA8Za/06Ny&#43;vrfGH4WxtKd8dNdbXc="></script>
+<script defer src="/en.search.min.cfdf324fe045d9fc222510b0ca83fccb5770bb860031ed7c57366e08fe09071d.js" integrity="sha256-z98yT&#43;BF2fwiJRCwyoP8y1dwu4YAMe18VzZuCP4JBx0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1617,16 +1617,64 @@ https://github.com/alex-shpak/hugo-book
 <p><strong>Usage:</strong></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#000080">head</span>&gt;
+  &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
+  &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
+  &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;module&#34;</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/furo-fbp.js&#34;</span>&gt;&lt;/<span style="color:#000080">script</span>&gt;
+  &lt;<span style="color:#000080">script</span>&gt;
+    <span style="color:#000;font-weight:bold">import</span>(<span style="color:#d14">&#34;https://cdn.jsdelivr.net/npm/@furo/precompiled@2.3.0/dist/DOMFBP.js&#34;</span>).then(() =&gt; {
+      <span style="color:#998;font-style:italic">// activate FBP on body
+</span><span style="color:#998;font-style:italic"></span>      <span style="color:#000;font-weight:bold">const</span> fbphandle <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DOMFBP(<span style="color:#0086b3">document</span>.body)
+      <span style="color:#998;font-style:italic">// enable tracing
+</span><span style="color:#998;font-style:italic"></span>      fbphandle._FBPTraceWires();
+    })
+  &lt;/<span style="color:#000080">script</span>&gt;
+&lt;/<span style="color:#000080">head</span>&gt;
+&lt;<span style="color:#000080">body</span>&gt;
+&lt;<span style="color:#000080">button</span> <span style="color:#008080">at-click</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--buttonClicked&#34;</span> <span style="color:#008080">fn-remove</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--buttonClicked&#34;</span>&gt;remove me&lt;/<span style="color:#000080">button</span>&gt;
+&lt;/<span style="color:#000080">body</span>&gt;
+&lt;/<span style="color:#000080">html</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000;font-weight:bold">import</span> {DOMFBP} from <span style="color:#d14">&#39;@furo/fbp/src/DOMFBP.js&#39;</span>;
 
 <span style="color:#998;font-style:italic">// append fbp to the body
 </span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">new</span> DOMFBP(<span style="color:#0086b3">document</span>.body);
+
+
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="attributes-and-properties">
@@ -1647,9 +1695,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/2e520fee54956375386b844f22bd4063218f9e45" title='Last modified by veith | May 17, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/c04ab7616f64831cdf3e77f7e3823822d8800e1c" title='Last modified by veith | May 23, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 17, 2022</span>
+      <span>May 23, 2022</span>
     </a>
   </div>
 
