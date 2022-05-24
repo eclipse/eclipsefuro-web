@@ -192,8 +192,8 @@ export class FuroDataObject extends LitElement {
             // rest wieder in error reinwerfen
             // eslint-disable-next-line no-param-reassign
             error.field = path.slice(1).join('.');
-            if (this.data.data[path[0]]) {
-              this.data.data[path[0]]._setInvalid(error);
+            if (this.data[path[0]]) {
+              this.data[path[0]]._setInvalid(error);
             } else {
               // eslint-disable-next-line no-console
               console.warn('Unknown field', path);
