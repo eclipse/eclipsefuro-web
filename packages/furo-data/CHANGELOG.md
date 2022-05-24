@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.4...@furo/data@2.2.5) (2022-05-24)
+
+
+### Bug Fixes
+
+* re append FieldNodeAdapter event listener after re appending them. ([70d1423](https://github.com/eclipse/eclipsefuro-web/commit/70d1423274d57d0d44d0af284d63cb1e176c764b))
+
+
+
+
+
 ## [2.2.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.3...@furo/data@2.2.4) (2022-05-24)
 
 
