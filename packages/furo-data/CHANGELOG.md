@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.3...@furo/data@2.2.4) (2022-05-24)
+
+
+### Bug Fixes
+
+* append errors on data root instead of subfield data ([5fcf45c](https://github.com/eclipse/eclipsefuro-web/commit/5fcf45cf7f47b4572ef058f8aa9aecf10bf170ed))
+
+
+
+
+
 ## [2.2.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.2...@furo/data@2.2.3) (2022-05-23)
 
 **Note:** Version bump only for package @furo/data
