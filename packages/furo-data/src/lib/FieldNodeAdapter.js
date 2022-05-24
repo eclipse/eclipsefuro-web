@@ -325,6 +325,39 @@ export const FieldNodeAdapter = superClass =>
       if (super.disconnectedCallback) {
         super.disconnectedCallback();
       }
+      this.__reattachListenersAfterMove = true;
+    }
+
+    /**
+     * We re attach the event listeners after the node is only moved
+     *
+     * @private
+     */
+    connectedCallback() {
+      super.connectedCallback();
+      if (this.__reattachListenersAfterMove) {
+        if (
+          this.__fieldNode instanceof FieldNode ||
+          this.__fieldNode instanceof RepeaterNode
+        ) {
+          this.__fieldNode.addEventListener(
+            'field-value-changed',
+            this.__fieldValueChangedHandler
+          );
+          this.__fieldNode.addEventListener(
+            'field-became-valid',
+            this.__fieldBecamesValidHandler
+          );
+          this.__fieldNode.addEventListener(
+            'field-became-invalid',
+            this.__fieldBecamesInvalidHandler
+          );
+          this.__fieldNode.addEventListener(
+            'this-metas-changed',
+            this.__fieldMetasChangedHandler
+          );
+        }
+      }
     }
 
     /**
