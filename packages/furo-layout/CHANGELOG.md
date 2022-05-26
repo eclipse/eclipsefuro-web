@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.6...@furo/layout@2.0.7) (2022-05-26)
+
+
+### Bug Fixes
+
+* form layouter six with double should only span 2 items ([ead9475](https://github.com/eclipse/eclipsefuro-web/commit/ead94754afffe36cbfc92eaac90fd0d34c5255c0))
+
+
+
+
+
 ## [2.0.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.5...@furo/layout@2.0.6) (2022-05-23)
 
 **Note:** Version bump only for package @furo/layout
