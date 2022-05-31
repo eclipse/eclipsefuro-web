@@ -37,6 +37,7 @@ import { LitElement, css } from 'lit';
  * @fires {Location object} location-hash-changed -  Fired when Hash portion of the location changed
  * @fires {Location object} location-query-changed -  Fired when Query portion of the location changed
  * @fires {Location object} location-changed -  Fired when something in the location changed
+ * @fires {Location object} external-link-clicked -  Fired when a external link was clicked
  * @fires {Location object} url-space-entered -  Fired when the path matches the url-space-regex and neither a search query or hash was given, useful to detect if someone enters the current url
  * @fires {void} __beforeReplaceState -  Fired when before the state will be updated
  *
@@ -111,7 +112,7 @@ class FuroLocation extends LitElement {
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
 
-    document.body.addEventListener('click', this._clickHandler, true);
+    document.body.addEventListener('click', this._clickHandler, false);
     document.body.addEventListener('__furoLocationChanged', this._locationChangeNotyfier, true);
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
@@ -126,7 +127,7 @@ class FuroLocation extends LitElement {
    * @private
    */
   disconnectedCallback() {
-    document.body.removeEventListener('click', this._clickHandler, true);
+    document.body.removeEventListener('click', this._clickHandler, false);
     document.body.removeEventListener('__furoLocationChanged', this._locationChangeNotyfier, true);
     window.removeEventListener('popstate', this._locationChangeNotyfier, true);
     window.removeEventListener('popstate', this._locationChangeNotyfier, true);
@@ -270,16 +271,23 @@ class FuroLocation extends LitElement {
         return;
       }
 
-      // do not interfere with links to other hosts
-      if (target.host !== this._location.host) {
-        return;
-      }
+
+
 
       // ignore links outside urlSpaceRegex
       if (this.urlSpaceRegex !== '') {
         if (target.pathname.match(this.urlSpaceRegex) === null) {
           return;
         }
+      }
+
+
+      // do not interfere with links to other hosts
+      if (target.host !== this._location.host) {
+        const customEvent = new Event('external-link-clicked', { composed: true, bubbles: false });
+        customEvent.detail = this._location;
+        this.dispatchEvent(customEvent);
+        return;
       }
 
       // update history only once
