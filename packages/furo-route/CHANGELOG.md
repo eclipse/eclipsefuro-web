@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.7...@furo/route@2.1.0) (2022-05-31)
+
+
+### Features
+
+* add external-link-clicked event to furo-location ([c8c4e26](https://github.com/eclipse/eclipsefuro-web/commit/c8c4e260b345968966e085f5e9aca42ae1fe8411))
+
+
+
+
+
 ## [2.0.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.0.6...@furo/route@2.0.7) (2022-05-23)
 
 **Note:** Version bump only for package @furo/route
