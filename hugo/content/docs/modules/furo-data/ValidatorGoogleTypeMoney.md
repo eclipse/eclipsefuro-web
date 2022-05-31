@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorGoogleTypeMoney
 
-**@furo/furo-data** <small>v2.2.2</small>
+**@furo/furo-data** <small>v2.2.5</small>
 <br>`import '@furo/data/src/lib/ValidatorGoogleTypeMoney.js';`<small>
 <br>exports *ValidatorGoogleTypeMoney* js</small>
 

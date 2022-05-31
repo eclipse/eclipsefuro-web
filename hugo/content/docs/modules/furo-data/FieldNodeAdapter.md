@@ -6,7 +6,7 @@ weight: 100
 
 # FieldNodeAdapter
 
-**@furo/furo-data** <small>v2.2.2</small>
+**@furo/furo-data** <small>v2.2.5</small>
 <br>`import '@furo/data/src/lib/FieldNodeAdapter.js';`<small>
 <br>exports *FieldNodeAdapter* js</small>
 

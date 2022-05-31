@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-show-flow
-**@furo/util** <small>v2.0.7</small>
+**@furo/util** <small>v2.0.9</small>
 <br>`import '@furo/util/src/doc/graph/furo-show-flow.js';`<small>
 <br>exports `<furo-show-flow>` custom-element-definition
 <br>superclass *LitElement*

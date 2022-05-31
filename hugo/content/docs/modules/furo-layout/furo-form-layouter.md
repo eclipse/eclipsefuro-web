@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-form-layouter
-**@furo/layout** <small>v2.0.5</small>
+**@furo/layout** <small>v2.0.7</small>
 <br>`import '@furo/layout/src/furo-form-layouter.js';`<small>
 <br>exports `<furo-form-layouter>` custom-element-definition
 <br>superclass *LitElement*

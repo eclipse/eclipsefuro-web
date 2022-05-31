@@ -6,7 +6,7 @@ weight: 100
 
 # NodeEvent
 
-**@furo/furo-framework** <small>v2.1.1</small>
+**@furo/furo-framework** <small>v2.1.2</small>
 <br>`import '@furo/framework/src/EventTreeNode.js';`<small>
 <br>exports *NodeEvent* js
 <br>exports *EventTreeNode* js</small>

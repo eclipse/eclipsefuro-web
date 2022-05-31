@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # flow-repeat
-**@furo/fbp** <small>v6.3.1</small>
+**@furo/fbp** <small>v6.3.2</small>
 <br>`import '@furo/fbp/src/flow-repeat.js';`<small>
 <br>exports *FlowRepeat* js
 <br>exports `<flow-repeat>` custom-element-definition

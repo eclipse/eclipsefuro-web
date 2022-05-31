@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorFuroBigDecimal
 
-**@furo/furo-data** <small>v2.2.2</small>
+**@furo/furo-data** <small>v2.2.5</small>
 <br>`import '@furo/data/src/lib/ValidatorFuroBigDecimal.js';`<small>
 <br>exports *ValidatorFuroBigDecimal* js</small>
 

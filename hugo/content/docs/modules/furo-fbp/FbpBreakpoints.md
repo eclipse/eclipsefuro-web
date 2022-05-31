@@ -6,7 +6,7 @@ weight: 100
 
 # FbpBreakpoints
 
-**@furo/furo-fbp** <small>v6.3.1</small>
+**@furo/furo-fbp** <small>v6.3.2</small>
 <br>`import '@furo/fbp/src/FbpBreakpoints.js';`<small>
 <br>exports *FbpBreakpoints* js</small>
 
