@@ -616,6 +616,13 @@
               "type": {
                 "text": "Location object"
               },
+              "description": " Fired when a external link was clicked",
+              "name": "external-link-clicked"
+            },
+            {
+              "type": {
+                "text": "Location object"
+              },
               "description": " Fired when the path matches the url-space-regex and neither a search query or hash was given, useful to detect if someone enters the current url",
               "name": "url-space-entered"
             },

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-location
-**@furo/route** <small>v2.0.7</small>
+**@furo/route** <small>v2.1.0</small>
 <br>`import '@furo/route/src/furo-location.js';`<small>
 <br>exports `<furo-location>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -103,6 +103,12 @@ folders with a link.
 → <small>`Location object`</small>
 
  Fired when something in the location changed
+<br><br>
+### **external-link-clicked**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-external-link-clicked</span>
+→ <small>`Location object`</small>
+
+ Fired when a external link was clicked
 <br><br>
 ### **url-space-entered**
 <span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-url-space-entered</span>
