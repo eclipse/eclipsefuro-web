@@ -77,11 +77,11 @@ export class FuroUi5MessageStripDisplay extends FBP(LitElement) {
     messagestrip.setAttribute('design', source.type ? source.type : 'Information');
 
     if (source.noCloseButton) {
-      messagestrip.setAttribute('no-close-button', true);
+      messagestrip.setAttribute('hide-close-button', true);
     }
 
     if (source.noIcon) {
-      messagestrip.setAttribute('no-icon', true);
+      messagestrip.setAttribute('hide-icon', true);
     }
 
     if (source.size) {
