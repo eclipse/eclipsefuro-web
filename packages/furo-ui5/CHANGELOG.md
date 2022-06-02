@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.8...@furo/ui5@0.48.9) (2022-06-02)
+
+
+### Bug Fixes
+
+* issue-54, attribute names changed, hide-close-button, hide-icon ([0dd9c44](https://github.com/eclipse/eclipsefuro-web/commit/0dd9c44221d9a166fcc32d66ece3e7f9556a31aa))
+
+
+
+
+
 ## [0.48.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5@0.48.7...@furo/ui5@0.48.8) (2022-05-12)
 
 **Note:** Version bump only for package @furo/ui5

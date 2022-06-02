@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.16](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.40.15...@furo/ui5-typerenderer@0.40.16) (2022-06-02)
+
+**Note:** Version bump only for package @furo/ui5-typerenderer
+
+
+
+
+
 ## [0.40.15](https://github.com/eclipse/eclipsefuro-web/compare/@furo/ui5-typerenderer@0.40.14...@furo/ui5-typerenderer@0.40.15) (2022-05-12)
 
 **Note:** Version bump only for package @furo/ui5-typerenderer
