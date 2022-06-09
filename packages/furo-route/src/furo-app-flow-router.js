@@ -4,7 +4,7 @@ import { FBP } from '@furo/fbp';
 /**
  * `furo-app-flow-router`
  *
- * Use this component with app-flow and furo-pages to implement application flow
+ * Use this component with app-flow and furo-pages to implement your application flow / routing
  *
  *
  * ```html
@@ -26,7 +26,8 @@ import { FBP } from '@furo/fbp';
  *    ['view-main', 'button-tap', 'detail-view',  'task => id],
  *    ["*", "search", "EXTERNAL_LINK: https://google.com/"],
  *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK: https://google.com/"]
- *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK:", *]
+ *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK:", *],
+ *    ["*", "activity-url", "URL", "*"],
  *  ]
  *  ```
  *
@@ -38,6 +39,7 @@ import { FBP } from '@furo/fbp';
  *  - Set a "*" to map all data 1:1 to the url.
  *
  *  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
+ *  - if you want to link to a dynamic target outside your app add **URL** and use `fn-emit` on the furo-app-flow component with the url as data.
  *  - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link
  *  - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**
  *  - if you want to trigger a history.back() use the **HISTORY-BACK**
@@ -205,6 +207,22 @@ class FuroAppFlowRouter extends FBP(LitElement) {
         // eslint-disable-next-line guard-for-in,no-restricted-syntax
         for (const k in flowEvent.data) {
           sa.push(flowEvent.data[k]);
+        }
+
+        if (selection.target == 'URL') {
+          // eslint-disable-next-line no-unused-expressions
+          if (this._blank) {
+            window.open(sa.join(''))
+          } else {
+            window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
+            (window.history.replaceState(window.history.state, '', sa.join('')))
+            const now = window.performance.now();
+            const customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
+            customEvent.detail = now;
+            this.dispatchEvent(customEvent);
+          }
+
+          return true;
         }
 
         if (selection.target.startsWith('EXTERNAL_LINK:')) {

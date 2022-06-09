@@ -35,14 +35,26 @@ class FuroAppFlow extends LitElement {
     };
   }
 
+  /**
+   * Use this to explicitly set the query params.
+   *
+   * This is useful if you use the `trigger` method.
+   * @param qp {Object} Object with key value pairs
+   */
   setQp(qp) {
     this._qp = qp;
   }
 
+  /**
+   * Deprecated, use the setQp method instead
+   */
   static set qp(qp) {
     this._qp = qp;
   }
 
+  /**
+   * Triggers the flow event (with the qp that was set before)
+   */
   trigger() {
     this.emit(this._qp);
   }

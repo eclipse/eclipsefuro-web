@@ -67,7 +67,9 @@ i.e. 'task-clicked', 'wizard-step1-completed',...
 <small>`` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-qp</span>
 
+Use this to explicitly set the query params.
 
+This is useful if you use the `trigger` method.
 
 - <small>*qp* </small>
 <br><br>
