@@ -10,12 +10,12 @@
 <meta property="og:description" content="Application Flow =&amp;gt; routing" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow-router/" />
-<meta property="article:modified_time" content="2022-05-31T14:08:13+02:00" />
+<meta property="article:modified_time" content="2022-06-09T09:50:19+02:00" />
 <title>furo-app-flow-router | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.b7b6d2836e2b3c7df3e173994a1e50df1c7d9dc7ae8fbae0dc167a8193315a7c.js" integrity="sha256-t7bSg24rPH3z4XOZSh5Q3xx9nceuj7rg3BZ6gZMxWnw="></script>
+<script defer src="/en.search.min.2ec2baacaaf2a4150bfd7dd0fe97606e00833f7a3a4dd851313c8cb0fa425e34.js" integrity="sha256-LsK6rKrypBUL/X3Q/pdgbgCDP3o6TdhRMTyMsPpCXjQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1622,14 +1622,14 @@ https://github.com/alex-shpak/hugo-book
   furo-app-flow-router
   <a class="anchor" href="#furo-app-flow-router">#</a>
 </h1>
-<p><strong>@furo/route</strong> <small>v2.1.0</small>
+<p><strong>@furo/route</strong> <small>v2.1.1</small>
 <br><code>import '@furo/route/src/furo-app-flow-router.js';</code><small>
 <br>exports <code>&lt;furo-app-flow-router&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em>
 <br> mixes <em>FBP</em></small>
 <br><small>summary <em>Application Flow =&gt; routing</em></small></p>
 <p><code>furo-app-flow-router</code></p>
-<p>Use this component with app-flow and furo-pages to implement application flow</p>
+<p>Use this component with app-flow and furo-pages to implement your application flow / routing</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -1683,13 +1683,15 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> [
    [<span style="color:#a61717;background-color:#e3d2d2">&#39;view-main&#39;</span>, <span style="color:#a61717;background-color:#e3d2d2">&#39;button-tap&#39;</span>, <span style="color:#a61717;background-color:#e3d2d2">&#39;detail-view&#39;</span>,  <span style="color:#a61717;background-color:#e3d2d2">&#39;task</span> <span style="color:#a61717;background-color:#e3d2d2">=&gt;</span> <span style="color:#a61717;background-color:#e3d2d2">id</span>],
    [<span style="color:#d14">&#34;*&#34;</span>, <span style="color:#d14">&#34;search&#34;</span>, <span style="color:#d14">&#34;EXTERNAL_LINK: https://google.com/&#34;</span>],
    [<span style="color:#d14">&#34;*&#34;</span>, <span style="color:#d14">&#34;searchInNewWindow&#34;</span>, <span style="color:#d14">&#34;EXTERNAL_LINK_BLANK: https://google.com/&#34;</span>]
-   [<span style="color:#d14">&#34;*&#34;</span>, <span style="color:#d14">&#34;searchInNewWindow&#34;</span>, <span style="color:#d14">&#34;EXTERNAL_LINK_BLANK:&#34;</span>, <span style="color:#a61717;background-color:#e3d2d2">*</span>]
+   [<span style="color:#d14">&#34;*&#34;</span>, <span style="color:#d14">&#34;searchInNewWindow&#34;</span>, <span style="color:#d14">&#34;EXTERNAL_LINK_BLANK:&#34;</span>, <span style="color:#a61717;background-color:#e3d2d2">*</span>],
+   [<span style="color:#d14">&#34;*&#34;</span>, <span style="color:#d14">&#34;activity-url&#34;</span>, <span style="color:#d14">&#34;URL&#34;</span>, <span style="color:#d14">&#34;*&#34;</span>],
  ]
 </code></pre></td></tr></table>
 </div>
@@ -1704,6 +1706,9 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li>
 <p>You can set a wildcard for &ldquo;current&rdquo;. If you check the example: menu-settings-click can be triggered from any current. If there is a &ldquo;current&rdquo; with menu-settings-click configured and you are there, the wildcard is not used.</p>
+</li>
+<li>
+<p>if you want to link to a dynamic target outside your app add <strong>URL</strong> and use <code>fn-emit</code> on the furo-app-flow component with the url as data.</p>
 </li>
 <li>
 <p>if you want to link to a target outside your app add <strong>EXTERNAL_LINK:</strong> followed by the link</p>
@@ -1828,9 +1833,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/03f9a613c4b52aea4a8c6b4a344f7c18827b8161" title='Last modified by veith | May 31, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a4aeea6471a391c008d2e15840fbe5838d78f952" title='Last modified by veith | June 9, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 31, 2022</span>
+      <span>June 9, 2022</span>
     </a>
   </div>
 

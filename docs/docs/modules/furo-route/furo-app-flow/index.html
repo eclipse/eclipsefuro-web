@@ -10,12 +10,12 @@
 <meta property="og:description" content="Application Flow =&amp;gt; routing" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow/" />
-<meta property="article:modified_time" content="2022-05-31T14:08:13+02:00" />
+<meta property="article:modified_time" content="2022-06-09T09:50:19+02:00" />
 <title>furo-app-flow | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.b7b6d2836e2b3c7df3e173994a1e50df1c7d9dc7ae8fbae0dc167a8193315a7c.js" integrity="sha256-t7bSg24rPH3z4XOZSh5Q3xx9nceuj7rg3BZ6gZMxWnw="></script>
+<script defer src="/en.search.min.2ec2baacaaf2a4150bfd7dd0fe97606e00833f7a3a4dd851313c8cb0fa425e34.js" integrity="sha256-LsK6rKrypBUL/X3Q/pdgbgCDP3o6TdhRMTyMsPpCXjQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1618,7 +1618,7 @@ https://github.com/alex-shpak/hugo-book
   furo-app-flow
   <a class="anchor" href="#furo-app-flow">#</a>
 </h1>
-<p><strong>@furo/route</strong> <small>v2.1.0</small>
+<p><strong>@furo/route</strong> <small>v2.1.1</small>
 <br><code>import '@furo/route/src/furo-app-flow.js';</code><small>
 <br>exports <code>&lt;furo-app-flow&gt;</code> custom-element-definition
 <br>superclass <em>LitElement</em></small>
@@ -1633,7 +1633,8 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#qp">#</a>
 </h3>
 </small>
-<p><br><br></p>
+<p>Deprecated, use the setQp method instead
+<br><br></p>
 <h3 id="display">
   <strong>display</strong>
   <a class="anchor" href="#display">#</a>
@@ -1669,11 +1670,13 @@ https://github.com/alex-shpak/hugo-book
   <strong>setQp</strong>
   <a class="anchor" href="#setqp">#</a>
 </h3>
-<p><small><strong>setQp</strong>(<em>qp</em> `` ) ⟹ <code>void</code></small></p>
-<p><small>`` </small> →
+<p><small><strong>setQp</strong>(<em>qp</em> <code>Object</code> ) ⟹ <code>void</code></small></p>
+<p><small><code>Object</code> </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-qp</span></p>
+<p>Use this to explicitly set the query params.</p>
+<p>This is useful if you use the <code>trigger</code> method.</p>
 <ul>
-<li><small><em>qp</em> </small>
+<li><small><em>qp</em> Object with key value pairs</small>
 <br><br></li>
 </ul>
 <h3 id="trigger">
@@ -1683,6 +1686,7 @@ https://github.com/alex-shpak/hugo-book
 <p><small><strong>trigger</strong>() ⟹ <code>void</code></small></p>
 <p><small><code>*</code></small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span></p>
+<p>Triggers the flow event (with the qp that was set before)</p>
 <p><br><br></p>
 <h3 id="emit">
   <strong>emit</strong>
@@ -1707,9 +1711,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/03f9a613c4b52aea4a8c6b4a344f7c18827b8161" title='Last modified by veith | May 31, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/a4aeea6471a391c008d2e15840fbe5838d78f952" title='Last modified by veith | June 9, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 31, 2022</span>
+      <span>June 9, 2022</span>
     </a>
   </div>
 
