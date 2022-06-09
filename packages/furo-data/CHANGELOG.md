@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.5...@furo/data@2.3.0) (2022-06-09)
+
+
+### Features
+
+* furo-collection-agent with bindable request data ([59b0793](https://github.com/eclipse/eclipsefuro-web/commit/59b07938a2a029d8cb23012871dc920fc9812b46))
+
+
+
+
+
 ## [2.2.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.4...@furo/data@2.2.5) (2022-05-24)
 
 
