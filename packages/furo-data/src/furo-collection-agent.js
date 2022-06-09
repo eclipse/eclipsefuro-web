@@ -265,6 +265,15 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
+   * Binds a furo-data-object type. Use this if you want save data.
+   *
+   * @param dataObject
+   */
+  bindRequestData(dataObject) {
+    this._requestDataObject = dataObject;
+  }
+
+  /**
    * Sorting order
    *
    * order-by="foo,-bar"  means foo asc and bar desc
@@ -394,15 +403,18 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @return {Request}
    * @private
    */
-  _makeRequest(link, body) {
+  _makeRequest(link, dataObject) {
     this._FBPTriggerWire('--beforeRequestStart');
 
-    let data;
+    /**
+     * Preparation of the request payload
+     * @type {string}
+     */
+    const data = this._prepareRequestPaylod(link, dataObject);
+
     // create Request object with headers and body
     const headers = new Headers(this._ApiEnvironment.headers);
-
-    if (body) {
-      data = JSON.stringify(body);
+    if (data) {
       headers.append('Content-Type', 'application/json; charset=utf-8');
     }
 
@@ -486,6 +498,92 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
+   * Prepare request body depending from method
+   * @param link
+   * @param dataObject
+   * @private
+   */
+  _prepareRequestPaylod(link, dataObject) {
+    let body = {};
+
+    /**
+     * Check if dataObject is set
+     * if TRUE => body object create
+     * - Method PATCH: _deltaValue
+     * - Method PUT: _transmitValue or sendAllDataOnMethodPut
+     *
+     * ELSE => @return undefined
+     */
+    if (dataObject) {
+      // Method PATCH sends only modified data (.pristine)
+      if (link.method.toLowerCase() === 'patch') {
+        // eslint-disable-next-line guard-for-in,no-restricted-syntax
+        for (const index in dataObject.__childNodes) {
+          const field = dataObject.__childNodes[index];
+          const val = field._deltaValue;
+          // send complete object on type any
+          if (field['@type']) {
+            body[field._name] = field._value;
+          } else if (val !== undefined) {
+            // send null if null was set!!
+            if (
+              val !== null &&
+              typeof val === 'object' &&
+              !Array.isArray(val)
+            ) {
+              body[field._name] = {};
+              // eslint-disable-next-line guard-for-in,no-restricted-syntax
+              for (const key in val) {
+                if (val[key] !== null) {
+                  body[field._name][key] = val[key];
+                }
+              }
+            } else {
+              body[field._name] = val;
+            }
+          }
+        }
+
+        // check for query field update_mask
+        // todo: maybe proof one query param for type google.protobuf.FieldMask like grpc-gateway does it would be better
+        if (
+          this.appendUpdateMaskQP &&
+          this._service.services.Update.query.update_mask
+        ) {
+          // add the field_mask
+          this._queryParams.update_mask = this._getFieldMask(body).join(',');
+        }
+      } else if (
+        Env.api.sendAllDataOnMethodPut &&
+        link.method.toLowerCase() === 'put'
+      ) {
+        body = dataObject._value;
+      } else if (
+        dataObject._spec &&
+        dataObject._spec.type === 'google.protobuf.Struct'
+      ) {
+        // if the data object is from type Struct, set the body to the value of the data object
+        // this is necessary because a Struct doesn't have child nodes
+        // otherwise, copy only the non-readonly fields to the body
+        body = dataObject._value;
+      } else {
+        // eslint-disable-next-line guard-for-in,no-restricted-syntax
+        for (const index in dataObject.__childNodes) {
+          const field = dataObject.__childNodes[index];
+          const val = field._transmitValue;
+          if (val !== undefined) {
+            body[field._name] = val;
+          }
+        }
+      }
+
+      // body = this._removeNullValues(body);
+      return JSON.stringify(body);
+    }
+    return undefined;
+  }
+
+  /**
    * find the first field of type furo.Link and use this for hts-out
    * @param fields
    * @private
@@ -525,7 +623,11 @@ class FuroCollectionAgent extends FBP(LitElement) {
       return;
     }
     this._attachListeners(rel);
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
+
+    this._FBPTriggerWire(
+      '--triggerLoad',
+      this._makeRequest(hts, this._requestDataObject)
+    );
   }
 
   /**

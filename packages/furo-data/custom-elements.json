@@ -239,6 +239,16 @@
             },
             {
               "kind": "method",
+              "name": "bindRequestData",
+              "parameters": [
+                {
+                  "name": "dataObject"
+                }
+              ],
+              "description": "Binds a furo-data-object type. Use this if you want save data."
+            },
+            {
+              "kind": "method",
               "name": "setOrderBy",
               "parameters": [
                 {
@@ -369,6 +379,9 @@
                   "name": "link"
                 },
                 {
+                  "name": "dataObject"
+                },
+                {
                   "name": "body"
                 }
               ],
@@ -377,6 +390,20 @@
                   "text": "Request"
                 }
               },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_prepareRequestPaylod",
+              "parameters": [
+                {
+                  "name": "link"
+                },
+                {
+                  "name": "dataObject"
+                }
+              ],
+              "description": "Prepare request body depending from method",
               "privacy": "private"
             },
             {
