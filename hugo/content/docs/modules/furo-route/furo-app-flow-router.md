@@ -16,7 +16,7 @@ weight: 50
 
 `furo-app-flow-router`
 
-Use this component with app-flow and furo-pages to implement application flow
+Use this component with app-flow and furo-pages to implement your application flow / routing
 
 
 ```html
@@ -50,6 +50,7 @@ Use this component with app-flow and furo-pages to implement application flow
  - Set a "*" to map all data 1:1 to the url.
 
  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
+ - if you want to link to a dynamic target outside your app add **URL** and use `fn-emit` on the furo-app-flow component with the url as data.
  - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link
  - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**
  - if you want to trigger a history.back() use the **HISTORY-BACK**

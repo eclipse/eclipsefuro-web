@@ -62,6 +62,7 @@ Only useable if your service has implemented this feature.
 
 
 
+
 ### **filter**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">filter</span>
@@ -82,6 +83,7 @@ Only useable if your service has implemented this feature.
 
 The service name from the specs.
 <br><br>
+
 
 
 
@@ -290,6 +292,17 @@ If your services supports this feature, you will receive a subset of the fields.
 - <small>*fields* Comma separated list of fields</small>
 <br><br>
 
+### **bindRequestData**
+<small>**bindRequestData**(*dataObject* `` ) ⟹ `void`</small>
+
+<small>`` </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-request-data</span>
+
+Binds a furo-data-object type. Use this if you want save data.
+
+- <small>*dataObject* </small>
+<br><br>
+
 ### **setOrderBy**
 <small>**setOrderBy**(*order* `String` ) ⟹ `void`</small>
 
@@ -388,6 +401,7 @@ The AgentHelper fires a qp-set event after the query params are replaced.
 clear the query params that you have setted before
 
 <br><br>
+
 
 
 
