@@ -8,7 +8,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-app-flow-router`\n\nUse this component with app-flow and furo-pages to implement your application flow / routing\n\n\n```html\n   <app-flow-router set-config=\"--flowConfigLoaded\" fn-trigger=\"--flowEvent\" fn-back=\"--wire\" fn-forward=\"--wire\"></app-flow-router>\n```\n\n *Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"],\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK: https://google.com/\"]\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK:\", *]\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n ## Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a dynamic target outside your app add **URL** and use `fn-emit` on the furo-app-flow component with the url as data.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link\n - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**\n - if you want to trigger a history.back() use the **HISTORY-BACK**\n - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual",
+          "description": "`furo-app-flow-router`\n\nUse this component with app-flow and furo-pages to implement your application flow / routing\n\n\n```html\n   <app-flow-router set-config=\"--flowConfigLoaded\" fn-trigger=\"--flowEvent\" fn-back=\"--wire\" fn-forward=\"--wire\"></app-flow-router>\n```\n\n *Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"],\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK: https://google.com/\"]\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK:\", *],\n   [\"*\", \"activity-url\", \"URL\", \"*\"],\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n ## Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a dynamic target outside your app add **URL** and use `fn-emit` on the furo-app-flow component with the url as data.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link\n - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**\n - if you want to trigger a history.back() use the **HISTORY-BACK**\n - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual",
           "name": "FuroAppFlowRouter",
           "members": [
             {
@@ -157,7 +157,11 @@
               "name": "setQp",
               "parameters": [
                 {
-                  "name": "qp"
+                  "name": "qp",
+                  "description": "Object with key value pairs",
+                  "type": {
+                    "text": "Object"
+                  }
                 }
               ],
               "description": "Use this to explicitly set the query params.\n\nThis is useful if you use the `trigger` method."
@@ -165,11 +169,13 @@
             {
               "kind": "field",
               "name": "qp",
-              "static": true
+              "static": true,
+              "description": "Deprecated, use the setQp method instead"
             },
             {
               "kind": "method",
-              "name": "trigger"
+              "name": "trigger",
+              "description": "Triggers the flow event (with the qp that was set before)"
             },
             {
               "kind": "method",

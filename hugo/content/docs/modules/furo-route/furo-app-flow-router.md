@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-app-flow-router
-**@furo/route** <small>v2.1.0</small>
+**@furo/route** <small>v2.1.1</small>
 <br>`import '@furo/route/src/furo-app-flow-router.js';`<small>
 <br>exports `<furo-app-flow-router>` custom-element-definition
 <br>superclass *LitElement*
@@ -38,7 +38,8 @@ Use this component with app-flow and furo-pages to implement your application fl
    ['view-main', 'button-tap', 'detail-view',  'task => id],
    ["*", "search", "EXTERNAL_LINK: https://google.com/"],
    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK: https://google.com/"]
-   ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK:", *]
+   ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK:", *],
+   ["*", "activity-url", "URL", "*"],
  ]
  ```
 

@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorGoogleProtobufFloatValue
 
-**@furo/furo-data** <small>v2.2.5</small>
+**@furo/furo-data** <small>v2.3.0</small>
 <br>`import '@furo/data/src/lib/ValidatorGoogleProtobufFloatValue.js';`<small>
 <br>exports *ValidatorGoogleProtobufFloatValue* js</small>
 
