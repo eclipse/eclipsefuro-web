@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.3.0...@furo/data@2.4.0) (2022-06-13)
+
+
+### Bug Fixes
+
+* init enum types with an int32 value instead of null ([fb2f935](https://github.com/eclipse/eclipsefuro-web/commit/fb2f935d6c3b7f7716609f79431c508064e7ea59))
+
+
+### Features
+
+* FieldNode with complex types in oneof definitions ([860164a](https://github.com/eclipse/eclipsefuro-web/commit/860164a1d8d4bc77fe32984f2d2874de2f1df457))
+* FNA with oneof handling ([e8304b9](https://github.com/eclipse/eclipsefuro-web/commit/e8304b98fead2b29ece45a368aab7bfa4a4f6c4e))
+
+
+
+
+
 # [2.3.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.2.5...@furo/data@2.3.0) (2022-06-09)
 
 
