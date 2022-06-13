@@ -352,6 +352,10 @@ class FuroFormLayouter extends FBP(LitElement) {
 
         :host([six]) ::slotted(*[newline][double]) {
           grid-column-start: 1;
+          grid-column-end: 3;
+        }
+        :host([six]) ::slotted(*[newline][tripple]) {
+          grid-column-start: 1;
           grid-column-end: 4;
         }
 
