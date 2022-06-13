@@ -152,6 +152,10 @@ export const FieldNodeAdapter = superClass =>
         this.__repeatedFieldChangedHandler
       );
       fieldNode.addEventListener(
+        'oneof-field-cleared',
+        this.__fieldValueChangedHandler
+      );
+      fieldNode.addEventListener(
         'field-value-changed',
         this.__fieldValueChangedHandler
       );
@@ -345,6 +349,10 @@ export const FieldNodeAdapter = superClass =>
             this.__fieldValueChangedHandler
           );
           this.__fieldNode.addEventListener(
+            'oneof-field-cleared',
+            this.__fieldValueChangedHandler
+          );
+          this.__fieldNode.addEventListener(
             'field-became-valid',
             this.__fieldBecamesValidHandler
           );
@@ -501,6 +509,10 @@ export const FieldNodeAdapter = superClass =>
       ) {
         this.__fieldNode.removeEventListener(
           'field-value-changed',
+          this.__fieldValueChangedHandler
+        );
+        this.__fieldNode.removeEventListener(
+          'oneof-field-cleared',
           this.__fieldValueChangedHandler
         );
         this.__fieldNode.removeEventListener(

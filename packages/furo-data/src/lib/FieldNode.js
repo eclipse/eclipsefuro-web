@@ -466,9 +466,12 @@ export class FieldNode extends EventTreeNode {
       if (oneofGorup.length) {
         this.__parentNode.__childNodes.forEach(sibling => {
           if (sibling !== this && sibling._spec.__proto.oneof === oneofGorup) {
+            this._siblingIsChangeing = true;
             // eslint-disable-next-line no-param-reassign
-            sibling._oldvalue = this._value;
-            sibling.reset();
+            sibling._oldvalue = sibling._value;
+            // eslint-disable-next-line no-param-reassign
+            sibling.__value = null;
+
             if (sibling.__childNodes.length > 0) {
               // eslint-disable-next-line no-param-reassign
               sibling.__childNodes = [];
@@ -483,6 +486,7 @@ export class FieldNode extends EventTreeNode {
             sibling.dispatchNodeEvent(
               new NodeEvent('oneof-field-cleared', sibling, false)
             );
+            this._siblingIsChangeing = false;
           }
         });
         this.dispatchNodeEvent(

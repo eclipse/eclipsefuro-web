@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-app-flow
-**@furo/route** <small>v2.1.0</small>
+**@furo/route** <small>v2.1.1</small>
 <br>`import '@furo/route/src/furo-app-flow.js';`<small>
 <br>exports `<furo-app-flow>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -27,7 +27,7 @@ weight: 50
 ### **qp**
 </small>
 
-
+Deprecated, use the setQp method instead
 <br><br>
 
 
@@ -62,16 +62,16 @@ i.e. 'task-clicked', 'wizard-step1-completed',...
 
 
 ### **setQp**
-<small>**setQp**(*qp* `` ) ⟹ `void`</small>
+<small>**setQp**(*qp* `Object` ) ⟹ `void`</small>
 
-<small>`` </small> →
+<small>`Object` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-set-qp</span>
 
 Use this to explicitly set the query params.
 
 This is useful if you use the `trigger` method.
 
-- <small>*qp* </small>
+- <small>*qp* Object with key value pairs</small>
 <br><br>
 
 
@@ -81,7 +81,7 @@ This is useful if you use the `trigger` method.
 <small>`*`</small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-trigger</span>
 
-
+Triggers the flow event (with the qp that was set before)
 
 <br><br>
 
