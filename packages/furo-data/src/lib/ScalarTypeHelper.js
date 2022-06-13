@@ -8,6 +8,7 @@ export class ScalarTypeHelper {
         return '';
       case 'bool':
         return false;
+      case 'enum':
       case 'float':
       case 'double':
       case 'int32':
