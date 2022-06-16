@@ -209,11 +209,17 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           sa.push(flowEvent.data[k]);
         }
 
-        if (selection.target == 'URL') {
-          // eslint-disable-next-line no-unused-expressions
+        if (selection.target === 'URL') {
+          const url = document.createElement('a');
+          url.href = sa.join('');
+
           if (this._blank) {
-            window.open(sa.join(''))
+            window.open(url.href)
           } else {
+            if (url.host !== window.location.host) {
+              window.location.href = url.href
+            }
+
             window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
             (window.history.replaceState(window.history.state, '', sa.join('')))
             const now = window.performance.now();
