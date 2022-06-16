@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.7...@furo/layout@2.0.8) (2022-06-16)
+
+
+### Bug Fixes
+
+* css for six double newline ([5d9467d](https://github.com/eclipse/eclipsefuro-web/commit/5d9467d4921db3e1acc72501400a9bef7107bfdc))
+
+
+
+
+
 ## [2.0.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.0.6...@furo/layout@2.0.7) (2022-05-26)
 
 

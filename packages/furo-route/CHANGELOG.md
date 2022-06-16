@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.1.2...@furo/route@2.1.3) (2022-06-16)
+
+
+### Bug Fixes
+
+* external url in app flow router ([e312617](https://github.com/eclipse/eclipsefuro-web/commit/e312617f39c0cc4e59d02f70cbac8127981d0629))
+
+
+
+
+
 ## [2.1.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.1.1...@furo/route@2.1.2) (2022-06-13)
 
 **Note:** Version bump only for package @furo/route
