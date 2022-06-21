@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Init, Env, i18n, Sys } from '@furo/framework/src/furo.js';
-import {BaseSpecValidators} from '@furo/framework/src/BaseSpecValidators/BaseSpecValidators.js';
-import {Services, Types} from "../../../furo-specs/dist/env.js"
+import { BaseSpecValidators } from '@furo/framework/src/BaseSpecValidators/BaseSpecValidators.js';
+import { Services, Types } from '../../../furo-specs/dist/env.js';
 
 import { Translations } from './translations.js';
 
@@ -14,7 +14,7 @@ Env.api = {
 Init.registerApiServices(Services);
 Init.registerApiTypes(Types);
 i18n.registerResBundle(Translations);
-BaseSpecValidators.registerAll()
+BaseSpecValidators.registerAll();
 Init.translateStaticTypeMessages(Env.locale);
 
 export class Tst {

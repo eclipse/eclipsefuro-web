@@ -107,7 +107,7 @@ export class i18n {
     if (i18n.resbundle === undefined) {
       // eslint-disable-next-line no-console
       console.warn(
-        'There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).',
+        'There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).'
       );
       return key;
     }

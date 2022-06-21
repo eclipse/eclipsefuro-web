@@ -84,7 +84,11 @@ export class EventTreeNode {
         this.__childNodes.push(undefined);
       }
     }
-    this.__childNodes.splice(newIndex, 0, this.__childNodes.splice(oldIndex, 1)[0]);
+    this.__childNodes.splice(
+      newIndex,
+      0,
+      this.__childNodes.splice(oldIndex, 1)[0]
+    );
     this.dispatchNodeEvent(new NodeEvent('order-changed', this, true));
     this.dispatchNodeEvent(new NodeEvent('this-order-changed', this, false));
   }
@@ -170,7 +174,10 @@ export class EventTreeNode {
   }
 
   __triggerNodeEvents(event) {
-    if (this.__eventListener[event.type] && this.__eventListener[event.type].length > 0) {
+    if (
+      this.__eventListener[event.type] &&
+      this.__eventListener[event.type].length > 0
+    ) {
       this.__eventListener[event.type].forEach((t, i, listenerArray) => {
         t.cb(event);
         if (t.options.once) {

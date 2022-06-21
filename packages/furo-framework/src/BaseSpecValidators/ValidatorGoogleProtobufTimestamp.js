@@ -1,5 +1,4 @@
-export class ValidatorGoogleProtobufTimestamp{
-
+export class ValidatorGoogleProtobufTimestamp {
   /**
    * checks field constraints
    * @param field
@@ -7,8 +6,7 @@ export class ValidatorGoogleProtobufTimestamp{
    */
   static validateConstraints(field) {
     return new Promise((resolve, reject) => {
-
-      // eslint-disable-next-line guard-for-in
+      // eslint-disable-next-line
       for (const constraintName in field._constraints) {
         const constraint = field._constraints[constraintName];
 
@@ -30,8 +28,6 @@ export class ValidatorGoogleProtobufTimestamp{
       }
       // all constraint checks are valid
       resolve(field);
-
-
     });
   }
 }
