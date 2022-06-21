@@ -1,6 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import { Env } from './environment.js';
 import { i18n } from './i18n.js';
+import {ValidatorRegistry} from "./ValidatorRegistry.js";
 
 /**
  * The init class is used to init your *Env*, the API services and the API types.
@@ -58,6 +59,16 @@ export class Init {
 
   static registerApiTypes(types) {
     Env.api.specs = types;
+  }
+
+  /**
+   * Register a validator for a specific type.
+   *
+   * @param typename {String}
+   * @param ValidatorClass {Class}
+   */
+  static registerCustomValidator(typename, ValidatorClass){
+    ValidatorRegistry.register(typename, ValidatorClass)
   }
 
   /**

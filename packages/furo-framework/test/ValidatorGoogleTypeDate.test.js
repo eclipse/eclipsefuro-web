@@ -4,7 +4,7 @@ import '../src/furo-catalog.js';
 import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';
-import { ValidatorGoogleTypeDate } from '../src/lib/ValidatorGoogleTypeDate.js';
+import { ValidatorGoogleTypeDate } from '../src/BaseSpecValidators/ValidatorGoogleTypeDate.js';
 
 describe('ValidatorGoogleTypeDate', () => {
   let element;
