@@ -8,6 +8,7 @@ export class ValidatorGoogleProtobufTimestamp{
   static validateConstraints(field) {
     return new Promise((resolve, reject) => {
 
+      // eslint-disable-next-line guard-for-in
       for (const constraintName in field._constraints) {
         const constraint = field._constraints[constraintName];
 
@@ -22,7 +23,6 @@ export class ValidatorGoogleProtobufTimestamp{
               NODE.name = constraintName;
               NODE.node = field;
               reject(NODE);
-              return
             }
             break;
           default:
