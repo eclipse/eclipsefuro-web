@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.4.0...@furo/data@2.5.0) (2022-06-21)
+
+
+### Features
+
+* Custom validators ([155c2cf](https://github.com/eclipse/eclipsefuro-web/commit/155c2cfcfb9fe287de98bd2552f759eb25a27bca))
+
+
+
+
+
 # [2.4.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.3.0...@furo/data@2.4.0) (2022-06-13)
 
 
