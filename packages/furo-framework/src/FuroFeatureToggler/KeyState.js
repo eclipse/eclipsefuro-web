@@ -4,7 +4,6 @@
  */
 export class KeyState {
   constructor(initialState) {
-
     /**
      * create with false state
      * @private
@@ -57,7 +56,6 @@ export class KeyState {
     this._callbacks = [];
   }
 
-
   /**
    * register appender
    * @private
@@ -72,7 +70,6 @@ export class KeyState {
     }
   }
 
-
   /**
    * register remover
    * @private
@@ -86,7 +83,6 @@ export class KeyState {
       original.replaceWith(replacement);
     }
   }
-
 
   /**
    * shower
@@ -116,7 +112,6 @@ export class KeyState {
       element.removeAttribute('hidden');
     }
   }
-
 
   /**
    * @private
@@ -155,7 +150,7 @@ export class KeyState {
     // apply the initial state
     let values = '';
     if (this._data.length) {
-      values = this._data.split(',')
+      values = this._data.split(',');
     }
     if (this._state === true) {
       element.setAttribute(values[0], values[1]);
@@ -173,7 +168,7 @@ export class KeyState {
     // apply the initial state
     let values = '';
     if (this._data.length) {
-      values = this._data.split(',')
+      values = this._data.split(',');
     }
     if (this._state !== true) {
       element.setAttribute(values[0], values[1]);
@@ -253,7 +248,7 @@ export class KeyState {
       this._customAdders.forEach(element => {
         let values = '';
         if (this._data.length) {
-          values = this._data.split(',')
+          values = this._data.split(',');
         }
         if (this._state === true) {
           element.setAttribute(values[0], values[1]);
@@ -265,7 +260,7 @@ export class KeyState {
       this._customRemovers.forEach(element => {
         let values = '';
         if (this._data.length) {
-          values = this._data.split(',')
+          values = this._data.split(',');
         }
         if (this._state !== true) {
           element.setAttribute(values[0], values[1]);

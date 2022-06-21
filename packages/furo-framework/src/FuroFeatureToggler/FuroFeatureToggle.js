@@ -5,7 +5,6 @@ import { KeyState } from './KeyState.js';
  */
 const keystore = {};
 
-
 /**
  * Use the FuroFeatureToggle to control features from a central registry.
  * FuroFeatureToggle only needs a key and a boolean value.
@@ -111,22 +110,18 @@ export class FuroFeatureToggle {
     );
 
     // register all show
-    Array.from(root.querySelectorAll('*[data-furo-toggle-show]')).forEach(
-      e => {
-        const key = e.dataset.furoToggleShow;
-        FuroFeatureToggle._mustKey(key);
-        keystore[key].registerShower(e);
-      }
-    );
+    Array.from(root.querySelectorAll('*[data-furo-toggle-show]')).forEach(e => {
+      const key = e.dataset.furoToggleShow;
+      FuroFeatureToggle._mustKey(key);
+      keystore[key].registerShower(e);
+    });
 
     // register all hide
-    Array.from(root.querySelectorAll('*[data-furo-toggle-hide]')).forEach(
-      e => {
-        const key = e.dataset.furoToggleHide;
-        FuroFeatureToggle._mustKey(key);
-        keystore[key].registerHider(e);
-      }
-    );
+    Array.from(root.querySelectorAll('*[data-furo-toggle-hide]')).forEach(e => {
+      const key = e.dataset.furoToggleHide;
+      FuroFeatureToggle._mustKey(key);
+      keystore[key].registerHider(e);
+    });
 
     // register all disable
     Array.from(root.querySelectorAll('*[data-furo-toggle-disable]')).forEach(
@@ -154,7 +149,7 @@ export class FuroFeatureToggle {
         let data = '';
         if (values.length > 1) {
           // add custom data to key
-          data = values.slice(1).join(",").replaceAll(' ', '')
+          data = values.slice(1).join(',').replaceAll(' ', '');
         }
         FuroFeatureToggle._mustKey(key, data);
         keystore[key].registerCustomAdder(e);
@@ -162,19 +157,19 @@ export class FuroFeatureToggle {
     );
 
     // register all custom add toggle attributes
-    Array.from(root.querySelectorAll('*[data-furo-toggle-custom-remove]')).forEach(
-      e => {
-        const values = e.dataset.furoToggleCustomRemove.split(',');
-        const key = values[0];
-        let data = '';
-        if (values.length > 1) {
-          // add custom data to key
-          data = values.slice(1).join(",").replaceAll(' ', '')
-        }
-        FuroFeatureToggle._mustKey(key, data);
-        keystore[key].registerCustomRemover(e);
+    Array.from(
+      root.querySelectorAll('*[data-furo-toggle-custom-remove]')
+    ).forEach(e => {
+      const values = e.dataset.furoToggleCustomRemove.split(',');
+      const key = values[0];
+      let data = '';
+      if (values.length > 1) {
+        // add custom data to key
+        data = values.slice(1).join(',').replaceAll(' ', '');
       }
-    );
+      FuroFeatureToggle._mustKey(key, data);
+      keystore[key].registerCustomRemover(e);
+    });
   }
 
   /**
@@ -192,10 +187,10 @@ export class FuroFeatureToggle {
    *
    * @param keymap {map String,Boolean} Object with keys and their initial state
    */
-  static registerKeyMap(keymap){
-    Object.keys(keymap).forEach((key)=>{
-      FuroFeatureToggle.setKeyState(key,keymap[key]);
-    })
+  static registerKeyMap(keymap) {
+    Object.keys(keymap).forEach(key => {
+      FuroFeatureToggle.setKeyState(key, keymap[key]);
+    });
   }
 
   /**

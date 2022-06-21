@@ -4,7 +4,7 @@ import '../src/furo-catalog.js';
 import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';
-import { ValidatorGoogleTypeMoney } from '../src/lib/ValidatorGoogleTypeMoney.js';
+import { ValidatorGoogleTypeMoney } from '../src/BaseSpecValidators/ValidatorGoogleTypeMoney.js';
 
 describe('ValidatorGoogleTypeMoney', () => {
   let element;

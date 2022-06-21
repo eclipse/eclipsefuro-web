@@ -1,6 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import { Env } from './environment.js';
 import { i18n } from './i18n.js';
+import { ValidatorRegistry } from './ValidatorRegistry.js';
 
 /**
  * The init class is used to init your *Env*, the API services and the API types.
@@ -61,6 +62,16 @@ export class Init {
   }
 
   /**
+   * Register a validator for a specific type.
+   *
+   * @param typename {String}
+   * @param ValidatorClass {Class}
+   */
+  static registerCustomValidator(typename, ValidatorClass) {
+    ValidatorRegistry.register(typename, ValidatorClass);
+  }
+
+  /**
    * Add a single type spec to the registry
    *
    * Attention: If the name already exist, the old entry is overwritten.
@@ -94,7 +105,11 @@ export class Init {
       for (const service in Env.api.services[s].services) {
         // prefix the hrefs if they do not start with a host
         const { deeplink } = Env.api.services[s].services[service];
-        if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
+        if (
+          deeplink.href &&
+          deeplink.href.length &&
+          deeplink.href.startsWith('/')
+        ) {
           deeplink.href = Env.api.prefix + deeplink.href;
         }
       }
@@ -120,12 +135,18 @@ export class Init {
         ) {
           if (typeof Env.api.specs[t].fields[field].meta.default === 'string') {
             Env.api.specs[t].fields[field].meta.default = JSON.parse(
-              Env.api.specs[t].fields[field].meta.default,
+              Env.api.specs[t].fields[field].meta.default
             );
           }
           const deeplink = Env.api.specs[t].fields[field].meta.default.link;
-          if (deeplink && deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
-            Env.api.specs[t].fields[field].meta.default.link.href = Env.api.prefix + deeplink.href;
+          if (
+            deeplink &&
+            deeplink.href &&
+            deeplink.href.length &&
+            deeplink.href.startsWith('/')
+          ) {
+            Env.api.specs[t].fields[field].meta.default.link.href =
+              Env.api.prefix + deeplink.href;
           }
         }
 
@@ -136,7 +157,7 @@ export class Init {
           Env.api.specs[t].fields[field].meta.default
         ) {
           Env.api.specs[t].fields[field].meta.default = JSON.parse(
-            Env.api.specs[t].fields[field].meta.default,
+            Env.api.specs[t].fields[field].meta.default
           );
           // Apply only when the prefix is not hard coded in the specs
           const deeplink = Env.api.specs[t].fields[field].meta.default;
@@ -147,7 +168,8 @@ export class Init {
             deeplink.href.startsWith('/') &&
             !deeplink.href.startsWith(`${Env.api.prefix}/`)
           ) {
-            Env.api.specs[t].fields[field].meta.default.href = Env.api.prefix + deeplink.href;
+            Env.api.specs[t].fields[field].meta.default.href =
+              Env.api.prefix + deeplink.href;
           }
         }
       }
@@ -173,19 +195,19 @@ export class Init {
           // translate static label text
           if (Env.api.specs[type].fields[field].meta.label) {
             Env.api.specs[type].fields[field].meta.label = i18n.t(
-              Env.api.specs[type].fields[field].meta.label,
+              Env.api.specs[type].fields[field].meta.label
             );
           }
           // translate static hint text
           if (Env.api.specs[type].fields[field].meta.hint) {
             Env.api.specs[type].fields[field].meta.hint = i18n.t(
-              Env.api.specs[type].fields[field].meta.hint,
+              Env.api.specs[type].fields[field].meta.hint
             );
           }
           // translate static placeholder text
           if (Env.api.specs[type].fields[field].meta.placeholder) {
             Env.api.specs[type].fields[field].meta.placeholder = i18n.t(
-              Env.api.specs[type].fields[field].meta.placeholder,
+              Env.api.specs[type].fields[field].meta.placeholder
             );
           }
           // translate option list if set
@@ -194,13 +216,20 @@ export class Init {
             Env.api.specs[type].fields[field].meta.options.list &&
             Array.isArray(Env.api.specs[type].fields[field].meta.options.list)
           ) {
-            let size = Env.api.specs[type].fields[field].meta.options.list.length;
+            let size =
+              Env.api.specs[type].fields[field].meta.options.list.length;
             // eslint-disable-next-line no-cond-assign,no-plusplus
             while (size--) {
               // additional check if list object has property display_name
-              if (Env.api.specs[type].fields[field].meta.options.list[size].display_name) {
-                Env.api.specs[type].fields[field].meta.options.list[size].display_name = i18n.t(
-                  Env.api.specs[type].fields[field].meta.options.list[size].display_name,
+              if (
+                Env.api.specs[type].fields[field].meta.options.list[size]
+                  .display_name
+              ) {
+                Env.api.specs[type].fields[field].meta.options.list[
+                  size
+                ].display_name = i18n.t(
+                  Env.api.specs[type].fields[field].meta.options.list[size]
+                    .display_name
                 );
               }
             }
@@ -210,11 +239,14 @@ export class Init {
           // eslint-disable-next-line guard-for-in,no-restricted-syntax
           for (const attr in Env.api.specs[type].fields[field].constraints) {
             // eslint-disable-next-line no-prototype-builtins
-            if (Env.api.specs[type].fields[field].constraints.hasOwnProperty(attr)) {
+            if (
+              Env.api.specs[type].fields[field].constraints.hasOwnProperty(attr)
+            ) {
               if (Env.api.specs[type].fields[field].constraints[attr].message) {
-                Env.api.specs[type].fields[field].constraints[attr].message = i18n.t(
-                  Env.api.specs[type].fields[field].constraints[attr].message,
-                );
+                Env.api.specs[type].fields[field].constraints[attr].message =
+                  i18n.t(
+                    Env.api.specs[type].fields[field].constraints[attr].message
+                  );
               }
             }
           }
