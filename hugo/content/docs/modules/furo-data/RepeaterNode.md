@@ -6,7 +6,7 @@ weight: 100
 
 # RepeaterNode
 
-**@furo/furo-data** <small>v2.3.0</small>
+**@furo/furo-data** <small>v2.5.0</small>
 <br>`import '@furo/data/src/lib/RepeaterNode.js';`<small>
 <br>exports *RepeaterNode* js
 <br>superclass *EventTreeNode*</small>

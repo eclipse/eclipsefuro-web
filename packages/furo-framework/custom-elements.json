@@ -238,6 +238,68 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/ValidatorRegistry.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "This is used by the FieldNode to validate against specified constraints.\nScalar values must not be registered.",
+          "name": "ValidatorRegistry",
+          "members": [
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "typename",
+                  "type": {
+                    "text": "String"
+                  }
+                },
+                {
+                  "name": "ValidatorClass",
+                  "type": {
+                    "text": "Class"
+                  }
+                }
+              ],
+              "description": "Register a validator for a specific type."
+            },
+            {
+              "kind": "method",
+              "name": "getValidator",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "typename",
+                  "type": {
+                    "text": "String"
+                  }
+                }
+              ],
+              "description": "Receive a validator for a specific complex type",
+              "return": {
+                "type": {
+                  "text": "*|boolean"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorRegistry",
+          "declaration": {
+            "name": "ValidatorRegistry",
+            "module": "src/ValidatorRegistry.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/environment.js",
       "declarations": [
         {
@@ -396,6 +458,26 @@
             },
             {
               "kind": "method",
+              "name": "registerCustomValidator",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "typename",
+                  "type": {
+                    "text": "String"
+                  }
+                },
+                {
+                  "name": "ValidatorClass",
+                  "type": {
+                    "text": "Class"
+                  }
+                }
+              ],
+              "description": "Register a validator for a specific type."
+            },
+            {
+              "kind": "method",
               "name": "addApiTypeSpec",
               "static": true,
               "parameters": [
@@ -474,6 +556,412 @@
           "declaration": {
             "name": "Sys",
             "module": "src/system.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/BaseSpecValidators.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Validators for furo base types and google well known types",
+          "name": "BaseSpecValidators",
+          "members": [
+            {
+              "kind": "method",
+              "name": "registerAll",
+              "static": true,
+              "description": "Register all validators. This should be done in your init phase of your app.\n```js\nimport {BaseSpecValidators} from '@furo/framework/src/BaseSpecValidators/RegisterAll.js';\n\nBaseSpecValidators.registerAll()\n```"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BaseSpecValidators",
+          "declaration": {
+            "name": "BaseSpecValidators",
+            "module": "src/BaseSpecValidators/BaseSpecValidators.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorFuroBigDecimal.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>furo.BigDecimal</code>",
+          "name": "ValidatorFuroBigDecimal",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorFuroBigDecimal",
+          "declaration": {
+            "name": "ValidatorFuroBigDecimal",
+            "module": "src/BaseSpecValidators/ValidatorFuroBigDecimal.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorFuroReference.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type <code>furo.Reference</code",
+          "name": "ValidatorFuroReference",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks field constraints",
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorFuroReference",
+          "declaration": {
+            "name": "ValidatorFuroReference",
+            "module": "src/BaseSpecValidators/ValidatorFuroReference.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorGoogleProtobufBoolValue.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.BoolValue</code>",
+          "name": "ValidatorGoogleProtobufBoolValue",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleProtobufBoolValue",
+          "declaration": {
+            "name": "ValidatorGoogleProtobufBoolValue",
+            "module": "src/BaseSpecValidators/ValidatorGoogleProtobufBoolValue.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorGoogleProtobufFloatValue.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.FloatValue</code>",
+          "name": "ValidatorGoogleProtobufFloatValue",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleProtobufFloatValue",
+          "declaration": {
+            "name": "ValidatorGoogleProtobufFloatValue",
+            "module": "src/BaseSpecValidators/ValidatorGoogleProtobufFloatValue.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorGoogleProtobufInt64Value.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.Int64Value</code>",
+          "name": "ValidatorGoogleProtobufInt64Value",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleProtobufInt64Value",
+          "declaration": {
+            "name": "ValidatorGoogleProtobufInt64Value",
+            "module": "src/BaseSpecValidators/ValidatorGoogleProtobufInt64Value.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorGoogleProtobufTimestamp.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ValidatorGoogleProtobufTimestamp",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks field constraints",
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleProtobufTimestamp",
+          "declaration": {
+            "name": "ValidatorGoogleProtobufTimestamp",
+            "module": "src/BaseSpecValidators/ValidatorGoogleProtobufTimestamp.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorGoogleTypeDate.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type <code>google.type.Date</code",
+          "name": "ValidatorGoogleTypeDate",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks constraints",
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isEmpty",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks if type date is empty",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "createDateFromType",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "creates a JS UTC Date from google.type.Date struct",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Date"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "createDateFromConstraint",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "constraints"
+                },
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "creates a JS midnight UTC Date from furo/specs constraints",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Date"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleTypeDate",
+          "declaration": {
+            "name": "ValidatorGoogleTypeDate",
+            "module": "src/BaseSpecValidators/ValidatorGoogleTypeDate.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorGoogleTypeMoney.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type <code>google.type.Money</code",
+          "name": "ValidatorGoogleTypeMoney",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks field constraints",
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isEmpty",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "description": "checks if type money is empty",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorGoogleTypeMoney",
+          "declaration": {
+            "name": "ValidatorGoogleTypeMoney",
+            "module": "src/BaseSpecValidators/ValidatorGoogleTypeMoney.js"
           }
         }
       ]

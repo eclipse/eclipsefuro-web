@@ -6,7 +6,7 @@ weight: 100
 
 # FieldNode
 
-**@furo/furo-data** <small>v2.3.0</small>
+**@furo/furo-data** <small>v2.5.0</small>
 <br>`import '@furo/data/src/lib/FieldNode.js';`<small>
 <br>exports *FieldNode* js
 <br>superclass *EventTreeNode*</small>

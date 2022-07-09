@@ -6,7 +6,7 @@ weight: 100
 
 # Init
 
-**@furo/furo-framework** <small>v2.1.2</small>
+**@furo/furo-framework** <small>v2.2.0</small>
 <br>`import '@furo/framework/src/system.js';`<small>
 <br>exports *Init* js
 <br>exports *Sys* js</small>
@@ -71,6 +71,7 @@ Iconset.registerIconset("image", ImageIcons);
 
 
 
+
 ## Methods
 {{% api "_Init-methods.md" %}}
 
@@ -98,6 +99,15 @@ Iconset.registerIconset("image", ImageIcons);
 
 
 - <small>*types* </small>
+<br><br>
+
+### **registerCustomValidator**
+<small>**registerCustomValidator**(*typename* `String` *ValidatorClass* `Class` ) ⟹ `void`</small>
+
+Register a validator for a specific type.
+
+- <small>*typename* </small>
+- <small>*ValidatorClass* </small>
 <br><br>
 
 ### **addApiTypeSpec**

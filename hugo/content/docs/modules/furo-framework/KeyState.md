@@ -6,7 +6,7 @@ weight: 100
 
 # KeyState
 
-**@furo/furo-framework** <small>v2.1.2</small>
+**@furo/furo-framework** <small>v2.2.0</small>
 <br>`import '@furo/framework/src/FuroFeatureToggler/KeyState.js';`<small>
 <br>exports *KeyState* js</small>
 

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-horizontal-flex
-**@furo/layout** <small>v2.0.7</small>
+**@furo/layout** <small>v2.0.8</small>
 <br>`import '@furo/layout/src/furo-horizontal-flex.js';`<small>
 <br>exports `<furo-horizontal-flex>` custom-element-definition
 <br>superclass *LitElement*</small>
