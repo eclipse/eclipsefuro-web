@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.4.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.3.2...@furo/fbp@6.4.0) (2022-07-09)
+
+
+### Features
+
+* deep value setter with set-prop.subprop="--wire" ([9a9ac85](https://github.com/eclipse/eclipsefuro-web/commit/9a9ac8506a230e75aa048c408c2d5ea0d900c3dd))
+
+
+
+
+
 ## [6.3.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.3.1...@furo/fbp@6.3.2) (2022-05-23)
 
 **Note:** Version bump only for package @furo/fbp

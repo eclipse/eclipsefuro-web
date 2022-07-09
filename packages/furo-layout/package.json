@@ -1,7 +1,7 @@
 {
   "name": "@furo/layout",
   "description": "Layout components for furo",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-layout",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
   "author": {
@@ -26,7 +26,7 @@
     "test:watch": "../../node_modules/.bin/web-test-runner  --watch"
   },
   "dependencies": {
-    "@furo/fbp": "^6.3.2",
+    "@furo/fbp": "^6.4.0",
     "lit": "^2.0.2"
   },
   "publishConfig": {

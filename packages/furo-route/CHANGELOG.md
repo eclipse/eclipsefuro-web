@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.1.4...@furo/route@2.1.5) (2022-07-09)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
 ## [2.1.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.1.3...@furo/route@2.1.4) (2022-06-21)
 
 **Note:** Version bump only for package @furo/route
