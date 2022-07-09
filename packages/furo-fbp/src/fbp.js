@@ -225,8 +225,7 @@ export const FBP = superClass =>
               if (receiver.path) {
                 data = this._pathGet(detailData, receiver.path);
               }
-              // eslint-disable-next-line no-param-reassign
-              receiver.element[receiver.property] = data;
+              this._pathSet(receiver.element, receiver.property, data);
             } else if (receiver.element.localName.includes('-')) {
               // retry call with whenDefined because sometimes the components are just not defined at the time ƒ-method is triggered
               customElements
@@ -541,7 +540,6 @@ export const FBP = superClass =>
         }
 
         for (let i = 0; i < element.attributes.length; i += 1) {
-
           // collect receiving tags
           if (element.attributes[i].name.startsWith('fn-')) {
             const attr = element.attributes[i].name.substring(3);
@@ -585,7 +583,6 @@ export const FBP = superClass =>
             // eslint-disable-next-line no-continue
             continue;
           }
-
 
           // collect sending tags
           if (element.attributes[i].name.startsWith('@-')) {
