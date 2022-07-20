@@ -33,6 +33,28 @@ export class ValidatorNumericTypes {
             reject(NODE);
           }
           break;
+
+        case 'enum':
+
+          if (!Number.isInteger(field._value)) {
+            const NODE = {};
+            NODE.message = '';
+            NODE.name = '';
+            NODE.node = field;
+            reject(NODE);
+          }
+
+          // proove if the value of the enum is specified in the options
+          if (field._meta.options.list.filter(opt => opt.id === field._value).length <= 0) {
+            const NODE = {};
+            NODE.message = 'out of range';
+            NODE.name = '';
+            NODE.node = field;
+            reject(NODE);
+          }
+
+          break;
+
         default:
       }
 
