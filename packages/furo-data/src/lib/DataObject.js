@@ -375,6 +375,35 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
+   * Resolve `Fieldnodes` by path.
+   * @param deeppath {string} Path like data.name
+   * @returns {FieldNode|*|FieldNode}
+   * @private
+   */
+  _getPath(deeppath) {
+    // eslint-disable-next-line no-param-reassign
+    deeppath = deeppath || '';
+    if (deeppath === ""){
+      return this
+    }
+    const path = deeppath.split('.');
+    if (path.length > 0 && path[0] !== '') {
+      // rest wieder in error reinwerfen
+      // eslint-disable-next-line no-param-reassign
+      deeppath = path.slice(1).join('.');
+      if (this[path[0]]) {
+       return  this[path[0]]._getPath(deeppath);
+        // eslint-disable-next-line
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn('Unknown field', path, this._name);
+        return this
+      }
+    }
+      return this
+
+  }
+  /**
    * Baut die Felder aufgrund der spec auf
    * @param node
    * @param fieldSpec

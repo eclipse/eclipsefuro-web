@@ -465,6 +465,37 @@ export class RepeaterNode extends EventTreeNode {
     }
   }
 
+  _getPath(deeppath) {
+    const path = deeppath.split('.');
+    if (path.length > 0) {
+      // den rest wieder in error reinwerfen
+      // eslint-disable-next-line no-param-reassign
+      deeppath = path.slice(1).join('.');
+    }
+
+    if (this.repeats[path[0]]) {
+      return this.repeats[path[0]]._getPath(deeppath);
+    }
+    return this
+  }
+
+
+  _setState(state) {
+    if(state.state === "Error") {
+      this._isValid = false;
+    }
+    const path = state.field.split('.');
+    if (path.length > 0) {
+      // den rest wieder in error reinwerfen
+      // eslint-disable-next-line no-param-reassign
+      state.field = path.slice(1).join('.');
+    }
+
+    if (this.repeats[path[0]]) {
+      this.repeats[path[0]]._setState(state);
+    }
+  }
+
   add(data) {
     const index = this._addSilent();
     this._pristine = false;

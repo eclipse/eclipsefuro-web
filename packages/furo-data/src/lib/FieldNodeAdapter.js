@@ -140,6 +140,10 @@ export const FieldNodeAdapter = superClass =>
 
       // add the main event listeners
       fieldNode.addEventListener(
+        'this-focus-requested',this.__fieldFocusHandler
+      );
+
+      fieldNode.addEventListener(
         'this-metas-changed',
         this.__fieldMetasChangedHandler
       );
@@ -162,6 +166,10 @@ export const FieldNodeAdapter = superClass =>
       fieldNode.addEventListener(
         'field-became-valid',
         this.__fieldBecamesValidHandler
+      );
+      fieldNode.addEventListener(
+        'field-state-changed',
+        this.__fieldStateChangedHandler
       );
       fieldNode.addEventListener(
         'field-became-invalid',
@@ -296,6 +304,13 @@ export const FieldNodeAdapter = superClass =>
      */
     // eslint-disable-next-line class-methods-use-this
     onFnaFieldNodeBecameValid() {}
+
+    /**
+     * Notifies that a field has changed its state
+     * @private
+     */
+    // eslint-disable-next-line class-methods-use-this
+    onFnaFieldStateChanged() {}
 
     /**
      * Notifies that a field gets invalid.
@@ -469,6 +484,24 @@ export const FieldNodeAdapter = superClass =>
       };
 
       /**
+       * Handler to notify a focus request on a fieldNode
+       * @return {(function(): void)|*}
+       * @private
+       */
+      this.__fieldFocusHandler = () => {
+        this.focus()
+      }
+
+      /**
+       * Handler to notify the state of a fieldNode
+       * @return {(function(): void)|*}
+       * @private
+       */
+      this.__fieldStateChangedHandler = () => {
+        this.onFnaFieldStateChanged(this.__fieldNode._state);
+      };
+
+      /**
        * Handler to notify the new Data injected information of a fieldNode
        * @return {(function(): void)|*}
        * @private
@@ -518,6 +551,15 @@ export const FieldNodeAdapter = superClass =>
         this.__fieldNode.removeEventListener(
           'field-became-valid',
           this.__fieldBecamesValidHandler
+        );
+
+        this.__fieldNode.removeEventListener(
+          'this-focus-requested',
+          this.__fieldFocusHandler
+        );
+        this.__fieldNode.removeEventListener(
+          'field-state-changed',
+          this.__fieldStateChangedHandler
         );
         this.__fieldNode.removeEventListener(
           'field-became-invalid',
