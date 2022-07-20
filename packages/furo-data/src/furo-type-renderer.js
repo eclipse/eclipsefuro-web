@@ -186,8 +186,8 @@ class FuroTypeRenderer extends FBP(LitElement) {
         el.setAttribute(nodeName, nodeValue);
       }
     }
-    el.bindData(this._field);
     this._insertedElementRef = this.parentNode.insertBefore(el, this);
+    el.bindData(this._field);
   }
 
   /**
