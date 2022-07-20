@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.5.1...@furo/data@2.6.0) (2022-07-20)
+
+
+### Features
+
+* deep value setter with set-prop.subprop="--wire" ([606577d](https://github.com/eclipse/eclipsefuro-web/commit/606577d1bed522660892d9bc880c8f2f7bb840ff))
+* value-state support for fieldnodes ([beff6af](https://github.com/eclipse/eclipsefuro-web/commit/beff6afa2f4988924cfe97c30ce43323ad8b1277))
+
+
+
+
+
 ## [2.5.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.5.0...@furo/data@2.5.1) (2022-07-09)
 
 **Note:** Version bump only for package @furo/data

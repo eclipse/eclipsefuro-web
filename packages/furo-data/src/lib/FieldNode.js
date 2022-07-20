@@ -907,7 +907,7 @@ export class FieldNode extends EventTreeNode {
     }
     if (!this.__childNodes.length) {
       if (!this._isValid) {
-        const validityTransfer = this._validity;
+        const validityTransfer = this._validity || {};
         validityTransfer.field_description = this._spec;
         return validityTransfer;
       }
@@ -975,6 +975,73 @@ export class FieldNode extends EventTreeNode {
       this._isValid = false;
       this._validity = error;
       this.dispatchNodeEvent(new NodeEvent('field-became-invalid', this));
+    }
+  }
+
+  /**
+   * Resolve `Fieldnodes` by path.
+   * @param deeppath {string} Path like data.name
+   * @returns {FieldNode|*|FieldNode}
+   * @private
+   */
+  _getPath(deeppath) {
+    // eslint-disable-next-line no-param-reassign
+    deeppath = deeppath || '';
+
+    const path = deeppath.split('.');
+    if (path.length > 0 && path[0] !== '') {
+      // rest wieder in error reinwerfen
+      // eslint-disable-next-line no-param-reassign
+      deeppath = path.slice(1).join('.');
+      if (this[path[0]]) {
+        return this[path[0]]._getPath(deeppath);
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn('Unknown field', path, this._name);
+        return this
+      }
+    } else {
+     return this
+    }
+  }
+
+
+  _setState(state) {
+    // set field empty, if not defined
+    // eslint-disable-next-line no-param-reassign
+    state.field = state.field || '';
+
+    const path = state.field.split('.');
+    if (path.length > 0 && path[0] !== '') {
+
+      // rest wieder in state reinwerfen
+      // eslint-disable-next-line no-param-reassign
+      state.field = path.slice(1).join('.');
+      if (this[path[0]]) {
+        this[path[0]]._setState(state);
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn('Unknown field', path, this._name);
+      }
+    } else {
+      this._isValid = false;
+      this._state = state;
+      if (state.state === "Error") {
+        this._validity = state;
+        this.dispatchNodeEvent(new NodeEvent('field-became-invalid', this));
+      } else if (state.state === "None") {
+        // pass a received None State to all child nodes
+        this.__childNodes.forEach((node) => {
+          this[node._name]._setState({state: "None", description: "", field: ""});
+        })
+      } else {
+        // assume the field is valid if the state is not error
+        this.dispatchNodeEvent(new NodeEvent('field-became-valid', this));
+      }
+
+      this.dispatchNodeEvent(new NodeEvent('field-state-changed', this, false));
+      // set empty state on fields without value state
+
     }
   }
 

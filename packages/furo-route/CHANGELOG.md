@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.1.5...@furo/route@2.2.0) (2022-07-20)
+
+
+### Features
+
+* deep value setter with set-prop.subprop="--wire" ([606577d](https://github.com/eclipse/eclipsefuro-web/commit/606577d1bed522660892d9bc880c8f2f7bb840ff))
+
+
+
+
+
 ## [2.1.5](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.1.4...@furo/route@2.1.5) (2022-07-09)
 
 **Note:** Version bump only for package @furo/route
