@@ -150,7 +150,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
           height: 320px;
           box-sizing: border-box;
           overflow: hidden;
-          position: relative;
+
         }
 
         :host([hidden]) {
@@ -183,13 +183,9 @@ class FuroDemoSnippet extends FBP(LitElement) {
           height: 100%;
         }
         #demo {
+          height: 100%;
           padding: 1rem;
           box-sizing: border-box;
-          position: fixed;
-          top: 22px;
-          left: 0;
-          right: 0;
-          bottom: 0;
           background: inherit;
         }
 
