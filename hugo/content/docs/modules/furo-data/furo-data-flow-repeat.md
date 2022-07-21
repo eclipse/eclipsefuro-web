@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-flow-repeat
-**@furo/data** <small>v2.5.0</small>
+**@furo/data** <small>v2.6.0</small>
 <br>`import '@furo/data/src/furo-data-flow-repeat.js';`<small>
 <br>exports *FuroDataFlowRepeat* js
 <br>exports `<furo-data-flow-repeat>` custom-element-definition
@@ -92,6 +92,7 @@ The path is a field, relative to the root of the repeated item.
 
 
 
+
 ## Methods
 {{% api "_furo-data-flow-repeat-methods.md" %}}
 
@@ -122,6 +123,7 @@ If  no object is set, a initial FieldNode of the same type is added to the repea
 
 - <small>*data* Object that match the type of the repeated node.</small>
 <br><br>
+
 
 
 

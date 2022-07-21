@@ -1394,6 +1394,16 @@
             },
             {
               "kind": "method",
+              "name": "onFnaFieldStateChanged",
+              "description": "Notifies that a field has changed its state",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FieldNodeAdapter",
+                "module": "src/lib/FieldNodeAdapter.js"
+              }
+            },
+            {
+              "kind": "method",
               "name": "onFnaFieldNodeBecameInvalid",
               "parameters": [
                 {
@@ -2816,6 +2826,16 @@
             },
             {
               "kind": "method",
+              "name": "onFnaFieldStateChanged",
+              "description": "Notifies that a field has changed its state",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "FieldNodeAdapter",
+                "module": "src/lib/FieldNodeAdapter.js"
+              }
+            },
+            {
+              "kind": "method",
               "name": "onFnaFieldNodeBecameInvalid",
               "parameters": [
                 {
@@ -2921,6 +2941,141 @@
           "declaration": {
             "name": "FuroHateoasState",
             "module": "src/furo-hateoas-state.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/furo-message-container-handler.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-message-container-handler`\n will update the 'value states' of all fields of your data object from the injected `furo.MessageContainer` message.",
+          "name": "FuroMessageContainerHandler",
+          "members": [
+            {
+              "kind": "method",
+              "name": "injectRaw",
+              "parameters": [
+                {
+                  "name": "messageContainer",
+                  "description": "with `furo.MessageContainer` signature",
+                  "type": {
+                    "text": "JSON"
+                  }
+                }
+              ],
+              "description": "This will set the corresponding value-states on the sibling nodes of the bounded `furo.MessageContainer` field."
+            },
+            {
+              "kind": "method",
+              "name": "bindMc",
+              "parameters": [
+                {
+                  "name": "fieldNode",
+                  "description": "Messagecontainer fieldnode",
+                  "type": {
+                    "text": "FieldNode"
+                  }
+                }
+              ],
+              "description": "bindMc Bind a `furo.MessageContainer` fieldnode.\n\nThe updates from the injected raw messagecontainer are applied to the siblings of the bounded node.",
+              "privacy": "public"
+            },
+            {
+              "kind": "method",
+              "name": "_getStateFromMessageType",
+              "parameters": [
+                {
+                  "name": "messageType"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "string|undefined"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "messageDO",
+              "type": {
+                "text": "object"
+              },
+              "description": "the Message Container Data Object",
+              "privacy": "private",
+              "default": "{}"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when success field was set on the received `furo.MessageContainer`.",
+              "name": "success"
+            },
+            {
+              "type": {
+                "text": "void"
+              },
+              "description": "Fired when the success field on the `furo.MessageContainer` was not set or is set to false.",
+              "name": "no-success"
+            },
+            {
+              "type": {
+                "text": "[]furo.ConfirmationMessage"
+              },
+              "description": "Fired when the message container contains any confirmation field, with list with all `furo.ConfirmationMessage`.",
+              "name": "has-confirmation"
+            },
+            {
+              "type": {
+                "text": "[]furo.MCFieldViolation"
+              },
+              "description": "Fired when the message container contains any error field, with list with all error fields.",
+              "name": "has-errors"
+            },
+            {
+              "type": {
+                "text": "[]furo.MCFieldViolation"
+              },
+              "description": "Fired when the message container contains any success field, with list with all success fields.",
+              "name": "has-success"
+            },
+            {
+              "type": {
+                "text": "[]furo.MCFieldViolation"
+              },
+              "description": "Fired when the message container contains any warning field, with list with all warning fields.",
+              "name": "has-warnings"
+            },
+            {
+              "type": {
+                "text": "[]furo.MCFieldViolation"
+              },
+              "description": "Fired when the message container contains any info field, with list with all info fields.",
+              "name": "has-infos"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "furo.MessageContainer handler",
+          "tagName": "furo-message-container-handler",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-message-container-handler",
+          "declaration": {
+            "name": "FuroMessageContainerHandler",
+            "module": "src/furo-message-container-handler.js"
           }
         }
       ]
@@ -3583,6 +3738,26 @@
             },
             {
               "kind": "method",
+              "name": "_getPath",
+              "parameters": [
+                {
+                  "name": "deeppath",
+                  "description": "Path like data.name",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Resolve `Fieldnodes` by path.",
+              "return": {
+                "type": {
+                  "text": "FieldNode|*|FieldNode"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "_initFieldsFromSpec",
               "parameters": [
                 {
@@ -3880,6 +4055,35 @@
             },
             {
               "kind": "method",
+              "name": "_getPath",
+              "parameters": [
+                {
+                  "name": "deeppath",
+                  "description": "Path like data.name",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Resolve `Fieldnodes` by path.",
+              "return": {
+                "type": {
+                  "text": "FieldNode|*|FieldNode"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_setState",
+              "parameters": [
+                {
+                  "name": "state"
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "toString"
             },
             {
@@ -4129,6 +4333,12 @@
             },
             {
               "kind": "method",
+              "name": "onFnaFieldStateChanged",
+              "description": "Notifies that a field has changed its state",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "onFnaFieldNodeBecameInvalid",
               "parameters": [
                 {
@@ -4322,6 +4532,24 @@
               "parameters": [
                 {
                   "name": "error"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_getPath",
+              "parameters": [
+                {
+                  "name": "deeppath"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_setState",
+              "parameters": [
+                {
+                  "name": "state"
                 }
               ]
             },

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # empty-fbp-node
-**@furo/fbp** <small>v6.3.2</small>
+**@furo/fbp** <small>v6.5.0</small>
 <br>`import '@furo/fbp/src/empty-fbp-node.js';`<small>
 <br>exports `<empty-fbp-node>` custom-element-definition
 <br>superclass *HTMLElement*

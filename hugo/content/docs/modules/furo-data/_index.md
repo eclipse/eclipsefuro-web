@@ -6,7 +6,7 @@ weight: 100
 ---
 
 # @furo/data
-**@furo/data** <small>v2.5.0</small>
+**@furo/data** <small>v2.6.0</small>
 Furo data components
 
 {{% api "_furo-data-head.md" %}}

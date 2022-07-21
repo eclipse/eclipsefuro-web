@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-pages
-**@furo/route** <small>v2.1.4</small>
+**@furo/route** <small>v2.2.0</small>
 <br>`import '@furo/route/src/furo-pages.js';`<small>
 <br>exports `<furo-pages>` custom-element-definition
 <br>superclass *LitElement*</small>

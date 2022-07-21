@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-entity-agent
-**@furo/data** <small>v2.5.0</small>
+**@furo/data** <small>v2.6.0</small>
 <br>`import '@furo/data/src/furo-entity-agent.js';`<small>
 <br>exports `<furo-entity-agent>` custom-element-definition
 <br>superclass *LitElement*

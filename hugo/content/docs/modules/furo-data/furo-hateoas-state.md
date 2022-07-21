@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-hateoas-state
-**@furo/data** <small>v2.5.0</small>
+**@furo/data** <small>v2.6.0</small>
 <br>`import '@furo/data/src/furo-hateoas-state.js';`<small>
 <br>exports `<furo-hateoas-state>` custom-element-definition
 <br>superclass *LitElement*
@@ -42,6 +42,7 @@ Set the attribute **hide-no-rel** if you want to hide the node instead of being 
 
 ## Attributes and Properties
 {{% api "_furo-hateoas-state-properties.md" %}}
+
 
 
 
@@ -138,6 +139,7 @@ Inject a link array directly.
 
 - <small>*value* Array with raw `furo.Link` like</small>
 <br><br>
+
 
 
 

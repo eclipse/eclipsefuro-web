@@ -6,7 +6,7 @@ weight: 100
 
 # RepeaterNode
 
-**@furo/furo-data** <small>v2.5.0</small>
+**@furo/furo-data** <small>v2.6.0</small>
 <br>`import '@furo/data/src/lib/RepeaterNode.js';`<small>
 <br>exports *RepeaterNode* js
 <br>superclass *EventTreeNode*</small>
@@ -45,6 +45,8 @@ default: **tmp**</small>
 
 
 <br><br>
+
+
 
 
 
@@ -202,6 +204,22 @@ Deletes a repeated item by index
 
 
 - <small>*error* </small>
+<br><br>
+
+### **_getPath**
+<small>**_getPath**(*deeppath* `` ) ⟹ `void`</small>
+
+
+
+- <small>*deeppath* </small>
+<br><br>
+
+### **_setState**
+<small>**_setState**(*state* `` ) ⟹ `void`</small>
+
+
+
+- <small>*state* </small>
 <br><br>
 
 ### **add**

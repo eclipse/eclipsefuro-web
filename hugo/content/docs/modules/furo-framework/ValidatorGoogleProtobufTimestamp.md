@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorGoogleProtobufTimestamp
 
-**@furo/furo-framework** <small>v2.2.0</small>
+**@furo/furo-framework** <small>v2.3.0</small>
 <br>`import '@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufTimestamp.js';`<small>
 <br>exports *ValidatorGoogleProtobufTimestamp* js</small>
 

@@ -6,7 +6,7 @@ weight: 100
 
 # FieldNode
 
-**@furo/furo-data** <small>v2.5.0</small>
+**@furo/furo-data** <small>v2.6.0</small>
 <br>`import '@furo/data/src/lib/FieldNode.js';`<small>
 <br>exports *FieldNode* js
 <br>superclass *EventTreeNode*</small>
@@ -60,6 +60,8 @@ weight: 100
 
 Set the value of the field to the specified defaults.
 <br><br>
+
+
 
 
 
@@ -183,6 +185,15 @@ deletes the fieldnode
 
 <br><br>
 
+
+
+### **_setState**
+<small>**_setState**(*state* `` ) ⟹ `void`</small>
+
+
+
+- <small>*state* </small>
+<br><br>
 
 ### **toString**
 <small>**toString**() ⟹ `void`</small>

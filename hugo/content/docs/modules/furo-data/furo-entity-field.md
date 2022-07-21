@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-entity-field
-**@furo/data** <small>v2.5.0</small>
+**@furo/data** <small>v2.6.0</small>
 <br>`import '@furo/data/src/furo-entity-field.js';`<small>
 <br>exports `<furo-entity-field>` custom-element-definition
 <br>superclass *LitElement*</small>
