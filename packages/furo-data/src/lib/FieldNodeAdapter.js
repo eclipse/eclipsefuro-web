@@ -1,7 +1,7 @@
-import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
-import { FieldNode } from './FieldNode.js';
-import { RepeaterNode } from './RepeaterNode.js';
-import { DataObject } from './DataObject.js';
+import {NodeEvent} from '@furo/framework/src/EventTreeNode.js';
+import {FieldNode} from './FieldNode.js';
+import {RepeaterNode} from './RepeaterNode.js';
+import {DataObject} from './DataObject.js';
 
 /**
  * Use this class to make your component bindable without handling with the internals of FieldNode.
@@ -140,7 +140,7 @@ export const FieldNodeAdapter = superClass =>
 
       // add the main event listeners
       fieldNode.addEventListener(
-        'this-focus-requested',this.__fieldFocusHandler
+        'this-focus-requested', this.__fieldFocusHandler
       );
 
       fieldNode.addEventListener(
@@ -199,13 +199,41 @@ export const FieldNodeAdapter = superClass =>
     setFnaFieldValue(value) {
       // keep fields of any type
       if (this.__fieldNode['@type'] && this.__fieldNode['@type']._value) {
+        let anyval = {}
         // eslint-disable-next-line no-param-reassign
-        value['@type'] = this.__fieldNode['@type']._value;
+
+        switch (this.__fieldNode['@type']._value.replace(/.*\//, '')) {
+          case "google.protobuf.StringValue":
+          case "google.protobuf.BoolValue":
+          case "google.protobuf.FloatValue":
+          case "google.protobuf.Int32Value":
+          case "google.protobuf.Int64Value":
+          case "google.protobuf.DoubleValue":
+          case "google.protobuf.Duration":
+          case "google.protobuf.Timestamp":
+          case "google.protobuf.FieldMask":
+          case "google.protobuf.BytesValue":
+          case "google.protobuf.UInt32Value":
+          case "google.protobuf.UInt64Value":
+          case "google.protobuf.Struct":
+            anyval.value = value
+            break
+          default:
+            anyval = value
+        }
+        anyval['@type'] = this.__fieldNode['@type']._value;
+
+        this.__internalUpdateInProgress = true;
+        this.__fieldNode._value = anyval;
+        this.__internalUpdateInProgress = false;
+
+      }else{
+        this.__internalUpdateInProgress = true;
+        this.__fieldNode._value = value;
+        this.__internalUpdateInProgress = false;
       }
 
-      this.__internalUpdateInProgress = true;
-      this.__fieldNode._value = value;
-      this.__internalUpdateInProgress = false;
+
 
       // broadcast validation request because we do an injection on FAT
       if (this.__fieldNode._spec) {
@@ -224,7 +252,8 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaFieldValueChanged(value) {}
+    onFnaFieldValueChanged(value) {
+    }
 
     /**
      * Notifies changes on the constraints.
@@ -256,7 +285,8 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaConstraintsChanged(constraints) {}
+    onFnaConstraintsChanged(constraints) {
+    }
 
     /**
      * Notifies when the options for the field is changed or set.
@@ -264,7 +294,8 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaOptionsChanged(options) {}
+    onFnaOptionsChanged(options) {
+    }
 
     /**
      * Notifies when the readonly flag for the field is changed or set.
@@ -272,7 +303,8 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaReadonlyChanged(readonly) {}
+    onFnaReadonlyChanged(readonly) {
+    }
 
     /**
      * Notifies when the hint for the field is changed or set.
@@ -280,7 +312,8 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaHintChanged(hint) {}
+    onFnaHintChanged(hint) {
+    }
 
     /**
      * Notifies when the label for the field is changed or set.
@@ -288,7 +321,8 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaLabelChanged(label) {}
+    onFnaLabelChanged(label) {
+    }
 
     /**
      * Notifies when the placeholder for the field is changed or set.
@@ -296,21 +330,24 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaPlaceholderChanged(placeholder) {}
+    onFnaPlaceholderChanged(placeholder) {
+    }
 
     /**
      * Notifies that a field gets valid.
      * @private
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaFieldNodeBecameValid() {}
+    onFnaFieldNodeBecameValid() {
+    }
 
     /**
      * Notifies that a field has changed its state
      * @private
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaFieldStateChanged() {}
+    onFnaFieldStateChanged() {
+    }
 
     /**
      * Notifies that a field gets invalid.
@@ -319,21 +356,24 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     // eslint-disable-next-line class-methods-use-this,no-unused-vars
-    onFnaFieldNodeBecameInvalid(validity) {}
+    onFnaFieldNodeBecameInvalid(validity) {
+    }
 
     /**
      * Notifies that new data was injected
      * @private
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaFieldNewDataInjected() {}
+    onFnaFieldNewDataInjected() {
+    }
 
     /**
      * Notifies when a repeater node changes
      * @private
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaRepeatedFieldChanged() {}
+    onFnaRepeatedFieldChanged() {
+    }
 
     /**
      * clean up on disconnect
@@ -403,10 +443,44 @@ export const FieldNodeAdapter = superClass =>
           if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
             // notify when the type field is available.
             if (this.__fieldNode['@type'] !== undefined) {
-              this.___timeout = setTimeout(
-                () => this.onFnaFieldValueChanged(this.__fieldNode._value),
-                1
-              );
+              /**
+               *  If the embedded message type is well-known and has a custom JSON
+               *      representation, that representation will be embedded adding a field
+               *      `value` which holds the custom JSON in addition to the `@type`
+               *      field. Example (for message [google.protobuf.Duration][]):
+               *
+               *          {
+               *            "@type": "type.googleapis.com/google.protobuf.Duration",
+               *            "value": "1.212s"
+               *          }
+               */
+
+              switch (this.__fieldNode['@type']._value.replace(/.*\//, '')) {
+                case "google.protobuf.StringValue":
+                case "google.protobuf.BoolValue":
+                case "google.protobuf.FloatValue":
+                case "google.protobuf.Int32Value":
+                case "google.protobuf.Int64Value":
+                case "google.protobuf.DoubleValue":
+                case "google.protobuf.Duration":
+                case "google.protobuf.Timestamp":
+                case "google.protobuf.FieldMask":
+                case "google.protobuf.BytesValue":
+                case "google.protobuf.UInt32Value":
+                case "google.protobuf.UInt64Value":
+                case "google.protobuf.Struct":
+                  this.___timeout = setTimeout(
+                    () => this.onFnaFieldValueChanged(this.__fieldNode.value._value),
+                    1
+                  );
+                  break
+                default:
+                  this.___timeout = setTimeout(
+                    () => this.onFnaFieldValueChanged(this.__fieldNode._value),
+                    1
+                  );
+              }
+
             }
           } else {
             this.___timeout = setTimeout(
@@ -489,7 +563,14 @@ export const FieldNodeAdapter = superClass =>
        * @private
        */
       this.__fieldFocusHandler = () => {
-        this.focus()
+        this.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
+        setTimeout(() => {
+          this.focus({preventScroll: true})
+        }, 700)
+
       }
 
       /**

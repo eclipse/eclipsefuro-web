@@ -313,7 +313,54 @@ export class FieldNode extends EventTreeNode {
   }
 
   _createVendorType(type) {
+
+    /**
+     *  If the embedded message type is well-known and has a custom JSON
+     *      representation, that representation will be embedded adding a field
+     *      `value` which holds the custom JSON in addition to the `@type`
+     *      field. Example (for message [google.protobuf.Duration][]):
+     *
+     *          {
+     *            "@type": "type.googleapis.com/google.protobuf.Duration",
+     *            "value": "1.212s"
+     *          }
+     */
     if (this.__specdefinitions[type]) {
+      switch (type) {
+        case "google.protobuf.StringValue":
+          this.createField({fieldName: "value", type: "string"})
+          break;
+        case "google.protobuf.BoolValue":
+          this.createField({fieldName: "value", type: "bool"})
+          break;
+        case "google.protobuf.FloatValue":
+          this.createField({fieldName: "value", type: "float"})
+          break;
+        case "google.protobuf.Int32Value":
+          this.createField({fieldName: "value", type: "int32"})
+          break;
+        case "google.protobuf.Int64Value":
+          this.createField({fieldName: "value", type: "int64"})
+          break;
+        case "google.protobuf.DoubleValue":
+          this.createField({fieldName: "value", type: "double"})
+          break;
+        case "google.protobuf.UInt32Value":
+          this.createField({fieldName: "value", type: "uint32"})
+          break;
+        case "google.protobuf.UInt64Value":
+          this.createField({fieldName: "value", type: "uint64"})
+          break;
+        case "google.protobuf.Duration":
+        case "google.protobuf.Timestamp":
+        case "google.protobuf.FieldMask":
+        case "google.protobuf.BytesValue":
+        case "google.protobuf.Struct":
+          this.createField({fieldName: "value", type: "string"})
+          break;
+
+        default:
+
       // eslint-disable-next-line no-restricted-syntax
       for (const fieldName in this.__specdefinitions[type].fields) {
         if (
@@ -332,6 +379,7 @@ export class FieldNode extends EventTreeNode {
             fieldName
           );
         }
+      }
       }
     } else {
       // eslint-disable-next-line no-console
