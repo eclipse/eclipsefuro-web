@@ -42,6 +42,7 @@ export class ScalarTypeHelper {
       case 'bytes':
       case 'bool':
         return false;
+      case 'enum':
       case 'float':
       case 'double':
       case 'int32':
@@ -67,6 +68,7 @@ export class ScalarTypeHelper {
    */
   static isScalarType(type) {
     switch (type) {
+      case 'enum':
       case 'string':
       case 'bytes':
       case 'bool':
