@@ -17,12 +17,10 @@ export class ValidatorNumericTypes {
       switch (field._spec.type) {
         case 'int32':
         case 'sint32':
-        case 'uint32':
         case 'fixed32':
         case 'sfixed32':
         case 'int64':
         case 'sint64':
-        case 'uint64':
         case 'fixed64':
         case 'sfixed64':
           if (!Number.isInteger(field._value)) {
@@ -33,10 +31,9 @@ export class ValidatorNumericTypes {
             reject(NODE);
           }
           break;
-
-        case 'enum':
-
-          if (!Number.isInteger(field._value)) {
+        case 'uint32':
+        case 'uint64':
+          if (!Number.isInteger(field._value) || field._value < 0) {
             const NODE = {};
             NODE.message = '';
             NODE.name = '';
