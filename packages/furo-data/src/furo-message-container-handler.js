@@ -100,6 +100,27 @@ class FuroMessageContainerHandler extends LitElement {
               }
             });
           }
+
+          if (messageSet.field_violations) {
+            const messageDetails = messageSet.field_violations;
+            messageDetails.forEach(message => {
+              const path = message.field.split('.');
+              if (path.length > 0) {
+                // rest wieder in message reinwerfen
+                // eslint-disable-next-line no-param-reassign
+                message.field = path.slice(1).join('.');
+                // eslint-disable-next-line no-param-reassign
+                message.state = "Error"
+
+                if (this.rootNode[path[0]]) {
+                  this.rootNode[path[0]]._setState(message);
+                } else {
+                  // eslint-disable-next-line no-console
+                  console.warn('Unknown target field', path);
+                }
+              }
+            });
+          }
         });
       }
 
