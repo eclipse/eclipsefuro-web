@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.6.0...@furo/data@2.7.0) (2022-07-25)
+
+
+### Bug Fixes
+
+* change order of bind-data on type renderer ([37e32f8](https://github.com/eclipse/eclipsefuro-web/commit/37e32f850dbf05aab38962f426b4d097aba15f4e))
+
+
+### Features
+
+* enum type validator ([2e56bb1](https://github.com/eclipse/eclipsefuro-web/commit/2e56bb1e2592f13c025a2ba24b0bc01fa37a802c))
+* handle raw grpc status too. This can only apply "Error" states ([c15aed6](https://github.com/eclipse/eclipsefuro-web/commit/c15aed6a7237d2765ecb490d50beecc3c17c9f90))
+* handle well known types which are defined in a any type field. ([5f39525](https://github.com/eclipse/eclipsefuro-web/commit/5f39525791a16478c3e1db274012983939086247))
+
+
+
+
+
 # [2.6.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.5.1...@furo/data@2.6.0) (2022-07-20)
 
 

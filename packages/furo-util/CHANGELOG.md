@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.1.0...@furo/util@2.1.1) (2022-07-25)
+
+
+### Bug Fixes
+
+* inherit height for demo ([6aef232](https://github.com/eclipse/eclipsefuro-web/commit/6aef2323abd716192ad0e68124d856cb30769661))
+* scrolling behavior does not disturb the demo anymore ([f7dd1ad](https://github.com/eclipse/eclipsefuro-web/commit/f7dd1ad6242d0dd9bbbd6b7f13b58b16f31de1b7))
+
+
+
+
+
 # [2.1.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.0.12...@furo/util@2.1.0) (2022-07-20)
 
 
