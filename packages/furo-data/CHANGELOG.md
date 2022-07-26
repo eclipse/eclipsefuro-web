@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.7.0...@furo/data@2.8.0) (2022-07-26)
+
+
+### Features
+
+* separate bindings for messagecontainer and root node ([bff0e2d](https://github.com/eclipse/eclipsefuro-web/commit/bff0e2de5ed9f7a76cf5f4fce2ab26b2e5d90e73))
+
+
+
+
+
 # [2.7.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.6.0...@furo/data@2.7.0) (2022-07-25)
 
 
