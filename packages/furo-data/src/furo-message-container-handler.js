@@ -68,6 +68,7 @@ class FuroMessageContainerHandler extends LitElement {
         new NodeEvent('data-injected', this.mcDO, false)
       );
 
+      if(this.rootNode){
       // set empty state on all fields
       this.rootNode.__childNodes.forEach(node => {
         this.rootNode[node._name]._setState({
@@ -76,6 +77,7 @@ class FuroMessageContainerHandler extends LitElement {
           field: '',
         });
       });
+      }
 
       if (messageContainer !== undefined) {
         messageContainer.details.forEach(messageSet => {
@@ -91,7 +93,7 @@ class FuroMessageContainerHandler extends LitElement {
                 message.state = this._getStateFromMessageType(
                   messageSet['@type'].replace(/.*\//, '')
                 );
-                if (this.rootNode[path[0]]) {
+                if (this.rootNode && this.rootNode[path[0]]) {
                   this.rootNode[path[0]]._setState(message);
                 } else {
                   // eslint-disable-next-line no-console
@@ -239,9 +241,22 @@ class FuroMessageContainerHandler extends LitElement {
    * @public
    * @param fieldNode {FieldNode} Messagecontainer fieldnode
    */
-  bindMc(fieldNode) {
+  bindMessageContainer(fieldNode) {
     this.mcDO = fieldNode;
-    this.rootNode = fieldNode.__parentNode;
+
+  }
+
+  /**
+   * bindMc Bind a `furo.MessageContainer` fieldnode.
+   *
+   * The updates from the injected raw messagecontainer are applied to the siblings of the bounded node.
+   *
+   * @public
+   * @param fieldNode {FieldNode} Messagecontainer fieldnode
+   */
+  bindRootNode(fieldNode) {
+
+    this.rootNode = fieldNode;
   }
 
   /**

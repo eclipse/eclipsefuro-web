@@ -58,6 +58,7 @@ export class DataObject extends EventTreeNode {
   }
 
   validateAllFields() {
+    this.broadcastEvent(new NodeEvent('clear-all-errors-requested', this));
     // broadcast validation request to all fields
     this.broadcastEvent(new NodeEvent('validation-requested', this));
   }
