@@ -1,4 +1,5 @@
 import { LitElement, css } from 'lit';
+import {NodeEvent} from "@furo/framework/src/EventTreeNode";
 
 /**
  * Use this component to interact with fields from a furo-data-object.
@@ -32,12 +33,40 @@ class FuroEntityField extends LitElement {
    * @param v {*}
    */
   set value(v) {
+
+    // used to *reset* the metas according to the spec
+    this.field.broadcastEvent(new NodeEvent('before-new-data-inject', this));
+    // this broadcast will disable validation during setting the values
+    this.field.broadcastEvent(new NodeEvent('disable-validation', this));
+
     if (!this.field) {
       this._queue = v;
     } else {
       this._value = v;
       this.field._value = v;
     }
+
+    this._pristine = true;
+    this._isValid = true;
+
+    /**
+     * Broadcast Event
+     * this will set all fields as pristine and end enable the validation
+     */
+    this.field.broadcastEvent(new NodeEvent('new-data-injected', this.field));
+
+    /**
+     * @fires data-injected
+     *
+     * ✋ Internal Event from EntityNode which you can use in the targeted components!
+     *
+     * Fired when `fn-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+     *
+     * This event **bubbles**.
+     *
+     * detail payload: **{NodeEvent}**
+     */
+    this.field.dispatchNodeEvent(new NodeEvent('data-injected', this.field, false));
   }
 
   get value() {
