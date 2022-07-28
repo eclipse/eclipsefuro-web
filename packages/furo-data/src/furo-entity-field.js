@@ -56,17 +56,17 @@ class FuroEntityField extends LitElement {
     this.field.broadcastEvent(new NodeEvent('new-data-injected', this.field));
 
     /**
-     * @fires data-injected
+     * @fires this-data-injected
      *
      * ✋ Internal Event from EntityNode which you can use in the targeted components!
      *
-     * Fired when `fn-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+     * Fired when `fn-set-value` is completed and fresh data was injected.
      *
      * This event **bubbles**.
      *
      * detail payload: **{NodeEvent}**
      */
-    this.field.dispatchNodeEvent(new NodeEvent('data-injected', this.field, false));
+    this.field.dispatchNodeEvent(new NodeEvent('this-data-injected', this.field, false));
   }
 
   get value() {
