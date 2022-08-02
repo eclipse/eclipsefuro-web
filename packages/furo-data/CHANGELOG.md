@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.8.0...@furo/data@2.9.0) (2022-08-02)
+
+
+### Features
+
+* furo-entity-field.js with new-data-injected and data-injected NodeEvents ([92c26ed](https://github.com/eclipse/eclipsefuro-web/commit/92c26ed610c248b397cae34725d9230b94e3a490))
+* furo-entity-field.js with new-data-injected and data-injected NodeEvents ([81df511](https://github.com/eclipse/eclipsefuro-web/commit/81df511d5af94c19e991f11ec09c52d4fe8087a1))
+
+
+
+
+
 # [2.8.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.7.0...@furo/data@2.8.0) (2022-07-26)
 
 
