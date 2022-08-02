@@ -114,7 +114,7 @@ class FuroMessageContainerHandler extends LitElement {
                 // eslint-disable-next-line no-param-reassign
                 message.state = "Error"
 
-                if (this.rootNode[path[0]]) {
+                if (this.rootNode && this.rootNode[path[0]]) {
                   this.rootNode[path[0]]._setState(message);
                 } else {
                   // eslint-disable-next-line no-console
