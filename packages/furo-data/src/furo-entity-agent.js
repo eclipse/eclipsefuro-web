@@ -621,6 +621,7 @@ class FuroEntityAgent extends FBP(LitElement) {
             const fieldViolations = JSON.parse(
               JSON.stringify(errorSet.field_violations)
             );
+            if(this._requestDataObject !== undefined){
             fieldViolations.forEach(error => {
               const path = error.field.split('.');
               if (path.length > 0) {
@@ -635,6 +636,7 @@ class FuroEntityAgent extends FBP(LitElement) {
                 }
               }
             });
+          }
           }
         });
       }
