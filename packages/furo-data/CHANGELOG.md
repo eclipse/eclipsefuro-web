@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.9.0...@furo/data@2.9.1) (2022-08-02)
+
+
+### Bug Fixes
+
+* check root node for existence on message-container-handler ([536f0a6](https://github.com/eclipse/eclipsefuro-web/commit/536f0a6f95bed37dd7730df5b167fba442a0d7f7))
+
+
+
+
+
 # [2.9.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.8.0...@furo/data@2.9.0) (2022-08-02)
 
 
