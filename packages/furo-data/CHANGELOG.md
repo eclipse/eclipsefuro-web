@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.9.1...@furo/data@2.9.2) (2022-08-04)
+
+
+### Bug Fixes
+
+* furo-entity-agent only apply errors if a request object was bound ([77ec105](https://github.com/eclipse/eclipsefuro-web/commit/77ec10505b3ca904462a1a9bfc54c03268be9b79))
+
+
+
+
+
 ## [2.9.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.9.0...@furo/data@2.9.1) (2022-08-02)
 
 
