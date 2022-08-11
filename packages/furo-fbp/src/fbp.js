@@ -780,7 +780,7 @@ export const FBP = superClass =>
      */
     _FBPReady() {
       this.__fbp_ready = true;
-      this._FBPTriggerWire('|--FBPready');
+      this._FBPTriggerWire('|--FBPready', this);
     }
 
     /**
