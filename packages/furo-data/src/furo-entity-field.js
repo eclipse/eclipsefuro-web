@@ -108,6 +108,13 @@ class FuroEntityField extends LitElement {
     return this.field;
   }
 
+  /**
+   * Trigger deleteNode on the `FieldNode`.
+   */
+  deleteNode(){
+  this.field.deleteNode();
+  }
+
   static get styles() {
     // language=CSS
     return css`
