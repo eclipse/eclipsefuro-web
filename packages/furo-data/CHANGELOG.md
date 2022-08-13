@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.9.2...@furo/data@2.10.0) (2022-08-13)
+
+
+### Features
+
+* expose deleteNode method on furo-entity-field.js ([3e7e0fe](https://github.com/eclipse/eclipsefuro-web/commit/3e7e0fec182d1550e456399e81d79c1dbc69aacf))
+
+
+
+
+
 ## [2.9.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.9.1...@furo/data@2.9.2) (2022-08-04)
 
 
