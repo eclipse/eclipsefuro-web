@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.10.1...@furo/data@2.10.2) (2022-08-16)
+
+
+### Bug Fixes
+
+* broadcast new-data-injected event for the message-container displays because bind should also work ([bf4ba7c](https://github.com/eclipse/eclipsefuro-web/commit/bf4ba7ca77140c710d5b25fdeb4adb7f72a53a12))
+
+
+
+
+
 ## [2.10.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.10.0...@furo/data@2.10.1) (2022-08-15)
 
 
