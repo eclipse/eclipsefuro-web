@@ -34,6 +34,12 @@ import { LitElement, html, css } from 'lit';
  * furo-pages provides auto wires, which are automatically triggered in the child elements if
  * they support FBP. Each wire will forward a `locationObject`
  *
+ * -  `|--pageActivated` : Is triggered when the element is activated.
+ * -  `|--pageDeActivated` : Is triggered when another page is activated. Empty wire.
+ * -  `|--pageQueryChanged` : Is triggered when the page query changes.
+ * -  `|--pageHashChanged` : Is triggered when the page hash changes.
+ * -  `|--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.
+ *
  * -  `--pageActivated` : Is triggered when the element is activated.
  * -  `--pageDeActivated` : Is triggered when another page is activated. Empty wire.
  * -  `--pageQueryChanged` : Is triggered when the page query changes.
@@ -162,6 +168,7 @@ class FuroPages extends LitElement {
 
     if (this._lastPage && page !== this._lastPageName) {
       if (this._lastPage._FBPTriggerWire !== undefined) {
+        this._lastPage._FBPTriggerWire('|--pageDeActivated');
         this._lastPage._FBPTriggerWire('--pageDeActivated');
       }
       this._lastPage.setAttribute('hidden', '');
@@ -185,9 +192,11 @@ class FuroPages extends LitElement {
 
       if (this._lastPage && page !== this._lastPageName) {
         if (this._lastPage._FBPTriggerWire !== undefined) {
+          this._lastPage._FBPTriggerWire('|--pageActivated', location);
           this._lastPage._FBPTriggerWire('--pageActivated', location);
         }
       } else if (this._lastPage._FBPTriggerWire !== undefined) {
+        this._lastPage._FBPTriggerWire('|--pageReActivated', location);
         this._lastPage._FBPTriggerWire('--pageReActivated', location);
       }
       this._lastPageName = page;
@@ -196,6 +205,7 @@ class FuroPages extends LitElement {
         this._lastQP[page] = location.querystring;
         // fire --pageParamsChanged if we have a fbp component
         if (this._lastPage._FBPTriggerWire !== undefined) {
+          this._lastPage._FBPTriggerWire('|--pageQueryChanged', location);
           this._lastPage._FBPTriggerWire('--pageQueryChanged', location);
         }
       }
@@ -205,6 +215,7 @@ class FuroPages extends LitElement {
         this._lastHash[page] = location.hashstring;
         // fire --pageParamsChanged if we have a fbp component
         if (this._lastPage._FBPTriggerWire !== undefined) {
+          this._lastPage._FBPTriggerWire('|--pageHashChanged', location);
           this._lastPage._FBPTriggerWire('--pageHashChanged', location);
         }
       }
