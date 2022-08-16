@@ -130,7 +130,7 @@ class FuroMessageContainerHandler extends LitElement {
        *
        * This event is used in the furo-ui5-message-container-display component
        */
-      this.mcDO.broadcastEvent(new NodeEvent('new-mc-data-injected', this.mcDO))
+      this.mcDO.broadcastEvent(new NodeEvent('new-data-injected', this.mcDO))
 
 
       if (messageContainer.success) {
