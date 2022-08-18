@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.1.2...@furo/layout@2.1.3) (2022-08-18)
+
+
+### Bug Fixes
+
+* form-layouter minimal size of cell set to 0 ([2fdc7b1](https://github.com/eclipse/eclipsefuro-web/commit/2fdc7b1e8d3181f10825c830335d1a1b187da895))
+
+
+
+
+
 ## [2.1.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/layout@2.1.1...@furo/layout@2.1.2) (2022-08-13)
 
 **Note:** Version bump only for package @furo/layout
