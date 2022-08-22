@@ -476,12 +476,11 @@ export class RepeaterNode extends EventTreeNode {
     if (this.repeats[path[0]]) {
       return this.repeats[path[0]]._getPath(deeppath);
     }
-    return this
+    return this;
   }
 
-
   _setState(state) {
-    if(state.state === "Error") {
+    if (state.state === 'Error') {
       this._isValid = false;
     }
     const path = state.field.split('.');

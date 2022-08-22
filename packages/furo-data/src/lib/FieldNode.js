@@ -313,7 +313,6 @@ export class FieldNode extends EventTreeNode {
   }
 
   _createVendorType(type) {
-
     /**
      *  If the embedded message type is well-known and has a custom JSON
      *      representation, that representation will be embedded adding a field
@@ -327,59 +326,58 @@ export class FieldNode extends EventTreeNode {
      */
     if (this.__specdefinitions[type]) {
       switch (type) {
-        case "google.protobuf.StringValue":
-          this.createField({fieldName: "value", type: "string"})
+        case 'google.protobuf.StringValue':
+          this.createField({ fieldName: 'value', type: 'string' });
           break;
-        case "google.protobuf.BoolValue":
-          this.createField({fieldName: "value", type: "bool"})
+        case 'google.protobuf.BoolValue':
+          this.createField({ fieldName: 'value', type: 'bool' });
           break;
-        case "google.protobuf.FloatValue":
-          this.createField({fieldName: "value", type: "float"})
+        case 'google.protobuf.FloatValue':
+          this.createField({ fieldName: 'value', type: 'float' });
           break;
-        case "google.protobuf.Int32Value":
-          this.createField({fieldName: "value", type: "int32"})
+        case 'google.protobuf.Int32Value':
+          this.createField({ fieldName: 'value', type: 'int32' });
           break;
-        case "google.protobuf.Int64Value":
-          this.createField({fieldName: "value", type: "int64"})
+        case 'google.protobuf.Int64Value':
+          this.createField({ fieldName: 'value', type: 'int64' });
           break;
-        case "google.protobuf.DoubleValue":
-          this.createField({fieldName: "value", type: "double"})
+        case 'google.protobuf.DoubleValue':
+          this.createField({ fieldName: 'value', type: 'double' });
           break;
-        case "google.protobuf.UInt32Value":
-          this.createField({fieldName: "value", type: "uint32"})
+        case 'google.protobuf.UInt32Value':
+          this.createField({ fieldName: 'value', type: 'uint32' });
           break;
-        case "google.protobuf.UInt64Value":
-          this.createField({fieldName: "value", type: "uint64"})
+        case 'google.protobuf.UInt64Value':
+          this.createField({ fieldName: 'value', type: 'uint64' });
           break;
-        case "google.protobuf.Duration":
-        case "google.protobuf.Timestamp":
-        case "google.protobuf.FieldMask":
-        case "google.protobuf.BytesValue":
-        case "google.protobuf.Struct":
-          this.createField({fieldName: "value", type: "string"})
+        case 'google.protobuf.Duration':
+        case 'google.protobuf.Timestamp':
+        case 'google.protobuf.FieldMask':
+        case 'google.protobuf.BytesValue':
+        case 'google.protobuf.Struct':
+          this.createField({ fieldName: 'value', type: 'string' });
           break;
 
         default:
-
-      // eslint-disable-next-line no-restricted-syntax
-      for (const fieldName in this.__specdefinitions[type].fields) {
-        if (
-          this.__specdefinitions[type].fields[fieldName].meta &&
-          this.__specdefinitions[type].fields[fieldName].meta.repeated
-        ) {
-          this[fieldName] = new RepeaterNode(
-            this,
-            this.__specdefinitions[type].fields[fieldName],
-            fieldName
-          );
-        } else {
-          this[fieldName] = new FieldNode(
-            this,
-            this.__specdefinitions[type].fields[fieldName],
-            fieldName
-          );
-        }
-      }
+          // eslint-disable-next-line no-restricted-syntax
+          for (const fieldName in this.__specdefinitions[type].fields) {
+            if (
+              this.__specdefinitions[type].fields[fieldName].meta &&
+              this.__specdefinitions[type].fields[fieldName].meta.repeated
+            ) {
+              this[fieldName] = new RepeaterNode(
+                this,
+                this.__specdefinitions[type].fields[fieldName],
+                fieldName
+              );
+            } else {
+              this[fieldName] = new FieldNode(
+                this,
+                this.__specdefinitions[type].fields[fieldName],
+                fieldName
+              );
+            }
+          }
       }
     } else {
       // eslint-disable-next-line no-console
@@ -1043,16 +1041,13 @@ export class FieldNode extends EventTreeNode {
       deeppath = path.slice(1).join('.');
       if (this[path[0]]) {
         return this[path[0]]._getPath(deeppath);
-      } else {
-        // eslint-disable-next-line no-console
-        console.warn('Unknown field', path, this._name);
-        return this
       }
-    } else {
-     return this
+      // eslint-disable-next-line no-console
+      console.warn('Unknown field', path, this._name);
+      return this;
     }
+    return this;
   }
-
 
   _setState(state) {
     // set field empty, if not defined
@@ -1061,7 +1056,6 @@ export class FieldNode extends EventTreeNode {
 
     const path = state.field.split('.');
     if (path.length > 0 && path[0] !== '') {
-
       // rest wieder in state reinwerfen
       // eslint-disable-next-line no-param-reassign
       state.field = path.slice(1).join('.');
@@ -1074,14 +1068,18 @@ export class FieldNode extends EventTreeNode {
     } else {
       this._isValid = false;
       this._state = state;
-      if (state.state === "Error") {
+      if (state.state === 'Error') {
         this._validity = state;
         this.dispatchNodeEvent(new NodeEvent('field-became-invalid', this));
-      } else if (state.state === "None") {
+      } else if (state.state === 'None') {
         // pass a received None State to all child nodes
-        this.__childNodes.forEach((node) => {
-          this[node._name]._setState({state: "None", description: "", field: ""});
-        })
+        this.__childNodes.forEach(node => {
+          this[node._name]._setState({
+            state: 'None',
+            description: '',
+            field: '',
+          });
+        });
       } else {
         // assume the field is valid if the state is not error
         this.dispatchNodeEvent(new NodeEvent('field-became-valid', this));
@@ -1089,7 +1087,6 @@ export class FieldNode extends EventTreeNode {
 
       this.dispatchNodeEvent(new NodeEvent('field-state-changed', this, false));
       // set empty state on fields without value state
-
     }
   }
 

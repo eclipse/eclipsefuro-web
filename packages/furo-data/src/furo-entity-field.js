@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit';
-import {NodeEvent} from "@furo/framework/src/EventTreeNode";
+import { NodeEvent } from '@furo/framework/src/EventTreeNode';
 
 /**
  * Use this component to interact with fields from a furo-data-object.
@@ -33,7 +33,6 @@ class FuroEntityField extends LitElement {
    * @param v {*}
    */
   set value(v) {
-
     // used to *reset* the metas according to the spec
     this.field.broadcastEvent(new NodeEvent('before-new-data-inject', this));
     // this broadcast will disable validation during setting the values
@@ -66,7 +65,9 @@ class FuroEntityField extends LitElement {
      *
      * detail payload: **{NodeEvent}**
      */
-    this.field.dispatchNodeEvent(new NodeEvent('this-data-injected', this.field, false));
+    this.field.dispatchNodeEvent(
+      new NodeEvent('this-data-injected', this.field, false)
+    );
   }
 
   get value() {
@@ -111,8 +112,8 @@ class FuroEntityField extends LitElement {
   /**
    * Trigger deleteNode on the `FieldNode`.
    */
-  deleteNode(){
-  this.field.deleteNode();
+  deleteNode() {
+    this.field.deleteNode();
   }
 
   static get styles() {

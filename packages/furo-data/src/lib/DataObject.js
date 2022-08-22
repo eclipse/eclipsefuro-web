@@ -384,8 +384,8 @@ export class DataObject extends EventTreeNode {
   _getPath(deeppath) {
     // eslint-disable-next-line no-param-reassign
     deeppath = deeppath || '';
-    if (deeppath === ""){
-      return this
+    if (deeppath === '') {
+      return this;
     }
     const path = deeppath.split('.');
     if (path.length > 0 && path[0] !== '') {
@@ -393,17 +393,17 @@ export class DataObject extends EventTreeNode {
       // eslint-disable-next-line no-param-reassign
       deeppath = path.slice(1).join('.');
       if (this[path[0]]) {
-       return  this[path[0]]._getPath(deeppath);
+        return this[path[0]]._getPath(deeppath);
         // eslint-disable-next-line
       } else {
         // eslint-disable-next-line no-console
         console.warn('Unknown field', path, this._name);
-        return this
+        return this;
       }
     }
-      return this
-
+    return this;
   }
+
   /**
    * Baut die Felder aufgrund der spec auf
    * @param node

@@ -621,22 +621,22 @@ class FuroEntityAgent extends FBP(LitElement) {
             const fieldViolations = JSON.parse(
               JSON.stringify(errorSet.field_violations)
             );
-            if(this._requestDataObject !== undefined){
-            fieldViolations.forEach(error => {
-              const path = error.field.split('.');
-              if (path.length > 0) {
-                // rest wieder in error reinwerfen
-                // eslint-disable-next-line no-param-reassign
-                error.field = path.slice(1).join('.');
-                if (this._requestDataObject[path[0]]) {
-                  this._requestDataObject[path[0]]._setInvalid(error);
-                } else {
-                  // eslint-disable-next-line no-console
-                  console.warn('Unknown field', path);
+            if (this._requestDataObject !== undefined) {
+              fieldViolations.forEach(error => {
+                const path = error.field.split('.');
+                if (path.length > 0) {
+                  // rest wieder in error reinwerfen
+                  // eslint-disable-next-line no-param-reassign
+                  error.field = path.slice(1).join('.');
+                  if (this._requestDataObject[path[0]]) {
+                    this._requestDataObject[path[0]]._setInvalid(error);
+                  } else {
+                    // eslint-disable-next-line no-console
+                    console.warn('Unknown field', path);
+                  }
                 }
-              }
-            });
-          }
+              });
+            }
           }
         });
       }

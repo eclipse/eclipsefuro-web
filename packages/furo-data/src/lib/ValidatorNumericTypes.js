@@ -42,7 +42,10 @@ export class ValidatorNumericTypes {
           }
 
           // proove if the value of the enum is specified in the options
-          if (field._meta.options.list.filter(opt => opt.id === field._value).length <= 0) {
+          if (
+            field._meta.options.list.filter(opt => opt.id === field._value)
+              .length <= 0
+          ) {
             const NODE = {};
             NODE.message = 'out of range';
             NODE.name = '';
