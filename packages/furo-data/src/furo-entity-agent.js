@@ -503,7 +503,10 @@ class FuroEntityAgent extends FBP(LitElement) {
       return;
     }
     this._attachListeners('delete');
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
+    this._FBPTriggerWire(
+      '--triggerLoad',
+      this._makeRequest(hts, this._requestDataObject)
+    );
   }
 
   /**
