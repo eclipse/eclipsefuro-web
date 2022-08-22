@@ -73,131 +73,133 @@ class FuroMessageContainerHandler extends LitElement {
        * This event is used in the furo-ui5-message-container-display component
        */
       this.mcDO.broadcastEvent(new NodeEvent('new-data-injected', this.mcDO));
-
-      if (messageContainer.success) {
-        /**
-         * @event success
-         * Fired when success field was set on the received messagecontainer.
-         */
-        const customEvent = new Event('success', {
-          composed: true,
-          bubbles: true,
-        });
-        this.dispatchEvent(customEvent);
-      } else {
-        /**
-         * @event no-success
-         * Fired when success field on the messagecontainer was not set or is set to false
-         */
-        const customEvent = new Event('no-success', {
-          composed: true,
-          bubbles: true,
-        });
-        this.dispatchEvent(customEvent);
-      }
-
-      // count items of each type
-      const errs = [];
-      const warn = [];
-      const success = [];
-      const info = [];
-      const confirm = [];
-
-      this.mcDO.details.repeats.forEach(item => {
-        const type = item['@type']._value.replace(/.*\//, '');
-        switch (type) {
-          case 'furo.ErrorMessage':
-            errs.push(...item.fields.repeats);
-            break;
-
-          case 'furo.WarningMessage':
-            warn.push(...item.fields.repeats);
-            break;
-
-          case 'furo.SuccessMessage':
-            success.push(...item.fields.repeats);
-            break;
-
-          case 'furo.InformationMessage':
-            info.push(...item.fields.repeats);
-            break;
-
-          case 'furo.ConfirmationMessage':
-            confirm.push(item);
-            break;
-          default:
-        }
-      });
-
-      if (confirm.length > 0) {
-        /**
-         * @event has-confirmation
-         * Fired when the message container contains any confirmation field
-         * detail payload: list with all confirmation fields
-         */
-        const customEvent = new Event('has-confirmation', {
-          composed: true,
-          bubbles: true,
-        });
-        customEvent.detail = confirm;
-        this.dispatchEvent(customEvent);
-      }
-
-      if (errs.length > 0) {
-        /**
-         * @event has-errors
-         * Fired when the message container contains any error field
-         * detail payload: list with all error fields
-         */
-        const customEvent = new Event('has-errors', {
-          composed: true,
-          bubbles: true,
-        });
-        customEvent.detail = errs;
-        this.dispatchEvent(customEvent);
-      }
-      if (warn.length > 0) {
-        /**
-         * @event has-warnings
-         * Fired when the message container contains any error field
-         * detail payload: list with all warning fields
-         */
-        const customEvent = new Event('has-warnings', {
-          composed: true,
-          bubbles: true,
-        });
-        customEvent.detail = warn;
-        this.dispatchEvent(customEvent);
-      }
-
-      if (success.length > 0) {
-        /**
-         * @event has-success
-         * Fired when the message container contains any error field
-         * detail payload: list with all success fields
-         */
-        const customEvent = new Event('has-success', {
-          composed: true,
-          bubbles: true,
-        });
-        customEvent.detail = success;
-        this.dispatchEvent(customEvent);
-      }
-
-      if (info.length > 0) {
-        /**
-         * @event has-infos
-         * Fired when the message container contains any error field
-         * detail payload: list with all info fields
-         */
-        const customEvent = new Event('has-infos', {
-          composed: true,
-          bubbles: true,
-        });
-        customEvent.detail = info;
-        this.dispatchEvent(customEvent);
-      }
     }, 1);
+  }
+
+  _updateCountersAndFireEvents() {
+    if (this.mcDO._value.success) {
+      /**
+       * @event success
+       * Fired when success field was set on the received messagecontainer.
+       */
+      const customEvent = new Event('success', {
+        composed: true,
+        bubbles: true,
+      });
+      this.dispatchEvent(customEvent);
+    } else {
+      /**
+       * @event no-success
+       * Fired when success field on the messagecontainer was not set or is set to false
+       */
+      const customEvent = new Event('no-success', {
+        composed: true,
+        bubbles: true,
+      });
+      this.dispatchEvent(customEvent);
+    }
+
+    // count items of each type
+    const errs = [];
+    const warn = [];
+    const success = [];
+    const info = [];
+    const confirm = [];
+
+    this.mcDO.details.repeats.forEach(item => {
+      const type = item['@type']._value.replace(/.*\//, '');
+      switch (type) {
+        case 'furo.ErrorMessage':
+          errs.push(...item.fields.repeats);
+          break;
+
+        case 'furo.WarningMessage':
+          warn.push(...item.fields.repeats);
+          break;
+
+        case 'furo.SuccessMessage':
+          success.push(...item.fields.repeats);
+          break;
+
+        case 'furo.InformationMessage':
+          info.push(...item.fields.repeats);
+          break;
+
+        case 'furo.ConfirmationMessage':
+          confirm.push(item);
+          break;
+        default:
+      }
+    });
+
+    if (confirm.length > 0) {
+      /**
+       * @event has-confirmation
+       * Fired when the message container contains any confirmation field
+       * detail payload: list with all confirmation fields
+       */
+      const customEvent = new Event('has-confirmation', {
+        composed: true,
+        bubbles: true,
+      });
+      customEvent.detail = confirm;
+      this.dispatchEvent(customEvent);
+    }
+
+    if (errs.length > 0) {
+      /**
+       * @event has-errors
+       * Fired when the message container contains any error field
+       * detail payload: list with all error fields
+       */
+      const customEvent = new Event('has-errors', {
+        composed: true,
+        bubbles: true,
+      });
+      customEvent.detail = errs;
+      this.dispatchEvent(customEvent);
+    }
+    if (warn.length > 0) {
+      /**
+       * @event has-warnings
+       * Fired when the message container contains any error field
+       * detail payload: list with all warning fields
+       */
+      const customEvent = new Event('has-warnings', {
+        composed: true,
+        bubbles: true,
+      });
+      customEvent.detail = warn;
+      this.dispatchEvent(customEvent);
+    }
+
+    if (success.length > 0) {
+      /**
+       * @event has-success
+       * Fired when the message container contains any error field
+       * detail payload: list with all success fields
+       */
+      const customEvent = new Event('has-success', {
+        composed: true,
+        bubbles: true,
+      });
+      customEvent.detail = success;
+      this.dispatchEvent(customEvent);
+    }
+
+    if (info.length > 0) {
+      /**
+       * @event has-infos
+       * Fired when the message container contains any error field
+       * detail payload: list with all info fields
+       */
+      const customEvent = new Event('has-infos', {
+        composed: true,
+        bubbles: true,
+      });
+      customEvent.detail = info;
+      this.dispatchEvent(customEvent);
+    }
   }
 
   _applyValueState() {
@@ -274,6 +276,7 @@ class FuroMessageContainerHandler extends LitElement {
     this.mcDO.addEventListener('new-data-injected', () => {
       this._clearValueStates();
       this._applyValueState();
+      this._updateCountersAndFireEvents();
     });
   }
 
