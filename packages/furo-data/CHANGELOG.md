@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.10.2...@furo/data@2.10.3) (2022-08-22)
+
+
+### Bug Fixes
+
+* Message container fire events without inject ([64390ed](https://github.com/eclipse/eclipsefuro-web/commit/64390edbd43162fbb9305b56f939ab12b08c3775))
+* Message container update without inject ([abf750f](https://github.com/eclipse/eclipsefuro-web/commit/abf750f1f09aafe63ddce3dd2225ed7d473b1795))
+
+
+
+
+
 ## [2.10.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.10.1...@furo/data@2.10.2) (2022-08-16)
 
 
