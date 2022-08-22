@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.10.3...@furo/data@2.11.0) (2022-08-22)
+
+
+### Features
+
+* send request data with delete method too ([12708b9](https://github.com/eclipse/eclipsefuro-web/commit/12708b9ba18a6634ff98a78a6dcc0e9f8f1cf806))
+
+
+
+
+
 ## [2.10.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.10.2...@furo/data@2.10.3) (2022-08-22)
 
 
