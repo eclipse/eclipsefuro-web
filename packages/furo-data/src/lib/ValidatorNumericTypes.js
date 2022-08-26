@@ -13,13 +13,8 @@ export class ValidatorNumericTypes {
    */
   static validateConstraints(field) {
     return new Promise((resolve, reject) => {
-
       // Integer type testing
-      let {type} = field._spec
-      if(type === "google.protobuf.Any" && field['@type'] && field['@type']._value){
-        type = field['@type']._value;
-      }
-      switch (type) {
+      switch (field._spec.type) {
         case 'int32':
         case 'sint32':
         case 'fixed32':
