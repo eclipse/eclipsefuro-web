@@ -1,6 +1,6 @@
 {
   "name": "@furo/util",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "package sample",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-util",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "@furo/fbp": "^6.6.0",
-    "@furo/framework": "^2.3.1",
-    "@furo/layout": "^2.1.3",
+    "@furo/framework": "^2.4.0",
+    "@furo/layout": "^2.2.0",
     "@svgdotjs/svg.js": "^3.0.13",
     "@svgdotjs/svg.panzoom.js": "^2.1.0",
     "dagre": "^0.8.4",

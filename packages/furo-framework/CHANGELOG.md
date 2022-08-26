@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.3.1...@furo/framework@2.4.0) (2022-08-26)
+
+
+### Features
+
+* extended validators ([a71b097](https://github.com/eclipse/eclipsefuro-web/commit/a71b097e28a1638f9ccee2d35457c5a51cc5e4d3))
+
+
+
+
+
 ## [2.3.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/framework@2.3.0...@furo/framework@2.3.1) (2022-07-25)
 
 **Note:** Version bump only for package @furo/framework
