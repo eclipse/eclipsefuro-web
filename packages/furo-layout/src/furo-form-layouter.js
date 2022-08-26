@@ -213,7 +213,7 @@ class FuroFormLayouter extends FBP(LitElement) {
         }
 
         :host([two]) ::slotted(*[double]) {
-          grid-column: span 1 / auto;
+          grid-column: span 2 / auto;
         }
 
         :host([two]) ::slotted(*[newline]) {
@@ -312,6 +312,10 @@ class FuroFormLayouter extends FBP(LitElement) {
         :host([four]) ::slotted(*[newline][double]) {
           grid-column-start: 1;
           grid-column-end: 3;
+        }
+        :host([four]) ::slotted(*[newline][tripple]) {
+          grid-column-start: 1;
+          grid-column-end: 4;
         }
 
         :host([four]) ::slotted(*[full]) {

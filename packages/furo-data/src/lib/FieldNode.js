@@ -572,7 +572,13 @@ export class FieldNode extends EventTreeNode {
         }
       } else {
         // complex special type path
-        const Validator = ValidatorRegistry.getValidator(this._spec.type);
+        let Validator = ValidatorRegistry.getValidator(this._spec.type);
+
+        // resolve inner type on type any
+        if(this._spec.type === "google.protobuf.Any" && this['@type'] && this['@type']._value){
+          Validator = ValidatorRegistry.getValidator(this['@type']._value);
+        }
+
         if (Validator) {
           // stop broadcasting if we have a custom validator
           if (event) {

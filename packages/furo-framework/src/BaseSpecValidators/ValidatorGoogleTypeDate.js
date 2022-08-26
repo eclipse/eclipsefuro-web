@@ -91,7 +91,7 @@ export class ValidatorGoogleTypeDate {
            * the required constraint
            */
           case 'required':
-            if (ValidatorGoogleTypeDate.isEmpty(field)) {
+            if (ValidatorGoogleTypeDate.isEmpty(field) || field.day._value === 0) {
               const NODE = {};
               NODE.message = constraint.message;
               NODE.name = constraintName;
