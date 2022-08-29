@@ -9,10 +9,12 @@ import {FBP} from '@furo/fbp';
  * TODO:  support furo.fat.Bool and google.protobuf.BoolValue
  *
  *```html
- * <furo-data-hide-content fn-bind-data="--bind(*.bool)">
+ * <furo-data-hide-content animated fn-bind-data="--bind(*.bool)">
  *   <div>some content</div>
  * </furo-collapsible-box>
  *```
+ *
+ * The attribute animated will add a slide in slide out animation.
  *
  * @fires {Boolean} value-changed -  Fired when the visibility changed, contains the current visibility state
  * @fires {void} hid -  Fired when the content gets hid
@@ -118,24 +120,27 @@ class FuroDataHideContent extends FBP(LitElement) {
 
   set hidden(hide) {
 
-    if (hide && this.offsetHeight > 0) {
-      this.style.setProperty('--height', this.offsetHeight + "px");
-      setTimeout(() => {
-        this.style.setProperty('display', "none");
-      }, 300)
+    if (this.getAttribute("animated") != null) {
+      if (hide && this.offsetHeight > 0) {
+        this.style.setProperty('--height', this.offsetHeight + "px");
+        clearTimeout(this._timeout)
+        this._timeout = setTimeout(() => {
+          this.style.setProperty('display', "none");
+        }, 300)
 
-    } else {
-      this.style.setProperty('display', "block");
-      setTimeout(() => {
-        this.style.setProperty('--height', "");
+      } else {
+        this.style.setProperty('display', "block");
+        clearTimeout(this._timeout)
+        this._timeout = setTimeout(() => {
+          this.style.setProperty('--height', "");
 
-      }, 300)
+        }, 300)
+      }
     }
-
 
     const oldval = this._hidden || false;
     setTimeout(() => {
-      if(oldval !== hide){
+      if (oldval !== hide) {
         this._hidden = hide;
       }
 
@@ -189,12 +194,17 @@ class FuroDataHideContent extends FBP(LitElement) {
         transition: all ease-in-out 0.3s;
       }
 
-      :host([hidden]) .translate {
+      :host([animated][hidden]) .translate {
         transform: translateY(-100%);
         transition: all ease-in-out 0.2s;
       }
 
       :host([hidden]) {
+        display: none;
+      }
+
+      :host([animated][hidden]) {
+        display: block;
         height: 0px;
         transition: all ease-in-out 0.3s;
       }
