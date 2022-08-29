@@ -120,10 +120,16 @@ class FuroDataHideContent extends FBP(LitElement) {
 
     if (hide && this.offsetHeight > 0) {
       this.style.setProperty('--height', this.offsetHeight + "px");
+      setTimeout(() => {
+        this.style.setProperty('display', "none");
+      }, 300)
+
     } else {
+      this.style.setProperty('display', "block");
       setTimeout(() => {
         this.style.setProperty('--height', "");
-      }, 800)
+
+      }, 300)
     }
 
 
@@ -176,21 +182,21 @@ class FuroDataHideContent extends FBP(LitElement) {
         display: block;
         overflow: hidden;
         height: var(--height);
-        transition: all ease-in-out 0.4s;
+        transition: all ease-in-out 0.2s;
       }
 
       .translate {
-        transition: all ease-in-out 0.6s;
+        transition: all ease-in-out 0.3s;
       }
 
       :host([hidden]) .translate {
         transform: translateY(-100%);
-        transition: all ease-in-out 0.4s;
+        transition: all ease-in-out 0.2s;
       }
 
       :host([hidden]) {
         height: 0px;
-        transition: all ease-in-out 0.6s;
+        transition: all ease-in-out 0.3s;
       }
     `;
   }

@@ -188,7 +188,12 @@ class FuroPages extends LitElement {
       if (this._lastPage.hasAttribute('hidden')) {
         this._lastPage.removeAttribute('hidden');
       }
+
+      setTimeout(()=>{
       this._lastPage.setAttribute(this._attrForSelected, '');
+      },1)
+
+
 
       if (this._lastPage && page !== this._lastPageName) {
         if (this._lastPage._FBPTriggerWire !== undefined) {
@@ -238,6 +243,15 @@ class FuroPages extends LitElement {
       :host {
         display: block;
       }
+
+      :host([animated]) ::slotted(*[selected]) {
+        transition: all linear 0.1s;
+        transform: rotateY(0deg);
+      }
+      :host([animated]) ::slotted(*) {
+        transform: rotateY(-10deg);
+      }
+
     `;
   }
 
