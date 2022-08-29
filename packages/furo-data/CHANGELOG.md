@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.12.0...@furo/data@2.13.0) (2022-08-29)
+
+
+### Bug Fixes
+
+* remove unneeded check on numeric scalar types ([0be9a8c](https://github.com/eclipse/eclipsefuro-web/commit/0be9a8c95b59a6d4cec97be393cf79e186e32de4))
+
+
+### Features
+
+* animated furo-data-hide-content ([a3a222c](https://github.com/eclipse/eclipsefuro-web/commit/a3a222cf11b53d9c40c0b62301dc32cff7bcce1d))
+* animated furo-data-hide-content.js ([1269480](https://github.com/eclipse/eclipsefuro-web/commit/1269480e9a7d76bcd7a0f6f03907a5240b5f5984))
+
+
+
+
+
 # [2.12.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.11.0...@furo/data@2.12.0) (2022-08-26)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.3.1...@furo/route@2.4.0) (2022-08-29)
+
+
+### Features
+
+* animated furo-data-hide-content ([a3a222c](https://github.com/eclipse/eclipsefuro-web/commit/a3a222cf11b53d9c40c0b62301dc32cff7bcce1d))
+
+
+
+
+
 ## [2.3.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.3.0...@furo/route@2.3.1) (2022-08-26)
 
 **Note:** Version bump only for package @furo/route
