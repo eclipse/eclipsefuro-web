@@ -191,6 +191,18 @@ class FuroTypeRenderer extends FBP(LitElement) {
   }
 
   /**
+   * forward the focus to the created element
+   */
+  focus() {
+    setTimeout(()=>{
+      if(this._insertedElementRef){
+        this._insertedElementRef.focus()
+      }
+    },16)
+  }
+
+
+  /**
    * Remove the inserted element, if the type renderer itself is removed
    * @private
    */
