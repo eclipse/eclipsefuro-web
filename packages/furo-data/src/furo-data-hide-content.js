@@ -96,7 +96,6 @@ class FuroDataHideContent extends FBP(LitElement) {
    * hides the content
    */
   hide() {
-    debugger
     this.hidden = true;
   }
 
@@ -122,43 +121,42 @@ class FuroDataHideContent extends FBP(LitElement) {
 
     if (this.getAttribute("animated") != null) {
       if (hide && this.offsetHeight > 0) {
-        this.style.setProperty('--height', this.offsetHeight + "px");
+        this.style.setProperty('--height', `${this.offsetHeight  }px`);
         clearTimeout(this._timeout)
-        this._timeout = setTimeout(() => {
-          this.style.setProperty('display', "none");
-        }, 300)
-
       } else {
-        this.style.setProperty('display', "block");
+
         clearTimeout(this._timeout)
         this._timeout = setTimeout(() => {
           this.style.setProperty('--height', "");
 
-        }, 300)
+        }, 500)
       }
     }
 
     const oldval = this._hidden || false;
-    setTimeout(() => {
+
       if (oldval !== hide) {
+      setTimeout(()=>{
         this._hidden = hide;
+      },1)
+
       }
 
 
       if (oldval !== hide) {
-        this._notify('toggled');
+      this._notify('toggled', hide);
       }
 
       if (this.field) {
-        this.field._value = this._checkInversedState(this._hidden);
+      this.field._value = this._checkInversedState(hide);
       }
 
       if (hide) {
-        this._notify('hid');
+        this._notify('hid', hide);
       } else {
-        this._notify('showed');
+        this._notify('showed', hide);
       }
-    }, 16)
+
   }
 
   /**
@@ -166,12 +164,12 @@ class FuroDataHideContent extends FBP(LitElement) {
    * @param eventname
    * @private
    */
-  _notify(eventname) {
+  _notify(eventname, state) {
     const customEvent = new Event(eventname, {
       composed: true,
       bubbles: false,
     });
-    customEvent.detail = this.hidden;
+    customEvent.detail = state;
     this.dispatchEvent(customEvent);
   }
 
@@ -187,16 +185,16 @@ class FuroDataHideContent extends FBP(LitElement) {
         display: block;
         overflow: hidden;
         height: var(--height);
-        transition: all ease-in-out 0.2s;
+        transition: all ease-in 0.4s;
       }
 
       .translate {
-        transition: all ease-in-out 0.3s;
+        transition: all ease-in 0.5s;
       }
 
       :host([animated][hidden]) .translate {
         transform: translateY(-100%);
-        transition: all ease-in-out 0.2s;
+        transition: all ease-in 0.4s;
       }
 
       :host([hidden]) {
@@ -206,7 +204,7 @@ class FuroDataHideContent extends FBP(LitElement) {
       :host([animated][hidden]) {
         display: block;
         height: 0px;
-        transition: all ease-in-out 0.3s;
+        transition: all ease-in 0.5s;
       }
     `;
   }

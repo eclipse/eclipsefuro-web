@@ -542,15 +542,19 @@ export class FieldNode extends EventTreeNode {
   _checkConstraints(event) {
     const validity = true;
 
-    const success = field => {
-      field._clearInvalidity();
+    const success = (...field) => {
+      field.forEach((f) => {
+        f._clearInvalidity();
+      })
     };
 
-    const failure = error => {
-      const field = error.node;
-      field._isValid = false;
-      field._validity = { constraint: error.name, description: error.message };
-      field.dispatchNodeEvent(new NodeEvent('field-became-invalid', field));
+    const failure = (...error) => {
+      error.forEach((fieldError) => {
+        const field = fieldError.node;
+        field._isValid = false;
+        field._validity = {constraint: fieldError.name, description: fieldError.message};
+        field.dispatchNodeEvent(new NodeEvent('field-became-invalid', field));
+      })
     };
 
     // DO NOT validate readonly fields

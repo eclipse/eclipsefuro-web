@@ -1,139 +1,142 @@
-import { fixture, html } from '@open-wc/testing';
-import { assert } from '@esm-bundle/chai';
+import { fixture, html } from '@open-wc/testing'
+import { assert } from '@esm-bundle/chai'
 
-import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
+import '@furo/fbp/src/flow-bind.js' // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
-import './initEnv.js';
-import '../src/furo-data-object.js';
-import '../src/furo-data-hide-content.js';
+import './initEnv.js'
+import '../src/furo-data-object.js'
+import '../src/furo-data-hide-content.js'
 
 describe('furo-data-hide-content', () => {
-  let element;
-  let host;
-  let dataObject;
+  let element
+  let host
+  let dataObject
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <flow-bind>
         <template>
           <furo-data-hide-content
-            fn-bind-data="--entity(*.furo_data_checkbox_input)"
+            fn-bind-data='--entity(*.furo_data_checkbox_input)'
           >
             <h1>This is the content</h1>
           </furo-data-hide-content>
 
           <furo-data-object
-            type="experiment.Experiment"
-            at-object-ready="--entity"
-            fn-inject-raw="--response(*.data)"
+            type='experiment.Experiment'
+            at-object-ready='--entity'
+            fn-inject-raw='--response(*.data)'
           ></furo-data-object>
         </template>
       </flow-bind>
-    `);
-    await testbind.updateComplete;
+    `)
+    await testbind.updateComplete
     host = testbind._host;
-    [, element, dataObject] = testbind.parentNode.children;
-    await host.updateComplete;
-    await element.updateComplete;
-    await dataObject.updateComplete;
-  });
+    [, element, dataObject] = testbind.parentNode.children
+    await host.updateComplete
+    await element.updateComplete
+    await dataObject.updateComplete
+  })
 
   it('should be a furo-data-hide-content', done => {
     // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(element.nodeName.toLowerCase(), 'furo-data-hide-content');
-    assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object');
-    done();
-  });
+    assert.equal(element.nodeName.toLowerCase(), 'furo-data-hide-content')
+    assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object')
+    done()
+  })
 
   it('should hide the content by method hide()', done => {
-    assert.equal(element.getAttribute('hidden'), null);
 
-    element.addEventListener(
-      'hid',
-      () => {
-        assert.equal(element.hidden, true);
-        done();
+
+    element.addEventListener('hid', (e) => {
+        setTimeout(() => {
+          assert.equal(e.detail, true)
+          done()
+        }, 32)
       },
-      { once: true }
-    );
+      { once: true },
+    )
 
-    element.hide();
-  });
+    element.hide()
+  })
 
   it('do nothing with invalid binding', done => {
-    assert.equal(element.bindData({ _spec: {} }), undefined);
-    done();
-  });
+    assert.equal(element.bindData({ _spec: {} }), undefined)
+    done()
+  })
 
   it('should hide the content by method toggle()', done => {
-    assert.equal(element.getAttribute('hidden'), null);
+    assert.equal(element.getAttribute('hidden'), null)
     element.addEventListener(
       'toggled',
-      () => {
-        assert.equal(element.hidden, true);
-        done();
+      (e) => {
+        setTimeout(() => {
+          assert.equal(e.detail, true)
+          done()
+        }, 32)
       },
-      { once: true }
-    );
-    element.toggle();
-  });
+      { once: true },
+    )
+    element.toggle()
+  })
 
   it('should show the content by method show()', done => {
-    element.hide();
-    assert.equal(element.getAttribute('hidden'), null);
+    element.hide()
+    assert.equal(element.getAttribute('hidden'), null)
     element.addEventListener(
       'showed',
-      () => {
-        assert.equal(element.hidden, false);
-        done();
+      (e) => {
+        assert.equal(e.detail, false)
+        done()
       },
-      { once: true }
-    );
-    element.show();
-  });
+      { once: true },
+    )
+    element.show()
+  })
 
   it('should show the content by data binding', done => {
-    element.hide();
-    assert.equal(element.getAttribute('hidden'), null);
+    element.hide()
+
+
     element.addEventListener(
       'showed',
-      () => {
-        assert.equal(element.hidden, false);
-        done();
+      (e) => {
+        assert.equal(e.detail, false)
+        done()
       },
-      { once: true }
-    );
-    dataObject.data.furo_data_checkbox_input._value = false;
-  });
+      { once: true },
+    )
+    dataObject.data.furo_data_checkbox_input._value = false
+  })
 
   it('should hide the content by data binding', done => {
-    element.show();
-    assert.equal(element.getAttribute('hidden'), null);
+    element.show()
+
     element.addEventListener(
       'hid',
-      () => {
-        assert.equal(element.hidden, true);
-        done();
+      (e) => {
+        assert.equal(e.detail, true)
+        done()
       },
-      { once: true }
-    );
-    dataObject.data.furo_data_checkbox_input._value = true;
-  });
+      { once: true },
+    )
+    dataObject.data.furo_data_checkbox_input._value = true
+  })
 
   it('should update data-object by toggle', done => {
-    element.show();
-    assert.equal(element.getAttribute('hidden'), null);
+    element.show()
+    assert.equal(element.getAttribute('hidden'), null)
 
     dataObject.addEventListener(
       'data-changed',
       () => {
-        assert.equal(dataObject.data.furo_data_checkbox_input._value, true);
-        done();
+        assert.equal(dataObject.data.furo_data_checkbox_input._value, true)
+        done()
       },
-      { once: true }
-    );
+      { once: true },
+    )
     setTimeout(() => {
-      element.hide();
-    }, 10);
-  });
-});
+      element.hide()
+    }, 10)
+  })
+})
