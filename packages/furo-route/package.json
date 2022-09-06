@@ -1,7 +1,7 @@
 {
 	"name": "@furo/route",
 	"description": "Routing components",
-	"version": "2.4.0",
+	"version": "2.4.1",
 	"homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-route",
 	"repository": "git@github.com:eclipse/eclipsefuro-web.git",
 	"author": {
@@ -27,7 +27,7 @@
 	},
 	"dependencies": {
 		"@furo/fbp": "^6.6.0",
-		"@furo/framework": "^2.4.0",
+		"@furo/framework": "^2.4.1",
 		"lit": "^2.0.2"
 	},
 	"publishConfig": {

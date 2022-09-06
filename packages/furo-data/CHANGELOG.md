@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.13.0...@furo/data@2.14.0) (2022-09-06)
+
+
+### Bug Fixes
+
+* furo-data-hide-content animation ([0f71159](https://github.com/eclipse/eclipsefuro-web/commit/0f7115946097e4445915ae28d9ac94e395ce6264))
+* handle indirect double click/trigger ([fd2d5de](https://github.com/eclipse/eclipsefuro-web/commit/fd2d5de33a6e432166f5e415201a1b9408268362))
+
+
+### Features
+
+* custom validator can have detailed field invalidations and validations ([a16ab65](https://github.com/eclipse/eclipsefuro-web/commit/a16ab659dc3c47f921c2792af4950f9ee1858fbb))
+* forward focus on type-renderer ([a759fb7](https://github.com/eclipse/eclipsefuro-web/commit/a759fb78fe90fba2b4a858bafbb87fcec47ce1fb))
+
+
+
+
+
 # [2.13.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.12.0...@furo/data@2.13.0) (2022-08-29)
 
 
