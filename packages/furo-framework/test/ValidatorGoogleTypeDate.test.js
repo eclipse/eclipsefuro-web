@@ -1,6 +1,7 @@
 import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 import '../src/furo-catalog.js';
+import "@furo/data/src/furo-catalog.js";
 import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';

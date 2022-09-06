@@ -2,6 +2,7 @@ import { fixture, html } from '@open-wc/testing';
 import { assert } from '@esm-bundle/chai';
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/flow-bind.js'; // for testing with wires and hooks
+import "@furo/data/src/furo-catalog.js";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import './initEnv.js';
 import { ValidatorGoogleTypeMoney } from '../src/BaseSpecValidators/ValidatorGoogleTypeMoney.js';
