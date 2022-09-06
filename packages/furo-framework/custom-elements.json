@@ -629,6 +629,82 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorFuroFatNumeric.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.[Numeric type]Value, furo.fat.[Numeric type]</code>",
+          "name": "ValidatorFuroFatNumeric",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorFuroFatNumeric",
+          "declaration": {
+            "name": "ValidatorFuroFatNumeric",
+            "module": "src/BaseSpecValidators/ValidatorFuroFatNumeric.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BaseSpecValidators/ValidatorFuroFatString.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A class to validate constraints on type of <code>google.protobuf.StringValue, furo.fat.String</code>",
+          "name": "ValidatorFuroFatString",
+          "members": [
+            {
+              "kind": "method",
+              "name": "validateConstraints",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "field"
+                }
+              ],
+              "return": {
+                "type": {
+                  "text": "Promise<unknown>"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ValidatorFuroFatString",
+          "declaration": {
+            "name": "ValidatorFuroFatString",
+            "module": "src/BaseSpecValidators/ValidatorFuroFatString.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/BaseSpecValidators/ValidatorFuroReference.js",
       "declarations": [
         {

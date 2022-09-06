@@ -6,7 +6,7 @@ weight: 100
 
 # Env
 
-**@furo/furo-framework** <small>v2.3.0</small>
+**@furo/furo-framework** <small>v2.4.1</small>
 <br>`import '@furo/framework/src/environment.js';`<small>
 <br>exports *Env* js</small>
 

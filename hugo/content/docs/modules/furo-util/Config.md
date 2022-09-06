@@ -6,7 +6,7 @@ weight: 100
 
 # Config
 
-**@furo/furo-util** <small>v2.1.0</small>
+**@furo/furo-util** <small>v2.1.5</small>
 <br>`import '@furo/util/src/lib/Config.js';`<small>
 <br>exports *Config* js</small>
 

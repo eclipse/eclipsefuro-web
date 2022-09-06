@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-vertical-scroller
-**@furo/layout** <small>v2.1.0</small>
+**@furo/layout** <small>v2.2.0</small>
 <br>`import '@furo/layout/src/furo-vertical-scroller.js';`<small>
 <br>exports `<furo-vertical-scroller>` custom-element-definition
 <br>superclass *LitElement*

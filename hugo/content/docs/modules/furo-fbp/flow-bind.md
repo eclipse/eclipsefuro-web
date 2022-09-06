@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # flow-bind
-**@furo/fbp** <small>v6.5.0</small>
+**@furo/fbp** <small>v6.6.0</small>
 <br>`import '@furo/fbp/src/flow-bind.js';`<small>
 <br>exports `<flow-bind>` custom-element-definition
 <br>superclass *HTMLElement*

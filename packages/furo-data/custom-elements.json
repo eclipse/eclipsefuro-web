@@ -1517,7 +1517,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO:  support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content fn-bind-data=\"--bind(*.bool)\">\n  <div>some content</div>\n</furo-collapsible-box>\n```",
+          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO:  support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content animated fn-bind-data=\"--bind(*.bool)\">\n  <div>some content</div>\n</furo-collapsible-box>\n```\n\nThe attribute animated will add a slide in slide out animation.",
           "name": "FuroDataHideContent",
           "slots": [
             {
@@ -1588,6 +1588,9 @@
               "parameters": [
                 {
                   "name": "eventname"
+                },
+                {
+                  "name": "state"
                 }
               ],
               "privacy": "private"
@@ -1609,6 +1612,13 @@
                 "text": "Boolean"
               },
               "attribute": "hide-on-false"
+            },
+            {
+              "kind": "field",
+              "name": "animated",
+              "privacy": "public",
+              "description": "Set this to animate the collapse and expand.",
+              "attribute": "animated"
             }
           ],
           "events": [
@@ -1647,6 +1657,11 @@
                 "text": "Boolean"
               },
               "fieldName": "hideOnFalse"
+            },
+            {
+              "name": "animated",
+              "description": "Set this to animate the collapse and expand.",
+              "fieldName": "animated"
             }
           ],
           "mixins": [
@@ -2554,6 +2569,11 @@
                 }
               ],
               "description": "Bind a FieldNode to the date-input.\n\n`--personDO(*.person.firstname)`"
+            },
+            {
+              "kind": "method",
+              "name": "deleteNode",
+              "description": "Trigger deleteNode on the `FieldNode`."
             }
           ],
           "events": [
@@ -2970,7 +2990,34 @@
             },
             {
               "kind": "method",
-              "name": "bindMc",
+              "name": "_updateCountersAndFireEvents"
+            },
+            {
+              "kind": "method",
+              "name": "_applyValueState"
+            },
+            {
+              "kind": "method",
+              "name": "_clearValueStates"
+            },
+            {
+              "kind": "method",
+              "name": "bindMessageContainer",
+              "parameters": [
+                {
+                  "name": "fieldNode",
+                  "description": "Messagecontainer fieldnode",
+                  "type": {
+                    "text": "FieldNode"
+                  }
+                }
+              ],
+              "description": "bindMc Bind a `furo.MessageContainer` fieldnode.\n\nThe updates from the injected raw messagecontainer are applied to the siblings of the bounded node.",
+              "privacy": "public"
+            },
+            {
+              "kind": "method",
+              "name": "bindRootNode",
               "parameters": [
                 {
                   "name": "fieldNode",
@@ -3348,6 +3395,11 @@
               ],
               "description": "Attribute handling\nAdding to DOM",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "description": "forward the focus to the created element"
             },
             {
               "kind": "method",

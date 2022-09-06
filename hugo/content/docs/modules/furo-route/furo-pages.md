@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-pages
-**@furo/route** <small>v2.2.0</small>
+**@furo/route** <small>v2.4.1</small>
 <br>`import '@furo/route/src/furo-pages.js';`<small>
 <br>exports `<furo-pages>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -45,6 +45,12 @@ The components used in a furo-page must implement a **hidden** attribute css to 
 ## flowbased auto wires
 furo-pages provides auto wires, which are automatically triggered in the child elements if
 they support FBP. Each wire will forward a `locationObject`
+
+-  `|--pageActivated` : Is triggered when the element is activated.
+-  `|--pageDeActivated` : Is triggered when another page is activated. Empty wire.
+-  `|--pageQueryChanged` : Is triggered when the page query changes.
+-  `|--pageHashChanged` : Is triggered when the page hash changes.
+-  `|--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.
 
 -  `--pageActivated` : Is triggered when the element is activated.
 -  `--pageDeActivated` : Is triggered when another page is activated. Empty wire.

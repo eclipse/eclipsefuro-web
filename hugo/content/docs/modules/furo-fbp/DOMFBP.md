@@ -6,7 +6,7 @@ weight: 100
 
 # DOMFBP
 
-**@furo/furo-fbp** <small>v6.5.0</small>
+**@furo/furo-fbp** <small>v6.6.0</small>
 <br>`import '@furo/fbp/src/DOMFBP.js';`<small>
 <br>exports *DOMFBP* js
 <br>extends *src/DOMFBP.js*

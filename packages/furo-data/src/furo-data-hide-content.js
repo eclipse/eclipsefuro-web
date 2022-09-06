@@ -58,6 +58,12 @@ class FuroDataHideContent extends FBP(LitElement) {
         type: Boolean,
         attribute: 'hide-on-false',
       },
+      /**
+       * Set this to animate the collapse and expand.
+       */
+      animated:{
+        type: Boolean
+      }
     };
   }
 

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-type-renderer
-**@furo/data** <small>v2.6.0</small>
+**@furo/data** <small>v2.14.0</small>
 <br>`import '@furo/data/src/furo-type-renderer.js';`<small>
 <br>exports `<furo-type-renderer>` custom-element-definition
 <br>superclass *LitElement*
@@ -74,6 +74,7 @@ You just have to follow the naming convention for your renderer.
 
 
 
+
 ### **context**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">context</span>
@@ -108,6 +109,16 @@ Bind a fieldnode of any type
 
 
 
+
+### **focus**
+<small>**focus**() ⟹ `void`</small>
+
+<small>`*`</small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-focus</span>
+
+forward the focus to the created element
+
+<br><br>
 
 
 

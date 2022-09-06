@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-message-container-handler
-**@furo/data** <small>v2.6.0</small>
+**@furo/data** <small>v2.14.0</small>
 <br>`import '@furo/data/src/furo-message-container-handler.js';`<small>
 <br>exports `<furo-message-container-handler>` custom-element-definition
 <br>superclass *LitElement*</small>
@@ -21,6 +21,10 @@ weight: 50
 
 ## Attributes and Properties
 {{% api "_furo-message-container-handler-properties.md" %}}
+
+
+
+
 
 
 
@@ -88,11 +92,54 @@ This will set the corresponding value-states on the sibling nodes of the bounded
 - <small>*messageContainer* with `furo.MessageContainer` signature</small>
 <br><br>
 
-### **bindMc**
-<small>**bindMc**(*fieldNode* `FieldNode` ) ⟹ `void`</small>
+### **_updateCountersAndFireEvents**
+<small>**_updateCountersAndFireEvents**() ⟹ `void`</small>
+
+<small>`*`</small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn--update-counters-and-fire-events</span>
+
+
+
+<br><br>
+
+### **_applyValueState**
+<small>**_applyValueState**() ⟹ `void`</small>
+
+<small>`*`</small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn--apply-value-state</span>
+
+
+
+<br><br>
+
+### **_clearValueStates**
+<small>**_clearValueStates**() ⟹ `void`</small>
+
+<small>`*`</small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn--clear-value-states</span>
+
+
+
+<br><br>
+
+### **bindMessageContainer**
+<small>**bindMessageContainer**(*fieldNode* `FieldNode` ) ⟹ `void`</small>
 
 <small>`FieldNode` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-mc</span>
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-message-container</span>
+
+bindMc Bind a `furo.MessageContainer` fieldnode.
+
+The updates from the injected raw messagecontainer are applied to the siblings of the bounded node.
+
+- <small>*fieldNode* Messagecontainer fieldnode</small>
+<br><br>
+
+### **bindRootNode**
+<small>**bindRootNode**(*fieldNode* `FieldNode` ) ⟹ `void`</small>
+
+<small>`FieldNode` </small> →
+<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-bind-root-node</span>
 
 bindMc Bind a `furo.MessageContainer` fieldnode.
 

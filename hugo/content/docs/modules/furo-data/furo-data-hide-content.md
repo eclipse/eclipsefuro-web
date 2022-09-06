@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-hide-content
-**@furo/data** <small>v2.6.0</small>
+**@furo/data** <small>v2.14.0</small>
 <br>`import '@furo/data/src/furo-data-hide-content.js';`<small>
 <br>exports `<furo-data-hide-content>` custom-element-definition
 <br>superclass *LitElement*
@@ -20,10 +20,12 @@ It is also possible to call the `hide()` and `show()` methods to show and hide t
 TODO:  support furo.fat.Bool and google.protobuf.BoolValue
 
 ```html
-<furo-data-hide-content fn-bind-data="--bind(*.bool)">
+<furo-data-hide-content animated fn-bind-data="--bind(*.bool)">
   <div>some content</div>
 </furo-collapsible-box>
 ```
+
+The attribute animated will add a slide in slide out animation.
 
 {{% api "_furo-data-hide-content-description.md" %}}
 
@@ -52,6 +54,14 @@ default: **false**</small>
 <small>`Boolean` </small>
 
 Hide element on false instead of true
+<br><br>
+
+### **animated**
+
+<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">animated</span>
+</small>
+
+Set this to animate the collapse and expand.
 <br><br>
 ## Events
 {{% api "_furo-data-hide-content-events.md" %}}
@@ -121,6 +131,7 @@ shows the content
 Toggle the current visibility state.
 
 <br><br>
+
 
 
 
