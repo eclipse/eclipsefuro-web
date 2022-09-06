@@ -118,44 +118,49 @@ class FuroDataHideContent extends FBP(LitElement) {
   }
 
   set hidden(hide) {
+    if(this.shadowRoot && this.shadowRoot.getElementById("measure")){
+      this._h = this.shadowRoot.getElementById("measure").clientHeight
+    }
 
     if (this.getAttribute("animated") != null) {
-      if (hide && this.offsetHeight > 0) {
-        this.style.setProperty('--height', `${this.offsetHeight  }px`);
-        clearTimeout(this._timeout)
-      } else {
-
+      if (hide && this._h > 0) {
+        this.style.setProperty('height', `${this._h}px`);
         clearTimeout(this._timeout)
         this._timeout = setTimeout(() => {
-          this.style.setProperty('--height', "");
-
-        }, 500)
+          this.style.setProperty('height', "");
+        }, 16)
+      } else {
+        this.style.setProperty('height', `${this._h}px`);
+        clearTimeout(this._timeout)
+        this._timeout = setTimeout(() => {
+          this.style.setProperty('height', "");
+        }, 800)
       }
     }
 
     const oldval = this._hidden || false;
 
-      if (oldval !== hide) {
-      setTimeout(()=>{
+    if (oldval !== hide) {
+      setTimeout(() => {
         this._hidden = hide;
-      },1)
+      }, 1)
 
-      }
+    }
 
 
-      if (oldval !== hide) {
+    if (oldval !== hide) {
       this._notify('toggled', hide);
-      }
+    }
 
-      if (this.field) {
+    if (this.field) {
       this.field._value = this._checkInversedState(hide);
-      }
+    }
 
-      if (hide) {
-        this._notify('hid', hide);
-      } else {
-        this._notify('showed', hide);
-      }
+    if (hide) {
+      this._notify('hid', hide);
+    } else {
+      this._notify('showed', hide);
+    }
 
   }
 
@@ -184,17 +189,16 @@ class FuroDataHideContent extends FBP(LitElement) {
       :host {
         display: block;
         overflow: hidden;
-        height: var(--height);
-        transition: all ease-in 0.4s;
+        transition: all ease-in-out 0.3s;
       }
 
       .translate {
-        transition: all ease-in 0.5s;
+        transition: all ease-in-out 0.8s;
       }
 
       :host([animated][hidden]) .translate {
         transform: translateY(-100%);
-        transition: all ease-in 0.4s;
+        transition: all ease-in-out 0.6s;
       }
 
       :host([hidden]) {
@@ -204,7 +208,7 @@ class FuroDataHideContent extends FBP(LitElement) {
       :host([animated][hidden]) {
         display: block;
         height: 0px;
-        transition: all ease-in 0.5s;
+        transition: all ease-in-out 0.75s;
       }
     `;
   }
@@ -217,7 +221,7 @@ class FuroDataHideContent extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <div class="translate">
+      <div id="measure" class="translate">
         <slot></slot>
       </div>`;
   }
