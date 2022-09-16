@@ -354,7 +354,11 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     if (this.isFat()) {
       this._tmpFAT = val;
       if (val.value === null || val.value === undefined) {
-        this.value = '';
+        if (val.labels && val.labels.empty) {
+          this.value = 0;
+        } else {
+          this.value = '';
+        }
       } else {
         this.value = val.value;
       }
