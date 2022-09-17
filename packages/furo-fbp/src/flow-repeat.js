@@ -31,8 +31,8 @@ import './empty-fbp-node.js';
  * -  `--trigger` : contains what was passed in to the triggering method.
  * -  `--triggerFirst` : contains what was passed in to the triggering method.
  * -  `--triggerLast` : contains what was passed in to the triggering method.
- * -  `--itemSelected` : contains nothing, is triggered with select(index).
- * -  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).
+ * -  `--itemSelected` : contains `true`, is triggered with select(index).
+ * -  `--itemDeSelected` : contains `false`, is triggered when another item is selected with select(index).
  *
  * ## Available attributes
  * **index** contains the current index of the item. Use this to fire a event with an index like `@-click="^^item-clicked(index)"`
@@ -80,7 +80,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
       }
 
       this._insertedItems[index].virtualElement._FBPTriggerWire(
-        '--itemSelected'
+        '--itemSelected',true
       );
       this.selectedIndex = index;
     }
@@ -192,7 +192,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
       this._insertedItems[this.selectedIndex]
     ) {
       this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire(
-        '--itemDeSelected'
+        '--itemDeSelected', false
       );
       this.selectedIndex = undefined;
     }
@@ -227,7 +227,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
    */
   deselectAll() {
     this._insertedItems.forEach(item => {
-      item.virtualElement._FBPTriggerWire('--itemDeSelected');
+      item.virtualElement._FBPTriggerWire('--itemDeSelected', false);
       this.selectedIndex = undefined;
     });
   }

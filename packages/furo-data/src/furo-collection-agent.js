@@ -450,7 +450,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * Lets client specify sorting order for list results
      */
     if (this.orderBy) {
-      params.order_by = this.orderBy.split(' ').join('');
+      params.order_by = this.orderBy;
     }
 
     /**
