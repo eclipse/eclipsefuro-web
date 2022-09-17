@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.7.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.6.0...@furo/fbp@6.7.0) (2022-09-17)
+
+
+### Features
+
+* allow order_by with "fielname desc" ([2e673cb](https://github.com/eclipse/eclipsefuro-web/commit/2e673cb2b724e2c531c4b189fc6e3d2170bac2cd))
+
+
+
+
+
 # [6.6.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.5.1...@furo/fbp@6.6.0) (2022-08-13)
 
 

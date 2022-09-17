@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.14.0...@furo/data@2.15.0) (2022-09-17)
+
+
+### Features
+
+* allow order_by with "fielname desc" ([2e673cb](https://github.com/eclipse/eclipsefuro-web/commit/2e673cb2b724e2c531c4b189fc6e3d2170bac2cd))
+
+
+
+
+
 # [2.14.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.13.0...@furo/data@2.14.0) (2022-09-06)
 
 
