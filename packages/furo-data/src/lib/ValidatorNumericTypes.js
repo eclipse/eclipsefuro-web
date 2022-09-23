@@ -25,7 +25,7 @@ export class ValidatorNumericTypes {
         case 'uint64':
         case 'fixed64':
         case 'sfixed64':
-          if (!Number.isInteger(field._value)) {
+          if (!Number.isInteger(field._value) && field._value !== null) {
             const NODE = {};
             NODE.message = '';
             NODE.name = '';
