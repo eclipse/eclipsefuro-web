@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.15.0...@furo/data@2.16.0) (2022-09-28)
+
+
+### Features
+
+* furo-type-renderer survives "moving" ([5d32723](https://github.com/eclipse/eclipsefuro-web/commit/5d32723897f5e0fc4f8bf52cbc25a3637faf99d9))
+
+
+
+
+
 # [2.15.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.14.0...@furo/data@2.15.0) (2022-09-17)
 
 
