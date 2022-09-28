@@ -215,6 +215,16 @@ class FuroTypeRenderer extends FBP(LitElement) {
   }
 
   /**
+   * Append when reconnect
+   */
+  connectedCallback(){
+    // reconnect
+    if(this._insertedElementRef){
+      this.parentNode.insertBefore(this._insertedElementRef, this);
+    }
+  }
+
+  /**
    *
    * @private
    */
