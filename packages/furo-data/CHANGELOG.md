@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.16.1...@furo/data@2.16.2) (2022-10-03)
+
+
+### Bug Fixes
+
+* add missing call of super.connectedCallback() ([2fcd102](https://github.com/eclipse/eclipsefuro-web/commit/2fcd102847b3563d64309e760e4ce217e096c2cc))
+
+
+
+
+
 ## [2.16.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.16.0...@furo/data@2.16.1) (2022-10-03)
 
 
