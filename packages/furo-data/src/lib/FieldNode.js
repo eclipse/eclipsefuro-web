@@ -1,10 +1,10 @@
-import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
-import { ValidatorRegistry } from '@furo/framework/src/ValidatorRegistry.js';
+import {EventTreeNode, NodeEvent} from '@furo/framework/src/EventTreeNode.js';
+import {ValidatorRegistry} from '@furo/framework/src/ValidatorRegistry.js';
 // eslint-disable-next-line import/no-cycle
-import { RepeaterNode } from './RepeaterNode.js';
-import { ScalarTypeHelper } from './ScalarTypeHelper.js';
-import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
-import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
+import {RepeaterNode} from './RepeaterNode.js';
+import {ScalarTypeHelper} from './ScalarTypeHelper.js';
+import {ValidatorNumericTypes} from './ValidatorNumericTypes.js';
+import {ValidatorDefaultTypes} from './ValidatorDefaultTypes.js';
 
 /**
  *
@@ -253,8 +253,8 @@ export class FieldNode extends EventTreeNode {
    * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
    */
   createField(options) {
-    const { fieldName } = options;
-    let spec = { type: options.type };
+    const {fieldName} = options;
+    let spec = {type: options.type};
 
     if (options.spec) {
       spec = options.spec;
@@ -327,35 +327,35 @@ export class FieldNode extends EventTreeNode {
     if (this.__specdefinitions[type]) {
       switch (type) {
         case 'google.protobuf.StringValue':
-          this.createField({ fieldName: 'value', type: 'string' });
+          this.createField({fieldName: 'value', type: 'string'});
           break;
         case 'google.protobuf.BoolValue':
-          this.createField({ fieldName: 'value', type: 'bool' });
+          this.createField({fieldName: 'value', type: 'bool'});
           break;
         case 'google.protobuf.FloatValue':
-          this.createField({ fieldName: 'value', type: 'float' });
+          this.createField({fieldName: 'value', type: 'float'});
           break;
         case 'google.protobuf.Int32Value':
-          this.createField({ fieldName: 'value', type: 'int32' });
+          this.createField({fieldName: 'value', type: 'int32'});
           break;
         case 'google.protobuf.Int64Value':
-          this.createField({ fieldName: 'value', type: 'int64' });
+          this.createField({fieldName: 'value', type: 'int64'});
           break;
         case 'google.protobuf.DoubleValue':
-          this.createField({ fieldName: 'value', type: 'double' });
+          this.createField({fieldName: 'value', type: 'double'});
           break;
         case 'google.protobuf.UInt32Value':
-          this.createField({ fieldName: 'value', type: 'uint32' });
+          this.createField({fieldName: 'value', type: 'uint32'});
           break;
         case 'google.protobuf.UInt64Value':
-          this.createField({ fieldName: 'value', type: 'uint64' });
+          this.createField({fieldName: 'value', type: 'uint64'});
           break;
         case 'google.protobuf.Duration':
         case 'google.protobuf.Timestamp':
         case 'google.protobuf.FieldMask':
         case 'google.protobuf.BytesValue':
         case 'google.protobuf.Struct':
-          this.createField({ fieldName: 'value', type: 'string' });
+          this.createField({fieldName: 'value', type: 'string'});
           break;
 
         default:
@@ -501,11 +501,11 @@ export class FieldNode extends EventTreeNode {
       this._spec.__proto.oneof
     ) {
       // clear oneof siblings
-      const oneofGorup = this._spec.__proto.oneof;
+      const oneOfGroup = this._spec.__proto.oneof;
       // avoid recursion with __oneofrecusion
-      if (oneofGorup.length) {
+      if (oneOfGroup.length) {
         this.__parentNode.__childNodes.forEach(sibling => {
-          if (sibling !== this && sibling._spec.__proto.oneof === oneofGorup) {
+          if (sibling !== this && sibling._spec.__proto && sibling._spec.__proto.oneof && sibling._spec.__proto.oneof === oneOfGroup) {
             this._siblingIsChangeing = true;
             // eslint-disable-next-line no-param-reassign
             sibling._oldvalue = sibling._value;
@@ -579,7 +579,7 @@ export class FieldNode extends EventTreeNode {
         let Validator = ValidatorRegistry.getValidator(this._spec.type);
 
         // resolve inner type on type any
-        if(this._spec.type === "google.protobuf.Any" && this['@type'] && this['@type']._value){
+        if (this._spec.type === "google.protobuf.Any" && this['@type'] && this['@type']._value) {
           Validator = ValidatorRegistry.getValidator(this['@type']._value);
         }
 
@@ -667,7 +667,7 @@ export class FieldNode extends EventTreeNode {
         }
       } else {
         const target = f[0];
-        const subMetaAndConstraints = { fields: {} };
+        const subMetaAndConstraints = {fields: {}};
         subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
         // eslint-disable-next-line no-param-reassign
         level += 1;
@@ -737,7 +737,7 @@ export class FieldNode extends EventTreeNode {
 
   _updateKeyValueMap(val, spec) {
     const vType = spec.match(/,\s*(.*)>/)[1];
-    const fieldSpec = { type: vType };
+    const fieldSpec = {type: vType};
 
     this._fieldIsMap = true;
     // create if not exist
