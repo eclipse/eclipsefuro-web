@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.16.0...@furo/data@2.16.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* making oneOf checks more stable ([2353d2f](https://github.com/eclipse/eclipsefuro-web/commit/2353d2fe2651eccda5175f7cc6736aa79ead3877))
+
+
+
+
+
 # [2.16.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.15.0...@furo/data@2.16.0) (2022-09-28)
 
 
