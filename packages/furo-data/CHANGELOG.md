@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.16.2...@furo/data@2.16.3) (2022-10-05)
+
+
+### Bug Fixes
+
+* treat wrapper types in any types as scalar values ([5384b73](https://github.com/eclipse/eclipsefuro-web/commit/5384b73261b27b251587d413f34d603a64f59dce))
+
+
+
+
+
 ## [2.16.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/data@2.16.1...@furo/data@2.16.2) (2022-10-03)
 
 
