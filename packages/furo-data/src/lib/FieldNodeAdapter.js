@@ -78,19 +78,6 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     isWrapper() {
-      if (
-        this.__fieldNode._spec &&
-        this.__fieldNode._spec.type === 'google.protobuf.Any'
-      ) {
-        // check in @type field, return false if it not known at the moment
-        return (
-          this.__fieldNode['@type'] &&
-          this.__fieldNode['@type']._value !== null &&
-          this.__fieldNode['@type']._value
-            .replace(/.*\//, '')
-            .startsWith('google.protobuf')
-        );
-      }
       return (
         this.__fieldNode._spec &&
         this.__fieldNode._spec.type.startsWith('google.protobuf')
