@@ -12,9 +12,11 @@ Use [FuroFeatureToggle](/docs/modules/furo-framework/FuroFeatureToggle/) to impl
 - **ops toggles** - this refers to switches under operational aspects. For example, when new features are rolled out and the performance behavior of the application is still unclear, the feature can simply be turned off if problems occur during operation. As far as everything runs stable, the switches are removed.
 - **permission toggles** - certain features are made available only to a subset of users, or to users with extended privileges.
 
-Hint:
+## Hints:
+- Keep toggle scope as small as possible
+- For enabling or hiding buttons, based on a HATEOAS response, use [furo-hateoas-state](/docs/modules/furo-data/furo-hateoas-state/).
+- Always expose feature toggle configurations
 
-- For enabling or hiding buttons, based on a HATEOAS response, use [furo-hateoas-state](/docs/modules/furo-data/furo-hateoas-state/). 
 
 
 ## Initialization
