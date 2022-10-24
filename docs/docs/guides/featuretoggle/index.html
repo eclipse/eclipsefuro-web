@@ -12,12 +12,12 @@
  release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://web-components.furo.pro/docs/guides/featuretoggle/" />
-<meta property="article:modified_time" content="2022-02-15T09:06:30+01:00" />
+<meta property="article:modified_time" content="2022-10-24T10:57:30+02:00" />
 <title>Feature Toggles | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.9cc25356fddfd561b890300265026232d7affd1c99d55106ad3766b76fb00a0d.js" integrity="sha256-nMJTVv3f1WG4kDACZQJiMtev/RyZ1VEGrTdmt2&#43;wCg0="></script>
+<script defer src="/en.search.min.a1410f14b9fffb3a08d487317d47d5c270c90db827e3a1d4c858376bc2cceb0d.js" integrity="sha256-oUEPFLn/&#43;zoI1IcxfUfVwnDJDbgn46HUyFg3a8LM6w0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1790,12 +1790,12 @@ https://github.com/alex-shpak/hugo-book
 <li><strong>release toggles</strong> - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages.</li>
 <li><strong>experiment toggles</strong> - the classic, for example for A/B tests</li>
 <li><strong>ops toggles</strong> - this refers to switches under operational aspects. For example, when new features are rolled out and the performance behavior of the application is still unclear, the feature can simply be turned off if problems occur during operation. As far as everything runs stable, the switches are removed.</li>
-<li><strong>permission toggles</strong> - certain features are made available only to premium or paying customers, or to users with extended privileges.</li>
+<li><strong>permission toggles</strong> - certain features are made available only to a subset of users, or to users with extended privileges.</li>
 </ul>
-<p>Do not use toggles feature for:</p>
+<p>Hint:</p>
 <ul>
-<li>Enabling or hiding buttons, based on a HATEOAS response. Use 
-  <a href="/docs/modules/furo-data/furo-hateoas-state/">furo-hateoas-state</a> for that.</li>
+<li>For enabling or hiding buttons, based on a HATEOAS response, use 
+  <a href="/docs/modules/furo-data/furo-hateoas-state/">furo-hateoas-state</a>.</li>
 </ul>
 <h2 id="initialization">
   Initialization
@@ -1892,9 +1892,9 @@ Feel free to file an issue with a feature request, if you miss something.</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/1f2e7f582abc300b42eaca784979576539b362a5" title='Last modified by veith | February 15, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/08f0271668d261f430341e1cba7c0985e2dedf13" title='Last modified by veith | October 24, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>February 15, 2022</span>
+      <span>October 24, 2022</span>
     </a>
   </div>
 
