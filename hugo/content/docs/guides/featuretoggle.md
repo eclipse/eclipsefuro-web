@@ -10,11 +10,11 @@ Use [FuroFeatureToggle](/docs/modules/furo-framework/FuroFeatureToggle/) to impl
 - **release toggles** - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. 
 - **experiment toggles** - the classic, for example for A/B tests 
 - **ops toggles** - this refers to switches under operational aspects. For example, when new features are rolled out and the performance behavior of the application is still unclear, the feature can simply be turned off if problems occur during operation. As far as everything runs stable, the switches are removed.
-- **permission toggles** - certain features are made available only to premium or paying customers, or to users with extended privileges.
+- **permission toggles** - certain features are made available only to a subset of users, or to users with extended privileges.
 
-Do not use toggles feature for:
+Hint:
 
-- Enabling or hiding buttons, based on a HATEOAS response. Use [furo-hateoas-state](/docs/modules/furo-data/furo-hateoas-state/) for that. 
+- For enabling or hiding buttons, based on a HATEOAS response, use [furo-hateoas-state](/docs/modules/furo-data/furo-hateoas-state/). 
 
 
 ## Initialization
