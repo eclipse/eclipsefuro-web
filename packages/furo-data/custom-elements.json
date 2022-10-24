@@ -4148,7 +4148,7 @@
               "kind": "field",
               "name": "_spec",
               "description": "Reference to the current spec definition of the fieldNode",
-              "default": "{ type: vType }",
+              "default": "{type: vType}",
               "type": {
                 "text": "object"
               }

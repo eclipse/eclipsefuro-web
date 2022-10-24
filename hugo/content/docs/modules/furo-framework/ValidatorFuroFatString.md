@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorFuroFatString
 
-**@furo/furo-framework** <small>v2.4.1</small>
+**@furo/furo-framework** <small>v2.4.2</small>
 <br>`import '@furo/framework/src/BaseSpecValidators/ValidatorFuroFatString.js';`<small>
 <br>exports *ValidatorFuroFatString* js</small>
 

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # flow-repeat
-**@furo/fbp** <small>v6.6.0</small>
+**@furo/fbp** <small>v6.7.0</small>
 <br>`import '@furo/fbp/src/flow-repeat.js';`<small>
 <br>exports *FlowRepeat* js
 <br>exports `<flow-repeat>` custom-element-definition
@@ -44,8 +44,8 @@ Custom element to repeat Arrays. The repeated items are injected *before* the `f
 -  `--trigger` : contains what was passed in to the triggering method.
 -  `--triggerFirst` : contains what was passed in to the triggering method.
 -  `--triggerLast` : contains what was passed in to the triggering method.
--  `--itemSelected` : contains nothing, is triggered with select(index).
--  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).
+-  `--itemSelected` : contains `true`, is triggered with select(index).
+-  `--itemDeSelected` : contains `false`, is triggered when another item is selected with select(index).
 
 ## Available attributes
 **index** contains the current index of the item. Use this to fire a event with an index like `@-click="^^item-clicked(index)"`

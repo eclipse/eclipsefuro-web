@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-fetch-json
-**@furo/util** <small>v2.1.5</small>
+**@furo/util** <small>v2.1.6</small>
 <br>`import '@furo/util/src/furo-fetch-json.js';`<small>
 <br>exports `<furo-fetch-json>` custom-element-definition
 <br>superclass *LitElement*
