@@ -13,9 +13,11 @@ Use [FuroFeatureToggle](/docs/modules/furo-framework/FuroFeatureToggle/) to impl
 - **permission toggles** - certain features are made available only to a subset of users, or to users with extended privileges.
 
 ## Hints:
+- read [feature-toggle-best-practices from flagship.io](https://www.flagship.io/feature-toggle-best-practices/)
 - Keep toggle scope as small as possible
-- For enabling or hiding buttons, based on a HATEOAS response, use [furo-hateoas-state](/docs/modules/furo-data/furo-hateoas-state/).
 - Always expose feature toggle configurations
+- Have a standardized toggle naming scheme
+- For enabling or hiding buttons, based on a HATEOAS response, use [furo-hateoas-state](/docs/modules/furo-data/furo-hateoas-state/).
 
 
 
