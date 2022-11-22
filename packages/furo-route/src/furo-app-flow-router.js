@@ -153,7 +153,9 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     const currentPath = window.location.pathname
       .replace(new RegExp(this.urlSpaceRegex), '')
       .replace('/', '');
-    const match = window.location.pathname.match(new RegExp(this.urlSpaceRegex));
+    const match = window.location.pathname.match(
+      new RegExp(this.urlSpaceRegex)
+    );
     // slash should be added to rewrite location
     const prefix = `${match[0]}/` || '/';
     const selection =
@@ -214,16 +216,24 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           url.href = sa.join('');
 
           if (this._blank) {
-            window.open(url.href)
+            window.open(url.href);
           } else {
             if (url.host !== window.location.host) {
-              window.location.href = url.href
+              window.location.href = url.href;
             }
 
-            window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
-            (window.history.replaceState(window.history.state, '', sa.join('')))
+            window.dispatchEvent(
+              new Event('__beforeReplaceState', {
+                composed: true,
+                bubbles: true,
+              })
+            );
+            window.history.replaceState(window.history.state, '', sa.join(''));
             const now = window.performance.now();
-            const customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
+            const customEvent = new Event('__furoLocationChanged', {
+              composed: true,
+              bubbles: true,
+            });
             customEvent.detail = now;
             this.dispatchEvent(customEvent);
           }
@@ -240,11 +250,15 @@ class FuroAppFlowRouter extends FBP(LitElement) {
         }
         if (selection.target.startsWith('EXTERNAL_LINK_BLANK:')) {
           // eslint-disable-next-line no-unused-expressions
-          sa.length ? window.open(sa.join('')) : window.open(selection.target.substr(20).trim());
+          sa.length
+            ? window.open(sa.join(''))
+            : window.open(selection.target.substr(20).trim());
           return true;
         }
 
-        window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
+        window.dispatchEvent(
+          new Event('__beforeReplaceState', { composed: true, bubbles: true })
+        );
         /**
          * if the meta key is pressed, open a blank page
          */
@@ -253,8 +267,11 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           window.open(prefix + selection.target + search);
         } else {
           // keep the current history state, the state is set with fn-set-waypoint from furo-document-title.
-          window.history.replaceState(window.history.state, '', prefix + selection.target + search);
-
+          window.history.replaceState(
+            window.history.state,
+            '',
+            prefix + selection.target + search
+          );
         }
 
         /**
@@ -263,12 +280,18 @@ class FuroAppFlowRouter extends FBP(LitElement) {
          */
 
         const now = window.performance.now();
-        const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
+        const customEvent = new Event('__furoLocationChanged', {
+          composed: true,
+          bubbles: true,
+        });
         customEvent.detail = now;
         this.dispatchEvent(customEvent);
       }
 
-      const customEvent = new Event('view-changed', { composed: true, bubbles: true });
+      const customEvent = new Event('view-changed', {
+        composed: true,
+        bubbles: true,
+      });
       customEvent.detail = flowEvent;
       this.dispatchEvent(customEvent);
       return true;
@@ -277,7 +300,10 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     // eslint-disable-next-line no-console
     console.log('Flow event not found', flowEvent);
 
-    const customEvent = new Event('event-not-found', { composed: true, bubbles: true });
+    const customEvent = new Event('event-not-found', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = flowEvent;
     this.dispatchEvent(customEvent);
     return false;
@@ -291,7 +317,10 @@ class FuroAppFlowRouter extends FBP(LitElement) {
 
     // build config object for faster checks
     configArray.forEach(config => {
-      this._configObject[config[0] + config[1]] = { target: config[2], mapping: config[3] };
+      this._configObject[config[0] + config[1]] = {
+        target: config[2],
+        mapping: config[3],
+      };
     });
   }
 

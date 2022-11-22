@@ -56,7 +56,9 @@ export class BasePanel extends FBP(LitElement) {
   closePanel() {
     if (this.treeNode) {
       this.removePanel();
-      this.treeNode.dispatchNodeEvent(new NodeEvent('panel-closed', this, false));
+      this.treeNode.dispatchNodeEvent(
+        new NodeEvent('panel-closed', this, false)
+      );
     }
   }
 }

@@ -28,7 +28,4 @@ describe('furo-pages', () => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-pages');
     done();
   });
-
-
-
 });

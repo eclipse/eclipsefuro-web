@@ -46,7 +46,10 @@ class ProduceData extends FBP(LitElement) {
       .then(res => res.json())
       .then(data => {
         this.data = data;
-        const customEvent = new Event('data', { composed: true, bubbles: true });
+        const customEvent = new Event('data', {
+          composed: true,
+          bubbles: true,
+        });
         customEvent.detail = this.data;
         this.dispatchEvent(customEvent);
       });
@@ -59,18 +62,15 @@ class ProduceData extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return (
+    return css`
+      :host {
+        display: block;
+      }
 
-      css`
-        :host {
-          display: block;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
+      :host([hidden]) {
+        display: none;
+      }
+    `;
   }
 
   /**
@@ -79,9 +79,7 @@ class ProduceData extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`
-      <furo-button label="create tree data"></furo-button>
-    `;
+    return html` <furo-button label="create tree data"></furo-button> `;
   }
 }
 

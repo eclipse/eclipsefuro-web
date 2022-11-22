@@ -71,7 +71,10 @@ class FuroAppFlow extends LitElement {
       data.data[param] = queryParams[param];
     }
 
-    const customEvent = new Event('app-flow', { composed: true, bubbles: true });
+    const customEvent = new Event('app-flow', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = data;
     this.dispatchEvent(customEvent);
     return customEvent;

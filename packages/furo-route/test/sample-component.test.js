@@ -27,6 +27,4 @@ describe('sample-component', () => {
     assert.equal(element.nodeName.toLowerCase(), 'sample-component');
     done();
   });
-
-
 });

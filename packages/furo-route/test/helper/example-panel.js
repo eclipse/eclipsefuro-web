@@ -1,6 +1,6 @@
 import { html, css } from 'lit';
 
-
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/util/src/furo-pretty-json';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 /**
@@ -21,7 +21,7 @@ class ExamplePanel extends BasePanel {
           this.treeNode.selectItem();
           this.removePanel();
         },
-        { once: true },
+        { once: true }
       );
     });
   }
@@ -54,18 +54,15 @@ class ExamplePanel extends BasePanel {
    */
   static get styles() {
     // language=CSS
-    return (
+    return css`
+      :host {
+        display: block;
+      }
 
-      css`
-        :host {
-          display: block;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
+      :host([hidden]) {
+        display: none;
+      }
+    `;
   }
 
   /**

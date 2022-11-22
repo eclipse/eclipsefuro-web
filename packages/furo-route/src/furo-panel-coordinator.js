@@ -49,7 +49,10 @@ class FuroPanelCoordinator extends FBP(LitElement) {
    * @private
    */
   _notifiyOpenPanels() {
-    const customEvent = new Event('panels-changed', { composed: true, bubbles: true });
+    const customEvent = new Event('panels-changed', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = this._openPanels;
     this.dispatchEvent(customEvent);
   }
@@ -66,7 +69,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     if (this._loadedPanels.indexOf(panelName) === -1) {
       const panelComponent = panelRegistry.getPanelName(
         NavigationNode.link.type._value,
-        NavigationNode.panel._value,
+        NavigationNode.panel._value
       );
       if (panelComponent) {
         // create element and set name,...
@@ -91,7 +94,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         } else {
           // eslint-disable-next-line no-console
           console.warn(
-            'panel does not have a closePanel method, implement panel interfaces or extend from BasePanel.js',
+            'panel does not have a closePanel method, implement panel interfaces or extend from BasePanel.js'
           );
         }
       } else {
@@ -100,7 +103,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
           NavigationNode.link.type._value,
           NavigationNode.panel._value,
           'is not in the registry',
-          this,
+          this
         );
       }
     }
@@ -141,7 +144,9 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     e.remove();
 
     // remove from flat tree
-    this._openPanels = this._openPanels.filter(node => `P${node.id._value}` !== nodeName);
+    this._openPanels = this._openPanels.filter(
+      node => `P${node.id._value}` !== nodeName
+    );
 
     // remove from laoded panels array
     this._loadedPanels = this._loadedPanels.filter(value => value !== nodeName);

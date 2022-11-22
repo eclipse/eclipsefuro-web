@@ -33,10 +33,14 @@ describe('furo-location-updater-hash', () => {
   });
 
   it('should dispatch a __locationchanged event on changed Hash', done => {
-    furoLocation.addEventListener('location-changed', e => {
-      assert.equal(e.type, 'location-changed');
-      done();
-    },{once:true});
+    furoLocation.addEventListener(
+      'location-changed',
+      e => {
+        assert.equal(e.type, 'location-changed');
+        done();
+      },
+      { once: true }
+    );
 
     element.setHash({ a: 3 });
   });

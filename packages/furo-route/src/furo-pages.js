@@ -74,7 +74,8 @@ class FuroPages extends LitElement {
      * @private
      */
     // eslint-disable-next-line wc/no-constructor-attributes
-    this._attrForSelected = this.getAttribute('attr-for-selected') || 'selected';
+    this._attrForSelected =
+      this.getAttribute('attr-for-selected') || 'selected';
     /**
      * @private
      */
@@ -150,8 +151,6 @@ class FuroPages extends LitElement {
     return this.injectLocation(pseudolocation);
   }
 
-
-
   /**
    * Inject the location Object from furo-location. The page which is defined in location.pathSegments[0] will get activated.
    *
@@ -189,11 +188,9 @@ class FuroPages extends LitElement {
         this._lastPage.removeAttribute('hidden');
       }
 
-      setTimeout(()=>{
-      this._lastPage.setAttribute(this._attrForSelected, '');
-      },1)
-
-
+      setTimeout(() => {
+        this._lastPage.setAttribute(this._attrForSelected, '');
+      }, 1);
 
       if (this._lastPage && page !== this._lastPageName) {
         if (this._lastPage._FBPTriggerWire !== undefined) {
@@ -251,7 +248,6 @@ class FuroPages extends LitElement {
       :host([animated]) ::slotted(*) {
         transform: rotateY(-10deg);
       }
-
     `;
   }
 
@@ -261,9 +257,7 @@ class FuroPages extends LitElement {
    */
   render() {
     // language=HTML
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 }
 

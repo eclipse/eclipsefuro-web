@@ -113,7 +113,11 @@ class FuroLocation extends LitElement {
     super.connectedCallback();
 
     document.body.addEventListener('click', this._clickHandler, false);
-    document.body.addEventListener('__furoLocationChanged', this._locationChangeNotyfier, true);
+    document.body.addEventListener(
+      '__furoLocationChanged',
+      this._locationChangeNotyfier,
+      true
+    );
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
 
@@ -128,7 +132,11 @@ class FuroLocation extends LitElement {
    */
   disconnectedCallback() {
     document.body.removeEventListener('click', this._clickHandler, false);
-    document.body.removeEventListener('__furoLocationChanged', this._locationChangeNotyfier, true);
+    document.body.removeEventListener(
+      '__furoLocationChanged',
+      this._locationChangeNotyfier,
+      true
+    );
     window.removeEventListener('popstate', this._locationChangeNotyfier, true);
     window.removeEventListener('popstate', this._locationChangeNotyfier, true);
   }
@@ -165,8 +173,15 @@ class FuroLocation extends LitElement {
           return;
         }
 
-        if(window.location.search === "" && window.location.hash === "" && window.location.pathname.match(`${this.urlSpaceRegex  }$`)){
-          const customEvent = new Event('url-space-entered', { composed: false, bubbles: false });
+        if (
+          window.location.search === '' &&
+          window.location.hash === '' &&
+          window.location.pathname.match(`${this.urlSpaceRegex}$`)
+        ) {
+          const customEvent = new Event('url-space-entered', {
+            composed: false,
+            bubbles: false,
+          });
           customEvent.detail = this._location;
           this.dispatchEvent(customEvent);
         }
@@ -226,25 +241,37 @@ class FuroLocation extends LitElement {
       }
 
       if (sendPathChanged) {
-        const customEvent = new Event('location-path-changed', { composed: true, bubbles: false });
+        const customEvent = new Event('location-path-changed', {
+          composed: true,
+          bubbles: false,
+        });
         customEvent.detail = this._location;
         this.dispatchEvent(customEvent);
       }
 
       if (sendHashChanged) {
-        const customEvent = new Event('location-hash-changed', { composed: true, bubbles: false });
+        const customEvent = new Event('location-hash-changed', {
+          composed: true,
+          bubbles: false,
+        });
         customEvent.detail = this._location;
         this.dispatchEvent(customEvent);
       }
 
       if (sendQueryChanged) {
-        const customEvent = new Event('location-query-changed', { composed: true, bubbles: false });
+        const customEvent = new Event('location-query-changed', {
+          composed: true,
+          bubbles: false,
+        });
         customEvent.detail = this._location;
 
         this.dispatchEvent(customEvent);
       }
       // location-changed
-      const customEvent = new Event('location-changed', { composed: true, bubbles: false });
+      const customEvent = new Event('location-changed', {
+        composed: true,
+        bubbles: false,
+      });
       customEvent.detail = this._location;
       this.dispatchEvent(customEvent);
     };
@@ -262,7 +289,7 @@ class FuroLocation extends LitElement {
         return;
       }
 
-      if (target.tagName === 'A' && target.target === "_blank") {
+      if (target.tagName === 'A' && target.target === '_blank') {
         return;
       }
 
@@ -271,9 +298,6 @@ class FuroLocation extends LitElement {
         return;
       }
 
-
-
-
       // ignore links outside urlSpaceRegex
       if (this.urlSpaceRegex !== '') {
         if (target.pathname.match(this.urlSpaceRegex) === null) {
@@ -281,10 +305,12 @@ class FuroLocation extends LitElement {
         }
       }
 
-
       // do not interfere with links to other hosts
       if (target.host !== this._location.host) {
-        const customEvent = new Event('external-link-clicked', { composed: true, bubbles: false });
+        const customEvent = new Event('external-link-clicked', {
+          composed: true,
+          bubbles: false,
+        });
         customEvent.detail = this._location;
         this.dispatchEvent(customEvent);
         return;
@@ -294,7 +320,9 @@ class FuroLocation extends LitElement {
       if (!e.__historyUpdated) {
         e.__historyUpdated = true;
 
-        window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
+        window.dispatchEvent(
+          new Event('__beforeReplaceState', { composed: true, bubbles: true })
+        );
 
         window.history.replaceState({}, '', target.href);
 
@@ -329,7 +357,10 @@ class FuroLocation extends LitElement {
    */
   _notifyFuroLocationChanged() {
     const now = window.performance.now();
-    const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
+    const customEvent = new Event('__furoLocationChanged', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = now;
     this.dispatchEvent(customEvent);
   }

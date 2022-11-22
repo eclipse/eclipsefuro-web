@@ -100,7 +100,9 @@ class FuroDocumentTitle extends FBP(LitElement) {
       window.history.pushState({}, document.title, window.location.href);
       this._inPreStage = false;
 
-      this.dispatchEvent(new Event('waypoint-pushed', { composed: true, bubbles: true }));
+      this.dispatchEvent(
+        new Event('waypoint-pushed', { composed: true, bubbles: true })
+      );
     };
 
     /**
@@ -111,7 +113,9 @@ class FuroDocumentTitle extends FBP(LitElement) {
       window.removeEventListener('popstate', cancelPre, true);
       this._inPreStage = false;
 
-      this.dispatchEvent(new Event('waypoint-canceled', { composed: true, bubbles: true }));
+      this.dispatchEvent(
+        new Event('waypoint-canceled', { composed: true, bubbles: true })
+      );
     };
 
     /**
@@ -190,14 +194,11 @@ class FuroDocumentTitle extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return (
-
-      css`
-        :host {
-          display: none;
-        }
-      `
-    );
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

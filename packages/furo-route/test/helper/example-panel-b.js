@@ -1,6 +1,6 @@
 import { html, css } from 'lit';
 
-
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/util/src/furo-pretty-json';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 /**
@@ -54,19 +54,16 @@ class ExamplePanelB extends BasePanel {
    */
   static get styles() {
     // language=CSS
-    return (
+    return css`
+      :host {
+        display: block;
+        background-color: #ebe34b;
+      }
 
-      css`
-        :host {
-          display: block;
-          background-color: #ebe34b;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
+      :host([hidden]) {
+        display: none;
+      }
+    `;
   }
 
   /**

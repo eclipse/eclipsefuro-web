@@ -33,10 +33,14 @@ describe('furo-location-updater-qps', () => {
   });
 
   it('should dispatch a location-changed event on changed QP', done => {
-    furoLocation.addEventListener('location-changed', e => {
-      assert.equal(e.type, 'location-changed');
-      done();
-    },{once:true});
+    furoLocation.addEventListener(
+      'location-changed',
+      e => {
+        assert.equal(e.type, 'location-changed');
+        done();
+      },
+      { once: true }
+    );
     element.setQp({ j: 8 });
   });
 
@@ -44,7 +48,10 @@ describe('furo-location-updater-qps', () => {
     element.setQp({ a: 4444 });
     element.setQp({ b: 457 });
     // attention: the j comes from test before
-    assert.equal(window.location.search.slice(1).endsWith('j=8&a=4444&b=457'), true);
+    assert.equal(
+      window.location.search.slice(1).endsWith('j=8&a=4444&b=457'),
+      true
+    );
 
     done();
   });
@@ -53,7 +60,10 @@ describe('furo-location-updater-qps', () => {
     element.setQp({ a: 4444 });
     element.setQp({ b: 457 });
     // attention: the j comes from test before
-    assert.equal(window.location.search.slice(1).endsWith('j=8&a=4444&b=457'), true);
+    assert.equal(
+      window.location.search.slice(1).endsWith('j=8&a=4444&b=457'),
+      true
+    );
     element.setAttribute('clear-qp', 'a,c,j');
     element.setQp({ c: 333 });
     assert.equal(window.location.search.slice(1).endsWith('b=457&c=333'), true);

@@ -68,7 +68,10 @@ describe('furo-panel-coordinator', () => {
 
   it('it should check for correct assignments', done => {
     // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(furoPannelCoordinator.nodeName.toLowerCase(), 'furo-panel-coordinator');
+    assert.equal(
+      furoPannelCoordinator.nodeName.toLowerCase(),
+      'furo-panel-coordinator'
+    );
     assert.equal(page.nodeName.toLowerCase(), 'furo-pages');
     assert.equal(furoTree.nodeName.toLowerCase(), 'furo-tree');
     assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object');
@@ -107,7 +110,7 @@ describe('furo-panel-coordinator', () => {
 
         furoPannelCoordinator.closeAll();
       },
-      { once: true },
+      { once: true }
     );
 
     furoTree._FBPAddWireHook('--treeChanged', () => {
@@ -126,7 +129,7 @@ describe('furo-panel-coordinator', () => {
         assert.equal(furoPannelCoordinator._openPanels.length, 0);
         done();
       },
-      { once: true },
+      { once: true }
     );
 
     furoTree._FBPAddWireHook('--treeChanged', () => {

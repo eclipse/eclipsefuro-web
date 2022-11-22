@@ -1,5 +1,5 @@
 import { fixture, html } from '@open-wc/testing';
-import { assert , expect} from '@esm-bundle/chai';
+import { assert, expect } from '@esm-bundle/chai';
 
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/flow-bind'; // for testing with wires and hooks
@@ -28,8 +28,6 @@ describe('furo-app-flow', () => {
     assert.equal(element.nodeName.toLowerCase(), 'furo-app-flow');
     done();
   });
-
-
 
   it('should fire an app-flow and ignore array', done => {
     element.event = 'test';

@@ -1,7 +1,7 @@
-
 import { html, css } from 'lit';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/util/src/furo-pretty-json';
 /**
  * `edit-example`
@@ -37,18 +37,15 @@ class EditExample extends BasePanel {
    */
   static get styles() {
     // language=CSS
-    return (
+    return css`
+      :host {
+        display: block;
+      }
 
-      css`
-        :host {
-          display: block;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
+      :host([hidden]) {
+        display: none;
+      }
+    `;
   }
 
   /**
@@ -60,7 +57,8 @@ class EditExample extends BasePanel {
     // language=HTML
     return html`
       <p>Edit Panel</p>
-      <furo-pretty-json fn-inject-data="--navNode(*._value)"> </furo-pretty-json>
+      <furo-pretty-json fn-inject-data="--navNode(*._value)">
+      </furo-pretty-json>
     `;
   }
 }
