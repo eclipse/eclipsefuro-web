@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.4.2...@furo/route@2.5.0) (2022-11-22)
+
+
+### Features
+
+* furo-lock-navigation blocks furo-location-updater to navigate away ([7c57630](https://github.com/eclipse/eclipsefuro-web/commit/7c5763012a4078dfcea831f794549d907a1bbb87))
+
+
+
+
+
 ## [2.4.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.4.1...@furo/route@2.4.2) (2022-09-17)
 
 **Note:** Version bump only for package @furo/route
