@@ -82,15 +82,27 @@ class FuroLocationUpdater extends FBP(LitElement) {
         qp.push(`${segment}=${queryObject[segment]}`);
       }
     }
-    const location = `${window.location.pathname}?${qp.join('&')}${window.location.hash}`;
+    const location = `${window.location.pathname}?${qp.join('&')}${
+      window.location.hash
+    }`;
     // notify furo location
-    window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
-    window.history.replaceState({}, '', location);
+    const beforeReplace = new Event('__beforeReplaceState', {
+      composed: true,
+      bubbles: true,
+    });
+    window.dispatchEvent(beforeReplace);
 
-    const now = window.performance.now();
-    const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
-    customEvent.detail = now;
-    this.dispatchEvent(customEvent);
+    if (!beforeReplace.cancel) {
+      window.history.replaceState({}, '', location);
+
+      const now = window.performance.now();
+      const customEvent = new Event('__furoLocationChanged', {
+        composed: true,
+        bubbles: true,
+      });
+      customEvent.detail = now;
+      this.dispatchEvent(customEvent);
+    }
   }
 
   /**
@@ -135,15 +147,26 @@ class FuroLocationUpdater extends FBP(LitElement) {
       }
     }
 
-    const location = `${window.location.pathname}${window.location.search}#${hash.join('&')}`;
-    // notify furo location
-    window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
-    window.history.replaceState({}, '', location);
+    const location = `${window.location.pathname}${
+      window.location.search
+    }#${hash.join('&')}`;
+    const beforeReplace = new Event('__beforeReplaceState', {
+      composed: true,
+      bubbles: true,
+    });
+    window.dispatchEvent(beforeReplace);
 
-    const now = window.performance.now();
-    const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
-    customEvent.detail = now;
-    this.dispatchEvent(customEvent);
+    if (!beforeReplace.cancel) {
+      window.history.replaceState({}, '', location);
+
+      const now = window.performance.now();
+      const customEvent = new Event('__furoLocationChanged', {
+        composed: true,
+        bubbles: true,
+      });
+      customEvent.detail = now;
+      this.dispatchEvent(customEvent);
+    }
   }
 
   static get styles() {
