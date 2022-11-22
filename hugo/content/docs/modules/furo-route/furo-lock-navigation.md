@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-lock-navigation
-**@furo/route** <small>v2.5.0</small>
+**@furo/route** <small>v2.5.1</small>
 <br>`import '@furo/route/src/furo-lock-navigation.js';`<small>
 <br>exports `<furo-lock-navigation>` custom-element-definition
 <br>superclass *LitElement*
@@ -15,9 +15,9 @@ weight: 50
 {{% api "_furo-lock-navigation-head.md" %}}
 
 `furo-lock-navigation`
- Blocks the furo-location-updater from navigating away if you have unsaved changes or work to do.
+ Blocks the furo-location-updater and furo-app-flow-router from navigating away if you have unsaved changes or work to do.
 
- This component also adds a listener to the unload event.
+ This component also adds a listener to the unload event, which kicks in at a reload or close of the window.
 
  ```html
  <furo-lock-navigation fn-lock="--dataChanged" fn-unlock="--saveSuccess"></furo-lock-navigation>
@@ -35,6 +35,14 @@ weight: 50
 
 
 
+### **message**
+
+<span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">message</span>
+<small>`String` default: **&#34;You have unsaved changes, proceed anyway?&#34;**</small>
+
+The warning message, which is displayed at the prompt.
+<br><br>
+
 ## Methods
 {{% api "_furo-lock-navigation-methods.md" %}}
 
@@ -45,7 +53,7 @@ weight: 50
 <small>`*`</small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-lock</span>
 
-Blocks furo-location-updater from navigating away.
+Blocks furo-location-updater and furo-app-flow-router from navigating away.
 
 <br><br>
 
@@ -59,27 +67,8 @@ Removes the lock.
 
 <br><br>
 
-### **_lockHandler**
-<small>**_lockHandler**(*event* `` ) ⟹ `void`</small>
-
-<small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn--lock-handler</span>
 
 
-
-- <small>*event* </small>
-<br><br>
-
-### **_unloadHandler**
-<small>**_unloadHandler**(*event* `` ) ⟹ `void`</small>
-
-<small>`` </small> →
-<span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn--unload-handler</span>
-
-
-
-- <small>*event* </small>
-<br><br>
 
 
 

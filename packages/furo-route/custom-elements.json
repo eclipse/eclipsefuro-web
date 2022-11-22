@@ -677,13 +677,13 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`furo-lock-navigation`\n Blocks the furo-location-updater from navigating away if you have unsaved changes or work to do.\n\n This component also adds a listener to the unload event.\n\n ```html\n <furo-lock-navigation fn-lock=\"--dataChanged\" fn-unlock=\"--saveSuccess\"></furo-lock-navigation>\n ```",
+          "description": "`furo-lock-navigation`\n Blocks the furo-location-updater and furo-app-flow-router from navigating away if you have unsaved changes or work to do.\n\n This component also adds a listener to the unload event, which kicks in at a reload or close of the window.\n\n ```html\n <furo-lock-navigation fn-lock=\"--dataChanged\" fn-unlock=\"--saveSuccess\"></furo-lock-navigation>\n ```",
           "name": "FuroLockNavigation",
           "members": [
             {
               "kind": "method",
               "name": "lock",
-              "description": "Blocks furo-location-updater from navigating away."
+              "description": "Blocks furo-location-updater and furo-app-flow-router from navigating away."
             },
             {
               "kind": "method",
@@ -697,7 +697,8 @@
                 {
                   "name": "event"
                 }
-              ]
+              ],
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -706,7 +707,29 @@
                 {
                   "name": "event"
                 }
-              ]
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "String"
+              },
+              "default": "\"You have unsaved changes, proceed anyway?\"",
+              "privacy": "public",
+              "description": "The warning message, which is displayed at the prompt.",
+              "attribute": "message"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The warning message, which is displayed at the prompt.",
+              "type": {
+                "text": "String"
+              },
+              "fieldName": "message"
             }
           ],
           "mixins": [

@@ -53,6 +53,11 @@ class FuroLockNavigation extends FBP(LitElement) {
     window.removeEventListener('beforeunload', this._unloadHandler, true);
   }
 
+  /**
+   *
+   * @param event
+   * @private
+   */
   _lockHandler(event) {
     // eslint-disable-next-line no-alert
     if (!window.confirm(this.message)) {
@@ -63,6 +68,11 @@ class FuroLockNavigation extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @param event
+   * @private
+   */
   // eslint-disable-next-line class-methods-use-this
   _unloadHandler(event) {
     // eslint-disable-next-line no-param-reassign
