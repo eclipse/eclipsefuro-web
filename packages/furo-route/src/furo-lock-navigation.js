@@ -21,15 +21,19 @@ class FuroLockNavigation extends FBP(LitElement) {
    * Blocks furo-location-updater from navigating away.
    */
   lock() {
+    if (!this._locked) {
     this._lockHandler = this._lockHandler.bind(this);
     window.addEventListener('__beforeReplaceState', this._lockHandler, true);
     window.addEventListener('beforeunload', this._unloadHandler, true);
+      this._locked = true
+    }
   }
 
   /**
    * Removes the lock.
    */
   unlock() {
+    this._locked = false
     window.removeEventListener('__beforeReplaceState', this._lockHandler, true);
     window.removeEventListener('beforeunload', this._unloadHandler, true);
   }
