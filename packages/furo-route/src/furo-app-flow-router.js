@@ -203,7 +203,15 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       }
 
       if (selection.target === 'HISTORY-BACK') {
+        const beforeReplace = new Event('__beforeReplaceState', {
+          composed: true,
+          bubbles: true,
+        });
+        window.dispatchEvent(beforeReplace);
+
+        if (!beforeReplace.cancel) {
         this.back();
+        }
       } else {
         const sa = [];
         // eslint-disable-next-line guard-for-in,no-restricted-syntax
@@ -221,13 +229,13 @@ class FuroAppFlowRouter extends FBP(LitElement) {
             if (url.host !== window.location.host) {
               window.location.href = url.href;
             }
-
-            window.dispatchEvent(
-              new Event('__beforeReplaceState', {
+            const beforeReplace = new Event('__beforeReplaceState', {
                 composed: true,
                 bubbles: true,
-              })
-            );
+            });
+            window.dispatchEvent(beforeReplace);
+
+            if (!beforeReplace.cancel) {
             window.history.replaceState(window.history.state, '', sa.join(''));
             const now = window.performance.now();
             const customEvent = new Event('__furoLocationChanged', {
@@ -236,6 +244,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
             });
             customEvent.detail = now;
             this.dispatchEvent(customEvent);
+          }
           }
 
           return true;
@@ -256,9 +265,14 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           return true;
         }
 
-        window.dispatchEvent(
-          new Event('__beforeReplaceState', { composed: true, bubbles: true })
-        );
+
+        const beforeReplace = new Event('__beforeReplaceState', {
+          composed: true,
+          bubbles: true,
+        });
+        window.dispatchEvent(beforeReplace);
+
+        if (!beforeReplace.cancel) {
         /**
          * if the meta key is pressed, open a blank page
          */
@@ -272,6 +286,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
             '',
             prefix + selection.target + search
           );
+        }
         }
 
         /**
