@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.5.0...@furo/route@2.5.1) (2022-11-22)
+
+
+### Bug Fixes
+
+* also lock a HISTORY-BACK flow ([721abf7](https://github.com/eclipse/eclipsefuro-web/commit/721abf7057ee5b6bc9dcf9b7fc0d5e9e9aa9059b))
+
+
+
+
+
 # [2.5.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.4.2...@furo/route@2.5.0) (2022-11-22)
 
 
