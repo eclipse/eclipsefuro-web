@@ -1,12 +1,11 @@
 import { LitElement, css } from 'lit';
 import { FBP } from '@furo/fbp';
-import { i18n } from '@furo/framework/src/i18n.js';
 
 /**
  * `furo-lock-navigation`
- *  Blocks the furo-location-updater from navigating away if you have unsaved changes or work to do.
+ *  Blocks the furo-location-updater and furo-app-flow-router from navigating away if you have unsaved changes or work to do.
  *
- *  This component also adds a listener to the unload event.
+ *  This component also adds a listener to the unload event, which kicks in at a reload or close of the window.
  *
  *  ```html
  *  <furo-lock-navigation fn-lock="--dataChanged" fn-unlock="--saveSuccess"></furo-lock-navigation>
@@ -17,8 +16,24 @@ import { i18n } from '@furo/framework/src/i18n.js';
  * @appliesMixin FBP
  */
 class FuroLockNavigation extends FBP(LitElement) {
+  constructor() {
+    super();
+    this.message = "You have unsaved changes, proceed anyway?"
+  }
+
+  static get properties() {
+    return {
+      /**
+       * The warning message, which is displayed at the prompt.
+       *
+       * @type String
+       */
+      message: {type: String},
+    }
+  }
+
   /**
-   * Blocks furo-location-updater from navigating away.
+   * Blocks furo-location-updater and furo-app-flow-router from navigating away.
    */
   lock() {
     if (!this._locked) {
@@ -40,7 +55,7 @@ class FuroLockNavigation extends FBP(LitElement) {
 
   _lockHandler(event) {
     // eslint-disable-next-line no-alert
-    if (!window.confirm(i18n.t('unsaved.changes'))) {
+    if (!window.confirm(this.message)) {
       // eslint-disable-next-line no-param-reassign
       event.cancel = true;
     } else {
@@ -51,7 +66,7 @@ class FuroLockNavigation extends FBP(LitElement) {
   // eslint-disable-next-line class-methods-use-this
   _unloadHandler(event) {
     // eslint-disable-next-line no-param-reassign
-    event.returnValue = i18n.t('unsaved.changes');
+    event.returnValue = this.message;
   }
 
   /**
