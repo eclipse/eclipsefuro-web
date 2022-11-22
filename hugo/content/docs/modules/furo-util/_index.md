@@ -6,7 +6,7 @@ weight: 100
 ---
 
 # @furo/util
-**@furo/util** <small>v2.1.6</small>
+**@furo/util** <small>v2.1.7</small>
 package sample
 
 {{% api "_furo-util-head.md" %}}

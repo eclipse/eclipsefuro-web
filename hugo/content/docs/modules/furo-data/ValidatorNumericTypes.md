@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorNumericTypes
 
-**@furo/furo-data** <small>v2.16.3</small>
+**@furo/furo-data** <small>v2.16.4</small>
 <br>`import '@furo/data/src/lib/ValidatorNumericTypes.js';`<small>
 <br>exports *ValidatorNumericTypes* js</small>
 

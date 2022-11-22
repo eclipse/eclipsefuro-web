@@ -6,7 +6,7 @@ weight: 100
 ---
 
 # @furo/fbp
-**@furo/fbp** <small>v6.7.0</small>
+**@furo/fbp** <small>v6.7.1</small>
 Declarative programming with web-components.
 
 {{% api "_furo-fbp-head.md" %}}

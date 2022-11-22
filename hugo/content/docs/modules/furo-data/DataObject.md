@@ -6,7 +6,7 @@ weight: 100
 
 # DataObject
 
-**@furo/furo-data** <small>v2.16.3</small>
+**@furo/furo-data** <small>v2.16.4</small>
 <br>`import '@furo/data/src/lib/DataObject.js';`<small>
 <br>exports *DataObject* js
 <br>superclass *EventTreeNode*</small>

@@ -673,6 +673,70 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/furo-lock-navigation.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`furo-lock-navigation`\n Blocks the furo-location-updater from navigating away if you have unsaved changes or work to do.\n\n This component also adds a listener to the unload event.\n\n ```html\n <furo-lock-navigation fn-lock=\"--dataChanged\" fn-unlock=\"--saveSuccess\"></furo-lock-navigation>\n ```",
+          "name": "FuroLockNavigation",
+          "members": [
+            {
+              "kind": "method",
+              "name": "lock",
+              "description": "Blocks furo-location-updater from navigating away."
+            },
+            {
+              "kind": "method",
+              "name": "unlock",
+              "description": "Removes the lock."
+            },
+            {
+              "kind": "method",
+              "name": "_lockHandler",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_unloadHandler",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FBP",
+              "package": "@furo/fbp"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "Blocks the furo-location-updater from navigating away",
+          "tagName": "furo-lock-navigation",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "furo-lock-navigation",
+          "declaration": {
+            "name": "FuroLockNavigation",
+            "module": "src/furo-lock-navigation.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/furo-pages.js",
       "declarations": [
         {

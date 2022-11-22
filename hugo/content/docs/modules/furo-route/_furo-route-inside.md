@@ -11,5 +11,6 @@ bookHidden: true
 - [furo-document-title](furo-document-title.md) Document title
 - [furo-location-updater](furo-location-updater.md) deep linking helper
 - [furo-location](furo-location.md) url watcher
+- [furo-lock-navigation](furo-lock-navigation.md) Blocks the furo-location-updater from navigating away
 - [furo-pages](furo-pages.md) Simple content switcher
 - [furo-panel-coordinator](furo-panel-coordinator.md) Complex content switcher based on furo-tree

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-pretty-json
-**@furo/util** <small>v2.1.6</small>
+**@furo/util** <small>v2.1.7</small>
 <br>`import '@furo/util/src/furo-pretty-json.js';`<small>
 <br>exports `<furo-pretty-json>` custom-element-definition
 <br>superclass *LitElement*
