@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.5.1...@furo/route@2.5.2) (2022-11-22)
+
+
+### Bug Fixes
+
+* prevent multiple locks ([c79d70a](https://github.com/eclipse/eclipsefuro-web/commit/c79d70a6148f351d3f4d4fdd2372834460980034))
+* set message as string instead i18n ([6bb3354](https://github.com/eclipse/eclipsefuro-web/commit/6bb33540e864c29d2dd190c3855627ab9e922436))
+
+
+
+
+
 ## [2.5.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.5.0...@furo/route@2.5.1) (2022-11-22)
 
 
