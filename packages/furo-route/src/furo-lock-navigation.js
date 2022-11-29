@@ -1,5 +1,5 @@
-import { LitElement, css } from 'lit';
-import { FBP } from '@furo/fbp';
+import { LitElement, css } from 'lit'
+import { FBP } from '@furo/fbp'
 
 /**
  * `furo-lock-navigation`
@@ -11,14 +11,17 @@ import { FBP } from '@furo/fbp';
  *  <furo-lock-navigation fn-lock="--dataChanged" fn-unlock="--saveSuccess"></furo-lock-navigation>
  *  ```
  *
+ * @fires {void} furo-navigation-locked -  Fired when the navigation was locked
+ * @fires {void} furo-navigation-unlocked -  Fired when the navigation was unlocked
+ *
  * @summary Blocks the furo-location-updater from navigating away
  * @customElement
  * @appliesMixin FBP
  */
 class FuroLockNavigation extends FBP(LitElement) {
   constructor() {
-    super();
-    this.message = "You have unsaved changes, proceed anyway?"
+    super()
+    this.message = 'You have unsaved changes, proceed anyway?'
   }
 
   static get properties() {
@@ -28,7 +31,7 @@ class FuroLockNavigation extends FBP(LitElement) {
        *
        * @type String
        */
-      message: {type: String},
+      message: { type: String },
     }
   }
 
@@ -37,10 +40,16 @@ class FuroLockNavigation extends FBP(LitElement) {
    */
   lock() {
     if (!this._locked) {
-    this._lockHandler = this._lockHandler.bind(this);
-    window.addEventListener('__beforeReplaceState', this._lockHandler, true);
-    window.addEventListener('beforeunload', this._unloadHandler, true);
+      this._lockHandler = this._lockHandler.bind(this)
+      window.addEventListener('__beforeReplaceState', this._lockHandler, true)
+      window.addEventListener('beforeunload', this._unloadHandler, true)
       this._locked = true
+
+      /**
+       * @event furo-navigation-locked
+       * Fired when Navigation is locked
+       */
+      this.dispatchEvent(new Event('furo-navigation-locked', { composed: true, bubbles: true }))
     }
   }
 
@@ -48,9 +57,18 @@ class FuroLockNavigation extends FBP(LitElement) {
    * Removes the lock.
    */
   unlock() {
-    this._locked = false
-    window.removeEventListener('__beforeReplaceState', this._lockHandler, true);
-    window.removeEventListener('beforeunload', this._unloadHandler, true);
+    if (this._locked) {
+      window.removeEventListener('__beforeReplaceState', this._lockHandler, true)
+      window.removeEventListener('beforeunload', this._unloadHandler, true)
+      this._locked = false
+
+
+      /**
+       * @event furo-navigation-unlocked
+       * Fired when Navigation is unlocked
+       */
+      this.dispatchEvent(new Event('furo-navigation-unlocked', { composed: true, bubbles: true }))
+    }
   }
 
   /**
@@ -62,9 +80,9 @@ class FuroLockNavigation extends FBP(LitElement) {
     // eslint-disable-next-line no-alert
     if (!window.confirm(this.message)) {
       // eslint-disable-next-line no-param-reassign
-      event.cancel = true;
+      event.cancel = true
     } else {
-      this.unlock();
+      this.unlock()
     }
   }
 
@@ -76,7 +94,7 @@ class FuroLockNavigation extends FBP(LitElement) {
   // eslint-disable-next-line class-methods-use-this
   _unloadHandler(event) {
     // eslint-disable-next-line no-param-reassign
-    event.returnValue = this.message;
+    event.returnValue = this.message
   }
 
   /**
@@ -90,8 +108,8 @@ class FuroLockNavigation extends FBP(LitElement) {
       :host {
         display: none;
       }
-    `;
+    `
   }
 }
 
-window.customElements.define('furo-lock-navigation', FuroLockNavigation);
+window.customElements.define('furo-lock-navigation', FuroLockNavigation)
