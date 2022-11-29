@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.5.2...@furo/route@2.6.0) (2022-11-29)
+
+
+### Features
+
+* notify navigation lock and unlock ([8c0c7cd](https://github.com/eclipse/eclipsefuro-web/commit/8c0c7cd387b28ed05c842733629f8975437baec8))
+
+
+
+
+
 ## [2.5.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.5.1...@furo/route@2.5.2) (2022-11-22)
 
 
