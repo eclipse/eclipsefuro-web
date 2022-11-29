@@ -123,7 +123,7 @@ Note that lastResponse is set when ongoing request finishes, so if loading is tr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow/</guid>
-      <description>furo-app-flow #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-app-flow.js&#39;; exports &amp;lt;furo-app-flow&amp;gt; custom-element-definition superclass LitElement summary Application Flow =&amp;gt; routing
+      <description>furo-app-flow #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-app-flow.js&#39;; exports &amp;lt;furo-app-flow&amp;gt; custom-element-definition superclass LitElement summary Application Flow =&amp;gt; routing
 furo-app-flow triggers the flow events for the app-flow-router.
 Attributes and Properties #  qp #   Deprecated, use the setQp method instead display #  default: &#39;none&#39;
 
@@ -138,7 +138,7 @@ i.e. &amp;lsquo;task-clicked&amp;rsquo;, &amp;lsquo;wizard-step1-completed&amp;r
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow-router/</guid>
-      <description>furo-app-flow-router #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-app-flow-router.js&#39;; exports &amp;lt;furo-app-flow-router&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Application Flow =&amp;gt; routing
+      <description>furo-app-flow-router #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-app-flow-router.js&#39;; exports &amp;lt;furo-app-flow-router&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Application Flow =&amp;gt; routing
 furo-app-flow-router
 Use this component with app-flow and furo-pages to implement your application flow / routing
 1  &amp;lt;app-flow-router set-config=&amp;#34;--flowConfigLoaded&amp;#34; fn-trigger=&amp;#34;--flowEvent&amp;#34; fn-back=&amp;#34;--wire&amp;#34; fn-forward=&amp;#34;--wire&amp;#34;&amp;gt;&amp;lt;/app-flow-router&amp;gt;   *Configuration Array
@@ -305,7 +305,7 @@ Show the source tab demo #  demo reflects Boolean</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-document-title/</guid>
-      <description>furo-document-title #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-document-title.js&#39;; exports &amp;lt;furo-document-title&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Document title
+      <description>furo-document-title #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-document-title.js&#39;; exports &amp;lt;furo-document-title&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Document title
 furo-document-title
 Updates the document title and set navigation waypoints.
 Structure of the title #  The title is built up from 3 parts (prefix, title, suffix). Each of them can be set by attribute or a setter method. The title and suffix part can be set with a fieldnode from a furo-data-object.
@@ -525,7 +525,7 @@ When you set alt, ctrl or any of the other arguments, the key event will be trig
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-location/</guid>
-      <description>furo-location #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-location.js&#39;; exports &amp;lt;furo-location&amp;gt; custom-element-definition superclass LitElement summary url watcher
+      <description>furo-location #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-location.js&#39;; exports &amp;lt;furo-location&amp;gt; custom-element-definition superclass LitElement summary url watcher
 furo-location watches for URL changes and notifies you. The location object which is fired from furo-location can be used for page navigation in furo-pages or for deep link resolution.
 1 2 3 4 5 6 7 8 9  &amp;lt;furo-location at-location-changed=&amp;#34;--pathChanged&amp;#34;&amp;gt;&amp;lt;/furo-location&amp;gt; &amp;lt;furo-pages fn-inject-location=&amp;#34;--pathChanged&amp;#34; default=&amp;#34;list&amp;#34;&amp;gt; &amp;lt;view-list name=&amp;#34;list&amp;#34;&amp;gt;&amp;lt;/view-list&amp;gt; &amp;lt;view-create name=&amp;#34;create&amp;#34;&amp;gt;&amp;lt;/view-create&amp;gt; &amp;lt;view-detail name=&amp;#34;detail&amp;#34;&amp;gt;&amp;lt;/view-detail&amp;gt; &amp;lt;/furo-pages&amp;gt;   locationObject #  1 2 3 4 5 6 7 8 9 10 11  { &amp;#34;host&amp;#34;: &amp;#34;localhost:8480&amp;#34;, &amp;#34;query&amp;#34;: {&amp;#34;tsk&amp;#34;: 999}, &amp;#34;hash&amp;#34;: {}, &amp;#34;path&amp;#34;: &amp;#34;/detail&amp;#34;, &amp;#34;pathSegments&amp;#34;: [ &amp;#34;detail&amp;#34; ], &amp;#34;hashstring&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;querystring&amp;#34;: &amp;#34;tsk=999&amp;#34; }   Attributes and Properties #  urlSpaceRegex #  url-space-regex string|RegExp default: &#39;&#39;</description>
     </item>
@@ -536,7 +536,7 @@ furo-location watches for URL changes and notifies you. The location object whic
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-location-updater/</guid>
-      <description>furo-location-updater #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-location-updater.js&#39;; exports &amp;lt;furo-location-updater&amp;gt; custom-element-definition superclass LitElement mixes FBP summary deep linking helper
+      <description>furo-location-updater #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-location-updater.js&#39;; exports &amp;lt;furo-location-updater&amp;gt; custom-element-definition superclass LitElement mixes FBP summary deep linking helper
 furo-location-updater updates parts of the url location with pushState
 You can set query params and hashes. Use this component for proper deep linking. The furo-location component will fire the location events as usual.
 1 2 3 4 5  &amp;lt;furo-location-updater fn-set-qp=&amp;#34;--QueryParamKeyValuePairs&amp;#34; fn-set-hash=&amp;#34;--HashKeyValuePairs&amp;#34;&amp;gt;&amp;lt;/furo-location-updater&amp;gt;   Attributes and Properties #  clearQp #  clear-qp String</description>
@@ -548,7 +548,7 @@ You can set query params and hashes. Use this component for proper deep linking.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-lock-navigation/</guid>
-      <description>furo-lock-navigation #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-lock-navigation.js&#39;; exports &amp;lt;furo-lock-navigation&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Blocks the furo-location-updater from navigating away
+      <description>furo-lock-navigation #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-lock-navigation.js&#39;; exports &amp;lt;furo-lock-navigation&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Blocks the furo-location-updater from navigating away
 furo-lock-navigation Blocks the furo-location-updater and furo-app-flow-router from navigating away if you have unsaved changes or work to do.
 This component also adds a listener to the unload event, which kicks in at a reload or close of the window.
 1  &amp;lt;furo-lock-navigation fn-lock=&amp;#34;--dataChanged&amp;#34; fn-unlock=&amp;#34;--saveSuccess&amp;#34;&amp;gt;&amp;lt;/furo-lock-navigation&amp;gt;   Attributes and Properties #  message #  message String default: &#39;You have unsaved changes, proceed anyway?</description>
@@ -601,7 +601,7 @@ The events are available as standalone events or as combined event in the naviga
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-pages/</guid>
-      <description>furo-pages #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-pages.js&#39;; exports &amp;lt;furo-pages&amp;gt; custom-element-definition superclass LitElement summary Simple content switcher
+      <description>furo-pages #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-pages.js&#39;; exports &amp;lt;furo-pages&amp;gt; custom-element-definition superclass LitElement summary Simple content switcher
 Use furo-pages to build tabs, views, subviews,&amp;hellip;
 preconditions #  The components used in a furo-page must implement a hidden attribute css to set itself to display none.
 1 2 3  :host([hidden]){ display:none }   usage #  1 2 3 4 5 6 7 8  &amp;lt;furo-pages fn-inject-location=&amp;#34;--locationChanged&amp;#34; default=&amp;#34;home&amp;#34;&amp;gt; &amp;lt;page-home name=&amp;#34;home&amp;#34;&amp;gt;&amp;lt;/page-home&amp;gt; &amp;lt;other-page name=&amp;#34;more&amp;#34;&amp;gt;&amp;lt;/other-page&amp;gt; &amp;lt;view-404 name=&amp;#34;404&amp;#34;&amp;gt;&amp;lt;/view-404&amp;gt; &amp;lt;/furo-pages&amp;gt; &amp;lt;furo-location at-location-changed=&amp;#34;--locationChanged&amp;#34;&amp;gt;&amp;lt;/furo-location&amp;gt;   If the url is / or /home, page-home is displayed.</description>
@@ -613,7 +613,7 @@ preconditions #  The components used in a furo-page must implement a hidden attr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/furo-panel-coordinator/</guid>
-      <description>furo-panel-coordinator #  @furo/route v2.5.2 import &#39;@furo/route/src/furo-panel-coordinator.js&#39;; exports &amp;lt;furo-panel-coordinator&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Complex content switcher based on furo-tree
+      <description>furo-panel-coordinator #  @furo/route v2.6.0 import &#39;@furo/route/src/furo-panel-coordinator.js&#39;; exports &amp;lt;furo-panel-coordinator&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Complex content switcher based on furo-tree
 furo-panel-coordinator
 Attributes and Properties #  Events #  controls-ready #  at-controls-ready → RepeaterNode
 Fired when Controls for panels are ready, initially it starts with an empty set. Methods #  showPage #  showPage(NavigationNode `` ) ⟹ Promise&amp;amp;lt;void&amp;amp;gt;
@@ -783,7 +783,7 @@ Attributes and Properties #  Methods #  updateQp #  updateQp(caller *qp* ) ⟹ v
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/BasePanel/</guid>
-      <description>BasePanel #  @furo/furo-route v2.5.2 import &#39;@furo/route/src/lib/BasePanel.js&#39;; exports BasePanel js superclass LitElement mixes FBP
+      <description>BasePanel #  @furo/furo-route v2.6.0 import &#39;@furo/route/src/lib/BasePanel.js&#39;; exports BasePanel js superclass LitElement mixes FBP
  Extend BasePanel to build a panel which is controllable by furo-panel-coordinator.
 Attributes and Properties #  onCloseRequest #   Callback function to interact with close requests Return a true if closing is allowed or false if not Methods #  closePanel #  closePanel() ⟹ void
 Close the panel</description>
@@ -989,7 +989,7 @@ If you are in a parent element and set this to true it will not bubble cancelBro
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-route/panelRegistry/</guid>
-      <description>panelRegistry #  @furo/furo-route v2.5.2 import &#39;@furo/route/src/lib/panelRegistry.js&#39;; exports panelRegistry js
+      <description>panelRegistry #  @furo/furo-route v2.6.0 import &#39;@furo/route/src/lib/panelRegistry.js&#39;; exports panelRegistry js
  Registry for the components which can handle a type in a specific context.
 This class is used by the furo-panel-coordinator to find the component which suites best for the given data type.
 The registry can be autogenerated from @furo/ui-builder
