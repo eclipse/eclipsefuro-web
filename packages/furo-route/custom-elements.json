@@ -716,10 +716,26 @@
               "type": {
                 "text": "String"
               },
-              "default": "\"You have unsaved changes, proceed anyway?\"",
+              "default": "'You have unsaved changes, proceed anyway?'",
               "privacy": "public",
               "description": "The warning message, which is displayed at the prompt.",
               "attribute": "message"
+            }
+          ],
+          "events": [
+            {
+              "name": "furo-navigation-locked",
+              "type": {
+                "text": "void"
+              },
+              "description": " Fired when the navigation was locked"
+            },
+            {
+              "name": "furo-navigation-unlocked",
+              "type": {
+                "text": "void"
+              },
+              "description": " Fired when the navigation was unlocked"
             }
           ],
           "attributes": [

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-lock-navigation
-**@furo/route** <small>v2.5.1</small>
+**@furo/route** <small>v2.5.2</small>
 <br>`import '@furo/route/src/furo-lock-navigation.js';`<small>
 <br>exports `<furo-lock-navigation>` custom-element-definition
 <br>superclass *LitElement*
@@ -38,9 +38,24 @@ weight: 50
 ### **message**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">message</span>
-<small>`String` default: **&#34;You have unsaved changes, proceed anyway?&#34;**</small>
+<small>`String` default: **&#39;You have unsaved changes, proceed anyway?&#39;**</small>
 
 The warning message, which is displayed at the prompt.
+<br><br>
+## Events
+{{% api "_furo-lock-navigation-events.md" %}}
+
+### **furo-navigation-locked**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-furo-navigation-locked</span>
+→ <small>`void`</small>
+
+ Fired when the navigation was locked
+<br><br>
+### **furo-navigation-unlocked**
+<span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-furo-navigation-unlocked</span>
+→ <small>`void`</small>
+
+ Fired when the navigation was unlocked
 <br><br>
 
 ## Methods
