@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-location-updater
-**@furo/route** <small>v2.5.2</small>
+**@furo/route** <small>v2.6.0</small>
 <br>`import '@furo/route/src/furo-location-updater.js';`<small>
 <br>exports `<furo-location-updater>` custom-element-definition
 <br>superclass *LitElement*
