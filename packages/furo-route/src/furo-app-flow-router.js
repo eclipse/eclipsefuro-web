@@ -203,7 +203,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       }
 
       if (selection.target === 'HISTORY-BACK') {
-        const beforeReplace = new Event('__beforeReplaceState', {
+        const beforeReplace = new Event('__beforeHistoryBack', {
           composed: true,
           bubbles: true,
         });

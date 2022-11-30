@@ -42,6 +42,7 @@ class FuroLockNavigation extends FBP(LitElement) {
     if (!this._locked) {
       this._lockHandler = this._lockHandler.bind(this)
       window.addEventListener('__beforeReplaceState', this._lockHandler, true)
+      window.addEventListener('__beforeHistoryBack', this._lockHandler, true)
       window.addEventListener('beforeunload', this._unloadHandler, true)
       this._locked = true
 
@@ -59,6 +60,7 @@ class FuroLockNavigation extends FBP(LitElement) {
   unlock() {
     if (this._locked) {
       window.removeEventListener('__beforeReplaceState', this._lockHandler, true)
+      window.removeEventListener('__beforeHistoryBack', this._lockHandler, true)
       window.removeEventListener('beforeunload', this._unloadHandler, true)
       this._locked = false
 
