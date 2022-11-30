@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.6.0...@furo/route@2.6.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* navigate back without __beforeReplaceState ([e2ec0f3](https://github.com/eclipse/eclipsefuro-web/commit/e2ec0f3a7de6afb626b0f08d6450b26efc4a5108))
+
+
+
+
+
 # [2.6.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/route@2.5.2...@furo/route@2.6.0) (2022-11-29)
 
 
