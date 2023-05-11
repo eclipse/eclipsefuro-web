@@ -1,0 +1,14 @@
+{
+  "name": "@furo/web-types",
+  "version": "0.0.1",
+  "description": "Web-types for the furo fbp lang",
+  "keywords": [
+    "web-types",
+    "furo"
+  ],
+  "author": "veith",
+  "license": "Apache-2.0",
+  "readme": "README.MD",
+  "repository": "https://github.com/JetBrains/web-types",
+  "web-types": "furo.web-types.json"
+}

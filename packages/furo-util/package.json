@@ -4,6 +4,7 @@
   "description": "package sample",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-util",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
+  "web-types": "web-types.json",
   "author": {
     "name": "",
     "email": "",
