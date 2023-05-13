@@ -31,12 +31,12 @@
               },
               {
                 "deprecated": true,
+                "priority": "lowest",
                 "items": "/js/events",
                 "template": [
                   "@-",
                   "#item:event name"
-                ],
-                "priority": "normal"
+                ]
               },
               {
                 "template": [
@@ -109,6 +109,7 @@
               },
               {
                 "deprecated": true,
+                "priority": "lowest",
                 "items": {
                   "path": "/js/methods"
                 },
@@ -276,6 +277,16 @@
                     "includeVirtual": false
                   }
                 }
+              }
+            ],
+            "methods": [
+                {
+                  "name": "click",
+                  "description": "Trigger a click."
+                },
+              {
+                "name": "remove",
+                "description": "Removes the element from the DOM."
               }
             ]
           }
