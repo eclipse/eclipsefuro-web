@@ -2,7 +2,7 @@
   "name": "furo-base-components",
   "description": "Collection of furo base components",
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "^0.5.7",
+    "@custom-elements-manifest/analyzer": "^0.8.2",
     "@esm-bundle/chai": "^4.3.4-fix.0",
     "@open-wc/eslint-config": "^4.3.0",
     "@open-wc/testing": "next",
