@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-navigation-pad
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-navigation-pad.js';`<small>
+<br>exports *FuroNavigationPad* js
 <br>exports `<furo-navigation-pad>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

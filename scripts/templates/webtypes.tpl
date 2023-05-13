@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
-  "name": "{{.name}}",
+  "name": "{{.name}}",{{$name := .name}}
   "version": "{{.version}}",
   "description-markup": "markdown",
   "js-types-syntax": "typescript",
@@ -21,7 +21,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "{{if $declaration.description}}{{$declaration.description  | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | replace "\\c" " / c" | noescape}}{{end}}",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/{{$declaration.name}}/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/{{$name | replace "@" "" | replace "/" "-"}}/{{$declaration.tagName}}/",
           "attributes": [
                     {{- $mc := -1}}
                     {{- range $field := $declaration.attributes}}

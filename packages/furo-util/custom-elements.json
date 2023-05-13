@@ -82,6 +82,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroConfigLoader",
+          "declaration": {
+            "name": "FuroConfigLoader",
+            "module": "src/furo-config-loader.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-config-loader",
           "declaration": {
@@ -332,6 +340,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroDeBounce",
+          "declaration": {
+            "name": "FuroDeBounce",
+            "module": "src/furo-de-bounce.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-de-bounce",
           "declaration": {
@@ -425,6 +441,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroFeatureToggle",
+          "declaration": {
+            "name": "FuroFeatureToggle",
+            "module": "src/furo-feature-toggle.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-feature-toggle",
@@ -526,6 +550,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroFetchJson",
+          "declaration": {
+            "name": "FuroFetchJson",
+            "module": "src/furo-fetch-json.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-fetch-json",
@@ -759,6 +791,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroGetClipboard",
+          "declaration": {
+            "name": "FuroGetClipboard",
+            "module": "src/furo-get-clipboard.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-get-clipboard",
           "declaration": {
@@ -813,6 +853,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroHeadTail",
+          "declaration": {
+            "name": "FuroHeadTail",
+            "module": "src/furo-head-tail.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-head-tail",
@@ -1449,6 +1497,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroHp35",
+          "declaration": {
+            "name": "FuroHp35",
+            "module": "src/furo-hp-35.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-hp-35",
           "declaration": {
@@ -1564,6 +1620,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroIntervalPulse",
+          "declaration": {
+            "name": "FuroIntervalPulse",
+            "module": "src/furo-interval-pulse.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-interval-pulse",
@@ -1729,6 +1793,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroKeyFilter",
+          "declaration": {
+            "name": "FuroKeyFilter",
+            "module": "src/furo-key-filter.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-key-filter",
@@ -1927,6 +1999,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroKeydown",
+          "declaration": {
+            "name": "FuroKeydown",
+            "module": "src/furo-keydown.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-keydown",
           "declaration": {
@@ -2058,6 +2138,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroMarkdown",
+          "declaration": {
+            "name": "FuroMarkdown",
+            "module": "src/furo-markdown.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-markdown",
@@ -2200,6 +2288,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroNavigationPad",
+          "declaration": {
+            "name": "FuroNavigationPad",
+            "module": "src/furo-navigation-pad.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-navigation-pad",
           "declaration": {
@@ -2265,6 +2361,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroPrettyJson",
+          "declaration": {
+            "name": "FuroPrettyJson",
+            "module": "src/furo-pretty-json.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-pretty-json",
@@ -2352,6 +2456,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroPutClipboard",
+          "declaration": {
+            "name": "FuroPutClipboard",
+            "module": "src/furo-put-clipboard.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-put-clipboard",
@@ -2506,6 +2618,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroDemoSnippet",
+          "declaration": {
+            "name": "FuroDemoSnippet",
+            "module": "src/doc/furo-demo-snippet.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-demo-snippet",
           "declaration": {
@@ -2605,6 +2725,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "LightBulb",
+          "declaration": {
+            "name": "LightBulb",
+            "module": "src/doc/light-bulb.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "light-bulb",
           "declaration": {
@@ -2618,6 +2746,34 @@
       "kind": "javascript-module",
       "path": "src/lib/Config.js",
       "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ConfigTree",
+          "members": [
+            {
+              "kind": "field",
+              "name": "_value"
+            },
+            {
+              "kind": "field",
+              "name": "_name",
+              "default": "fieldName"
+            },
+            {
+              "kind": "field",
+              "name": "__value",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            }
+          ],
+          "superclass": {
+            "name": "EventTreeNode",
+            "package": "@furo/framework/src/EventTreeNode.js"
+          }
+        },
         {
           "kind": "class",
           "description": "Config Class for `furo-config`. Not intended for direct usage.",
@@ -2670,6 +2826,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "ConfigTree",
+          "declaration": {
+            "name": "ConfigTree",
+            "module": "src/lib/Config.js"
+          }
+        },
         {
           "kind": "js",
           "name": "Config",
@@ -2761,6 +2925,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroGraphRenderer",
+          "declaration": {
+            "name": "FuroGraphRenderer",
+            "module": "src/doc/graph/furo-graph-renderer.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-graph-renderer",
           "declaration": {
@@ -2844,6 +3016,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroShowFlow",
+          "declaration": {
+            "name": "FuroShowFlow",
+            "module": "src/doc/graph/furo-show-flow.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-show-flow",

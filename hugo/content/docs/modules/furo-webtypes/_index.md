@@ -6,7 +6,7 @@ weight: 100
 ---
 
 # @furo/web-types
-**@furo/web-types** <small>v0.0.1</small>
+**@furo/web-types** <small>v0.0.3</small>
 Web-types for the furo fbp lang
 
 {{% api "_furo-webtypes-head.md" %}}

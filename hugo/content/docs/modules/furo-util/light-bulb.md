@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # light-bulb
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/doc/light-bulb.js';`<small>
+<br>exports *LightBulb* js
 <br>exports `<light-bulb>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

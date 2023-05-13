@@ -27,7 +27,7 @@ import './furo-vertical-scroller.js';
  * @demo demo-furo-split-view Basic usage
  * @appliesMixin FBP
  */
-class FuroSplitView extends FBP(LitElement) {
+export class FuroSplitView extends FBP(LitElement) {
   static get properties() {
     return {
       /**

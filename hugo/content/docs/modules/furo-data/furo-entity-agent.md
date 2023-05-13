@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-entity-agent
-**@furo/data** <small>v2.16.4</small>
+**@furo/data** <small>v2.16.6</small>
 <br>`import '@furo/data/src/furo-entity-agent.js';`<small>
+<br>exports *FuroEntityAgent* js
 <br>exports `<furo-entity-agent>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

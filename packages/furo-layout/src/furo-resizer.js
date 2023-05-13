@@ -27,7 +27,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroResizer extends FBP(LitElement) {
+export class FuroResizer extends FBP(LitElement) {
   /**
    * @private
    * @return {Object}

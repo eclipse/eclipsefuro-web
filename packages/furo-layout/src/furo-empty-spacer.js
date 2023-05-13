@@ -21,7 +21,7 @@ import { LitElement, html, css } from 'lit';
  * @demo demo-furo-horizontal-flex With horizontal flex
  * @appliesMixin FBP
  */
-class FuroEmptySpacer extends LitElement {
+export class FuroEmptySpacer extends LitElement {
   constructor() {
     super();
     this.flex = true;

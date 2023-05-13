@@ -6,7 +6,7 @@ declare const FuroDataFlowRepeat_base: {
         getDataType(): any;
         isFat(): any;
         isWrapper(): any;
-        bindData(fieldNode: import("@furo/data/src/lib/FieldNode").FieldNode | import("@furo/data/src/lib/RepeaterNode").RepeaterNode): boolean;
+        bindData(fieldNode: import("./lib/FieldNode.js").FieldNode | import("./lib/RepeaterNode.js").RepeaterNode): boolean;
         __meta: {
             default: string;
             hint: string;
@@ -101,6 +101,15 @@ export class FuroDataFlowRepeat extends FuroDataFlowRepeat_base {
      * @type {String}
      */
     identityPath: string;
+    /**
+     * Bind a repeater node.
+     *
+     * If `identity-path` is not set, the list will be cleared every time it receives new data.
+     *
+     * @param fieldNode {RepeaterNode} Must be a repeater node.
+     * @return {boolean}
+     */
+    bindData(fieldNode: RepeaterNode): boolean;
     /**
      * Adds a repeated item of the same type.
      *

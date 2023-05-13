@@ -19,7 +19,7 @@ import { NodeEvent } from '@furo/framework/src/EventTreeNode';
  * @customElement furo-mc-handler
  * @appliesMixin FBP
  */
-class FuroMessageContainerHandler extends LitElement {
+export class FuroMessageContainerHandler extends LitElement {
   constructor() {
     super();
     /**

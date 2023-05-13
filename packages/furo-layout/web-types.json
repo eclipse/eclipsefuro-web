@@ -17,7 +17,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-backdrop-display`\n\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n<!-- place the display in your main-stage -->\n<furo-backdrop-display></furo-backdrop-display>\n```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroBackdropDisplay/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop-display/",
           "attributes": [{
                         "name": "start",
                         "type": "boolean",
@@ -68,7 +68,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n<furo-backdrop at-opened=\"--BackdropFocus\" at-closed=\"--backdropClosed\"\n  fn-show=\"--expandIconClicked\"\n  fn-close=\"--closeRequested, --recordSelected\">\n     <any-component at-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n</furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroBackdrop/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop/",
           "attributes": [
                     ]
           ,
@@ -131,7 +131,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.\n\n<furo-demo-snippet source>\n<template>\n <furo-horizontal-flex>\n  <div>small</div>\n  <!-- A furo-empty-spacer will fill the available space. -->\n  <furo-empty-spacer style=\"border: 1px dashed lightgray;\"></furo-empty-spacer>\n  <div>small</div>\n </furo-horizontal-flex>\n</template>\n</furo-demo-snippet>",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroEmptySpacer/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-empty-spacer/",
           "attributes": [{
                         "name": "flex",
                         "type": "boolean",
@@ -170,8 +170,28 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, three, four and six\n\n```html\n<!-- four coulumn layout -->\n<furo-form-layouter four>\n   <input-element></input-element>\n   <input-element double></input-element>\n   <input-element newline></input-element>\n   <input-element full></input-element>\n</furo-form-layouter>\n```\n\n\nTo customize the slotted elements inside furo-form-layouter there are several attributes.\n- double | stretches the element over two units\n- full | stretches the element to full width\n- newline | forces a new line\n\n### Responsiveness\nColumns | narrow | narrower  |\n----------------|-------------|-------------|\n`one` | one | one |\n`two` | one | one |\n`three` | one | one |\n`four` | two | one |\n`six` | three | one |",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroFormLayouter/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-form-layouter/",
           "attributes": [{
+                        "name": "one",
+                        "type": "bool",
+                        "description": "One column layout."
+                      }, {
+                        "name": "two",
+                        "type": "bool",
+                        "description": "Two column layout, switches to one when breakpoint is reached."
+                      }, {
+                        "name": "three",
+                        "type": "bool",
+                        "description": "Three column layout, switches to one when breakpoint is reached."
+                      }, {
+                        "name": "four",
+                        "type": "bool",
+                        "description": "Three column layout, switches to two when breakpoint-big is reached and to one if breakpoint-small is reached."
+                      }, {
+                        "name": "six",
+                        "type": "bool",
+                        "description": "Three column layout, switches to three when breakpoint-big is reached and to one if breakpoint-small is reached. Tags: form"
+                      }, {
                         "name": "breakpoint-big",
                         "type": "number",
                         "description": "Set custom breakpoint big\nDefault: &#34;810&#34;",
@@ -194,7 +214,7 @@
                   "slots": [
                       {
                         "name": "",
-                        "description": "default slot to add content. Tags: form"
+                        "description": "default slot to add content."
                       } ]
           ,
           "js": {
@@ -256,7 +276,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-horizontal-flex`\n\nWith this component, any elements can be aligned horizontally. Similar to css flex.\nThe attribute \"flex\" must be set for growing elements.\nThe component takes up 100% of the space.\n\n```html\n<furo-horizontal-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-horizontal-flex>\n```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroHorizontalFlex/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-horizontal-flex/",
           "attributes": [
                     ],
                   "slots": [
@@ -286,7 +306,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-resizer`\n container which let you resize its width.\n\n Double-click on the handler to reset the width.\n You need a counter part which flexes.\n\n\n```html\n  <furo-horizontal-flex>\n    <div flex> the flexible part </div>\n    <!-- you have to set at leas one handle to resize the content -->\n    <furo-resizer righthandle remember=\"logv\" minwidth=\"280\" maxwidth=\"780\">\n      <some-content></some-content>\n    </furo-resizer>\n  </furo-horizontal-flex>\n```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroResizer/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-resizer/",
           "attributes": [{
                         "name": "lefthandle",
                         "type": "Boolean",
@@ -354,7 +374,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-split-view`\nis a layout component to visualise main / detail views (left right layout for master detail views).\nYou can add the attribute scroll on the detail view to make the content scrollable.\n\n```html\n<furo-split-view>\n  <div slot=\"master\">Master</div>\n  <big-component scroll> </big-component>\n</furo-split-view>\n```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroSplitView/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-split-view/",
           "attributes": [{
                         "name": "reverse",
                         "type": "Boolean",
@@ -396,7 +416,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-vertical-flex`\n\nWith this component, any elements can be aligned vertically. Similar to css flex.\nThe attribute \"flex\" must be set for growing elements.\nThe component takes up 100% of the space\n\n\n```html\n<furo-vertical-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-vertical-flex>\n```\n\n Tags: layout",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroVerticalFlex/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-flex/",
           "attributes": [
                     ],
                   "slots": [
@@ -420,7 +440,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-vertical-scroller`\n\n```html\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroVerticalScroller/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/",
           "attributes": [
                     ],
                   "slots": [

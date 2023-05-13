@@ -153,7 +153,7 @@ export class FuroDataObject extends LitElement {
     /**
      * get the data of the data object
      */
-    getData(): any;
+    getData(): EntityNode;
     /**
      *
      * @param type
@@ -164,7 +164,7 @@ export class FuroDataObject extends LitElement {
      * create the entity node
      * @type {EntityNode}
      */
-    data: any;
+    data: EntityNode;
     _initial: any;
 }
-import { LitElement } from "lit/node_modules/lit-element/lit-element";
+import { LitElement } from 'lit';

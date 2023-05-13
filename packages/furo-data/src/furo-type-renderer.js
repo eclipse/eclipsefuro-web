@@ -53,7 +53,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * @customElement furo-type-renderer
  * @appliesMixin FBP
  */
-class FuroTypeRenderer extends FBP(LitElement) {
+export class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
     super();
     this.context = 'display';

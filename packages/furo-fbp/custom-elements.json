@@ -768,6 +768,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "EmptyFBPNode",
+          "declaration": {
+            "name": "EmptyFBPNode",
+            "module": "src/empty-fbp-node.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "empty-fbp-node",
           "declaration": {
@@ -1414,6 +1422,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FlowBind",
+          "declaration": {
+            "name": "FlowBind",
+            "module": "src/flow-bind.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "flow-bind",

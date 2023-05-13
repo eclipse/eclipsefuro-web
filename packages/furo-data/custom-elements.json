@@ -184,6 +184,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroApiFetch",
+          "declaration": {
+            "name": "FuroApiFetch",
+            "module": "src/furo-api-fetch.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-api-fetch",
           "declaration": {
@@ -856,6 +864,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroCollectionAgent",
+          "declaration": {
+            "name": "FuroCollectionAgent",
+            "module": "src/furo-collection-agent.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-collection-agent",
           "declaration": {
@@ -1153,6 +1169,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroCustomMethod",
+          "declaration": {
+            "name": "FuroCustomMethod",
+            "module": "src/furo-custom-method.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-custom-method",
@@ -1716,6 +1740,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroDataHideContent",
+          "declaration": {
+            "name": "FuroDataHideContent",
+            "module": "src/furo-data-hide-content.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-data-hide-content",
           "declaration": {
@@ -2050,6 +2082,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroDeepLink",
+          "declaration": {
+            "name": "FuroDeepLink",
+            "module": "src/furo-deep-link.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-deep-link",
@@ -2563,6 +2603,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroEntityAgent",
+          "declaration": {
+            "name": "FuroEntityAgent",
+            "module": "src/furo-entity-agent.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-entity-agent",
           "declaration": {
@@ -2646,6 +2694,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroEntityField",
+          "declaration": {
+            "name": "FuroEntityField",
+            "module": "src/furo-entity-field.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-entity-field",
@@ -3007,6 +3063,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroHateoasState",
+          "declaration": {
+            "name": "FuroHateoasState",
+            "module": "src/furo-hateoas-state.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-hateoas-state",
           "declaration": {
@@ -3169,6 +3233,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroMessageContainerHandler",
+          "declaration": {
+            "name": "FuroMessageContainerHandler",
+            "module": "src/furo-message-container-handler.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-message-container-handler",
           "declaration": {
@@ -3271,6 +3343,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroRelExists",
+          "declaration": {
+            "name": "FuroRelExists",
+            "module": "src/furo-rel-exists.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-rel-exists",
@@ -3392,6 +3472,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroReverseDeepLink",
+          "declaration": {
+            "name": "FuroReverseDeepLink",
+            "module": "src/furo-reverse-deep-link.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-reverse-deep-link",
@@ -3515,6 +3603,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroTypeRenderer",
+          "declaration": {
+            "name": "FuroTypeRenderer",
+            "module": "src/furo-type-renderer.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-type-renderer",

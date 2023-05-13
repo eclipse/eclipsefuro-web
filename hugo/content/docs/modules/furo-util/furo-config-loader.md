@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-config-loader
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-config-loader.js';`<small>
+<br>exports *FuroConfigLoader* js
 <br>exports `<furo-config-loader>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

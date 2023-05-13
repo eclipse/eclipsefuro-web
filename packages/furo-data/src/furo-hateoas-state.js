@@ -29,7 +29,7 @@ import { FieldNodeAdapter } from './lib/FieldNodeAdapter.js';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroHateoasState extends FieldNodeAdapter(LitElement) {
+export class FuroHateoasState extends FieldNodeAdapter(LitElement) {
   /**
    * @private
    * @param value

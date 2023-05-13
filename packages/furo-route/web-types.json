@@ -17,7 +17,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-app-flow-router`\n\nUse this component with app-flow and furo-pages to implement your application flow / routing\n\n\n```html\n   <app-flow-router set-config=\"--flowConfigLoaded\" fn-trigger=\"--flowEvent\" fn-back=\"--wire\" fn-forward=\"--wire\"></app-flow-router>\n```\n\n *Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"],\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK: https://google.com/\"]\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK:\", *],\n   [\"*\", \"activity-url\", \"URL\", \"*\"],\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n ## Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a dynamic target outside your app add **URL** and use `fn-emit` on the furo-app-flow component with the url as data.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link\n - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**\n - if you want to trigger a history.back() use the **HISTORY-BACK**\n - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroAppFlowRouter/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow-router/",
           "attributes": [{
                         "name": "config",
                         "type": "Array",
@@ -119,7 +119,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-app-flow` triggers the flow events for the `app-flow-router`.",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroAppFlow/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-app-flow/",
           "attributes": [{
                         "name": "event",
                         "type": "String",
@@ -189,7 +189,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-document-title`\n\n Updates the document title and set navigation waypoints.\n\n ## Structure of the title\n The title is built up from 3 parts (`prefix`, `title`, `suffix`). Each of them can be set by attribute or a setter method. The `title` and `suffix` part can be set with a fieldnode from a `furo-data-object`.\n\n `document.title = prefix + title + suffix`\n\n ## Waypoints\n Waypoints are pushed to the browser history and allows you to navigate with the back and forward buttons of the browser.\n To return to the last waypoint within your app, you have to trigger a `history.back()`. Read more about the history API [here](https://developer.mozilla.org/en-US/docs/Web/API/History).\n\n If you use `furo-app-flow` you can send the **history-back** event.\n\n Views and pages without a waypoint are not stored in the history.\n\n ```\n [a]-->[b]-->[.]-->[.]-->[.]-->[c]\n        ▲                       │\n        └───────────────────────┘\n        By clicking the back button you will return to b\n\n ```\n\n ## Usage example\n\n ```html\n  <furo-document-title\n    prefix=\"${i18n.t('prefix.label')} [\"\n    fn-bind-title=\"--DataObject(*.display_name)\"\n    suffix=\"]\"\n    fn-set-waypoint=\"--pageActivated\"\n  ></furo-document-title>\n ```\n The document title will be set to: `PrefixLabel [display_name_value]`",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroDocumentTitle/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-document-title/",
           "attributes": [{
                         "name": "title",
                         "type": "string",
@@ -305,7 +305,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-location-updater`\nupdates parts of the url location with pushState\n\nYou can set query params and hashes. Use this component for proper deep linking.\nThe furo-location component will fire the location events as usual.\n\n```html\n\n <furo-location-updater\n    fn-set-qp=\"--QueryParamKeyValuePairs\"\n    fn-set-hash=\"--HashKeyValuePairs\"></furo-location-updater>\n\n```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroLocationUpdater/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-location-updater/",
           "attributes": [{
                         "name": "clear-qp",
                         "type": "String",
@@ -366,7 +366,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-location` watches for URL changes and notifies you. The location object which is fired from furo-location can be used\n for page navigation in furo-pages or for deep link resolution.\n\n\n```html\n<furo-location at-location-changed=\"--pathChanged\"></furo-location>\n\n<furo-pages\n  fn-inject-location=\"--pathChanged\"\n  default=\"list\">\n    <view-list name=\"list\"></view-list>\n    <view-create name=\"create\"></view-create>\n    <view-detail name=\"detail\"></view-detail>\n</furo-pages>\n```\n\n\n### locationObject\n```json\n{\n    \"host\": \"localhost:8480\",\n    \"query\": {\"tsk\": 999},\n    \"hash\": {},\n    \"path\": \"/detail\",\n    \"pathSegments\": [\n        \"detail\"\n    ],\n    \"hashstring\": \"\",\n    \"querystring\": \"tsk=999\"\n}\n```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroLocation/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-location/",
           "attributes": [{
                         "name": "url-space-regex",
                         "type": "string|RegExp",
@@ -459,7 +459,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-lock-navigation`\n Blocks the furo-location-updater and furo-app-flow-router from navigating away if you have unsaved changes or work to do.\n\n This component also adds a listener to the unload event, which kicks in at a reload or close of the window.\n\n ```html\n <furo-lock-navigation fn-lock=\"--dataChanged\" fn-unlock=\"--saveSuccess\"></furo-lock-navigation>\n ```",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroLockNavigation/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-lock-navigation/",
           "attributes": [{
                         "name": "message",
                         "type": "string",
@@ -523,7 +523,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "\nUse `furo-pages` to build tabs, views, subviews,...\n\n\n## preconditions\nThe components used in a furo-page must implement a **hidden** attribute css to set itself to display none.\n\n```css\n:host([hidden]){\n   display:none\n }\n```\n\n## usage\n\n```html\n\n<furo-pages fn-inject-location=\"--locationChanged\" default=\"home\">\n   <page-home name=\"home\"></page-home>\n   <other-page name=\"more\"></other-page>\n   <view-404 name=\"404\"></view-404>\n</furo-pages>\n\n<furo-location at-location-changed=\"--locationChanged\"></furo-location>\n```\n*If the url is `/` or `/home`, page-home is displayed.*\n*If the url is `/more`,  other-page is displayed.*\n*If the url does not match any of the names and a 404 is available, the 404 is displayed.*\n\n## flowbased auto wires\nfuro-pages provides auto wires, which are automatically triggered in the child elements if\nthey support FBP. Each wire will forward a `locationObject`\n\n-  `|--pageActivated` : Is triggered when the element is activated.\n-  `|--pageDeActivated` : Is triggered when another page is activated. Empty wire.\n-  `|--pageQueryChanged` : Is triggered when the page query changes.\n-  `|--pageHashChanged` : Is triggered when the page hash changes.\n-  `|--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.\n\n-  `--pageActivated` : Is triggered when the element is activated.\n-  `--pageDeActivated` : Is triggered when another page is activated. Empty wire.\n-  `--pageQueryChanged` : Is triggered when the page query changes.\n-  `--pageHashChanged` : Is triggered when the page hash changes.\n-  `--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroPages/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-pages/",
           "attributes": [
                     ],
                   "slots": [
@@ -567,7 +567,7 @@
           "deprecated": false,
           "experimental": false,
           "description": "`furo-panel-coordinator`",
-          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroPanelCoordinator/",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-route/furo-panel-coordinator/",
           "attributes": [
                     ]
           ,

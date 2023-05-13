@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-interval-pulse
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-interval-pulse.js';`<small>
+<br>exports *FuroIntervalPulse* js
 <br>exports `<furo-interval-pulse>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *trigger an event in intervals*</small>

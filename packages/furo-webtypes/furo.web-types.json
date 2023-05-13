@@ -30,6 +30,15 @@
                 "priority": "normal"
               },
               {
+                "deprecated": true,
+                "items": "/js/events",
+                "template": [
+                  "@-",
+                  "#item:event name"
+                ],
+                "priority": "normal"
+              },
+              {
                 "template": [
                   {
                     "regex": "at-[-a-z0-9]+"
@@ -95,6 +104,16 @@
                 "template": [
                   "fn-",
                   "$...",
+                  "#item:method name"
+                ]
+              },
+              {
+                "deprecated": true,
+                "items": {
+                  "path": "/js/methods"
+                },
+                "template": [
+                  "ƒ-",
                   "#item:method name"
                 ]
               }

@@ -40,7 +40,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroBackdrop extends FBP(LitElement) {
+export class FuroBackdrop extends FBP(LitElement) {
 
   /**
    *

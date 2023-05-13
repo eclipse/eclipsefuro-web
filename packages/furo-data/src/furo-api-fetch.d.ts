@@ -29,7 +29,7 @@
  * @summary fetch data from network
  * @customElement
  */
-declare class FuroApiFetch extends HTMLElement {
+export class FuroApiFetch extends HTMLElement {
     /**
      * LastRequest's response.
      *

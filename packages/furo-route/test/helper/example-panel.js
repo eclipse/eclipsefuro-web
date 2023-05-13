@@ -9,7 +9,7 @@ import { BasePanel } from '../../src/lib/BasePanel.js';
  * @customElement
  * @appliesMixin FBP
  */
-class ExamplePanel extends BasePanel {
+export class ExamplePanel extends BasePanel {
   constructor() {
     super();
     // register the close

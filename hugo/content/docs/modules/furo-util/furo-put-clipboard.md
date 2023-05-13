@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-put-clipboard
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-put-clipboard.js';`<small>
+<br>exports *FuroPutClipboard* js
 <br>exports `<furo-put-clipboard>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *write content to clipboard*</small>

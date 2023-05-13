@@ -110,6 +110,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroBackdropDisplay",
+          "declaration": {
+            "name": "FuroBackdropDisplay",
+            "module": "src/furo-backdrop-display.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-backdrop-display",
           "declaration": {
@@ -183,6 +191,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroBackdrop",
+          "declaration": {
+            "name": "FuroBackdrop",
+            "module": "src/furo-backdrop.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-backdrop",
@@ -258,6 +274,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroEmptySpacer",
+          "declaration": {
+            "name": "FuroEmptySpacer",
+            "module": "src/furo-empty-spacer.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-empty-spacer",
           "declaration": {
@@ -298,7 +322,7 @@
               "type": {
                 "text": "HTMLElement [0..n]"
               },
-              "description": "default slot to add content. Tags: form",
+              "description": "default slot to add content.",
               "name": ""
             }
           ],
@@ -397,6 +421,41 @@
           ],
           "attributes": [
             {
+              "type": {
+                "text": "bool"
+              },
+              "description": "One column layout.",
+              "name": "one"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Two column layout, switches to one when breakpoint is reached.",
+              "name": "two"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Three column layout, switches to one when breakpoint is reached.",
+              "name": "three"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Three column layout, switches to two when breakpoint-big is reached and to one if breakpoint-small is reached.",
+              "name": "four"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Three column layout, switches to three when breakpoint-big is reached and to one if breakpoint-small is reached. Tags: form",
+              "name": "six"
+            },
+            {
               "name": "breakpoint-big",
               "type": {
                 "text": "number"
@@ -447,6 +506,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroFormLayouter",
+          "declaration": {
+            "name": "FuroFormLayouter",
+            "module": "src/furo-form-layouter.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-form-layouter",
@@ -503,6 +570,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroHorizontalFlex",
+          "declaration": {
+            "name": "FuroHorizontalFlex",
+            "module": "src/furo-horizontal-flex.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-horizontal-flex",
@@ -703,6 +778,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroResizer",
+          "declaration": {
+            "name": "FuroResizer",
+            "module": "src/furo-resizer.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-resizer",
           "declaration": {
@@ -785,6 +868,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroSplitView",
+          "declaration": {
+            "name": "FuroSplitView",
+            "module": "src/furo-split-view.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-split-view",
           "declaration": {
@@ -822,6 +913,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroVerticalFlex",
+          "declaration": {
+            "name": "FuroVerticalFlex",
+            "module": "src/furo-vertical-flex.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-vertical-flex",
@@ -884,6 +983,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroVerticalScroller",
+          "declaration": {
+            "name": "FuroVerticalScroller",
+            "module": "src/furo-vertical-scroller.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-vertical-scroller",

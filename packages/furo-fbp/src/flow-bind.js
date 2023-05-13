@@ -24,7 +24,7 @@ import './empty-fbp-node.js';
  * @mixes FBP
  * @summary Custom element to allow using furo-fbp's template features in a html document.
  */
-class FlowBind extends FBP(HTMLElement) {
+export class FlowBind extends FBP(HTMLElement) {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });

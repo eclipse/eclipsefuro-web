@@ -26,7 +26,7 @@ import {FBP} from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroDataHideContent extends FBP(LitElement) {
+export class FuroDataHideContent extends FBP(LitElement) {
   constructor() {
     super();
 

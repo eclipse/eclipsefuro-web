@@ -135,6 +135,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroAppFlowRouter",
+          "declaration": {
+            "name": "FuroAppFlowRouter",
+            "module": "src/furo-app-flow-router.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-app-flow-router",
           "declaration": {
@@ -243,6 +251,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroAppFlow",
+          "declaration": {
+            "name": "FuroAppFlow",
+            "module": "src/furo-app-flow.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-app-flow",
@@ -414,6 +430,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroDocumentTitle",
+          "declaration": {
+            "name": "FuroDocumentTitle",
+            "module": "src/furo-document-title.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-document-title",
           "declaration": {
@@ -516,6 +540,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroLocationUpdater",
+          "declaration": {
+            "name": "FuroLocationUpdater",
+            "module": "src/furo-location-updater.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-location-updater",
@@ -667,6 +699,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "FuroLocation",
+          "declaration": {
+            "name": "FuroLocation",
+            "module": "src/furo-location.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "furo-location",
           "declaration": {
@@ -770,6 +810,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroLockNavigation",
+          "declaration": {
+            "name": "FuroLockNavigation",
+            "module": "src/furo-lock-navigation.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-lock-navigation",
@@ -887,6 +935,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroPages",
+          "declaration": {
+            "name": "FuroPages",
+            "module": "src/furo-pages.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-pages",
@@ -1007,6 +1063,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroPanelCoordinator",
+          "declaration": {
+            "name": "FuroPanelCoordinator",
+            "module": "src/furo-panel-coordinator.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-panel-coordinator",

@@ -20,7 +20,7 @@ import { FBP } from '@furo/fbp';
  * @demo demo-furo-vertical-scroller Basic usage
  * @appliesMixin FBP
  */
-class FuroVerticalScroller extends FBP(LitElement) {
+export class FuroVerticalScroller extends FBP(LitElement) {
   /**
    *
    * @private
