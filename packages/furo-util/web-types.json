@@ -1,0 +1,1651 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "Furo Util",
+  "version": "1.4.0",
+  "description-markup": "markdown",
+  "js-types-syntax": "typescript",
+  "default-icon": "icon.svg",
+  "contributions": {
+    "html": {
+      "elements": [
+        {
+          "name": "furo-config-loader",
+          "source": {
+            "module": "./src/furo-config-loader.js",
+            "symbol": "FuroConfigLoader"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-config-loader` loads a configuration json in to the defined section.\n\nTo access the config values, use `furo-config`.\n\n```html\n<furo-config-loader\n    src=\"/custom/view-config.json\"\n    section=\"views\"\n    ></furo-config-loader>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroConfigLoader/",
+          "attributes": [
+            {
+              "name": "src",
+              "type": "String",
+              "description": "File source"
+            },
+            {
+              "name": "section",
+              "type": "String",
+              "description": "Targeted section to load the config in."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "src",
+                "type": "String",
+                "description": "File source"
+              },
+              {
+                "name": "section",
+                "type": "String",
+                "description": "Targeted section to load the config in."
+              }
+            ],
+            "methods": [],
+            "events": [
+              {
+                "name": "config-loaded",
+                "priority": "highest",
+                "description": "Fired when the config is loaded with the loaded config as detail.",
+                "value": {
+                  "type": "Object"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-config",
+          "source": {
+            "module": "./src/furo-config.js",
+            "symbol": "FuroConfig"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-config`\n\n Access config data\n\n\n```html\n<!-- set with config-loader -->\n<furo-config-loader\n    section=\"views\"\n    src=\"/viewconfig.json\"\n    ></furo-config>\n\n\n<!-- consume a config -->\n<furo-config\n    section=\"views\" at-config-updated=\"--conf\"\n    ></furo-config>\n\n<!-- consume a sub path of a config section -->\n<furo-config\n    section=\"views.subset.deep\" at-config-updated=\"--deepconf\"\n    ></furo-config>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroConfig/",
+          "attributes": [
+            {
+              "name": "section",
+              "type": "String",
+              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "section",
+                "type": "String",
+                "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`"
+              },
+              {
+                "name": "config",
+                "type": "",
+                "description": "The current section of the config, which was defined by `section`.",
+                "default": "Config"
+              }
+            ],
+            "methods": [],
+            "events": [
+              {
+                "name": "config-updated",
+                "priority": "highest",
+                "description": "Fired when section changed",
+                "value": {
+                  "type": "config.section"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-de-bounce",
+          "source": {
+            "module": "./src/furo-de-bounce.js",
+            "symbol": "FuroDeBounce"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "The Debounce technique allow us to “group” multiple sequential calls in a single one.\n\n[Read more about debouncing here](https://css-tricks.com/debouncing-throttling-explained-examples/)\n\n\n\n```html\n<furo-de-bounce\n    fn-trigger=\"--searchStringEntered\" at-debounced=\"--debouncedSrch\"\n    ></furo-de-bounce>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroDeBounce/",
+          "attributes": [
+            {
+              "name": "wait",
+              "type": "Number",
+              "description": "Debounce time in milliseconds\nDefault value: 250"
+            },
+            {
+              "name": "immediate",
+              "type": "Boolean",
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "immediate",
+                "type": "Boolean",
+                "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false"
+              },
+              {
+                "name": "wait",
+                "type": "Number",
+                "description": "Debounce time in milliseconds\nDefault value: 250"
+              }
+            ],
+            "methods": [
+              {
+                "name": "trigger",
+                "description": "Trigger the debounce",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "out",
+                "priority": "highest",
+                "description": "deprecated, use debounced instead. // TODO: remove @out and fn-input-wire in q2 2022",
+                "value": {
+                  "type": "*"
+                }
+              },
+              {
+                "name": "debounced",
+                "priority": "highest",
+                "description": "Fired after N milliseconds. If `immediate`is set to TRUE, it fires on the leading edge.",
+                "value": {
+                  "type": "*"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-feature-toggle",
+          "source": {
+            "module": "./src/furo-feature-toggle.js",
+            "symbol": "FuroFeatureToggle"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-feature-toggle`\n Is a handler for feature toggles, you can react to key changes with FBP.\n This component is quite simple, but gives you a lot of possibilities.\n Read more about feature toggles in the [guide](/docs/guides/featuretoggle/)\n\n ```html\n <!-- setting a key -->\n<furo-feature-toggle\n    key=\"feature.easter.egg\" fn-set-true=\"--activateClicked\" fn-set-false=\"--disableClicked\">\n    </furo-feature-toggle>\n\n <!-- observing key changes -->\n <furo-feature-toggle\n    key=\"feature.xxxx.yyy\"  at-key-activated=\"--fxyActivated\" at-key-changed=\"--fxyChanged\">\n    </furo-feature-toggle>\n\n ```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroFeatureToggle/",
+          "attributes": [
+            {
+              "name": "key",
+              "type": "String",
+              "description": "Name of a feature toggle."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "key",
+                "type": "String",
+                "description": "Name of a feature toggle."
+              }
+            ],
+            "methods": [
+              {
+                "name": "set-false",
+                "description": "Sets a feature key state to false.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "set-true",
+                "description": "Sets a feature key state to true.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "key-true",
+                "priority": "highest",
+                "description": "Fired when the key is set to true or is true on init.",
+                "value": {
+                  "type": "true"
+                }
+              },
+              {
+                "name": "key-false",
+                "priority": "highest",
+                "description": "Fired when the key is set to false or is false on init.",
+                "value": {
+                  "type": "false"
+                }
+              },
+              {
+                "name": "key-changed",
+                "priority": "highest",
+                "description": "Fired on init and when the key changes its state.",
+                "value": {
+                  "type": "Boolean"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-fetch-json",
+          "source": {
+            "module": "./src/furo-fetch-json.js",
+            "symbol": "FuroFetchJson"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-fetch-json`\n Fetches and parses json data from a source.\n\n ```html\n <furo-fetch-json src=\"/example.json\" fn-fetch=\"|--FBPready\" at-data=\"--contentReceived\"></furo-fetch-json>\n ```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroFetchJson/",
+          "attributes": [
+            {
+              "name": "src",
+              "type": "String",
+              "description": "the url you want to fetch"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "src",
+                "type": "String",
+                "description": "the url you want to fetch"
+              }
+            ],
+            "methods": [
+              {
+                "name": "fetch",
+                "description": "fetch and parse the data from specified `src`.\n\nUse fetch-src if you want to pass the source url",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "fetch-src",
+                "description": "fetch json data from source",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "data",
+                "priority": "highest",
+                "description": " Fired when data received and json parsed",
+                "value": {
+                  "type": "{Object} json data"
+                }
+              },
+              {
+                "name": "parse-error",
+                "priority": "highest",
+                "description": " Fired when json is not parseable",
+                "value": {
+                  "type": "error"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-forth-stack",
+          "source": {
+            "module": "./src/furo-forth-stack.js",
+            "symbol": "FuroForthStack"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-forth-stack` is a declarative stack, inspired by the forth stack.\n\nhttps://hackaday.com/2017/01/27/forth-the-hackers-language/\nhttp://wiki.laptop.org/go/Forth_stack_operators\nhttp://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroForthStack/",
+          "attributes": [
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "size",
+                "type": "number",
+                "description": "Current size of the stack",
+                "default": "0"
+              }
+            ],
+            "methods": [
+              {
+                "name": "clear-stack",
+                "description": "Empties the stack and set the stack-size to 0",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "put",
+                "description": "Add an element to the stack",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "swap",
+                "description": "\nswap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "drop",
+                "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "dup",
+                "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "over",
+                "description": "\nover **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "rot",
+                "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "rrot",
+                "description": "rrot **( n1 n2 n3 -- n3 n1 n2 )**\n\n   Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.\n   The top elemen the stack gets moved to the bottom of the stack.\n\n   1 2 3 rot\n   gives you:\n\n   3 1 2 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "stack-size-changed",
+                "priority": "highest",
+                "description": " Fired when the stack size changes with Integer with the current size of the stack.",
+                "value": {
+                  "type": "Number"
+                }
+              },
+              {
+                "name": "rotated",
+                "priority": "highest",
+                "description": " Fired when stack was rotated",
+                "value": {
+                  "type": "the top element"
+                }
+              },
+              {
+                "name": "stack-changed",
+                "priority": "highest",
+                "description": " Fired when the stack contents changes after put, drop,...",
+                "value": {
+                  "type": "the top element"
+                }
+              },
+              {
+                "name": "swapped",
+                "priority": "highest",
+                "description": "Fired when stack was swapped",
+                "value": {
+                  "type": "void"
+                }
+              },
+              {
+                "name": "empty",
+                "priority": "highest",
+                "description": "Fired when stack gets empty",
+                "value": {
+                  "type": "void"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-get-clipboard",
+          "source": {
+            "module": "./src/furo-get-clipboard.js",
+            "symbol": "FuroGetClipboard"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-get-clipboard`\n get the clipboard content from the OS.\n\n```html\n\n<furo-get-clipboard\n    fn-trigger=\"--clipboardContentRequested\" at-content=\"--contentReceived\"\n    ></furo-get-clipboard>\n\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroGetClipboard/",
+          "attributes": [
+            {
+              "name": "json",
+              "type": "String",
+              "description": "Convert clipboard content to json"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "json",
+                "type": "String",
+                "description": "Convert clipboard content to json"
+              }
+            ],
+            "methods": [
+              {
+                "name": "trigger",
+                "description": "",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "content",
+                "priority": "highest",
+                "description": " Fired when clipboard content is received",
+                "value": {
+                  "type": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-head-tail",
+          "source": {
+            "module": "./src/furo-head-tail.js",
+            "symbol": "FuroHeadTail"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "\n`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-head-tail fn-split=\"--arrayData\" at-head=\"--firstElement\" at-tail=\"--restOfArray\"></furo-head-tail>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroHeadTail/",
+          "attributes": [
+          ],
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+              {
+                "name": "split",
+                "description": "Splits an iterable to its head (first item) and its tail (the rest) parts.\n\n```\n[ a ,  b ,  c ,  d ]\n |_|  |___________|\n  ^      ^\n  |      |\n  |     TAIL   => [ b ,  c ,  d ]\n HEAD          =>  a \n```",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "head",
+                "priority": "highest",
+                "description": " Fired when Array was splitted, contains the first element of array.",
+                "value": {
+                  "type": "{Any}"
+                }
+              },
+              {
+                "name": "tail",
+                "priority": "highest",
+                "description": " Fired when Array was splitted. {Array || Any} is the tail from the injected array (e1 - 1n)",
+                "value": {
+                  "type": "Array | Any"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-hp-35",
+          "source": {
+            "module": "./src/furo-hp-35.js",
+            "symbol": "FuroHp35"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`hp-35` is a declarative rpn calculator component.\n\nsee https://hansklav.home.xs4all.nl/rpn/\n\nhttp://h10032.www1.hp.com/ctg/Manual/c01579350",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroHp35/",
+          "attributes": [
+            {
+              "name": "x",
+              "type": "Number",
+              "description": "current x"
+            },
+            {
+              "name": "y",
+              "type": "Number",
+              "description": "current y"
+            },
+            {
+              "name": "z",
+              "type": "Number",
+              "description": "current z"
+            },
+            {
+              "name": "t",
+              "type": "Number",
+              "description": "current t"
+            },
+            {
+              "name": "stack",
+              "type": "Array",
+              "description": "the stack."
+            },
+            {
+              "name": "radMode",
+              "type": "boolean",
+              "description": "Set to true to use rad, default is deg",
+              "default": "false"
+            },
+            {
+              "name": "_PIdivby180",
+              "type": "number",
+              "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+              "default": "0.017453292519943295"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "radMode",
+                "type": "boolean",
+                "description": "Set to true to use rad, default is deg",
+                "default": "false"
+              },
+              {
+                "name": "x",
+                "type": "Number",
+                "description": "current x"
+              },
+              {
+                "name": "y",
+                "type": "Number",
+                "description": "current y"
+              },
+              {
+                "name": "z",
+                "type": "Number",
+                "description": "current z"
+              },
+              {
+                "name": "t",
+                "type": "Number",
+                "description": "current t"
+              },
+              {
+                "name": "stack",
+                "type": "Array",
+                "description": "the stack."
+              },
+              {
+                "name": "size",
+                "type": "number",
+                "description": "Current size of the stack",
+                "default": "0"
+              }
+            ],
+            "methods": [
+              {
+                "name": "enter",
+                "description": "Enter a number",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "update-xyzt",
+                "description": "",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "swap",
+                "description": "\nswap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "rot",
+                "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "roll",
+                "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3 1 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "add",
+                "description": "Process an addition",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "substract",
+                "description": "Process a substraction",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "sqrt",
+                "description": "Perform square root operation",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "ln",
+                "description": "Perform log operation",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "cos",
+                "description": "Perform cos operation",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "sin",
+                "description": "Perform sin operation",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "tan",
+                "description": "Perform tan operation",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "abs",
+                "description": "Perform abs operation",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "reciprocal",
+                "description": "Perform reciprocal operation",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "exp",
+                "description": "Perform exp operation\n\nreturns e^x, where x is the argument, and e is Euler's number (also known as Napier's constant), the base of the natural logarithms.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "xroot",
+                "description": "",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "multiply",
+                "description": "Process a multiplication",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "pow",
+                "description": "Process power",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "divide",
+                "description": "Process a division",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "clear",
+                "description": "clear the stack",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "clear-stack",
+                "description": "Empties the stack and set the stack-size to 0",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "put",
+                "description": "Add an element to the stack",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "drop",
+                "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "dup",
+                "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "over",
+                "description": "\nover **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "rrot",
+                "description": "rrot **( n1 n2 n3 -- n3 n1 n2 )**\n\n   Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.\n   The top elemen the stack gets moved to the bottom of the stack.\n\n   1 2 3 rot\n   gives you:\n\n   3 1 2 <- Top",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "stackchange",
+                "priority": "highest",
+                "description": "Fired when something in stack changes",
+                "value": {
+                  "type": "void"
+                }
+              },
+              {
+                "name": "stack-size-changed",
+                "priority": "highest",
+                "description": " Fired when the stack size changes with Integer with the current size of the stack.",
+                "value": {
+                  "type": "Number"
+                }
+              },
+              {
+                "name": "rotated",
+                "priority": "highest",
+                "description": " Fired when stack was rotated",
+                "value": {
+                  "type": "the top element"
+                }
+              },
+              {
+                "name": "stack-changed",
+                "priority": "highest",
+                "description": " Fired when the stack contents changes after put, drop,...",
+                "value": {
+                  "type": "the top element"
+                }
+              },
+              {
+                "name": "swapped",
+                "priority": "highest",
+                "description": "Fired when stack was swapped",
+                "value": {
+                  "type": "void"
+                }
+              },
+              {
+                "name": "empty",
+                "priority": "highest",
+                "description": "Fired when stack gets empty",
+                "value": {
+                  "type": "void"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-interval-pulse",
+          "source": {
+            "module": "./src/furo-interval-pulse.js",
+            "symbol": "FuroIntervalPulse"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-interval-pulse`\n\nPulses a tick event every `interval` ms duration and every `takt` a tock event is also fired.",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroIntervalPulse/",
+          "attributes": [
+            {
+              "name": "interval",
+              "type": "number",
+              "description": "Duration of a tact in ms.",
+              "default": "200"
+            },
+            {
+              "name": "takt",
+              "type": "number",
+              "description": "Number of ticks per tact.",
+              "default": "4"
+            },
+            {
+              "name": "auto",
+              "type": "Boolean",
+              "description": "Starts interval automatically"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "interval",
+                "type": "number",
+                "description": "Duration of a tact in ms.",
+                "default": "200"
+              },
+              {
+                "name": "takt",
+                "type": "number",
+                "description": "Number of ticks per tact.",
+                "default": "4"
+              },
+              {
+                "name": "auto",
+                "type": "Boolean",
+                "description": "Starts interval automatically"
+              }
+            ],
+            "methods": [
+              {
+                "name": "start",
+                "description": "Starts the pulsing.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "stop",
+                "description": "Stops the pulsing.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "tick",
+                "priority": "highest",
+                "description": "Fired on every interval with the position of the pulse starting at 0.",
+                "value": {
+                  "type": "Number"
+                }
+              },
+              {
+                "name": "tock",
+                "priority": "highest",
+                "description": "Fired nth interval defined by takt.",
+                "value": {
+                  "type": "Number"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-key-filter",
+          "source": {
+            "module": "./src/furo-key-filter.js",
+            "symbol": "FuroKeyFilter"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```html\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component at-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter\n    fn-filter=\"--keydown\" at-matched=\"--escapePressed\"\n    keys=\"Escape\"\n    ></furo-key-filter>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroKeyFilter/",
+          "attributes": [
+            {
+              "name": "keys",
+              "type": "String",
+              "description": "Coma separated list with allowed keys to pass. i.e &#34;Enter, ArrowUp&#34;"
+            },
+            {
+              "name": "shift",
+              "type": "Boolean",
+              "description": "Modifier key **shift** must be pressed too to match"
+            },
+            {
+              "name": "alt",
+              "type": "Boolean",
+              "description": "Modifier key **alt** must be pressed too to match"
+            },
+            {
+              "name": "command",
+              "type": "Boolean",
+              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match."
+            },
+            {
+              "name": "meta",
+              "type": "Boolean",
+              "description": "Modifier key **meta** must be pressed too to match"
+            },
+            {
+              "name": "control",
+              "type": "Boolean",
+              "description": "Modifier key **control** must be pressed too to match"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "keys",
+                "type": "String",
+                "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\""
+              },
+              {
+                "name": "shift",
+                "type": "Boolean",
+                "description": "Modifier key **shift** must be pressed too to match"
+              },
+              {
+                "name": "alt",
+                "type": "Boolean",
+                "description": "Modifier key **alt** must be pressed too to match"
+              },
+              {
+                "name": "command",
+                "type": "Boolean",
+                "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match."
+              },
+              {
+                "name": "meta",
+                "type": "Boolean",
+                "description": "Modifier key **meta** must be pressed too to match"
+              },
+              {
+                "name": "control",
+                "type": "Boolean",
+                "description": "Modifier key **control** must be pressed too to match"
+              }
+            ],
+            "methods": [
+              {
+                "name": "filter",
+                "description": "Check the event and dispatch matched when the conditions are fulfilled.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "matched",
+                "priority": "highest",
+                "description": " Fired when key matches the options",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-keydown",
+          "source": {
+            "module": "./src/furo-keydown.js",
+            "symbol": "FuroKeydown"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-keydown` attaches a keypress listener to the parent element and gives you handy events to work with.\n\nWhen you set `alt`, `ctrl` or any of the other arguments, the key event will be triggered only if the corresponding key was pressed too.\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)\n\n```html\n<furo-keydown key=\"Enter\" at-key=\"--enterPressed\"></furo-keydown>\n<furo-keydown ctrl key=\"c\" at-key=\"--copyRequested\"></furo-keydown>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroKeydown/",
+          "attributes": [
+            {
+              "name": "key",
+              "type": "String",
+              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c"
+            },
+            {
+              "name": "global",
+              "type": "Boolean",
+              "description": "Set this attribute to listen to the keydown event global (window)."
+            },
+            {
+              "name": "alt",
+              "type": "Boolean",
+              "description": "`alt` key must be pressed to trigger the `key` event."
+            },
+            {
+              "name": "ctrl",
+              "type": "Boolean",
+              "description": "`ctrl` key must be pressed to trigger the `key` event."
+            },
+            {
+              "name": "meta",
+              "type": "Boolean",
+              "description": "`meta` key must be pressed to trigger the `key` event."
+            },
+            {
+              "name": "shift",
+              "type": "Boolean",
+              "description": "`shift` key must be pressed to trigger the `key` event."
+            },
+            {
+              "name": "prevent-default",
+              "type": "Boolean",
+              "description": "Set this attribute to prevent the event default of the keypress event."
+            },
+            {
+              "name": "stop-propagation",
+              "type": "Boolean",
+              "description": "Set this to true to stop the event propagation of the keypress event."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "key",
+                "type": "String",
+                "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c"
+              },
+              {
+                "name": "global",
+                "type": "Boolean",
+                "description": "Set this attribute to listen to the keydown event global (window)."
+              },
+              {
+                "name": "alt",
+                "type": "Boolean",
+                "description": "`alt` key must be pressed to trigger the `key` event."
+              },
+              {
+                "name": "ctrl",
+                "type": "Boolean",
+                "description": "`ctrl` key must be pressed to trigger the `key` event."
+              },
+              {
+                "name": "meta",
+                "type": "Boolean",
+                "description": "`meta` key must be pressed to trigger the `key` event."
+              },
+              {
+                "name": "shift",
+                "type": "Boolean",
+                "description": "`shift` key must be pressed to trigger the `key` event."
+              },
+              {
+                "name": "preventDefault",
+                "type": "Boolean",
+                "description": "Set this attribute to prevent the event default of the keypress event."
+              },
+              {
+                "name": "stopPropagation",
+                "type": "Boolean",
+                "description": "Set this to true to stop the event propagation of the keypress event."
+              }
+            ],
+            "methods": [],
+            "events": [
+              {
+                "name": "key",
+                "priority": "highest",
+                "description": "Fired when key was catched on target",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-markdown",
+          "source": {
+            "module": "./src/furo-markdown.js",
+            "symbol": "FuroMarkdown"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-markdown`\n Renders given md data with parseMarkdown or loads a md file with `mdsrc=\"source.md\"`",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroMarkdown/",
+          "attributes": [
+            {
+              "name": "unsafe",
+              "type": "Boolean",
+              "description": "allow unsafe md. (writing html, components,...)"
+            },
+            {
+              "name": "mdsrc",
+              "type": "String",
+              "description": "source of the md"
+            },
+            {
+              "name": "markdown",
+              "type": "String",
+              "description": "markdown string"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "mdsrc",
+                "type": "String",
+                "description": "source of the md"
+              },
+              {
+                "name": "markdown",
+                "type": "String",
+                "description": "markdown string"
+              },
+              {
+                "name": "markdownRendered",
+                "type": "",
+                "description": "",
+                "default": "undefined"
+              },
+              {
+                "name": "unsafe",
+                "type": "Boolean",
+                "description": "allow unsafe md. (writing html, components,...)"
+              }
+            ],
+            "methods": [
+              {
+                "name": "fetch-md",
+                "description": "fetch markdown from a url or path",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "parse-markdown",
+                "description": "Parse markdown string to html content",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-navigation-pad",
+          "source": {
+            "module": "./src/furo-navigation-pad.js",
+            "symbol": "FuroNavigationPad"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners\n to the parent node and cancel the default and stop the propagation of the events.\n\n The events are available as standalone events or as combined event in the `navigated` event.\n\n ```html\n <!-- forward all navigation events except the Escape  -->\n <furo-navigation-pad\n     ignored-keys=\"Escape\" at-navigated=\"--navpad\"\n     ></furo-navigation-pad>\n\n ```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroNavigationPad/",
+          "attributes": [
+            {
+              "name": "ignored-keys",
+              "type": "String",
+              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. &#34;Escape, ArrowLeft&#34;"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "ignoredKeys",
+                "type": "String",
+                "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\""
+              }
+            ],
+            "methods": [],
+            "events": [
+              {
+                "name": "navigated",
+                "priority": "highest",
+                "description": "Generic navigation event, fired when one of the navigation keys was pressed, detail contains one of these: Escape | Enter | ArrowDown | ArrowUp |ArrowLeft|ArrowRight| PageUp | PageDown | Home | End",
+                "value": {
+                  "type": "String"
+                }
+              },
+              {
+                "name": "enter-pressed",
+                "priority": "highest",
+                "description": " Fired when Enter key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "arrow-down-pressed",
+                "priority": "highest",
+                "description": " Fired when ArrowDown key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "arrow-up-pressed",
+                "priority": "highest",
+                "description": " Fired when ArrowUp key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "arrow-left-pressed",
+                "priority": "highest",
+                "description": " Fired when ArrowLeft key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "arrow-right-pressed",
+                "priority": "highest",
+                "description": " Fired when ArrowRight key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "escape-pressed",
+                "priority": "highest",
+                "description": " Fired when Escape key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "page-up-pressed",
+                "priority": "highest",
+                "description": " Fired when PageUp key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "page-down-pressed",
+                "priority": "highest",
+                "description": " Fired when PageDown key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "home-pressed",
+                "priority": "highest",
+                "description": " Fired when Home key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              },
+              {
+                "name": "end-pressed",
+                "priority": "highest",
+                "description": " Fired when End key was pressed.",
+                "value": {
+                  "type": "KeyboardEvent"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-pretty-json",
+          "source": {
+            "module": "./src/furo-pretty-json.js",
+            "symbol": "FuroPrettyJson"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-pretty-json`\nPretty json with highlighting\n\n```html\n<furo-pretty-json\n  fn-inject-json=\"--data\"></furo-pretty-json>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroPrettyJson/",
+          "attributes": [
+          ],
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+              {
+                "name": "inject-data",
+                "description": "Inject JSON data",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-put-clipboard",
+          "source": {
+            "module": "./src/furo-put-clipboard.js",
+            "symbol": "FuroPutClipboard"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-put-clipboard`\n put content to the clipboard of the OS.\n\n```html\n\n<furo-put-clipboard\n    json\n    fn-trigger=\"--data\" at-content-put=\"--contentInClipboard\"\n    ></furo-put-clipboard>\n\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroPutClipboard/",
+          "attributes": [
+            {
+              "name": "json",
+              "type": "Boolean",
+              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention."
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "json",
+                "type": "Boolean",
+                "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention."
+              }
+            ],
+            "methods": [
+              {
+                "name": "set-data",
+                "description": "Set data that you want to put to clipboard.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "trigger",
+                "description": "Write data to the clipboard\n\nIf you trigger without data, the data which sas set with `setData` will be written to the clipboard.",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "content-put",
+                "priority": "highest",
+                "description": "Fired when content is written to clipboard",
+                "value": {
+                  "type": "*"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-demo-snippet",
+          "source": {
+            "module": "./src/doc/furo-demo-snippet.js",
+            "symbol": "FuroDemoSnippet"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-demo-snippet`\n This is a documentation helper to show a example, the flow and the source of an example.",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroDemoSnippet/",
+          "attributes": [
+            {
+              "name": "source",
+              "type": "Boolean",
+              "description": "Show the source tab"
+            },
+            {
+              "name": "demo",
+              "type": "Boolean",
+              "description": "Show the demo tab"
+            },
+            {
+              "name": "flow",
+              "type": "Boolean",
+              "description": "Show the flow tab"
+            },
+            {
+              "name": "fullscreen",
+              "type": "boolean",
+              "description": ""
+            },
+            {
+              "name": "no-demo",
+              "type": "boolean",
+              "description": "hide the demo tab"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "template",
+                "type": "",
+                "description": ""
+              },
+              {
+                "name": "markdown",
+                "type": "",
+                "description": ""
+              },
+              {
+                "name": "icon",
+                "type": "string",
+                "description": "",
+                "default": "'# '"
+              },
+              {
+                "name": "source",
+                "type": "Boolean",
+                "description": "Show the source tab"
+              },
+              {
+                "name": "demo",
+                "type": "Boolean",
+                "description": "Show the demo tab"
+              },
+              {
+                "name": "flow",
+                "type": "Boolean",
+                "description": "Show the flow tab"
+              }
+            ],
+            "methods": []
+          }
+        },
+        {
+          "name": "light-bulb",
+          "source": {
+            "module": "./src/doc/light-bulb.js",
+            "symbol": "LightBulb"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`light-bulb`\n\n This component is for the documentation",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/LightBulb/",
+          "attributes": [
+            {
+              "name": "off",
+              "type": "boolean",
+              "description": "Switch of the bulb",
+              "default": "true"
+            },
+            {
+              "name": "on",
+              "type": "Boolean",
+              "description": "Switch on the bulb"
+            }
+          ],
+          "js": {
+            "properties": [
+              {
+                "name": "on",
+                "type": "Boolean",
+                "description": "Switch on the bulb"
+              },
+              {
+                "name": "off",
+                "type": "boolean",
+                "description": "Switch of the bulb",
+                "default": "true"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "description": "",
+                "default": "\"#fee753\""
+              }
+            ],
+            "methods": [
+              {
+                "name": "set-color",
+                "description": "",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "toggle",
+                "description": "toggles the light bulb on off",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-graph-renderer",
+          "source": {
+            "module": "./src/doc/graph/furo-graph-renderer.js",
+            "symbol": "FuroGraphRenderer"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-graph-renderer`\nPaint a SVG from the received graph data",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroGraphRenderer/",
+          "attributes": [
+          ],
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+              {
+                "name": "draw",
+                "description": "Draw the graph as svg",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ],
+            "events": [
+              {
+                "name": "show-tooltip-requested",
+                "priority": "highest",
+                "description": " Fired on mouseover of a attr node",
+                "value": {
+                  "type": "node"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "furo-show-flow",
+          "source": {
+            "module": "./src/doc/graph/furo-show-flow.js",
+            "symbol": "FuroShowFlow"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-show-flow`\nRenders a flow from dom node or html source",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FuroShowFlow/",
+          "attributes": [
+          ],
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+              {
+                "name": "parse-html",
+                "description": "Parse html content",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              },
+              {
+                "name": "parse-template",
+                "description": "Parse a dom node",
+                "value": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -4,6 +4,12 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/furo-catalog.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/furo-config-loader.js",
       "declarations": [
         {
@@ -21,20 +27,20 @@
               "kind": "field",
               "name": "src",
               "privacy": "public",
-              "description": "File source",
               "type": {
                 "text": "String"
               },
+              "description": "File source",
               "attribute": "src"
             },
             {
               "kind": "field",
               "name": "section",
               "privacy": "public",
-              "description": "Targeted section to load the config in.",
               "type": {
                 "text": "String"
               },
+              "description": "Targeted section to load the config in.",
               "attribute": "section"
             }
           ],
@@ -50,18 +56,18 @@
           "attributes": [
             {
               "name": "src",
-              "description": "File source",
               "type": {
                 "text": "String"
               },
+              "description": "File source",
               "fieldName": "src"
             },
             {
               "name": "section",
-              "description": "Targeted section to load the config in.",
               "type": {
                 "text": "String"
               },
+              "description": "Targeted section to load the config in.",
               "fieldName": "section"
             }
           ],
@@ -104,10 +110,10 @@
               "kind": "field",
               "name": "section",
               "privacy": "public",
-              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
               "type": {
                 "text": "String"
               },
+              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
               "attribute": "section"
             },
             {
@@ -129,10 +135,10 @@
           "attributes": [
             {
               "name": "section",
-              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
               "type": {
                 "text": "String"
               },
+              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`",
               "fieldName": "section"
             }
           ],
@@ -146,6 +152,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroConfig",
+          "declaration": {
+            "name": "FuroConfig",
+            "module": "src/furo-config.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-config",
@@ -175,20 +189,20 @@
               "kind": "field",
               "name": "immediate",
               "privacy": "public",
-              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
               "type": {
                 "text": "Boolean"
               },
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
               "attribute": "immediate"
             },
             {
               "kind": "field",
               "name": "wait",
               "privacy": "public",
-              "description": "Debounce time in milliseconds\nDefault value: 250",
               "type": {
                 "text": "Number"
               },
+              "description": "Debounce time in milliseconds\nDefault value: 250",
               "attribute": "wait"
             },
             {
@@ -228,7 +242,8 @@
                 }
               ],
               "description": "Debounce function",
-              "privacy": "private"
+              "privacy": "private",
+              "deprecated": "-  Use trigger() instead"
             },
             {
               "kind": "field",
@@ -291,18 +306,18 @@
           "attributes": [
             {
               "name": "wait",
-              "description": "Debounce time in milliseconds\nDefault value: 250",
               "type": {
                 "text": "Number"
               },
+              "description": "Debounce time in milliseconds\nDefault value: 250",
               "fieldName": "wait"
             },
             {
               "name": "immediate",
-              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
               "type": {
                 "text": "Boolean"
               },
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false",
               "fieldName": "immediate"
             }
           ],
@@ -360,10 +375,10 @@
               "kind": "field",
               "name": "key",
               "privacy": "public",
-              "description": "Name of a feature toggle.",
               "type": {
                 "text": "String"
               },
+              "description": "Name of a feature toggle.",
               "attribute": "key"
             }
           ],
@@ -393,10 +408,10 @@
           "attributes": [
             {
               "name": "key",
-              "description": "Name of a feature toggle.",
               "type": {
                 "text": "String"
               },
+              "description": "Name of a feature toggle.",
               "fieldName": "key"
             }
           ],
@@ -468,10 +483,10 @@
               "kind": "field",
               "name": "src",
               "privacy": "public",
-              "description": "the url you want to fetch",
               "type": {
                 "text": "String"
               },
+              "description": "the url you want to fetch",
               "attribute": "src"
             }
           ],
@@ -494,10 +509,10 @@
           "attributes": [
             {
               "name": "src",
-              "description": "the url you want to fetch",
               "type": {
                 "text": "String"
               },
+              "description": "the url you want to fetch",
               "fieldName": "src"
             }
           ],
@@ -710,10 +725,10 @@
               "kind": "field",
               "name": "json",
               "privacy": "public",
-              "description": "Convert clipboard content to json",
               "type": {
                 "text": "String"
               },
+              "description": "Convert clipboard content to json",
               "attribute": "json"
             }
           ],
@@ -726,10 +741,10 @@
           "attributes": [
             {
               "name": "json",
-              "description": "Convert clipboard content to json",
               "type": {
                 "text": "String"
               },
+              "description": "Convert clipboard content to json",
               "fieldName": "json"
             }
           ],
@@ -1114,73 +1129,73 @@
             {
               "kind": "field",
               "name": "_PIdivby180",
+              "privacy": "private",
               "type": {
                 "text": "number"
               },
-              "privacy": "private",
-              "default": "0.017453292519943295",
               "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+              "default": "0.017453292519943295",
               "attribute": "_PIdivby180"
             },
             {
               "kind": "field",
               "name": "radMode",
-              "type": {
-                "text": "Boolean"
-              },
-              "default": "false",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Set to true to use rad, default is deg",
+              "default": "false",
               "attribute": "radMode"
             },
             {
               "kind": "field",
               "name": "x",
               "privacy": "public",
-              "description": "current x",
               "type": {
                 "text": "Number"
               },
+              "description": "current x",
               "attribute": "x"
             },
             {
               "kind": "field",
               "name": "y",
               "privacy": "public",
-              "description": "current y",
               "type": {
                 "text": "Number"
               },
+              "description": "current y",
               "attribute": "y"
             },
             {
               "kind": "field",
               "name": "z",
               "privacy": "public",
-              "description": "current z",
               "type": {
                 "text": "Number"
               },
+              "description": "current z",
               "attribute": "z"
             },
             {
               "kind": "field",
               "name": "t",
               "privacy": "public",
-              "description": "current t",
               "type": {
                 "text": "Number"
               },
+              "description": "current t",
               "attribute": "t"
             },
             {
               "kind": "field",
               "name": "stack",
               "privacy": "public",
-              "description": "the stack.",
               "type": {
                 "text": "Array"
               },
+              "description": "the stack.",
               "attribute": "stack"
             },
             {
@@ -1372,58 +1387,60 @@
           "attributes": [
             {
               "name": "x",
-              "description": "current x",
               "type": {
                 "text": "Number"
               },
+              "description": "current x",
               "fieldName": "x"
             },
             {
               "name": "y",
-              "description": "current y",
               "type": {
                 "text": "Number"
               },
+              "description": "current y",
               "fieldName": "y"
             },
             {
               "name": "z",
-              "description": "current z",
               "type": {
                 "text": "Number"
               },
+              "description": "current z",
               "fieldName": "z"
             },
             {
               "name": "t",
-              "description": "current t",
               "type": {
                 "text": "Number"
               },
+              "description": "current t",
               "fieldName": "t"
             },
             {
               "name": "stack",
-              "description": "the stack.",
               "type": {
                 "text": "Array"
               },
+              "description": "the stack.",
               "fieldName": "stack"
             },
             {
               "name": "radMode",
-              "description": "Set to true to use rad, default is deg",
               "type": {
-                "text": "Boolean"
+                "text": "boolean"
               },
+              "description": "Set to true to use rad, default is deg",
+              "default": "false",
               "fieldName": "radMode"
             },
             {
               "name": "_PIdivby180",
-              "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
               "type": {
-                "text": "Number"
+                "text": "number"
               },
+              "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+              "default": "0.017453292519943295",
               "fieldName": "_PIdivby180"
             }
           ],
@@ -1469,23 +1486,23 @@
             {
               "kind": "field",
               "name": "interval",
-              "type": {
-                "text": "Number"
-              },
-              "default": "200",
               "privacy": "public",
+              "type": {
+                "text": "number"
+              },
               "description": "Duration of a tact in ms.",
+              "default": "200",
               "attribute": "interval"
             },
             {
               "kind": "field",
               "name": "takt",
-              "type": {
-                "text": "Number"
-              },
-              "default": "4",
               "privacy": "public",
+              "type": {
+                "text": "number"
+              },
               "description": "Number of ticks per tact.",
+              "default": "4",
               "attribute": "takt"
             },
             {
@@ -1518,18 +1535,20 @@
           "attributes": [
             {
               "name": "interval",
-              "description": "Duration of a tact in ms.",
               "type": {
-                "text": "Number"
+                "text": "number"
               },
+              "description": "Duration of a tact in ms.",
+              "default": "200",
               "fieldName": "interval"
             },
             {
               "name": "takt",
-              "description": "Number of ticks per tact.",
               "type": {
-                "text": "Number"
+                "text": "number"
               },
+              "description": "Number of ticks per tact.",
+              "default": "4",
               "fieldName": "takt"
             },
             {
@@ -1584,60 +1603,60 @@
               "kind": "field",
               "name": "keys",
               "privacy": "public",
-              "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
               "type": {
                 "text": "String"
               },
+              "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
               "attribute": "keys"
             },
             {
               "kind": "field",
               "name": "shift",
               "privacy": "public",
-              "description": "Modifier key **shift** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **shift** must be pressed too to match",
               "attribute": "shift"
             },
             {
               "kind": "field",
               "name": "alt",
               "privacy": "public",
-              "description": "Modifier key **alt** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **alt** must be pressed too to match",
               "attribute": "alt"
             },
             {
               "kind": "field",
               "name": "command",
               "privacy": "public",
-              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
               "attribute": "command"
             },
             {
               "kind": "field",
               "name": "meta",
               "privacy": "public",
-              "description": "Modifier key **meta** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **meta** must be pressed too to match",
               "attribute": "meta"
             },
             {
               "kind": "field",
               "name": "control",
               "privacy": "public",
-              "description": "Modifier key **control** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **control** must be pressed too to match",
               "attribute": "control"
             }
           ],
@@ -1653,50 +1672,50 @@
           "attributes": [
             {
               "name": "keys",
-              "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
               "type": {
                 "text": "String"
               },
+              "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
               "fieldName": "keys"
             },
             {
               "name": "shift",
-              "description": "Modifier key **shift** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **shift** must be pressed too to match",
               "fieldName": "shift"
             },
             {
               "name": "alt",
-              "description": "Modifier key **alt** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **alt** must be pressed too to match",
               "fieldName": "alt"
             },
             {
               "name": "command",
-              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
               "fieldName": "command"
             },
             {
               "name": "meta",
-              "description": "Modifier key **meta** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **meta** must be pressed too to match",
               "fieldName": "meta"
             },
             {
               "name": "control",
-              "description": "Modifier key **control** must be pressed too to match",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Modifier key **control** must be pressed too to match",
               "fieldName": "control"
             }
           ],
@@ -1745,80 +1764,80 @@
               "kind": "field",
               "name": "key",
               "privacy": "public",
-              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
               "type": {
                 "text": "String"
               },
+              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
               "attribute": "key"
             },
             {
               "kind": "field",
               "name": "global",
               "privacy": "public",
-              "description": "Set this attribute to listen to the keydown event global (window).",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set this attribute to listen to the keydown event global (window).",
               "attribute": "global"
             },
             {
               "kind": "field",
               "name": "alt",
               "privacy": "public",
-              "description": "`alt` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`alt` key must be pressed to trigger the `key` event.",
               "attribute": "alt"
             },
             {
               "kind": "field",
               "name": "ctrl",
               "privacy": "public",
-              "description": "`ctrl` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`ctrl` key must be pressed to trigger the `key` event.",
               "attribute": "ctrl"
             },
             {
               "kind": "field",
               "name": "meta",
               "privacy": "public",
-              "description": "`meta` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`meta` key must be pressed to trigger the `key` event.",
               "attribute": "meta"
             },
             {
               "kind": "field",
               "name": "shift",
               "privacy": "public",
-              "description": "`shift` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`shift` key must be pressed to trigger the `key` event.",
               "attribute": "shift"
             },
             {
               "kind": "field",
               "name": "preventDefault",
               "privacy": "public",
-              "description": "Set this attribute to prevent the event default of the keypress event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set this attribute to prevent the event default of the keypress event.",
               "attribute": "prevent-default"
             },
             {
               "kind": "field",
               "name": "stopPropagation",
               "privacy": "public",
-              "description": "Set this to true to stop the event propagation of the keypress event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set this to true to stop the event propagation of the keypress event.",
               "attribute": "stop-propagation"
             }
           ],
@@ -1834,66 +1853,66 @@
           "attributes": [
             {
               "name": "key",
-              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
               "type": {
                 "text": "String"
               },
+              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c",
               "fieldName": "key"
             },
             {
               "name": "global",
-              "description": "Set this attribute to listen to the keydown event global (window).",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set this attribute to listen to the keydown event global (window).",
               "fieldName": "global"
             },
             {
               "name": "alt",
-              "description": "`alt` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`alt` key must be pressed to trigger the `key` event.",
               "fieldName": "alt"
             },
             {
               "name": "ctrl",
-              "description": "`ctrl` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`ctrl` key must be pressed to trigger the `key` event.",
               "fieldName": "ctrl"
             },
             {
               "name": "meta",
-              "description": "`meta` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`meta` key must be pressed to trigger the `key` event.",
               "fieldName": "meta"
             },
             {
               "name": "shift",
-              "description": "`shift` key must be pressed to trigger the `key` event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "`shift` key must be pressed to trigger the `key` event.",
               "fieldName": "shift"
             },
             {
               "name": "prevent-default",
-              "description": "Set this attribute to prevent the event default of the keypress event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set this attribute to prevent the event default of the keypress event.",
               "fieldName": "preventDefault"
             },
             {
               "name": "stop-propagation",
-              "description": "Set this to true to stop the event propagation of the keypress event.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set this to true to stop the event propagation of the keypress event.",
               "fieldName": "stopPropagation"
             }
           ],
@@ -1936,20 +1955,20 @@
               "kind": "field",
               "name": "mdsrc",
               "privacy": "public",
-              "description": "source of the md",
               "type": {
                 "text": "String"
               },
+              "description": "source of the md",
               "attribute": "mdsrc"
             },
             {
               "kind": "field",
               "name": "markdown",
               "privacy": "public",
-              "description": "markdown string",
               "type": {
                 "text": "String"
               },
+              "description": "markdown string",
               "attribute": "markdown"
             },
             {
@@ -2002,36 +2021,36 @@
               "kind": "field",
               "name": "unsafe",
               "privacy": "public",
-              "description": "allow unsafe md. (writing html, components,...)",
               "type": {
                 "text": "Boolean"
               },
+              "description": "allow unsafe md. (writing html, components,...)",
               "attribute": "unsafe"
             }
           ],
           "attributes": [
             {
               "name": "unsafe",
-              "description": "allow unsafe md. (writing html, components,...)",
               "type": {
                 "text": "Boolean"
               },
+              "description": "allow unsafe md. (writing html, components,...)",
               "fieldName": "unsafe"
             },
             {
               "name": "mdsrc",
-              "description": "source of the md",
               "type": {
                 "text": "String"
               },
+              "description": "source of the md",
               "fieldName": "mdsrc"
             },
             {
               "name": "markdown",
-              "description": "markdown string",
               "type": {
                 "text": "String"
               },
+              "description": "markdown string",
               "fieldName": "markdown"
             }
           ],
@@ -2074,10 +2093,10 @@
               "kind": "field",
               "name": "ignoredKeys",
               "privacy": "public",
-              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
               "type": {
                 "text": "String"
               },
+              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
               "attribute": "ignored-keys"
             }
           ],
@@ -2163,10 +2182,10 @@
           "attributes": [
             {
               "name": "ignored-keys",
-              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
               "type": {
                 "text": "String"
               },
+              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\"",
               "fieldName": "ignoredKeys"
             }
           ],
@@ -2303,10 +2322,10 @@
               "kind": "field",
               "name": "json",
               "privacy": "public",
-              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
               "attribute": "json"
             }
           ],
@@ -2322,10 +2341,10 @@
           "attributes": [
             {
               "name": "json",
-              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
               "fieldName": "json"
             }
           ],
@@ -2370,8 +2389,7 @@
             },
             {
               "kind": "field",
-              "name": "markdown",
-              "default": "`\\`\\`\\`html\\n${t.innerHTML}\\n\\`\\`\\``"
+              "name": "markdown"
             },
             {
               "kind": "field",
@@ -2385,10 +2403,10 @@
               "kind": "field",
               "name": "source",
               "privacy": "public",
-              "description": "Show the source tab",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Show the source tab",
               "attribute": "source",
               "reflects": true
             },
@@ -2396,10 +2414,10 @@
               "kind": "field",
               "name": "demo",
               "privacy": "public",
-              "description": "Show the demo tab",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Show the demo tab",
               "attribute": "demo",
               "reflects": true
             },
@@ -2407,10 +2425,10 @@
               "kind": "field",
               "name": "flow",
               "privacy": "public",
-              "description": "Show the flow tab",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Show the flow tab",
               "attribute": "flow",
               "reflects": true
             },
@@ -2418,6 +2436,9 @@
               "kind": "field",
               "name": "fullscreen",
               "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "fullscreen",
               "reflects": true
             },
@@ -2425,6 +2446,9 @@
               "kind": "field",
               "name": "noDemo",
               "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
               "description": "hide the demo tab",
               "attribute": "no-demo",
               "reflects": true
@@ -2433,34 +2457,40 @@
           "attributes": [
             {
               "name": "source",
-              "description": "Show the source tab",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Show the source tab",
               "fieldName": "source"
             },
             {
               "name": "demo",
-              "description": "Show the demo tab",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Show the demo tab",
               "fieldName": "demo"
             },
             {
               "name": "flow",
-              "description": "Show the flow tab",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Show the flow tab",
               "fieldName": "flow"
             },
             {
               "name": "fullscreen",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "fullscreen"
             },
             {
               "name": "no-demo",
+              "type": {
+                "text": "boolean"
+              },
               "description": "hide the demo tab",
               "fieldName": "noDemo"
             }
@@ -2504,10 +2534,10 @@
               "kind": "field",
               "name": "on",
               "privacy": "public",
-              "description": "Switch on the bulb",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Switch on the bulb",
               "attribute": "on"
             },
             {
@@ -2527,12 +2557,12 @@
             {
               "kind": "field",
               "name": "off",
-              "type": {
-                "text": "Boolean"
-              },
-              "default": "true",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Switch of the bulb",
+              "default": "true",
               "attribute": "off",
               "reflects": true
             },
@@ -2548,18 +2578,19 @@
           "attributes": [
             {
               "name": "off",
-              "description": "Switch of the bulb",
               "type": {
-                "text": "Boolean"
+                "text": "boolean"
               },
+              "description": "Switch of the bulb",
+              "default": "true",
               "fieldName": "off"
             },
             {
               "name": "on",
-              "description": "Switch on the bulb",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Switch on the bulb",
               "fieldName": "on"
             }
           ],
@@ -2585,97 +2616,6 @@
           "declaration": {
             "name": "LightBulb",
             "module": "src/doc/light-bulb.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/lib/Config.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Config Class for `furo-config`. Not intended for direct usage.",
-          "name": "Config",
-          "members": [
-            {
-              "kind": "method",
-              "name": "append",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "section"
-                },
-                {
-                  "name": "obj"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "deepCreate",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "parent"
-                },
-                {
-                  "name": "section"
-                },
-                {
-                  "name": "obj"
-                }
-              ],
-              "description": "create nodes a long they are objects"
-            },
-            {
-              "kind": "method",
-              "name": "watch",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "section"
-                },
-                {
-                  "name": "cb"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Config",
-          "declaration": {
-            "name": "Config",
-            "module": "src/lib/Config.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/lib/EmptyStackError.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Error for the `furo-forth-stack` component.",
-          "name": "EmptyStackError",
-          "superclass": {
-            "name": "Error",
-            "module": "src/lib/EmptyStackError.js"
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "EmptyStackError",
-          "declaration": {
-            "name": "EmptyStackError",
-            "module": "src/lib/EmptyStackError.js"
           }
         }
       ]
@@ -2825,6 +2765,97 @@
           "declaration": {
             "name": "FuroShowFlow",
             "module": "src/doc/graph/furo-show-flow.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/Config.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Config Class for `furo-config`. Not intended for direct usage.",
+          "name": "Config",
+          "members": [
+            {
+              "kind": "method",
+              "name": "append",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "obj"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "deepCreate",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "parent"
+                },
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "obj"
+                }
+              ],
+              "description": "create nodes a long they are objects"
+            },
+            {
+              "kind": "method",
+              "name": "watch",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "cb"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Config",
+          "declaration": {
+            "name": "Config",
+            "module": "src/lib/Config.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/EmptyStackError.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Error for the `furo-forth-stack` component.",
+          "name": "EmptyStackError",
+          "superclass": {
+            "name": "Error",
+            "module": "src/lib/EmptyStackError.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "EmptyStackError",
+          "declaration": {
+            "name": "EmptyStackError",
+            "module": "src/lib/EmptyStackError.js"
           }
         }
       ]

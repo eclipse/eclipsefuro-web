@@ -22,29 +22,29 @@
           "description": "{{if $declaration.description}}{{$declaration.description  | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | replace "\\c" " / c" | noescape}}{{end}}",
           "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/{{$declaration.name}}/",
           "attributes": [
-                    {{- $mc := -1}}
-                    {{- range $field := $declaration.attributes}}
+          {{- $mc := -1}}
+          {{- range $field := $declaration.attributes}}
 
-                    {{- $mc = $mc | add1}}{{if $mc}}, {{end -}}
-                      {
-                        "name": "{{$field.name}}",
-                        "type": "{{$field.type.text | replace "\"" "\\\""}}",
-                        "description": "{{if $field.description}}{{$field.description  | replace "\n" "\\n"}}{{end}}"
-                        {{- if $field.default}},
-                        "default": "{{$field.default  | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape}}"{{end}}
-                      }
+          {{- $mc = $mc | add1}}{{if $mc}}, {{end -}}
+            {
+              "name": "{{$field.name}}",
+              "type": "{{$field.type.text | replace "\"" "\\\""}}",
+              "description": "{{if $field.description}}{{$field.description  | replace "\n" "\\n"}}{{end}}"
+              {{- if $field.default}},
+              "default": "{{$field.default  | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape}}"{{end}}
+            }
 
-                    {{- end}}
-                    ]
+          {{- end}}
+          ]
 
-                     {{- if $declaration.slots}},
-                  "slots": [{{range $ie, $slot := $declaration.slots}}
-                      {{if $ie}}, {{end -}}
-                      {
-                        "name": "{{$slot.name}}",
-                        "description": "{{if $slot.description}}{{$slot.description  | replace "\n" "\\n"}}{{end}}"
-                      }
-                    {{- end}} ]
+           {{- if $declaration.slots}},
+        "slots": [{{range $ie, $slot := $declaration.slots}}
+            {{if $ie}}, {{end -}}
+            {
+              "name": "{{$slot.name}}",
+              "description": "{{if $slot.description}}{{$slot.description  | replace "\n" "\\n"}}{{end}}"
+            }
+          {{- end}} ]
 {{- end}}
           ,
           "js": {
@@ -88,7 +88,7 @@
                 "priority": "highest",
                 "description": "{{if $event.description}}{{$event.description | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape}}{{end}}",
                  "value": {
-                      "type": "{{if $event.type.text}}{{$event.type.text | replace "\n" "\\n" | noescape }}{{end}}"
+                      "type": "{{$event.type | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape }}"
                 }
               }
             {{- end}} ]
