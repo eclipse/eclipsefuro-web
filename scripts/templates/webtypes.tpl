@@ -1,9 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
-  "name": "Furo Data",
-  "version": "1.0.0",
+  "name": "{{.name}}",
+  "version": "{{.version}}",
   "description-markup": "markdown",
   "js-types-syntax": "typescript",
+  "default-icon": "icon.svg",
   "contributions": {
     "html": {
       "elements": [{{$i := -1}}
