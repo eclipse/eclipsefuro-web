@@ -4,6 +4,7 @@
   "description": "Declarative programming with web-components.",
   "homepage": "https://fbp.furo.pro",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
+  "web-types": "web-types.json",
   "author": {
     "name": "veith",
     "email": "",

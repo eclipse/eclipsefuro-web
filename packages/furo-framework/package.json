@@ -4,6 +4,7 @@
   "description": "Furo framework libs",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-framework",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
+  "web-types": "web-types.json",
   "author": {
     "name": "veith",
     "email": "",
