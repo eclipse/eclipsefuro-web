@@ -40,5 +40,5 @@ export class FuroConfig extends LitElement {
     config: typeof Config;
     set section(arg: any);
 }
-import { LitElement } from "lit/node_modules/lit-element/lit-element";
-import { Config } from "./lib/Config.js";
+import { LitElement } from 'lit';
+import { Config } from './lib/Config.js';

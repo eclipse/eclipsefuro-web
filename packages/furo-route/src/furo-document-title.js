@@ -47,7 +47,7 @@ import { FBP } from '@furo/fbp';
  * @customElement furo-document-title
  * @appliesMixin FBP
  */
-class FuroDocumentTitle extends FBP(LitElement) {
+export class FuroDocumentTitle extends FBP(LitElement) {
   constructor() {
     super();
     this.prefix = '';

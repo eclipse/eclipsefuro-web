@@ -13,7 +13,7 @@ import { LitElement, css } from 'lit';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroIntervalPulse extends LitElement {
+export class FuroIntervalPulse extends LitElement {
   constructor() {
     super();
     this.interval = 200;

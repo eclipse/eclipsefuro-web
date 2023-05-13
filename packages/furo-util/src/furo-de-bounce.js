@@ -22,7 +22,7 @@ import {FBP} from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroDeBounce extends FBP(LitElement) {
+export class FuroDeBounce extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    * @private

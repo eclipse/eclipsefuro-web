@@ -30,7 +30,7 @@ import { FuroFeatureToggle as FeatureToggle } from '@furo/framework/src/FuroFeat
  * @customElement furo-feature-toggle
  * @appliesMixin FBP
  */
-class FuroFeatureToggle extends FBP(LitElement) {
+export class FuroFeatureToggle extends FBP(LitElement) {
 
 
   /**

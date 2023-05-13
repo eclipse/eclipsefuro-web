@@ -14,7 +14,7 @@ import './graph/furo-show-flow.js';
 
  * @appliesMixin FBP
  */
-class FuroDemoSnippet extends FBP(LitElement) {
+export class FuroDemoSnippet extends FBP(LitElement) {
   constructor() {
     super();
 

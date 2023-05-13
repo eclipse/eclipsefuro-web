@@ -21,7 +21,7 @@ import { Config } from './lib/Config.js';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroConfigLoader extends FBP(LitElement) {
+export class FuroConfigLoader extends FBP(LitElement) {
   /**
    * @private
    * @return {Object}

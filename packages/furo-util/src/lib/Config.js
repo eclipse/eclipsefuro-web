@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
-class ConfigTree extends EventTreeNode {
+export class ConfigTree extends EventTreeNode {
   constructor(parentNode, fieldName) {
     super(parentNode);
     this._name = fieldName;

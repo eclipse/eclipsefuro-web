@@ -18,7 +18,7 @@ import { FBP } from '@furo/fbp'
  * @customElement
  * @appliesMixin FBP
  */
-class FuroLockNavigation extends FBP(LitElement) {
+export class FuroLockNavigation extends FBP(LitElement) {
   constructor() {
     super()
     this.message = 'You have unsaved changes, proceed anyway?'

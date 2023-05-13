@@ -14,7 +14,7 @@ import { FBP } from '@furo/fbp';
  * @summary pretty prints json data
  * @customElement
  */
-class FuroPrettyJson extends FBP(LitElement) {
+export class FuroPrettyJson extends FBP(LitElement) {
 
   static get styles() {
     // language=CSS

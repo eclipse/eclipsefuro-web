@@ -120,4 +120,4 @@ export class FuroForthStack extends LitElement {
      */
     private _notifyStackChange;
 }
-import { LitElement } from "lit/node_modules/lit-element/lit-element";
+import { LitElement } from 'lit';

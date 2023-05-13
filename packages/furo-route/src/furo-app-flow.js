@@ -15,7 +15,7 @@ function TypeAppFlow(name) {
  * @customElement
  * @appliesMixin FBP
  */
-class FuroAppFlow extends LitElement {
+export class FuroAppFlow extends LitElement {
   constructor() {
     super();
     // eslint-disable-next-line wc/no-constructor-attributes

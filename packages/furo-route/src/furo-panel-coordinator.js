@@ -14,7 +14,7 @@ import { panelRegistry } from './lib/panelRegistry.js';
  * @demo demo-furo-panel-coordinator with deep link
  * @appliesMixin FBP
  */
-class FuroPanelCoordinator extends FBP(LitElement) {
+export class FuroPanelCoordinator extends FBP(LitElement) {
   constructor() {
     super();
 

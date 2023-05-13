@@ -54,7 +54,7 @@ import { LitElement, html, css } from 'lit';
  * @demo demo-furo-panel-coordinator with panel coordinator
  * @customElement
  */
-class FuroPages extends LitElement {
+export class FuroPages extends LitElement {
   constructor() {
     super();
 

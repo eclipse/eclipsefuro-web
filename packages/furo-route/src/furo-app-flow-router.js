@@ -53,7 +53,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroAppFlowRouter extends FBP(LitElement) {
+export class FuroAppFlowRouter extends FBP(LitElement) {
   constructor() {
     super();
     // eslint-disable-next-line wc/no-constructor-attributes

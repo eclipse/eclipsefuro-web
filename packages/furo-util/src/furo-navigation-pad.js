@@ -34,7 +34,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroNavigationPad extends FBP(LitElement) {
+export class FuroNavigationPad extends FBP(LitElement) {
   /**
    * @private
    * @return {Object}

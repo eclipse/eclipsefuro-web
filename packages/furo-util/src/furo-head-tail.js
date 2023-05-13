@@ -13,7 +13,7 @@
  * @summary split an array
  * @customElement
  */
-class FuroHeadTail extends HTMLElement {
+export class FuroHeadTail extends HTMLElement {
   /**
    * Splits an iterable to its head (first item) and its tail (the rest) parts.
    *
