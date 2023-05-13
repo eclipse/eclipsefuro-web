@@ -217,10 +217,10 @@
               "kind": "field",
               "name": "view",
               "privacy": "public",
-              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
               "type": {
                 "text": "String"
               },
+              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
               "attribute": "view"
             },
             {
@@ -283,6 +283,10 @@
             {
               "kind": "field",
               "name": "filter",
+              "privacy": "public",
+              "type": {
+                "text": "String"
+              },
               "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
               "parameters": [
                 {
@@ -293,10 +297,6 @@
                   }
                 }
               ],
-              "privacy": "public",
-              "type": {
-                "text": "String"
-              },
               "attribute": "filter"
             },
             {
@@ -316,7 +316,11 @@
             {
               "kind": "field",
               "name": "service",
-              "description": "The service name from the specs.",
+              "privacy": "public",
+              "type": {
+                "text": "String"
+              },
+              "description": "Setze den Service",
               "parameters": [
                 {
                   "description": "-",
@@ -326,10 +330,6 @@
                   }
                 }
               ],
-              "privacy": "public",
-              "type": {
-                "text": "String"
-              },
               "attribute": "service"
             },
             {
@@ -575,70 +575,70 @@
               "kind": "field",
               "name": "pageSize",
               "privacy": "public",
-              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
               "type": {
                 "text": "Number"
               },
+              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
               "attribute": "page-size"
             },
             {
               "kind": "field",
               "name": "fields",
               "privacy": "public",
-              "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
               "type": {
                 "text": "String"
               },
+              "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
               "attribute": "fields"
             },
             {
               "kind": "field",
               "name": "orderBy",
               "privacy": "public",
-              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
               "type": {
                 "text": "String"
               },
+              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
               "attribute": "order-by"
             },
             {
               "kind": "field",
               "name": "listOnHtsIn",
               "privacy": "public",
-              "description": "Executes a list when a rel=\"list\" is injected.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Executes a list when a rel=\"list\" is injected.",
               "attribute": "list-on-hts-in"
             },
             {
               "kind": "field",
               "name": "loadRelOnHtsIn",
               "privacy": "public",
-              "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
               "attribute": "load-rel-on-hts-in"
             },
             {
               "kind": "field",
               "name": "rel",
               "privacy": "public",
-              "description": "rel which should be used on load rel",
               "type": {
                 "text": "String"
               },
+              "description": "rel which should be used on load rel",
               "attribute": "rel"
             },
             {
               "kind": "field",
               "name": "method",
               "privacy": "public",
-              "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
               "type": {
                 "text": "String"
               },
+              "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
               "attribute": "method"
             }
           ],
@@ -742,82 +742,100 @@
           "attributes": [
             {
               "name": "service",
-              "description": "The service name from the specs.",
               "type": {
                 "text": "String"
               },
+              "description": "Setze den Service",
+              "parameters": [
+                {
+                  "description": "-",
+                  "name": "service",
+                  "type": {
+                    "text": "String"
+                  }
+                }
+              ],
               "fieldName": "service"
             },
             {
               "name": "page-size",
-              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
               "type": {
                 "text": "Number"
               },
+              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
               "fieldName": "pageSize"
             },
             {
               "name": "fields",
-              "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
               "type": {
                 "text": "String"
               },
+              "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
               "fieldName": "fields"
             },
             {
               "name": "order-by",
-              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
               "type": {
                 "text": "String"
               },
+              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
               "fieldName": "orderBy"
             },
             {
               "name": "filter",
-              "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
               "type": {
                 "text": "String"
               },
+              "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
+              "parameters": [
+                {
+                  "description": "String for your filter.",
+                  "name": "filterstring",
+                  "type": {
+                    "text": "String"
+                  }
+                }
+              ],
               "fieldName": "filter"
             },
             {
               "name": "view",
-              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
               "type": {
                 "text": "String"
               },
+              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
               "fieldName": "view"
             },
             {
               "name": "list-on-hts-in",
-              "description": "Executes a list when a rel=\"list\" is injected.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Executes a list when a rel=\"list\" is injected.",
               "fieldName": "listOnHtsIn"
             },
             {
               "name": "load-rel-on-hts-in",
-              "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
               "fieldName": "loadRelOnHtsIn"
             },
             {
               "name": "rel",
-              "description": "rel which should be used on load rel",
               "type": {
                 "text": "String"
               },
+              "description": "rel which should be used on load rel",
               "fieldName": "rel"
             },
             {
               "name": "method",
-              "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
               "type": {
                 "text": "String"
               },
+              "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
               "fieldName": "method"
             }
           ],
@@ -859,16 +877,16 @@
             {
               "kind": "field",
               "name": "service",
-              "description": "Name of the service.",
+              "privacy": "public",
+              "type": {
+                "text": "String"
+              },
+              "description": "Setze den Service",
               "parameters": [
                 {
                   "name": "service"
                 }
               ],
-              "privacy": "public",
-              "type": {
-                "text": "String"
-              },
               "attribute": "service"
             },
             {
@@ -1010,10 +1028,10 @@
               "kind": "field",
               "name": "method",
               "privacy": "public",
-              "description": "Name of the custom method / rel.",
               "type": {
                 "text": "String"
               },
+              "description": "Name of the custom method / rel.",
               "attribute": "method"
             }
           ],
@@ -1099,18 +1117,23 @@
           "attributes": [
             {
               "name": "service",
-              "description": "Name of the service.",
               "type": {
                 "text": "String"
               },
+              "description": "Setze den Service",
+              "parameters": [
+                {
+                  "name": "service"
+                }
+              ],
               "fieldName": "service"
             },
             {
               "name": "method",
-              "description": "Name of the custom method / rel.",
               "type": {
                 "text": "String"
               },
+              "description": "Name of the custom method / rel.",
               "fieldName": "method"
             }
           ],
@@ -1599,6 +1622,9 @@
               "kind": "field",
               "name": "_hidden",
               "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Internal variable to update the attribute, which triggers the css",
               "attribute": "hidden",
               "reflects": true
@@ -1607,16 +1633,19 @@
               "kind": "field",
               "name": "hideOnFalse",
               "privacy": "public",
-              "description": "Hide element on false instead of true",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Hide element on false instead of true",
               "attribute": "hide-on-false"
             },
             {
               "kind": "field",
               "name": "animated",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Set this to animate the collapse and expand.",
               "attribute": "animated"
             }
@@ -1647,19 +1676,25 @@
           "attributes": [
             {
               "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Internal variable to update the attribute, which triggers the css",
               "fieldName": "_hidden"
             },
             {
               "name": "hide-on-false",
-              "description": "Hide element on false instead of true",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Hide element on false instead of true",
               "fieldName": "hideOnFalse"
             },
             {
               "name": "animated",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Set this to animate the collapse and expand.",
               "fieldName": "animated"
             }
@@ -1737,22 +1772,23 @@
             {
               "kind": "field",
               "name": "type",
-              "description": "The name of the type you want to use. The type must be registered in Env",
+              "privacy": "public",
+              "type": {
+                "text": "String"
+              },
+              "description": "Set the type. The type must be available in the environment",
               "parameters": [
                 {
                   "name": "type"
                 }
               ],
-              "privacy": "public",
-              "type": {
-                "text": "String"
-              },
               "attribute": "type"
             },
             {
               "kind": "field",
               "name": "json",
-              "description": "get the data from the data object as raw json"
+              "description": "get the data from the data object as raw json",
+              "readonly": true
             },
             {
               "kind": "method",
@@ -1860,10 +1896,15 @@
           "attributes": [
             {
               "name": "type",
-              "description": "The name of the type you want to use. The type must be registered in Env",
               "type": {
                 "text": "String"
               },
+              "description": "Set the type. The type must be available in the environment",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ],
               "fieldName": "type"
             }
           ],
@@ -1945,16 +1986,16 @@
             {
               "kind": "field",
               "name": "service",
-              "description": "Name of the service",
+              "privacy": "public",
+              "type": {
+                "text": "String"
+              },
+              "description": "Set the service name like `TaskService`.\n\nServices must be registered before.",
               "parameters": [
                 {
                   "name": "service"
                 }
               ],
-              "privacy": "public",
-              "type": {
-                "text": "String"
-              },
               "attribute": "service"
             },
             {
@@ -1987,10 +2028,15 @@
           "attributes": [
             {
               "name": "service",
-              "description": "Name of the service",
               "type": {
                 "text": "String"
               },
+              "description": "Set the service name like `TaskService`.\n\nServices must be registered before.",
+              "parameters": [
+                {
+                  "name": "service"
+                }
+              ],
               "fieldName": "service"
             }
           ],
@@ -2026,16 +2072,16 @@
             {
               "kind": "field",
               "name": "service",
-              "description": "Name des Services",
+              "privacy": "public",
+              "type": {
+                "text": "String"
+              },
+              "description": "Setze den Service",
               "parameters": [
                 {
                   "name": "service"
                 }
               ],
-              "privacy": "public",
-              "type": {
-                "text": "String"
-              },
               "attribute": "service"
             },
             {
@@ -2289,20 +2335,20 @@
               "kind": "field",
               "name": "loadOnHtsIn",
               "privacy": "public",
-              "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
               "type": {
                 "text": "Boolean"
               },
+              "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
               "attribute": "load-on-hts-in"
             },
             {
               "kind": "field",
               "name": "appendUpdateMaskQP",
               "privacy": "public",
-              "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
               "attribute": "with-update-mask"
             }
           ],
@@ -2472,26 +2518,31 @@
           "attributes": [
             {
               "name": "service",
-              "description": "Name des Services",
               "type": {
                 "text": "String"
               },
+              "description": "Setze den Service",
+              "parameters": [
+                {
+                  "name": "service"
+                }
+              ],
               "fieldName": "service"
             },
             {
               "name": "load-on-hts-in",
-              "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
               "type": {
                 "text": "Boolean"
               },
+              "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)",
               "fieldName": "loadOnHtsIn"
             },
             {
               "name": "with-update-mask",
-              "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html",
               "fieldName": "appendUpdateMaskQP"
             }
           ],
@@ -3276,12 +3327,12 @@
             {
               "kind": "field",
               "name": "service",
-              "type": {
-                "text": "String"
-              },
-              "default": "''",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "description": "Name of service",
+              "default": "''",
               "attribute": "service"
             },
             {
@@ -3296,10 +3347,10 @@
               "kind": "field",
               "name": "rel",
               "privacy": "public",
-              "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
               "type": {
                 "text": "String"
               },
+              "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
               "attribute": "rel"
             }
           ],
@@ -3315,18 +3366,19 @@
           "attributes": [
             {
               "name": "service",
-              "description": "Name of service",
               "type": {
-                "text": "String"
+                "text": "string"
               },
+              "description": "Name of service",
+              "default": "''",
               "fieldName": "service"
             },
             {
               "name": "rel",
-              "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
               "type": {
                 "text": "String"
               },
+              "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used.",
               "fieldName": "rel"
             }
           ],
@@ -3409,40 +3461,41 @@
             {
               "kind": "field",
               "name": "context",
-              "type": {
-                "text": "String"
-              },
-              "default": "'display'",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+              "default": "'display'",
               "attribute": "context"
             },
             {
               "kind": "field",
               "name": "disabled",
               "privacy": "public",
-              "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
               "attribute": "disabled"
             }
           ],
           "attributes": [
             {
               "name": "disabled",
-              "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
               "type": {
                 "text": "Boolean"
               },
+              "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
               "fieldName": "disabled"
             },
             {
               "name": "context",
-              "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
               "type": {
-                "text": "String"
+                "text": "string"
               },
+              "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+              "default": "'display'",
               "fieldName": "context"
             }
           ],
@@ -3703,7 +3756,8 @@
             },
             {
               "kind": "field",
-              "name": "rawEntity"
+              "name": "rawEntity",
+              "readonly": true
             },
             {
               "kind": "field",
@@ -4067,25 +4121,29 @@
               "kind": "field",
               "name": "_transmitValue",
               "description": "Returns all not readonly fields values with deep dive\nMandatory fields (required is true) MUST always be transmitted\n!readonly || required",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "field",
               "name": "_deltaValue",
               "description": "Returns all modified fields values with deep dive (! _pristine)\nmodified || required",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "field",
               "name": "_requiredValue",
               "description": "Returns required fields with all children",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "field",
               "name": "_validityMessage",
               "description": "Returns all validation messages",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "method",
@@ -4528,19 +4586,22 @@
               "kind": "field",
               "name": "_transmitValue",
               "description": "Returns all not readonly field values with deep dive",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "field",
               "name": "_deltaValue",
               "description": "Returns all modified field values with deep dive (! _pristine)",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "field",
               "name": "_requiredValue",
               "description": "Returns required fields with all children which are modified or\nnot readonly",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "field",
@@ -4551,7 +4612,8 @@
                   "text": "undefined|*"
                 }
               },
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "method",

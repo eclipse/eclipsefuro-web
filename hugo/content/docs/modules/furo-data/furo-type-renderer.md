@@ -78,7 +78,7 @@ You just have to follow the naming convention for your renderer.
 ### **context**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">context</span>
-<small>`String` default: **&#39;display&#39;**</small>
+<small>`string` default: **&#39;display&#39;**</small>
 
 Set the context if you need another then display.
 Prebuilt context renderers exist for display, cell, celledit.

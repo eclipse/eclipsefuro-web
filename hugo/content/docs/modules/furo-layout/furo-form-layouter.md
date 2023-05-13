@@ -76,7 +76,7 @@ default: **false**</small>
 ### **breakpointBig**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">breakpoint-big</span> <small>**reflects**</small>
-<small>`String` default: **810**</small>
+<small>`number` default: **810**</small>
 
 Set custom breakpoint big
 Default: "810"
@@ -85,7 +85,7 @@ Default: "810"
 ### **breakpointSmall**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">breakpoint-small</span> <small>**reflects**</small>
-<small>`String` default: **405**</small>
+<small>`number` default: **405**</small>
 
 Set custom breakpoints small
 Default: "405"

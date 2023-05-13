@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-lock-navigation
-**@furo/route** <small>v2.6.0</small>
+**@furo/route** <small>v2.6.1</small>
 <br>`import '@furo/route/src/furo-lock-navigation.js';`<small>
 <br>exports `<furo-lock-navigation>` custom-element-definition
 <br>superclass *LitElement*
@@ -38,7 +38,7 @@ weight: 50
 ### **message**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">message</span>
-<small>`String` default: **&#39;You have unsaved changes, proceed anyway?&#39;**</small>
+<small>`string` default: **&#39;You have unsaved changes, proceed anyway?&#39;**</small>
 
 The warning message, which is displayed at the prompt.
 <br><br>

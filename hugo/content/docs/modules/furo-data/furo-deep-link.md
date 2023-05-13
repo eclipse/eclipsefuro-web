@@ -53,7 +53,9 @@ Usually this is done in your src/configs/init.js
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
 <small>`String` </small>
 
-Name of the service
+Set the service name like `TaskService`.
+
+Services must be registered before.
 <br><br>
 
 

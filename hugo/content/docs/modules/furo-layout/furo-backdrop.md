@@ -49,21 +49,21 @@ Do not forget to add the furo-backdrop-display somewhere in the parent dom.
 
 ### **opened**
 <span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-opened</span>
-→ <small>`handle: this`</small>
+→ <small>`FuroBackdrop`</small>
 
-The **opened** event will be fired when the content is visible on the backdrop. Tipp: you can use this to focus something on the shown content.
+The **opened** event will be fired when the content is visible on the backdrop. Tipp: you can use this to focus something on the shown content. Event.details {FuroBackdrop} is the reference to the emiting DOM node.
 <br><br>
 ### **closed**
 <span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-closed</span>
-→ <small>`handle: this`</small>
+→ <small>`FuroBackdrop`</small>
 
-The **closed** event will be fired when the displayed content is invisible and the backdrop is closed. Tipp: Maybe you want to use this event to refocus the initiator.
+The **closed** event will be fired when the displayed content is invisible and the backdrop is closed. Tipp: Maybe you want to use this event to refocus the initiator. Event.details {FuroBackdrop} is the reference to the emiting DOM node.
 <br><br>
 ### **register-backdrop**
 <span  style="border-width:2px 10px 2px 2px; border-style: solid;border-color:  rgb(2, 168, 244);font-family:monospace; padding:2px 4px;">at-register-backdrop</span>
-→ <small>`handle: this`</small>
+→ <small>`FuroBackdrop`</small>
 
-Internal event to move the contents to the backdrop-display.
+Internal event to move the contents to the backdrop-display. Event.details {FuroBackdrop} is the reference to the emiting DOM node.
 <br><br>
 
 ## Methods

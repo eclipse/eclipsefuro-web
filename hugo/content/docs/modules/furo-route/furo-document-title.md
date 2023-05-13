@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-document-title
-**@furo/route** <small>v2.6.0</small>
+**@furo/route** <small>v2.6.1</small>
 <br>`import '@furo/route/src/furo-document-title.js';`<small>
 <br>exports `<furo-document-title>` custom-element-definition
 <br>superclass *LitElement*
@@ -69,7 +69,7 @@ weight: 50
 ### **prefix**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">prefix</span>
-<small>`String` default: **&#39;&#39;**</small>
+<small>`string` default: **&#39;&#39;**</small>
 
 prefix part, you can also use `setPrefix()`.`
 <br><br>
@@ -77,7 +77,7 @@ prefix part, you can also use `setPrefix()`.`
 ### **title**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">title</span>
-<small>`String` default: **&#39;&#39;**</small>
+<small>`string` default: **&#39;&#39;**</small>
 
 Title part, you can also use `setTitle()` or `bindTitle().`
 <br><br>
@@ -85,7 +85,7 @@ Title part, you can also use `setTitle()` or `bindTitle().`
 ### **suffix**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">suffix</span>
-<small>`String` default: **&#39;&#39;**</small>
+<small>`string` default: **&#39;&#39;**</small>
 
 Suffix part, you can also use `setSuffix()` or `bindSuffix().`
 <br><br>

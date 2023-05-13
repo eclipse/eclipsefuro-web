@@ -81,7 +81,7 @@ Only useable if your service has implemented this feature.
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
 <small>`String` </small>
 
-The service name from the specs.
+Setze den Service
 <br><br>
 
 

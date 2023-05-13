@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-app-flow-router
-**@furo/route** <small>v2.6.0</small>
+**@furo/route** <small>v2.6.1</small>
 <br>`import '@furo/route/src/furo-app-flow-router.js';`<small>
 <br>exports `<furo-app-flow-router>` custom-element-definition
 <br>superclass *LitElement*
@@ -74,7 +74,7 @@ Use this component with app-flow and furo-pages to implement your application fl
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">config</span>
 <small>`Array` </small>
 
-The Configuration Array
+build internal config for faster access
 <br><br>
 
 ### **display**
@@ -86,7 +86,7 @@ default: **&#39;none&#39;**</small>
 ### **urlSpaceRegex**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">url-space-regex</span>
-<small>`string|RegExp` default: **&#39;&#39;**</small>
+<small>`string` default: **&#39;&#39;**</small>
 
 default value of urlSpaceRegex. this value can be rewritten via `url-space-regex` attribute
 <br><br>

@@ -59,7 +59,7 @@ Hide element on false instead of true
 ### **animated**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">animated</span>
-</small>
+<small>`boolean` </small>
 
 Set this to animate the collapse and expand.
 <br><br>

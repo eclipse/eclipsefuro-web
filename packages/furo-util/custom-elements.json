@@ -4,12 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/furo-catalog.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/furo-config-loader.js",
       "declarations": [
         {
@@ -2622,6 +2616,97 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/lib/Config.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Config Class for `furo-config`. Not intended for direct usage.",
+          "name": "Config",
+          "members": [
+            {
+              "kind": "method",
+              "name": "append",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "obj"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "deepCreate",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "parent"
+                },
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "obj"
+                }
+              ],
+              "description": "create nodes a long they are objects"
+            },
+            {
+              "kind": "method",
+              "name": "watch",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "section"
+                },
+                {
+                  "name": "cb"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Config",
+          "declaration": {
+            "name": "Config",
+            "module": "src/lib/Config.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/lib/EmptyStackError.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Error for the `furo-forth-stack` component.",
+          "name": "EmptyStackError",
+          "superclass": {
+            "name": "Error",
+            "module": "src/lib/EmptyStackError.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "EmptyStackError",
+          "declaration": {
+            "name": "EmptyStackError",
+            "module": "src/lib/EmptyStackError.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/doc/graph/furo-graph-renderer.js",
       "declarations": [
         {
@@ -2765,97 +2850,6 @@
           "declaration": {
             "name": "FuroShowFlow",
             "module": "src/doc/graph/furo-show-flow.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/lib/Config.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Config Class for `furo-config`. Not intended for direct usage.",
-          "name": "Config",
-          "members": [
-            {
-              "kind": "method",
-              "name": "append",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "section"
-                },
-                {
-                  "name": "obj"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "deepCreate",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "parent"
-                },
-                {
-                  "name": "section"
-                },
-                {
-                  "name": "obj"
-                }
-              ],
-              "description": "create nodes a long they are objects"
-            },
-            {
-              "kind": "method",
-              "name": "watch",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "section"
-                },
-                {
-                  "name": "cb"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Config",
-          "declaration": {
-            "name": "Config",
-            "module": "src/lib/Config.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/lib/EmptyStackError.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Error for the `furo-forth-stack` component.",
-          "name": "EmptyStackError",
-          "superclass": {
-            "name": "Error",
-            "module": "src/lib/EmptyStackError.js"
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "EmptyStackError",
-          "declaration": {
-            "name": "EmptyStackError",
-            "module": "src/lib/EmptyStackError.js"
           }
         }
       ]

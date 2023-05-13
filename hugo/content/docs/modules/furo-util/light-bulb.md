@@ -39,7 +39,7 @@ Switch on the bulb
 ### **off**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">off</span> <small>**reflects**</small>
-<small>`Boolean` default: **true**</small>
+<small>`boolean` default: **true**</small>
 
 Switch of the bulb
 <br><br>

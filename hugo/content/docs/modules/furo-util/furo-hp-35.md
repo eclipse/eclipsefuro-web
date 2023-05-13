@@ -52,7 +52,7 @@ http://h10032.www1.hp.com/ctg/Manual/c01579350
 ### **radMode**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">radMode</span>
-<small>`Boolean` default: **false**</small>
+<small>`boolean` default: **false**</small>
 
 Set to true to use rad, default is deg
 <br><br>

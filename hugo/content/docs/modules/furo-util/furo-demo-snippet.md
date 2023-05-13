@@ -33,7 +33,7 @@ weight: 50
 <br><br>
 
 ### **markdown**
-default: **`\`\`\`html\n${t.innerHTML}\n\`\`\``**</small>
+</small>
 
 
 <br><br>

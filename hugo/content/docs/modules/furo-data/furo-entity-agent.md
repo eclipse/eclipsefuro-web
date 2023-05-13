@@ -50,7 +50,7 @@ weight: 50
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
 <small>`String` </small>
 
-Name des Services
+Setze den Service
 <br><br>
 
 
