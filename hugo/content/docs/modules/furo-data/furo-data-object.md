@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-data-object
-**@furo/data** <small>v2.16.4</small>
+**@furo/data** <small>v2.16.6</small>
 <br>`import '@furo/data/src/furo-data-object.js';`<small>
 <br>exports *FuroDataObject* js
 <br>exports `<furo-data-object>` custom-element-definition
@@ -57,7 +57,7 @@ transform incomming data to an object and vice versa. You can access the manipul
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">type</span>
 <small>`String` </small>
 
-The name of the type you want to use. The type must be registered in Env
+Set the type. The type must be available in the environment
 <br><br>
 
 ### **json**

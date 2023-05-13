@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-empty-spacer
-**@furo/layout** <small>v2.2.2</small>
+**@furo/layout** <small>v2.2.4</small>
 <br>`import '@furo/layout/src/furo-empty-spacer.js';`<small>
+<br>exports *FuroEmptySpacer* js
 <br>exports `<furo-empty-spacer>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *fill the space in a furo-xxxx-flex*</small>
@@ -37,7 +38,7 @@ weight: 50
 ### **flex**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">flex</span> <small>**reflects**</small>
-<small>`Boolean` default: **true**</small>
+<small>`boolean` default: **true**</small>
 
 Attribute flex for furo-horizontal-flex and furo-vertical-flex
 <br><br>
@@ -45,7 +46,7 @@ Attribute flex for furo-horizontal-flex and furo-vertical-flex
 ### **hidden**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">hidden</span> <small>**reflects**</small>
-<small>`Boolean` default: **false**</small>
+<small>`boolean` default: **false**</small>
 
 Set to true to hide the spacer
 <br><br>

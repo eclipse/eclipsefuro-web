@@ -14,14 +14,15 @@ import './graph/furo-show-flow.js';
 
  * @appliesMixin FBP
  */
-class FuroDemoSnippet extends FBP(LitElement) {
+export class FuroDemoSnippet extends FBP(LitElement) {
   constructor() {
     super();
 
     // eslint-disable-next-line wc/no-constructor-attributes
     const t = this.querySelector('template');
     this.template = t.content;
-    this.markdown = `\`\`\`html\n${t.innerHTML}\n\`\`\``;
+    // eslint-disable-next-line
+    this.markdown = "```html\n"  + t.innerHTML + "\n```";
 
     this.icon = '# ';
     this.addEventListener('source', () => {

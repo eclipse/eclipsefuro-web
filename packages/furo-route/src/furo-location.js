@@ -44,7 +44,7 @@ import { LitElement, css } from 'lit';
  * @summary url watcher
  * @customElement
  */
-class FuroLocation extends LitElement {
+export class FuroLocation extends LitElement {
   constructor() {
     super();
 

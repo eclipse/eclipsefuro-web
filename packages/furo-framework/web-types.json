@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "@furo/framework",
+  "version": "2.4.4",
+  "description-markup": "markdown",
+  "js-types-syntax": "typescript",
+  "default-icon": "icon.svg",
+  "contributions": {
+    "html": {
+      "elements": []
+    }
+  }
+}

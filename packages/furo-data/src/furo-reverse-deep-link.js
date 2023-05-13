@@ -18,7 +18,7 @@ import { Env } from '@furo/framework';
  * @summary create query param object from HATEOAS
  * @customElement
  */
-class FuroReverseDeepLink extends LitElement {
+export class FuroReverseDeepLink extends LitElement {
   constructor() {
     super();
 

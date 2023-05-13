@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-interval-pulse
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-interval-pulse.js';`<small>
+<br>exports *FuroIntervalPulse* js
 <br>exports `<furo-interval-pulse>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *trigger an event in intervals*</small>
@@ -30,7 +31,7 @@ Pulses a tick event every `interval` ms duration and every `takt` a tock event i
 ### **interval**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">interval</span>
-<small>`Number` default: **200**</small>
+<small>`number` default: **200**</small>
 
 Duration of a tact in ms.
 <br><br>
@@ -38,7 +39,7 @@ Duration of a tact in ms.
 ### **takt**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">takt</span>
-<small>`Number` default: **4**</small>
+<small>`number` default: **4**</small>
 
 Number of ticks per tact.
 <br><br>

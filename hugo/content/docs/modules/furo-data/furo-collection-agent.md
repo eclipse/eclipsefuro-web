@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-collection-agent
-**@furo/data** <small>v2.16.4</small>
+**@furo/data** <small>v2.16.6</small>
 <br>`import '@furo/data/src/furo-collection-agent.js';`<small>
+<br>exports *FuroCollectionAgent* js
 <br>exports `<furo-collection-agent>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>
@@ -81,7 +82,7 @@ Only useable if your service has implemented this feature.
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
 <small>`String` </small>
 
-The service name from the specs.
+Setze den Service
 <br><br>
 
 

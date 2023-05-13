@@ -1,9 +1,10 @@
 {
 	"name": "@furo/route",
 	"description": "Routing components",
-	"version": "2.6.1",
+	"version": "2.6.4",
 	"homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-route",
 	"repository": "git@github.com:eclipse/eclipsefuro-web.git",
+	"web-types": "web-types.json",
 	"author": {
 		"name": "",
 		"email": "",
@@ -26,8 +27,8 @@
 		"test:watch": "../../node_modules/.bin/web-test-runner  --watch"
 	},
 	"dependencies": {
-		"@furo/fbp": "^6.7.1",
-		"@furo/framework": "^2.4.2",
+		"@furo/fbp": "^6.7.4",
+		"@furo/framework": "^2.4.5",
 		"lit": "^2.0.2"
 	},
 	"publishConfig": {
@@ -59,5 +60,5 @@
 			"git add"
 		]
 	},
-	"gitHead": "6c63b2162a1b903661c2679b891607321fead52e"
+	"gitHead": "b8ff9b3ddc4cc691d89607771feed0ac7e168c4b"
 }

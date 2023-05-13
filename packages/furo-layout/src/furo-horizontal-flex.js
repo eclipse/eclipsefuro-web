@@ -27,7 +27,7 @@ import { LitElement, html, css } from 'lit';
  * @demo demo-furo-horizontal-flex Basic usage
  * @appliesMixin FBP
  */
-class FuroHorizontalFlex extends LitElement {
+export class FuroHorizontalFlex extends LitElement {
   /**
    *
    * @private

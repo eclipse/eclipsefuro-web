@@ -18,7 +18,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroFetchJson extends FBP(LitElement) {
+export class FuroFetchJson extends FBP(LitElement) {
   /**
    * @private
    * @return {Object}

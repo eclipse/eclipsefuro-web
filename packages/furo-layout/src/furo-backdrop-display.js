@@ -24,7 +24,7 @@ import { FBP } from '@furo/fbp'
  * @demo demo-furo-backdrop Basic usage
  * @appliesMixin FBP
  */
-class FuroBackdropDisplay extends FBP(LitElement) {
+export class FuroBackdropDisplay extends FBP(LitElement) {
   constructor() {
     super()
     /**

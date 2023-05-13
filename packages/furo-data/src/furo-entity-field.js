@@ -15,7 +15,7 @@ import { NodeEvent } from '@furo/framework/src/EventTreeNode';
  * @customElement
  * @mixes FBP
  */
-class FuroEntityField extends LitElement {
+export class FuroEntityField extends LitElement {
   /**
    * Set the value of the field.
    * @param value {*}

@@ -35,18 +35,21 @@
             {
               "kind": "field",
               "name": "toDuration",
+              "privacy": "public",
               "type": {
                 "text": "number"
               },
               "description": "timeout duration",
               "default": "100",
-              "privacy": "public",
               "attribute": "to-duration"
             },
             {
               "kind": "field",
               "name": "start",
               "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Needed to start the animation.",
               "attribute": "start",
               "reflects": true
@@ -55,6 +58,9 @@
               "kind": "field",
               "name": "show",
               "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Indicates that the backdrop is shown.",
               "attribute": "show",
               "reflects": true
@@ -63,20 +69,27 @@
           "attributes": [
             {
               "name": "start",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Needed to start the animation.",
               "fieldName": "start"
             },
             {
               "name": "show",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Indicates that the backdrop is shown.",
               "fieldName": "show"
             },
             {
               "name": "to-duration",
-              "description": "Timeout duration, to wait to notify the changes.\n\nNote: the animations in the css are set with 250ms.\n\nIf you are interested to use at-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.\n\nIf you are interested to use at-opened to show some ui stuff, set this value higher or equal 250.",
               "type": {
-                "text": "Number"
+                "text": "number"
               },
+              "description": "timeout duration",
+              "default": "100",
               "fieldName": "toDuration"
             }
           ],
@@ -96,6 +109,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroBackdropDisplay",
+          "declaration": {
+            "name": "FuroBackdropDisplay",
+            "module": "src/furo-backdrop-display.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-backdrop-display",
@@ -134,23 +155,23 @@
           "events": [
             {
               "type": {
-                "text": "handle: this"
+                "text": "FuroBackdrop"
               },
-              "description": "The **opened** event will be fired when the content is visible on the backdrop. Tipp: you can use this to focus something on the shown content.",
+              "description": "The **opened** event will be fired when the content is visible on the backdrop. Tipp: you can use this to focus something on the shown content. Event.details {FuroBackdrop} is the reference to the emiting DOM node.",
               "name": "opened"
             },
             {
               "type": {
-                "text": "handle: this"
+                "text": "FuroBackdrop"
               },
-              "description": "The **closed** event will be fired when the displayed content is invisible and the backdrop is closed. Tipp: Maybe you want to use this event to refocus the initiator.",
+              "description": "The **closed** event will be fired when the displayed content is invisible and the backdrop is closed. Tipp: Maybe you want to use this event to refocus the initiator. Event.details {FuroBackdrop} is the reference to the emiting DOM node.",
               "name": "closed"
             },
             {
               "type": {
-                "text": "handle: this"
+                "text": "FuroBackdrop"
               },
-              "description": "Internal event to move the contents to the backdrop-display.",
+              "description": "Internal event to move the contents to the backdrop-display. Event.details {FuroBackdrop} is the reference to the emiting DOM node.",
               "name": "register-backdrop"
             }
           ],
@@ -170,6 +191,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroBackdrop",
+          "declaration": {
+            "name": "FuroBackdrop",
+            "module": "src/furo-backdrop.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-backdrop",
@@ -192,24 +221,24 @@
             {
               "kind": "field",
               "name": "flex",
-              "type": {
-                "text": "Boolean"
-              },
-              "default": "true",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+              "default": "true",
               "attribute": "flex",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "hidden",
-              "type": {
-                "text": "Boolean"
-              },
-              "default": "false",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "description": "Set to true to hide the spacer",
+              "default": "false",
               "attribute": "hidden",
               "reflects": true
             }
@@ -217,18 +246,20 @@
           "attributes": [
             {
               "name": "flex",
-              "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
               "type": {
-                "text": "Boolean"
+                "text": "boolean"
               },
+              "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+              "default": "true",
               "fieldName": "flex"
             },
             {
               "name": "hidden",
-              "description": "Set to true to hide the spacer",
               "type": {
-                "text": "Boolean"
+                "text": "boolean"
               },
+              "description": "Set to true to hide the spacer",
+              "default": "false",
               "fieldName": "hidden"
             }
           ],
@@ -242,6 +273,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroEmptySpacer",
+          "declaration": {
+            "name": "FuroEmptySpacer",
+            "module": "src/furo-empty-spacer.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-empty-spacer",
@@ -283,7 +322,7 @@
               "type": {
                 "text": "HTMLElement [0..n]"
               },
-              "description": "default slot to add content. Tags: form",
+              "description": "default slot to add content.",
               "name": ""
             }
           ],
@@ -328,24 +367,24 @@
             {
               "kind": "field",
               "name": "breakpointBig",
-              "type": {
-                "text": "String"
-              },
-              "default": "810",
               "privacy": "public",
+              "type": {
+                "text": "number"
+              },
               "description": "Set custom breakpoint big\nDefault: \"810\"",
+              "default": "810",
               "attribute": "breakpoint-big",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "breakpointSmall",
-              "type": {
-                "text": "String"
-              },
-              "default": "405",
               "privacy": "public",
+              "type": {
+                "text": "number"
+              },
               "description": "Set custom breakpoints small\nDefault: \"405\"",
+              "default": "405",
               "attribute": "breakpoint-small",
               "reflects": true
             },
@@ -353,10 +392,10 @@
               "kind": "field",
               "name": "narrowFix",
               "privacy": "public",
-              "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
               "attribute": "narrow-fix",
               "reflects": true
             },
@@ -364,10 +403,10 @@
               "kind": "field",
               "name": "narrowerFix",
               "privacy": "public",
-              "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
               "attribute": "narrower-fix",
               "reflects": true
             }
@@ -382,35 +421,72 @@
           ],
           "attributes": [
             {
-              "name": "breakpoint-big",
-              "description": "Set custom breakpoint big\nDefault: \"810\"",
               "type": {
-                "text": "String"
+                "text": "bool"
               },
+              "description": "One column layout.",
+              "name": "one"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Two column layout, switches to one when breakpoint is reached.",
+              "name": "two"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Three column layout, switches to one when breakpoint is reached.",
+              "name": "three"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Three column layout, switches to two when breakpoint-big is reached and to one if breakpoint-small is reached.",
+              "name": "four"
+            },
+            {
+              "type": {
+                "text": "bool"
+              },
+              "description": "Three column layout, switches to three when breakpoint-big is reached and to one if breakpoint-small is reached. Tags: form",
+              "name": "six"
+            },
+            {
+              "name": "breakpoint-big",
+              "type": {
+                "text": "number"
+              },
+              "description": "Set custom breakpoint big\nDefault: \"810\"",
+              "default": "810",
               "fieldName": "breakpointBig"
             },
             {
               "name": "breakpoint-small",
-              "description": "Set custom breakpoints small\nDefault: \"405\"",
               "type": {
-                "text": "String"
+                "text": "number"
               },
+              "description": "Set custom breakpoints small\nDefault: \"405\"",
+              "default": "405",
               "fieldName": "breakpointSmall"
             },
             {
               "name": "narrow-fix",
-              "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
               "fieldName": "narrowFix"
             },
             {
               "name": "narrower-fix",
-              "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
               "type": {
                 "text": "Boolean"
               },
+              "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
               "fieldName": "narrowerFix"
             }
           ],
@@ -430,6 +506,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroFormLayouter",
+          "declaration": {
+            "name": "FuroFormLayouter",
+            "module": "src/furo-form-layouter.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-form-layouter",
@@ -486,6 +570,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroHorizontalFlex",
+          "declaration": {
+            "name": "FuroHorizontalFlex",
+            "module": "src/furo-horizontal-flex.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-horizontal-flex",
@@ -580,92 +672,92 @@
               "kind": "field",
               "name": "lefthandle",
               "privacy": "public",
-              "description": "add a handle to the left side",
               "type": {
                 "text": "Boolean"
               },
+              "description": "add a handle to the left side",
               "attribute": "lefthandle"
             },
             {
               "kind": "field",
               "name": "righthandle",
               "privacy": "public",
-              "description": "add a handle to the right side",
               "type": {
                 "text": "Boolean"
               },
+              "description": "add a handle to the right side",
               "attribute": "righthandle"
             },
             {
               "kind": "field",
               "name": "remember",
               "privacy": "public",
-              "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
               "type": {
                 "text": "String"
               },
+              "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
               "attribute": "remember"
             },
             {
               "kind": "field",
               "name": "maxwidth",
               "privacy": "public",
-              "description": "Set the maximal width of the resizer",
               "type": {
                 "text": "Number"
               },
+              "description": "Set the maximal width of the resizer",
               "attribute": "maxwidth"
             },
             {
               "kind": "field",
               "name": "minwidth",
               "privacy": "public",
-              "description": "Set the minimal width of the resizer",
               "type": {
                 "text": "Number"
               },
+              "description": "Set the minimal width of the resizer",
               "attribute": "minwidth"
             }
           ],
           "attributes": [
             {
               "name": "lefthandle",
-              "description": "add a handle to the left side",
               "type": {
                 "text": "Boolean"
               },
+              "description": "add a handle to the left side",
               "fieldName": "lefthandle"
             },
             {
               "name": "righthandle",
-              "description": "add a handle to the right side",
               "type": {
                 "text": "Boolean"
               },
+              "description": "add a handle to the right side",
               "fieldName": "righthandle"
             },
             {
               "name": "remember",
-              "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
               "type": {
                 "text": "String"
               },
+              "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
               "fieldName": "remember"
             },
             {
               "name": "maxwidth",
-              "description": "Set the maximal width of the resizer",
               "type": {
                 "text": "Number"
               },
+              "description": "Set the maximal width of the resizer",
               "fieldName": "maxwidth"
             },
             {
               "name": "minwidth",
-              "description": "Set the minimal width of the resizer",
               "type": {
                 "text": "Number"
               },
+              "description": "Set the minimal width of the resizer",
               "fieldName": "minwidth"
             }
           ],
@@ -685,6 +777,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroResizer",
+          "declaration": {
+            "name": "FuroResizer",
+            "module": "src/furo-resizer.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-resizer",
@@ -734,20 +834,20 @@
               "kind": "field",
               "name": "reverse",
               "privacy": "public",
-              "description": "flip the left and right side",
               "type": {
                 "text": "Boolean"
               },
+              "description": "flip the left and right side",
               "attribute": "reverse"
             }
           ],
           "attributes": [
             {
               "name": "reverse",
-              "description": "flip the left and right side",
               "type": {
                 "text": "Boolean"
               },
+              "description": "flip the left and right side",
               "fieldName": "reverse"
             }
           ],
@@ -767,6 +867,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroSplitView",
+          "declaration": {
+            "name": "FuroSplitView",
+            "module": "src/furo-split-view.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-split-view",
@@ -805,6 +913,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroVerticalFlex",
+          "declaration": {
+            "name": "FuroVerticalFlex",
+            "module": "src/furo-vertical-flex.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-vertical-flex",
@@ -867,6 +983,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroVerticalScroller",
+          "declaration": {
+            "name": "FuroVerticalScroller",
+            "module": "src/furo-vertical-scroller.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-vertical-scroller",

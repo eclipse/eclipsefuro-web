@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-demo-snippet
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/doc/furo-demo-snippet.js';`<small>
+<br>exports *FuroDemoSnippet* js
 <br>exports `<furo-demo-snippet>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>
@@ -33,7 +34,7 @@ weight: 50
 <br><br>
 
 ### **markdown**
-default: **`\`\`\`html\n${t.innerHTML}\n\`\`\``**</small>
+</small>
 
 
 <br><br>

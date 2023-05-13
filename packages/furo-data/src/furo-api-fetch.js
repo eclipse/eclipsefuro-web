@@ -29,7 +29,7 @@
  * @summary fetch data from network
  * @customElement
  */
-class FuroApiFetch extends HTMLElement {
+export class FuroApiFetch extends HTMLElement {
   constructor() {
     super();
     /**

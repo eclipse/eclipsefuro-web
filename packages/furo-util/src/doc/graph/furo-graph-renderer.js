@@ -15,7 +15,7 @@ import '@svgdotjs/svg.panzoom.js/dist/svg.panzoom.esm.js';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroGraphRenderer extends FBP(LitElement) {
+export class FuroGraphRenderer extends FBP(LitElement) {
   /**
    * Draw the graph as svg
    * @param {dagre} graph - Dagre graph

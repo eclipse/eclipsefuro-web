@@ -15,7 +15,7 @@ import { LitElement, css } from 'lit';
  * @summary checks for a specific rel
  * @customElement
  */
-class FuroRelExists extends LitElement {
+export class FuroRelExists extends LitElement {
   /**
    * Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
    *

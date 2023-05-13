@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorGoogleProtobufInt64Value
 
-**@furo/furo-framework** <small>v2.4.2</small>
+**@furo/furo-framework** <small>v2.4.4</small>
 <br>`import '@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufInt64Value.js';`<small>
 <br>exports *ValidatorGoogleProtobufInt64Value* js</small>
 

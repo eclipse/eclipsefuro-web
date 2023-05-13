@@ -1,9 +1,10 @@
 {
   "name": "@furo/util",
-  "version": "2.1.7",
+  "version": "2.1.10",
   "description": "package sample",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-util",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
+  "web-types": "web-types.json",
   "author": {
     "name": "",
     "email": "",
@@ -26,9 +27,9 @@
     "test:watch": "../../node_modules/.bin/web-test-runner  --watch"
   },
   "dependencies": {
-    "@furo/fbp": "^6.7.1",
-    "@furo/framework": "^2.4.2",
-    "@furo/layout": "^2.2.2",
+    "@furo/fbp": "^6.7.4",
+    "@furo/framework": "^2.4.5",
+    "@furo/layout": "^2.2.5",
     "@svgdotjs/svg.js": "^3.0.13",
     "@svgdotjs/svg.panzoom.js": "^2.1.0",
     "dagre": "^0.8.4",
@@ -65,5 +66,5 @@
       "git add"
     ]
   },
-  "gitHead": "6c63b2162a1b903661c2679b891607321fead52e"
+  "gitHead": "b8ff9b3ddc4cc691d89607771feed0ac7e168c4b"
 }

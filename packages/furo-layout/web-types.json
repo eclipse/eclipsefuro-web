@@ -1,0 +1,466 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "@furo/layout",
+  "version": "2.2.4",
+  "description-markup": "markdown",
+  "js-types-syntax": "typescript",
+  "default-icon": "icon.svg",
+  "contributions": {
+    "html": {
+      "elements": [
+          {
+          "name": "furo-backdrop-display",
+          "source": {
+            "module": "./src/furo-backdrop-display.js",
+            "symbol": "FuroBackdropDisplay"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-backdrop-display`\n\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n<!-- place the display in your main-stage -->\n<furo-backdrop-display></furo-backdrop-display>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop-display/",
+          "attributes": [{
+                        "name": "start",
+                        "type": "boolean",
+                        "description": "Needed to start the animation."
+                      }, {
+                        "name": "show",
+                        "type": "boolean",
+                        "description": "Indicates that the backdrop is shown."
+                      }, {
+                        "name": "to-duration",
+                        "type": "number",
+                        "description": "timeout duration",
+                        "default": "100"
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "toDuration",
+                "type": "number",
+                "description": "timeout duration",
+                "default": "100"
+              }
+            ],
+            "methods": [
+            {
+              "name": "close",
+              "description": "closes the backdrop.\nYou can close the backdrop on the display element, this is useful when you want to close the backdrops on page\nchanges.\n\nUsualy the component which triggers the backdrop or is displayed closes it.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],"css": {
+            "properties": [
+              {
+
+              }
+            ]
+          }
+        }
+      }, 
+          {
+          "name": "furo-backdrop",
+          "source": {
+            "module": "./src/furo-backdrop.js",
+            "symbol": "FuroBackdrop"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n<furo-backdrop at-opened=\"--BackdropFocus\" at-closed=\"--backdropClosed\"\n  fn-show=\"--expandIconClicked\"\n  fn-close=\"--closeRequested, --recordSelected\">\n     <any-component at-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n</furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+            {
+              "name": "show",
+              "description": "Initiates the backdrop and shows the content on top of the backdrop area.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "close",
+              "description": "Hides the display.\n\n**Note:** The display will also get closed when the user clicks on the backdrop.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "opened",
+                "priority": "highest",
+                "description": "The **opened** event will be fired when the content is visible on the backdrop. Tipp: you can use this to focus something on the shown content. Event.details {FuroBackdrop} is the reference to the emiting DOM node.",
+                 "value": {
+                      "type": "FuroBackdrop"
+                }
+              }
+              , 
+              {
+                "name": "closed",
+                "priority": "highest",
+                "description": "The **closed** event will be fired when the displayed content is invisible and the backdrop is closed. Tipp: Maybe you want to use this event to refocus the initiator. Event.details {FuroBackdrop} is the reference to the emiting DOM node.",
+                 "value": {
+                      "type": "FuroBackdrop"
+                }
+              }
+              , 
+              {
+                "name": "register-backdrop",
+                "priority": "highest",
+                "description": "Internal event to move the contents to the backdrop-display. Event.details {FuroBackdrop} is the reference to the emiting DOM node.",
+                 "value": {
+                      "type": "FuroBackdrop"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-empty-spacer",
+          "source": {
+            "module": "./src/furo-empty-spacer.js",
+            "symbol": "FuroEmptySpacer"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.\n\n<furo-demo-snippet source>\n<template>\n <furo-horizontal-flex>\n  <div>small</div>\n  <!-- A furo-empty-spacer will fill the available space. -->\n  <furo-empty-spacer style=\"border: 1px dashed lightgray;\"></furo-empty-spacer>\n  <div>small</div>\n </furo-horizontal-flex>\n</template>\n</furo-demo-snippet>",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-empty-spacer/",
+          "attributes": [{
+                        "name": "flex",
+                        "type": "boolean",
+                        "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+                        "default": "true"
+                      }, {
+                        "name": "hidden",
+                        "type": "boolean",
+                        "description": "Set to true to hide the spacer",
+                        "default": "false"
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "flex",
+                "type": "boolean",
+                "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+                "default": "true"
+              }, {
+                "name": "hidden",
+                "type": "boolean",
+                "description": "Set to true to hide the spacer",
+                "default": "false"
+              }
+            ],
+            "methods": []
+        }
+      }, 
+          {
+          "name": "furo-form-layouter",
+          "source": {
+            "module": "./src/furo-form-layouter.js",
+            "symbol": "FuroFormLayouter"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, three, four and six\n\n```html\n<!-- four coulumn layout -->\n<furo-form-layouter four>\n   <input-element></input-element>\n   <input-element double></input-element>\n   <input-element newline></input-element>\n   <input-element full></input-element>\n</furo-form-layouter>\n```\n\n\nTo customize the slotted elements inside furo-form-layouter there are several attributes.\n- double | stretches the element over two units\n- full | stretches the element to full width\n- newline | forces a new line\n\n### Responsiveness\nColumns | narrow | narrower  |\n----------------|-------------|-------------|\n`one` | one | one |\n`two` | one | one |\n`three` | one | one |\n`four` | two | one |\n`six` | three | one |",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-form-layouter/",
+          "attributes": [{
+                        "name": "one",
+                        "type": "bool",
+                        "description": "One column layout."
+                      }, {
+                        "name": "two",
+                        "type": "bool",
+                        "description": "Two column layout, switches to one when breakpoint is reached."
+                      }, {
+                        "name": "three",
+                        "type": "bool",
+                        "description": "Three column layout, switches to one when breakpoint is reached."
+                      }, {
+                        "name": "four",
+                        "type": "bool",
+                        "description": "Three column layout, switches to two when breakpoint-big is reached and to one if breakpoint-small is reached."
+                      }, {
+                        "name": "six",
+                        "type": "bool",
+                        "description": "Three column layout, switches to three when breakpoint-big is reached and to one if breakpoint-small is reached. Tags: form"
+                      }, {
+                        "name": "breakpoint-big",
+                        "type": "number",
+                        "description": "Set custom breakpoint big\nDefault: &#34;810&#34;",
+                        "default": "810"
+                      }, {
+                        "name": "breakpoint-small",
+                        "type": "number",
+                        "description": "Set custom breakpoints small\nDefault: &#34;405&#34;",
+                        "default": "405"
+                      }, {
+                        "name": "narrow-fix",
+                        "type": "Boolean",
+                        "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big"
+                      }, {
+                        "name": "narrower-fix",
+                        "type": "Boolean",
+                        "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)"
+                      }
+                    ],
+                  "slots": [
+                      {
+                        "name": "",
+                        "description": "default slot to add content."
+                      } ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "narrow",
+                "type": "boolean",
+                "description": "",
+                "default": "false"
+              }, {
+                "name": "narrower",
+                "type": "boolean",
+                "description": "",
+                "default": "false"
+              }, {
+                "name": "breakpointBig",
+                "type": "number",
+                "description": "Set custom breakpoint big\nDefault: \"810\"",
+                "default": "810"
+              }, {
+                "name": "breakpointSmall",
+                "type": "number",
+                "description": "Set custom breakpoints small\nDefault: \"405\"",
+                "default": "405"
+              }, {
+                "name": "narrowFix",
+                "type": "Boolean",
+                "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big"
+              }, {
+                "name": "narrowerFix",
+                "type": "Boolean",
+                "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)"
+              }
+            ],
+            "methods": [],
+            "events": [
+              
+              {
+                "name": "layout-changed",
+                "priority": "highest",
+                "description": "",
+                 "value": {
+                      "type": "CustomEvent"
+                }
+              } ],"css": {
+            "properties": [
+              {
+
+              }
+            ]
+          }
+        }
+      }, 
+          {
+          "name": "furo-horizontal-flex",
+          "source": {
+            "module": "./src/furo-horizontal-flex.js",
+            "symbol": "FuroHorizontalFlex"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-horizontal-flex`\n\nWith this component, any elements can be aligned horizontally. Similar to css flex.\nThe attribute \"flex\" must be set for growing elements.\nThe component takes up 100% of the space.\n\n```html\n<furo-horizontal-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-horizontal-flex>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-horizontal-flex/",
+          "attributes": [
+                    ],
+                  "slots": [
+                      {
+                        "name": "",
+                        "description": "default slot to add content."
+                      } ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": [],"css": {
+            "properties": [
+              {
+
+              }
+            ]
+          }
+        }
+      }, 
+          {
+          "name": "furo-resizer",
+          "source": {
+            "module": "./src/furo-resizer.js",
+            "symbol": "FuroResizer"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-resizer`\n container which let you resize its width.\n\n Double-click on the handler to reset the width.\n You need a counter part which flexes.\n\n\n```html\n  <furo-horizontal-flex>\n    <div flex> the flexible part </div>\n    <!-- you have to set at leas one handle to resize the content -->\n    <furo-resizer righthandle remember=\"logv\" minwidth=\"280\" maxwidth=\"780\">\n      <some-content></some-content>\n    </furo-resizer>\n  </furo-horizontal-flex>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-resizer/",
+          "attributes": [{
+                        "name": "lefthandle",
+                        "type": "Boolean",
+                        "description": "add a handle to the left side"
+                      }, {
+                        "name": "righthandle",
+                        "type": "Boolean",
+                        "description": "add a handle to the right side"
+                      }, {
+                        "name": "remember",
+                        "type": "String",
+                        "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views"
+                      }, {
+                        "name": "maxwidth",
+                        "type": "Number",
+                        "description": "Set the maximal width of the resizer"
+                      }, {
+                        "name": "minwidth",
+                        "type": "Number",
+                        "description": "Set the minimal width of the resizer"
+                      }
+                    ],
+                  "slots": [
+                      {
+                        "name": "",
+                        "description": "default slot to add content."
+                      } ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "resetSize",
+                "type": "",
+                "description": "removes remember and set to the initial size"
+              }, {
+                "name": "lefthandle",
+                "type": "Boolean",
+                "description": "add a handle to the left side"
+              }, {
+                "name": "righthandle",
+                "type": "Boolean",
+                "description": "add a handle to the right side"
+              }, {
+                "name": "remember",
+                "type": "String",
+                "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views"
+              }, {
+                "name": "maxwidth",
+                "type": "Number",
+                "description": "Set the maximal width of the resizer"
+              }, {
+                "name": "minwidth",
+                "type": "Number",
+                "description": "Set the minimal width of the resizer"
+              }
+            ],
+            "methods": []
+        }
+      }, 
+          {
+          "name": "furo-split-view",
+          "source": {
+            "module": "./src/furo-split-view.js",
+            "symbol": "FuroSplitView"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-split-view`\nis a layout component to visualise main / detail views (left right layout for master detail views).\nYou can add the attribute scroll on the detail view to make the content scrollable.\n\n```html\n<furo-split-view>\n  <div slot=\"master\">Master</div>\n  <big-component scroll> </big-component>\n</furo-split-view>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-split-view/",
+          "attributes": [{
+                        "name": "reverse",
+                        "type": "Boolean",
+                        "description": "flip the left and right side"
+                      }
+                    ],
+                  "slots": [
+                      {
+                        "name": "master",
+                        "description": "default slot to add content to the main section."
+                      }
+                      , {
+                        "name": "",
+                        "description": "default slot to add content to the detail section."
+                      } ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "reverse",
+                "type": "Boolean",
+                "description": "flip the left and right side"
+              }
+            ],
+            "methods": [],"css": {
+            "properties": [
+              {
+
+              }
+            ]
+          }
+        }
+      }, 
+          {
+          "name": "furo-vertical-flex",
+          "source": {
+            "module": "./src/furo-vertical-flex.js",
+            "symbol": "FuroVerticalFlex"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-vertical-flex`\n\nWith this component, any elements can be aligned vertically. Similar to css flex.\nThe attribute \"flex\" must be set for growing elements.\nThe component takes up 100% of the space\n\n\n```html\n<furo-vertical-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-vertical-flex>\n```\n\n Tags: layout",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-flex/",
+          "attributes": [
+                    ],
+                  "slots": [
+                      {
+                        "name": "",
+                        "description": "default slot to add content."
+                      } ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": []
+        }
+      }, 
+          {
+          "name": "furo-vertical-scroller",
+          "source": {
+            "module": "./src/furo-vertical-scroller.js",
+            "symbol": "FuroVerticalScroller"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-vertical-scroller`\n\n```html\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/",
+          "attributes": [
+                    ],
+                  "slots": [
+                      {
+                        "name": "",
+                        "description": "default slot to add content."
+                      } ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": [],"css": {
+            "properties": [
+              {
+
+              }
+            ]
+          }
+        }
+      }]
+    }
+  }
+}

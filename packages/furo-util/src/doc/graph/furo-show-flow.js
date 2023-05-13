@@ -11,7 +11,7 @@ import './furo-graph-renderer.js';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroShowFlow extends FBP(LitElement) {
+export class FuroShowFlow extends FBP(LitElement) {
   /**
    * Parse html content
    * @param {string} source

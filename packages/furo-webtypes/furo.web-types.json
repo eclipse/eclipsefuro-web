@@ -1,0 +1,286 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "@furo/fbp",
+  "version": "6.7.0",
+  "description-markup": "markdown",
+  "default-icon": "icons/blob.svg",
+  "contributions": {
+    "html": {
+      "attributes": [
+        {
+          "name": "Event listeners",
+          "description": "The **at-** keyword let you put the event detail of an event on a wire. This can be any browser event or custom event. \n\n\n To put the event root on the wire, use an asterisk like `at-click=\"--wireName(*)\"`.\n\n",
+          "virtual": true,
+          "doc-url": "https://fbp.furo.pro/docs/fbp-cheatsheet/#adding-event-listeners",
+          "icon": "icons/event.svg",
+          "value": {
+            "kind": "expression",
+            "type": "string",
+            "required": true
+          },
+          "pattern": {
+            "or": [
+              {
+                "items": "/js/events",
+                "template": [
+                  "at-",
+                  "$...",
+                  "#item:event name"
+                ],
+                "priority": "normal"
+              },
+              {
+                "deprecated": true,
+                "items": "/js/events",
+                "template": [
+                  "@-",
+                  "#item:event name"
+                ],
+                "priority": "normal"
+              },
+              {
+                "template": [
+                  {
+                    "regex": "at-[-a-z0-9]+"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Properties",
+          "description": "Set wire data on a `property`",
+          "virtual": true,
+          "doc-url": "https://fbp.furo.pro/docs/fbp-cheatsheet/#set-member-variables-of-a-component",
+          "icon": "icons/attr.svg",
+          "value": {
+            "kind": "expression",
+            "type": "any",
+            "required": true
+          },
+          "inject-language": "JavaScript",
+          "pattern": {
+            "or": [
+              {
+                "items": "/html/attributes",
+                "template": [
+                  "set-",
+                  "$...",
+                  "#item:attribute name"
+                ],
+                "priority": "normal"
+              },
+              {
+                "items": {
+                  "path": "/js/properties"
+                },
+                "template": [
+                  "set-",
+                  "$...",
+                  "#item:property name"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Methods",
+          "description": "Methods expression",
+          "virtual": true,
+          "doc-url": "https://fbp.furo.pro/docs/fbp-cheatsheet/#execute-exposed-methods",
+          "icon": "icons/fn.svg",
+          "value": {
+            "kind": "expression",
+            "type": "any",
+            "required": true
+          },
+          "pattern": {
+            "or": [
+              {
+                "items": {
+                  "path": "/js/methods"
+                },
+                "template": [
+                  "fn-",
+                  "$...",
+                  "#item:method name"
+                ]
+              },
+              {
+                "deprecated": true,
+                "items": {
+                  "path": "/js/methods"
+                },
+                "template": [
+                  "ƒ-",
+                  "#item:method name"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Return Values",
+          "description": "The **at-fnret-** keyword let you wire the response of a method call. \n\n The data which is put on the wire is the response of the method",
+          "virtual": true,
+          "doc-url": "https://fbp.furo.pro/docs/fbp-cheatsheet/#receiving-the-return-values-from-fn--calls",
+          "value": {
+            "kind": "expression",
+            "type": "any",
+            "required": true
+          },
+          "pattern": {
+            "or": [
+              {
+                "items": {
+                  "path": "/js/methods"
+                },
+                "template": [
+                  "at-fnret-",
+                  "$...",
+                  "#item:method name"
+                ],
+                "priority": "low"
+              }
+            ]
+          }
+        }
+      ],
+      "elements": [
+        {
+          "name": "Standard HTML elements extension",
+          "description": "This is a workaround to provide /js/properties on standard HTML elements.",
+          "extension": true,
+          "pattern": {
+            "or": [
+              "a",
+              "abbr",
+              "address",
+              "area",
+              "article",
+              "aside",
+              "audio",
+              "b",
+              "base",
+              "bdi",
+              "bdo",
+              "blockquote",
+              "body",
+              "br",
+              "button",
+              "canvas",
+              "caption",
+              "cite",
+              "code",
+              "col",
+              "colgroup",
+              "data",
+              "datalist",
+              "dd",
+              "del",
+              "details",
+              "dfn",
+              "dialog",
+              "div",
+              "dl",
+              "dt",
+              "em",
+              "embed",
+              "fieldset",
+              "figcaption",
+              "figure",
+              "footer",
+              "form",
+              "h1",
+              "h2",
+              "h3",
+              "h4",
+              "h5",
+              "h6",
+              "head",
+              "header",
+              "hr",
+              "html",
+              "i",
+              "iframe",
+              "img",
+              "input",
+              "ins",
+              "kbd",
+              "label",
+              "legend",
+              "li",
+              "link",
+              "main",
+              "map",
+              "mark",
+              "meta",
+              "meter",
+              "nav",
+              "noscript",
+              "object",
+              "ol",
+              "optgroup",
+              "option",
+              "output",
+              "p",
+              "param",
+              "picture",
+              "pre",
+              "progress",
+              "q",
+              "rp",
+              "rt",
+              "ruby",
+              "s",
+              "samp",
+              "script",
+              "section",
+              "select",
+              "small",
+              "source",
+              "span",
+              "strong",
+              "style",
+              "sub",
+              "summary",
+              "sup",
+              "svg",
+              "table",
+              "tbody",
+              "td",
+              "template",
+              "textarea",
+              "tfoot",
+              "th",
+              "thead",
+              "time",
+              "title",
+              "tr",
+              "track",
+              "u",
+              "ul",
+              "var",
+              "video",
+              "wbr"
+            ]
+          },
+          "js": {
+            "properties": [
+              {
+                "name": "HTML attributes mapping",
+                "pattern": {
+                  "items": {
+                    "path": "/html/attributes",
+                    "includeVirtual": false
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

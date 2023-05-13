@@ -18,7 +18,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroKeydown extends FBP(LitElement) {
+export class FuroKeydown extends FBP(LitElement) {
   /**
    * @private
    * @return {Object}

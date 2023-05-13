@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-reverse-deep-link
-**@furo/data** <small>v2.16.4</small>
+**@furo/data** <small>v2.16.6</small>
 <br>`import '@furo/data/src/furo-reverse-deep-link.js';`<small>
+<br>exports *FuroReverseDeepLink* js
 <br>exports `<furo-reverse-deep-link>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *create query param object from HATEOAS*</small>
@@ -37,7 +38,7 @@ Converts hateoas to queryParams, which is useful for routing with app-flow
 ### **service**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
-<small>`String` default: **&#39;&#39;**</small>
+<small>`string` default: **&#39;&#39;**</small>
 
 Name of service
 <br><br>

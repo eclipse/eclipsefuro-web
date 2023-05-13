@@ -23,20 +23,24 @@ import { FBP } from '@furo/fbp';
  *
  * Do not forget to add the furo-backdrop-display somewhere in the parent dom.
  *
- * @fires { handle: this } opened - The **opened** event will be fired when the content is visible on the backdrop.
+ * @fires { FuroBackdrop } opened - The **opened** event will be fired when the content is visible on the backdrop.
  * Tipp: you can use this to focus something on the shown content.
+ * Event.details {FuroBackdrop} is the reference to the emiting DOM node.
  *
- * @fires { handle: this } closed - The **closed** event will be fired when the displayed content is invisible and the backdrop is closed.
+ *
+ * @fires { FuroBackdrop } closed - The **closed** event will be fired when the displayed content is invisible and the backdrop is closed.
  * Tipp: Maybe you want to use this event to refocus the initiator.
+ * Event.details {FuroBackdrop} is the reference to the emiting DOM node.
  *
- * @fires { handle: this } register-backdrop - Internal event to move the contents to the backdrop-display.
+ * @fires { FuroBackdrop } register-backdrop - Internal event to move the contents to the backdrop-display.
+ * Event.details {FuroBackdrop} is the reference to the emiting DOM node.
  *
  * @summary show content with backdrop
  * @demo demo-furo-backdrop Basic usage
  * @customElement
  * @appliesMixin FBP
  */
-class FuroBackdrop extends FBP(LitElement) {
+export class FuroBackdrop extends FBP(LitElement) {
 
   /**
    *

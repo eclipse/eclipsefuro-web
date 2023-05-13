@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.7.4](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.7.3...@furo/fbp@6.7.4) (2023-05-13)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [6.7.3](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.7.2...@furo/fbp@6.7.3) (2023-05-13)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [6.7.2](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.7.1...@furo/fbp@6.7.2) (2023-05-13)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
 ## [6.7.1](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.7.0...@furo/fbp@6.7.1) (2022-11-22)
 
 **Note:** Version bump only for package @furo/fbp

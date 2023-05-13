@@ -41,7 +41,7 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @demo demo-furo-custom-method Basic usage
  * @appliesMixin FBP
  */
-class FuroCustomMethod extends FBP(LitElement) {
+export class FuroCustomMethod extends FBP(LitElement) {
   constructor() {
     super();
     /**

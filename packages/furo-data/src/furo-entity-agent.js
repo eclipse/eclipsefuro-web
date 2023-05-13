@@ -61,7 +61,7 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @demo demo-furo-entity-agent Basic usage
  * @appliesMixin FBP
  */
-class FuroEntityAgent extends FBP(LitElement) {
+export class FuroEntityAgent extends FBP(LitElement) {
   constructor() {
     super();
     /**

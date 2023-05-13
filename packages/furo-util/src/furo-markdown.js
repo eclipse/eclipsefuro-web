@@ -18,7 +18,7 @@ Prism.manual = true;
  * @customElement
  * @appliesMixin FBP
  */
-class FuroMarkdown extends LitElement {
+export class FuroMarkdown extends LitElement {
   constructor() {
     super();
 

@@ -8,7 +8,7 @@ import '@furo/util/src/furo-pretty-json';
  * @customElement
  * @appliesMixin FBP
  */
-class EditExample extends BasePanel {
+export class EditExample extends BasePanel {
   /**
    * @private
    * @return {Object}

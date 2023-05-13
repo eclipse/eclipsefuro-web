@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-head-tail
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-head-tail.js';`<small>
+<br>exports *FuroHeadTail* js
 <br>exports `<furo-head-tail>` custom-element-definition
 <br>superclass *HTMLElement*</small>
 <br><small>summary *split an array*</small>

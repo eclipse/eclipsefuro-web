@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-data-hide-content
-**@furo/data** <small>v2.16.4</small>
+**@furo/data** <small>v2.16.6</small>
 <br>`import '@furo/data/src/furo-data-hide-content.js';`<small>
+<br>exports *FuroDataHideContent* js
 <br>exports `<furo-data-hide-content>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>
@@ -59,7 +60,7 @@ Hide element on false instead of true
 ### **animated**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">animated</span>
-</small>
+<small>`boolean` </small>
 
 Set this to animate the collapse and expand.
 <br><br>

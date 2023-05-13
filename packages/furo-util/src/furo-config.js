@@ -30,7 +30,7 @@ import { Config } from './lib/Config.js';
  * @summary config access
  * @customElement
  */
-class FuroConfig extends LitElement {
+export class FuroConfig extends LitElement {
   constructor() {
     super();
     /**

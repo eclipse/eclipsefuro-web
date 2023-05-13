@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-feature-toggle
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-feature-toggle.js';`<small>
+<br>exports *FuroFeatureToggle* js
 <br>exports `<furo-feature-toggle>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

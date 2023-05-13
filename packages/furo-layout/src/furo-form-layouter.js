@@ -44,6 +44,12 @@ import { FBP } from '@furo/fbp';
  *
  * @slot {HTMLElement [0..n]} - default slot to add content.
  *
+ *  @attribute {bool} one - One column layout.
+ *  @attribute {bool} two - Two column layout, switches to one when breakpoint is reached.
+ *  @attribute {bool} three - Three column layout, switches to one when breakpoint is reached.
+ *  @attribute {bool} four - Three column layout, switches to two when breakpoint-big is reached and to one if breakpoint-small is reached.
+ *  @attribute {bool} six - Three column layout, switches to three when breakpoint-big is reached and to one if breakpoint-small is reached.
+ *
  * Tags: form
  * @summary Grid based form field row
  * @customElement
@@ -52,7 +58,7 @@ import { FBP } from '@furo/fbp';
  * @demo demo-furo-form-layouter-variants All variants
  * @mixes FBP
  */
-class FuroFormLayouter extends FBP(LitElement) {
+export class FuroFormLayouter extends FBP(LitElement) {
   constructor() {
     super();
     this.narrow = false;

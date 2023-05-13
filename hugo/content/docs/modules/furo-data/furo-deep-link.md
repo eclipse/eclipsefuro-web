@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-deep-link
-**@furo/data** <small>v2.16.4</small>
+**@furo/data** <small>v2.16.6</small>
 <br>`import '@furo/data/src/furo-deep-link.js';`<small>
+<br>exports *FuroDeepLink* js
 <br>exports `<furo-deep-link>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *Resolve deep links HATEOAS based on  query params*</small>
@@ -53,7 +54,9 @@ Usually this is done in your src/configs/init.js
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">service</span>
 <small>`String` </small>
 
-Name of the service
+Set the service name like `TaskService`.
+
+Services must be registered before.
 <br><br>
 
 

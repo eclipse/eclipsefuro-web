@@ -49,11 +49,11 @@
             {
               "kind": "field",
               "name": "config",
-              "description": "The Configuration Array",
               "privacy": "public",
               "type": {
                 "text": "Array"
               },
+              "description": "build internal config for faster access",
               "attribute": "config"
             },
             {
@@ -67,12 +67,12 @@
             {
               "kind": "field",
               "name": "urlSpaceRegex",
+              "privacy": "public",
               "type": {
-                "text": "string|RegExp"
+                "text": "string"
               },
               "description": "default value of urlSpaceRegex. this value can be rewritten via `url-space-regex` attribute",
               "default": "''",
-              "privacy": "public",
               "attribute": "url-space-regex"
             }
           ],
@@ -102,18 +102,19 @@
           "attributes": [
             {
               "name": "config",
-              "description": "The Configuration Array",
               "type": {
                 "text": "Array"
               },
+              "description": "build internal config for faster access",
               "fieldName": "config"
             },
             {
               "name": "url-space-regex",
-              "description": "attribute url-space-regex\nA regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app do:\n    url-space-regex=\"^/app\"",
               "type": {
-                "text": "string|RegExp"
+                "text": "string"
               },
+              "description": "default value of urlSpaceRegex. this value can be rewritten via `url-space-regex` attribute",
+              "default": "''",
               "fieldName": "urlSpaceRegex"
             }
           ],
@@ -133,6 +134,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroAppFlowRouter",
+          "declaration": {
+            "name": "FuroAppFlowRouter",
+            "module": "src/furo-app-flow-router.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-app-flow-router",
@@ -206,10 +215,10 @@
               "kind": "field",
               "name": "event",
               "privacy": "public",
-              "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
               "type": {
                 "text": "String"
               },
+              "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
               "attribute": "event"
             }
           ],
@@ -225,10 +234,10 @@
           "attributes": [
             {
               "name": "event",
-              "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
               "type": {
                 "text": "String"
               },
+              "description": "Name of your app-flow event object\n\ni.e. 'task-clicked', 'wizard-step1-completed',...",
               "fieldName": "event"
             }
           ],
@@ -242,6 +251,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroAppFlow",
+          "declaration": {
+            "name": "FuroAppFlow",
+            "module": "src/furo-app-flow.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-app-flow",
@@ -320,34 +337,34 @@
             {
               "kind": "field",
               "name": "prefix",
-              "type": {
-                "text": "String"
-              },
-              "default": "''",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "description": "prefix part, you can also use `setPrefix()`.`",
+              "default": "''",
               "attribute": "prefix"
             },
             {
               "kind": "field",
               "name": "title",
-              "type": {
-                "text": "String"
-              },
-              "default": "''",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "description": "Title part, you can also use `setTitle()` or `bindTitle().`",
+              "default": "''",
               "attribute": "title"
             },
             {
               "kind": "field",
               "name": "suffix",
-              "type": {
-                "text": "String"
-              },
-              "default": "''",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "description": "Suffix part, you can also use `setSuffix()` or `bindSuffix().`",
+              "default": "''",
               "attribute": "suffix"
             }
           ],
@@ -370,26 +387,29 @@
           "attributes": [
             {
               "name": "title",
-              "description": "Title part, you can also use `setTitle()` or `bindTitle().`",
               "type": {
-                "text": "String"
+                "text": "string"
               },
+              "description": "Title part, you can also use `setTitle()` or `bindTitle().`",
+              "default": "''",
               "fieldName": "title"
             },
             {
               "name": "prefix",
-              "description": "prefix part, you can also use `setPrefix()`.`",
               "type": {
-                "text": "String"
+                "text": "string"
               },
+              "description": "prefix part, you can also use `setPrefix()`.`",
+              "default": "''",
               "fieldName": "prefix"
             },
             {
               "name": "suffix",
-              "description": "Suffix part, you can also use `setSuffix()` or `bindSuffix().`",
               "type": {
-                "text": "String"
+                "text": "string"
               },
+              "description": "Suffix part, you can also use `setSuffix()` or `bindSuffix().`",
+              "default": "''",
               "fieldName": "suffix"
             }
           ],
@@ -409,6 +429,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroDocumentTitle",
+          "declaration": {
+            "name": "FuroDocumentTitle",
+            "module": "src/furo-document-title.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-document-title",
@@ -452,20 +480,20 @@
               "kind": "field",
               "name": "clearQp",
               "privacy": "public",
-              "description": "Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`",
               "type": {
                 "text": "String"
               },
+              "description": "Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`",
               "attribute": "clear-qp"
             },
             {
               "kind": "field",
               "name": "clearHash",
               "privacy": "public",
-              "description": "Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`",
               "type": {
                 "text": "String"
               },
+              "description": "Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`",
               "attribute": "clear-hash"
             }
           ],
@@ -481,18 +509,18 @@
           "attributes": [
             {
               "name": "clear-qp",
-              "description": "Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`",
               "type": {
                 "text": "String"
               },
+              "description": "Comma separated list of qp keys to clear if they are not explicitly set with `fn-set-qp`",
               "fieldName": "clearQp"
             },
             {
               "name": "clear-hash",
-              "description": "Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`",
               "type": {
                 "text": "String"
               },
+              "description": "Comma separated list of hashes to clear if they are not explicitly set with `fn-set-hash`",
               "fieldName": "clearHash"
             }
           ],
@@ -512,6 +540,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroLocationUpdater",
+          "declaration": {
+            "name": "FuroLocationUpdater",
+            "module": "src/furo-location-updater.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-location-updater",
@@ -581,12 +617,12 @@
             {
               "kind": "field",
               "name": "urlSpaceRegex",
+              "privacy": "public",
               "type": {
                 "text": "string|RegExp"
               },
               "description": "A regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app/ do:\n    url-space-regex=\"^/app/\"\n\nIf you plan to work in sub directories, you may set **url-space-regex=\"^${window.APPROOT}/additional/path\"**.\nKeep in mind to put a \"url-space-regex\" on every furo-location. Otherwise you can not switch between apps in different\nfolders with a link.",
               "default": "''",
-              "privacy": "public",
               "attribute": "url-space-regex"
             }
           ],
@@ -644,10 +680,11 @@
           "attributes": [
             {
               "name": "url-space-regex",
-              "description": "RegExp",
               "type": {
-                "text": "string"
+                "text": "string|RegExp"
               },
+              "description": "A regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app/ do:\n    url-space-regex=\"^/app/\"\n\nIf you plan to work in sub directories, you may set **url-space-regex=\"^${window.APPROOT}/additional/path\"**.\nKeep in mind to put a \"url-space-regex\" on every furo-location. Otherwise you can not switch between apps in different\nfolders with a link.",
+              "default": "''",
               "fieldName": "urlSpaceRegex"
             }
           ],
@@ -661,6 +698,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroLocation",
+          "declaration": {
+            "name": "FuroLocation",
+            "module": "src/furo-location.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-location",
@@ -713,12 +758,12 @@
             {
               "kind": "field",
               "name": "message",
-              "type": {
-                "text": "String"
-              },
-              "default": "'You have unsaved changes, proceed anyway?'",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "description": "The warning message, which is displayed at the prompt.",
+              "default": "'You have unsaved changes, proceed anyway?'",
               "attribute": "message"
             }
           ],
@@ -741,10 +786,11 @@
           "attributes": [
             {
               "name": "message",
-              "description": "The warning message, which is displayed at the prompt.",
               "type": {
-                "text": "String"
+                "text": "string"
               },
+              "description": "The warning message, which is displayed at the prompt.",
+              "default": "'You have unsaved changes, proceed anyway?'",
               "fieldName": "message"
             }
           ],
@@ -764,6 +810,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroLockNavigation",
+          "declaration": {
+            "name": "FuroLockNavigation",
+            "module": "src/furo-lock-navigation.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-lock-navigation",
@@ -881,6 +935,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroPages",
+          "declaration": {
+            "name": "FuroPages",
+            "module": "src/furo-pages.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-pages",
@@ -1001,6 +1063,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "FuroPanelCoordinator",
+          "declaration": {
+            "name": "FuroPanelCoordinator",
+            "module": "src/furo-panel-coordinator.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "furo-panel-coordinator",

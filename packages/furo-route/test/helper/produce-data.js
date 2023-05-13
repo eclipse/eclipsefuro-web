@@ -9,7 +9,7 @@ import { FBP } from '@furo/fbp';
  * @demo demo/produce-data.html
  * @appliesMixin FBP
  */
-class ProduceData extends FBP(LitElement) {
+export class ProduceData extends FBP(LitElement) {
   constructor() {
     super();
 

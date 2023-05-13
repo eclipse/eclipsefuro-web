@@ -21,7 +21,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroKeyFilter extends FBP(LitElement) {
+export class FuroKeyFilter extends FBP(LitElement) {
   /**
    * Check the event and dispatch matched when the conditions are fulfilled.
    *

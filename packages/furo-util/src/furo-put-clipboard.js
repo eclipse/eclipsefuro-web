@@ -18,7 +18,7 @@ import { LitElement, css } from 'lit';
  * @summary write content to clipboard
  * @customElement
  */
-class FuroPutClipboard extends LitElement {
+export class FuroPutClipboard extends LitElement {
   /**
    * Set data that you want to put to clipboard.
    *

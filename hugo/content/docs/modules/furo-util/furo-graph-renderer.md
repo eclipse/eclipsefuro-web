@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-graph-renderer
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/doc/graph/furo-graph-renderer.js';`<small>
+<br>exports *FuroGraphRenderer* js
 <br>exports `<furo-graph-renderer>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

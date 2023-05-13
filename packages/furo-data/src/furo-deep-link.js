@@ -33,7 +33,7 @@ import { Env } from '@furo/framework';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroDeepLink extends LitElement {
+export class FuroDeepLink extends LitElement {
   constructor() {
     super();
     /**

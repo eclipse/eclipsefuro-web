@@ -19,7 +19,7 @@ import { FBP } from '@furo/fbp';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroGetClipboard extends FBP(LitElement) {
+export class FuroGetClipboard extends FBP(LitElement) {
   trigger() {
     navigator.clipboard.readText().then(clipText => {
       const customEvent = new Event('content', { composed: true, bubbles: true });

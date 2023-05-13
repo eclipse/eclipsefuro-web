@@ -12,7 +12,7 @@ import { FuroForthStack } from './furo-forth-stack.js';
  * @summary calculator component
  * @customElement
  */
-class FuroHp35 extends FuroForthStack {
+export class FuroHp35 extends FuroForthStack {
   constructor() {
     super();
     /**

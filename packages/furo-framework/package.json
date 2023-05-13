@@ -1,9 +1,10 @@
 {
   "name": "@furo/framework",
-  "version": "2.4.2",
+  "version": "2.4.5",
   "description": "Furo framework libs",
   "homepage": "https://github.com/eclipse/eclipsefuro-web/tree/main/packages/furo-framework",
   "repository": "git@github.com:eclipse/eclipsefuro-web.git",
+  "web-types": "web-types.json",
   "author": {
     "name": "veith",
     "email": "",
@@ -57,5 +58,5 @@
       "git add"
     ]
   },
-  "gitHead": "6c63b2162a1b903661c2679b891607321fead52e"
+  "gitHead": "b8ff9b3ddc4cc691d89607771feed0ac7e168c4b"
 }

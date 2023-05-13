@@ -11,7 +11,7 @@ import {FBP} from "@furo/fbp";
  * @customElement
  * @appliesMixin FBP
  */
-class LightBulb extends FBP(LitElement) {
+export class LightBulb extends FBP(LitElement) {
 
   constructor() {
     super();

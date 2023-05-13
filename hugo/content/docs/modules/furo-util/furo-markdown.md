@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-markdown
-**@furo/util** <small>v2.1.7</small>
+**@furo/util** <small>v2.1.9</small>
 <br>`import '@furo/util/src/furo-markdown.js';`<small>
+<br>exports *FuroMarkdown* js
 <br>exports `<furo-markdown>` custom-element-definition
 <br>superclass *LitElement*</small>
 <br><small>summary *renders markdown data*</small>

@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-panel-coordinator
-**@furo/route** <small>v2.6.0</small>
+**@furo/route** <small>v2.6.3</small>
 <br>`import '@furo/route/src/furo-panel-coordinator.js';`<small>
+<br>exports *FuroPanelCoordinator* js
 <br>exports `<furo-panel-coordinator>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>

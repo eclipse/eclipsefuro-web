@@ -23,7 +23,7 @@ import { FBP } from '@furo/fbp';
  * @demo demo-furo-panel-coordinator update qp from tree
  * @appliesMixin FBP
  */
-class FuroLocationUpdater extends FBP(LitElement) {
+export class FuroLocationUpdater extends FBP(LitElement) {
   static get properties() {
     return {
       /**

@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-form-layouter
-**@furo/layout** <small>v2.2.2</small>
+**@furo/layout** <small>v2.2.4</small>
 <br>`import '@furo/layout/src/furo-form-layouter.js';`<small>
+<br>exports *FuroFormLayouter* js
 <br>exports `<furo-form-layouter>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>
@@ -76,7 +77,7 @@ default: **false**</small>
 ### **breakpointBig**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">breakpoint-big</span> <small>**reflects**</small>
-<small>`String` default: **810**</small>
+<small>`number` default: **810**</small>
 
 Set custom breakpoint big
 Default: "810"
@@ -85,7 +86,7 @@ Default: "810"
 ### **breakpointSmall**
 
 <span  style="border-width:2px; border-style: solid;border-color:  rgb(255, 182, 91);font-family:monospace; padding:2px 4px;">breakpoint-small</span> <small>**reflects**</small>
-<small>`String` default: **405**</small>
+<small>`number` default: **405**</small>
 
 Set custom breakpoints small
 Default: "405"
@@ -139,7 +140,7 @@ Set narrower-fix attribute to force
 ### **default**
 Type: `HTMLElement [0..n]`
 
-default slot to add content. Tags: form
+default slot to add content.
 <br><br>
 ## Styling
 {{% api "_furo-form-layouter-styling.md" %}}

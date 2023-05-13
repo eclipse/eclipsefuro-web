@@ -1,0 +1,1901 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "@furo/data",
+  "version": "2.16.6",
+  "description-markup": "markdown",
+  "js-types-syntax": "typescript",
+  "default-icon": "icon.svg",
+  "contributions": {
+    "html": {
+      "elements": [
+          {
+          "name": "furo-api-fetch",
+          "source": {
+            "module": "./src/furo-api-fetch.js",
+            "symbol": "FuroApiFetch"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "Use `furo-api-fetch` to fetch data from the network.\n\n\n```html\n<furo-api-fetch fn-invoke-request=\"--Request\"></furo-api-fetch>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-api-fetch/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "lastRequest",
+                "type": "Object",
+                "description": "LastRequest's response.\n\nNote that lastResponse is set when ongoing request finishes, so if loading is true,\nthen lastResponse will correspond to the result of the previous request.",
+                "default": "{}"
+              }, {
+                "name": "isLoading",
+                "type": "boolean",
+                "description": "True while request is in flight.",
+                "default": "false"
+              }
+            ],
+            "methods": [
+            {
+              "name": "invoke-request",
+              "description": "Sends a HTTP request to the server",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "abort-request",
+              "description": "Aborts a pending request\nYou have to submit an AbortController",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "fatal-error",
+                "priority": "highest",
+                "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "request-started",
+                "priority": "highest",
+                "description": "Fired when a request is sent.",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "request-aborted",
+                "priority": "highest",
+                "description": "Fired when a request was canceled.",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "response-raw",
+                "priority": "highest",
+                "description": "Fired when a response is received.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response",
+                "priority": "highest",
+                "description": "Fired when a response is received. Here you will get the parsed response Format depends on request header `content-type` supported types: - text/plain - application/json - image/jpeg (Blob) - application/octet-stream (ArrayBuffer) - application/pdf (Blob)",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "parse-error",
+                "priority": "highest",
+                "description": "",
+                 "value": {
+                      "type": "CustomEvent"
+                }
+              }
+              , 
+              {
+                "name": "response-error-raw",
+                "priority": "highest",
+                "description": "Fired when a error has occoured.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "",
+                "priority": "highest",
+                "description": "",
+                 "value": {
+                      "type": "CustomEvent"
+                }
+              }
+              , 
+              {
+                "name": "response-error-[status-code]",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a specific error event.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-4xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-5xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-collection-agent",
+          "source": {
+            "module": "./src/furo-collection-agent.js",
+            "symbol": "FuroCollectionAgent"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-collection-agent` is an interface component to handle collection requests.\n\n\n```html\n<furo-collection-agent\n   service=\"Servicename\"\n   fn-hts-in=\"--hts\"></furo-collection-agent>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" at-hts-out=\"--hts\"></furo-deep-link>\n\n```\n\n\n\n*before you can do any requests, the service and the HATEOAS must be defined*",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-collection-agent/",
+          "attributes": [{
+                        "name": "service",
+                        "type": "String",
+                        "description": "Setze den Service"
+                      }, {
+                        "name": "page-size",
+                        "type": "Number",
+                        "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination."
+                      }, {
+                        "name": "fields",
+                        "type": "String",
+                        "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields."
+                      }, {
+                        "name": "order-by",
+                        "type": "String",
+                        "description": "Sorting order\n\norder-by=&#34;foo,-bar&#34;  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature."
+                      }, {
+                        "name": "filter",
+                        "type": "String",
+                        "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature."
+                      }, {
+                        "name": "view",
+                        "type": "String",
+                        "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature."
+                      }, {
+                        "name": "list-on-hts-in",
+                        "type": "Boolean",
+                        "description": "Executes a list when a rel=&#34;list&#34; is injected."
+                      }, {
+                        "name": "load-rel-on-hts-in",
+                        "type": "Boolean",
+                        "description": "Executes a loadRel when a rel=&#34;XXXX&#34; is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting &#34;custom&#34; collections."
+                      }, {
+                        "name": "rel",
+                        "type": "String",
+                        "description": "rel which should be used on load rel"
+                      }, {
+                        "name": "method",
+                        "type": "String",
+                        "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information."
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "view",
+                "type": "String",
+                "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature."
+              }, {
+                "name": "filter",
+                "type": "String",
+                "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature."
+              }, {
+                "name": "service",
+                "type": "String",
+                "description": "Setze den Service"
+              }, {
+                "name": "pageSize",
+                "type": "Number",
+                "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination."
+              }, {
+                "name": "fields",
+                "type": "String",
+                "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields."
+              }, {
+                "name": "orderBy",
+                "type": "String",
+                "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature."
+              }, {
+                "name": "listOnHtsIn",
+                "type": "Boolean",
+                "description": "Executes a list when a rel=\"list\" is injected."
+              }, {
+                "name": "loadRelOnHtsIn",
+                "type": "Boolean",
+                "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections."
+              }, {
+                "name": "rel",
+                "type": "String",
+                "description": "rel which should be used on load rel"
+              }, {
+                "name": "method",
+                "type": "String",
+                "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information."
+              }
+            ],
+            "methods": [
+            {
+              "name": "set-fields",
+              "description": "\nComma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-request-data",
+              "description": "Binds a furo-data-object type. Use this if you want save data.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "set-order-by",
+              "description": "Sorting order\n\norder-by= foo,-bar   means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "clear-filter",
+              "description": "clear the setted filter",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "set-filter",
+              "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "set-page-size",
+              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "update-qp",
+              "description": "Update query params\na qp like { active :true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "set-qp",
+              "description": "Set query params\nAll existing query params are replaced by the transferred parameters\nIf the transferred object is empty, all the values will be removed!\nThe AgentHelper fires a qp-set event after the query params are replaced.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "clear-qp",
+              "description": "clear the query params that you have setted before",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "list",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "load",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "load-rel",
+              "description": "loads the entity following the link which is specified on the attribute **rel** if it is available.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "search-rel",
+              "description": "search for a term following the link which is specified on the attribute **rel**\n\nThis will set the query param q and execute the query.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "search",
+              "description": "search for a term.\n\nThis will set the query param q and triggers a list()",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "first",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "prev",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "next",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "last",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "hts-in",
+              "description": "Inject HATEOAS links.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "abort-pending-request",
+              "description": "Aborts a pending request",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "request-aborted",
+                "priority": "highest",
+                "description": "Fired if the request was successfully cancelled",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "request-started",
+                "priority": "highest",
+                "description": "Fired when a request is sent.",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "response-raw",
+                "priority": "highest",
+                "description": "Fired when a response is received.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-[status-code]",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a specific error event.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "fatal-error",
+                "priority": "highest",
+                "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "response-error-4xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-5xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-raw",
+                "priority": "highest",
+                "description": "Fired when a error has occoured.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response",
+                "priority": "highest",
+                "description": "Fired when a response is received.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-hts-updated",
+                "priority": "highest",
+                "description": " Fired when the hts was updated by the received response.",
+                 "value": {
+                      "type": "hts"
+                }
+              }
+              , 
+              {
+                "name": "filter-changed",
+                "priority": "highest",
+                "description": " Fired when filter was updated with `fn-set-filter`.",
+                 "value": {
+                      "type": ""
+                }
+              }
+              , 
+              {
+                "name": "hts-updated",
+                "priority": "highest",
+                "description": " Fired when hateoas was updated from response.",
+                 "value": {
+                      "type": "Array|HATEOAS"
+                }
+              }
+              , 
+              {
+                "name": "hts-injected",
+                "priority": "highest",
+                "description": " Fired when hateoas was updated",
+                 "value": {
+                      "type": "Hateoas links"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-custom-method",
+          "source": {
+            "module": "./src/furo-custom-method.js",
+            "symbol": "FuroCustomMethod"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-custom-method` is a interface component to handle custom methods.\n\n```html\n<furo-custom-method\n    service=\"Servicename\"\n    method=\"release\"\n    fn-hts-in=\"--hts\"\n    fn-trigger=\"--customClick\"></furo-custom-method>\n\n<!-- produces a hateoas link array -->\n<furo-deep-link\n    service=\"Servicename\" at-hts-out=\"--hts\"></furo-deep-link>\n\n```\n* *before you can do any requests, the service, method and the HATEOAS must be known*",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-custom-method/",
+          "attributes": [{
+                        "name": "service",
+                        "type": "String",
+                        "description": "Setze den Service"
+                      }, {
+                        "name": "method",
+                        "type": "String",
+                        "description": "Name of the custom method / rel."
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "service",
+                "type": "String",
+                "description": "Setze den Service"
+              }, {
+                "name": "method",
+                "type": "String",
+                "description": "Name of the custom method / rel."
+              }
+            ],
+            "methods": [
+            {
+              "name": "update-qp",
+              "description": "Update query params\na qp like { active :true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-request-data",
+              "description": "Binds a furo-data-object type.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "clear-qp",
+              "description": "clear the query params that you have setted before",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger",
+              "description": "trigger the method with respect for binded-requset-object",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger-empty",
+              "description": "",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger-with-body",
+              "description": "trigger the method with data",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "hts-in",
+              "description": "",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "abort-pending-request",
+              "description": "Aborts a pending request",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "hts-updated",
+                "priority": "highest",
+                "description": " Fired when hts was updated by `fn-hts-in`.",
+                 "value": {
+                      "type": "HTS"
+                }
+              }
+              , 
+              {
+                "name": "request-aborted",
+                "priority": "highest",
+                "description": "Fired when a request was canceled.",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "request-started",
+                "priority": "highest",
+                "description": "Fired when a request is sent.",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "response-raw",
+                "priority": "highest",
+                "description": "Fired when a response is received.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-[status-code]",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a specific error event.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "fatal-error",
+                "priority": "highest",
+                "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "response-error-4xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-5xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-raw",
+                "priority": "highest",
+                "description": "Fired when a error has occoured.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response",
+                "priority": "highest",
+                "description": "Fired when a response is received.",
+                 "value": {
+                      "type": "Object"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-data-flow-repeat",
+          "source": {
+            "module": "./src/furo-data-flow-repeat.js",
+            "symbol": "FuroDataFlowRepeat"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-data-flow-repeat` Is a bindable repeater.\n\n\n ```html\n <furo-data-flow-repeat identity-path=\"id\" fn-bind-data=\"--data(*.repeaterfield)\">\n   <template>\n     <furo-ui5-data-text-input-labeled\n         fn-bind-data=\"--init\"></furo-ui5-data-text-input-labeled>\n   </template>\n </furo-data-flow-repeat>\n ```\n *The wire `--init` is fired from furo-data-flow-repeat*\n\n If you want to delete a repeated item, implement something which triggers the `deleteNode` method on the fieldNode itself.\n\n ## Available wires in the template:\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains nothing, is triggered with select(index).\n-  `--itemDeSelected` : contains nothing, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `at-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `at-click=\"^^item-selected(item)\"`",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-data-flow-repeat/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "selectAddedItem",
+                "type": "boolean",
+                "description": "Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to\n`fn-focus=\"--itemSelected\"`.",
+                "default": "false"
+              }, {
+                "name": "identityPath",
+                "type": "String",
+                "description": "By setting this param, the repeater has not to rebuild the list on new data. It only updates the parts that have changed.\n\nThe path is a field, relative to the root of the repeated item.",
+                "default": "false"
+              }
+            ],
+            "methods": [
+            {
+              "name": "bind-data",
+              "description": "Bind a repeater node.\n\nIf `identity-path` is not set, the list will be cleared every time it receives new data.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "add",
+              "description": "Adds a repeated item of the same type.\n\nIf  no object is set, a initial FieldNode of the same type is added to the repeats.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }]
+        }
+      }, 
+          {
+          "name": "furo-data-hide-content",
+          "source": {
+            "module": "./src/furo-data-hide-content.js",
+            "symbol": "FuroDataHideContent"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-data-hide-content` hides content in dependency to a boolean field value.\n\nIt is also possible to call the `hide()` and `show()` methods to show and hide the content and update the value.\nTODO:  support furo.fat.Bool and google.protobuf.BoolValue\n\n```html\n<furo-data-hide-content animated fn-bind-data=\"--bind(*.bool)\">\n  <div>some content</div>\n</furo-collapsible-box>\n```\n\nThe attribute animated will add a slide in slide out animation.",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-data-hide-content/",
+          "attributes": [{
+                        "name": "hidden",
+                        "type": "boolean",
+                        "description": "Internal variable to update the attribute, which triggers the css"
+                      }, {
+                        "name": "hide-on-false",
+                        "type": "Boolean",
+                        "description": "Hide element on false instead of true"
+                      }, {
+                        "name": "animated",
+                        "type": "boolean",
+                        "description": "Set this to animate the collapse and expand."
+                      }
+                    ],
+                  "slots": [
+                      {
+                        "name": "",
+                        "description": "default slot to add content."
+                      } ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "hidden",
+                "type": "boolean",
+                "description": "",
+                "default": "false"
+              }, {
+                "name": "hideOnFalse",
+                "type": "Boolean",
+                "description": "Hide element on false instead of true"
+              }, {
+                "name": "animated",
+                "type": "boolean",
+                "description": "Set this to animate the collapse and expand."
+              }
+            ],
+            "methods": [
+            {
+              "name": "bind-data",
+              "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `at-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "hide",
+              "description": "hides the content",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "show",
+              "description": "shows the content",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "toggle",
+              "description": "Toggle the current visibility state.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "value-changed",
+                "priority": "highest",
+                "description": " Fired when the visibility changed, contains the current visibility state",
+                 "value": {
+                      "type": "Boolean"
+                }
+              }
+              , 
+              {
+                "name": "hid",
+                "priority": "highest",
+                "description": " Fired when the content gets hid",
+                 "value": {
+                      "type": "void"
+                }
+              }
+              , 
+              {
+                "name": "showed",
+                "priority": "highest",
+                "description": " Fired when the content gets visible",
+                 "value": {
+                      "type": "void"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-data-object",
+          "source": {
+            "module": "./src/furo-data-object.js",
+            "symbol": "FuroDataObject"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`furo-data-object` receives its data regularly from a [collection-aget](furo-collection-agent) or a  [entity-aget](furo-entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.data.rawData` with javascript (if needed).\n\n```html\n <!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready -->\n <furo-data-object\n     type=\"project.Project\"\n     fn-inject-raw=\"--response(*.data)\" at-object-ready=\"--dataObject\"></furo-data-object>\n\n <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  -->\n <furo-entity-agent\n     service=\"ProjectService\"\n     fn-save=\"--saveClicked\"\n     fn-bind-request-data=\"--dataObject\" at-response=\"--response\" ></furo-entity-agent>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-data-object/",
+          "attributes": [{
+                        "name": "type",
+                        "type": "String",
+                        "description": "Set the type. The type must be available in the environment"
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "type",
+                "type": "String",
+                "description": "Set the type. The type must be available in the environment"
+              }, {
+                "name": "json",
+                "type": "",
+                "description": "get the data from the data object as raw json"
+              }
+            ],
+            "methods": [
+            {
+              "name": "inject-raw",
+              "description": "inject a raw data response from the corresonding agent.\n\nInput may look something like this:\n\n**Entity data**\n\n```json\n{\n  data : {},\n  links : [],\n  meta : {}\n}\n```\n\n**Collection data**\n\n```json\n{\n  data : {},\n  links : [],\n  meta : {},\n  entities : []\n}\n```",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "set-pristine",
+              "description": "Set all nodes to pristine\n\nUseful for working with deltas",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "clear-all-errors",
+              "description": "Clears all errors on children without any validation!",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "validate-all-fields",
+              "description": "Triggers the validation of all fields in the data object.\n\nUse this before you submit some data to a server.\n\nWill cause a `data-object-became-valid` or `data-object-became-invalid` and a validation-success or validation-failed event.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "append-errors",
+              "description": "Append errors from custom methods or other agents or sources to the data object.\nThe error object must have a grpc status error signature like:\n```json\n{\n  code :3,\n  message : invalid username ,\n  details :[{\n          @type : type.googleapis.com/google.rpc.BadRequest ,\n          field_violations :[{\n              field : user.name ,\n              description : The username must only contain alphanumeric characters \n          }]\n    }]\n}\n```",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "reset",
+              "description": "Reset the model to the last injected state.\n\nTo set the model to the initial state use init",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "init",
+              "description": "Sets the model to an initial state according to the given type.\n\nfires *init-completed*\n\nTo reset changed data to the last injected state, please use reset();",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "get-data",
+              "description": "get the data of the data object",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "data-injected",
+                "priority": "highest",
+                "description": " Fired when injected data was processed (**bubbles**).",
+                 "value": {
+                      "type": ""
+                }
+              }
+              , 
+              {
+                "name": "data-changed",
+                "priority": "highest",
+                "description": " Fired when data in furo-data-object has changed  (**bubbles**). This event fires a lot, consider using a de-bounce with the event.",
+                 "value": {
+                      "type": "{Object|CollectionNode}"
+                }
+              }
+              , 
+              {
+                "name": "data-changed-after-inject",
+                "priority": "highest",
+                "description": " Fired when data in furo-data-object has changed after injectRaw is complete (**bubbles**). This event fires a lot, consider using a de-bounce with the event.",
+                 "value": {
+                      "type": "{Object|CollectionNode}"
+                }
+              }
+              , 
+              {
+                "name": "field-value-changed",
+                "priority": "highest",
+                "description": " Fired when a field has changed.",
+                 "value": {
+                      "type": "{Object} the field node"
+                }
+              }
+              , 
+              {
+                "name": "validation-success",
+                "priority": "highest",
+                "description": " Fired when validation results in a valid state.",
+                 "value": {
+                      "type": "DataObject"
+                }
+              }
+              , 
+              {
+                "name": "validation-failed",
+                "priority": "highest",
+                "description": " Fired when validation results in a invalid state.",
+                 "value": {
+                      "type": "DataObject"
+                }
+              }
+              , 
+              {
+                "name": "data-object-became-invalid",
+                "priority": "highest",
+                "description": " Fired when the data object switches from ininvalid to invalid state (**bubbles**).",
+                 "value": {
+                      "type": "{Object|EntityNode} reference to entity"
+                }
+              }
+              , 
+              {
+                "name": "data-object-became-valid",
+                "priority": "highest",
+                "description": " Fired when the data object switches from invalid to valid state (**bubbles**).",
+                 "value": {
+                      "type": "{Object|EntityNode} reference to entity"
+                }
+              }
+              , 
+              {
+                "name": "object-ready",
+                "priority": "highest",
+                "description": " Fired when the object defined by `type` is built (**bubbles**).",
+                 "value": {
+                      "type": "A EntityNode object"
+                }
+              }
+              , 
+              {
+                "name": "init-completed",
+                "priority": "highest",
+                "description": " Fired when the object init was done (**bubbles**).",
+                 "value": {
+                      "type": "A EntityNode object"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-deep-link",
+          "source": {
+            "module": "./src/furo-deep-link.js",
+            "symbol": "FuroDeepLink"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-deep-link`\nResolve deep links HATEOAS based on the query params and the selected service.\n\n```html\n<furo-deep-link\n service=\"TaskService\"\n fn-qp-in=\"--pageQueryChanged(*.query)\" at-hts-out=\"--serviceHTS\">\n </furo-deep-link>\n```\n*Deeplink inside of a furo-page*\n\n\nThe services must be registered in the Env:\n\n```html\nimport {Services,Types} from \"./furo-spec.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\n\n\nUsually this is done in your src/configs/init.js",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-deep-link/",
+          "attributes": [{
+                        "name": "service",
+                        "type": "String",
+                        "description": "Set the service name like `TaskService`.\n\nServices must be registered before."
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "service",
+                "type": "String",
+                "description": "Set the service name like `TaskService`.\n\nServices must be registered before."
+              }
+            ],
+            "methods": [
+            {
+              "name": "qp-in",
+              "description": "Furo-deep-link consumes a object literal with key value pairs.\n\nThis can come from the `*.query` part of an event from furo-location.\n\nOr from a furo-pages wire.\n\nRelevant wires from furo-pages:\n- --pageQueryChanged(*.query)\n- --pageActivated(*.query)\n- --pageHashChanged(*.query)",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger",
+              "description": "Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail\nThis method have no effect as long _qp is not set.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "set-service",
+              "description": "Sets the service by wire",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "hts-out",
+                "priority": "highest",
+                "description": "Fired when hateoas is available",
+                 "value": {
+                      "type": "[]HTSLinks"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-entity-agent",
+          "source": {
+            "module": "./src/furo-entity-agent.js",
+            "symbol": "FuroEntityAgent"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-entity-agent` is an interface component to handle entity requests.\n\n> **Note** When you trigger the save method and there is a HTS wich allows to PATCH the record, only the deltas (changes) of\n> the values are sent.\n\n> **Hint** PUT will send all fields which are not marked as **readonly**.\n> If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`\n\n```html\n<!-- The furo-entity-agent will fetch the data from ProjectService and pass it in at-response to the furo-data-object.  -->\n<furo-entity-agent\n  service=\"ProjectService\"\n  fn-hts-in=\"--hts\" at-response=\"--response\"\n  ></furo-entity-agent>\n\n\n<!-- The furo-data-object will send a initial dataObject of type project.Project on at-response-ready -->\n<furo-data-object\n  type=\"project.ProjectEntity\"\n  fn-inject-raw=\"--response\"\n  ></furo-data-object>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-entity-agent/",
+          "attributes": [{
+                        "name": "service",
+                        "type": "String",
+                        "description": "Setze den Service"
+                      }, {
+                        "name": "load-on-hts-in",
+                        "type": "Boolean",
+                        "description": "triggers a load when link rel=&#34;self&#34; is in the injected hts (after hts-injected is fired)"
+                      }, {
+                        "name": "with-update-mask",
+                        "type": "Boolean",
+                        "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html"
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "service",
+                "type": "String",
+                "description": "Setze den Service"
+              }, {
+                "name": "loadOnHtsIn",
+                "type": "Boolean",
+                "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)"
+              }, {
+                "name": "appendUpdateMaskQP",
+                "type": "Boolean",
+                "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html"
+              }
+            ],
+            "methods": [
+            {
+              "name": "update-qp",
+              "description": "Update query params\na qp like { active :true} will just update the qp *active*\n\nIf the current value of the qp is not the same like the injected value, a qp-changed event will be fired",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-request-data",
+              "description": "Binds a furo-data-object type. Use this if you want save data.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "clear-qp",
+              "description": "clear the query params that you have setted before",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "load",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "delete",
+              "description": "delete the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "save",
+              "description": "loads the entity if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "put",
+              "description": "saves the entity with method put if hts is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "create",
+              "description": "creating the entity if hts rel= create  is available",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "hts-in",
+              "description": "",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "abort-pending-request",
+              "description": "Aborts a pending request",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "response-hts-updated",
+                "priority": "highest",
+                "description": " Fired when hts was updated from the response.",
+                 "value": {
+                      "type": "hts"
+                }
+              }
+              , 
+              {
+                "name": "load-success",
+                "priority": "highest",
+                "description": " Fired when `load()` was successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "load-failed",
+                "priority": "highest",
+                "description": " Fired when `load()` was **not** successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "delete-success",
+                "priority": "highest",
+                "description": " Fired when `delete()` was successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "delete-failed",
+                "priority": "highest",
+                "description": " Fired when `delete()` was **not** successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "save-success",
+                "priority": "highest",
+                "description": " Fired when `save()` was successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "save-failed",
+                "priority": "highest",
+                "description": " Fired when `save()` was **not** successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "put-success",
+                "priority": "highest",
+                "description": " Fired when `update()` was successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "put-failed",
+                "priority": "highest",
+                "description": " Fired when `update()` was **not** successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "create-success",
+                "priority": "highest",
+                "description": " Fired when `create()` was successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "create-failed",
+                "priority": "highest",
+                "description": " Fired when `create()` was **not** successful.",
+                 "value": {
+                      "type": "response"
+                }
+              }
+              , 
+              {
+                "name": "hts-updated",
+                "priority": "highest",
+                "description": " Fired when hateoas is updated from response.",
+                 "value": {
+                      "type": "{Array|HATEOAS}"
+                }
+              }
+              , 
+              {
+                "name": "hts-injected",
+                "priority": "highest",
+                "description": " Fired when hateoas is updated.",
+                 "value": {
+                      "type": "Hateoas links"
+                }
+              }
+              , 
+              {
+                "name": "request-aborted",
+                "priority": "highest",
+                "description": "Fired when a request was canceled.",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "request-started",
+                "priority": "highest",
+                "description": "Fired when a request is sent.",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "response-raw",
+                "priority": "highest",
+                "description": "Fired when a response is received.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a general error event. The specific error events are fired additionally.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-[status-code]",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a specific error event.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "fatal-error",
+                "priority": "highest",
+                "description": "Requests are made via the Fetch API if possible.Fallback XMLHttpRequest",
+                 "value": {
+                      "type": "Request"
+                }
+              }
+              , 
+              {
+                "name": "response-error-4xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-5xx",
+                "priority": "highest",
+                "description": "Fired when an error has occoured. This is a group error event. E.g. response-error-5xx, response-error-4xx",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response-error-raw",
+                "priority": "highest",
+                "description": "Fired when a error has occoured.",
+                 "value": {
+                      "type": "Object"
+                }
+              }
+              , 
+              {
+                "name": "response",
+                "priority": "highest",
+                "description": "Fired when a response is received.",
+                 "value": {
+                      "type": "Object"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-entity-field",
+          "source": {
+            "module": "./src/furo-entity-field.js",
+            "symbol": "FuroEntityField"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "Use this component to interact with fields from a furo-data-object.\n\nYou can update the field value or listen to changes of a field.\n\n```html\n<furo-entity-field fn-bind-data=\"--dataObject(*.field)\"></furo-entity-field>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-entity-field/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "value",
+                "type": "",
+                "description": "Set a value to update the fieldnode"
+              }
+            ],
+            "methods": [
+            {
+              "name": "set-value",
+              "description": "Set the value of the field.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-data",
+              "description": "Bind a FieldNode to the date-input.\n\n`--personDO(*.person.firstname)`",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "delete-node",
+              "description": "Trigger deleteNode on the `FieldNode`.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "value-changed",
+                "priority": "highest",
+                "description": " Fired when the field value or a child value of it was changed.",
+                 "value": {
+                      "type": "*"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-hateoas-state",
+          "source": {
+            "module": "./src/furo-hateoas-state.js",
+            "symbol": "FuroHateoasState"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-hateoas-state` is an invisible component with a binding of type furo.Link or injection of a link array.\n\nIt disables / enables or hides / shows components according to the injected HATEOAS links. `furo-hateoas-state` only\nsets or remove the attributes **hidden** and **disabled** on the nodes.\n\nAll nodes inside the same parent are taken in to control.\n\nElements inside a shadow root are not selected.\n\nSet the attribute **data-rel=\"list\"** on any element you want to control with `furo-hateoas-state`.\n\nSet the attribute **hide-no-rel** if you want to hide the node instead of being disabled.\n\n```html\n<div>\n  <button data-rel='list'>list</button>\n  <button hide-no-rel data-rel='list'>hide no rel</button>\n  <button data-rel='add'>add</button>\n  <furo-hateoas-state fn-bind-hts='--collection(*.links)'></furo-hateoas-state>\n</div>\n```\n*all elements with a data-rel=\"something\" attribute inside the div are controlled*",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-hateoas-state/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+            {
+              "name": "enable",
+              "description": "Enable or show all nodes.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "disable",
+              "description": "Disable or hide all nodes.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-data",
+              "description": "Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-hts",
+              "description": "Bind a `RepeaterNode` of type `furo.Link`.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "inject-hts",
+              "description": "Inject a link array directly.\n\n```json\n[\n  {\n     href :  /mockdata/persons/list ,\n     method :  GET ,\n     rel :  list ,\n     type :  person.PersonCollection ,\n     service :  PersonService \n  }\n]\n```",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }]
+        }
+      }, 
+          {
+          "name": "furo-message-container-handler",
+          "source": {
+            "module": "./src/furo-message-container-handler.js",
+            "symbol": "FuroMessageContainerHandler"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-message-container-handler`\n will update the 'value states' of all fields of your data object from the injected `furo.MessageContainer` message.",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-message-container-handler/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+            {
+              "name": "inject-raw",
+              "description": "This will set the corresponding value-states on the sibling nodes of the bounded `furo.MessageContainer` field.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "-update-counters-and-fire-events",
+              "description": "",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "-apply-value-state",
+              "description": "",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "-clear-value-states",
+              "description": "",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-message-container",
+              "description": "bindMc Bind a `furo.MessageContainer` fieldnode.\n\nThe updates from the injected raw messagecontainer are applied to the siblings of the bounded node.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "bind-root-node",
+              "description": "bindMc Bind a `furo.MessageContainer` fieldnode.\n\nThe updates from the injected raw messagecontainer are applied to the siblings of the bounded node.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "success",
+                "priority": "highest",
+                "description": "Fired when success field was set on the received `furo.MessageContainer`.",
+                 "value": {
+                      "type": "void"
+                }
+              }
+              , 
+              {
+                "name": "no-success",
+                "priority": "highest",
+                "description": "Fired when the success field on the `furo.MessageContainer` was not set or is set to false.",
+                 "value": {
+                      "type": "void"
+                }
+              }
+              , 
+              {
+                "name": "has-confirmation",
+                "priority": "highest",
+                "description": "Fired when the message container contains any confirmation field, with list with all `furo.ConfirmationMessage`.",
+                 "value": {
+                      "type": "[]furo.ConfirmationMessage"
+                }
+              }
+              , 
+              {
+                "name": "has-errors",
+                "priority": "highest",
+                "description": "Fired when the message container contains any error field, with list with all error fields.",
+                 "value": {
+                      "type": "[]furo.MCFieldViolation"
+                }
+              }
+              , 
+              {
+                "name": "has-success",
+                "priority": "highest",
+                "description": "Fired when the message container contains any success field, with list with all success fields.",
+                 "value": {
+                      "type": "[]furo.MCFieldViolation"
+                }
+              }
+              , 
+              {
+                "name": "has-warnings",
+                "priority": "highest",
+                "description": "Fired when the message container contains any warning field, with list with all warning fields.",
+                 "value": {
+                      "type": "[]furo.MCFieldViolation"
+                }
+              }
+              , 
+              {
+                "name": "has-infos",
+                "priority": "highest",
+                "description": "Fired when the message container contains any info field, with list with all info fields.",
+                 "value": {
+                      "type": "[]furo.MCFieldViolation"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-rel-exists",
+          "source": {
+            "module": "./src/furo-rel-exists.js",
+            "symbol": "FuroRelExists"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`furo-rel-exists`\nChecks if a hateoas relation exists in a given hateaos Links array.\n\n```html\n<furo-rel-exists rel=\"update\" service=\"person.Personservice\" fn-inject=\"--HTS-array\"></furo-rel-exists>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-rel-exists/",
+          "attributes": [{
+                        "name": "rel",
+                        "type": "String",
+                        "description": "Name of the rel"
+                      }, {
+                        "name": "service",
+                        "type": "String",
+                        "description": "define the service if you want a specific check on the service also"
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "rel",
+                "type": "String",
+                "description": "Name of the rel"
+              }, {
+                "name": "service",
+                "type": "String",
+                "description": "define the service if you want a specific check on the service also"
+              }
+            ],
+            "methods": [
+            {
+              "name": "inject",
+              "description": "Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.\n\ninject returns true for existing links and false for non existing links.\nTODO: implement bind data too\nTODO: emit a event with bool which is triggered on any change of the hts array or binded data",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "furo-rel-exists",
+                "priority": "highest",
+                "description": " Fired when rel exists in `linkArray`.",
+                 "value": {
+                      "type": "Object Hateoas Link"
+                }
+              }
+              , 
+              {
+                "name": "rel-dont-exist",
+                "priority": "highest",
+                "description": " Fired when rel does not exists in `linkArray`.",
+                 "value": {
+                      "type": "void"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-reverse-deep-link",
+          "source": {
+            "module": "./src/furo-reverse-deep-link.js",
+            "symbol": "FuroReverseDeepLink"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```html\n<furo-reverse-deep-link\n   service=\"TaskService\"\n   rel=\"self\" at-converted=\"--queryParams\"\n   fn-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n></furo-reverse-deep-link>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-reverse-deep-link/",
+          "attributes": [{
+                        "name": "service",
+                        "type": "string",
+                        "description": "Name of service",
+                        "default": "''"
+                      }, {
+                        "name": "rel",
+                        "type": "String",
+                        "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used."
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "service",
+                "type": "string",
+                "description": "Name of service",
+                "default": "''"
+              }, {
+                "name": "rel",
+                "type": "String",
+                "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used."
+              }
+            ],
+            "methods": [
+            {
+              "name": "convert",
+              "description": "converts the href of a LinkObject\n\nreturns Error on undefined service",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "converted",
+                "priority": "highest",
+                "description": " Fired when input was converted.",
+                 "value": {
+                      "type": "QueryParams"
+                }
+              } ]
+        }
+      }, 
+          {
+          "name": "furo-type-renderer",
+          "source": {
+            "module": "./src/furo-type-renderer.js",
+            "symbol": "FuroTypeRenderer"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```html\n  <furo-type-renderer fn-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/furo-type-renderer/",
+          "attributes": [{
+                        "name": "disabled",
+                        "type": "Boolean",
+                        "description": "A Boolean attribute which, if present, means this field is displayed in disabled state."
+                      }, {
+                        "name": "context",
+                        "type": "string",
+                        "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+                        "default": "'display'"
+                      }
+                    ]
+          ,
+          "js": {
+            "properties": [{
+                "name": "context",
+                "type": "string",
+                "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+                "default": "'display'"
+              }, {
+                "name": "disabled",
+                "type": "Boolean",
+                "description": "A Boolean attribute which, if present, means this field is displayed in disabled state."
+              }
+            ],
+            "methods": [
+            {
+              "name": "bind-data",
+              "description": "Bind a fieldnode of any type",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "focus",
+              "description": "forward the focus to the created element",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }]
+        }
+      }]
+    }
+  }
+}

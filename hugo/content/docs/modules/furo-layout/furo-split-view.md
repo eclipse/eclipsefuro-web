@@ -5,8 +5,9 @@ weight: 50
 ---
 
 # furo-split-view
-**@furo/layout** <small>v2.2.2</small>
+**@furo/layout** <small>v2.2.4</small>
 <br>`import '@furo/layout/src/furo-split-view.js';`<small>
+<br>exports *FuroSplitView* js
 <br>exports `<furo-split-view>` custom-element-definition
 <br>superclass *LitElement*
 <br> mixes *FBP*</small>
