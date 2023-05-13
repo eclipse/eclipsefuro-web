@@ -1,0 +1,201 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "@furo/fbp",
+  "version": "6.7.1",
+  "description-markup": "markdown",
+  "js-types-syntax": "typescript",
+  "default-icon": "icon.svg",
+  "contributions": {
+    "html": {
+      "elements": [
+          {
+          "name": "empty-fbp-node",
+          "source": {
+            "module": "./src/empty-fbp-node.js",
+            "symbol": "EmptyFBPNode"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/EmptyFBPNode/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": []
+        }
+      }, 
+          {
+          "name": "flow-bind",
+          "source": {
+            "module": "./src/flow-bind.js",
+            "symbol": "FlowBind"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`flow-bind`\n\n Custom element to allow using furo-fbp's template features in a html document.\n It comes very handy, when you want write tests or make some demos.\n\n```html\n<test-fixture id=\"basic\">\n  <template>\n   <flow-bind id=\"elem\">\n     <template>\n       <div id=\"sender\" @-click=\"--data-received\">sender</div>\n       <div id=\"receiver\" ƒ-render=\"--data-received\">receiver</div>\n     </template>\n   </flow-bind>\n  </template>\n</test-fixture>\n```",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FlowBind/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": []
+        }
+      }, 
+          {
+          "name": "flow-repeat",
+          "source": {
+            "module": "./src/flow-repeat.js",
+            "symbol": "FlowRepeat"
+          },
+          "deprecated": false,
+          "experimental": false,
+          "description": "`flow-repeat`\n\nCustom element to repeat Arrays. The repeated items are injected *before* the `flow-repeat` element. If you need the repeated items inside of an other dom node, use [`setInsertRef`](./flow-repeat/#setinsertref)\n\n\n```html\n<flow-repeat ƒ-inject-items=\"--dataArray\">\n  <template>\n    <repeated-item index=\"${this.index}\" ƒ-inject=\"--init\">\n  </template>\n</flow-repeat>\n```\n> **Note**: if you want to bind a repeater node, use `furo-data-flow-repeat`.\n\n\n ## Available wires in the template:\n\n > **Note**: Each repeated item has its own closed scope. You can not use the wires outside of the `template`.\n > Use events to interact with components outside of the template.\n\n-  `--init` : contains the repeated item, fired only once on creation of the repeated node\n-  `--item` : contains the repeated item, fired on every inject\n-  `--firstItem` : contains the repeated item, fired on the first element.\n-  `--lastItem` : contains the repeated item, fired on the last element.\n-  `--index` : contains a number with the index of the element.\n-  `--host` : contains a reference to the host component.\n-  `--trigger` : contains what was passed in to the triggering method.\n-  `--triggerFirst` : contains what was passed in to the triggering method.\n-  `--triggerLast` : contains what was passed in to the triggering method.\n-  `--itemSelected` : contains `true`, is triggered with select(index).\n-  `--itemDeSelected` : contains `false`, is triggered when another item is selected with select(index).\n\n## Available attributes\n**index** contains the current index of the item. Use this to fire a event with an index like `@-click=\"^^item-clicked(index)\"`\n**item** contains the current index of the item. Use this to fire a event with the repeated item like `@-click=\"^^item-selected(item)\"`",
+          "doc-url": "https://web-components.furo.pro/docs/modules/furo-data/FlowRepeat/",
+          "attributes": [
+                    ]
+          ,
+          "js": {
+            "properties": [
+            ],
+            "methods": [
+            {
+              "name": "clear",
+              "description": "Clear the list",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "select",
+              "description": "Triggers the wire `--itemSelected` on selected item and `--itemDeSelected` on last selected Item.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "select-identity",
+              "description": "Select item by its identity.\n\nUsing this method only works when you have set the `identity-path`.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "select-next-index",
+              "description": "Selects next index.  If none was selected, the first index will be selected.\n\nIf you reached the last index, the first index will be selected.\n\nIf you reach the last element, `last-element-selected` will fire.\n\nTriggers the wire `--itemSelected` on selected item and `--itemDeSelected` on last selected Item",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "select-previous-index",
+              "description": "Selects the previous index.\n\nIf you are on the first item, the last will be selected.\n\nTriggers the wire `--itemSelected` on selected item and `--itemDeSelected` on last selected Item",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger-selected",
+              "description": "Triggers the currently selected item.\n\nTriggers the wire `--trigger` on the every item.\n\nTriggers the wire `--triggerIndex` on the every item.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger-all",
+              "description": "Triggers all nodes.\n\nTriggers the wire `--trigger` on the every item.\n\nTriggers the wire `--triggerIndex` on the every item.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "deselect",
+              "description": "Triggers the wire `--itemDeSelected` on the last selected item",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "set-insert-ref",
+              "description": "Set a reference to append the repeated elements in to the ref instead of appending them before the repeater itself.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "deselect-all",
+              "description": "Triggers the wire `--itemDeSelected` on all items",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "inject-items",
+              "description": "Inject items to repeat.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger-first",
+              "description": "Triggers the wire `--trigger` on the first item.\n\nTriggers the wire --triggerFirst on the first item.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger-last",
+              "description": "Triggers the wire `--trigger` on the last item.\n\nTriggers the wire --triggerLast on the last item.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }
+            , {
+              "name": "trigger-index",
+              "description": "Triggers the wire `--trigger` on the  item.\n\nTriggers the wire `--triggerIndex` on the  item.",
+              "value": {
+                "type": "string",
+                "required": true
+              }
+            }],
+            "events": [
+              
+              {
+                "name": "last-element-selected",
+                "priority": "highest",
+                "description": " Fired when the last element is selected. Use this to trigger a load next.",
+                 "value": {
+                      "type": "index of the element"
+                }
+              }
+              , 
+              {
+                "name": "items-in-dom",
+                "priority": "highest",
+                "description": " Fired when items are attached to the dom, with Number of items.",
+                 "value": {
+                      "type": "Number"
+                }
+              } ]
+        }
+      }]
+    }
+  }
+}
