@@ -95,15 +95,16 @@
             {{- end}} ]
             {{- end}}
 
-         {{- if $declaration.cssProperties}},"css": {
+         {{- if $declaration.cssProperties}},
+         "css": {
             "properties": [
-              {
-              {{- range $style := .decl.cssProperties}}
-              "name": "{{$style.name}}" ``{{if $style.description}},
-              {{$style.description | noescape}}{{end}}
-              {{- end}}
 
+              {{- range $i, $style := $declaration.cssProperties}} {{if $i}}, {{end}}
+              {
+              "name": "{{$style.name}}"{{if $style.description}},
+              "description": "{{$style.description | noescape}}{{end}}"
               }
+              {{- end}}
             ]
           } {{- end}}
         }

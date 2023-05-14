@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "@furo/layout",
-  "version": "2.2.4",
+  "version": "2.2.6",
   "description-markup": "markdown",
   "js-types-syntax": "typescript",
   "default-icon": "icon.svg",
@@ -50,10 +50,12 @@
                 "type": "string",
                 "required": true
               }
-            }],"css": {
-            "properties": [
+            }],
+         "css": {
+            "properties": [ 
               {
-
+              "name": "--furo-backdrop-color",
+              "description": "background color of backdrop"
               }
             ]
           }
@@ -258,10 +260,16 @@
                  "value": {
                       "type": "CustomEvent"
                 }
-              } ],"css": {
-            "properties": [
+              } ],
+         "css": {
+            "properties": [ 
               {
-
+              "name": "--furo-form-layouter-row-gap",
+              "description": "width of row gap"
+              } , 
+              {
+              "name": "--furo-form-layouter-column-gap",
+              "description": "width of column gap"
               }
             ]
           }
@@ -288,10 +296,16 @@
           "js": {
             "properties": [
             ],
-            "methods": [],"css": {
-            "properties": [
+            "methods": [],
+         "css": {
+            "properties": [ 
               {
-
+              "name": "--furo-horizontal-flex-space",
+              "description": "default padding (space)"
+              } , 
+              {
+              "name": "--furo-horizontal-flex-bigspace",
+              "description": "big padding (bigspace) Tags: layout"
               }
             ]
           }
@@ -398,10 +412,12 @@
                 "description": "flip the left and right side"
               }
             ],
-            "methods": [],"css": {
-            "properties": [
+            "methods": [],
+         "css": {
+            "properties": [ 
               {
-
+              "name": "--split-master-width",
+              "description": "width of the master slot"
               }
             ]
           }
@@ -452,10 +468,16 @@
           "js": {
             "properties": [
             ],
-            "methods": [],"css": {
-            "properties": [
+            "methods": [],
+         "css": {
+            "properties": [ 
               {
-
+              "name": "--surface",
+              "description": "Background color scrollbar"
+              } , 
+              {
+              "name": "--on-surface",
+              "description": "Background color of the draggable scrolling element"
               }
             ]
           }
