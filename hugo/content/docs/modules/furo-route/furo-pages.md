@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-pages
-**@furo/route** <small>v2.6.3</small>
+**@furo/route** <small>v2.6.6</small>
 <br>`import '@furo/route/src/furo-pages.js';`<small>
 <br>exports *FuroPages* js
 <br>exports `<furo-pages>` custom-element-definition

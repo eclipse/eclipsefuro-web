@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-api-fetch
-**@furo/data** <small>v2.16.6</small>
+**@furo/data** <small>v2.16.9</small>
 <br>`import '@furo/data/src/furo-api-fetch.js';`<small>
 <br>exports *FuroApiFetch* js
 <br>exports `<furo-api-fetch>` custom-element-definition

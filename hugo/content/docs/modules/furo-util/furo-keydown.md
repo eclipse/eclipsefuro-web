@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-keydown
-**@furo/util** <small>v2.1.9</small>
+**@furo/util** <small>v2.1.12</small>
 <br>`import '@furo/util/src/furo-keydown.js';`<small>
 <br>exports *FuroKeydown* js
 <br>exports `<furo-keydown>` custom-element-definition

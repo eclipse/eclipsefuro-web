@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-empty-spacer
-**@furo/layout** <small>v2.2.4</small>
+**@furo/layout** <small>v2.2.7</small>
 <br>`import '@furo/layout/src/furo-empty-spacer.js';`<small>
 <br>exports *FuroEmptySpacer* js
 <br>exports `<furo-empty-spacer>` custom-element-definition

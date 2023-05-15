@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-deep-link
-**@furo/data** <small>v2.16.6</small>
+**@furo/data** <small>v2.16.9</small>
 <br>`import '@furo/data/src/furo-deep-link.js';`<small>
 <br>exports *FuroDeepLink* js
 <br>exports `<furo-deep-link>` custom-element-definition

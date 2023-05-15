@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-reverse-deep-link
-**@furo/data** <small>v2.16.6</small>
+**@furo/data** <small>v2.16.9</small>
 <br>`import '@furo/data/src/furo-reverse-deep-link.js';`<small>
 <br>exports *FuroReverseDeepLink* js
 <br>exports `<furo-reverse-deep-link>` custom-element-definition

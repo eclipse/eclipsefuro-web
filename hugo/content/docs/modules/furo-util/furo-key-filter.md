@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-key-filter
-**@furo/util** <small>v2.1.9</small>
+**@furo/util** <small>v2.1.12</small>
 <br>`import '@furo/util/src/furo-key-filter.js';`<small>
 <br>exports *FuroKeyFilter* js
 <br>exports `<furo-key-filter>` custom-element-definition

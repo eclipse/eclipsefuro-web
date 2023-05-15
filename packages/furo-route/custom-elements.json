@@ -842,7 +842,7 @@
                 "text": "HTMLElement [0..n]"
               },
               "description": "default slot to add pages.",
-              "name": ""
+              "name": "default"
             }
           ],
           "members": [
@@ -923,6 +923,15 @@
               "description": "Set the default page to show.",
               "name": "default",
               "kind": "field"
+            }
+          ],
+          "attributes": [
+            {
+              "type": {
+                "text": "String"
+              },
+              "description": "Set the default page to show.",
+              "name": "default"
             }
           ],
           "superclass": {

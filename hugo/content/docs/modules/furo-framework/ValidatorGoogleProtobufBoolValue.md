@@ -6,7 +6,7 @@ weight: 100
 
 # ValidatorGoogleProtobufBoolValue
 
-**@furo/furo-framework** <small>v2.4.4</small>
+**@furo/furo-framework** <small>v2.4.7</small>
 <br>`import '@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufBoolValue.js';`<small>
 <br>exports *ValidatorGoogleProtobufBoolValue* js</small>
 
