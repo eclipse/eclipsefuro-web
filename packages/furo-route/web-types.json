@@ -532,12 +532,16 @@
                     ],
                   "slots": [
                       {
-                        "name": "",
+                        "name": "default",
                         "description": "default slot to add pages."
                       } ]
           ,
           "js": {
-            "properties": [
+            "properties": [{
+                "name": "default",
+                "type": "String",
+                "description": "Set the default page to show."
+              }
             ],
             "methods": [
             {
