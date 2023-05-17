@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "@furo/data",
-  "version": "2.16.9",
+  "version": "2.16.10",
   "description-markup": "markdown",
   "js-types-syntax": "typescript",
   "default-icon": "icon.svg",
@@ -25,11 +25,13 @@
             "properties": [{
                 "name": "lastRequest",
                 "type": "Object",
+                "priority": "high",
                 "description": "LastRequest's response.\n\nNote that lastResponse is set when ongoing request finishes, so if loading is true,\nthen lastResponse will correspond to the result of the previous request.",
                 "default": "{}"
               }, {
                 "name": "isLoading",
                 "type": "boolean",
+                "priority": "high",
                 "description": "True while request is in flight.",
                 "default": "false"
               }
@@ -175,43 +177,53 @@
           "attributes": [{
                         "name": "service",
                         "type": "String",
-                        "description": "Setze den Service"
+              "priority": "highest",
+              "description": "Setze den Service"
                       }, {
                         "name": "page-size",
                         "type": "Number",
-                        "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination."
+              "priority": "highest",
+              "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination."
                       }, {
                         "name": "fields",
                         "type": "String",
-                        "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields."
+              "priority": "highest",
+              "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields."
                       }, {
                         "name": "order-by",
                         "type": "String",
-                        "description": "Sorting order\n\norder-by=&#34;foo,-bar&#34;  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature."
+              "priority": "highest",
+              "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature."
                       }, {
                         "name": "filter",
                         "type": "String",
-                        "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature."
+              "priority": "highest",
+              "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature."
                       }, {
                         "name": "view",
                         "type": "String",
-                        "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature."
+              "priority": "highest",
+              "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature."
                       }, {
                         "name": "list-on-hts-in",
                         "type": "Boolean",
-                        "description": "Executes a list when a rel=&#34;list&#34; is injected."
+              "priority": "highest",
+              "description": "Executes a list when a rel=\"list\" is injected."
                       }, {
                         "name": "load-rel-on-hts-in",
                         "type": "Boolean",
-                        "description": "Executes a loadRel when a rel=&#34;XXXX&#34; is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting &#34;custom&#34; collections."
+              "priority": "highest",
+              "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections."
                       }, {
                         "name": "rel",
                         "type": "String",
-                        "description": "rel which should be used on load rel"
+              "priority": "highest",
+              "description": "rel which should be used on load rel"
                       }, {
                         "name": "method",
                         "type": "String",
-                        "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information."
+              "priority": "highest",
+              "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information."
                       }
                     ]
           ,
@@ -219,42 +231,52 @@
             "properties": [{
                 "name": "view",
                 "type": "String",
+                "priority": "high",
                 "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature."
               }, {
                 "name": "filter",
                 "type": "String",
+                "priority": "high",
                 "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature."
               }, {
                 "name": "service",
                 "type": "String",
+                "priority": "high",
                 "description": "Setze den Service"
               }, {
                 "name": "pageSize",
                 "type": "Number",
+                "priority": "high",
                 "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination."
               }, {
                 "name": "fields",
                 "type": "String",
+                "priority": "high",
                 "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields."
               }, {
                 "name": "orderBy",
                 "type": "String",
+                "priority": "high",
                 "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature."
               }, {
                 "name": "listOnHtsIn",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Executes a list when a rel=\"list\" is injected."
               }, {
                 "name": "loadRelOnHtsIn",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections."
               }, {
                 "name": "rel",
                 "type": "String",
+                "priority": "high",
                 "description": "rel which should be used on load rel"
               }, {
                 "name": "method",
                 "type": "String",
+                "priority": "high",
                 "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information."
               }
             ],
@@ -561,11 +583,13 @@
           "attributes": [{
                         "name": "service",
                         "type": "String",
-                        "description": "Setze den Service"
+              "priority": "highest",
+              "description": "Setze den Service"
                       }, {
                         "name": "method",
                         "type": "String",
-                        "description": "Name of the custom method / rel."
+              "priority": "highest",
+              "description": "Name of the custom method / rel."
                       }
                     ]
           ,
@@ -573,10 +597,12 @@
             "properties": [{
                 "name": "service",
                 "type": "String",
+                "priority": "high",
                 "description": "Setze den Service"
               }, {
                 "name": "method",
                 "type": "String",
+                "priority": "high",
                 "description": "Name of the custom method / rel."
               }
             ],
@@ -764,11 +790,13 @@
             "properties": [{
                 "name": "selectAddedItem",
                 "type": "boolean",
+                "priority": "high",
                 "description": "Enable this to select the created item. This will trigger a wire `--itemSelected` which can be wired to\n`fn-focus=\"--itemSelected\"`.",
                 "default": "false"
               }, {
                 "name": "identityPath",
                 "type": "String",
+                "priority": "high",
                 "description": "By setting this param, the repeater has not to rebuild the list on new data. It only updates the parts that have changed.\n\nThe path is a field, relative to the root of the repeated item.",
                 "default": "false"
               }
@@ -805,15 +833,18 @@
           "attributes": [{
                         "name": "hidden",
                         "type": "boolean",
-                        "description": "Internal variable to update the attribute, which triggers the css"
+              "priority": "highest",
+              "description": "Internal variable to update the attribute, which triggers the css"
                       }, {
                         "name": "hide-on-false",
                         "type": "Boolean",
-                        "description": "Hide element on false instead of true"
+              "priority": "highest",
+              "description": "Hide element on false instead of true"
                       }, {
                         "name": "animated",
                         "type": "boolean",
-                        "description": "Set this to animate the collapse and expand."
+              "priority": "highest",
+              "description": "Set this to animate the collapse and expand."
                       }
                     ],
                   "slots": [
@@ -826,15 +857,18 @@
             "properties": [{
                 "name": "hidden",
                 "type": "boolean",
+                "priority": "high",
                 "description": "",
                 "default": "false"
               }, {
                 "name": "hideOnFalse",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Hide element on false instead of true"
               }, {
                 "name": "animated",
                 "type": "boolean",
+                "priority": "high",
                 "description": "Set this to animate the collapse and expand."
               }
             ],
@@ -914,7 +948,8 @@
           "attributes": [{
                         "name": "type",
                         "type": "String",
-                        "description": "Set the type. The type must be available in the environment"
+              "priority": "highest",
+              "description": "Set the type. The type must be available in the environment"
                       }
                     ]
           ,
@@ -922,10 +957,12 @@
             "properties": [{
                 "name": "type",
                 "type": "String",
+                "priority": "high",
                 "description": "Set the type. The type must be available in the environment"
               }, {
                 "name": "json",
                 "type": "",
+                "priority": "high",
                 "description": "get the data from the data object as raw json"
               }
             ],
@@ -1100,7 +1137,8 @@
           "attributes": [{
                         "name": "service",
                         "type": "String",
-                        "description": "Set the service name like `TaskService`.\n\nServices must be registered before."
+              "priority": "highest",
+              "description": "Set the service name like `TaskService`.\n\nServices must be registered before."
                       }
                     ]
           ,
@@ -1108,6 +1146,7 @@
             "properties": [{
                 "name": "service",
                 "type": "String",
+                "priority": "high",
                 "description": "Set the service name like `TaskService`.\n\nServices must be registered before."
               }
             ],
@@ -1161,15 +1200,18 @@
           "attributes": [{
                         "name": "service",
                         "type": "String",
-                        "description": "Setze den Service"
+              "priority": "highest",
+              "description": "Setze den Service"
                       }, {
                         "name": "load-on-hts-in",
                         "type": "Boolean",
-                        "description": "triggers a load when link rel=&#34;self&#34; is in the injected hts (after hts-injected is fired)"
+              "priority": "highest",
+              "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)"
                       }, {
                         "name": "with-update-mask",
                         "type": "Boolean",
-                        "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html"
+              "priority": "highest",
+              "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html"
                       }
                     ]
           ,
@@ -1177,14 +1219,17 @@
             "properties": [{
                 "name": "service",
                 "type": "String",
+                "priority": "high",
                 "description": "Setze den Service"
               }, {
                 "name": "loadOnHtsIn",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "triggers a load when link rel=\"self\" is in the injected hts (after hts-injected is fired)"
               }, {
                 "name": "appendUpdateMaskQP",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Creates the query param update mask according to the google api design guidelines.\n\nYour update service must have a query param **update_mask** to use this feature.\n\nhttps://cloud.google.com/apis/design/standard_methods#update\n\nYou may not need it if your server can handle PATCHes without a update_mask\nhttps://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html"
               }
             ],
@@ -1496,6 +1541,7 @@
             "properties": [{
                 "name": "value",
                 "type": "",
+                "priority": "high",
                 "description": "Set a value to update the fieldnode"
               }
             ],
@@ -1739,11 +1785,13 @@
           "attributes": [{
                         "name": "rel",
                         "type": "String",
-                        "description": "Name of the rel"
+              "priority": "highest",
+              "description": "Name of the rel"
                       }, {
                         "name": "service",
                         "type": "String",
-                        "description": "define the service if you want a specific check on the service also"
+              "priority": "highest",
+              "description": "define the service if you want a specific check on the service also"
                       }
                     ]
           ,
@@ -1751,10 +1799,12 @@
             "properties": [{
                 "name": "rel",
                 "type": "String",
+                "priority": "high",
                 "description": "Name of the rel"
               }, {
                 "name": "service",
                 "type": "String",
+                "priority": "high",
                 "description": "define the service if you want a specific check on the service also"
               }
             ],
@@ -1801,12 +1851,14 @@
           "attributes": [{
                         "name": "service",
                         "type": "string",
-                        "description": "Name of service",
+              "priority": "highest",
+              "description": "Name of service",
                         "default": "''"
                       }, {
                         "name": "rel",
                         "type": "String",
-                        "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used."
+              "priority": "highest",
+              "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used."
                       }
                     ]
           ,
@@ -1814,11 +1866,13 @@
             "properties": [{
                 "name": "service",
                 "type": "string",
+                "priority": "high",
                 "description": "Name of service",
                 "default": "''"
               }, {
                 "name": "rel",
                 "type": "String",
+                "priority": "high",
                 "description": "Optional rel to convert.\n\nNot needed if you inject a link object.\n\nIf you insert an entity rel self is taken. If you insert a collection, rel list is used."
               }
             ],
@@ -1856,11 +1910,13 @@
           "attributes": [{
                         "name": "disabled",
                         "type": "Boolean",
-                        "description": "A Boolean attribute which, if present, means this field is displayed in disabled state."
+              "priority": "highest",
+              "description": "A Boolean attribute which, if present, means this field is displayed in disabled state."
                       }, {
                         "name": "context",
                         "type": "string",
-                        "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
+              "priority": "highest",
+              "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
                         "default": "'display'"
                       }
                     ]
@@ -1869,11 +1925,13 @@
             "properties": [{
                 "name": "context",
                 "type": "string",
+                "priority": "high",
                 "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
                 "default": "'display'"
               }, {
                 "name": "disabled",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "A Boolean attribute which, if present, means this field is displayed in disabled state."
               }
             ],

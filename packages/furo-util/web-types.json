@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "@furo/util",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "description-markup": "markdown",
   "js-types-syntax": "typescript",
   "default-icon": "icon.svg",
@@ -21,11 +21,13 @@
           "attributes": [{
                         "name": "src",
                         "type": "String",
-                        "description": "File source"
+              "priority": "highest",
+              "description": "File source"
                       }, {
                         "name": "section",
                         "type": "String",
-                        "description": "Targeted section to load the config in."
+              "priority": "highest",
+              "description": "Targeted section to load the config in."
                       }
                     ]
           ,
@@ -33,10 +35,12 @@
             "properties": [{
                 "name": "src",
                 "type": "String",
+                "priority": "high",
                 "description": "File source"
               }, {
                 "name": "section",
                 "type": "String",
+                "priority": "high",
                 "description": "Targeted section to load the config in."
               }
             ],
@@ -66,7 +70,8 @@
           "attributes": [{
                         "name": "section",
                         "type": "String",
-                        "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`"
+              "priority": "highest",
+              "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`"
                       }
                     ]
           ,
@@ -74,10 +79,12 @@
             "properties": [{
                 "name": "section",
                 "type": "String",
+                "priority": "high",
                 "description": "section of the config object that you are interested in\n\naccess deep object with dots like `main.sub.sub`"
               }, {
                 "name": "config",
                 "type": "",
+                "priority": "high",
                 "description": "The current section of the config, which was defined by `section`.",
                 "default": "Config"
               }
@@ -108,11 +115,13 @@
           "attributes": [{
                         "name": "wait",
                         "type": "Number",
-                        "description": "Debounce time in milliseconds\nDefault value: 250"
+              "priority": "highest",
+              "description": "Debounce time in milliseconds\nDefault value: 250"
                       }, {
                         "name": "immediate",
                         "type": "Boolean",
-                        "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false"
+              "priority": "highest",
+              "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false"
                       }
                     ]
           ,
@@ -120,10 +129,12 @@
             "properties": [{
                 "name": "immediate",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "If true, input-wire is triggered immediatley (leading edge instead of trailing)\nDefault value: false"
               }, {
                 "name": "wait",
                 "type": "Number",
+                "priority": "high",
                 "description": "Debounce time in milliseconds\nDefault value: 250"
               }
             ],
@@ -170,7 +181,8 @@
           "attributes": [{
                         "name": "key",
                         "type": "String",
-                        "description": "Name of a feature toggle."
+              "priority": "highest",
+              "description": "Name of a feature toggle."
                       }
                     ]
           ,
@@ -178,6 +190,7 @@
             "properties": [{
                 "name": "key",
                 "type": "String",
+                "priority": "high",
                 "description": "Name of a feature toggle."
               }
             ],
@@ -241,7 +254,8 @@
           "attributes": [{
                         "name": "src",
                         "type": "String",
-                        "description": "the url you want to fetch"
+              "priority": "highest",
+              "description": "the url you want to fetch"
                       }
                     ]
           ,
@@ -249,6 +263,7 @@
             "properties": [{
                 "name": "src",
                 "type": "String",
+                "priority": "high",
                 "description": "the url you want to fetch"
               }
             ],
@@ -307,6 +322,7 @@
             "properties": [{
                 "name": "size",
                 "type": "number",
+                "priority": "high",
                 "description": "Current size of the stack",
                 "default": "0"
               }
@@ -437,7 +453,8 @@
           "attributes": [{
                         "name": "json",
                         "type": "String",
-                        "description": "Convert clipboard content to json"
+              "priority": "highest",
+              "description": "Convert clipboard content to json"
                       }
                     ]
           ,
@@ -445,6 +462,7 @@
             "properties": [{
                 "name": "json",
                 "type": "String",
+                "priority": "high",
                 "description": "Convert clipboard content to json"
               }
             ],
@@ -528,32 +546,39 @@
           "attributes": [{
                         "name": "x",
                         "type": "Number",
-                        "description": "current x"
+              "priority": "highest",
+              "description": "current x"
                       }, {
                         "name": "y",
                         "type": "Number",
-                        "description": "current y"
+              "priority": "highest",
+              "description": "current y"
                       }, {
                         "name": "z",
                         "type": "Number",
-                        "description": "current z"
+              "priority": "highest",
+              "description": "current z"
                       }, {
                         "name": "t",
                         "type": "Number",
-                        "description": "current t"
+              "priority": "highest",
+              "description": "current t"
                       }, {
                         "name": "stack",
                         "type": "Array",
-                        "description": "the stack."
+              "priority": "highest",
+              "description": "the stack."
                       }, {
                         "name": "radMode",
                         "type": "boolean",
-                        "description": "Set to true to use rad, default is deg",
+              "priority": "highest",
+              "description": "Set to true to use rad, default is deg",
                         "default": "false"
                       }, {
                         "name": "_PIdivby180",
                         "type": "number",
-                        "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
+              "priority": "highest",
+              "description": "so we dont have to calculate Math.PI / 180  every time\nused to calculate rad from angle",
                         "default": "0.017453292519943295"
                       }
                     ]
@@ -562,31 +587,38 @@
             "properties": [{
                 "name": "radMode",
                 "type": "boolean",
+                "priority": "high",
                 "description": "Set to true to use rad, default is deg",
                 "default": "false"
               }, {
                 "name": "x",
                 "type": "Number",
+                "priority": "high",
                 "description": "current x"
               }, {
                 "name": "y",
                 "type": "Number",
+                "priority": "high",
                 "description": "current y"
               }, {
                 "name": "z",
                 "type": "Number",
+                "priority": "high",
                 "description": "current z"
               }, {
                 "name": "t",
                 "type": "Number",
+                "priority": "high",
                 "description": "current t"
               }, {
                 "name": "stack",
                 "type": "Array",
+                "priority": "high",
                 "description": "the stack."
               }, {
                 "name": "size",
                 "type": "number",
+                "priority": "high",
                 "description": "Current size of the stack",
                 "default": "0"
               }
@@ -870,17 +902,20 @@
           "attributes": [{
                         "name": "interval",
                         "type": "number",
-                        "description": "Duration of a tact in ms.",
+              "priority": "highest",
+              "description": "Duration of a tact in ms.",
                         "default": "200"
                       }, {
                         "name": "takt",
                         "type": "number",
-                        "description": "Number of ticks per tact.",
+              "priority": "highest",
+              "description": "Number of ticks per tact.",
                         "default": "4"
                       }, {
                         "name": "auto",
                         "type": "Boolean",
-                        "description": "Starts interval automatically"
+              "priority": "highest",
+              "description": "Starts interval automatically"
                       }
                     ]
           ,
@@ -888,16 +923,19 @@
             "properties": [{
                 "name": "interval",
                 "type": "number",
+                "priority": "high",
                 "description": "Duration of a tact in ms.",
                 "default": "200"
               }, {
                 "name": "takt",
                 "type": "number",
+                "priority": "high",
                 "description": "Number of ticks per tact.",
                 "default": "4"
               }, {
                 "name": "auto",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Starts interval automatically"
               }
             ],
@@ -952,27 +990,33 @@
           "attributes": [{
                         "name": "keys",
                         "type": "String",
-                        "description": "Coma separated list with allowed keys to pass. i.e &#34;Enter, ArrowUp&#34;"
+              "priority": "highest",
+              "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\""
                       }, {
                         "name": "shift",
                         "type": "Boolean",
-                        "description": "Modifier key **shift** must be pressed too to match"
+              "priority": "highest",
+              "description": "Modifier key **shift** must be pressed too to match"
                       }, {
                         "name": "alt",
                         "type": "Boolean",
-                        "description": "Modifier key **alt** must be pressed too to match"
+              "priority": "highest",
+              "description": "Modifier key **alt** must be pressed too to match"
                       }, {
                         "name": "command",
                         "type": "Boolean",
-                        "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match."
+              "priority": "highest",
+              "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match."
                       }, {
                         "name": "meta",
                         "type": "Boolean",
-                        "description": "Modifier key **meta** must be pressed too to match"
+              "priority": "highest",
+              "description": "Modifier key **meta** must be pressed too to match"
                       }, {
                         "name": "control",
                         "type": "Boolean",
-                        "description": "Modifier key **control** must be pressed too to match"
+              "priority": "highest",
+              "description": "Modifier key **control** must be pressed too to match"
                       }
                     ]
           ,
@@ -980,26 +1024,32 @@
             "properties": [{
                 "name": "keys",
                 "type": "String",
+                "priority": "high",
                 "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\""
               }, {
                 "name": "shift",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Modifier key **shift** must be pressed too to match"
               }, {
                 "name": "alt",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Modifier key **alt** must be pressed too to match"
               }, {
                 "name": "command",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match."
               }, {
                 "name": "meta",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Modifier key **meta** must be pressed too to match"
               }, {
                 "name": "control",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Modifier key **control** must be pressed too to match"
               }
             ],
@@ -1037,35 +1087,43 @@
           "attributes": [{
                         "name": "key",
                         "type": "String",
-                        "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c"
+              "priority": "highest",
+              "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c"
                       }, {
                         "name": "global",
                         "type": "Boolean",
-                        "description": "Set this attribute to listen to the keydown event global (window)."
+              "priority": "highest",
+              "description": "Set this attribute to listen to the keydown event global (window)."
                       }, {
                         "name": "alt",
                         "type": "Boolean",
-                        "description": "`alt` key must be pressed to trigger the `key` event."
+              "priority": "highest",
+              "description": "`alt` key must be pressed to trigger the `key` event."
                       }, {
                         "name": "ctrl",
                         "type": "Boolean",
-                        "description": "`ctrl` key must be pressed to trigger the `key` event."
+              "priority": "highest",
+              "description": "`ctrl` key must be pressed to trigger the `key` event."
                       }, {
                         "name": "meta",
                         "type": "Boolean",
-                        "description": "`meta` key must be pressed to trigger the `key` event."
+              "priority": "highest",
+              "description": "`meta` key must be pressed to trigger the `key` event."
                       }, {
                         "name": "shift",
                         "type": "Boolean",
-                        "description": "`shift` key must be pressed to trigger the `key` event."
+              "priority": "highest",
+              "description": "`shift` key must be pressed to trigger the `key` event."
                       }, {
                         "name": "prevent-default",
                         "type": "Boolean",
-                        "description": "Set this attribute to prevent the event default of the keypress event."
+              "priority": "highest",
+              "description": "Set this attribute to prevent the event default of the keypress event."
                       }, {
                         "name": "stop-propagation",
                         "type": "Boolean",
-                        "description": "Set this to true to stop the event propagation of the keypress event."
+              "priority": "highest",
+              "description": "Set this to true to stop the event propagation of the keypress event."
                       }
                     ]
           ,
@@ -1073,34 +1131,42 @@
             "properties": [{
                 "name": "key",
                 "type": "String",
+                "priority": "high",
                 "description": "Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c"
               }, {
                 "name": "global",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Set this attribute to listen to the keydown event global (window)."
               }, {
                 "name": "alt",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "`alt` key must be pressed to trigger the `key` event."
               }, {
                 "name": "ctrl",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "`ctrl` key must be pressed to trigger the `key` event."
               }, {
                 "name": "meta",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "`meta` key must be pressed to trigger the `key` event."
               }, {
                 "name": "shift",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "`shift` key must be pressed to trigger the `key` event."
               }, {
                 "name": "preventDefault",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Set this attribute to prevent the event default of the keypress event."
               }, {
                 "name": "stopPropagation",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Set this to true to stop the event propagation of the keypress event."
               }
             ],
@@ -1130,15 +1196,18 @@
           "attributes": [{
                         "name": "unsafe",
                         "type": "Boolean",
-                        "description": "allow unsafe md. (writing html, components,...)"
+              "priority": "highest",
+              "description": "allow unsafe md. (writing html, components,...)"
                       }, {
                         "name": "mdsrc",
                         "type": "String",
-                        "description": "source of the md"
+              "priority": "highest",
+              "description": "source of the md"
                       }, {
                         "name": "markdown",
                         "type": "String",
-                        "description": "markdown string"
+              "priority": "highest",
+              "description": "markdown string"
                       }
                     ]
           ,
@@ -1146,19 +1215,23 @@
             "properties": [{
                 "name": "mdsrc",
                 "type": "String",
+                "priority": "high",
                 "description": "source of the md"
               }, {
                 "name": "markdown",
                 "type": "String",
+                "priority": "high",
                 "description": "markdown string"
               }, {
                 "name": "markdownRendered",
                 "type": "",
+                "priority": "high",
                 "description": "",
                 "default": "undefined"
               }, {
                 "name": "unsafe",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "allow unsafe md. (writing html, components,...)"
               }
             ],
@@ -1194,7 +1267,8 @@
           "attributes": [{
                         "name": "ignored-keys",
                         "type": "String",
-                        "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. &#34;Escape, ArrowLeft&#34;"
+              "priority": "highest",
+              "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\""
                       }
                     ]
           ,
@@ -1202,6 +1276,7 @@
             "properties": [{
                 "name": "ignoredKeys",
                 "type": "String",
+                "priority": "high",
                 "description": "Enter the keys you want to ignore as comma seperated values.\n\ni.e. \"Escape, ArrowLeft\""
               }
             ],
@@ -1348,7 +1423,8 @@
           "attributes": [{
                         "name": "json",
                         "type": "Boolean",
-                        "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention."
+              "priority": "highest",
+              "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention."
                       }
                     ]
           ,
@@ -1356,6 +1432,7 @@
             "properties": [{
                 "name": "json",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention."
               }
             ],
@@ -1401,23 +1478,28 @@
           "attributes": [{
                         "name": "source",
                         "type": "Boolean",
-                        "description": "Show the source tab"
+              "priority": "highest",
+              "description": "Show the source tab"
                       }, {
                         "name": "demo",
                         "type": "Boolean",
-                        "description": "Show the demo tab"
+              "priority": "highest",
+              "description": "Show the demo tab"
                       }, {
                         "name": "flow",
                         "type": "Boolean",
-                        "description": "Show the flow tab"
+              "priority": "highest",
+              "description": "Show the flow tab"
                       }, {
                         "name": "fullscreen",
                         "type": "boolean",
-                        "description": ""
+              "priority": "highest",
+              "description": ""
                       }, {
                         "name": "no-demo",
                         "type": "boolean",
-                        "description": "hide the demo tab"
+              "priority": "highest",
+              "description": "hide the demo tab"
                       }
                     ]
           ,
@@ -1425,27 +1507,33 @@
             "properties": [{
                 "name": "template",
                 "type": "",
+                "priority": "high",
                 "description": ""
               }, {
                 "name": "markdown",
                 "type": "",
+                "priority": "high",
                 "description": ""
               }, {
                 "name": "icon",
                 "type": "string",
+                "priority": "high",
                 "description": "",
                 "default": "'# '"
               }, {
                 "name": "source",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Show the source tab"
               }, {
                 "name": "demo",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Show the demo tab"
               }, {
                 "name": "flow",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Show the flow tab"
               }
             ],
@@ -1465,12 +1553,14 @@
           "attributes": [{
                         "name": "off",
                         "type": "boolean",
-                        "description": "Switch of the bulb",
+              "priority": "highest",
+              "description": "Switch of the bulb",
                         "default": "true"
                       }, {
                         "name": "on",
                         "type": "Boolean",
-                        "description": "Switch on the bulb"
+              "priority": "highest",
+              "description": "Switch on the bulb"
                       }
                     ]
           ,
@@ -1478,15 +1568,18 @@
             "properties": [{
                 "name": "on",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Switch on the bulb"
               }, {
                 "name": "off",
                 "type": "boolean",
+                "priority": "high",
                 "description": "Switch of the bulb",
                 "default": "true"
               }, {
                 "name": "color",
                 "type": "string",
+                "priority": "high",
                 "description": "",
                 "default": "\"#fee753\""
               }

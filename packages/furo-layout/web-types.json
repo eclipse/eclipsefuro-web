@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "@furo/layout",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description-markup": "markdown",
   "js-types-syntax": "typescript",
   "default-icon": "icon.svg",
@@ -21,15 +21,18 @@
           "attributes": [{
                         "name": "start",
                         "type": "boolean",
-                        "description": "Needed to start the animation."
+              "priority": "highest",
+              "description": "Needed to start the animation."
                       }, {
                         "name": "show",
                         "type": "boolean",
-                        "description": "Indicates that the backdrop is shown."
+              "priority": "highest",
+              "description": "Indicates that the backdrop is shown."
                       }, {
                         "name": "to-duration",
                         "type": "number",
-                        "description": "timeout duration",
+              "priority": "highest",
+              "description": "timeout duration",
                         "default": "100"
                       }
                     ]
@@ -38,6 +41,7 @@
             "properties": [{
                 "name": "toDuration",
                 "type": "number",
+                "priority": "high",
                 "description": "timeout duration",
                 "default": "100"
               }
@@ -137,12 +141,14 @@
           "attributes": [{
                         "name": "flex",
                         "type": "boolean",
-                        "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
+              "priority": "highest",
+              "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
                         "default": "true"
                       }, {
                         "name": "hidden",
                         "type": "boolean",
-                        "description": "Set to true to hide the spacer",
+              "priority": "highest",
+              "description": "Set to true to hide the spacer",
                         "default": "false"
                       }
                     ]
@@ -151,11 +157,13 @@
             "properties": [{
                 "name": "flex",
                 "type": "boolean",
+                "priority": "high",
                 "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
                 "default": "true"
               }, {
                 "name": "hidden",
                 "type": "boolean",
+                "priority": "high",
                 "description": "Set to true to hide the spacer",
                 "default": "false"
               }
@@ -176,41 +184,50 @@
           "attributes": [{
                         "name": "one",
                         "type": "bool",
-                        "description": "One column layout."
+              "priority": "highest",
+              "description": "One column layout."
                       }, {
                         "name": "two",
                         "type": "bool",
-                        "description": "Two column layout, switches to one when breakpoint is reached."
+              "priority": "highest",
+              "description": "Two column layout, switches to one when breakpoint is reached."
                       }, {
                         "name": "three",
                         "type": "bool",
-                        "description": "Three column layout, switches to one when breakpoint is reached."
+              "priority": "highest",
+              "description": "Three column layout, switches to one when breakpoint is reached."
                       }, {
                         "name": "four",
                         "type": "bool",
-                        "description": "Three column layout, switches to two when breakpoint-big is reached and to one if breakpoint-small is reached."
+              "priority": "highest",
+              "description": "Three column layout, switches to two when breakpoint-big is reached and to one if breakpoint-small is reached."
                       }, {
                         "name": "six",
                         "type": "bool",
-                        "description": "Three column layout, switches to three when breakpoint-big is reached and to one if breakpoint-small is reached. Tags: form"
+              "priority": "highest",
+              "description": "Three column layout, switches to three when breakpoint-big is reached and to one if breakpoint-small is reached. Tags: form"
                       }, {
                         "name": "breakpoint-big",
                         "type": "number",
-                        "description": "Set custom breakpoint big\nDefault: &#34;810&#34;",
+              "priority": "highest",
+              "description": "Set custom breakpoint big\nDefault: \"810\"",
                         "default": "810"
                       }, {
                         "name": "breakpoint-small",
                         "type": "number",
-                        "description": "Set custom breakpoints small\nDefault: &#34;405&#34;",
+              "priority": "highest",
+              "description": "Set custom breakpoints small\nDefault: \"405\"",
                         "default": "405"
                       }, {
                         "name": "narrow-fix",
                         "type": "Boolean",
-                        "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big"
+              "priority": "highest",
+              "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big"
                       }, {
                         "name": "narrower-fix",
                         "type": "Boolean",
-                        "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)"
+              "priority": "highest",
+              "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)"
                       }
                     ],
                   "slots": [
@@ -223,30 +240,36 @@
             "properties": [{
                 "name": "narrow",
                 "type": "boolean",
+                "priority": "high",
                 "description": "",
                 "default": "false"
               }, {
                 "name": "narrower",
                 "type": "boolean",
+                "priority": "high",
                 "description": "",
                 "default": "false"
               }, {
                 "name": "breakpointBig",
                 "type": "number",
+                "priority": "high",
                 "description": "Set custom breakpoint big\nDefault: \"810\"",
                 "default": "810"
               }, {
                 "name": "breakpointSmall",
                 "type": "number",
+                "priority": "high",
                 "description": "Set custom breakpoints small\nDefault: \"405\"",
                 "default": "405"
               }, {
                 "name": "narrowFix",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big"
               }, {
                 "name": "narrowerFix",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)"
               }
             ],
@@ -324,23 +347,28 @@
           "attributes": [{
                         "name": "lefthandle",
                         "type": "Boolean",
-                        "description": "add a handle to the left side"
+              "priority": "highest",
+              "description": "add a handle to the left side"
                       }, {
                         "name": "righthandle",
                         "type": "Boolean",
-                        "description": "add a handle to the right side"
+              "priority": "highest",
+              "description": "add a handle to the right side"
                       }, {
                         "name": "remember",
                         "type": "String",
-                        "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views"
+              "priority": "highest",
+              "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views"
                       }, {
                         "name": "maxwidth",
                         "type": "Number",
-                        "description": "Set the maximal width of the resizer"
+              "priority": "highest",
+              "description": "Set the maximal width of the resizer"
                       }, {
                         "name": "minwidth",
                         "type": "Number",
-                        "description": "Set the minimal width of the resizer"
+              "priority": "highest",
+              "description": "Set the minimal width of the resizer"
                       }
                     ],
                   "slots": [
@@ -353,26 +381,32 @@
             "properties": [{
                 "name": "resetSize",
                 "type": "",
+                "priority": "high",
                 "description": "removes remember and set to the initial size"
               }, {
                 "name": "lefthandle",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "add a handle to the left side"
               }, {
                 "name": "righthandle",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "add a handle to the right side"
               }, {
                 "name": "remember",
                 "type": "String",
+                "priority": "high",
                 "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views"
               }, {
                 "name": "maxwidth",
                 "type": "Number",
+                "priority": "high",
                 "description": "Set the maximal width of the resizer"
               }, {
                 "name": "minwidth",
                 "type": "Number",
+                "priority": "high",
                 "description": "Set the minimal width of the resizer"
               }
             ],
@@ -392,7 +426,8 @@
           "attributes": [{
                         "name": "reverse",
                         "type": "Boolean",
-                        "description": "flip the left and right side"
+              "priority": "highest",
+              "description": "flip the left and right side"
                       }
                     ],
                   "slots": [
@@ -409,6 +444,7 @@
             "properties": [{
                 "name": "reverse",
                 "type": "Boolean",
+                "priority": "high",
                 "description": "flip the left and right side"
               }
             ],
