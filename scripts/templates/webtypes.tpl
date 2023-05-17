@@ -30,7 +30,8 @@
                       {
                         "name": "{{$field.name}}",
                         "type": "{{$field.type.text | replace "\"" "\\\""}}",
-                        "description": "{{if $field.description}}{{$field.description  | replace "\n" "\\n"}}{{end}}"
+              "priority": "highest",
+              "description": "{{if $field.description}}{{$field.description  | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | replace "\\c" " / c" | noescape}}{{end}}"
                         {{- if $field.default}},
                         "default": "{{$field.default  | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape}}"{{end}}
                       }
@@ -57,6 +58,7 @@
               {
                 "name": "{{$field.name}}",
                 "type": "{{if $field.type.text}}{{$field.type.text | replace "\n" "\\n" | replace "\"" "\\\"" | noescape }}{{end}}",
+                "priority": "high",
                 "description": "{{if $field.description}}{{$field.description | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape}}{{end}}"
                 {{- if $field.default}},
                 "default": "{{$field.default | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape}}"{{end}}
@@ -89,7 +91,7 @@
                 "priority": "highest",
                 "description": "{{if $event.description}}{{$event.description | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape}}{{end}}",
                  "value": {
-                      "type": "{{if $event.type.text}}{{$event.type.text | replace "\n" "\\n" | noescape }}{{end}}"
+                      "type": "{{if $event.type.text}}{{$event.type.text | replace "\n" "\\n" | replace "\t" "  " | replace "\"" "\\\"" | replace "\\" "\\\\"  | replace "\\\"" "\""   | replace "\\\\" "\\" | noescape }}{{end}}"
                 }
               }
             {{- end}} ]
