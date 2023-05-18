@@ -18,9 +18,13 @@ export class FuroIntervalPulse extends LitElement {
     super();
     this.interval = 200;
     this.takt = 4;
+
+    setTimeout(()=>{
     if (this.auto) {
       this.start();
     }
+    })
+
   }
 
   static get properties() {
@@ -42,7 +46,7 @@ export class FuroIntervalPulse extends LitElement {
        *
        * @type Boolean
        */
-      auto: Boolean,
+      auto: {type: Boolean},
     };
   }
 
