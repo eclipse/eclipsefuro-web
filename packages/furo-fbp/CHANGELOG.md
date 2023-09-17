@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.9.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.8.0...@furo/fbp@6.9.0) (2023-09-17)
+
+
+### Features
+
+* react-fbp ([fcd0d0f](https://github.com/eclipse/eclipsefuro-web/commit/fcd0d0f83a4f4d5a9979a23335d15b2781baf15e))
+
+
+
+
+
 # [6.8.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.7.9...@furo/fbp@6.8.0) (2023-09-17)
 
 
