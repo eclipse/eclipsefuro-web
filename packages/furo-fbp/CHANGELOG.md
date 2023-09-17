@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.8.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.7.9...@furo/fbp@6.8.0) (2023-09-17)
+
+
+### Features
+
+* accept vizRoot for visualizer ([9ee3eb8](https://github.com/eclipse/eclipsefuro-web/commit/9ee3eb8905b3b85806c02f3264df3d34537bc213))
+
+
+
+
+
 ## [6.7.9](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.7.8...@furo/fbp@6.7.9) (2023-05-17)
 
 **Note:** Version bump only for package @furo/fbp
