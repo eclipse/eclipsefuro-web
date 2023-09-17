@@ -80,7 +80,8 @@ export class FlowRepeat extends FBP(HTMLElement) {
       }
 
       this._insertedItems[index].virtualElement._FBPTriggerWire(
-        '--itemSelected',true
+        '--itemSelected',
+        true
       );
       this.selectedIndex = index;
     }
@@ -192,7 +193,8 @@ export class FlowRepeat extends FBP(HTMLElement) {
       this._insertedItems[this.selectedIndex]
     ) {
       this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire(
-        '--itemDeSelected', false
+        '--itemDeSelected',
+        false
       );
       this.selectedIndex = undefined;
     }

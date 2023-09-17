@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "strict": true,
+    "module":"es2022",
+    "sourceMap": true,
+    "inlineSources": true,
+    // Generate d.ts files
+    "declaration": true,
+    "skipLibCheck": true,
+    "sourceRoot": "./src/",
+    "rootDir": "./src/",
+  },
+
+  "include": ["src/**/*.ts", "global.d.ts"]
+}

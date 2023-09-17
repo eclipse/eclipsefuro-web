@@ -15,7 +15,9 @@
     "lint-staged": "^10.5.4",
     "lit": "^2.0.2",
     "prettier": "^2.4.1",
-    "sinon": "^11.1.2"
+    "sinon": "^11.1.2",
+    "typescript": "^5.2.2",
+    "typescript-lit-html-plugin": "^0.9.0"
   },
   "scripts": {
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
