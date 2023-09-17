@@ -124,6 +124,10 @@ function messages(root) {
       if (root.shadowRoot && root.shadowRoot.innerHTML) {
         data = root.shadowRoot.innerHTML;
       }
+      // for elements created with domfbp
+      if(root.vizRoot){
+        data = root.vizRoot.innerHTML
+      }
 
       window._viz.visualizer.postMessage(
         {
