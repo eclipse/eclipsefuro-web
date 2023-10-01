@@ -51,10 +51,9 @@ export class FbpBreakpoints {
 
     stack.forEach(n => {
       const t = n.split('::');
-      if (t[1] === 'shadow') {
-        node = node.querySelector(t[0]).shadowRoot;
-      } else {
-        node = node.querySelector(t[0]);
+      node = node.querySelector(t[0]);
+      if (t[1] === 'shadow' && node.shadowRoot) {
+        node = node.shadowRoot;
       }
     });
     return node;

@@ -1,6 +1,8 @@
+/* eslint-disable */
 import {html, LitElement} from "lit";
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line
 import {DOMFBP} from "./DOMFBP";
+// eslint-disable-next-line
 import  "./vizConnector";
 
 /**

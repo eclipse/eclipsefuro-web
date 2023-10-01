@@ -68,7 +68,7 @@ function messages(root) {
       window._viz.visualizer.postMessage(
         {
           type: 'RENDER_REQUEST',
-          data: node.shadowRoot.innerHTML || node.innerHTML,
+          data: node.shadowRoot?.innerHTML || node.innerHTML,
           component: node.tagName,
           path: FbpBreakpoints.getDomPath(node),
         },

@@ -20,5 +20,5 @@ export class FbpBreakpoints {
      * @return {string}
      * @private
      */
-    private static getDomPath;
+     static getDomPath(node :Node) :string;
 }

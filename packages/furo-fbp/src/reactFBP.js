@@ -1,43 +1,63 @@
-import { html, LitElement } from "lit";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { DOMFBP } from "./DOMFBP";
-import "./vizConnector";
+/* eslint-disable */
+import { html, LitElement } from 'lit';
+// eslint-disable-next-line
+import { DOMFBP } from './DOMFBP';
+// eslint-disable-next-line
+import './vizConnector';
+/**
+ * Adds fbp support for react
+ *
+ * # Usage
+ * ```html
+ * export default function Home() {
+ *   React.useEffect(() => {
+ *     import ("@furo/fbp/src/reactFBP")
+ *   }, [])
+ *
+ *
+ *   return (
+ *         <react-fbp>
+ *           <button at-click="--buttonClicked" fn-remove="--buttonClicked">remove me</button>
+ *         </react-fbp>
+ *      )
+ * }
+ * ```
+ */
 export default class ReactFBP extends LitElement {
-    constructor() {
-        super(...arguments);
-        this.vizRoot = this;
+  constructor() {
+    super(...arguments);
+    this.vizRoot = this;
+  }
+  /**
+   * @private
+   */
+  connectedCallback() {
+    super.connectedCallback();
+    this.fbphandle = new DOMFBP(this);
+    this.fbphandle.tagName = this.tagName;
+    this.fbphandle.parentNode = this.parentNode;
+    this.fbphandle.nodeName = this.nodeName;
+    if (this.getAttribute('trace') !== null) {
+      this.fbphandle._FBPTraceWires();
     }
-    /**
-     * @private
-     */
-    connectedCallback() {
-        super.connectedCallback();
-        this.fbphandle = new DOMFBP(this);
-        this.fbphandle.tagName = this.tagName;
-        this.fbphandle.parentNode = this.parentNode;
-        this.fbphandle.nodeName = this.nodeName;
-        if (this.getAttribute("trace") !== null) {
-            this.fbphandle._FBPTraceWires();
-        }
-    }
-    viz() {
-        // @ts-ignore
-        window.viz(this);
-    }
-    /**
-     * Activate the tracer
-     */
-    trace() {
-        this.fbphandle._FBPTraceWires();
-    }
-    /**
-     * @private
-     */
-    render() {
-        // language=HTML
-        return html `
-      <slot></slot>`;
-    }
+  }
+  viz() {
+    // @ts-ignore
+    window.viz(this);
+  }
+  /**
+   * Activate the tracer
+   */
+  trace() {
+    this.fbphandle._FBPTraceWires();
+  }
+  /**
+   * @private
+   */
+  render() {
+    // language=HTML
+    return html` <slot></slot>`;
+  }
 }
-window.customElements.define("react-fbp", ReactFBP);
+window.customElements.define('react-fbp', ReactFBP);
 //# sourceMappingURL=reactFBP.js.map
