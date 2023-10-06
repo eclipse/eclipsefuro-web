@@ -20,6 +20,7 @@ import "./vizConnector";
  * ```
  */
 export default class ReactFBP extends LitElement {
+    constructor();
     private fbphandle;
     private vizRoot;
     /**

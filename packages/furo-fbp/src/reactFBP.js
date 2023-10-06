@@ -1,9 +1,9 @@
 /* eslint-disable */
-import { html, LitElement } from 'lit';
+import { html, LitElement } from "lit";
 // eslint-disable-next-line
-import { DOMFBP } from './DOMFBP';
+import { DOMFBP } from "./DOMFBP";
 // eslint-disable-next-line
-import './vizConnector';
+import "./vizConnector";
 /**
  * Adds fbp support for react
  *
@@ -24,40 +24,41 @@ import './vizConnector';
  * ```
  */
 export default class ReactFBP extends LitElement {
-  constructor() {
-    super(...arguments);
-    this.vizRoot = this;
-  }
-  /**
-   * @private
-   */
-  connectedCallback() {
-    super.connectedCallback();
-    this.fbphandle = new DOMFBP(this);
-    this.fbphandle.tagName = this.tagName;
-    this.fbphandle.parentNode = this.parentNode;
-    this.fbphandle.nodeName = this.nodeName;
-    if (this.getAttribute('trace') !== null) {
-      this.fbphandle._FBPTraceWires();
+    constructor() {
+        super();
+        this.vizRoot = this;
     }
-  }
-  viz() {
-    // @ts-ignore
-    window.viz(this);
-  }
-  /**
-   * Activate the tracer
-   */
-  trace() {
-    this.fbphandle._FBPTraceWires();
-  }
-  /**
-   * @private
-   */
-  render() {
-    // language=HTML
-    return html` <slot></slot>`;
-  }
+    /**
+     * @private
+     */
+    connectedCallback() {
+        super.connectedCallback();
+        this.fbphandle = new DOMFBP(this);
+        this.fbphandle.tagName = this.tagName;
+        this.fbphandle.parentNode = this.parentNode;
+        this.fbphandle.nodeName = this.nodeName;
+        if (this.getAttribute("trace") !== null) {
+            this.fbphandle._FBPTraceWires();
+        }
+    }
+    viz() {
+        // @ts-ignore
+        window.viz(this);
+    }
+    /**
+     * Activate the tracer
+     */
+    trace() {
+        this.fbphandle._FBPTraceWires();
+    }
+    /**
+     * @private
+     */
+    render() {
+        // language=HTML
+        return html `
+      <slot></slot>`;
+    }
 }
-window.customElements.define('react-fbp', ReactFBP);
+window.customElements.define("react-fbp", ReactFBP);
 //# sourceMappingURL=reactFBP.js.map
