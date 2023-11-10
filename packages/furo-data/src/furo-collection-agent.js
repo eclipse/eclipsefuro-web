@@ -634,7 +634,7 @@ export class FuroCollectionAgent extends FBP(LitElement) {
    * loads the entity if hts is available
    */
   list() {
-    return this._followRelService('list', 'List');
+    return this._followRelService('list', this.method ||  'List');
   }
 
   /**
@@ -673,35 +673,35 @@ export class FuroCollectionAgent extends FBP(LitElement) {
   search(term) {
     this._attachListeners('search');
     this._queryParams.q = term;
-    this._followRelService('list', 'List');
+    this._followRelService('list', this.method ||  'List');
   }
 
   /**
    * loads the entity if hts is available
    */
   first() {
-    this._followRelService('first', 'List');
+    this._followRelService('first', this.method ||  'List');
   }
 
   /**
    * loads the entity if hts is available
    */
   prev() {
-    this._followRelService('prev', 'List');
+    this._followRelService('prev', this.method ||  'List');
   }
 
   /**
    * loads the entity if hts is available
    */
   next() {
-    this._followRelService('next', 'List');
+    this._followRelService('next', this.method ||  'List');
   }
 
   /**
    * loads the entity if hts is available
    */
   last() {
-    this._followRelService('last', 'List');
+    this._followRelService('last', this.method ||  'List');
   }
 
   /**
