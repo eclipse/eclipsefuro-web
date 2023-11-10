@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.11.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.9.0...@furo/fbp@6.11.0) (2023-11-10)
+
+
+### Bug Fixes
+
+* constructor ([4f34df9](https://github.com/eclipse/eclipsefuro-web/commit/4f34df923efa5f2767861a0bec6e4a3f47545642))
+
+
+### Features
+
+* NgFBP init ([eadd267](https://github.com/eclipse/eclipsefuro-web/commit/eadd267c3c307903d80c466d72dcdf9d8417af2c))
+
+
+
+
+
 # [6.9.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.8.0...@furo/fbp@6.9.0) (2023-09-17)
 
 
