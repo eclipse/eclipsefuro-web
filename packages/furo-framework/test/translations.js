@@ -8,6 +8,15 @@ export const Translations = {
       toString: () => 'visits',
     },
   },
+  'en-GB': {
+    greeting: 'Hello Furo',
+    visits: {
+      none: () => 'never visited',
+      one: n => `${n} visit`,
+      many: n => `${n} visits`,
+      toString: () => 'visits',
+    },
+  },
   'de-DE': {
     greeting: 'Guten Tag Furo',
     visits: {

@@ -21,8 +21,8 @@ set -e
 packages=(`find packages -name "package.json" -maxdepth 2 | xargs -I '{}' dirname '{}'`)
 
 
-`npm bin`/lerna bootstrap
-`npm bin`/lerna clean --yes
+# npx lerna bootstrap
+# npx lerna clean --yes
 
 ls node_modules/@furo
 

@@ -5,7 +5,7 @@ const filteredLogs = ['Running in dev mode', 'Lit is in dev mode.'];
 export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
   /** Test files to run */
   preserveSymlinks: true,
-  // in a monorepo you need to set set the root dir to resolve modules
+  // in a monorepo you need to set the root dir to resolve modules
   //rootDir: '../../',
   files:'**/*.test.js',
   /** Resolve bare module imports */

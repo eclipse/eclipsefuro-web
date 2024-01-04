@@ -1084,6 +1084,7 @@ export class FieldNode extends EventTreeNode {
       } else if (state.state === 'None') {
         // pass a received None State to all child nodes
         this.__childNodes.forEach(node => {
+          this[node._name].dispatchNodeEvent(new NodeEvent('field-became-valid', this));
           this[node._name]._setState({
             state: 'None',
             description: '',

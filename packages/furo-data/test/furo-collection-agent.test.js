@@ -158,13 +158,14 @@ describe('furo-collection-agent', () => {
 
   it('should send search with ?q= ', done => {
     element.setAttribute('service', 'TaskService');
-    element.setOrderBy('id,    -display_name');
+    element.setOrderBy('id,-display_name');
     element.setFields('display_name');
     /**
      * Register hook on wire --triggerLoad to
      *
      */
     element._FBPAddWireHook('--triggerLoad', req => {
+
       assert.equal(req.url.indexOf('order_by=id,-display_name') > 0, true);
       assert.equal(req.url.indexOf('fields=display_name') > 0, true);
       assert.equal(req.url.indexOf('q=a%20better%20life') > 0, true);
@@ -186,7 +187,7 @@ describe('furo-collection-agent', () => {
   it('should send filter, field, order_by and page_size together ', done => {
     element.setAttribute('service', 'TaskService');
     element.setFilter([['id', 'eq', '1']]);
-    element.setOrderBy('id,    -display_name');
+    element.setOrderBy('id,-display_name');
     element.setFields('display_name');
     element.setPageSize(15);
     /**
@@ -287,7 +288,7 @@ describe('furo-collection-agent', () => {
 
   it('should request ordering', done => {
     element.setAttribute('service', 'TaskService');
-    element.setOrderBy('id,    -display_name');
+    element.setOrderBy('id,-display_name');
 
     /**
      * Register hook on wire --triggerLoad to

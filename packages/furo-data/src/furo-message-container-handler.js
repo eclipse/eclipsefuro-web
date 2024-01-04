@@ -249,18 +249,15 @@ export class FuroMessageContainerHandler extends LitElement {
     });
   }
 
-  _clearValueStates(root) {
-    if (root) {
+  _clearValueStates() {
+    if (this.rootNode) {
       // set empty state on all fields
-      root.__childNodes.forEach(node => {
-        root[node._name]._setState({
+      this.rootNode.__childNodes.forEach(node => {
+        this.rootNode[node._name]._setState({
           state: 'None',
           description: '',
           field: '',
         });
-        if(root[node._name].__childNodes.length > 0){
-          this._clearValueStates(root[node._name])
-        }
       });
     }
   }
@@ -277,7 +274,7 @@ export class FuroMessageContainerHandler extends LitElement {
     this.mcDO = fieldNode;
 
     this.mcDO.addEventListener('new-data-injected', () => {
-      this._clearValueStates(this.rootNode);
+      this._clearValueStates();
       this._applyValueState();
       this._updateCountersAndFireEvents();
     });
