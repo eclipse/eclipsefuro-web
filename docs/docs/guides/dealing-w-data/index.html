@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" dir=>
+<html lang="en" dir=ZgotmplZ>
 
 <head>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.">
+<meta name="description" content="Dealing with data # Overview # flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data --&gt; A(Entity Agent); A -- updates --&gt; DO; A &lt;-- fetch / update --&gt; API[(Rest API)]; SB(Save Button) -- triggers --&gt; A LB(Load Button) -- triggers --&gt; A Data Object # The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Dealing with data" />
-<meta property="og:description" content="Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa." />
+<meta property="og:description" content="Dealing with data # Overview # flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data --&gt; A(Entity Agent); A -- updates --&gt; DO; A &lt;-- fetch / update --&gt; API[(Rest API)]; SB(Save Button) -- triggers --&gt; A LB(Load Button) -- triggers --&gt; A Data Object # The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://web-components.furo.pro/docs/guides/dealing-w-data/" />
+<meta property="og:url" content="https://web-components.furo.pro/docs/guides/dealing-w-data/" /><meta property="article:section" content="docs" />
+
 <meta property="article:modified_time" content="2021-12-09T14:42:13+01:00" />
 <title>Dealing with data | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.5cf88c65c81e31ffdf166a8d92aaf3d267d2a784c16ff0b43c62db3f8eee071a.js" integrity="sha256-XPiMZcgeMf/fFmqNkqrz0mfSp4TBb/C0PGLbP47uBxo="></script>
+<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
+<script defer src="/en.search.min.b0bf84841deec51ff6f5057e68d3262d4265b55605be890ebf7c38b97b2fe329.js" integrity="sha256-sL&#43;EhB3uxR/29QV&#43;aNMmLUJltVYFvokOv3w4uXsv4yk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -26,7 +27,7 @@ https://github.com/alex-shpak/hugo-book
   <link href="/main.css" rel="stylesheet"/>
 </head>
 
-<body dir=>
+<body dir=ZgotmplZ>
 <fixed-tooltip-display></fixed-tooltip-display>
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -1782,7 +1783,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1876,29 +1877,27 @@ DO -- produces --> JSON
 JSON -- consumes --> DO
 </p>
 
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-ui5-text-input</span>  
-  <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO(*.fields.display_name)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-ui5-text-input</span>&gt;
-
-
-&lt;<span style="color:#000080">furo-data-object</span>
-  <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span>
-  <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>
-  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>&gt;&lt;/<span style="color:#000080">furo-data-object</span>&gt;
-
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">furo-ui5-text-input</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ƒ-bind-data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO(*.fields.display_name)&#34;</span>&gt;&lt;/<span style="color:#000080">furo-ui5-text-input</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">furo-data-object</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>&gt;&lt;/<span style="color:#000080">furo-data-object</span>&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="entity-agent">
   Entity Agent
@@ -1916,35 +1915,35 @@ A -- json --> API[(Rest API)];
 API -- json --> A
 </p>
 
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-data-object</span>
-  <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span>
-  <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>
-  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>&gt;
-&lt;/<span style="color:#000080">furo-data-object</span>&gt;
-
-&lt;<span style="color:#000080">furo-entity-agent</span> 
-  <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-  <span style="color:#008080">ƒ-create</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--createClicked&#34;</span>
-  <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>
-  <span style="color:#008080">ƒ-bind-request-object</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>
-  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">furo-data-object</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;task.Task&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ƒ-inject-raw</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-object-ready</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">furo-data-object</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">furo-entity-agent</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ƒ-create</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--createClicked&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ƒ-hts-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ƒ-bind-request-object</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--taskDO&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-response</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--rawJsonData&#34;</span>&gt;&lt;/<span style="color:#000080">furo-entity-agent</span>&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="hateoas">
   Hateoas
@@ -1960,82 +1959,82 @@ DL(Deep Link) -- HATEOAS --> A(Entity Agent);
 QP[Query Params] -- json --> DL
 </p>
 
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">furo-deep-link</span>
-  <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageURLChanged(*.query)&#34;</span>
-  <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
-  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
-
-&lt;<span style="color:#000080">furo-location</span> 
-  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;--pageURLChanged&#39;</span> 
-&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">furo-deep-link</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ƒ-qp-in</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--pageURLChanged(*.query)&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">service</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;TaskService&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-hts-out</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;--hts&#34;</span>&gt;&lt;/<span style="color:#000080">furo-deep-link</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">furo-location</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#008080">-location-changed</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;--pageURLChanged&#39;</span> 
+</span></span><span style="display:flex;"><span>&gt;&lt;/<span style="color:#000080">furo-location</span>&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Assume we visit a link like <code>my.app.com/display_task?tsk=5</code></p>
 <p><code>furo-deep-link</code> receives the query params  <code>{&quot;tsk&quot;: &quot;5&quot;}</code> from <code>furo-location</code>.</p>
 <p>It will then produce the <strong>HATEOAS</strong> links according to the specified service.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-  {
-    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;self&#34;</span>,
-    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks/5&#34;</span>,
-    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;GET&#34;</span>,
-    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
-    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
-  },
-  {
-    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;delete&#34;</span>,
-    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks/5&#34;</span>,
-    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;DELETE&#34;</span>,
-    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
-    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
-  },
-  {
-    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;create&#34;</span>,
-    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks&#34;</span>,
-    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;POST&#34;</span>,
-    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
-    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
-  }
-]
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;self&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks/5&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;delete&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks/5&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;DELETE&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;rel&#34;</span>: <span style="color:#d14">&#34;create&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;href&#34;</span>: <span style="color:#d14">&#34;/api/v1/tasks&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;method&#34;</span>: <span style="color:#d14">&#34;POST&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;type&#34;</span>: <span style="color:#d14">&#34;task.Task&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;service&#34;</span>: <span style="color:#d14">&#34;TaskService&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></td></tr></table>
 </div>
 </div></article>
  

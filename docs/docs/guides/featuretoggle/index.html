@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" dir=>
+<html lang="en" dir=ZgotmplZ>
 
 <head>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Feature Toggles #  Use FuroFeatureToggle to implement toggles for the following scenarios: 1
- release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects.">
+<meta name="description" content="Feature Toggles # Use FuroFeatureToggle to implement toggles for the following scenarios: 1
+release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Feature Toggles" />
-<meta property="og:description" content="Feature Toggles #  Use FuroFeatureToggle to implement toggles for the following scenarios: 1
- release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects." />
+<meta property="og:description" content="Feature Toggles # Use FuroFeatureToggle to implement toggles for the following scenarios: 1
+release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://web-components.furo.pro/docs/guides/featuretoggle/" />
+<meta property="og:url" content="https://web-components.furo.pro/docs/guides/featuretoggle/" /><meta property="article:section" content="docs" />
+
 <meta property="article:modified_time" content="2022-10-24T11:11:41+02:00" />
 <title>Feature Toggles | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.5cf88c65c81e31ffdf166a8d92aaf3d267d2a784c16ff0b43c62db3f8eee071a.js" integrity="sha256-XPiMZcgeMf/fFmqNkqrz0mfSp4TBb/C0PGLbP47uBxo="></script>
+<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
+<script defer src="/en.search.min.b0bf84841deec51ff6f5057e68d3262d4265b55605be890ebf7c38b97b2fe329.js" integrity="sha256-sL&#43;EhB3uxR/29QV&#43;aNMmLUJltVYFvokOv3w4uXsv4yk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -28,7 +29,7 @@ https://github.com/alex-shpak/hugo-book
   <link href="/main.css" rel="stylesheet"/>
 </head>
 
-<body dir=>
+<body dir=ZgotmplZ>
 <fixed-tooltip-display></fixed-tooltip-display>
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -1784,7 +1785,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1868,25 +1869,25 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>If you want to init your keys, register them with <code>registerKeyMap</code>.
 This method can be called at any time, because a uninitialized key defaults to the false state.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000;font-weight:bold">import</span> { FuroFeatureToggle } from <span style="color:#d14">&#39;@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js&#39;</span>;
-  
-FuroFeatureToggle.registerKeyMap({
-  <span style="color:#d14">&#34;feature.a&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">true</span>,
-  <span style="color:#d14">&#34;feature.b&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">true</span>,
-  <span style="color:#d14">&#34;feature.c&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">false</span>,
-});
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> { FuroFeatureToggle } from <span style="color:#d14">&#39;@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js&#39;</span>;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>FuroFeatureToggle.registerKeyMap({
+</span></span><span style="display:flex;"><span>  <span style="color:#d14">&#34;feature.a&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#d14">&#34;feature.b&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#d14">&#34;feature.c&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">false</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><em>init.js</em></p>
 <h2 id="supported-toggles-for-web-components-or-html">
@@ -1937,16 +1938,16 @@ and removes the attribute on a false state.</p>
 </h2>
 <p>At the moment, there is only the <code>furo-feature-toggle</code> component available.
 Feel free to file an issue with a feature request, if you miss something.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>
   <a href="https://de.wikipedia.org/wiki/Feature_Toggle">Wikipedia (de)</a>, 
-  <a href="https://en.wikipedia.org/wiki/Feature_toggle">Wikipedia (en)</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+  <a href="https://en.wikipedia.org/wiki/Feature_toggle">Wikipedia (en)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 </article>
  
       

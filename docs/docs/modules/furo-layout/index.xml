@@ -12,11 +12,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop/</guid>
-      <description>furo-backdrop #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-backdrop.js&#39;; exports FuroBackdrop js exports &amp;lt;furo-backdrop&amp;gt; custom-element-definition superclass LitElement mixes FBP summary show content with backdrop
+      <description>furo-backdrop # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-backdrop.js&#39;; exports FuroBackdrop js exports &amp;lt;furo-backdrop&amp;gt; custom-element-definition superclass LitElement mixes FBP summary show content with backdrop
 furo-backdrop
 Displays content with a backdrop.
 The element you place in to furo-backdrop will be displayed centered.
-1 2 3 4 5 6  &amp;lt;furo-backdrop at-opened=&amp;#34;--BackdropFocus&amp;#34; at-closed=&amp;#34;--backdropClosed&amp;#34; fn-show=&amp;#34;--expandIconClicked&amp;#34; fn-close=&amp;#34;--closeRequested, --recordSelected&amp;#34;&amp;gt; &amp;lt;any-component at-item-selected=&amp;#34;--recordSelected&amp;#34; style=&amp;#34;width: 90vw; height: 90vh&amp;#34;&amp;gt;&amp;lt;/any-component&amp;gt; &amp;lt;/furo-backdrop&amp;gt;   You can wire and use the elements in furo-backrop as if they were local elements.</description>
+1 2 3 4 5 &amp;lt;furo-backdrop at-opened=&amp;#34;--BackdropFocus&amp;#34; at-closed=&amp;#34;--backdropClosed&amp;#34; fn-show=&amp;#34;--expandIconClicked&amp;#34; fn-close=&amp;#34;--closeRequested, --recordSelected&amp;#34;&amp;gt; &amp;lt;any-component at-item-selected=&amp;#34;--recordSelected&amp;#34; style=&amp;#34;width: 90vw; height: 90vh&amp;#34;&amp;gt;&amp;lt;/any-component&amp;gt; &amp;lt;/furo-backdrop&amp;gt; You can wire and use the elements in furo-backrop as if they were local elements.</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@ The element you place in to furo-backdrop will be displayed centered.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-backdrop-display/</guid>
-      <description>furo-backdrop-display #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-backdrop-display.js&#39;; exports FuroBackdropDisplay js exports &amp;lt;furo-backdrop-display&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Display component for furo-backdrop
+      <description>furo-backdrop-display # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-backdrop-display.js&#39;; exports FuroBackdropDisplay js exports &amp;lt;furo-backdrop-display&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Display component for furo-backdrop
 furo-backdrop-display
 This components receives and displays the backdrop requests from furo-backdrop components.
 The backdrop display can be placed anywhere in the dom. The higher the better.
@@ -38,11 +38,11 @@ Tipp: place it below or inside the component which applies the style vars. Othew
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-empty-spacer/</guid>
-      <description>furo-empty-spacer #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-empty-spacer.js&#39;; exports FuroEmptySpacer js exports &amp;lt;furo-empty-spacer&amp;gt; custom-element-definition superclass LitElement summary fill the space in a furo-xxxx-flex
+      <description> furo-empty-spacer # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-empty-spacer.js&#39;; exports FuroEmptySpacer js exports &amp;lt;furo-empty-spacer&amp;gt; custom-element-definition superclass LitElement summary fill the space in a furo-xxxx-flex
 furo-empty-spacer Takes the place in furo-horizontal-flex or a furo-vertical-flex.
-  small  small    Attributes and Properties #  flex #  flex reflects boolean default: true
-Attribute flex for furo-horizontal-flex and furo-vertical-flex hidden #  hidden reflects boolean default: false
-Set to true to hide the spacer Methods #  </description>
+small small Attributes and Properties # flex # flex reflects boolean default: true
+Attribute flex for furo-horizontal-flex and furo-vertical-flex hidden # hidden reflects boolean default: false
+Set to true to hide the spacer Methods # </description>
     </item>
     
     <item>
@@ -51,11 +51,11 @@ Set to true to hide the spacer Methods #  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-form-layouter/</guid>
-      <description>furo-form-layouter #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-form-layouter.js&#39;; exports FuroFormLayouter js exports &amp;lt;furo-form-layouter&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Grid based form field row
+      <description>furo-form-layouter # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-form-layouter.js&#39;; exports FuroFormLayouter js exports &amp;lt;furo-form-layouter&amp;gt; custom-element-definition superclass LitElement mixes FBP summary Grid based form field row
 furo-form-layouter
 Use furo-form-layouter to structure your forms. It is based on a grid system with the following properties:
- full-width row (Standard) two columns four columns  The required variant is set using an attribute. e.g. two, three, four and six
-1 2 3 4 5 6 7  &amp;lt;!</description>
+full-width row (Standard) two columns four columns The required variant is set using an attribute. e.g. two, three, four and six
+1 2 3 4 5 6 7 &amp;lt;!-- four coulumn layout --&amp;gt; &amp;lt;furo-form-layouter four&amp;gt; &amp;lt;input-element&amp;gt;&amp;lt;/input-element&amp;gt; &amp;lt;input-element double&amp;gt;&amp;lt;/input-element&amp;gt; &amp;lt;input-element newline&amp;gt;&amp;lt;/input-element&amp;gt; &amp;lt;input-element full&amp;gt;&amp;lt;/input-element&amp;gt; &amp;lt;/furo-form-layouter&amp;gt; To customize the slotted elements inside furo-form-layouter there are several attributes.</description>
     </item>
     
     <item>
@@ -64,10 +64,10 @@ Use furo-form-layouter to structure your forms. It is based on a grid system wit
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-horizontal-flex/</guid>
-      <description>furo-horizontal-flex #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-horizontal-flex.js&#39;; exports FuroHorizontalFlex js exports &amp;lt;furo-horizontal-flex&amp;gt; custom-element-definition superclass LitElement summary horizontal alignment
+      <description>furo-horizontal-flex # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-horizontal-flex.js&#39;; exports FuroHorizontalFlex js exports &amp;lt;furo-horizontal-flex&amp;gt; custom-element-definition superclass LitElement summary horizontal alignment
 furo-horizontal-flex
 With this component, any elements can be aligned horizontally. Similar to css flex. The attribute &amp;ldquo;flex&amp;rdquo; must be set for growing elements. The component takes up 100% of the space.
-1 2 3 4 5  &amp;lt;furo-horizontal-flex&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;div flex&amp;gt;full width&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;/furo-horizontal-flex&amp;gt;   Attributes and Properties #  Methods #  Slots #  default #  Type: HTMLElement [0.</description>
+1 2 3 4 5 &amp;lt;furo-horizontal-flex&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;div flex&amp;gt;full width&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;/furo-horizontal-flex&amp;gt; Attributes and Properties # Methods # Slots # default # Type: HTMLElement [0.</description>
     </item>
     
     <item>
@@ -76,10 +76,10 @@ With this component, any elements can be aligned horizontally. Similar to css fl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-resizer/</guid>
-      <description>furo-resizer #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-resizer.js&#39;; exports FuroResizer js exports &amp;lt;furo-resizer&amp;gt; custom-element-definition superclass LitElement mixes FBP summary resizable box
+      <description>furo-resizer # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-resizer.js&#39;; exports FuroResizer js exports &amp;lt;furo-resizer&amp;gt; custom-element-definition superclass LitElement mixes FBP summary resizable box
 furo-resizer container which let you resize its width.
 Double-click on the handler to reset the width. You need a counter part which flexes.
-1 2 3 4 5 6 7  &amp;lt;furo-horizontal-flex&amp;gt; &amp;lt;div flex&amp;gt; the flexible part &amp;lt;/div&amp;gt; &amp;lt;!-- you have to set at leas one handle to resize the content --&amp;gt; &amp;lt;furo-resizer righthandle remember=&amp;#34;logv&amp;#34; minwidth=&amp;#34;280&amp;#34; maxwidth=&amp;#34;780&amp;#34;&amp;gt; &amp;lt;some-content&amp;gt;&amp;lt;/some-content&amp;gt; &amp;lt;/furo-resizer&amp;gt; &amp;lt;/furo-horizontal-flex&amp;gt;   Attributes and Properties #  resetSize #   removes remember and set to the initial size lefthandle #  lefthandle Boolean</description>
+1 2 3 4 5 6 7 &amp;lt;furo-horizontal-flex&amp;gt; &amp;lt;div flex&amp;gt; the flexible part &amp;lt;/div&amp;gt; &amp;lt;!-- you have to set at leas one handle to resize the content --&amp;gt; &amp;lt;furo-resizer righthandle remember=&amp;#34;logv&amp;#34; minwidth=&amp;#34;280&amp;#34; maxwidth=&amp;#34;780&amp;#34;&amp;gt; &amp;lt;some-content&amp;gt;&amp;lt;/some-content&amp;gt; &amp;lt;/furo-resizer&amp;gt; &amp;lt;/furo-horizontal-flex&amp;gt; Attributes and Properties # resetSize # removes remember and set to the initial size lefthandle # lefthandle Boolean add a handle to the left side righthandle # righthandle Boolean add a handle to the right side remember # remember String remember the size after resizing.</description>
     </item>
     
     <item>
@@ -88,9 +88,9 @@ Double-click on the handler to reset the width. You need a counter part which fl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-split-view/</guid>
-      <description>furo-split-view #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-split-view.js&#39;; exports FuroSplitView js exports &amp;lt;furo-split-view&amp;gt; custom-element-definition superclass LitElement mixes FBP summary splitted layout
+      <description>furo-split-view # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-split-view.js&#39;; exports FuroSplitView js exports &amp;lt;furo-split-view&amp;gt; custom-element-definition superclass LitElement mixes FBP summary splitted layout
 furo-split-view is a layout component to visualise main / detail views (left right layout for master detail views). You can add the attribute scroll on the detail view to make the content scrollable.
-1 2 3 4  &amp;lt;furo-split-view&amp;gt; &amp;lt;div slot=&amp;#34;master&amp;#34;&amp;gt;Master&amp;lt;/div&amp;gt; &amp;lt;big-component scroll&amp;gt; &amp;lt;/big-component&amp;gt; &amp;lt;/furo-split-view&amp;gt;   Attributes and Properties #  reverse #  reverse Boolean</description>
+1 2 3 4 &amp;lt;furo-split-view&amp;gt; &amp;lt;div slot=&amp;#34;master&amp;#34;&amp;gt;Master&amp;lt;/div&amp;gt; &amp;lt;big-component scroll&amp;gt; &amp;lt;/big-component&amp;gt; &amp;lt;/furo-split-view&amp;gt; Attributes and Properties # reverse # reverse Boolean flip the left and right side Methods # Slots # master # Type: HTMLElement [0.</description>
     </item>
     
     <item>
@@ -99,11 +99,11 @@ furo-split-view is a layout component to visualise main / detail views (left rig
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-flex/</guid>
-      <description>furo-vertical-flex #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-vertical-flex.js&#39;; exports FuroVerticalFlex js exports &amp;lt;furo-vertical-flex&amp;gt; custom-element-definition superclass LitElement summary vertical alignment
+      <description>furo-vertical-flex # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-vertical-flex.js&#39;; exports FuroVerticalFlex js exports &amp;lt;furo-vertical-flex&amp;gt; custom-element-definition superclass LitElement summary vertical alignment
 furo-vertical-flex
 With this component, any elements can be aligned vertically. Similar to css flex. The attribute &amp;ldquo;flex&amp;rdquo; must be set for growing elements. The component takes up 100% of the space
-1 2 3 4 5  &amp;lt;furo-vertical-flex&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;div flex&amp;gt;full width&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;/furo-vertical-flex&amp;gt;   Tags: layout
-Attributes and Properties #  Methods #  Slots #  default #  Type: HTMLElement [0.</description>
+1 2 3 4 5 &amp;lt;furo-vertical-flex&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;div flex&amp;gt;full width&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;small&amp;lt;/div&amp;gt; &amp;lt;/furo-vertical-flex&amp;gt; Tags: layout
+Attributes and Properties # Methods # Slots # default # Type: HTMLElement [0.</description>
     </item>
     
     <item>
@@ -112,11 +112,11 @@ Attributes and Properties #  Methods #  Slots #  default #  Type: HTMLElement [0
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/furo-vertical-scroller/</guid>
-      <description>furo-vertical-scroller #  @furo/layout v2.2.4 import &#39;@furo/layout/src/furo-vertical-scroller.js&#39;; exports FuroVerticalScroller js exports &amp;lt;furo-vertical-scroller&amp;gt; custom-element-definition superclass LitElement mixes FBP summary vertical scroll
+      <description> furo-vertical-scroller # @furo/layout v2.2.14 import &#39;@furo/layout/src/furo-vertical-scroller.js&#39;; exports FuroVerticalScroller js exports &amp;lt;furo-vertical-scroller&amp;gt; custom-element-definition superclass LitElement mixes FBP summary vertical scroll
 furo-vertical-scroller
-1 2 3  &amp;lt;furo-vertical-scroller&amp;gt; &amp;lt;your-content&amp;gt;&amp;lt;/your-content&amp;gt; &amp;lt;/furo-vertical-scroller&amp;gt;   Attributes and Properties #  Methods #  Slots #  default #  Type: HTMLElement [0..n]
-default slot to add content. Styling #  The following custom properties available for styling:
-   Custom property Description     --surface Background color scrollbar  default: white fallback: N/A   --on-surface Background color of the draggable scrolling element  default: black fallback: N/A    </description>
+1 2 3 &amp;lt;furo-vertical-scroller&amp;gt; &amp;lt;your-content&amp;gt;&amp;lt;/your-content&amp;gt; &amp;lt;/furo-vertical-scroller&amp;gt; Attributes and Properties # Methods # Slots # default # Type: HTMLElement [0..n]
+default slot to add content. Styling # The following custom properties available for styling:
+Custom property Description --surface Background color scrollbar default: white fallback: N/A --on-surface Background color of the draggable scrolling element default: black fallback: N/A </description>
     </item>
     
     <item>
@@ -125,7 +125,7 @@ default slot to add content. Styling #  The following custom properties availabl
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-layout/_furo-layout-inside/</guid>
-      <description>Components #    furo-backdrop-display Display component for furo-backdrop  furo-backdrop show content with backdrop  furo-empty-spacer fill the space in a furo-xxxx-flex  furo-form-layouter Grid based form field row  furo-horizontal-flex horizontal alignment  furo-resizer resizable box  furo-split-view splitted layout  furo-vertical-flex vertical alignment  furo-vertical-scroller vertical scroll  </description>
+      <description> Components # furo-backdrop-display Display component for furo-backdrop furo-backdrop show content with backdrop furo-empty-spacer fill the space in a furo-xxxx-flex furo-form-layouter Grid based form field row furo-horizontal-flex horizontal alignment furo-resizer resizable box furo-split-view splitted layout furo-vertical-flex vertical alignment furo-vertical-scroller vertical scroll </description>
     </item>
     
   </channel>

@@ -680,9 +680,9 @@ The agents in this module are responsible to communicate directly with the speci
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/redactional/furo-fbp/_furo-fbp-head/</guid>
-      <description>フロー Furo Flow Based Programming #  enables you to write your web applications following the flow based programming paradigm.
-Fully Declarative - No “Code” needed #  Instead of writing hundreds of lines of code with HTML element selectors and attaching EventListeners to them to write another HTML element selector for calling a simple method, simply express your intention and string them together.
- Learn more about furo fbp</description>
+      <description>フロー Furo Flow Based Programming # enables you to write your web applications following the flow based programming paradigm.
+Fully Declarative - No “Code” needed # Instead of writing hundreds of lines of code with HTML element selectors and attaching EventListeners to them to write another HTML element selector for calling a simple method, simply express your intention and string them together.
+Learn more about furo fbp</description>
     </item>
     
   </channel>

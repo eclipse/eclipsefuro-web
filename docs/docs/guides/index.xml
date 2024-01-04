@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/guides/dealing-w-data/</guid>
-      <description>Dealing with data #  Overview #   mermaid.initialize({ &#34;flowchart&#34;: { &#34;useMaxWidth&#34;:true }, &#34;theme&#34;: &#34;default&#34; } ) flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data -- A(Entity Agent); A -- updates -- DO; A API[(Rest API)]; SB(Save Button) -- triggers -- A LB(Load Button) -- triggers -- A Data Object #  The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.</description>
+      <description>Dealing with data # Overview # flowchart LR I1(Input Component) -. data binding --- DO(Data Object); I2(Custom Component) -. data binding --- DO(Data Object); DO -- set data --&gt; A(Entity Agent); A -- updates --&gt; DO; A &lt;-- fetch / update --&gt; API[(Rest API)]; SB(Save Button) -- triggers --&gt; A LB(Load Button) -- triggers --&gt; A Data Object # The furo-data-object translates raw JSON to objects which are usable for the UI components and vice versa.</description>
     </item>
     
     <item>
@@ -21,8 +21,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/guides/app-flow/</guid>
-      <description>Application flow / Event driven routing #  For this kind of routing you need the following building blocks:
-   component description     @furo/route/src/furo-app-flow-router app flow manager   @furo/route/src/furo-app-flow emits app flow events   @furo/config/src/furo-config-loader can load config files   flowConfig.json flow config definition file    1 2 3 4 5 6 7 8 9  &amp;lt;!-- main-app --&amp;gt; &amp;lt;furo-config-loader src=&amp;#34;custom/flowConfig.</description>
+      <description>Application flow / Event driven routing # For this kind of routing you need the following building blocks:
+component description @furo/route/src/furo-app-flow-router app flow manager @furo/route/src/furo-app-flow emits app flow events @furo/config/src/furo-config-loader can load config files flowConfig.json flow config definition file 1 2 3 4 5 6 7 8 &amp;lt;!-- main-app --&amp;gt; &amp;lt;furo-config-loader src=&amp;#34;custom/flowConfig.json&amp;#34; section=&amp;#34;flow&amp;#34; @-config-loaded=&amp;#34;--flowConfigLoaded&amp;#34;&amp;gt;&amp;lt;/furo-config-loader&amp;gt; &amp;lt;furo-app-flow-router ƒ-.config=&amp;#34;--flowConfigLoaded&amp;#34; ƒ-trigger=&amp;#34;--flowEvent&amp;#34;&amp;gt;&amp;lt;/furo-app-flow-router&amp;gt; &amp;lt;!-- somewhere inside e.g. view, page --&amp;gt; &amp;lt;furo-app-flow ƒ-emit=&amp;#34;--actionWire&amp;#34; event=&amp;#34;actionSaved&amp;#34;&amp;gt;&amp;lt;/furo-app-flow&amp;gt; flowConfig configuration # /** *Configuration Array * * | current | flow-event-name | target | [mapping] | noHistory | * |:----------|:---------------------|:------------|:-------------------|:-------------------| * | view-main | form-complete | detail-view | element =&amp;gt; aufgabe | flag | * | * | menu-settings-click | settings | | | * * * * [[&amp;#39;view-main&amp;#39;, &amp;#39;button-tap&amp;#39;, &amp;#39;detail-view&amp;#39;, &amp;#39;task =&amp;gt; id]] * if current is set to view-main and the app-flow-event with name &amp;#39;button-tap&amp;#39; * is triggered, current is set to detail-view and data.</description>
     </item>
     
     <item>
@@ -31,8 +31,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/guides/FNA/</guid>
-      <description>How to make your own UI components bindable #  There are several ways to make your component bindable.
-Variant 1 DIY #  You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
+      <description>How to make your own UI components bindable # There are several ways to make your component bindable.
+Variant 1 DIY # You can create a bind-data method by yourself and apply the listeners and watchers on the FieldNode or the RepeaterNode, depending on what your component will consume.
 This can be quite complex, but will give you the greatest flexibility.
 Take a look at the furo-ui5-bool-icon, which is a very small example to handle the binding by yourself.</description>
     </item>
@@ -43,10 +43,10 @@ Take a look at the furo-ui5-bool-icon, which is a very small example to handle t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/guides/type-renderer/</guid>
-      <description>Dynamic type-dependent rendering #  The furo-type-renderer is used to display type specific data. It uses display as default context and will warn you on the console if the requested context-[type-name] does not exist or was not imported.
+      <description>Dynamic type-dependent rendering # The furo-type-renderer is used to display type specific data. It uses display as default context and will warn you on the console if the requested context-[type-name] does not exist or was not imported.
 There is a standard set of type-renderers for rendering the most common types.
 The standard ui5 set can be integrated with the import
- import &amp;lsquo;@furo/ui5/src/standard-type-renderers/display-registry.js&amp;rsquo;.  If you want to implement an individual display of a type, you need your own context-[type-name] component and import it.</description>
+import &amp;lsquo;@furo/ui5/src/standard-type-renderers/display-registry.js&amp;rsquo;. If you want to implement an individual display of a type, you need your own context-[type-name] component and import it.</description>
     </item>
     
     <item>
@@ -55,8 +55,8 @@ The standard ui5 set can be integrated with the import
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/guides/featuretoggle/</guid>
-      <description>Feature Toggles #  Use FuroFeatureToggle to implement toggles for the following scenarios: 1
- release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects.</description>
+      <description>Feature Toggles # Use FuroFeatureToggle to implement toggles for the following scenarios: 1
+release toggles - in the context of Continuous Delivery, unfinished features are toggled off, and only activated when the feature is ready. However, the source code is transferred to the master branch earlier and deployed to the various stages. experiment toggles - the classic, for example for A/B tests ops toggles - this refers to switches under operational aspects.</description>
     </item>
     
   </channel>

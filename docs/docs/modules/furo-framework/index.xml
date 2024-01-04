@@ -12,11 +12,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/BaseSpecValidators/</guid>
-      <description>BaseSpecValidators #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/BaseSpecValidators.js&#39;; exports BaseSpecValidators js
- Validators for furo base types and google well known types
-Attributes and Properties #  Methods #  registerAll #  registerAll() ⟹ void
+      <description> BaseSpecValidators # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/BaseSpecValidators.js&#39;; exports BaseSpecValidators js
+Validators for furo base types and google well known types
+Attributes and Properties # Methods # registerAll # registerAll() ⟹ void
 Register all validators. This should be done in your init phase of your app.
-1 2 3  import {BaseSpecValidators} from &amp;#39;@furo/framework/src/BaseSpecValidators/RegisterAll.js&amp;#39;; BaseSpecValidators.registerAll()</description>
+1 2 3 import {BaseSpecValidators} from &amp;#39;@furo/framework/src/BaseSpecValidators/RegisterAll.js&amp;#39;; BaseSpecValidators.registerAll() </description>
     </item>
     
     <item>
@@ -25,9 +25,9 @@ Register all validators. This should be done in your init phase of your app.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/Env/</guid>
-      <description>Env #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/environment.js&#39;; exports Env js
- This class stores your environment data,
- like the api services and types, which is used by the data components the current locale, which is used by the i18n package the acceptLanguage, which is used by the data components  Attributes and Properties #  Methods #  </description>
+      <description> Env # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/environment.js&#39;; exports Env js
+This class stores your environment data,
+like the api services and types, which is used by the data components the current locale, which is used by the i18n package the acceptLanguage, which is used by the data components Attributes and Properties # Methods # </description>
     </item>
     
     <item>
@@ -36,9 +36,9 @@ Register all validators. This should be done in your init phase of your app.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/FuroFeatureToggle/</guid>
-      <description>FuroFeatureToggle #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js&#39;; exports FuroFeatureToggle js
- Use the FuroFeatureToggle to control features from a central registry. FuroFeatureToggle only needs a key and a boolean value. These key can be set at any time. A requested key which was not set, is interpreted as false.
-Available toggles #  Following toggles are given, use the one which is appropriate to your problem. Sometimes you want to hide some parts if a key is true and sometimes you have to do the opposite.</description>
+      <description>FuroFeatureToggle # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/FuroFeatureToggler/FuroFeatureToggle.js&#39;; exports FuroFeatureToggle js
+Use the FuroFeatureToggle to control features from a central registry. FuroFeatureToggle only needs a key and a boolean value. These key can be set at any time. A requested key which was not set, is interpreted as false.
+Available toggles # Following toggles are given, use the one which is appropriate to your problem. Sometimes you want to hide some parts if a key is true and sometimes you have to do the opposite.</description>
     </item>
     
     <item>
@@ -47,10 +47,11 @@ Available toggles #  Following toggles are given, use the one which is appropria
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/i18n/</guid>
-      <description>i18n #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/i18n.js&#39;; exports i18n js
- The built in i18n is a trivial translation mechanism which translates keys (words) a method for pluralized keys (words with numbers) is available but not implemented.
+      <description>i18n # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/i18n.js&#39;; exports i18n js
+The built in i18n is a trivial translation mechanism which translates keys (words) a method for pluralized keys (words with numbers) is available but not implemented.
 You can override the builtin methods in your init file, as long you keep i18n.t and i18n.n
-Usage #  After you have registered a translation file, you can use i18n in your components.</description>
+Usage # After you have registered a translation file, you can use i18n in your components.
+1 2 3 4 5 6 7 8 9 10 11 // import i18n import {i18n} from &amp;#34;@furo/framework/src/i18n&amp;#34; // use it in your source let label = i18n.</description>
     </item>
     
     <item>
@@ -59,10 +60,10 @@ Usage #  After you have registered a translation file, you can use i18n in your 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/Init/</guid>
-      <description>Init #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/system.js&#39;; exports Init js exports Sys js
- The init class is used to init your Env, the API services and the API types.
+      <description>Init # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/system.js&#39;; exports Init js exports Sys js
+The init class is used to init your Env, the API services and the API types.
 Use the init package in the init phase of your application
-example init #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33  // -- initialize application env, theme, api import {Init,Iconset} from &amp;#34;@furo/framework/src/furo.</description>
+example init # 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 // -- initialize application env, theme, api import {Init,Iconset} from &amp;#34;@furo/framework/src/furo.</description>
     </item>
     
     <item>
@@ -71,9 +72,9 @@ example init #  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 2
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/KeyState/</guid>
-      <description>KeyState #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/FuroFeatureToggler/KeyState.js&#39;; exports KeyState js
- Handler of a single key, this class is used by FuroFeatureToggle
-Attributes and Properties #  Methods #  </description>
+      <description> KeyState # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/FuroFeatureToggler/KeyState.js&#39;; exports KeyState js
+Handler of a single key, this class is used by FuroFeatureToggle
+Attributes and Properties # Methods # </description>
     </item>
     
     <item>
@@ -82,17 +83,15 @@ Attributes and Properties #  Methods #  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/NodeEvent/</guid>
-      <description>NodeEvent #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/EventTreeNode.js&#39;; exports NodeEvent js exports EventTreeNode js
- Custom event type for the AST
-Attributes and Properties #  type #  default: type
-Event type / name path #  default: []
-
-target #  default: undefined
-
-bubbles #  default: bubbles
-should the Event bubble detail #  default: detail
-Event details cancelBubble #  default: false
-If you are in a parent element and set this to true it will not bubble cancelBroadcast #  default: false</description>
+      <description>NodeEvent # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/EventTreeNode.js&#39;; exports NodeEvent js exports EventTreeNode js
+Custom event type for the AST
+Attributes and Properties # type # default: type
+Event type / name path # default: []
+target # default: undefined
+bubbles # default: bubbles
+should the Event bubble detail # default: detail
+Event details cancelBubble # default: false
+If you are in a parent element and set this to true it will not bubble cancelBroadcast # default: false</description>
     </item>
     
     <item>
@@ -101,10 +100,10 @@ If you are in a parent element and set this to true it will not bubble cancelBro
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorFuroBigDecimal/</guid>
-      <description>ValidatorFuroBigDecimal #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroBigDecimal.js&#39;; exports ValidatorFuroBigDecimal js
- A class to validate constraints on type of furo.BigDecimal
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
- field    </description>
+      <description> ValidatorFuroBigDecimal # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroBigDecimal.js&#39;; exports ValidatorFuroBigDecimal js
+A class to validate constraints on type of furo.BigDecimal
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+field </description>
     </item>
     
     <item>
@@ -113,10 +112,10 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorFuroFatNumeric/</guid>
-      <description>ValidatorFuroFatNumeric #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroFatNumeric.js&#39;; exports ValidatorFuroFatNumeric js
- A class to validate constraints on type of google.protobuf.[Numeric type]Value, furo.fat.[Numeric type]
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
- field    </description>
+      <description> ValidatorFuroFatNumeric # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroFatNumeric.js&#39;; exports ValidatorFuroFatNumeric js
+A class to validate constraints on type of google.protobuf.[Numeric type]Value, furo.fat.[Numeric type]
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+field </description>
     </item>
     
     <item>
@@ -125,10 +124,10 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorFuroFatString/</guid>
-      <description>ValidatorFuroFatString #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroFatString.js&#39;; exports ValidatorFuroFatString js
- A class to validate constraints on type of google.protobuf.StringValue, furo.fat.String
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
- field    </description>
+      <description> ValidatorFuroFatString # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroFatString.js&#39;; exports ValidatorFuroFatString js
+A class to validate constraints on type of google.protobuf.StringValue, furo.fat.String
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+field </description>
     </item>
     
     <item>
@@ -137,11 +136,11 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorFuroReference/</guid>
-      <description>ValidatorFuroReference #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroReference.js&#39;; exports ValidatorFuroReference js
- A class to validate constraints on type furo.Reference&amp;lt;/code
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+      <description> ValidatorFuroReference # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorFuroReference.js&#39;; exports ValidatorFuroReference js
+A class to validate constraints on type furo.Reference&amp;lt;/code
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
 checks field constraints
- field    </description>
+field </description>
     </item>
     
     <item>
@@ -150,10 +149,10 @@ checks field constraints
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorGoogleProtobufBoolValue/</guid>
-      <description>ValidatorGoogleProtobufBoolValue #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufBoolValue.js&#39;; exports ValidatorGoogleProtobufBoolValue js
- A class to validate constraints on type of google.protobuf.BoolValue
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
- field    </description>
+      <description> ValidatorGoogleProtobufBoolValue # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufBoolValue.js&#39;; exports ValidatorGoogleProtobufBoolValue js
+A class to validate constraints on type of google.protobuf.BoolValue
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+field </description>
     </item>
     
     <item>
@@ -162,10 +161,10 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorGoogleProtobufFloatValue/</guid>
-      <description>ValidatorGoogleProtobufFloatValue #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufFloatValue.js&#39;; exports ValidatorGoogleProtobufFloatValue js
- A class to validate constraints on type of google.protobuf.FloatValue
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
- field    </description>
+      <description> ValidatorGoogleProtobufFloatValue # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufFloatValue.js&#39;; exports ValidatorGoogleProtobufFloatValue js
+A class to validate constraints on type of google.protobuf.FloatValue
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+field </description>
     </item>
     
     <item>
@@ -174,10 +173,10 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorGoogleProtobufInt64Value/</guid>
-      <description>ValidatorGoogleProtobufInt64Value #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufInt64Value.js&#39;; exports ValidatorGoogleProtobufInt64Value js
- A class to validate constraints on type of google.protobuf.Int64Value
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
- field    </description>
+      <description> ValidatorGoogleProtobufInt64Value # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufInt64Value.js&#39;; exports ValidatorGoogleProtobufInt64Value js
+A class to validate constraints on type of google.protobuf.Int64Value
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+field </description>
     </item>
     
     <item>
@@ -186,10 +185,10 @@ Attributes and Properties #  Methods #  validateConstraints #  validateConstrain
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorGoogleProtobufTimestamp/</guid>
-      <description>ValidatorGoogleProtobufTimestamp #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufTimestamp.js&#39;; exports ValidatorGoogleProtobufTimestamp js
- Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+      <description> ValidatorGoogleProtobufTimestamp # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleProtobufTimestamp.js&#39;; exports ValidatorGoogleProtobufTimestamp js
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
 checks field constraints
- field    </description>
+field </description>
     </item>
     
     <item>
@@ -198,13 +197,13 @@ checks field constraints
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorGoogleTypeDate/</guid>
-      <description>ValidatorGoogleTypeDate #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleTypeDate.js&#39;; exports ValidatorGoogleTypeDate js
- A class to validate constraints on type google.type.Date&amp;lt;/code
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+      <description> ValidatorGoogleTypeDate # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleTypeDate.js&#39;; exports ValidatorGoogleTypeDate js
+A class to validate constraints on type google.type.Date&amp;lt;/code
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
 checks constraints
- field    isEmpty #  isEmpty(field `` ) ⟹ void
+field isEmpty # isEmpty(field `` ) ⟹ void
 checks if type date is empty
- field    </description>
+field </description>
     </item>
     
     <item>
@@ -213,13 +212,13 @@ checks if type date is empty
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorGoogleTypeMoney/</guid>
-      <description>ValidatorGoogleTypeMoney #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleTypeMoney.js&#39;; exports ValidatorGoogleTypeMoney js
- A class to validate constraints on type google.type.Money&amp;lt;/code
-Attributes and Properties #  Methods #  validateConstraints #  validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
+      <description> ValidatorGoogleTypeMoney # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/BaseSpecValidators/ValidatorGoogleTypeMoney.js&#39;; exports ValidatorGoogleTypeMoney js
+A class to validate constraints on type google.type.Money&amp;lt;/code
+Attributes and Properties # Methods # validateConstraints # validateConstraints(field `` ) ⟹ Promise&amp;amp;lt;unknown&amp;amp;gt;
 checks field constraints
- field    isEmpty #  isEmpty(field `` ) ⟹ void
+field isEmpty # isEmpty(field `` ) ⟹ void
 checks if type money is empty
- field    </description>
+field </description>
     </item>
     
     <item>
@@ -228,12 +227,13 @@ checks if type money is empty
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/ValidatorRegistry/</guid>
-      <description>ValidatorRegistry #  @furo/furo-framework v2.4.4 import &#39;@furo/framework/src/ValidatorRegistry.js&#39;; exports ValidatorRegistry js
- This is used by the FieldNode to validate against specified constraints. Scalar values must not be registered.
-Attributes and Properties #  Methods #  register #  register(typename String ValidatorClass Class ) ⟹ void
+      <description> ValidatorRegistry # @furo/furo-framework v2.4.11 import &#39;@furo/framework/src/ValidatorRegistry.js&#39;; exports ValidatorRegistry js
+This is used by the FieldNode to validate against specified constraints. Scalar values must not be registered.
+Attributes and Properties # Methods # register # register(typename String ValidatorClass Class ) ⟹ void
 Register a validator for a specific type.
- typename  ValidatorClass    getValidator #  getValidator(typename String ) ⟹ *|boolean
-Receive a validator for a specific complex type</description>
+typename ValidatorClass getValidator # getValidator(typename String ) ⟹ *|boolean
+Receive a validator for a specific complex type
+typename </description>
     </item>
     
     <item>
@@ -242,7 +242,7 @@ Receive a validator for a specific complex type</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/modules/furo-framework/_furo-framework-inside/</guid>
-      <description>Components #  </description>
+      <description> Components # </description>
     </item>
     
   </channel>

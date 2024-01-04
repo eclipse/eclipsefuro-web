@@ -12,9 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web-components.furo.pro/docs/guides/routing/subrouting/</guid>
-      <description>Sub Routing #  For applications which just have one view, routing is not needed. As soon you need multiple views, routing is needed.
+      <description>Sub Routing # For applications which just have one view, routing is not needed. As soon you need multiple views, routing is needed.
 Even in a small todo app you will quickly have more than one view (list, create, details,&amp;hellip;). Having the possibility to display only one of them at a time, is a nice feature.
- Routing is just the procedure to display a view based on some conditions.</description>
+Routing is just the procedure to display a view based on some conditions. The most known condition for routing, is the path URL of your app.</description>
     </item>
     
   </channel>

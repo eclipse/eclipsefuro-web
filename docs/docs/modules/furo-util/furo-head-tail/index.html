@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir=>
+<html lang="en" dir=ZgotmplZ>
 
 <head>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -9,13 +9,14 @@
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="furo-head-tail" />
 <meta property="og:description" content="split an array" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-head-tail/" />
-<meta property="article:modified_time" content="2023-05-13T17:40:23+02:00" />
+<meta property="og:url" content="https://web-components.furo.pro/docs/modules/furo-util/furo-head-tail/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2023-05-15T11:08:04+02:00" />
 <title>furo-head-tail | フロー Furo Web</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.7cbeda5f5cf4bb341c4dc7a91bf266e549dd2b748df7ae06315d6dbf1a9ec98d.css" integrity="sha256-fL7aX1z0uzQcTcepG/Jm5UndK3SN964GMV1tvxqeyY0=">
-<script defer src="/en.search.min.5cf88c65c81e31ffdf166a8d92aaf3d267d2a784c16ff0b43c62db3f8eee071a.js" integrity="sha256-XPiMZcgeMf/fFmqNkqrz0mfSp4TBb/C0PGLbP47uBxo="></script>
+<link rel="stylesheet" href="/book.min.9cf05710651e8f9a974123fc1a656fbb5eb2f912dba4c022b69792d2f93e1c40.css" integrity="sha256-nPBXEGUej5qXQSP8GmVvu16y&#43;RLbpMAitpeS0vk&#43;HEA=">
+<script defer src="/en.search.min.b0bf84841deec51ff6f5057e68d3262d4265b55605be890ebf7c38b97b2fe329.js" integrity="sha256-sL&#43;EhB3uxR/29QV&#43;aNMmLUJltVYFvokOv3w4uXsv4yk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -26,7 +27,7 @@ https://github.com/alex-shpak/hugo-book
   <link href="/main.css" rel="stylesheet"/>
 </head>
 
-<body dir=>
+<body dir=ZgotmplZ>
 <fixed-tooltip-display></fixed-tooltip-display>
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
@@ -1782,7 +1783,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -1838,7 +1839,7 @@ https://github.com/alex-shpak/hugo-book
   furo-head-tail
   <a class="anchor" href="#furo-head-tail">#</a>
 </h1>
-<p><strong>@furo/util</strong> <small>v2.1.9</small>
+<p><strong>@furo/util</strong> <small>v2.1.19</small>
 <br><code>import '@furo/util/src/furo-head-tail.js';</code><small>
 <br>exports <em>FuroHeadTail</em> js
 <br>exports <code>&lt;furo-head-tail&gt;</code> custom-element-definition
@@ -1846,7 +1847,7 @@ https://github.com/alex-shpak/hugo-book
 <br><small>summary <em>split an array</em></small></p>
 <p><code>furo-head-tail</code>
 Splits an iterable (i.e. Array) in its head and tail part.</p>
-<pre><code> &lt;furo-head-tail fn-split=&quot;--arrayData&quot; at-head=&quot;--firstElement&quot; at-tail=&quot;--restOfArray&quot;&gt;&lt;/furo-head-tail&gt;
+<pre tabindex="0"><code> &lt;furo-head-tail fn-split=&#34;--arrayData&#34; at-head=&#34;--firstElement&#34; at-tail=&#34;--restOfArray&#34;&gt;&lt;/furo-head-tail&gt;
 </code></pre><h2 id="attributes-and-properties">
   Attributes and Properties
   <a class="anchor" href="#attributes-and-properties">#</a>
@@ -1883,12 +1884,12 @@ Splits an iterable (i.e. Array) in its head and tail part.</p>
 <p><small>`` </small> →
 <span  style="border-width:2px 2px 2px 10px; border-style: solid;border-color:  rgb(76, 175, 80);font-family:monospace; padding:2px 4px;">fn-split</span></p>
 <p>Splits an iterable to its head (first item) and its tail (the rest) parts.</p>
-<pre><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+<pre tabindex="0"><code>[&#34;a&#34;, &#34;b&#34;, &#34;c&#34;, &#34;d&#34;]
  |_|  |___________|
   ^      ^
   |      |
-  |     TAIL   =&gt; [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
- HEAD          =&gt; &quot;a&quot;
+  |     TAIL   =&gt; [&#34;b&#34;, &#34;c&#34;, &#34;d&#34;]
+ HEAD          =&gt; &#34;a&#34;
 </code></pre><ul>
 <li><small><em>iterable</em> </small>
 <br><br></li>
@@ -1903,9 +1904,9 @@ Splits an iterable (i.e. Array) in its head and tail part.</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/8268bf17ae42b679c65dd53a743b31834d7f8249" title='Last modified by veith | May 13, 2023' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/theNorstroem/furo/documentation/commit/98f19d453453c76144147e187904f3bdac5a588f" title='Last modified by veith | May 15, 2023' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 13, 2023</span>
+      <span>May 15, 2023</span>
     </a>
   </div>
 
