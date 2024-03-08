@@ -6,7 +6,7 @@ weight: 100
 
 # BaseSpecValidators
 
-**@furo/furo-framework** <small>v2.4.7</small>
+**@furo/furo-framework** <small>v2.4.11</small>
 <br>`import '@furo/framework/src/BaseSpecValidators/BaseSpecValidators.js';`<small>
 <br>exports *BaseSpecValidators* js</small>
 

@@ -9,7 +9,7 @@
   "author": "veith",
   "license": "MIT",
   "readme": "README.MD",
-  "web-types": "furo.web-types.json",
+  "web-types": "web-types.json",
   "gitHead": "b8ff9b3ddc4cc691d89607771feed0ac7e168c4b",
   "publishConfig": {
     "access": "public"

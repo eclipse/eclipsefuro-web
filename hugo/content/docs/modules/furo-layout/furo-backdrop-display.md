@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-backdrop-display
-**@furo/layout** <small>v2.2.7</small>
+**@furo/layout** <small>v2.2.14</small>
 <br>`import '@furo/layout/src/furo-backdrop-display.js';`<small>
 <br>exports *FuroBackdropDisplay* js
 <br>exports `<furo-backdrop-display>` custom-element-definition

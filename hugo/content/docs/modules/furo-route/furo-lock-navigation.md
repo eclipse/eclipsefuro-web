@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-lock-navigation
-**@furo/route** <small>v2.6.6</small>
+**@furo/route** <small>v2.6.13</small>
 <br>`import '@furo/route/src/furo-lock-navigation.js';`<small>
 <br>exports *FuroLockNavigation* js
 <br>exports `<furo-lock-navigation>` custom-element-definition

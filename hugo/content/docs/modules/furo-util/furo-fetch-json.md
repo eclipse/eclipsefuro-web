@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-fetch-json
-**@furo/util** <small>v2.1.12</small>
+**@furo/util** <small>v2.1.19</small>
 <br>`import '@furo/util/src/furo-fetch-json.js';`<small>
 <br>exports *FuroFetchJson* js
 <br>exports `<furo-fetch-json>` custom-element-definition

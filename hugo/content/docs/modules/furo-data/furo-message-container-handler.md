@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-message-container-handler
-**@furo/data** <small>v2.16.9</small>
+**@furo/data** <small>v2.18.0</small>
 <br>`import '@furo/data/src/furo-message-container-handler.js';`<small>
 <br>exports *FuroMessageContainerHandler* js
 <br>exports `<furo-message-container-handler>` custom-element-definition

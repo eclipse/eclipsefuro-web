@@ -6,7 +6,7 @@ weight: 100
 
 # ConfigTree
 
-**@furo/furo-util** <small>v2.1.12</small>
+**@furo/furo-util** <small>v2.1.19</small>
 <br>`import '@furo/util/src/lib/Config.js';`<small>
 <br>exports *ConfigTree* js
 <br>exports *Config* js

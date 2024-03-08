@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-get-clipboard
-**@furo/util** <small>v2.1.12</small>
+**@furo/util** <small>v2.1.19</small>
 <br>`import '@furo/util/src/furo-get-clipboard.js';`<small>
 <br>exports *FuroGetClipboard* js
 <br>exports `<furo-get-clipboard>` custom-element-definition

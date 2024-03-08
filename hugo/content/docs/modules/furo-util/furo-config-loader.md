@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-config-loader
-**@furo/util** <small>v2.1.12</small>
+**@furo/util** <small>v2.1.19</small>
 <br>`import '@furo/util/src/furo-config-loader.js';`<small>
 <br>exports *FuroConfigLoader* js
 <br>exports `<furo-config-loader>` custom-element-definition

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-custom-method
-**@furo/data** <small>v2.16.9</small>
+**@furo/data** <small>v2.18.0</small>
 <br>`import '@furo/data/src/furo-custom-method.js';`<small>
 <br>exports *FuroCustomMethod* js
 <br>exports `<furo-custom-method>` custom-element-definition

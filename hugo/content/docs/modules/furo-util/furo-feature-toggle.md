@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-feature-toggle
-**@furo/util** <small>v2.1.12</small>
+**@furo/util** <small>v2.1.19</small>
 <br>`import '@furo/util/src/furo-feature-toggle.js';`<small>
 <br>exports *FuroFeatureToggle* js
 <br>exports `<furo-feature-toggle>` custom-element-definition

@@ -5,7 +5,7 @@ weight: 50
 ---
 
 # furo-collection-agent
-**@furo/data** <small>v2.16.9</small>
+**@furo/data** <small>v2.18.0</small>
 <br>`import '@furo/data/src/furo-collection-agent.js';`<small>
 <br>exports *FuroCollectionAgent* js
 <br>exports `<furo-collection-agent>` custom-element-definition
