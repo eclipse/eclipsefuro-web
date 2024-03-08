@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.20](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.1.19...@furo/util@2.1.20) (2024-03-08)
+
+### Bug Fixes
+
+- change web-types name ([3dfbb74](https://github.com/eclipse/eclipsefuro-web/commit/3dfbb74790d69f910ee942bea25b01d013daa2ae))
+
 ## [2.1.19](https://github.com/eclipse/eclipsefuro-web/compare/@furo/util@2.1.18...@furo/util@2.1.19) (2024-01-04)
 
 ### Bug Fixes
