@@ -287,6 +287,14 @@
               {
                 "name": "remove",
                 "description": "Removes the element from the DOM."
+              },
+              {
+                "name": "toggle-attribute",
+                "description": "Toggles an attribute."
+              },
+              {
+                "name": "remove-attribute",
+                "description": "Removes an attribute."
               }
             ]
           }
