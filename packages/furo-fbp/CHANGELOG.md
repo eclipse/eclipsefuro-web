@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.13.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.12.0...@furo/fbp@6.13.0) (2024-04-10)
+
+### Features
+
+- FbpLit ([539606e](https://github.com/eclipse/eclipsefuro-web/commit/539606eb100052fe9c1af762e10f930c5e214fc0))
+
 # [6.12.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/fbp@6.11.0...@furo/fbp@6.12.0) (2024-03-23)
 
 ### Features
