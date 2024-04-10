@@ -5,9 +5,9 @@ declare const FlowRepeat_base: {
         __wirebundle: {};
         __wireQueue: any[];
         firstUpdated(): void;
-        __fbpAppended: boolean;
+        __fbpAppended: boolean | undefined;
         _FBPTriggerWire(wire: any, detailData: any): void;
-        __domPath: any;
+        __domPath: string | undefined;
         _call(detailData: any, receiver: any): void;
         _FBPAddWireHook(wire: any, cb: any, before?: any): number;
         _FBPTraceWires(): void;
@@ -15,14 +15,14 @@ declare const FlowRepeat_base: {
         __toCamelCase(str: any): any;
         _appendFBP(dom: any): void;
         _FBPReady(): void;
-        __fbp_ready: boolean;
+        __fbp_ready: boolean | undefined;
         __enqueueTrigger(wire: any, detailData: any): void;
         __resolveWireAndPath(w: any): {
             path: any;
             receivingWire: any;
         };
-        _pathGet(root: any, path: string | (string | number)[]): any;
-        _pathSet(root: any, path: string | (string | number)[], value: any): string | boolean;
+        _pathGet(root: Object, path: string | (string | number)[]): any;
+        _pathSet(root: Object, path: string | (string | number)[], value: any): string | boolean;
         _split(path: string | (string | number)[]): string[];
     };
     [x: string]: any;
@@ -91,7 +91,7 @@ export class FlowRepeat extends FlowRepeat_base {
      *
      * @param index {int} - Index of item to select
      */
-    select(index: any): void;
+    select(index: int): void;
     selectedIndex: any;
     /**
      * Select item by its identity.
@@ -149,8 +149,8 @@ export class FlowRepeat extends FlowRepeat_base {
      *
      * @param ref {DomNode} - Node to append the repeated items.
      */
-    setInsertRef(ref: any): void;
-    _insertMode: string;
+    setInsertRef(ref: DomNode): void;
+    _insertMode: string | undefined;
     _insertTarget: any;
     /**
      *
@@ -221,6 +221,6 @@ export class FlowRepeat extends FlowRepeat_base {
      * @param i {int} - index of item that you want to trigger.
      * @param data {*} - data to forward to the item.
      */
-    triggerIndex(i: any, data: any): void;
+    triggerIndex(i: int, data: any): void;
 }
 export {};

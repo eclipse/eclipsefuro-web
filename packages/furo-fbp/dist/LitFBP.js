@@ -373,7 +373,6 @@ export const LitFBP = (superClass) => {
                     preventdefault(e) {
                         e.preventDefault();
                     },
-                    // todo veith nachschauen ob |Event
                     call(e) {
                         /**
                          * Prüfe ob die Funktion mit einem Wert aus dem Host oder mit den Details des Events ausgeführt werden soll.

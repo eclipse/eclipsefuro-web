@@ -1,19 +1,33 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
+    "target": "ES2022",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "strict": true,
-    "module":"es2022",
+    "experimentalDecorators": true,
+    "outDir": "dist",
     "sourceMap": true,
     "inlineSources": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
     // Generate d.ts files
     "declaration": true,
     "skipLibCheck": true,
     "sourceRoot": "./src/",
     "rootDir": "./src/",
+    "lib": ["es2019", "dom", "dom.iterable"],
+    "useDefineForClassFields": false,
+    "plugins": [
+      {
+        "name": "typescript-lit-html-plugin"
+      }
+    ]
   },
-
-  "include": ["src/**/*.ts", "global.d.ts"],
-  "exclude": ["src/ngFBP.ts"]
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  },
+  "exclude": ["dist", "test"],
+  "include": ["src/**/*", "global.d.ts"]
 }

@@ -158,7 +158,7 @@ export class FuroPages extends LitElement {
    *
    * To meke "sub" pages do not forget to enable the `url-space-regex` property on the *furo-location* component which feeds this component.
    *
-   * If the page/view does not exist and you have a page "404" defined, the 404 will be shown
+   * If the page/view does not exist, and you have a page "404" defined, the 404 will be shown
    *
    * If the page/view does not exist AND 404 does not exist, the default page gets activated.
    *

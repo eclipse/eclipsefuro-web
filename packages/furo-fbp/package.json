@@ -10,6 +10,14 @@
     "email": "",
     "url": ""
   },
+  "files": [
+    "./dist",
+    "./src",
+    "icon.svg",
+    "README.md",
+    "custom-elements.json",
+    "web-types.json"
+  ],
   "keywords": [
     "web-components",
     "flow based programming",

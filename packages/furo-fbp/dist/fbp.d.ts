@@ -24,7 +24,7 @@ export function FBP(superClass: any): {
          * @private
          */
         firstUpdated(): void;
-        __fbpAppended: boolean;
+        __fbpAppended: boolean | undefined;
         /**
          * Triggers a wire
          * @param wire (String) Name of the wire like --buttonClicked
@@ -32,7 +32,7 @@ export function FBP(superClass: any): {
          * @private
          */
         _FBPTriggerWire(wire: any, detailData: any): void;
-        __domPath: any;
+        __domPath: string | undefined;
         /**
          *
          * @param detailData
@@ -86,7 +86,7 @@ export function FBP(superClass: any): {
          * @private
          */
         _FBPReady(): void;
-        __fbp_ready: boolean;
+        __fbp_ready: boolean | undefined;
         /**
          *
          * @param wire
@@ -113,7 +113,7 @@ export function FBP(superClass: any): {
          * @return {*} Value at path, or `undefined` if the path could not be fully dereferenced.
          * @private
          */
-        _pathGet(root: any, path: string | Array<string | number>): any;
+        _pathGet(root: Object, path: string | Array<string | number>): any;
         /**
          * Sets a value to a path.  If any sub-property in the path is `undefined`,
          * this method will no-op.
@@ -124,7 +124,7 @@ export function FBP(superClass: any): {
          * @return {string | boolean} The normalized version of the input path, return false if no prop
          * @private
          */
-        _pathSet(root: any, path: string | Array<string | number>, value: any): string | boolean;
+        _pathSet(root: Object, path: string | Array<string | number>, value: any): string | boolean;
         /**
          * Splits a path into an array of property names. Accepts either arrays
          * of path parts or strings.
