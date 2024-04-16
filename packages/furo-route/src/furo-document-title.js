@@ -8,11 +8,13 @@ import { FBP } from '@furo/fbp';
  *  Updates the document title and set navigation waypoints.
  *
  *  ## Structure of the title
+ *
  *  The title is built up from 3 parts (`prefix`, `title`, `suffix`). Each of them can be set by attribute or a setter method. The `title` and `suffix` part can be set with a fieldnode from a `furo-data-object`.
  *
  *  `document.title = prefix + title + suffix`
  *
  *  ## Waypoints
+ *
  *  Waypoints are pushed to the browser history and allows you to navigate with the back and forward buttons of the browser.
  *  To return to the last waypoint within your app, you have to trigger a `history.back()`. Read more about the history API [here](https://developer.mozilla.org/en-US/docs/Web/API/History).
  *
@@ -190,7 +192,6 @@ export class FuroDocumentTitle extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
-   * @return {CSSResult}
    */
   static get styles() {
     // language=CSS
