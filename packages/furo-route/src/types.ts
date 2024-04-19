@@ -6,6 +6,18 @@ export interface HashParams {
   [key: string]: string | number
 }
 
+export interface FuroPage {
+  /**
+   * Triggered when the page is activated
+   * @param location
+   */
+  pageActivated(location: LocationObject): void
+  pageDeActivated(newLocation: LocationObject): void
+  pageUpdated(location: LocationObject): void
+  pageQueryChanged?(location: LocationObject): void
+  pageHashChanged?(location: LocationObject): void
+}
+
 /**
  * ### LocationObject
  * ```json
@@ -22,14 +34,14 @@ export interface HashParams {
  * }
  * ```
  */
-export interface LocationObject{
-  host:string,
-  query:QueryParams,
-  hash:HashParams,
-  path:string,
-  pathSegments:string[],
-  hashString:string,
-  queryString:string
+export interface LocationObject {
+  host: string,
+  query: QueryParams,
+  hash: HashParams,
+  path: string,
+  pathSegments: string[],
+  hashString: string,
+  queryString: string
 }
 
 
@@ -39,16 +51,16 @@ export interface QueryParamMap {
 }
 
 export interface Route {
-  current: string,
-  flowEvent: string,
-  target: "HISTORY-BACK" | "WINDOW-CLOSE"| string,
-  queryParamMapping: undefined | null | "*" | QueryParamMap[],
-  isExternalTarget?: boolean,
-  forceOpenBlank?: boolean,
+  readonly currentPage: string,
+  readonly flowEvent: string,
+  readonly target: "HISTORY-BACK" | "WINDOW-CLOSE" | string,
+  readonly queryParamMapping: undefined | null | "*" | QueryParamMap[],
+  readonly isExternalTarget?: boolean,
+  readonly forceOpenBlank?: boolean,
 }
 
 export interface FlowEvent {
   eventName: string,
   queryParams?: QueryParams,
-  url?:string,
+  url?: string,
 }

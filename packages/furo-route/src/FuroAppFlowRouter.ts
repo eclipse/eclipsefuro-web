@@ -1,4 +1,5 @@
 import {FlowEvent, QueryParams, Route} from './types'
+import {FlowEventName} from "../FlowConfig";
 
 let furoAppFlowRouter: FuroAppFlowRouter
 
@@ -14,7 +15,7 @@ class FuroAppFlowRouter {
   private openBlankPage: boolean = false;
   private urlSpaceRegex: string = "";
   private configObject: Map<string, Route> = new Map();
-
+  private clickHandler: (e: MouseEvent) => void;
   /**
    *
    * @param config {Route[]}
@@ -23,8 +24,9 @@ class FuroAppFlowRouter {
   constructor(config: Route[], urlSpaceRegex?: string) {
     furoAppFlowRouter = this
 
+
     config.forEach(route => {
-      this.configObject.set(route.current + "::" + route.flowEvent, route)
+      this.configObject.set(route.currentPage + "::" + route.flowEvent, route)
     })
 
     if (urlSpaceRegex !== undefined) {
@@ -51,6 +53,60 @@ class FuroAppFlowRouter {
     window.addEventListener('blur', () => {
       this.openBlankPage = false
     })
+    this.clickHandler = (e: MouseEvent) => {
+      const target = this._findAtagInPath(e.composedPath());
+
+      // only handle clicks on <a href=".
+      if (target === null) {
+        return;
+      }
+
+      if (target.target === '_blank') {
+        return;
+      }
+
+      // only handle regular clicks
+      if (e.metaKey || e.altKey || e.ctrlKey) {
+        return;
+      }
+
+      // ignore links outside urlSpaceRegex
+      if (this.urlSpaceRegex !== '') {
+        if (target.pathname.match(this.urlSpaceRegex) === null) {
+          return;
+        }
+      }
+
+      // do not interfere with links to other hosts
+      if (target.host !== window.location.host) {
+        const customEvent = new CustomEvent('external-link-clicked', {
+          composed: true,
+          bubbles: false,
+          detail: window.performance.now()
+        });
+        window.dispatchEvent(customEvent);
+        return;
+      }
+
+      // update history
+        window.dispatchEvent(
+          new Event('__beforeReplaceState', {composed: true, bubbles: true})
+        );
+
+        window.history.replaceState({}, '', target.href);
+
+        // Internal notyfication
+        window.dispatchEvent(new CustomEvent('__furoLocationChanged', {
+          composed: true,
+          bubbles: true,
+          detail: window.performance.now()
+        }));
+
+      // prevent from full reload
+      e.preventDefault();
+    }
+
+    window.addEventListener('click', this.clickHandler, {capture: true});
   }
 
   trigger(flowEvent: FlowEvent) {
@@ -115,11 +171,11 @@ class FuroAppFlowRouter {
         const beforeHistoryBack = new CustomEvent('__beforeHistoryBack', {
           composed: true,
           bubbles: true,
-          detail: {lock: false}
+          detail: {cancel: false}
         });
         window.dispatchEvent(beforeHistoryBack);
 
-        if (!beforeHistoryBack.detail.lock) {
+        if (!beforeHistoryBack.detail.cancel) {
           this.back();
         }
       } else {
@@ -177,7 +233,7 @@ class FuroAppFlowRouter {
             this.openBlankPage = false;
             window.open(prefix + selectedFlow.target + search);
           } else {
-            // keep the current history state, the state is set with fn-set-waypoint from furo-document-title.
+            // keep the currentPage history state, the state is set with fn-set-waypoint from furo-document-title.
             window.history.replaceState(
               window.history.state,
               '',
@@ -199,13 +255,15 @@ class FuroAppFlowRouter {
         window.dispatchEvent(customEvent);
       }
 
-      const customEvent = new CustomEvent('view-changed', {
+
+      const customEvent = new CustomEvent('page-changed', {
         composed: true,
         bubbles: true,
         detail: flowEvent
       });
       window.dispatchEvent(customEvent);
       return true;
+
     }
 
     // eslint-disable-next-line no-console
@@ -238,15 +296,34 @@ class FuroAppFlowRouter {
     window.history.forward();
   }
 
+
+  /**
+   * look for A tags in a path array from click events
+   * @private
+   * @param path
+   * @return {boolean|*}
+   */
+  private _findAtagInPath(path:EventTarget[]):HTMLAnchorElement|null {
+    // if we reach body, we are too deep
+    if ((path[0] as Element).tagName === 'BODY') {
+      return null;
+    }
+    if ((path[0] as Element).tagName === 'A') {
+      return path[0] as HTMLAnchorElement;
+    }
+    const [, ...tail] = path;
+    return this._findAtagInPath(tail);
+  }
+
 }
 
 
 class AppFlow {
 
-  static emit(eventName: string, queryParams?: QueryParams) {
+  static emit(eventName: FlowEventName, queryParams?: QueryParams) {
     const detail: FlowEvent = {
-      eventName ,
-      queryParams,
+      eventName:eventName  ,
+      queryParams:queryParams,
     }
     furoAppFlowRouter.trigger(detail)
   }

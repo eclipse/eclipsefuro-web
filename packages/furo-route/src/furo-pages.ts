@@ -5,6 +5,14 @@ interface FBPElement extends LitElement {
   _FBPTriggerWire(wire: string, detailData: any): void;
 }
 
+import {FuroPage} from "./types";
+import {property} from "lit/decorators.js";
+
+function isFuroPage(object: any): object is FuroPage {
+  // check for method
+  return !!object.pageActivated;
+}
+
 /**
  *
  * Use `furo-pages` to build tabs, views, subviews,...
@@ -43,20 +51,19 @@ interface FBPElement extends LitElement {
  * -  `|--pageDeActivated` : Is triggered when another page is activated. Empty wire.
  * -  `|--pageQueryChanged` : Is triggered when the page query changes.
  * -  `|--pageHashChanged` : Is triggered when the page hash changes.
- * -  `|--pageReActivated` : Is triggered when the locatioin contains the same page which already was activated.
  *
  *
  *
- * @prop {String} default - Set the default page to show.
- * @attribute {String} default - Set the default page to show.
+ * @attribute {string} default - Set the default page to show.
+ * @attribute {boolean} flex - Enables the flex mode when used in a flex parent like vertical-flex.
  *
  * @slot {HTMLElement [0..n]} default - default slot to add pages.
  * @summary Simple content switcher
- * @demo demo-furo-panel-coordinator with panel coordinator
+ * @tagname furo-pages
  * @customElement
  */
 export class FuroPages extends LitElement {
-  private _fallback: string | null;
+  private _fallback: string ;
   private _default: FBPElement | null;
   private _attrForSelected: string;
   private _lastQP: Map<string, string>;
@@ -65,20 +72,27 @@ export class FuroPages extends LitElement {
   public urlSpaceRegex: string = '';
   private _lastPage: FBPElement | null = null;
 
+  private _page:string =''
+
+  @property({ type: String })
+  set page(p:string){
+    this.activatePage(p)
+    this._page = p
+  }
+
+  get page():string{
+    return this._page
+  }
+
 
   constructor() {
     super();
 
-    this._fallback = this.getAttribute('default');
+    this._fallback = this.getAttribute('default') || 'default';
 
     this._default = this.querySelector(`*[id=${this._fallback}]`);
-    /**
-     * **attr-for-selected** If you do not want to have *selected* as attribute to mark the selected state, change this value.
-     * @type {string|string}
-     * @private
-     */
-    this._attrForSelected =
-      this.getAttribute('attr-for-selected') || 'selected';
+
+    this._attrForSelected = 'selected';
 
     this._lastQP = new Map<string, string>();
 
@@ -87,13 +101,12 @@ export class FuroPages extends LitElement {
     this._lastPageName = '';
 
     // set all to aria-hidden
-    // eslint-disable-next-line wc/no-constructor-attributes
     let l = this.children.length - 1;
     for (l; l >= 0; l -= 1) {
-      // eslint-disable-next-line wc/no-constructor-attributes
       this.children[l].setAttribute('aria-hidden', '');
     }
   }
+
 
   override firstUpdated(_changedProperties: any) {
     super.firstUpdated(_changedProperties);
@@ -116,7 +129,6 @@ export class FuroPages extends LitElement {
      */
     const hashString = window.decodeURIComponent(window.location.hash.slice(1));
     const queryString = window.location.search.slice(1);
-
     const pseudolocation: LocationObject = {
       host: window.location.host,
       path: window
@@ -169,10 +181,20 @@ export class FuroPages extends LitElement {
     }
     if (this._lastPage && page !== this._lastPageName) {
       if (this._lastPage._FBPTriggerWire !== undefined) {
-        this._lastPage._FBPTriggerWire('|--pageDeActivated', false);
+        this._lastPage._FBPTriggerWire('|--pageDeActivated', location);
       }
+
+      if (isFuroPage(this._lastPage)) {
+        const lp = this._lastPage as FuroPage
+        customElements.whenDefined(this._lastPage.localName).then(() => {
+          lp.pageDeActivated(location);
+        })
+      }
+
+
       this._lastPage.setAttribute('aria-hidden', '');
       this._lastPage.removeAttribute(this._attrForSelected);
+
     }
 
 
@@ -194,12 +216,29 @@ export class FuroPages extends LitElement {
         this._lastPage?.setAttribute(this._attrForSelected, '');
       }, 1);
 
-      if (this._lastPage && page !== this._lastPageName) {
+      // activate if a different page is selected, otherwise notify
+      if (this._lastPageName !== page) {
         if (this._lastPage._FBPTriggerWire !== undefined) {
           this._lastPage._FBPTriggerWire('|--pageActivated', location);
         }
-      } else if (this._lastPage._FBPTriggerWire !== undefined) {
-        this._lastPage._FBPTriggerWire('|--pageReActivated', location);
+        if (isFuroPage(this._lastPage)) {
+          const lp = this._lastPage as FuroPage
+          customElements.whenDefined(this._lastPage.localName).then(() => {
+            lp.pageActivated(location);
+          })
+        }
+      } else {
+        if (this._lastPage._FBPTriggerWire !== undefined) {
+          // for backward compatibility
+          this._lastPage._FBPTriggerWire('|--pageReActivated', location);
+          this._lastPage._FBPTriggerWire('|--pageUpdated', location);
+        }
+        if (isFuroPage(this._lastPage)) {
+          const lp = this._lastPage as FuroPage
+          customElements.whenDefined(this._lastPage.localName).then(() => {
+            lp.pageUpdated(location);
+          })
+        }
       }
 
       this._lastPageName = page;
@@ -210,6 +249,14 @@ export class FuroPages extends LitElement {
         if (this._lastPage._FBPTriggerWire !== undefined) {
           this._lastPage._FBPTriggerWire('|--pageQueryChanged', location);
         }
+        if (isFuroPage(this._lastPage)) {
+          const lp = this._lastPage as FuroPage
+          if (lp.pageQueryChanged) {
+            customElements.whenDefined(this._lastPage.localName).then(() => {
+              lp.pageQueryChanged!(location);
+            })
+          }
+        }
       }
 
       // Hash
@@ -218,6 +265,14 @@ export class FuroPages extends LitElement {
         // fire --pageParamsChanged if we have a fbp component
         if (this._lastPage._FBPTriggerWire !== undefined) {
           this._lastPage._FBPTriggerWire('|--pageHashChanged', location);
+        }
+        if (isFuroPage(this._lastPage)) {
+          const lp = this._lastPage as FuroPage
+          if (lp.pageHashChanged) {
+            customElements.whenDefined(this._lastPage.localName).then(() => {
+              lp.pageHashChanged!(location);
+            })
+          }
         }
       }
 
@@ -229,6 +284,7 @@ export class FuroPages extends LitElement {
   }
 
   /**
+   *
    * @private
    */
   static get styles() {
@@ -237,7 +293,8 @@ export class FuroPages extends LitElement {
       :host {
         display: block;
       }
-      ::slotted(*[aria-hidden]){
+
+      ::slotted(*[aria-hidden]) {
         display: none;
       }
     `;

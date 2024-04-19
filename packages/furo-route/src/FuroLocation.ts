@@ -1,13 +1,10 @@
-import {LocationObject} from "./types";
-
-let lastClickEvent: MouseEvent
+import {LocationObject} from "./types"
 
 type EventType =
   'location-path-changed'
   | 'location-hash-changed'
   | 'location-query-changed'
   | 'location-changed'
-  | 'external-link-clicked'
   | 'url-space-entered'
 
 
@@ -47,91 +44,14 @@ export class FuroLocation {
     hashString: "",
     queryString: ""
   }
-  private clickHandler: (e: MouseEvent) => void;
+
   private locationChangeNotifier: () => void;
 
-  /**
-   * look for A tags in a path array from click events
-   * @private
-   * @param path
-   * @return {boolean|*}
-   */
-  private _findAtagInPath(path:EventTarget[]):HTMLAnchorElement|null {
-    // if we reach body, we are too deep
-    if ((path[0] as Element).tagName === 'BODY') {
-      return null;
-    }
-    if ((path[0] as Element).tagName === 'A') {
-      return path[0] as HTMLAnchorElement;
-    }
-    const [, ...tail] = path;
-    return this._findAtagInPath(tail);
-  }
 
   constructor(urlSpaceRegex: string) {
     this.urlSpaceRegex = urlSpaceRegex;
 
-    this.clickHandler = (e: MouseEvent) => {
-      const target = this._findAtagInPath(e.composedPath());
 
-
-      if (target === null) {
-        return;
-      }
-
-      // only handle clicks on <a href="..
-      if (target.tagName !== 'A') {
-        return;
-      }
-
-      if (target.tagName === 'A' && target.target === '_blank') {
-        return;
-      }
-
-      // only handle regular clicks
-      if (e.metaKey || e.altKey || e.ctrlKey) {
-        return;
-      }
-
-      // ignore links outside urlSpaceRegex
-      if (this.urlSpaceRegex !== '') {
-        if (target.pathname.match(this.urlSpaceRegex) === null) {
-          return;
-        }
-      }
-
-      // do not interfere with links to other hosts
-      if (target.host !== window.location.host) {
-        const customEvent = new CustomEvent('external-link-clicked', {
-          composed: true,
-          bubbles: false,
-          detail: this.location
-        });
-        window.dispatchEvent(customEvent);
-        return;
-      }
-
-      // update history only once
-      if (lastClickEvent !== e) {
-        lastClickEvent = e;
-
-        window.dispatchEvent(
-          new Event('__beforeReplaceState', {composed: true, bubbles: true})
-        );
-
-        window.history.replaceState({}, '', target.href);
-
-        // Internal notyfication
-        window.dispatchEvent(new CustomEvent('__furoLocationChanged', {
-          composed: true,
-          bubbles: true,
-          detail: window.performance.now()
-        }));
-
-      }
-      // prevent from full reload
-      e.preventDefault();
-    }
     this.locationChangeNotifier = () => {
       let sendHashChanged = false;
       let sendQueryChanged = false;
@@ -275,7 +195,6 @@ export class FuroLocation {
 
 
   connect() {
-    window.addEventListener('click', this.clickHandler, false);
     window.addEventListener(
       '__furoLocationChanged',
       this.locationChangeNotifier,
@@ -290,7 +209,6 @@ export class FuroLocation {
   }
 
   disconnect() {
-    window.removeEventListener('click', this.clickHandler, false);
     window.removeEventListener(
       '__furoLocationChanged',
       this.locationChangeNotifier,
