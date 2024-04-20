@@ -1,6 +1,4 @@
 import {FlowEvent, QueryParams, Route} from './types'
-import {FlowEventName} from "../FlowConfig";
-
 let furoAppFlowRouter: FuroAppFlowRouter
 
 
@@ -16,6 +14,7 @@ class FuroAppFlowRouter {
   private urlSpaceRegex: string = "";
   private configObject: Map<string, Route> = new Map();
   private clickHandler: (e: MouseEvent) => void;
+
   /**
    *
    * @param config {Route[]}
@@ -24,6 +23,15 @@ class FuroAppFlowRouter {
   constructor(config: Route[], urlSpaceRegex?: string) {
     furoAppFlowRouter = this
 
+
+    if (history.length <= 1) {
+      window.history.replaceState(
+        {HistoryStartingPoint: true},
+        '',
+        location.href
+      );
+
+    }
 
     config.forEach(route => {
       this.configObject.set(route.currentPage + "::" + route.flowEvent, route)
@@ -88,13 +96,16 @@ class FuroAppFlowRouter {
         return;
       }
 
-      // update history
-        window.dispatchEvent(
-          new Event('__beforeReplaceState', {composed: true, bubbles: true})
-        );
+      // update history for internal links
+      const beforeReplace = new CustomEvent('__beforeReplaceState', {
+        composed: true,
+        bubbles: true,
+        detail: {cancel: false}
+      });
+      window.dispatchEvent(beforeReplace);
 
-        window.history.replaceState({}, '', target.href);
-
+      if (!beforeReplace.detail.cancel) {
+        window.history.replaceState(window.history.state, '', target.href);
         // Internal notyfication
         window.dispatchEvent(new CustomEvent('__furoLocationChanged', {
           composed: true,
@@ -102,11 +113,14 @@ class FuroAppFlowRouter {
           detail: window.performance.now()
         }));
 
+      }
+
+
       // prevent from full reload
       e.preventDefault();
     }
 
-    window.addEventListener('click', this.clickHandler, {capture: true});
+    window.addEventListener('click', this.clickHandler, {capture:true});
   }
 
   trigger(flowEvent: FlowEvent) {
@@ -185,13 +199,13 @@ class FuroAppFlowRouter {
           sa.push(flowEvent.queryParams[k]);
         }
 
-        if (selectedFlow.isExternalTarget ) {
+        if (selectedFlow.isExternalTarget) {
 
           const url = document.createElement('a');
           url.href = selectedFlow.target + search;
 
           if (this.openBlankPage || selectedFlow.forceOpenBlank) {
-            window.open(url.href );
+            window.open(url.href);
           } else {
 
             const beforeReplace = new CustomEvent('__beforeReplaceState', {
@@ -214,8 +228,6 @@ class FuroAppFlowRouter {
 
           return true;
         }
-
-
 
 
         const beforeReplace = new CustomEvent('__beforeReplaceState', {
@@ -267,13 +279,7 @@ class FuroAppFlowRouter {
     }
 
     // eslint-disable-next-line no-console
-    console.log('Flow event not found', flowEvent);
-
-    window.dispatchEvent(new CustomEvent('flow-event-not-found', {
-      composed: true,
-      bubbles: true,
-      detail: flowEvent
-    }));
+    console.error('Flow event not found', flowEvent);
     return false;
   }
 
@@ -282,7 +288,7 @@ class FuroAppFlowRouter {
    */
   // eslint-disable-next-line class-methods-use-this
   back() {
-    if (window.history.length <= 1) {
+    if (history.state?.HistoryStartingPoint) {
       this.trigger({eventName: 'HISTORY-BACK-FALLBACK'});
     } else {
       window.history.back();
@@ -303,7 +309,7 @@ class FuroAppFlowRouter {
    * @param path
    * @return {boolean|*}
    */
-  private _findAtagInPath(path:EventTarget[]):HTMLAnchorElement|null {
+  private _findAtagInPath(path: EventTarget[]): HTMLAnchorElement | null {
     // if we reach body, we are too deep
     if ((path[0] as Element).tagName === 'BODY') {
       return null;
@@ -318,15 +324,15 @@ class FuroAppFlowRouter {
 }
 
 
-class AppFlow {
+class FuroAppFlow {
 
-  static emit(eventName: FlowEventName, queryParams?: QueryParams) {
+  static emit(eventName: string, queryParams?: QueryParams) {
     const detail: FlowEvent = {
-      eventName:eventName  ,
-      queryParams:queryParams,
+      eventName: eventName,
+      queryParams: queryParams,
     }
     furoAppFlowRouter.trigger(detail)
   }
 }
 
-export {AppFlow, FuroAppFlowRouter}
+export {FuroAppFlow, FuroAppFlowRouter}

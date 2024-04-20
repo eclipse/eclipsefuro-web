@@ -4,7 +4,9 @@ import {
 } from '@ui5/webcomponents-base/dist/asset-registries/Icons.js';
 import {IconData} from "@ui5/webcomponents-base/dist/asset-registries/Icons";
 
-type EventType = 'waypoint-pushed' | 'canceled'
+import {DocumentTitle} from "./types";
+
+type EventType = 'waypoint-pushed' | 'waypoint-canceled'
 
 interface CustomEventListener {
   (evt: CustomEvent): void;
@@ -68,12 +70,13 @@ export class FuroDocumentTitle {
     this._icon = value;
   }
 
-  setWaypoint() {
+  setWaypoint(stateData?: any) {
     /**
      * Waypoints are set in a staging (PreStage) and pushed to the history when
      * something in the url changes.
      */
     this._setDocumentTitle();
+
 
     /**
      * This will push the waypoint to the browser history and clear the listeners for cancelation and popstate
@@ -82,18 +85,19 @@ export class FuroDocumentTitle {
       window.removeEventListener('__beforeReplaceState', pushState, true);
       // eslint-disable-next-line no-use-before-define
       window.removeEventListener('popstate', cancelPre, true);
-      window.history.pushState({}, document.title, window.location.href);
+
+      window.history.pushState(stateData, document.title, window.location.href);
       this._inPreStage = false;
 
       this.dispatchEvent(
-        new CustomEvent('waypoint-pushed', {composed: true, bubbles: true})
+        new CustomEvent('waypoint-pushed', {composed: true, bubbles: true, detail: stateData})
       );
     };
 
     /**
      * This will cancel the staged waypoint
      */
-    const cancelPre = () => {
+    const cancelPre = ( ) => {
       window.removeEventListener('__beforeReplaceState', pushState, true);
       window.removeEventListener('popstate', cancelPre, true);
       this._inPreStage = false;
@@ -128,6 +132,16 @@ export class FuroDocumentTitle {
    */
   async _setDocumentTitle() {
     document.title = this._prefix + this._documentTitle + this._suffix;
+
+    window.dispatchEvent(new CustomEvent<DocumentTitle>('document-title-changed', {
+      composed: true, bubbles: true, detail: {
+        prefix: this._prefix,
+        title: this._documentTitle,
+        suffix: this._suffix,
+        documentTitle: document.title,
+        iconName: this._icon
+      }
+    }));
 
     if (this.icon) {
       let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;

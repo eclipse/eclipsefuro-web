@@ -1,4 +1,6 @@
-import {LocationObject} from "./types"
+import {LocationObject} from "./types";
+
+
 
 type EventType =
   'location-path-changed'

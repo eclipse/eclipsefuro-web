@@ -57,10 +57,19 @@ export interface Route {
   readonly queryParamMapping: undefined | null | "*" | QueryParamMap[],
   readonly isExternalTarget?: boolean,
   readonly forceOpenBlank?: boolean,
+  readonly internalDescription?: string
 }
 
 export interface FlowEvent {
   eventName: string,
-  queryParams?: QueryParams,
-  url?: string,
+  queryParams?: QueryParams
+}
+
+
+export interface DocumentTitle {
+  prefix: string,
+  title: string,
+  suffix: string,
+  documentTitle: string,
+  iconName?: string,
 }
