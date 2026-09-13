@@ -10,17 +10,17 @@ describe("well known constraints", () => {
     OPEN_MODELS_OPTIONS.EmitDefaultValues = true;
     const wr = new ConstraintWrappers({});
     expect(wr.__toJson()).to.eql({
-      bool_value: false,
-      bytes_value: "",
-      float_value: 0,
-      double_value: 0,
+      bool_value: null,
+      bytes_value: null,
+      float_value: null,
+      double_value: null,
       int32_value: 3,
       int64_value: "3",
       excl_int32_value: 3,
       excl_int64_value: "3",
       string_value: "default",
-      uint32_value: 0,
-      uint64_value: 0,
+      uint32_value: null,
+      uint64_value: null,
     });
     OPEN_MODELS_OPTIONS.EmitDefaultValues = false;
   });
@@ -29,14 +29,14 @@ describe("well known constraints", () => {
     OPEN_MODELS_OPTIONS.EmitDefaultValues = true;
     const wr = new ConstraintWrappers();
     expect(wr.__toJson()).to.eql({
-      bool_value: false,
-      bytes_value: "",
-      double_value: 0,
-      float_value: 0,
+      bool_value: null,
+      bytes_value: null,
+      double_value: null,
+      float_value: null,
       int32_value: 3,
       int64_value: "3",
-      uint32_value: 0,
-      uint64_value: 0,
+      uint32_value: null,
+      uint64_value: null,
       excl_int32_value: 3,
       excl_int64_value: "3",
       string_value: "default",
@@ -56,14 +56,15 @@ describe("well known constraints", () => {
     });
     wr.__clear();
     expect(wr.__toJson()).to.eql({
-      int32_value: 0,
-      int64_value: "0",
-      string_value: "",
+      int32_value: null,
+      int64_value: null,
+      string_value: null,
     });
     wr.__validate();
     expect(wr.int32Value.__isValid).to.be.false;
     expect(wr.__isValid).to.be.false;
-    expect(wr.int32Value.__meta.stateMessage).to.equal("constraint.violation.minimum 3 0");
+    // a cleared field is unset, not a zero, so it violates `required` instead of `minimum`
+    expect(wr.int32Value.__meta.stateMessage).to.equal("constraint.violation.required");
   });
 
   it("should send correct json on empty and data when not", async () => {

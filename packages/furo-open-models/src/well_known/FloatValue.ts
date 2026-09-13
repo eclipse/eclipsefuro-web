@@ -5,7 +5,7 @@ import { Registry } from "../Registry";
 
 export class FloatValue extends FieldNode {
   get value(): number | null {
-    return this._value!;
+    return this._value;
   }
 
   set value(value: number | null) {
@@ -89,6 +89,11 @@ export class FloatValue extends FieldNode {
           return ["constraint.violation.multiple_of", String(value), String(this._value)];
         }
       }
+      if (constraint === "required") {
+        if (this._value === null) {
+          return ["constraint.violation.required"];
+        }
+      }
     }
 
     return undefined;
@@ -103,8 +108,8 @@ export class FloatValue extends FieldNode {
 
   public override __clear() {
     // only notify when they are changes
-    const shouldNotify = this._value !== 0;
-    this._value = 0;
+    const shouldNotify = this._value !== null;
+    this._value = null;
     this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
     if (shouldNotify) {
       this.__notifyFieldValueChange(false);

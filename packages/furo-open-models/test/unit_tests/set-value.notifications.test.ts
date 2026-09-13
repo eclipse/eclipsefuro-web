@@ -199,7 +199,7 @@ describe("set value notifications", () => {
   describe("well known wrappers", () => {
     it("should distinguish an absent wrapper from one holding an empty string", () => {
       const node = new StringValue();
-      // the constructor leaves _value at "" but flags the node empty
+      // the constructor leaves _value at null and flags the node empty
       expect(node.__isEmpty).to.be.true;
 
       const counts = countNotifications(node);

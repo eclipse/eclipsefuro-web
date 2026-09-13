@@ -4,8 +4,8 @@ import { OPEN_MODELS_OPTIONS } from "../OPEN_MODELS_OPTIONS";
 import { Registry } from "../Registry";
 
 export class StringValue extends FieldNode {
-  get value(): string {
-    return this._value!;
+  get value(): string | null {
+    return this._value;
   }
 
   set value(value: string | null) {
@@ -14,14 +14,14 @@ export class StringValue extends FieldNode {
     this.__commitPrimitiveValue(valueChanged, value === null && !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated));
   }
 
-  public _value: string | null = "";
+  public _value: string | null = null;
 
   constructor(initData?: string, parent?: FieldNode, parentAttributeName?: string) {
     super(undefined, parent, parentAttributeName);
 
     this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
 
-    this._value = initData ?? "";
+    this._value = initData ?? null;
     this.__meta.typeName = "google.protobuf.StringValue";
   }
 
@@ -89,8 +89,8 @@ export class StringValue extends FieldNode {
 
   public override __clear() {
     // only notify when they are changes
-    const shouldNotify = this._value !== null && this._value !== "";
-    this._value = "";
+    const shouldNotify = this._value !== null;
+    this._value = null;
     this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
     if (shouldNotify) {
       this.__notifyFieldValueChange(false);

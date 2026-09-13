@@ -5,7 +5,7 @@ import { Registry } from "../Registry";
 
 export class Int64Value extends FieldNode {
   get value(): bigint | null {
-    return this._value!;
+    return this._value;
   }
 
   set value(value: bigint | null) {
@@ -51,7 +51,7 @@ export class Int64Value extends FieldNode {
   }
 
   override __toLiteral() {
-    return this._value!.toString();
+    return this._value === null ? null : this._value.toString();
   }
 
   protected override __checkConstraints(fieldConstraints: FieldConstraints): string[] | undefined {
@@ -100,8 +100,8 @@ export class Int64Value extends FieldNode {
 
   public override __clear() {
     // only notify when they are changes
-    const shouldNotify = this._value !== 0n;
-    this._value = 0n;
+    const shouldNotify = this._value !== null;
+    this._value = null;
     this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
     if (shouldNotify) {
       this.__notifyFieldValueChange(false);

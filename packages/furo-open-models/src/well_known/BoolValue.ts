@@ -4,8 +4,8 @@ import { OPEN_MODELS_OPTIONS } from "../OPEN_MODELS_OPTIONS";
 import { Registry } from "../Registry";
 
 export class BoolValue extends FieldNode {
-  get value(): boolean {
-    return this._value!;
+  get value(): boolean | null {
+    return this._value;
   }
 
   set value(value: boolean | null) {
@@ -14,13 +14,13 @@ export class BoolValue extends FieldNode {
     this.__commitPrimitiveValue(valueChanged, value === null && !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated));
   }
 
-  public _value: boolean | null = false;
+  public _value: boolean | null = null;
 
   constructor(initData?: boolean, parent?: FieldNode, parentAttributeName?: string) {
     super(undefined, parent, parentAttributeName);
 
     this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
-    this._value = initData ?? false;
+    this._value = initData ?? null;
     this.__meta.typeName = "google.protobuf.BoolValue";
   }
 
@@ -54,7 +54,7 @@ export class BoolValue extends FieldNode {
   protected override __checkConstraints(fieldConstraints: FieldConstraints): string[] | undefined {
     for (const [constraint] of Object.entries(fieldConstraints)) {
       if (constraint === "required") {
-        if (!this._value) {
+        if (this._value === null) {
           return ["constraint.violation.required"];
         }
       }
@@ -71,8 +71,9 @@ export class BoolValue extends FieldNode {
   }
 
   public override __clear() {
-    const shouldNotify = this._value;
-    this._value = false;
+    // only notify when they are changes
+    const shouldNotify = this._value !== null;
+    this._value = null;
     this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
     if (shouldNotify) {
       this.__notifyFieldValueChange(false);

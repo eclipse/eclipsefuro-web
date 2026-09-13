@@ -9,15 +9,15 @@ describe("well known Int32Value", () => {
     OPEN_MODELS_OPTIONS.EmitDefaultValues = true;
     const wr = new Wrappers({});
     expect(wr.__toJson()).to.eql({
-      bool_value: false,
-      bytes_value: "",
-      double_value: 0,
-      float_value: 0,
-      int32_value: 0,
-      int64_value: "0",
-      string_value: "",
-      uint32_value: 0,
-      uint64_value: 0,
+      bool_value: null,
+      bytes_value: null,
+      double_value: null,
+      float_value: null,
+      int32_value: null,
+      int64_value: null,
+      string_value: null,
+      uint32_value: null,
+      uint64_value: null,
     });
     OPEN_MODELS_OPTIONS.EmitDefaultValues = false;
   });
@@ -26,15 +26,15 @@ describe("well known Int32Value", () => {
     OPEN_MODELS_OPTIONS.EmitDefaultValues = true;
     const wr = new Wrappers();
     expect(wr.__toJson()).to.eql({
-      bool_value: false,
-      bytes_value: "",
-      double_value: 0,
-      float_value: 0,
-      int32_value: 0,
-      int64_value: "0",
-      string_value: "",
-      uint32_value: 0,
-      uint64_value: 0,
+      bool_value: null,
+      bytes_value: null,
+      double_value: null,
+      float_value: null,
+      int32_value: null,
+      int64_value: null,
+      string_value: null,
+      uint32_value: null,
+      uint64_value: null,
     });
     OPEN_MODELS_OPTIONS.EmitDefaultValues = false;
   });
@@ -63,7 +63,7 @@ describe("well known Int32Value", () => {
   it("should init empty", async () => {
     OPEN_MODELS_OPTIONS.EmitDefaultValues = false;
     const wr = new Wrappers({});
-    expect(wr.int32Value.value).to.equal(0);
+    expect(wr.int32Value.value).to.equal(null);
     wr.int32Value = 1233;
     expect(wr.int32Value.toString()).to.equal("1233");
 
