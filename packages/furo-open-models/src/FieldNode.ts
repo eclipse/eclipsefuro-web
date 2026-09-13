@@ -949,6 +949,46 @@ export abstract class FieldNode {
   }
 
   /**
+   * Commits a write to the `_value` of a primitive. Used by the `set value(...)` of every primitive
+   * and of the scalar well known wrappers.
+   *
+   * The empty path is **always** recomputed, even when the value did not change. `___updateNotEmptyPath()`
+   * is idempotent and self healing, and it is what keeps `__toJson()` honest for a node whose empty flag
+   * and `_value` drifted apart, i.e. after a `__clear()` or for a node that was constructed detached with
+   * an initial value and attached later.
+   *
+   * Validation and the change notification only run on a real change, so re-assigning the value a node
+   * already holds neither dirties the model nor emits `field-value-changed` / `update`.
+   *
+   * @param {boolean} valueChanged - Result of the type specific equality check, done before `_value` was written.
+   * @param {boolean} isEmpty - The emptiness derived from the freshly written value.
+   * @protected
+   */
+  protected __commitPrimitiveValue(valueChanged: boolean, isEmpty: boolean) {
+    const wasEmpty = this.__isEmpty;
+    this.__isEmpty = isEmpty;
+
+    // the empty state can change while the value does not, and that changes what __toJson() emits
+    if (!valueChanged && wasEmpty === this.__isEmpty) {
+      return;
+    }
+
+    this.__climbUpValidation();
+    this.__notifyFieldValueChange(true);
+  }
+
+  /**
+   * SameValueZero equality: like `===`, but `NaN` equals `NaN` and `0` equals `-0`.
+   *
+   * Used by the number valued primitives and wrappers. `typeof NaN === "number"` passes their type guard,
+   * so `_value` really can hold a `NaN`, and with `!==` such a field would never de-duplicate.
+   * @protected
+   */
+  protected static __sameValueZero(a: unknown, b: unknown): boolean {
+    return a === b || (Number.isNaN(a) && Number.isNaN(b));
+  }
+
+  /**
    * Helper method to update a skalar / primitive field of a type. Used by the generated models.
    * Triggers also the validation and clearance, if needed.
    *

@@ -9,15 +9,9 @@ export class Duration extends FieldNode {
   }
 
   set value(value: string | null) {
+    const valueChanged = this._value !== value;
     this._value = value;
-    if (OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated) {
-      this.__isEmpty = false;
-    } else {
-      this.__isEmpty = value === null;
-    }
-
-    this.__climbUpValidation();
-    this.__notifyFieldValueChange(true);
+    this.__commitPrimitiveValue(valueChanged, value === null && !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated));
   }
 
   public _value: string | null = "";

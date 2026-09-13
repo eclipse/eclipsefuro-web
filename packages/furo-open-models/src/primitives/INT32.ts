@@ -13,10 +13,9 @@ export class INT32 extends FieldNode {
     if (typeof value !== "number") {
       value = 0;
     }
+    const valueChanged = !FieldNode.__sameValueZero(this._value, value);
     this._value = value;
-    this.__isEmpty = false;
-    this.__climbUpValidation();
-    this.__notifyFieldValueChange(true);
+    this.__commitPrimitiveValue(valueChanged, false);
   }
 
   public _value: number;

@@ -14,14 +14,9 @@ export class STRING extends FieldNode {
       value = "";
     }
 
+    const valueChanged = this._value !== value;
     this._value = value;
-    if (this._value === "") {
-      this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
-    } else {
-      this.__isEmpty = false;
-    }
-    this.__climbUpValidation();
-    this.__notifyFieldValueChange(true);
+    this.__commitPrimitiveValue(valueChanged, value === "" && !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated));
   }
 
   public _value: string;

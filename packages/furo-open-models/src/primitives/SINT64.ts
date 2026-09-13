@@ -13,10 +13,9 @@ export class SINT64 extends FieldNode {
     if (typeof value !== "bigint") {
       value = 0n;
     }
+    const valueChanged = this._value !== value;
     this._value = value;
-    this.__isEmpty = false;
-    this.__climbUpValidation();
-    this.__notifyFieldValueChange(true);
+    this.__commitPrimitiveValue(valueChanged, false);
   }
 
   public _value: bigint;

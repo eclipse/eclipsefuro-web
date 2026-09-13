@@ -13,14 +13,11 @@ export class BYTES extends FieldNode {
     if (!(value instanceof Uint8Array)) {
       value = new Uint8Array();
     }
+    // a Uint8Array is a mutable buffer, so re-assigning the same reference after mutating it in place
+    // must still notify. Only empty -> empty is a true no-op, which mirrors the guard in __clear().
+    const valueChanged = !(this._value.length === 0 && value.length === 0);
     this._value = value;
-    if (this._value.length === 0) {
-      this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
-    } else {
-      this.__isEmpty = false;
-    }
-    this.__climbUpValidation();
-    this.__notifyFieldValueChange(true);
+    this.__commitPrimitiveValue(valueChanged, value.length === 0 && !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated));
   }
 
   public _value: Uint8Array;

@@ -12,10 +12,9 @@ export class BOOLEAN extends FieldNode {
     if (typeof value !== "boolean") {
       value = false;
     }
+    const valueChanged = this._value !== value;
     this._value = value;
-    this.__isEmpty = false;
-    this.__climbUpValidation();
-    this.__notifyFieldValueChange(true);
+    this.__commitPrimitiveValue(valueChanged, false);
   }
 
   /**

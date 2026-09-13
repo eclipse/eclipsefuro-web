@@ -16,14 +16,9 @@ export class ENUM<T> extends FieldNode {
   }
 
   set value(value: T) {
+    const valueChanged = this._value !== value;
     this._value = value;
-    if (this._value === this._nullValue) {
-      this.__isEmpty = !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated);
-    } else {
-      this.__isEmpty = false;
-    }
-    this.__climbUpValidation();
-    this.__notifyFieldValueChange(true);
+    this.__commitPrimitiveValue(valueChanged, value === this._nullValue && !(OPEN_MODELS_OPTIONS.EmitDefaultValues || OPEN_MODELS_OPTIONS.EmitUnpopulated));
   }
 
   public _value: T;
